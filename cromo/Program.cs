@@ -16,7 +16,7 @@ namespace cromo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Guia());
+            Application.Run(new Principal());
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using MiLibreria;
 namespace cromo
 {
     public partial class Guia : Form
@@ -24,8 +24,15 @@ namespace cromo
 
         private void button1_Click(object sender, EventArgs e)
         {
-            BdCromo.ObtenerConexion();
-            MessageBox.Show("Conectado");
+            //BdCromo.ObtenerConexion();
+            //MessageBox.Show("Conectado");
+            DataSet ds = Utilidades.Ejecutar("SELECT guia.codigo_guia_pk FROM guia");
+            
+        }
+
+        private void Guia_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
