@@ -21,5 +21,11 @@ namespace cromo
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            BdCromo.ObtenerConexion();
+            MessageBox.Show("Conectado");
+        }
     }
 }
