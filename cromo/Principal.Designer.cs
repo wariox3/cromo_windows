@@ -323,7 +323,7 @@
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.optionsToolStripMenuItem.Text = "&Opciones";
             // 
             // windowsMenu
