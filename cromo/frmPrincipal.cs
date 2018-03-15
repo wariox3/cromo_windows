@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace cromo
 {
-    public partial class Principal : Form
+    public partial class frmPrincipal : Form
     {
         private int childFormNumber = 0;
 
-        public Principal()
+        public frmPrincipal()
         {
             InitializeComponent();
         }
@@ -96,7 +96,7 @@ namespace cromo
 
         private void undoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Guia frmGuia = new Guia();
+            frmGuia frmGuia = new frmGuia();
             frmGuia.MdiParent = this;
             frmGuia.Show();
         }

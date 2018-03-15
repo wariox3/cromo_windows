@@ -1,6 +1,6 @@
 ﻿namespace cromo
 {
-    partial class Guia
+    partial class frmGuia
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGuia));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
@@ -58,13 +59,16 @@
             this.label13 = new System.Windows.Forms.Label();
             this.textBox16 = new System.Windows.Forms.TextBox();
             this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtNombreCliente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtCodigoCliente = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -78,10 +82,10 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(12, 169);
+            this.groupBox1.Location = new System.Drawing.Point(12, 141);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(686, 109);
-            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Destinatario";
             // 
@@ -98,6 +102,7 @@
             // 
             this.textBox7.Location = new System.Drawing.Point(214, 76);
             this.textBox7.Name = "textBox7";
+            this.textBox7.ReadOnly = true;
             this.textBox7.Size = new System.Drawing.Size(420, 20);
             this.textBox7.TabIndex = 18;
             // 
@@ -106,28 +111,28 @@
             this.textBox6.Location = new System.Drawing.Point(108, 76);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 17;
+            this.textBox6.TabIndex = 8;
             // 
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(108, 49);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(361, 20);
-            this.textBox5.TabIndex = 16;
+            this.textBox5.TabIndex = 7;
             // 
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(534, 22);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 15;
+            this.textBox4.TabIndex = 6;
             // 
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(108, 22);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(361, 20);
-            this.textBox3.TabIndex = 14;
+            this.textBox3.TabIndex = 5;
             // 
             // label4
             // 
@@ -172,7 +177,7 @@
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Location = new System.Drawing.Point(490, 284);
+            this.groupBox2.Location = new System.Drawing.Point(490, 255);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(208, 183);
             this.groupBox2.TabIndex = 9;
@@ -184,49 +189,49 @@
             this.textBox14.Location = new System.Drawing.Point(86, 148);
             this.textBox14.Name = "textBox14";
             this.textBox14.Size = new System.Drawing.Size(100, 20);
-            this.textBox14.TabIndex = 13;
+            this.textBox14.TabIndex = 15;
             // 
             // textBox13
             // 
             this.textBox13.Location = new System.Drawing.Point(86, 126);
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(100, 20);
-            this.textBox13.TabIndex = 12;
+            this.textBox13.TabIndex = 14;
             // 
             // textBox12
             // 
             this.textBox12.Location = new System.Drawing.Point(86, 104);
             this.textBox12.Name = "textBox12";
             this.textBox12.Size = new System.Drawing.Size(100, 20);
-            this.textBox12.TabIndex = 11;
+            this.textBox12.TabIndex = 13;
             // 
             // textBox11
             // 
             this.textBox11.Location = new System.Drawing.Point(86, 82);
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(100, 20);
-            this.textBox11.TabIndex = 10;
+            this.textBox11.TabIndex = 12;
             // 
             // textBox10
             // 
             this.textBox10.Location = new System.Drawing.Point(86, 60);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(100, 20);
-            this.textBox10.TabIndex = 9;
+            this.textBox10.TabIndex = 11;
             // 
             // textBox9
             // 
             this.textBox9.Location = new System.Drawing.Point(86, 38);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(100, 20);
-            this.textBox9.TabIndex = 8;
+            this.textBox9.TabIndex = 10;
             // 
             // textBox8
             // 
             this.textBox8.Location = new System.Drawing.Point(86, 15);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(100, 20);
-            this.textBox8.TabIndex = 7;
+            this.textBox8.TabIndex = 9;
             // 
             // label12
             // 
@@ -297,13 +302,13 @@
             this.groupBox3.Controls.Add(this.label13);
             this.groupBox3.Controls.Add(this.textBox16);
             this.groupBox3.Controls.Add(this.textBox15);
-            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.txtNombreCliente);
             this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.textBox1);
-            this.groupBox3.Location = new System.Drawing.Point(12, 12);
+            this.groupBox3.Controls.Add(this.txtCodigoCliente);
+            this.groupBox3.Location = new System.Drawing.Point(12, 28);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(686, 107);
-            this.groupBox3.TabIndex = 10;
+            this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Cliente";
             // 
@@ -330,21 +335,22 @@
             this.textBox16.Location = new System.Drawing.Point(111, 76);
             this.textBox16.Name = "textBox16";
             this.textBox16.Size = new System.Drawing.Size(176, 20);
-            this.textBox16.TabIndex = 11;
+            this.textBox16.TabIndex = 3;
             // 
             // textBox15
             // 
             this.textBox15.Location = new System.Drawing.Point(111, 50);
             this.textBox15.Name = "textBox15";
             this.textBox15.Size = new System.Drawing.Size(406, 20);
-            this.textBox15.TabIndex = 10;
+            this.textBox15.TabIndex = 2;
             // 
-            // textBox2
+            // txtNombreCliente
             // 
-            this.textBox2.Location = new System.Drawing.Point(217, 24);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(300, 20);
-            this.textBox2.TabIndex = 9;
+            this.txtNombreCliente.Location = new System.Drawing.Point(217, 24);
+            this.txtNombreCliente.Name = "txtNombreCliente";
+            this.txtNombreCliente.ReadOnly = true;
+            this.txtNombreCliente.Size = new System.Drawing.Size(300, 20);
+            this.txtNombreCliente.TabIndex = 9;
             // 
             // label1
             // 
@@ -355,16 +361,18 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Tercero:";
             // 
-            // textBox1
+            // txtCodigoCliente
             // 
-            this.textBox1.Location = new System.Drawing.Point(111, 24);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 7;
+            this.txtCodigoCliente.Location = new System.Drawing.Point(111, 24);
+            this.txtCodigoCliente.Name = "txtCodigoCliente";
+            this.txtCodigoCliente.Size = new System.Drawing.Size(100, 20);
+            this.txtCodigoCliente.TabIndex = 1;
+            this.txtCodigoCliente.TextChanged += new System.EventHandler(this.txtCodigoCliente_TextChanged);
+            this.txtCodigoCliente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigoCliente_KeyDown);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(123, 331);
+            this.button1.Location = new System.Drawing.Point(93, 303);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(96, 28);
             this.button1.TabIndex = 11;
@@ -372,17 +380,38 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Guia
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(913, 25);
+            this.toolStrip1.TabIndex = 12;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
+            // frmGuia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(791, 479);
+            this.ClientSize = new System.Drawing.Size(913, 555);
             this.ControlBox = false;
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Guia";
+            this.Name = "frmGuia";
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Guia_Load);
@@ -392,7 +421,10 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -428,10 +460,12 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBox16;
         private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtNombreCliente;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtCodigoCliente;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }
 
