@@ -100,5 +100,11 @@ namespace cromo
             frmGuia.MdiParent = this;
             frmGuia.Show();
         }
+
+        private void mnuArchivoConfigurcion_Click(object sender, EventArgs e)
+        {
+            frmConfiguracion frmConfiguracion = new frmConfiguracion();
+            frmConfiguracion.ShowDialog();
+        }
     }
 }

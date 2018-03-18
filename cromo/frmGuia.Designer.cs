@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGuia));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtNombreCiudadDestino = new System.Windows.Forms.TextBox();
+            this.txtCodigoCiudadDestino = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -65,6 +65,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtNombreCiudadOrigen = new System.Windows.Forms.TextBox();
+            this.txtCodigoCiudadOrigen = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -74,17 +78,17 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.textBox7);
-            this.groupBox1.Controls.Add(this.textBox6);
+            this.groupBox1.Controls.Add(this.txtNombreCiudadDestino);
+            this.groupBox1.Controls.Add(this.txtCodigoCiudadDestino);
             this.groupBox1.Controls.Add(this.textBox5);
             this.groupBox1.Controls.Add(this.textBox4);
             this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(12, 141);
+            this.groupBox1.Location = new System.Drawing.Point(12, 163);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(686, 109);
+            this.groupBox1.Size = new System.Drawing.Size(645, 109);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Destinatario";
@@ -98,20 +102,21 @@
             this.label5.TabIndex = 19;
             this.label5.Text = "Destino:";
             // 
-            // textBox7
+            // txtNombreCiudadDestino
             // 
-            this.textBox7.Location = new System.Drawing.Point(214, 76);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(420, 20);
-            this.textBox7.TabIndex = 18;
+            this.txtNombreCiudadDestino.Location = new System.Drawing.Point(214, 76);
+            this.txtNombreCiudadDestino.Name = "txtNombreCiudadDestino";
+            this.txtNombreCiudadDestino.ReadOnly = true;
+            this.txtNombreCiudadDestino.Size = new System.Drawing.Size(420, 20);
+            this.txtNombreCiudadDestino.TabIndex = 18;
             // 
-            // textBox6
+            // txtCodigoCiudadDestino
             // 
-            this.textBox6.Location = new System.Drawing.Point(108, 76);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 8;
+            this.txtCodigoCiudadDestino.Location = new System.Drawing.Point(108, 76);
+            this.txtCodigoCiudadDestino.Name = "txtCodigoCiudadDestino";
+            this.txtCodigoCiudadDestino.Size = new System.Drawing.Size(100, 20);
+            this.txtCodigoCiudadDestino.TabIndex = 8;
+            this.txtCodigoCiudadDestino.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigoCiudadDestino_KeyDown);
             // 
             // textBox5
             // 
@@ -177,7 +182,7 @@
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Location = new System.Drawing.Point(490, 255);
+            this.groupBox2.Location = new System.Drawing.Point(449, 278);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(208, 183);
             this.groupBox2.TabIndex = 9;
@@ -298,6 +303,9 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label15);
+            this.groupBox3.Controls.Add(this.txtNombreCiudadOrigen);
+            this.groupBox3.Controls.Add(this.txtCodigoCiudadOrigen);
             this.groupBox3.Controls.Add(this.label14);
             this.groupBox3.Controls.Add(this.label13);
             this.groupBox3.Controls.Add(this.textBox16);
@@ -307,7 +315,7 @@
             this.groupBox3.Controls.Add(this.txtCodigoCliente);
             this.groupBox3.Location = new System.Drawing.Point(12, 28);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(686, 107);
+            this.groupBox3.Size = new System.Drawing.Size(645, 129);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Cliente";
@@ -341,7 +349,7 @@
             // 
             this.textBox15.Location = new System.Drawing.Point(111, 50);
             this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(406, 20);
+            this.textBox15.Size = new System.Drawing.Size(523, 20);
             this.textBox15.TabIndex = 2;
             // 
             // txtNombreCliente
@@ -349,7 +357,7 @@
             this.txtNombreCliente.Location = new System.Drawing.Point(217, 24);
             this.txtNombreCliente.Name = "txtNombreCliente";
             this.txtNombreCliente.ReadOnly = true;
-            this.txtNombreCliente.Size = new System.Drawing.Size(300, 20);
+            this.txtNombreCliente.Size = new System.Drawing.Size(417, 20);
             this.txtNombreCliente.TabIndex = 9;
             // 
             // label1
@@ -369,10 +377,11 @@
             this.txtCodigoCliente.TabIndex = 1;
             this.txtCodigoCliente.TextChanged += new System.EventHandler(this.txtCodigoCliente_TextChanged);
             this.txtCodigoCliente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigoCliente_KeyDown);
+            this.txtCodigoCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoCliente_KeyPress);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(93, 303);
+            this.button1.Location = new System.Drawing.Point(97, 329);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(96, 28);
             this.button1.TabIndex = 11;
@@ -383,7 +392,8 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1});
+            this.toolStripButton1,
+            this.toolStripButton2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(913, 25);
@@ -399,6 +409,41 @@
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "toolStripButton1";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton2.Text = "toolStripButton2";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(64, 102);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(41, 13);
+            this.label15.TabIndex = 22;
+            this.label15.Text = "Origen:";
+            // 
+            // txtNombreCiudadOrigen
+            // 
+            this.txtNombreCiudadOrigen.Location = new System.Drawing.Point(214, 102);
+            this.txtNombreCiudadOrigen.Name = "txtNombreCiudadOrigen";
+            this.txtNombreCiudadOrigen.ReadOnly = true;
+            this.txtNombreCiudadOrigen.Size = new System.Drawing.Size(420, 20);
+            this.txtNombreCiudadOrigen.TabIndex = 21;
+            // 
+            // txtCodigoCiudadOrigen
+            // 
+            this.txtCodigoCiudadOrigen.Location = new System.Drawing.Point(111, 102);
+            this.txtCodigoCiudadOrigen.Name = "txtCodigoCiudadOrigen";
+            this.txtCodigoCiudadOrigen.Size = new System.Drawing.Size(97, 20);
+            this.txtCodigoCiudadOrigen.TabIndex = 20;
+            this.txtCodigoCiudadOrigen.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigoCiudadOrigen_KeyDown);
             // 
             // frmGuia
             // 
@@ -432,8 +477,8 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtNombreCiudadDestino;
+        private System.Windows.Forms.TextBox txtCodigoCiudadDestino;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox3;
@@ -466,6 +511,10 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox txtNombreCiudadOrigen;
+        private System.Windows.Forms.TextBox txtCodigoCiudadOrigen;
     }
 }
 
