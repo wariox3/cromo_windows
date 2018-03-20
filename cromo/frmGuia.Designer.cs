@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGuia));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbDestinatario = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtNombreCiudadDestino = new System.Windows.Forms.TextBox();
             this.txtCodigoCiudadDestino = new System.Windows.Forms.TextBox();
@@ -39,7 +39,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gbTotales = new System.Windows.Forms.GroupBox();
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.textBox12 = new System.Windows.Forms.TextBox();
@@ -54,7 +54,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.gbCliente = new System.Windows.Forms.GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtNombreCiudadOrigen = new System.Windows.Forms.TextBox();
+            this.txtCodigoCiudadOrigen = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.textBox16 = new System.Windows.Forms.TextBox();
@@ -66,32 +69,30 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.label15 = new System.Windows.Forms.Label();
-            this.txtNombreCiudadOrigen = new System.Windows.Forms.TextBox();
-            this.txtCodigoCiudadOrigen = new System.Windows.Forms.TextBox();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.gbDestinatario.SuspendLayout();
+            this.gbTotales.SuspendLayout();
+            this.gbCliente.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // gbDestinatario
             // 
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.txtNombreCiudadDestino);
-            this.groupBox1.Controls.Add(this.txtCodigoCiudadDestino);
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(12, 163);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(645, 109);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Destinatario";
+            this.gbDestinatario.Controls.Add(this.label5);
+            this.gbDestinatario.Controls.Add(this.txtNombreCiudadDestino);
+            this.gbDestinatario.Controls.Add(this.txtCodigoCiudadDestino);
+            this.gbDestinatario.Controls.Add(this.textBox5);
+            this.gbDestinatario.Controls.Add(this.textBox4);
+            this.gbDestinatario.Controls.Add(this.textBox3);
+            this.gbDestinatario.Controls.Add(this.label4);
+            this.gbDestinatario.Controls.Add(this.label3);
+            this.gbDestinatario.Controls.Add(this.label2);
+            this.gbDestinatario.Enabled = false;
+            this.gbDestinatario.Location = new System.Drawing.Point(12, 163);
+            this.gbDestinatario.Name = "gbDestinatario";
+            this.gbDestinatario.Size = new System.Drawing.Size(645, 109);
+            this.gbDestinatario.TabIndex = 4;
+            this.gbDestinatario.TabStop = false;
+            this.gbDestinatario.Text = "Destinatario";
             // 
             // label5
             // 
@@ -104,6 +105,7 @@
             // 
             // txtNombreCiudadDestino
             // 
+            this.txtNombreCiudadDestino.Enabled = false;
             this.txtNombreCiudadDestino.Location = new System.Drawing.Point(214, 76);
             this.txtNombreCiudadDestino.Name = "txtNombreCiudadDestino";
             this.txtNombreCiudadDestino.ReadOnly = true;
@@ -117,6 +119,7 @@
             this.txtCodigoCiudadDestino.Size = new System.Drawing.Size(100, 20);
             this.txtCodigoCiudadDestino.TabIndex = 8;
             this.txtCodigoCiudadDestino.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigoCiudadDestino_KeyDown);
+            this.txtCodigoCiudadDestino.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
             // 
             // textBox5
             // 
@@ -124,6 +127,7 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(361, 20);
             this.textBox5.TabIndex = 7;
+            this.textBox5.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
             // 
             // textBox4
             // 
@@ -131,6 +135,7 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(100, 20);
             this.textBox4.TabIndex = 6;
+            this.textBox4.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
             // 
             // textBox3
             // 
@@ -138,6 +143,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(361, 20);
             this.textBox3.TabIndex = 5;
+            this.textBox3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
             // 
             // label4
             // 
@@ -166,28 +172,29 @@
             this.label2.TabIndex = 10;
             this.label2.Text = "Destinatario:";
             // 
-            // groupBox2
+            // gbTotales
             // 
-            this.groupBox2.Controls.Add(this.textBox14);
-            this.groupBox2.Controls.Add(this.textBox13);
-            this.groupBox2.Controls.Add(this.textBox12);
-            this.groupBox2.Controls.Add(this.textBox11);
-            this.groupBox2.Controls.Add(this.textBox10);
-            this.groupBox2.Controls.Add(this.textBox9);
-            this.groupBox2.Controls.Add(this.textBox8);
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Location = new System.Drawing.Point(449, 278);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(208, 183);
-            this.groupBox2.TabIndex = 9;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Totales";
+            this.gbTotales.Controls.Add(this.textBox14);
+            this.gbTotales.Controls.Add(this.textBox13);
+            this.gbTotales.Controls.Add(this.textBox12);
+            this.gbTotales.Controls.Add(this.textBox11);
+            this.gbTotales.Controls.Add(this.textBox10);
+            this.gbTotales.Controls.Add(this.textBox9);
+            this.gbTotales.Controls.Add(this.textBox8);
+            this.gbTotales.Controls.Add(this.label12);
+            this.gbTotales.Controls.Add(this.label11);
+            this.gbTotales.Controls.Add(this.label10);
+            this.gbTotales.Controls.Add(this.label9);
+            this.gbTotales.Controls.Add(this.label8);
+            this.gbTotales.Controls.Add(this.label7);
+            this.gbTotales.Controls.Add(this.label6);
+            this.gbTotales.Enabled = false;
+            this.gbTotales.Location = new System.Drawing.Point(449, 278);
+            this.gbTotales.Name = "gbTotales";
+            this.gbTotales.Size = new System.Drawing.Size(208, 183);
+            this.gbTotales.TabIndex = 9;
+            this.gbTotales.TabStop = false;
+            this.gbTotales.Text = "Totales";
             // 
             // textBox14
             // 
@@ -195,6 +202,7 @@
             this.textBox14.Name = "textBox14";
             this.textBox14.Size = new System.Drawing.Size(100, 20);
             this.textBox14.TabIndex = 15;
+            this.textBox14.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
             // 
             // textBox13
             // 
@@ -202,6 +210,7 @@
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(100, 20);
             this.textBox13.TabIndex = 14;
+            this.textBox13.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
             // 
             // textBox12
             // 
@@ -209,6 +218,7 @@
             this.textBox12.Name = "textBox12";
             this.textBox12.Size = new System.Drawing.Size(100, 20);
             this.textBox12.TabIndex = 13;
+            this.textBox12.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
             // 
             // textBox11
             // 
@@ -216,6 +226,7 @@
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(100, 20);
             this.textBox11.TabIndex = 12;
+            this.textBox11.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
             // 
             // textBox10
             // 
@@ -223,6 +234,7 @@
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(100, 20);
             this.textBox10.TabIndex = 11;
+            this.textBox10.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
             // 
             // textBox9
             // 
@@ -230,6 +242,7 @@
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(100, 20);
             this.textBox9.TabIndex = 10;
+            this.textBox9.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
             // 
             // textBox8
             // 
@@ -237,6 +250,7 @@
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(100, 20);
             this.textBox8.TabIndex = 9;
+            this.textBox8.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
             // 
             // label12
             // 
@@ -301,24 +315,52 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "Unidades:";
             // 
-            // groupBox3
+            // gbCliente
             // 
-            this.groupBox3.Controls.Add(this.label15);
-            this.groupBox3.Controls.Add(this.txtNombreCiudadOrigen);
-            this.groupBox3.Controls.Add(this.txtCodigoCiudadOrigen);
-            this.groupBox3.Controls.Add(this.label14);
-            this.groupBox3.Controls.Add(this.label13);
-            this.groupBox3.Controls.Add(this.textBox16);
-            this.groupBox3.Controls.Add(this.textBox15);
-            this.groupBox3.Controls.Add(this.txtNombreCliente);
-            this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.txtCodigoCliente);
-            this.groupBox3.Location = new System.Drawing.Point(12, 28);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(645, 129);
-            this.groupBox3.TabIndex = 0;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Cliente";
+            this.gbCliente.Controls.Add(this.label15);
+            this.gbCliente.Controls.Add(this.txtNombreCiudadOrigen);
+            this.gbCliente.Controls.Add(this.txtCodigoCiudadOrigen);
+            this.gbCliente.Controls.Add(this.label14);
+            this.gbCliente.Controls.Add(this.label13);
+            this.gbCliente.Controls.Add(this.textBox16);
+            this.gbCliente.Controls.Add(this.textBox15);
+            this.gbCliente.Controls.Add(this.txtNombreCliente);
+            this.gbCliente.Controls.Add(this.label1);
+            this.gbCliente.Controls.Add(this.txtCodigoCliente);
+            this.gbCliente.Enabled = false;
+            this.gbCliente.Location = new System.Drawing.Point(12, 28);
+            this.gbCliente.Name = "gbCliente";
+            this.gbCliente.Size = new System.Drawing.Size(645, 129);
+            this.gbCliente.TabIndex = 0;
+            this.gbCliente.TabStop = false;
+            this.gbCliente.Text = "Cliente";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(64, 102);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(41, 13);
+            this.label15.TabIndex = 22;
+            this.label15.Text = "Origen:";
+            // 
+            // txtNombreCiudadOrigen
+            // 
+            this.txtNombreCiudadOrigen.Enabled = false;
+            this.txtNombreCiudadOrigen.Location = new System.Drawing.Point(214, 102);
+            this.txtNombreCiudadOrigen.Name = "txtNombreCiudadOrigen";
+            this.txtNombreCiudadOrigen.ReadOnly = true;
+            this.txtNombreCiudadOrigen.Size = new System.Drawing.Size(420, 20);
+            this.txtNombreCiudadOrigen.TabIndex = 21;
+            // 
+            // txtCodigoCiudadOrigen
+            // 
+            this.txtCodigoCiudadOrigen.Location = new System.Drawing.Point(111, 102);
+            this.txtCodigoCiudadOrigen.Name = "txtCodigoCiudadOrigen";
+            this.txtCodigoCiudadOrigen.Size = new System.Drawing.Size(97, 20);
+            this.txtCodigoCiudadOrigen.TabIndex = 20;
+            this.txtCodigoCiudadOrigen.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigoCiudadOrigen_KeyDown);
+            this.txtCodigoCiudadOrigen.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
             // 
             // label14
             // 
@@ -344,6 +386,7 @@
             this.textBox16.Name = "textBox16";
             this.textBox16.Size = new System.Drawing.Size(176, 20);
             this.textBox16.TabIndex = 3;
+            this.textBox16.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
             // 
             // textBox15
             // 
@@ -351,9 +394,11 @@
             this.textBox15.Name = "textBox15";
             this.textBox15.Size = new System.Drawing.Size(523, 20);
             this.textBox15.TabIndex = 2;
+            this.textBox15.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
             // 
             // txtNombreCliente
             // 
+            this.txtNombreCliente.Enabled = false;
             this.txtNombreCliente.Location = new System.Drawing.Point(217, 24);
             this.txtNombreCliente.Name = "txtNombreCliente";
             this.txtNombreCliente.ReadOnly = true;
@@ -378,10 +423,11 @@
             this.txtCodigoCliente.TextChanged += new System.EventHandler(this.txtCodigoCliente_TextChanged);
             this.txtCodigoCliente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigoCliente_KeyDown);
             this.txtCodigoCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoCliente_KeyPress);
+            this.txtCodigoCliente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(97, 329);
+            this.button1.Location = new System.Drawing.Point(732, 44);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(96, 28);
             this.button1.TabIndex = 11;
@@ -420,31 +466,6 @@
             this.toolStripButton2.Text = "toolStripButton2";
             this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(64, 102);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(41, 13);
-            this.label15.TabIndex = 22;
-            this.label15.Text = "Origen:";
-            // 
-            // txtNombreCiudadOrigen
-            // 
-            this.txtNombreCiudadOrigen.Location = new System.Drawing.Point(214, 102);
-            this.txtNombreCiudadOrigen.Name = "txtNombreCiudadOrigen";
-            this.txtNombreCiudadOrigen.ReadOnly = true;
-            this.txtNombreCiudadOrigen.Size = new System.Drawing.Size(420, 20);
-            this.txtNombreCiudadOrigen.TabIndex = 21;
-            // 
-            // txtCodigoCiudadOrigen
-            // 
-            this.txtCodigoCiudadOrigen.Location = new System.Drawing.Point(111, 102);
-            this.txtCodigoCiudadOrigen.Name = "txtCodigoCiudadOrigen";
-            this.txtCodigoCiudadOrigen.Size = new System.Drawing.Size(97, 20);
-            this.txtCodigoCiudadOrigen.TabIndex = 20;
-            this.txtCodigoCiudadOrigen.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigoCiudadOrigen_KeyDown);
-            // 
             // frmGuia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -453,19 +474,19 @@
             this.ControlBox = false;
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbCliente);
+            this.Controls.Add(this.gbTotales);
+            this.Controls.Add(this.gbDestinatario);
             this.Name = "frmGuia";
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Guia_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.gbDestinatario.ResumeLayout(false);
+            this.gbDestinatario.PerformLayout();
+            this.gbTotales.ResumeLayout(false);
+            this.gbTotales.PerformLayout();
+            this.gbCliente.ResumeLayout(false);
+            this.gbCliente.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -475,7 +496,7 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbDestinatario;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtNombreCiudadDestino;
         private System.Windows.Forms.TextBox txtCodigoCiudadDestino;
@@ -485,7 +506,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gbTotales;
         private System.Windows.Forms.TextBox textBox14;
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.TextBox textBox12;
@@ -500,7 +521,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox gbCliente;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBox16;

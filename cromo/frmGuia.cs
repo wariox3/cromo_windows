@@ -69,15 +69,28 @@ namespace cromo
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            //string prueba = "";
-            
-            MessageBox.Show("hola");
+            Desbloquear();
             Limpiar();
+            txtCodigoCliente.Focus();
         }
 
         public void Limpiar()
         {
             txtCodigoCliente.Text = "";
+        }
+
+        public void Desbloquear()
+        {
+            gbCliente.Enabled = true;
+            gbDestinatario.Enabled = true;
+            gbTotales.Enabled = true;
+        }
+
+        public void Bloquear()
+        {
+            gbCliente.Enabled = false;
+            gbDestinatario.Enabled = false;
+            gbTotales.Enabled = false;
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
@@ -143,6 +156,19 @@ namespace cromo
                 {
                     txtCodigoCiudadDestino.Text = frmBuscarCiudad.dgCiudades.Rows[frmBuscarCiudad.dgCiudades.CurrentRow.Index].Cells[0].Value.ToString();
                 }
+            }
+        }
+
+        private void txtCodigoCliente_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void metodoComun_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.SelectNextControl((Control)sender, true, true, true, true);
             }
         }
     }
