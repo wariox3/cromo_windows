@@ -36,7 +36,6 @@ namespace cromo
         private void Guia_Load(object sender, EventArgs e)
         {
 
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -67,7 +66,7 @@ namespace cromo
             }
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
+        public void Nuevo()
         {
             Desbloquear();
             Limpiar();
@@ -91,41 +90,6 @@ namespace cromo
             gbCliente.Enabled = false;
             gbDestinatario.Enabled = false;
             gbTotales.Enabled = false;
-        }
-
-        private void toolStripButton2_Click(object sender, EventArgs e)
-        {
-            //Validar informacion formulario
-            bool validacion = false;
-            if(txtCodigoCliente.Text != "")
-            {
-                validacion = true;
-            } else
-            {
-                txtCodigoCliente.Focus();
-                validacion = false;
-            }       
-            
-            if(validacion == true)
-            {
-                //https://www.youtube.com/watch?v=IT_R46g7YTk&t=227s
-                guia pGuia = new guia();
-                pGuia.codigoOperacionIngresoFk = cromo.Properties.Settings.Default.centroOperacion;
-                pGuia.codigoOperacionCargoFk = cromo.Properties.Settings.Default.centroOperacion;
-                pGuia.codigoClienteFk = Convert.ToInt32(txtCodigoCliente.Text);
-                pGuia.codigoCiudadOrigenFk = txtCodigoCiudadOrigen.Text;
-                pGuia.codigoCiudadDestinoFk = txtCodigoCiudadDestino.Text;
-                int resultado = guiaRepositorio.Agregar(pGuia);
-
-                if (resultado > 0)
-                {
-                    MessageBox.Show("Exitoso el guardado");
-                }
-                else
-                {
-                    MessageBox.Show("Error");
-                }
-            }
         }
 
         private void txtCodigoCliente_KeyPress(object sender, KeyPressEventArgs e)
@@ -166,10 +130,92 @@ namespace cromo
 
         private void metodoComun_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+
+        }
+
+        private void tsbNuevo_Click(object sender, EventArgs e)
+        {
+            Nuevo();
+        }
+
+        private void tsbGuardar_Click(object sender, EventArgs e)
+        {
+            //Validar informacion formulario
+            bool validacion = false;
+            if (txtCodigoCliente.Text != "")
             {
-                this.SelectNextControl((Control)sender, true, true, true, true);
+                validacion = true;
             }
+            else
+            {
+                txtCodigoCliente.Focus();
+                validacion = false;
+            }
+
+            if (validacion == true)
+            {
+                //https://www.youtube.com/watch?v=IT_R46g7YTk&t=227s
+                guia pGuia = new guia();
+                pGuia.codigoOperacionIngresoFk = cromo.Properties.Settings.Default.centroOperacion;
+                pGuia.codigoOperacionCargoFk = cromo.Properties.Settings.Default.centroOperacion;
+                pGuia.codigoClienteFk = Convert.ToInt32(txtCodigoCliente.Text);
+                pGuia.codigoCiudadOrigenFk = txtCodigoCiudadOrigen.Text;
+                pGuia.codigoCiudadDestinoFk = txtCodigoCiudadDestino.Text;
+                pGuia.documentoCliente = txtDocumentoCliente.Text;
+                pGuia.remitente = txtRemitente.Text;
+                int resultado = guiaRepositorio.Agregar(pGuia);
+
+                if (resultado > 0)
+                {
+                    MessageBox.Show("Exitoso el guardado");
+                }
+                else
+                {
+                    MessageBox.Show("Error");
+                }
+            }
+        }
+
+        private void tsbCancelar_Click(object sender, EventArgs e)
+        {
+            Bloquear();
+        }
+
+        private void frmGuia_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void frmGuia_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {            
+            if (e.KeyCode.ToString() == "F3")
+            {
+                Nuevo();
+            }
+        }
+
+        private void txtCodigoCliente_Validated(object sender, EventArgs e)
+        {
+            txtNombreCliente.Text = ClienteRepositorio.nombreCliente(txtCodigoCliente.Text);
+            if(txtRemitente.Text == "")
+            {
+                txtRemitente.Text = txtNombreCliente.Text;
+            }
+        }
+
+        private void txtCodigoCiudadOrigen_Validated(object sender, EventArgs e)
+        {
+            txtNombreCiudadOrigen.Text = CiudadRepositorio.nombreCiudad(txtCodigoCiudadOrigen.Text);           
+        }
+
+        private void txtCodigoCiudadDestino_Validated(object sender, EventArgs e)
+        {
+            txtNombreCiudadDestino.Text = CiudadRepositorio.nombreCiudad(txtCodigoCiudadDestino.Text);
+        }
+
+        private void txtRemitente_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

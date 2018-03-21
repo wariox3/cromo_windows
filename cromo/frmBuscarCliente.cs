@@ -40,5 +40,20 @@ namespace cromo
         {
             Close();
         }
+
+        private void dgClientes_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void dgClientes_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void dgClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

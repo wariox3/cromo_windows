@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.dgClientes = new System.Windows.Forms.DataGridView();
+            this.clmCodigoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSeleccionar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).BeginInit();
@@ -39,13 +41,36 @@
             this.dgClientes.AllowUserToAddRows = false;
             this.dgClientes.AllowUserToDeleteRows = false;
             this.dgClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clmCodigoCliente,
+            this.clmNombre});
             this.dgClientes.Location = new System.Drawing.Point(12, 47);
             this.dgClientes.MultiSelect = false;
             this.dgClientes.Name = "dgClientes";
             this.dgClientes.ReadOnly = true;
             this.dgClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgClientes.Size = new System.Drawing.Size(712, 290);
+            this.dgClientes.StandardTab = true;
             this.dgClientes.TabIndex = 0;
+            this.dgClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgClientes_CellContentClick);
+            this.dgClientes.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgClientes_KeyPress);
+            this.dgClientes.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dgClientes_KeyUp);
+            // 
+            // clmCodigoCliente
+            // 
+            this.clmCodigoCliente.DataPropertyName = "codigo_cliente_pk";
+            this.clmCodigoCliente.HeaderText = "ID";
+            this.clmCodigoCliente.Name = "clmCodigoCliente";
+            this.clmCodigoCliente.ReadOnly = true;
+            this.clmCodigoCliente.Width = 50;
+            // 
+            // clmNombre
+            // 
+            this.clmNombre.DataPropertyName = "nombre_corto";
+            this.clmNombre.HeaderText = "Nombre";
+            this.clmNombre.Name = "clmNombre";
+            this.clmNombre.ReadOnly = true;
+            this.clmNombre.Width = 400;
             // 
             // btnSeleccionar
             // 
@@ -74,6 +99,8 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnSeleccionar);
             this.Controls.Add(this.dgClientes);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmBuscarCliente";
             this.Load += new System.EventHandler(this.frmBuscarCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).EndInit();
@@ -87,5 +114,7 @@
         private System.Windows.Forms.Button btnSeleccionar;
         public System.Windows.Forms.DataGridView dgClientes;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmCodigoCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmNombre;
     }
 }

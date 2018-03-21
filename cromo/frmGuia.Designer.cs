@@ -60,15 +60,15 @@
             this.txtCodigoCiudadOrigen = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.txtDocumentoCliente = new System.Windows.Forms.TextBox();
+            this.txtRemitente = new System.Windows.Forms.TextBox();
             this.txtNombreCliente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtCodigoCliente = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
+            this.tsbGuardar = new System.Windows.Forms.ToolStripButton();
+            this.tsbCancelar = new System.Windows.Forms.ToolStripButton();
             this.gbDestinatario.SuspendLayout();
             this.gbTotales.SuspendLayout();
             this.gbCliente.SuspendLayout();
@@ -120,6 +120,7 @@
             this.txtCodigoCiudadDestino.TabIndex = 8;
             this.txtCodigoCiudadDestino.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigoCiudadDestino_KeyDown);
             this.txtCodigoCiudadDestino.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
+            this.txtCodigoCiudadDestino.Validated += new System.EventHandler(this.txtCodigoCiudadDestino_Validated);
             // 
             // textBox5
             // 
@@ -322,8 +323,8 @@
             this.gbCliente.Controls.Add(this.txtCodigoCiudadOrigen);
             this.gbCliente.Controls.Add(this.label14);
             this.gbCliente.Controls.Add(this.label13);
-            this.gbCliente.Controls.Add(this.textBox16);
-            this.gbCliente.Controls.Add(this.textBox15);
+            this.gbCliente.Controls.Add(this.txtDocumentoCliente);
+            this.gbCliente.Controls.Add(this.txtRemitente);
             this.gbCliente.Controls.Add(this.txtNombreCliente);
             this.gbCliente.Controls.Add(this.label1);
             this.gbCliente.Controls.Add(this.txtCodigoCliente);
@@ -361,6 +362,7 @@
             this.txtCodigoCiudadOrigen.TabIndex = 20;
             this.txtCodigoCiudadOrigen.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigoCiudadOrigen_KeyDown);
             this.txtCodigoCiudadOrigen.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
+            this.txtCodigoCiudadOrigen.Validated += new System.EventHandler(this.txtCodigoCiudadOrigen_Validated);
             // 
             // label14
             // 
@@ -380,21 +382,22 @@
             this.label13.TabIndex = 12;
             this.label13.Text = "Documento:";
             // 
-            // textBox16
+            // txtDocumentoCliente
             // 
-            this.textBox16.Location = new System.Drawing.Point(111, 76);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(176, 20);
-            this.textBox16.TabIndex = 3;
-            this.textBox16.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
+            this.txtDocumentoCliente.Location = new System.Drawing.Point(111, 76);
+            this.txtDocumentoCliente.Name = "txtDocumentoCliente";
+            this.txtDocumentoCliente.Size = new System.Drawing.Size(176, 20);
+            this.txtDocumentoCliente.TabIndex = 3;
+            this.txtDocumentoCliente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
             // 
-            // textBox15
+            // txtRemitente
             // 
-            this.textBox15.Location = new System.Drawing.Point(111, 50);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(523, 20);
-            this.textBox15.TabIndex = 2;
-            this.textBox15.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
+            this.txtRemitente.Location = new System.Drawing.Point(111, 50);
+            this.txtRemitente.Name = "txtRemitente";
+            this.txtRemitente.Size = new System.Drawing.Size(523, 20);
+            this.txtRemitente.TabIndex = 2;
+            this.txtRemitente.TextChanged += new System.EventHandler(this.txtRemitente_TextChanged);
+            this.txtRemitente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
             // 
             // txtNombreCliente
             // 
@@ -424,47 +427,49 @@
             this.txtCodigoCliente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigoCliente_KeyDown);
             this.txtCodigoCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoCliente_KeyPress);
             this.txtCodigoCliente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(732, 44);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 28);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.txtCodigoCliente.Validated += new System.EventHandler(this.txtCodigoCliente_Validated);
             // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2});
+            this.tsbNuevo,
+            this.tsbGuardar,
+            this.tsbCancelar});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(913, 25);
             this.toolStrip1.TabIndex = 12;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripButton1
+            // tsbNuevo
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            this.tsbNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbNuevo.Image = ((System.Drawing.Image)(resources.GetObject("tsbNuevo.Image")));
+            this.tsbNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbNuevo.Name = "tsbNuevo";
+            this.tsbNuevo.Size = new System.Drawing.Size(23, 22);
+            this.tsbNuevo.Text = "Nuevo";
+            this.tsbNuevo.Click += new System.EventHandler(this.tsbNuevo_Click);
             // 
-            // toolStripButton2
+            // tsbGuardar
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton2.Text = "toolStripButton2";
-            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+            this.tsbGuardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbGuardar.Image = ((System.Drawing.Image)(resources.GetObject("tsbGuardar.Image")));
+            this.tsbGuardar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbGuardar.Name = "tsbGuardar";
+            this.tsbGuardar.Size = new System.Drawing.Size(23, 22);
+            this.tsbGuardar.Text = "Guardar";
+            this.tsbGuardar.Click += new System.EventHandler(this.tsbGuardar_Click);
+            // 
+            // tsbCancelar
+            // 
+            this.tsbCancelar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbCancelar.Image = ((System.Drawing.Image)(resources.GetObject("tsbCancelar.Image")));
+            this.tsbCancelar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbCancelar.Name = "tsbCancelar";
+            this.tsbCancelar.Size = new System.Drawing.Size(23, 22);
+            this.tsbCancelar.Text = "Cancelar";
+            this.tsbCancelar.Click += new System.EventHandler(this.tsbCancelar_Click);
             // 
             // frmGuia
             // 
@@ -473,14 +478,15 @@
             this.ClientSize = new System.Drawing.Size(913, 555);
             this.ControlBox = false;
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.gbCliente);
             this.Controls.Add(this.gbTotales);
             this.Controls.Add(this.gbDestinatario);
             this.Name = "frmGuia";
-            this.Text = "Form1";
+            this.Text = "Guia";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Guia_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.frmGuia_KeyUp);
+            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.frmGuia_PreviewKeyDown);
             this.gbDestinatario.ResumeLayout(false);
             this.gbDestinatario.PerformLayout();
             this.gbTotales.ResumeLayout(false);
@@ -524,18 +530,18 @@
         private System.Windows.Forms.GroupBox gbCliente;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.TextBox txtDocumentoCliente;
+        private System.Windows.Forms.TextBox txtRemitente;
         private System.Windows.Forms.TextBox txtNombreCliente;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtCodigoCliente;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton tsbNuevo;
+        private System.Windows.Forms.ToolStripButton tsbGuardar;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txtNombreCiudadOrigen;
         private System.Windows.Forms.TextBox txtCodigoCiudadOrigen;
+        private System.Windows.Forms.ToolStripButton tsbCancelar;
     }
 }
 

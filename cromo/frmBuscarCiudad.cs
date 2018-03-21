@@ -28,16 +28,30 @@ namespace cromo
         private void frmBuscarCiudad_Load(object sender, EventArgs e)
         {
             dgCiudades.DataSource = LlenarDatos().Tables[0];
+            dgCiudades.Focus();
         }
 
         private void btnSeleccionar_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.OK;
-            Close();
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            Close();
+        }
+
+        private void dgCiudades_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.SelectNextControl((Control)sender, true, true, true, true);
+            }
+        }
+
+        private void btnSeleccionar_Click_1(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.OK;
             Close();
         }
     }
