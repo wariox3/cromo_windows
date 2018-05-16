@@ -110,8 +110,10 @@
     <Compile Include="frmReporte.Designer.cs">
       <DependentUpon>frmReporte.cs</DependentUpon>
     </Compile>
+    <Compile Include="General.cs" />
     <Compile Include="guia.cs" />
-    <Compile Include="guiaRepositorio.cs" />
+    <Compile Include="GuiaRepositorio.cs" />
+    <Compile Include="GuiaTipoRepositorio.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="recibo.cs">
@@ -148,6 +150,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="recibo.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -180,6 +183,450 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\24-7.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\abacus.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Accept.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add_fav.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add_user.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Addressbook.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add-ticket.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Alarm.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Alert.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\apple.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Audio-file.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\award-1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\award-2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\award-3.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Back.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\basket.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\basketball.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bell.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Billboard.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\budget.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buy-now.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Calculator.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Calendar.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancel.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chart.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chat.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check-list.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Communicate.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\compasses.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Computer.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Copy.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coupon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\course.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\course-assignments.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\course-catalog.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\customer-service.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cut48.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Data.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete_user.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Disc.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Down.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Email.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Euro.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\evaluations.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Export.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\external-web-link.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Faq.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fav.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fax-machine.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\File.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\File_add.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\File_delete.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\File_edit.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\File_info.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Flag.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Folder.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Folder_add.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Folder_alert.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Folder_delete.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Folder_fav.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Folder_info.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\football.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Forward.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gift.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\globe.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\glue.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Help-desk.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Highlightmarker.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Home.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hot.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hourglass.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Import.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Info.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Key.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\letters.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\library.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\link.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lock.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Login_in.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Login_out.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mathmatics.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\my-profile.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\numbers.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\open.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Paperclip48.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paper-currency.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paper-plane.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Paste.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\payments.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Percent.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Perscent.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\piggy-bank.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pools.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pound.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\presentation.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\price.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Print.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\professor.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Prohibit.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\qualification.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refresh.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Remove_fav.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Remove-ticket.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ruler.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Scale.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\school.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\schoolbag-boy.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\schoolbag-girl.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scissors.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\semicircleruler.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shop.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shoppingbag.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shoppingcart.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\soccer.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Star_empty.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Star_full.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Star_half_full.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\student-boy.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\student-girl.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\student-id.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher-female.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher-male.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Telephone.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\test-paper.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ticket.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tools.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trencher-cap.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\triangle-ruler.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Unlock.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Up.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Us-dollar.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Users.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Video-file.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wallet.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Wheel.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Wheels.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Wrench.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Yuan.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Zoom_in.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Zoom_out.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

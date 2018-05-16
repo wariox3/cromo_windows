@@ -17,7 +17,7 @@ namespace cromo
             string nombre = "";
             if (codigoCliente != "")
             {
-                DataSet ds = Utilidades.Ejecutar("SELECT nombre_corto FROM cliente where codigo_cliente_pk = " + codigoCliente);
+                DataSet ds = Utilidades.Ejecutar("SELECT nombre_corto FROM tte_cliente where codigo_cliente_pk = " + codigoCliente);
                 DataTable dt = ds.Tables[0];
                 if (dt.Rows.Count > 0)
                 {                   

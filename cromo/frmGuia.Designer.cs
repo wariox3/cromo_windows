@@ -33,20 +33,20 @@
 			this.label5 = new System.Windows.Forms.Label();
 			this.txtNombreCiudadDestino = new System.Windows.Forms.TextBox();
 			this.txtCodigoCiudadDestino = new System.Windows.Forms.TextBox();
-			this.textBox5 = new System.Windows.Forms.TextBox();
-			this.textBox4 = new System.Windows.Forms.TextBox();
-			this.textBox3 = new System.Windows.Forms.TextBox();
+			this.txtDireccionDestinatario = new System.Windows.Forms.TextBox();
+			this.txtTelefonoDestinatario = new System.Windows.Forms.TextBox();
+			this.txtNombreDestinatario = new System.Windows.Forms.TextBox();
 			this.label4 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.gbTotales = new System.Windows.Forms.GroupBox();
-			this.textBox14 = new System.Windows.Forms.TextBox();
-			this.textBox13 = new System.Windows.Forms.TextBox();
-			this.textBox12 = new System.Windows.Forms.TextBox();
-			this.textBox11 = new System.Windows.Forms.TextBox();
-			this.textBox10 = new System.Windows.Forms.TextBox();
-			this.textBox9 = new System.Windows.Forms.TextBox();
-			this.textBox8 = new System.Windows.Forms.TextBox();
+			this.txtManejo = new System.Windows.Forms.TextBox();
+			this.txtFlete = new System.Windows.Forms.TextBox();
+			this.txtDeclarado = new System.Windows.Forms.TextBox();
+			this.txtPesoFacturar = new System.Windows.Forms.TextBox();
+			this.txtVolumen = new System.Windows.Forms.TextBox();
+			this.txtPeso = new System.Windows.Forms.TextBox();
+			this.txtUnidades = new System.Windows.Forms.TextBox();
 			this.label12 = new System.Windows.Forms.Label();
 			this.label11 = new System.Windows.Forms.Label();
 			this.label10 = new System.Windows.Forms.Label();
@@ -69,11 +69,30 @@
 			this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
 			this.tsbGuardar = new System.Windows.Forms.ToolStripButton();
 			this.tsbCancelar = new System.Windows.Forms.ToolStripButton();
+			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+			this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+			this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+			this.gbInformacion = new System.Windows.Forms.GroupBox();
+			this.cboEmpaque = new System.Windows.Forms.ComboBox();
+			this.cboServicio = new System.Windows.Forms.ComboBox();
+			this.cboTipo = new System.Windows.Forms.ComboBox();
+			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+			this.accionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuNuevo = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuGuardar = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuCancelar = new System.Windows.Forms.ToolStripMenuItem();
 			this.button1 = new System.Windows.Forms.Button();
+			this.txtRecaudo = new System.Windows.Forms.TextBox();
+			this.label16 = new System.Windows.Forms.Label();
+			this.label17 = new System.Windows.Forms.Label();
+			this.label18 = new System.Windows.Forms.Label();
+			this.label19 = new System.Windows.Forms.Label();
 			this.gbDestinatario.SuspendLayout();
 			this.gbTotales.SuspendLayout();
 			this.gbCliente.SuspendLayout();
 			this.toolStrip1.SuspendLayout();
+			this.gbInformacion.SuspendLayout();
+			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// gbDestinatario
@@ -81,14 +100,14 @@
 			this.gbDestinatario.Controls.Add(this.label5);
 			this.gbDestinatario.Controls.Add(this.txtNombreCiudadDestino);
 			this.gbDestinatario.Controls.Add(this.txtCodigoCiudadDestino);
-			this.gbDestinatario.Controls.Add(this.textBox5);
-			this.gbDestinatario.Controls.Add(this.textBox4);
-			this.gbDestinatario.Controls.Add(this.textBox3);
+			this.gbDestinatario.Controls.Add(this.txtDireccionDestinatario);
+			this.gbDestinatario.Controls.Add(this.txtTelefonoDestinatario);
+			this.gbDestinatario.Controls.Add(this.txtNombreDestinatario);
 			this.gbDestinatario.Controls.Add(this.label4);
 			this.gbDestinatario.Controls.Add(this.label3);
 			this.gbDestinatario.Controls.Add(this.label2);
 			this.gbDestinatario.Enabled = false;
-			this.gbDestinatario.Location = new System.Drawing.Point(12, 163);
+			this.gbDestinatario.Location = new System.Drawing.Point(18, 175);
 			this.gbDestinatario.Name = "gbDestinatario";
 			this.gbDestinatario.Size = new System.Drawing.Size(645, 109);
 			this.gbDestinatario.TabIndex = 4;
@@ -123,29 +142,29 @@
 			this.txtCodigoCiudadDestino.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
 			this.txtCodigoCiudadDestino.Validated += new System.EventHandler(this.txtCodigoCiudadDestino_Validated);
 			// 
-			// textBox5
+			// txtDireccionDestinatario
 			// 
-			this.textBox5.Location = new System.Drawing.Point(108, 49);
-			this.textBox5.Name = "textBox5";
-			this.textBox5.Size = new System.Drawing.Size(361, 20);
-			this.textBox5.TabIndex = 7;
-			this.textBox5.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
+			this.txtDireccionDestinatario.Location = new System.Drawing.Point(108, 49);
+			this.txtDireccionDestinatario.Name = "txtDireccionDestinatario";
+			this.txtDireccionDestinatario.Size = new System.Drawing.Size(361, 20);
+			this.txtDireccionDestinatario.TabIndex = 7;
+			this.txtDireccionDestinatario.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
 			// 
-			// textBox4
+			// txtTelefonoDestinatario
 			// 
-			this.textBox4.Location = new System.Drawing.Point(534, 22);
-			this.textBox4.Name = "textBox4";
-			this.textBox4.Size = new System.Drawing.Size(100, 20);
-			this.textBox4.TabIndex = 6;
-			this.textBox4.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
+			this.txtTelefonoDestinatario.Location = new System.Drawing.Point(534, 22);
+			this.txtTelefonoDestinatario.Name = "txtTelefonoDestinatario";
+			this.txtTelefonoDestinatario.Size = new System.Drawing.Size(100, 20);
+			this.txtTelefonoDestinatario.TabIndex = 6;
+			this.txtTelefonoDestinatario.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
 			// 
-			// textBox3
+			// txtNombreDestinatario
 			// 
-			this.textBox3.Location = new System.Drawing.Point(108, 22);
-			this.textBox3.Name = "textBox3";
-			this.textBox3.Size = new System.Drawing.Size(361, 20);
-			this.textBox3.TabIndex = 5;
-			this.textBox3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
+			this.txtNombreDestinatario.Location = new System.Drawing.Point(108, 22);
+			this.txtNombreDestinatario.Name = "txtNombreDestinatario";
+			this.txtNombreDestinatario.Size = new System.Drawing.Size(361, 20);
+			this.txtNombreDestinatario.TabIndex = 5;
+			this.txtNombreDestinatario.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
 			// 
 			// label4
 			// 
@@ -176,13 +195,15 @@
 			// 
 			// gbTotales
 			// 
-			this.gbTotales.Controls.Add(this.textBox14);
-			this.gbTotales.Controls.Add(this.textBox13);
-			this.gbTotales.Controls.Add(this.textBox12);
-			this.gbTotales.Controls.Add(this.textBox11);
-			this.gbTotales.Controls.Add(this.textBox10);
-			this.gbTotales.Controls.Add(this.textBox9);
-			this.gbTotales.Controls.Add(this.textBox8);
+			this.gbTotales.Controls.Add(this.label16);
+			this.gbTotales.Controls.Add(this.txtRecaudo);
+			this.gbTotales.Controls.Add(this.txtManejo);
+			this.gbTotales.Controls.Add(this.txtFlete);
+			this.gbTotales.Controls.Add(this.txtDeclarado);
+			this.gbTotales.Controls.Add(this.txtPesoFacturar);
+			this.gbTotales.Controls.Add(this.txtVolumen);
+			this.gbTotales.Controls.Add(this.txtPeso);
+			this.gbTotales.Controls.Add(this.txtUnidades);
 			this.gbTotales.Controls.Add(this.label12);
 			this.gbTotales.Controls.Add(this.label11);
 			this.gbTotales.Controls.Add(this.label10);
@@ -191,68 +212,68 @@
 			this.gbTotales.Controls.Add(this.label7);
 			this.gbTotales.Controls.Add(this.label6);
 			this.gbTotales.Enabled = false;
-			this.gbTotales.Location = new System.Drawing.Point(449, 278);
+			this.gbTotales.Location = new System.Drawing.Point(455, 290);
 			this.gbTotales.Name = "gbTotales";
-			this.gbTotales.Size = new System.Drawing.Size(208, 183);
+			this.gbTotales.Size = new System.Drawing.Size(208, 196);
 			this.gbTotales.TabIndex = 9;
 			this.gbTotales.TabStop = false;
 			this.gbTotales.Text = "Totales";
 			// 
-			// textBox14
+			// txtManejo
 			// 
-			this.textBox14.Location = new System.Drawing.Point(86, 148);
-			this.textBox14.Name = "textBox14";
-			this.textBox14.Size = new System.Drawing.Size(100, 20);
-			this.textBox14.TabIndex = 15;
-			this.textBox14.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
+			this.txtManejo.Location = new System.Drawing.Point(86, 148);
+			this.txtManejo.Name = "txtManejo";
+			this.txtManejo.Size = new System.Drawing.Size(100, 20);
+			this.txtManejo.TabIndex = 15;
+			this.txtManejo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
 			// 
-			// textBox13
+			// txtFlete
 			// 
-			this.textBox13.Location = new System.Drawing.Point(86, 126);
-			this.textBox13.Name = "textBox13";
-			this.textBox13.Size = new System.Drawing.Size(100, 20);
-			this.textBox13.TabIndex = 14;
-			this.textBox13.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
+			this.txtFlete.Location = new System.Drawing.Point(86, 126);
+			this.txtFlete.Name = "txtFlete";
+			this.txtFlete.Size = new System.Drawing.Size(100, 20);
+			this.txtFlete.TabIndex = 14;
+			this.txtFlete.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
 			// 
-			// textBox12
+			// txtDeclarado
 			// 
-			this.textBox12.Location = new System.Drawing.Point(86, 104);
-			this.textBox12.Name = "textBox12";
-			this.textBox12.Size = new System.Drawing.Size(100, 20);
-			this.textBox12.TabIndex = 13;
-			this.textBox12.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
+			this.txtDeclarado.Location = new System.Drawing.Point(86, 104);
+			this.txtDeclarado.Name = "txtDeclarado";
+			this.txtDeclarado.Size = new System.Drawing.Size(100, 20);
+			this.txtDeclarado.TabIndex = 13;
+			this.txtDeclarado.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
 			// 
-			// textBox11
+			// txtPesoFacturar
 			// 
-			this.textBox11.Location = new System.Drawing.Point(86, 82);
-			this.textBox11.Name = "textBox11";
-			this.textBox11.Size = new System.Drawing.Size(100, 20);
-			this.textBox11.TabIndex = 12;
-			this.textBox11.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
+			this.txtPesoFacturar.Location = new System.Drawing.Point(86, 82);
+			this.txtPesoFacturar.Name = "txtPesoFacturar";
+			this.txtPesoFacturar.Size = new System.Drawing.Size(100, 20);
+			this.txtPesoFacturar.TabIndex = 12;
+			this.txtPesoFacturar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
 			// 
-			// textBox10
+			// txtVolumen
 			// 
-			this.textBox10.Location = new System.Drawing.Point(86, 60);
-			this.textBox10.Name = "textBox10";
-			this.textBox10.Size = new System.Drawing.Size(100, 20);
-			this.textBox10.TabIndex = 11;
-			this.textBox10.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
+			this.txtVolumen.Location = new System.Drawing.Point(86, 60);
+			this.txtVolumen.Name = "txtVolumen";
+			this.txtVolumen.Size = new System.Drawing.Size(100, 20);
+			this.txtVolumen.TabIndex = 11;
+			this.txtVolumen.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
 			// 
-			// textBox9
+			// txtPeso
 			// 
-			this.textBox9.Location = new System.Drawing.Point(86, 38);
-			this.textBox9.Name = "textBox9";
-			this.textBox9.Size = new System.Drawing.Size(100, 20);
-			this.textBox9.TabIndex = 10;
-			this.textBox9.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
+			this.txtPeso.Location = new System.Drawing.Point(86, 38);
+			this.txtPeso.Name = "txtPeso";
+			this.txtPeso.Size = new System.Drawing.Size(100, 20);
+			this.txtPeso.TabIndex = 10;
+			this.txtPeso.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
 			// 
-			// textBox8
+			// txtUnidades
 			// 
-			this.textBox8.Location = new System.Drawing.Point(86, 15);
-			this.textBox8.Name = "textBox8";
-			this.textBox8.Size = new System.Drawing.Size(100, 20);
-			this.textBox8.TabIndex = 9;
-			this.textBox8.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
+			this.txtUnidades.Location = new System.Drawing.Point(86, 15);
+			this.txtUnidades.Name = "txtUnidades";
+			this.txtUnidades.Size = new System.Drawing.Size(100, 20);
+			this.txtUnidades.TabIndex = 9;
+			this.txtUnidades.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
 			// 
 			// label12
 			// 
@@ -330,7 +351,7 @@
 			this.gbCliente.Controls.Add(this.label1);
 			this.gbCliente.Controls.Add(this.txtCodigoCliente);
 			this.gbCliente.Enabled = false;
-			this.gbCliente.Location = new System.Drawing.Point(12, 28);
+			this.gbCliente.Location = new System.Drawing.Point(18, 40);
 			this.gbCliente.Name = "gbCliente";
 			this.gbCliente.Size = new System.Drawing.Size(645, 129);
 			this.gbCliente.TabIndex = 0;
@@ -397,7 +418,6 @@
 			this.txtRemitente.Name = "txtRemitente";
 			this.txtRemitente.Size = new System.Drawing.Size(523, 20);
 			this.txtRemitente.TabIndex = 2;
-			this.txtRemitente.TextChanged += new System.EventHandler(this.txtRemitente_TextChanged);
 			this.txtRemitente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
 			// 
 			// txtNombreCliente
@@ -435,7 +455,10 @@
 			this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbNuevo,
             this.tsbGuardar,
-            this.tsbCancelar});
+            this.tsbCancelar,
+            this.toolStripSeparator1,
+            this.toolStripButton1,
+            this.toolStripButton2});
 			this.toolStrip1.Location = new System.Drawing.Point(0, 0);
 			this.toolStrip1.Name = "toolStrip1";
 			this.toolStrip1.Size = new System.Drawing.Size(913, 25);
@@ -472,15 +495,165 @@
 			this.tsbCancelar.Text = "Cancelar";
 			this.tsbCancelar.Click += new System.EventHandler(this.tsbCancelar_Click);
 			// 
+			// toolStripSeparator1
+			// 
+			this.toolStripSeparator1.Name = "toolStripSeparator1";
+			this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+			// 
+			// toolStripButton1
+			// 
+			this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+			this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripButton1.Name = "toolStripButton1";
+			this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+			this.toolStripButton1.Text = "Lista";
+			// 
+			// toolStripButton2
+			// 
+			this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+			this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripButton2.Name = "toolStripButton2";
+			this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
+			this.toolStripButton2.Text = "Buscar";
+			// 
+			// gbInformacion
+			// 
+			this.gbInformacion.Controls.Add(this.label19);
+			this.gbInformacion.Controls.Add(this.label18);
+			this.gbInformacion.Controls.Add(this.label17);
+			this.gbInformacion.Controls.Add(this.cboEmpaque);
+			this.gbInformacion.Controls.Add(this.cboServicio);
+			this.gbInformacion.Controls.Add(this.cboTipo);
+			this.gbInformacion.Enabled = false;
+			this.gbInformacion.Location = new System.Drawing.Point(21, 291);
+			this.gbInformacion.Name = "gbInformacion";
+			this.gbInformacion.Size = new System.Drawing.Size(418, 195);
+			this.gbInformacion.TabIndex = 14;
+			this.gbInformacion.TabStop = false;
+			this.gbInformacion.Text = "Informacion";
+			// 
+			// cboEmpaque
+			// 
+			this.cboEmpaque.FormattingEnabled = true;
+			this.cboEmpaque.Location = new System.Drawing.Point(105, 64);
+			this.cboEmpaque.Name = "cboEmpaque";
+			this.cboEmpaque.Size = new System.Drawing.Size(167, 21);
+			this.cboEmpaque.TabIndex = 2;
+			// 
+			// cboServicio
+			// 
+			this.cboServicio.FormattingEnabled = true;
+			this.cboServicio.Location = new System.Drawing.Point(105, 40);
+			this.cboServicio.Name = "cboServicio";
+			this.cboServicio.Size = new System.Drawing.Size(167, 21);
+			this.cboServicio.TabIndex = 1;
+			// 
+			// cboTipo
+			// 
+			this.cboTipo.FormattingEnabled = true;
+			this.cboTipo.Location = new System.Drawing.Point(105, 17);
+			this.cboTipo.Name = "cboTipo";
+			this.cboTipo.Size = new System.Drawing.Size(167, 21);
+			this.cboTipo.TabIndex = 0;
+			// 
+			// menuStrip1
+			// 
+			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.accionesToolStripMenuItem});
+			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+			this.menuStrip1.Name = "menuStrip1";
+			this.menuStrip1.Size = new System.Drawing.Size(913, 24);
+			this.menuStrip1.TabIndex = 15;
+			this.menuStrip1.Text = "menuStrip1";
+			this.menuStrip1.Visible = false;
+			// 
+			// accionesToolStripMenuItem
+			// 
+			this.accionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuNuevo,
+            this.mnuGuardar,
+            this.mnuCancelar});
+			this.accionesToolStripMenuItem.Name = "accionesToolStripMenuItem";
+			this.accionesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+			this.accionesToolStripMenuItem.Text = "acciones";
+			// 
+			// mnuNuevo
+			// 
+			this.mnuNuevo.Name = "mnuNuevo";
+			this.mnuNuevo.ShortcutKeys = System.Windows.Forms.Keys.F5;
+			this.mnuNuevo.Size = new System.Drawing.Size(180, 22);
+			this.mnuNuevo.Text = "Nuevo";
+			this.mnuNuevo.Click += new System.EventHandler(this.mnuNuevo_Click);
+			// 
+			// mnuGuardar
+			// 
+			this.mnuGuardar.Name = "mnuGuardar";
+			this.mnuGuardar.ShortcutKeys = System.Windows.Forms.Keys.F6;
+			this.mnuGuardar.Size = new System.Drawing.Size(180, 22);
+			this.mnuGuardar.Text = "Guardar";
+			this.mnuGuardar.Click += new System.EventHandler(this.mnuGuardar_Click);
+			// 
+			// mnuCancelar
+			// 
+			this.mnuCancelar.Name = "mnuCancelar";
+			this.mnuCancelar.ShortcutKeys = System.Windows.Forms.Keys.F7;
+			this.mnuCancelar.Size = new System.Drawing.Size(180, 22);
+			this.mnuCancelar.Text = "Cancelar";
+			this.mnuCancelar.Click += new System.EventHandler(this.mnuCancelar_Click);
+			// 
 			// button1
 			// 
-			this.button1.Location = new System.Drawing.Point(108, 333);
+			this.button1.Location = new System.Drawing.Point(722, 134);
 			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(87, 42);
-			this.button1.TabIndex = 13;
+			this.button1.Size = new System.Drawing.Size(55, 41);
+			this.button1.TabIndex = 16;
 			this.button1.Text = "button1";
 			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.button1_Click_1);
+			// 
+			// txtRecaudo
+			// 
+			this.txtRecaudo.Location = new System.Drawing.Point(86, 171);
+			this.txtRecaudo.Name = "txtRecaudo";
+			this.txtRecaudo.Size = new System.Drawing.Size(100, 20);
+			this.txtRecaudo.TabIndex = 16;
+			// 
+			// label16
+			// 
+			this.label16.AutoSize = true;
+			this.label16.Location = new System.Drawing.Point(27, 172);
+			this.label16.Name = "label16";
+			this.label16.Size = new System.Drawing.Size(54, 13);
+			this.label16.TabIndex = 17;
+			this.label16.Text = "Recaudo:";
+			// 
+			// label17
+			// 
+			this.label17.AutoSize = true;
+			this.label17.Location = new System.Drawing.Point(67, 21);
+			this.label17.Name = "label17";
+			this.label17.Size = new System.Drawing.Size(31, 13);
+			this.label17.TabIndex = 3;
+			this.label17.Text = "Tipo:";
+			// 
+			// label18
+			// 
+			this.label18.AutoSize = true;
+			this.label18.Location = new System.Drawing.Point(51, 42);
+			this.label18.Name = "label18";
+			this.label18.Size = new System.Drawing.Size(48, 13);
+			this.label18.TabIndex = 4;
+			this.label18.Text = "Servicio:";
+			// 
+			// label19
+			// 
+			this.label19.AutoSize = true;
+			this.label19.Location = new System.Drawing.Point(44, 66);
+			this.label19.Name = "label19";
+			this.label19.Size = new System.Drawing.Size(55, 13);
+			this.label19.TabIndex = 5;
+			this.label19.Text = "Empaque:";
 			// 
 			// frmGuia
 			// 
@@ -489,7 +662,9 @@
 			this.ClientSize = new System.Drawing.Size(913, 555);
 			this.ControlBox = false;
 			this.Controls.Add(this.button1);
+			this.Controls.Add(this.gbInformacion);
 			this.Controls.Add(this.toolStrip1);
+			this.Controls.Add(this.menuStrip1);
 			this.Controls.Add(this.gbCliente);
 			this.Controls.Add(this.gbTotales);
 			this.Controls.Add(this.gbDestinatario);
@@ -497,8 +672,6 @@
 			this.Text = "Guia";
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 			this.Load += new System.EventHandler(this.Guia_Load);
-			this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.frmGuia_KeyUp);
-			this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.frmGuia_PreviewKeyDown);
 			this.gbDestinatario.ResumeLayout(false);
 			this.gbDestinatario.PerformLayout();
 			this.gbTotales.ResumeLayout(false);
@@ -507,6 +680,10 @@
 			this.gbCliente.PerformLayout();
 			this.toolStrip1.ResumeLayout(false);
 			this.toolStrip1.PerformLayout();
+			this.gbInformacion.ResumeLayout(false);
+			this.gbInformacion.PerformLayout();
+			this.menuStrip1.ResumeLayout(false);
+			this.menuStrip1.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -518,20 +695,20 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtNombreCiudadDestino;
         private System.Windows.Forms.TextBox txtCodigoCiudadDestino;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtDireccionDestinatario;
+        private System.Windows.Forms.TextBox txtTelefonoDestinatario;
+        private System.Windows.Forms.TextBox txtNombreDestinatario;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox gbTotales;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txtManejo;
+        private System.Windows.Forms.TextBox txtFlete;
+        private System.Windows.Forms.TextBox txtDeclarado;
+        private System.Windows.Forms.TextBox txtPesoFacturar;
+        private System.Windows.Forms.TextBox txtVolumen;
+        private System.Windows.Forms.TextBox txtPeso;
+        private System.Windows.Forms.TextBox txtUnidades;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
@@ -554,7 +731,24 @@
         private System.Windows.Forms.TextBox txtNombreCiudadOrigen;
         private System.Windows.Forms.TextBox txtCodigoCiudadOrigen;
         private System.Windows.Forms.ToolStripButton tsbCancelar;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+		private System.Windows.Forms.ToolStripButton toolStripButton1;
+		private System.Windows.Forms.ToolStripButton toolStripButton2;
+		private System.Windows.Forms.GroupBox gbInformacion;
+		private System.Windows.Forms.ComboBox cboTipo;
+		private System.Windows.Forms.ComboBox cboServicio;
+		private System.Windows.Forms.ComboBox cboEmpaque;
+		private System.Windows.Forms.MenuStrip menuStrip1;
+		private System.Windows.Forms.ToolStripMenuItem accionesToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem mnuNuevo;
+		private System.Windows.Forms.ToolStripMenuItem mnuGuardar;
 		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.ToolStripMenuItem mnuCancelar;
+		private System.Windows.Forms.Label label16;
+		private System.Windows.Forms.TextBox txtRecaudo;
+		private System.Windows.Forms.Label label19;
+		private System.Windows.Forms.Label label18;
+		private System.Windows.Forms.Label label17;
 	}
 }
 

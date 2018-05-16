@@ -19,8 +19,13 @@ namespace cromo
 
         public DataSet LlenarDatos()
         {
-            DataSet ds;
-            string strSql = string.Format("SELECT * FROM cliente");
+			string sql = "SELECT * FROM tte_cliente";
+			if(txtNombre.Text != "")
+			{
+				sql = sql + " WHERE nombre_corto LIKE '%" + txtNombre.Text + "%'";
+			}
+			DataSet ds;
+            string strSql = string.Format(sql);
             ds = Utilidades.Ejecutar(strSql);
             return ds;
         }
@@ -30,9 +35,10 @@ namespace cromo
             dgClientes.DataSource = LlenarDatos().Tables[0];
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnSeleccionar_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.OK;
+			General.codigoCliente = dgClientes.Rows[dgClientes.CurrentRow.Index].Cells[0].Value.ToString(); 
+			DialogResult = DialogResult.OK;
             Close();
         }
 
@@ -41,19 +47,36 @@ namespace cromo
             Close();
         }
 
-        private void dgClientes_KeyPress(object sender, KeyPressEventArgs e)
-        {
 
-        }
+		private void dgClientes_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Enter)
+			{
+				General.codigoCliente = dgClientes.Rows[dgClientes.CurrentRow.Index].Cells[0].Value.ToString();
+				DialogResult = DialogResult.OK;
+				Close();
+			}
+		}
 
-        private void dgClientes_KeyUp(object sender, KeyEventArgs e)
-        {
+		private void btnFiltrar_Click(object sender, EventArgs e)
+		{
+			dgClientes.DataSource = LlenarDatos().Tables[0];
+		}
 
-        }
+		private void txtNombre_KeyDown(object sender, KeyEventArgs e)
+		{
+			if(e.KeyCode == Keys.Down)
+			{
+				dgClientes.Focus();
+			}
+		}
 
-        private void dgClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-    }
+		private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			if (e.KeyChar == Convert.ToChar(Keys.Enter))
+			{
+				dgClientes.DataSource = LlenarDatos().Tables[0];
+			}
+		}
+	}
 }

@@ -15,7 +15,7 @@ namespace cromo
             string nombre = "";
             if (codigoCiudad != "")
             {
-                DataSet ds = Utilidades.Ejecutar("SELECT nombre FROM ciudad where codigo_ciudad_pk = '" + codigoCiudad + "'");
+                DataSet ds = Utilidades.Ejecutar("SELECT nombre FROM tte_ciudad where codigo_ciudad_pk = '" + codigoCiudad + "'");
                 DataTable dt = ds.Tables[0];
                 if (dt.Rows.Count > 0)
                 {
