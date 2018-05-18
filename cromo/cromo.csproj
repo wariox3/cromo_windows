@@ -74,11 +74,23 @@
     <Compile Include="BdCromo.cs" />
     <Compile Include="CiudadRepositorio.cs" />
     <Compile Include="ClienteRepositorio.cs" />
+    <Compile Include="FormatoGuia.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FormatoGuia.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="frmBuscarCiudad.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmBuscarCiudad.Designer.cs">
       <DependentUpon>frmBuscarCiudad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBuscarGuia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBuscarGuia.Designer.cs">
+      <DependentUpon>frmBuscarGuia.cs</DependentUpon>
     </Compile>
     <Compile Include="frmConfiguracion.cs">
       <SubType>Form</SubType>
@@ -124,8 +136,15 @@
     </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="Validar.cs" />
+    <EmbeddedResource Include="FormatoGuia.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>FormatoGuia.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmBuscarCiudad.resx">
       <DependentUpon>frmBuscarCiudad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBuscarGuia.resx">
+      <DependentUpon>frmBuscarGuia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConfiguracion.resx">
       <DependentUpon>frmConfiguracion.cs</DependentUpon>

@@ -217,20 +217,11 @@ namespace cromo
                 frmBuscarCiudad.ShowDialog();
                 if (frmBuscarCiudad.DialogResult == DialogResult.OK)
                 {
-                    txtCodigoCiudadDestino.Text = frmBuscarCiudad.dgCiudades.Rows[frmBuscarCiudad.dgCiudades.CurrentRow.Index].Cells[0].Value.ToString();
+					txtCodigoCiudadDestino.Text = General.codigoCiudad;
                 }
             }
         }
 
-        private void txtCodigoCliente_KeyUp(object sender, KeyEventArgs e)
-        {
-
-        }
-
-        private void metodoComun_KeyUp(object sender, KeyEventArgs e)
-        {
-
-        }
 
         private void tsbNuevo_Click(object sender, EventArgs e)
         {
@@ -345,6 +336,23 @@ namespace cromo
 		private void mnuCancelar_Click(object sender, EventArgs e)
 		{
 			Bloquear();
+		}
+
+		private void button1_Click_2(object sender, EventArgs e)
+		{
+			frmReporte frmReporte = new frmReporte();
+			frmReporte.Show();
+		}
+
+		private void txtCodigoCiudadDestino_TextChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		private void tsbBuscar_Click(object sender, EventArgs e)
+		{
+			frmBuscarGuia frm = new frmBuscarGuia();
+			frm.Show();
 		}
 	}
 }

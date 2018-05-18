@@ -40,6 +40,8 @@
 			this.label3 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.gbTotales = new System.Windows.Forms.GroupBox();
+			this.label16 = new System.Windows.Forms.Label();
+			this.txtRecaudo = new System.Windows.Forms.TextBox();
 			this.txtManejo = new System.Windows.Forms.TextBox();
 			this.txtFlete = new System.Windows.Forms.TextBox();
 			this.txtDeclarado = new System.Windows.Forms.TextBox();
@@ -71,8 +73,11 @@
 			this.tsbCancelar = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-			this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+			this.tsbBuscar = new System.Windows.Forms.ToolStripButton();
 			this.gbInformacion = new System.Windows.Forms.GroupBox();
+			this.label19 = new System.Windows.Forms.Label();
+			this.label18 = new System.Windows.Forms.Label();
+			this.label17 = new System.Windows.Forms.Label();
 			this.cboEmpaque = new System.Windows.Forms.ComboBox();
 			this.cboServicio = new System.Windows.Forms.ComboBox();
 			this.cboTipo = new System.Windows.Forms.ComboBox();
@@ -82,11 +87,6 @@
 			this.mnuGuardar = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuCancelar = new System.Windows.Forms.ToolStripMenuItem();
 			this.button1 = new System.Windows.Forms.Button();
-			this.txtRecaudo = new System.Windows.Forms.TextBox();
-			this.label16 = new System.Windows.Forms.Label();
-			this.label17 = new System.Windows.Forms.Label();
-			this.label18 = new System.Windows.Forms.Label();
-			this.label19 = new System.Windows.Forms.Label();
 			this.gbDestinatario.SuspendLayout();
 			this.gbTotales.SuspendLayout();
 			this.gbCliente.SuspendLayout();
@@ -138,8 +138,8 @@
 			this.txtCodigoCiudadDestino.Name = "txtCodigoCiudadDestino";
 			this.txtCodigoCiudadDestino.Size = new System.Drawing.Size(100, 20);
 			this.txtCodigoCiudadDestino.TabIndex = 8;
+			this.txtCodigoCiudadDestino.TextChanged += new System.EventHandler(this.txtCodigoCiudadDestino_TextChanged);
 			this.txtCodigoCiudadDestino.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigoCiudadDestino_KeyDown);
-			this.txtCodigoCiudadDestino.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
 			this.txtCodigoCiudadDestino.Validated += new System.EventHandler(this.txtCodigoCiudadDestino_Validated);
 			// 
 			// txtDireccionDestinatario
@@ -148,7 +148,6 @@
 			this.txtDireccionDestinatario.Name = "txtDireccionDestinatario";
 			this.txtDireccionDestinatario.Size = new System.Drawing.Size(361, 20);
 			this.txtDireccionDestinatario.TabIndex = 7;
-			this.txtDireccionDestinatario.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
 			// 
 			// txtTelefonoDestinatario
 			// 
@@ -156,7 +155,6 @@
 			this.txtTelefonoDestinatario.Name = "txtTelefonoDestinatario";
 			this.txtTelefonoDestinatario.Size = new System.Drawing.Size(100, 20);
 			this.txtTelefonoDestinatario.TabIndex = 6;
-			this.txtTelefonoDestinatario.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
 			// 
 			// txtNombreDestinatario
 			// 
@@ -164,7 +162,6 @@
 			this.txtNombreDestinatario.Name = "txtNombreDestinatario";
 			this.txtNombreDestinatario.Size = new System.Drawing.Size(361, 20);
 			this.txtNombreDestinatario.TabIndex = 5;
-			this.txtNombreDestinatario.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
 			// 
 			// label4
 			// 
@@ -219,13 +216,28 @@
 			this.gbTotales.TabStop = false;
 			this.gbTotales.Text = "Totales";
 			// 
+			// label16
+			// 
+			this.label16.AutoSize = true;
+			this.label16.Location = new System.Drawing.Point(27, 172);
+			this.label16.Name = "label16";
+			this.label16.Size = new System.Drawing.Size(54, 13);
+			this.label16.TabIndex = 17;
+			this.label16.Text = "Recaudo:";
+			// 
+			// txtRecaudo
+			// 
+			this.txtRecaudo.Location = new System.Drawing.Point(86, 171);
+			this.txtRecaudo.Name = "txtRecaudo";
+			this.txtRecaudo.Size = new System.Drawing.Size(100, 20);
+			this.txtRecaudo.TabIndex = 16;
+			// 
 			// txtManejo
 			// 
 			this.txtManejo.Location = new System.Drawing.Point(86, 148);
 			this.txtManejo.Name = "txtManejo";
 			this.txtManejo.Size = new System.Drawing.Size(100, 20);
 			this.txtManejo.TabIndex = 15;
-			this.txtManejo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
 			// 
 			// txtFlete
 			// 
@@ -233,7 +245,6 @@
 			this.txtFlete.Name = "txtFlete";
 			this.txtFlete.Size = new System.Drawing.Size(100, 20);
 			this.txtFlete.TabIndex = 14;
-			this.txtFlete.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
 			// 
 			// txtDeclarado
 			// 
@@ -241,7 +252,6 @@
 			this.txtDeclarado.Name = "txtDeclarado";
 			this.txtDeclarado.Size = new System.Drawing.Size(100, 20);
 			this.txtDeclarado.TabIndex = 13;
-			this.txtDeclarado.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
 			// 
 			// txtPesoFacturar
 			// 
@@ -249,7 +259,6 @@
 			this.txtPesoFacturar.Name = "txtPesoFacturar";
 			this.txtPesoFacturar.Size = new System.Drawing.Size(100, 20);
 			this.txtPesoFacturar.TabIndex = 12;
-			this.txtPesoFacturar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
 			// 
 			// txtVolumen
 			// 
@@ -257,7 +266,6 @@
 			this.txtVolumen.Name = "txtVolumen";
 			this.txtVolumen.Size = new System.Drawing.Size(100, 20);
 			this.txtVolumen.TabIndex = 11;
-			this.txtVolumen.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
 			// 
 			// txtPeso
 			// 
@@ -265,7 +273,6 @@
 			this.txtPeso.Name = "txtPeso";
 			this.txtPeso.Size = new System.Drawing.Size(100, 20);
 			this.txtPeso.TabIndex = 10;
-			this.txtPeso.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
 			// 
 			// txtUnidades
 			// 
@@ -273,7 +280,6 @@
 			this.txtUnidades.Name = "txtUnidades";
 			this.txtUnidades.Size = new System.Drawing.Size(100, 20);
 			this.txtUnidades.TabIndex = 9;
-			this.txtUnidades.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
 			// 
 			// label12
 			// 
@@ -383,7 +389,6 @@
 			this.txtCodigoCiudadOrigen.Size = new System.Drawing.Size(97, 20);
 			this.txtCodigoCiudadOrigen.TabIndex = 20;
 			this.txtCodigoCiudadOrigen.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigoCiudadOrigen_KeyDown);
-			this.txtCodigoCiudadOrigen.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
 			this.txtCodigoCiudadOrigen.Validated += new System.EventHandler(this.txtCodigoCiudadOrigen_Validated);
 			// 
 			// label14
@@ -410,7 +415,6 @@
 			this.txtDocumentoCliente.Name = "txtDocumentoCliente";
 			this.txtDocumentoCliente.Size = new System.Drawing.Size(176, 20);
 			this.txtDocumentoCliente.TabIndex = 3;
-			this.txtDocumentoCliente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
 			// 
 			// txtRemitente
 			// 
@@ -418,7 +422,6 @@
 			this.txtRemitente.Name = "txtRemitente";
 			this.txtRemitente.Size = new System.Drawing.Size(523, 20);
 			this.txtRemitente.TabIndex = 2;
-			this.txtRemitente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
 			// 
 			// txtNombreCliente
 			// 
@@ -447,7 +450,6 @@
 			this.txtCodigoCliente.TextChanged += new System.EventHandler(this.txtCodigoCliente_TextChanged);
 			this.txtCodigoCliente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigoCliente_KeyDown);
 			this.txtCodigoCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoCliente_KeyPress);
-			this.txtCodigoCliente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metodoComun_KeyUp);
 			this.txtCodigoCliente.Validated += new System.EventHandler(this.txtCodigoCliente_Validated);
 			// 
 			// toolStrip1
@@ -458,7 +460,7 @@
             this.tsbCancelar,
             this.toolStripSeparator1,
             this.toolStripButton1,
-            this.toolStripButton2});
+            this.tsbBuscar});
 			this.toolStrip1.Location = new System.Drawing.Point(0, 0);
 			this.toolStrip1.Name = "toolStrip1";
 			this.toolStrip1.Size = new System.Drawing.Size(913, 25);
@@ -509,14 +511,15 @@
 			this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
 			this.toolStripButton1.Text = "Lista";
 			// 
-			// toolStripButton2
+			// tsbBuscar
 			// 
-			this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-			this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton2.Name = "toolStripButton2";
-			this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-			this.toolStripButton2.Text = "Buscar";
+			this.tsbBuscar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.tsbBuscar.Image = ((System.Drawing.Image)(resources.GetObject("tsbBuscar.Image")));
+			this.tsbBuscar.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.tsbBuscar.Name = "tsbBuscar";
+			this.tsbBuscar.Size = new System.Drawing.Size(23, 22);
+			this.tsbBuscar.Text = "Buscar";
+			this.tsbBuscar.Click += new System.EventHandler(this.tsbBuscar_Click);
 			// 
 			// gbInformacion
 			// 
@@ -533,6 +536,33 @@
 			this.gbInformacion.TabIndex = 14;
 			this.gbInformacion.TabStop = false;
 			this.gbInformacion.Text = "Informacion";
+			// 
+			// label19
+			// 
+			this.label19.AutoSize = true;
+			this.label19.Location = new System.Drawing.Point(44, 66);
+			this.label19.Name = "label19";
+			this.label19.Size = new System.Drawing.Size(55, 13);
+			this.label19.TabIndex = 5;
+			this.label19.Text = "Empaque:";
+			// 
+			// label18
+			// 
+			this.label18.AutoSize = true;
+			this.label18.Location = new System.Drawing.Point(51, 42);
+			this.label18.Name = "label18";
+			this.label18.Size = new System.Drawing.Size(48, 13);
+			this.label18.TabIndex = 4;
+			this.label18.Text = "Servicio:";
+			// 
+			// label17
+			// 
+			this.label17.AutoSize = true;
+			this.label17.Location = new System.Drawing.Point(67, 21);
+			this.label17.Name = "label17";
+			this.label17.Size = new System.Drawing.Size(31, 13);
+			this.label17.TabIndex = 3;
+			this.label17.Text = "Tipo:";
 			// 
 			// cboEmpaque
 			// 
@@ -583,7 +613,7 @@
 			// 
 			this.mnuNuevo.Name = "mnuNuevo";
 			this.mnuNuevo.ShortcutKeys = System.Windows.Forms.Keys.F5;
-			this.mnuNuevo.Size = new System.Drawing.Size(180, 22);
+			this.mnuNuevo.Size = new System.Drawing.Size(139, 22);
 			this.mnuNuevo.Text = "Nuevo";
 			this.mnuNuevo.Click += new System.EventHandler(this.mnuNuevo_Click);
 			// 
@@ -591,7 +621,7 @@
 			// 
 			this.mnuGuardar.Name = "mnuGuardar";
 			this.mnuGuardar.ShortcutKeys = System.Windows.Forms.Keys.F6;
-			this.mnuGuardar.Size = new System.Drawing.Size(180, 22);
+			this.mnuGuardar.Size = new System.Drawing.Size(139, 22);
 			this.mnuGuardar.Text = "Guardar";
 			this.mnuGuardar.Click += new System.EventHandler(this.mnuGuardar_Click);
 			// 
@@ -599,61 +629,19 @@
 			// 
 			this.mnuCancelar.Name = "mnuCancelar";
 			this.mnuCancelar.ShortcutKeys = System.Windows.Forms.Keys.F7;
-			this.mnuCancelar.Size = new System.Drawing.Size(180, 22);
+			this.mnuCancelar.Size = new System.Drawing.Size(139, 22);
 			this.mnuCancelar.Text = "Cancelar";
 			this.mnuCancelar.Click += new System.EventHandler(this.mnuCancelar_Click);
 			// 
 			// button1
 			// 
-			this.button1.Location = new System.Drawing.Point(722, 134);
+			this.button1.Location = new System.Drawing.Point(669, 263);
 			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(55, 41);
+			this.button1.Size = new System.Drawing.Size(55, 21);
 			this.button1.TabIndex = 16;
 			this.button1.Text = "button1";
 			this.button1.UseVisualStyleBackColor = true;
-			// 
-			// txtRecaudo
-			// 
-			this.txtRecaudo.Location = new System.Drawing.Point(86, 171);
-			this.txtRecaudo.Name = "txtRecaudo";
-			this.txtRecaudo.Size = new System.Drawing.Size(100, 20);
-			this.txtRecaudo.TabIndex = 16;
-			// 
-			// label16
-			// 
-			this.label16.AutoSize = true;
-			this.label16.Location = new System.Drawing.Point(27, 172);
-			this.label16.Name = "label16";
-			this.label16.Size = new System.Drawing.Size(54, 13);
-			this.label16.TabIndex = 17;
-			this.label16.Text = "Recaudo:";
-			// 
-			// label17
-			// 
-			this.label17.AutoSize = true;
-			this.label17.Location = new System.Drawing.Point(67, 21);
-			this.label17.Name = "label17";
-			this.label17.Size = new System.Drawing.Size(31, 13);
-			this.label17.TabIndex = 3;
-			this.label17.Text = "Tipo:";
-			// 
-			// label18
-			// 
-			this.label18.AutoSize = true;
-			this.label18.Location = new System.Drawing.Point(51, 42);
-			this.label18.Name = "label18";
-			this.label18.Size = new System.Drawing.Size(48, 13);
-			this.label18.TabIndex = 4;
-			this.label18.Text = "Servicio:";
-			// 
-			// label19
-			// 
-			this.label19.AutoSize = true;
-			this.label19.Location = new System.Drawing.Point(44, 66);
-			this.label19.Name = "label19";
-			this.label19.Size = new System.Drawing.Size(55, 13);
-			this.label19.TabIndex = 5;
-			this.label19.Text = "Empaque:";
+			this.button1.Click += new System.EventHandler(this.button1_Click_2);
 			// 
 			// frmGuia
 			// 
@@ -733,7 +721,7 @@
         private System.Windows.Forms.ToolStripButton tsbCancelar;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
 		private System.Windows.Forms.ToolStripButton toolStripButton1;
-		private System.Windows.Forms.ToolStripButton toolStripButton2;
+		private System.Windows.Forms.ToolStripButton tsbBuscar;
 		private System.Windows.Forms.GroupBox gbInformacion;
 		private System.Windows.Forms.ComboBox cboTipo;
 		private System.Windows.Forms.ComboBox cboServicio;

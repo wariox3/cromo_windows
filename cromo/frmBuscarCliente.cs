@@ -78,5 +78,10 @@ namespace cromo
 				dgClientes.DataSource = LlenarDatos().Tables[0];
 			}
 		}
+
+		private void dgClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+		{
+
+		}
 	}
 }

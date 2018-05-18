@@ -55,6 +55,7 @@
 			this.dgClientes.Size = new System.Drawing.Size(712, 301);
 			this.dgClientes.StandardTab = true;
 			this.dgClientes.TabIndex = 1;
+			this.dgClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgClientes_CellContentClick);
 			this.dgClientes.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgClientes_KeyDown);
 			// 
 			// clmCodigoCliente
