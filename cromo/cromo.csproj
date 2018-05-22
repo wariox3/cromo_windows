@@ -104,6 +104,12 @@
     <Compile Include="frmBuscarCliente.Designer.cs">
       <DependentUpon>frmBuscarCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDevolverGuia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDevolverGuia.Designer.cs">
+      <DependentUpon>frmDevolverGuia.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmGuia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +157,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmBuscarCliente.resx">
       <DependentUpon>frmBuscarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDevolverGuia.resx">
+      <DependentUpon>frmDevolverGuia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGuia.resx">
       <DependentUpon>frmGuia.cs</DependentUpon>

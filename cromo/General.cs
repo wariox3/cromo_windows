@@ -21,5 +21,24 @@ namespace cromo
 			get { return v_CodigoCiudad; }
 			set { v_CodigoCiudad = value; }
 		}
+
+	}
+
+	class BuscarGuia
+	{
+
+		private static int v_CodigoGuia = 0;
+		public static int codigoGuia
+		{
+			get { return v_CodigoGuia; }
+			set { v_CodigoGuia = value; }
+		}
+
+		public void devolverGuia()
+		{
+			frmDevolverGuia frm = new frmDevolverGuia();
+			frm.ShowDialog();
+
+		}
 	}
 }

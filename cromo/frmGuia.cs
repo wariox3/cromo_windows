@@ -153,7 +153,13 @@ namespace cromo
 
 		public void Limpiar()
         {
-            txtCodigoCliente.Text = "";
+			txtCodigo.Text = "";
+			txtFechaIngreso.Text = "";
+			txtFechaDespacho.Text = "";
+			txtFechaEntrega.Text = "";
+			txtOperacionIngreso.Text = "";
+			txtOperacionCargo.Text = "";
+			txtCodigoCliente.Text = "";
 			txtNombreCliente.Text = "";
 			txtRemitente.Text = "";
 			txtDocumentoCliente.Text = "";
@@ -164,19 +170,23 @@ namespace cromo
 			txtDireccionDestinatario.Text = "";
 			txtCodigoCiudadDestino.Text = "";
 			txtNombreCiudadDestino.Text = "";
-			txtUnidades.Text = "";
-			txtPeso.Text = "";
-			txtVolumen.Text = "";
-			txtPesoFacturar.Text = "";
-			txtDeclarado.Text = "";
-			txtFlete.Text = "";
-			txtManejo.Text = "";
-			txtRecaudo.Text = "";
+			txtUnidades.Text = "0";
+			txtPeso.Text = "0";
+			txtVolumen.Text = "0";
+			txtPesoFacturar.Text = "0";
+			txtDeclarado.Text = "0";
+			txtFlete.Text = "0";
+			txtManejo.Text = "0";
+			txtRecaudo.Text = "0";
 
 		}
 
         public void Desbloquear()
         {
+			tsbGuardar.Enabled = true;
+			tsbCancelar.Enabled = true;
+			tsbNuevo.Enabled = false;
+			tsbBuscar.Enabled = false;
             gbCliente.Enabled = true;
             gbDestinatario.Enabled = true;
             gbTotales.Enabled = true;
@@ -185,13 +195,17 @@ namespace cromo
 
         public void Bloquear()
         {
-            gbCliente.Enabled = false;
+			tsbNuevo.Enabled = true;
+			tsbBuscar.Enabled = true;
+			tsbGuardar.Enabled = false;
+			tsbCancelar.Enabled = false;
+			gbCliente.Enabled = false;
             gbDestinatario.Enabled = false;
             gbTotales.Enabled = false;
 			gbInformacion.Enabled = false;
         }
 
-        private void txtCodigoCliente_KeyPress(object sender, KeyPressEventArgs e)
+		private void txtCodigoCliente_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.SoloNumero(e);
         }
@@ -339,7 +353,7 @@ namespace cromo
 		}
 
 		private void button1_Click_2(object sender, EventArgs e)
-		{
+		{			
 			frmReporte frmReporte = new frmReporte();
 			frmReporte.Show();
 		}
@@ -351,8 +365,72 @@ namespace cromo
 
 		private void tsbBuscar_Click(object sender, EventArgs e)
 		{
-			frmBuscarGuia frm = new frmBuscarGuia();
-			frm.Show();
+
+			BuscarGuia buscar = new BuscarGuia();
+			buscar.devolverGuia();
+			TraerGuia(BuscarGuia.codigoGuia.ToString());
+		}
+
+		private void mnuBuscar_Click(object sender, EventArgs e)
+		{
+			BuscarGuia buscar = new BuscarGuia();
+			buscar.devolverGuia();			
+			TraerGuia(BuscarGuia.codigoGuia.ToString());
+		}
+		public void TraerGuia(string codigoGuia)
+		{
+			try
+			{
+				string cmd = string.Format("SELECT codigo_guia_pk, codigo_cliente_fk, tte_cliente.nombre_corto as nombreCliente, " +
+					"remitente, documento_cliente, codigo_ciudad_origen_fk, nombre_destinatario, telefono_destinatario, " +
+					"direccion_destinatario, codigo_ciudad_destino_fk, unidades, peso_real, peso_volumen, peso_facturado, " +
+					"vr_declara, vr_flete, vr_manejo, vr_recaudo, CiudadOrigen.nombre as ciudadOrigen, CiudadDestino.nombre as ciudadDestino, " +
+					"codigo_guia_tipo_fk, codigo_servicio_fk, codigo_empaque_fk, fecha_ingreso, fecha_despacho, fecha_entrega, " +
+					"codigo_operacion_ingreso_fk, codigo_operacion_cargo_fk " +
+					"FROM tte_guia " +
+					"LEFT JOIN tte_cliente ON tte_guia.codigo_cliente_fk = tte_cliente.codigo_cliente_pk " +
+					"LEFT JOIN tte_ciudad as CiudadOrigen ON tte_guia.codigo_ciudad_origen_fk = CiudadOrigen.codigo_ciudad_pk " +
+					"LEFT JOIN tte_ciudad as CiudadDestino ON tte_guia.codigo_ciudad_destino_fk = CiudadDestino.codigo_ciudad_pk " +
+					"WHERE codigo_guia_pk = " + codigoGuia);
+				DataSet ds = Utilidades.Ejecutar(cmd);
+				txtCodigo.Text = ds.Tables[0].Rows[0]["codigo_guia_pk"].ToString();
+				txtFechaIngreso.Text = ds.Tables[0].Rows[0]["fecha_ingreso"].ToString();
+				txtFechaDespacho.Text = ds.Tables[0].Rows[0]["fecha_despacho"].ToString();
+				txtFechaEntrega.Text = ds.Tables[0].Rows[0]["fecha_entrega"].ToString();
+				txtOperacionIngreso.Text = ds.Tables[0].Rows[0]["codigo_operacion_ingreso_fk"].ToString();
+				txtOperacionCargo.Text = ds.Tables[0].Rows[0]["codigo_operacion_cargo_fk"].ToString();
+				txtCodigoCliente.Text = ds.Tables[0].Rows[0]["codigo_cliente_fk"].ToString();				
+				txtNombreCliente.Text = ds.Tables[0].Rows[0]["nombreCliente"].ToString();
+				txtRemitente.Text = ds.Tables[0].Rows[0]["remitente"].ToString();
+				txtDocumentoCliente.Text = ds.Tables[0].Rows[0]["documento_cliente"].ToString();
+				txtCodigoCiudadOrigen.Text = ds.Tables[0].Rows[0]["codigo_ciudad_origen_fk"].ToString();
+				txtNombreCiudadOrigen.Text = ds.Tables[0].Rows[0]["ciudadOrigen"].ToString();
+				txtNombreDestinatario.Text = ds.Tables[0].Rows[0]["nombre_destinatario"].ToString();
+				txtTelefonoDestinatario.Text = ds.Tables[0].Rows[0]["telefono_destinatario"].ToString();
+				txtDireccionDestinatario.Text = ds.Tables[0].Rows[0]["direccion_destinatario"].ToString();
+				txtCodigoCiudadDestino.Text = ds.Tables[0].Rows[0]["codigo_ciudad_destino_fk"].ToString();
+				txtNombreCiudadDestino.Text = ds.Tables[0].Rows[0]["ciudadDestino"].ToString();
+				txtUnidades.Text = ds.Tables[0].Rows[0]["unidades"].ToString();
+				txtPeso.Text = ds.Tables[0].Rows[0]["peso_real"].ToString();
+				txtVolumen.Text = ds.Tables[0].Rows[0]["peso_volumen"].ToString();
+				txtPesoFacturar.Text = ds.Tables[0].Rows[0]["peso_facturado"].ToString();
+				txtDeclarado.Text = ds.Tables[0].Rows[0]["vr_declara"].ToString();
+				txtFlete.Text = ds.Tables[0].Rows[0]["vr_flete"].ToString();
+				txtManejo.Text = ds.Tables[0].Rows[0]["vr_manejo"].ToString();
+				txtRecaudo.Text = ds.Tables[0].Rows[0]["vr_recaudo"].ToString();
+				cboTipo.SelectedValue = ds.Tables[0].Rows[0]["codigo_guia_tipo_fk"].ToString();
+				cboServicio.SelectedValue = ds.Tables[0].Rows[0]["codigo_servicio_fk"].ToString();
+				cboEmpaque.SelectedValue = ds.Tables[0].Rows[0]["codigo_empaque_fk"].ToString();
+			}
+			catch (Exception error)
+			{
+				MessageBox.Show("No se encontro la guia Error(" + error.Message + ")");
+			}
+		}
+
+		private void label24_Click(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

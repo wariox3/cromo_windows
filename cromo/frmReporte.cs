@@ -36,6 +36,7 @@ namespace cromo
 			objRpt.SetDataSource(ds.Tables[0]);
 			crystalReportViewer1.ReportSource = objRpt;
 			crystalReportViewer1.Refresh();
+			crystalReportViewer1.PrintReport();
 
 
 		}
