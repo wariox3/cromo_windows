@@ -20,12 +20,20 @@ namespace cromo
         private void frmConfiguracion_Load(object sender, EventArgs e)
         {
             txtCentroOperacion.Text = cromo.Properties.Settings.Default.centroOperacion;
-        }
+			txtServidor.Text = cromo.Properties.Settings.Default.servidorBaseDatos;
+			txtUsuario.Text = cromo.Properties.Settings.Default.usuarioBaseDatos;
+			txtClave.Text = cromo.Properties.Settings.Default.claveBaseDatos;
+			txtBaseDatos.Text = cromo.Properties.Settings.Default.baseDatos;
+		}
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             cromo.Properties.Settings.Default.centroOperacion = txtCentroOperacion.Text;
-            cromo.Properties.Settings.Default.Save();
+			cromo.Properties.Settings.Default.servidorBaseDatos = txtServidor.Text;
+			cromo.Properties.Settings.Default.usuarioBaseDatos = txtUsuario.Text;
+			cromo.Properties.Settings.Default.claveBaseDatos = txtClave.Text;
+			cromo.Properties.Settings.Default.baseDatos = txtBaseDatos.Text;
+			cromo.Properties.Settings.Default.Save();
             Close();
         }
 

@@ -11,8 +11,11 @@ namespace cromo
         public static MySqlConnection ObtenerConexion()
         {
 			/*https://www.youtube.com/watch?v=e8R3-EXqQIM */
-
-			MySqlConnection conectar = new MySqlConnection("server=localhost; database=bdcromo; Uid=principal; pwd=70143086;");
+			string servirdor = cromo.Properties.Settings.Default.servidorBaseDatos;
+			string usuario = cromo.Properties.Settings.Default.usuarioBaseDatos;
+			string clave = cromo.Properties.Settings.Default.claveBaseDatos;
+			string baseDatos = cromo.Properties.Settings.Default.baseDatos;
+			MySqlConnection conectar = new MySqlConnection("server="+ servirdor + "; database="+baseDatos+"; Uid="+usuario+"; pwd="+clave+";");
             conectar.Open();
             return conectar;
         }

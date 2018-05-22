@@ -11,7 +11,7 @@ namespace MiLibreria
     {
         public static DataSet Ejecutar(string cmd)
         {
-            MySqlConnection bd = new MySqlConnection("server=localhost; database=bdcromo; Uid=principal; pwd=70143086;");
+            MySqlConnection bd = new MySqlConnection("server=localhost; database=bdlogicuartas; Uid=root; pwd=70143086;");
             bd.Open();
             DataSet ds = new DataSet();
             MySqlDataAdapter dp = new MySqlDataAdapter(cmd, bd);

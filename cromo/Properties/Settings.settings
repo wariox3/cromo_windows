@@ -5,5 +5,17 @@
     <Setting Name="centroOperacion" Type="System.String" Scope="User">
       <Value Profile="(Default)">MED</Value>
     </Setting>
+    <Setting Name="servidorBaseDatos" Type="System.String" Scope="User">
+      <Value Profile="(Default)">localhost</Value>
+    </Setting>
+    <Setting Name="usuarioBaseDatos" Type="System.String" Scope="User">
+      <Value Profile="(Default)">root</Value>
+    </Setting>
+    <Setting Name="claveBaseDatos" Type="System.String" Scope="User">
+      <Value Profile="(Default)">000000</Value>
+    </Setting>
+    <Setting Name="baseDatos" Type="System.String" Scope="User">
+      <Value Profile="(Default)">bd</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
