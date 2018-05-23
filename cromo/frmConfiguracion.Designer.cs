@@ -40,11 +40,13 @@
 			this.label3 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
+			this.label6 = new System.Windows.Forms.Label();
+			this.txtCodigoCiudadOrigen = new System.Windows.Forms.TextBox();
 			this.SuspendLayout();
 			// 
 			// btnGuardar
 			// 
-			this.btnGuardar.Location = new System.Drawing.Point(234, 168);
+			this.btnGuardar.Location = new System.Drawing.Point(229, 250);
 			this.btnGuardar.Name = "btnGuardar";
 			this.btnGuardar.Size = new System.Drawing.Size(140, 27);
 			this.btnGuardar.TabIndex = 0;
@@ -54,7 +56,7 @@
 			// 
 			// btnCancelar
 			// 
-			this.btnCancelar.Location = new System.Drawing.Point(24, 170);
+			this.btnCancelar.Location = new System.Drawing.Point(24, 252);
 			this.btnCancelar.Name = "btnCancelar";
 			this.btnCancelar.Size = new System.Drawing.Size(154, 25);
 			this.btnCancelar.TabIndex = 1;
@@ -80,28 +82,28 @@
 			// 
 			// txtBaseDatos
 			// 
-			this.txtBaseDatos.Location = new System.Drawing.Point(155, 129);
+			this.txtBaseDatos.Location = new System.Drawing.Point(155, 155);
 			this.txtBaseDatos.Name = "txtBaseDatos";
 			this.txtBaseDatos.Size = new System.Drawing.Size(145, 20);
 			this.txtBaseDatos.TabIndex = 4;
 			// 
 			// txtClave
 			// 
-			this.txtClave.Location = new System.Drawing.Point(155, 103);
+			this.txtClave.Location = new System.Drawing.Point(155, 129);
 			this.txtClave.Name = "txtClave";
 			this.txtClave.Size = new System.Drawing.Size(145, 20);
 			this.txtClave.TabIndex = 5;
 			// 
 			// txtUsuario
 			// 
-			this.txtUsuario.Location = new System.Drawing.Point(155, 77);
+			this.txtUsuario.Location = new System.Drawing.Point(155, 103);
 			this.txtUsuario.Name = "txtUsuario";
 			this.txtUsuario.Size = new System.Drawing.Size(145, 20);
 			this.txtUsuario.TabIndex = 6;
 			// 
 			// txtServidor
 			// 
-			this.txtServidor.Location = new System.Drawing.Point(155, 51);
+			this.txtServidor.Location = new System.Drawing.Point(155, 77);
 			this.txtServidor.Name = "txtServidor";
 			this.txtServidor.Size = new System.Drawing.Size(145, 20);
 			this.txtServidor.TabIndex = 7;
@@ -109,7 +111,7 @@
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(86, 132);
+			this.label2.Location = new System.Drawing.Point(86, 158);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(63, 13);
 			this.label2.TabIndex = 8;
@@ -118,7 +120,7 @@
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(112, 106);
+			this.label3.Location = new System.Drawing.Point(112, 132);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(37, 13);
 			this.label3.TabIndex = 9;
@@ -127,7 +129,7 @@
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(103, 80);
+			this.label4.Location = new System.Drawing.Point(103, 106);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(46, 13);
 			this.label4.TabIndex = 10;
@@ -136,17 +138,35 @@
 			// label5
 			// 
 			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(100, 51);
+			this.label5.Location = new System.Drawing.Point(100, 77);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(49, 13);
 			this.label5.TabIndex = 11;
 			this.label5.Text = "Servidor:";
 			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.Location = new System.Drawing.Point(72, 54);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(77, 13);
+			this.label6.TabIndex = 12;
+			this.label6.Text = "Ciudad Origen:";
+			// 
+			// txtCodigoCiudadOrigen
+			// 
+			this.txtCodigoCiudadOrigen.Location = new System.Drawing.Point(155, 51);
+			this.txtCodigoCiudadOrigen.Name = "txtCodigoCiudadOrigen";
+			this.txtCodigoCiudadOrigen.Size = new System.Drawing.Size(145, 20);
+			this.txtCodigoCiudadOrigen.TabIndex = 13;
+			// 
 			// frmConfiguracion
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(396, 213);
+			this.ClientSize = new System.Drawing.Size(396, 299);
+			this.Controls.Add(this.txtCodigoCiudadOrigen);
+			this.Controls.Add(this.label6);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.label3);
@@ -184,5 +204,7 @@
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.TextBox txtCodigoCiudadOrigen;
 	}
 }

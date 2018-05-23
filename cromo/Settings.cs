@@ -1,4 +1,6 @@
-﻿namespace cromo.Properties {
+﻿using System.Windows.Forms;
+
+namespace cromo.Properties {
     
     
     // Esta clase le permite controlar eventos específicos en la clase de configuración:
@@ -7,8 +9,9 @@
     //  El evento SettingsLoaded se desencadena después de cargar los valores de configuración.
     //  El evento SettingsSaving se desencadena antes de guardar los valores de configuración.
     internal sealed partial class Settings {
-        
-        public Settings() {
+		internal TextBox codigoCiudadOrigen;
+
+		public Settings() {
             // // Para agregar los controladores de eventos para guardar y cambiar la configuración, quite la marca de comentario de las líneas:
             //
             // this.SettingChanging += this.SettingChangingEventHandler;

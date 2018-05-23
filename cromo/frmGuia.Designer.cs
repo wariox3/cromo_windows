@@ -30,6 +30,9 @@
         {
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGuia));
 			this.gbDestinatario = new System.Windows.Forms.GroupBox();
+			this.chkReexpedicion = new System.Windows.Forms.CheckBox();
+			this.txtCodigoRuta = new System.Windows.Forms.TextBox();
+			this.txtOrdenRuta = new System.Windows.Forms.TextBox();
 			this.label5 = new System.Windows.Forms.Label();
 			this.txtNombreCiudadDestino = new System.Windows.Forms.TextBox();
 			this.txtCodigoCiudadDestino = new System.Windows.Forms.TextBox();
@@ -74,6 +77,8 @@
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.tsbBuscar = new System.Windows.Forms.ToolStripButton();
 			this.gbInformacion = new System.Windows.Forms.GroupBox();
+			this.label26 = new System.Windows.Forms.Label();
+			this.cboProducto = new System.Windows.Forms.ComboBox();
 			this.label19 = new System.Windows.Forms.Label();
 			this.label18 = new System.Windows.Forms.Label();
 			this.label17 = new System.Windows.Forms.Label();
@@ -88,6 +93,10 @@
 			this.mnuBuscar = new System.Windows.Forms.ToolStripMenuItem();
 			this.button1 = new System.Windows.Forms.Button();
 			this.gbDatos = new System.Windows.Forms.GroupBox();
+			this.txtOperacionIngreso = new System.Windows.Forms.TextBox();
+			this.txtOperacionCargo = new System.Windows.Forms.TextBox();
+			this.label25 = new System.Windows.Forms.Label();
+			this.label24 = new System.Windows.Forms.Label();
 			this.txtFechaEntrega = new System.Windows.Forms.TextBox();
 			this.txtFechaDespacho = new System.Windows.Forms.TextBox();
 			this.txtFechaIngreso = new System.Windows.Forms.TextBox();
@@ -96,11 +105,6 @@
 			this.label21 = new System.Windows.Forms.Label();
 			this.txtCodigo = new System.Windows.Forms.TextBox();
 			this.label20 = new System.Windows.Forms.Label();
-			this.label24 = new System.Windows.Forms.Label();
-			this.label25 = new System.Windows.Forms.Label();
-			this.txtOperacionCargo = new System.Windows.Forms.TextBox();
-			this.txtOperacionIngreso = new System.Windows.Forms.TextBox();
-			this.txtOrdenRuta = new System.Windows.Forms.TextBox();
 			this.gbDestinatario.SuspendLayout();
 			this.gbTotales.SuspendLayout();
 			this.gbCliente.SuspendLayout();
@@ -112,6 +116,8 @@
 			// 
 			// gbDestinatario
 			// 
+			this.gbDestinatario.Controls.Add(this.chkReexpedicion);
+			this.gbDestinatario.Controls.Add(this.txtCodigoRuta);
 			this.gbDestinatario.Controls.Add(this.txtOrdenRuta);
 			this.gbDestinatario.Controls.Add(this.label5);
 			this.gbDestinatario.Controls.Add(this.txtNombreCiudadDestino);
@@ -126,9 +132,36 @@
 			this.gbDestinatario.Location = new System.Drawing.Point(18, 175);
 			this.gbDestinatario.Name = "gbDestinatario";
 			this.gbDestinatario.Size = new System.Drawing.Size(567, 109);
-			this.gbDestinatario.TabIndex = 4;
+			this.gbDestinatario.TabIndex = 5;
 			this.gbDestinatario.TabStop = false;
 			this.gbDestinatario.Text = "Destinatario";
+			// 
+			// chkReexpedicion
+			// 
+			this.chkReexpedicion.AutoSize = true;
+			this.chkReexpedicion.Enabled = false;
+			this.chkReexpedicion.Location = new System.Drawing.Point(521, 78);
+			this.chkReexpedicion.Name = "chkReexpedicion";
+			this.chkReexpedicion.Size = new System.Drawing.Size(34, 17);
+			this.chkReexpedicion.TabIndex = 22;
+			this.chkReexpedicion.Text = "R";
+			this.chkReexpedicion.UseVisualStyleBackColor = true;
+			// 
+			// txtCodigoRuta
+			// 
+			this.txtCodigoRuta.Enabled = false;
+			this.txtCodigoRuta.Location = new System.Drawing.Point(462, 76);
+			this.txtCodigoRuta.Name = "txtCodigoRuta";
+			this.txtCodigoRuta.Size = new System.Drawing.Size(27, 20);
+			this.txtCodigoRuta.TabIndex = 21;
+			// 
+			// txtOrdenRuta
+			// 
+			this.txtOrdenRuta.Enabled = false;
+			this.txtOrdenRuta.Location = new System.Drawing.Point(492, 76);
+			this.txtOrdenRuta.Name = "txtOrdenRuta";
+			this.txtOrdenRuta.Size = new System.Drawing.Size(25, 20);
+			this.txtOrdenRuta.TabIndex = 20;
 			// 
 			// label5
 			// 
@@ -142,19 +175,18 @@
 			// txtNombreCiudadDestino
 			// 
 			this.txtNombreCiudadDestino.Enabled = false;
-			this.txtNombreCiudadDestino.Location = new System.Drawing.Point(214, 76);
+			this.txtNombreCiudadDestino.Location = new System.Drawing.Point(156, 76);
 			this.txtNombreCiudadDestino.Name = "txtNombreCiudadDestino";
 			this.txtNombreCiudadDestino.ReadOnly = true;
-			this.txtNombreCiudadDestino.Size = new System.Drawing.Size(255, 20);
+			this.txtNombreCiudadDestino.Size = new System.Drawing.Size(300, 20);
 			this.txtNombreCiudadDestino.TabIndex = 18;
 			// 
 			// txtCodigoCiudadDestino
 			// 
 			this.txtCodigoCiudadDestino.Location = new System.Drawing.Point(108, 76);
 			this.txtCodigoCiudadDestino.Name = "txtCodigoCiudadDestino";
-			this.txtCodigoCiudadDestino.Size = new System.Drawing.Size(100, 20);
-			this.txtCodigoCiudadDestino.TabIndex = 8;
-			this.txtCodigoCiudadDestino.TextChanged += new System.EventHandler(this.txtCodigoCiudadDestino_TextChanged);
+			this.txtCodigoCiudadDestino.Size = new System.Drawing.Size(42, 20);
+			this.txtCodigoCiudadDestino.TabIndex = 9;
 			this.txtCodigoCiudadDestino.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigoCiudadDestino_KeyDown);
 			this.txtCodigoCiudadDestino.Validated += new System.EventHandler(this.txtCodigoCiudadDestino_Validated);
 			// 
@@ -163,21 +195,21 @@
 			this.txtDireccionDestinatario.Location = new System.Drawing.Point(108, 49);
 			this.txtDireccionDestinatario.Name = "txtDireccionDestinatario";
 			this.txtDireccionDestinatario.Size = new System.Drawing.Size(447, 20);
-			this.txtDireccionDestinatario.TabIndex = 7;
+			this.txtDireccionDestinatario.TabIndex = 8;
 			// 
 			// txtTelefonoDestinatario
 			// 
 			this.txtTelefonoDestinatario.Location = new System.Drawing.Point(475, 19);
 			this.txtTelefonoDestinatario.Name = "txtTelefonoDestinatario";
 			this.txtTelefonoDestinatario.Size = new System.Drawing.Size(80, 20);
-			this.txtTelefonoDestinatario.TabIndex = 6;
+			this.txtTelefonoDestinatario.TabIndex = 7;
 			// 
 			// txtNombreDestinatario
 			// 
 			this.txtNombreDestinatario.Location = new System.Drawing.Point(108, 22);
 			this.txtNombreDestinatario.Name = "txtNombreDestinatario";
 			this.txtNombreDestinatario.Size = new System.Drawing.Size(298, 20);
-			this.txtNombreDestinatario.TabIndex = 5;
+			this.txtNombreDestinatario.TabIndex = 6;
 			// 
 			// label4
 			// 
@@ -228,7 +260,7 @@
 			this.gbTotales.Location = new System.Drawing.Point(377, 290);
 			this.gbTotales.Name = "gbTotales";
 			this.gbTotales.Size = new System.Drawing.Size(208, 196);
-			this.gbTotales.TabIndex = 9;
+			this.gbTotales.TabIndex = 15;
 			this.gbTotales.TabStop = false;
 			this.gbTotales.Text = "Totales";
 			// 
@@ -246,56 +278,58 @@
 			this.txtRecaudo.Location = new System.Drawing.Point(86, 171);
 			this.txtRecaudo.Name = "txtRecaudo";
 			this.txtRecaudo.Size = new System.Drawing.Size(100, 20);
-			this.txtRecaudo.TabIndex = 16;
+			this.txtRecaudo.TabIndex = 23;
 			// 
 			// txtManejo
 			// 
 			this.txtManejo.Location = new System.Drawing.Point(86, 148);
 			this.txtManejo.Name = "txtManejo";
 			this.txtManejo.Size = new System.Drawing.Size(100, 20);
-			this.txtManejo.TabIndex = 15;
+			this.txtManejo.TabIndex = 22;
 			// 
 			// txtFlete
 			// 
 			this.txtFlete.Location = new System.Drawing.Point(86, 126);
 			this.txtFlete.Name = "txtFlete";
 			this.txtFlete.Size = new System.Drawing.Size(100, 20);
-			this.txtFlete.TabIndex = 14;
+			this.txtFlete.TabIndex = 21;
 			// 
 			// txtDeclarado
 			// 
 			this.txtDeclarado.Location = new System.Drawing.Point(86, 104);
 			this.txtDeclarado.Name = "txtDeclarado";
 			this.txtDeclarado.Size = new System.Drawing.Size(100, 20);
-			this.txtDeclarado.TabIndex = 13;
+			this.txtDeclarado.TabIndex = 20;
 			// 
 			// txtPesoFacturar
 			// 
 			this.txtPesoFacturar.Location = new System.Drawing.Point(86, 82);
 			this.txtPesoFacturar.Name = "txtPesoFacturar";
 			this.txtPesoFacturar.Size = new System.Drawing.Size(100, 20);
-			this.txtPesoFacturar.TabIndex = 12;
+			this.txtPesoFacturar.TabIndex = 19;
+			this.txtPesoFacturar.Validated += new System.EventHandler(this.txtPesoFacturar_Validated);
 			// 
 			// txtVolumen
 			// 
 			this.txtVolumen.Location = new System.Drawing.Point(86, 60);
 			this.txtVolumen.Name = "txtVolumen";
 			this.txtVolumen.Size = new System.Drawing.Size(100, 20);
-			this.txtVolumen.TabIndex = 11;
+			this.txtVolumen.TabIndex = 18;
 			// 
 			// txtPeso
 			// 
 			this.txtPeso.Location = new System.Drawing.Point(86, 38);
 			this.txtPeso.Name = "txtPeso";
 			this.txtPeso.Size = new System.Drawing.Size(100, 20);
-			this.txtPeso.TabIndex = 10;
+			this.txtPeso.TabIndex = 17;
 			// 
 			// txtUnidades
 			// 
 			this.txtUnidades.Location = new System.Drawing.Point(86, 15);
 			this.txtUnidades.Name = "txtUnidades";
 			this.txtUnidades.Size = new System.Drawing.Size(100, 20);
-			this.txtUnidades.TabIndex = 9;
+			this.txtUnidades.TabIndex = 16;
+			this.txtUnidades.Validated += new System.EventHandler(this.txtUnidades_Validated);
 			// 
 			// label12
 			// 
@@ -392,18 +426,18 @@
 			// txtNombreCiudadOrigen
 			// 
 			this.txtNombreCiudadOrigen.Enabled = false;
-			this.txtNombreCiudadOrigen.Location = new System.Drawing.Point(214, 102);
+			this.txtNombreCiudadOrigen.Location = new System.Drawing.Point(156, 102);
 			this.txtNombreCiudadOrigen.Name = "txtNombreCiudadOrigen";
 			this.txtNombreCiudadOrigen.ReadOnly = true;
-			this.txtNombreCiudadOrigen.Size = new System.Drawing.Size(341, 20);
+			this.txtNombreCiudadOrigen.Size = new System.Drawing.Size(399, 20);
 			this.txtNombreCiudadOrigen.TabIndex = 21;
 			// 
 			// txtCodigoCiudadOrigen
 			// 
 			this.txtCodigoCiudadOrigen.Location = new System.Drawing.Point(111, 102);
 			this.txtCodigoCiudadOrigen.Name = "txtCodigoCiudadOrigen";
-			this.txtCodigoCiudadOrigen.Size = new System.Drawing.Size(97, 20);
-			this.txtCodigoCiudadOrigen.TabIndex = 20;
+			this.txtCodigoCiudadOrigen.Size = new System.Drawing.Size(39, 20);
+			this.txtCodigoCiudadOrigen.TabIndex = 4;
 			this.txtCodigoCiudadOrigen.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigoCiudadOrigen_KeyDown);
 			this.txtCodigoCiudadOrigen.Validated += new System.EventHandler(this.txtCodigoCiudadOrigen_Validated);
 			// 
@@ -531,6 +565,8 @@
 			// 
 			// gbInformacion
 			// 
+			this.gbInformacion.Controls.Add(this.label26);
+			this.gbInformacion.Controls.Add(this.cboProducto);
 			this.gbInformacion.Controls.Add(this.label19);
 			this.gbInformacion.Controls.Add(this.label18);
 			this.gbInformacion.Controls.Add(this.label17);
@@ -540,15 +576,32 @@
 			this.gbInformacion.Enabled = false;
 			this.gbInformacion.Location = new System.Drawing.Point(21, 291);
 			this.gbInformacion.Name = "gbInformacion";
-			this.gbInformacion.Size = new System.Drawing.Size(284, 97);
-			this.gbInformacion.TabIndex = 14;
+			this.gbInformacion.Size = new System.Drawing.Size(284, 136);
+			this.gbInformacion.TabIndex = 10;
 			this.gbInformacion.TabStop = false;
 			this.gbInformacion.Text = "Informacion";
+			// 
+			// label26
+			// 
+			this.label26.AutoSize = true;
+			this.label26.Location = new System.Drawing.Point(43, 66);
+			this.label26.Name = "label26";
+			this.label26.Size = new System.Drawing.Size(53, 13);
+			this.label26.TabIndex = 7;
+			this.label26.Text = "Producto:";
+			// 
+			// cboProducto
+			// 
+			this.cboProducto.FormattingEnabled = true;
+			this.cboProducto.Location = new System.Drawing.Point(105, 63);
+			this.cboProducto.Name = "cboProducto";
+			this.cboProducto.Size = new System.Drawing.Size(167, 21);
+			this.cboProducto.TabIndex = 13;
 			// 
 			// label19
 			// 
 			this.label19.AutoSize = true;
-			this.label19.Location = new System.Drawing.Point(44, 66);
+			this.label19.Location = new System.Drawing.Point(44, 88);
 			this.label19.Name = "label19";
 			this.label19.Size = new System.Drawing.Size(55, 13);
 			this.label19.TabIndex = 5;
@@ -575,10 +628,10 @@
 			// cboEmpaque
 			// 
 			this.cboEmpaque.FormattingEnabled = true;
-			this.cboEmpaque.Location = new System.Drawing.Point(105, 64);
+			this.cboEmpaque.Location = new System.Drawing.Point(105, 87);
 			this.cboEmpaque.Name = "cboEmpaque";
 			this.cboEmpaque.Size = new System.Drawing.Size(167, 21);
-			this.cboEmpaque.TabIndex = 2;
+			this.cboEmpaque.TabIndex = 14;
 			// 
 			// cboServicio
 			// 
@@ -586,7 +639,7 @@
 			this.cboServicio.Location = new System.Drawing.Point(105, 40);
 			this.cboServicio.Name = "cboServicio";
 			this.cboServicio.Size = new System.Drawing.Size(167, 21);
-			this.cboServicio.TabIndex = 1;
+			this.cboServicio.TabIndex = 12;
 			// 
 			// cboTipo
 			// 
@@ -594,7 +647,7 @@
 			this.cboTipo.Location = new System.Drawing.Point(105, 17);
 			this.cboTipo.Name = "cboTipo";
 			this.cboTipo.Size = new System.Drawing.Size(167, 21);
-			this.cboTipo.TabIndex = 0;
+			this.cboTipo.TabIndex = 11;
 			// 
 			// menuStrip1
 			// 
@@ -652,7 +705,7 @@
 			// 
 			// button1
 			// 
-			this.button1.Location = new System.Drawing.Point(21, 397);
+			this.button1.Location = new System.Drawing.Point(21, 433);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(26, 21);
 			this.button1.TabIndex = 16;
@@ -680,6 +733,39 @@
 			this.gbDatos.Size = new System.Drawing.Size(239, 129);
 			this.gbDatos.TabIndex = 17;
 			this.gbDatos.TabStop = false;
+			// 
+			// txtOperacionIngreso
+			// 
+			this.txtOperacionIngreso.Location = new System.Drawing.Point(66, 102);
+			this.txtOperacionIngreso.Name = "txtOperacionIngreso";
+			this.txtOperacionIngreso.Size = new System.Drawing.Size(56, 20);
+			this.txtOperacionIngreso.TabIndex = 11;
+			// 
+			// txtOperacionCargo
+			// 
+			this.txtOperacionCargo.Location = new System.Drawing.Point(172, 102);
+			this.txtOperacionCargo.Name = "txtOperacionCargo";
+			this.txtOperacionCargo.Size = new System.Drawing.Size(57, 20);
+			this.txtOperacionCargo.TabIndex = 10;
+			// 
+			// label25
+			// 
+			this.label25.AutoSize = true;
+			this.label25.Location = new System.Drawing.Point(145, 105);
+			this.label25.Name = "label25";
+			this.label25.Size = new System.Drawing.Size(25, 13);
+			this.label25.TabIndex = 9;
+			this.label25.Text = "OC:";
+			// 
+			// label24
+			// 
+			this.label24.AutoSize = true;
+			this.label24.Location = new System.Drawing.Point(41, 105);
+			this.label24.Name = "label24";
+			this.label24.Size = new System.Drawing.Size(21, 13);
+			this.label24.TabIndex = 8;
+			this.label24.Text = "OI:";
+			this.label24.Click += new System.EventHandler(this.label24_Click);
 			// 
 			// txtFechaEntrega
 			// 
@@ -744,46 +830,6 @@
 			this.label20.Size = new System.Drawing.Size(19, 13);
 			this.label20.TabIndex = 0;
 			this.label20.Text = "Id:";
-			// 
-			// label24
-			// 
-			this.label24.AutoSize = true;
-			this.label24.Location = new System.Drawing.Point(41, 105);
-			this.label24.Name = "label24";
-			this.label24.Size = new System.Drawing.Size(21, 13);
-			this.label24.TabIndex = 8;
-			this.label24.Text = "OI:";
-			this.label24.Click += new System.EventHandler(this.label24_Click);
-			// 
-			// label25
-			// 
-			this.label25.AutoSize = true;
-			this.label25.Location = new System.Drawing.Point(145, 105);
-			this.label25.Name = "label25";
-			this.label25.Size = new System.Drawing.Size(25, 13);
-			this.label25.TabIndex = 9;
-			this.label25.Text = "OC:";
-			// 
-			// txtOperacionCargo
-			// 
-			this.txtOperacionCargo.Location = new System.Drawing.Point(172, 102);
-			this.txtOperacionCargo.Name = "txtOperacionCargo";
-			this.txtOperacionCargo.Size = new System.Drawing.Size(57, 20);
-			this.txtOperacionCargo.TabIndex = 10;
-			// 
-			// txtOperacionIngreso
-			// 
-			this.txtOperacionIngreso.Location = new System.Drawing.Point(66, 102);
-			this.txtOperacionIngreso.Name = "txtOperacionIngreso";
-			this.txtOperacionIngreso.Size = new System.Drawing.Size(56, 20);
-			this.txtOperacionIngreso.TabIndex = 11;
-			// 
-			// txtOrdenRuta
-			// 
-			this.txtOrdenRuta.Location = new System.Drawing.Point(475, 76);
-			this.txtOrdenRuta.Name = "txtOrdenRuta";
-			this.txtOrdenRuta.Size = new System.Drawing.Size(80, 20);
-			this.txtOrdenRuta.TabIndex = 20;
 			// 
 			// frmGuia
 			// 
@@ -896,6 +942,10 @@
 		private System.Windows.Forms.Label label25;
 		private System.Windows.Forms.Label label24;
 		private System.Windows.Forms.TextBox txtOrdenRuta;
+		private System.Windows.Forms.TextBox txtCodigoRuta;
+		private System.Windows.Forms.Label label26;
+		private System.Windows.Forms.ComboBox cboProducto;
+		private System.Windows.Forms.CheckBox chkReexpedicion;
 	}
 }
 

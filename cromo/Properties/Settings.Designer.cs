@@ -82,5 +82,17 @@ namespace cromo.Properties {
                 this["baseDatos"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("209")]
+        public string ciudadOrigen {
+            get {
+                return ((string)(this["ciudadOrigen"]));
+            }
+            set {
+                this["ciudadOrigen"] = value;
+            }
+        }
     }
 }

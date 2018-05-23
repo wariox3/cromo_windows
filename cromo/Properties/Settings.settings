@@ -17,5 +17,8 @@
     <Setting Name="baseDatos" Type="System.String" Scope="User">
       <Value Profile="(Default)">bd</Value>
     </Setting>
+    <Setting Name="ciudadOrigen" Type="System.String" Scope="User">
+      <Value Profile="(Default)">209</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

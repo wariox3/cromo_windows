@@ -18,6 +18,7 @@ namespace cromo
         public string remitente { get; set; }
 		public string codigoServicioFk { get; set; }
 		public string codigoGuiaTipoFk { get; set; }
+		public string codigoProductoFk { get; set; }
 		public string codigoEmpaqueFk { get; set; }
 		public string nombreDestinatario { get; set; }
 		public string direccionDestinatario { get; set; }
@@ -30,14 +31,17 @@ namespace cromo
 		public double vrManejo { get; set; }
 		public double vrDeclara { get; set; }
 		public double vrRecaudo { get; set; }
-
+		public string codigoRutaFk { get; set; }
+		public int ordenRuta { get; set; }
+		public bool reexpedicion { get; set; }
 		public guia() { }
 
         public guia(int pcodigoGuiaPk, string pcodigoOperacionIngresoFk, string pcodigoOperacionCargoFk,
             int pcodigoClienteFk, string pcodigoCiudadOrigenFk, string pcodigoCiudadDestinoFk, string pdocumentoCliente,
-            string premitente, string pcodigoServicioFk, string pcodigoGuiaTipoFk, string pcodigoEmpaqueFk, string pnombreDestinatario,
+            string premitente, string pcodigoServicioFk, string pcodigoGuiaTipoFk, string pcodigoProductoFk, string pcodigoEmpaqueFk, string pnombreDestinatario,
 			string pdireccionDestinatario, string ptelefonoDestinatario, string pfechaIngreso, int punidades, int ppesoReal, 
-			int ppesovolumen, int ppesoFacturar, double pvrFlete, double pvrManejo, double pvrDeclara, double pvrRecaudo)
+			int ppesovolumen, int ppesoFacturar, double pvrFlete, double pvrManejo, double pvrDeclara, double pvrRecaudo,
+			string pcodigoRutaFk, int pordenRuta, bool preexpedicion)
         {
             this.codigoGuiaPk = pcodigoGuiaPk;
             this.codigoOperacionIngresoFk = pcodigoOperacionIngresoFk;
@@ -48,8 +52,9 @@ namespace cromo
             this.documentoCliente = pdocumentoCliente;
             this.remitente = premitente;
 			this.codigoServicioFk = pcodigoServicioFk;
-			this.codigoServicioFk = pcodigoGuiaTipoFk;
-			this.codigoServicioFk = pcodigoEmpaqueFk;
+			this.codigoGuiaTipoFk = pcodigoGuiaTipoFk;
+			this.codigoProductoFk = pcodigoProductoFk;
+			this.codigoEmpaqueFk = pcodigoEmpaqueFk;
 			this.nombreDestinatario = pnombreDestinatario;
 			this.direccionDestinatario = pdireccionDestinatario;
 			this.telefonoDestinatario = ptelefonoDestinatario;
@@ -61,6 +66,9 @@ namespace cromo
 			this.vrManejo = pvrManejo;
 			this.vrDeclara = pvrDeclara;
 			this.vrRecaudo = pvrRecaudo;
+			this.codigoRutaFk = pcodigoRutaFk;
+			this.ordenRuta = pordenRuta;
+			this.reexpedicion = preexpedicion;
 		}
 
 	}
