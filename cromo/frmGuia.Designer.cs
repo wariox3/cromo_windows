@@ -30,7 +30,6 @@
         {
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGuia));
 			this.gbDestinatario = new System.Windows.Forms.GroupBox();
-			this.chkReexpedicion = new System.Windows.Forms.CheckBox();
 			this.txtCodigoRuta = new System.Windows.Forms.TextBox();
 			this.txtOrdenRuta = new System.Windows.Forms.TextBox();
 			this.label5 = new System.Windows.Forms.Label();
@@ -100,15 +99,6 @@
 			this.mnuBuscar = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuImprimir = new System.Windows.Forms.ToolStripMenuItem();
 			this.gbDatos = new System.Windows.Forms.GroupBox();
-			this.checkBox9 = new System.Windows.Forms.CheckBox();
-			this.checkBox8 = new System.Windows.Forms.CheckBox();
-			this.checkBox7 = new System.Windows.Forms.CheckBox();
-			this.checkBox6 = new System.Windows.Forms.CheckBox();
-			this.checkBox5 = new System.Windows.Forms.CheckBox();
-			this.checkBox4 = new System.Windows.Forms.CheckBox();
-			this.checkBox3 = new System.Windows.Forms.CheckBox();
-			this.checkBox2 = new System.Windows.Forms.CheckBox();
-			this.checkBox1 = new System.Windows.Forms.CheckBox();
 			this.label28 = new System.Windows.Forms.Label();
 			this.txtNumero = new System.Windows.Forms.TextBox();
 			this.txtOperacionIngreso = new System.Windows.Forms.TextBox();
@@ -123,6 +113,21 @@
 			this.label21 = new System.Windows.Forms.Label();
 			this.txtCodigo = new System.Windows.Forms.TextBox();
 			this.label20 = new System.Windows.Forms.Label();
+			this.button1 = new System.Windows.Forms.Button();
+			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.checkBox9 = new System.Windows.Forms.CheckBox();
+			this.chkFacturado = new System.Windows.Forms.CheckBox();
+			this.checkBox7 = new System.Windows.Forms.CheckBox();
+			this.checkBox6 = new System.Windows.Forms.CheckBox();
+			this.checkBox5 = new System.Windows.Forms.CheckBox();
+			this.checkBox4 = new System.Windows.Forms.CheckBox();
+			this.checkBox3 = new System.Windows.Forms.CheckBox();
+			this.checkBox2 = new System.Windows.Forms.CheckBox();
+			this.checkBox1 = new System.Windows.Forms.CheckBox();
+			this.chkFactura = new System.Windows.Forms.CheckBox();
+			this.chkReexpedicion = new System.Windows.Forms.CheckBox();
+			this.txtAbono = new System.Windows.Forms.TextBox();
+			this.label30 = new System.Windows.Forms.Label();
 			this.gbDestinatario.SuspendLayout();
 			this.gbTotales.SuspendLayout();
 			this.gbCliente.SuspendLayout();
@@ -130,11 +135,11 @@
 			this.gbInformacion.SuspendLayout();
 			this.menuStrip1.SuspendLayout();
 			this.gbDatos.SuspendLayout();
+			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// gbDestinatario
 			// 
-			this.gbDestinatario.Controls.Add(this.chkReexpedicion);
 			this.gbDestinatario.Controls.Add(this.txtCodigoRuta);
 			this.gbDestinatario.Controls.Add(this.txtOrdenRuta);
 			this.gbDestinatario.Controls.Add(this.label5);
@@ -153,21 +158,10 @@
 			this.gbDestinatario.TabIndex = 6;
 			this.gbDestinatario.TabStop = false;
 			// 
-			// chkReexpedicion
-			// 
-			this.chkReexpedicion.AutoSize = true;
-			this.chkReexpedicion.Enabled = false;
-			this.chkReexpedicion.Location = new System.Drawing.Point(490, 59);
-			this.chkReexpedicion.Name = "chkReexpedicion";
-			this.chkReexpedicion.Size = new System.Drawing.Size(34, 17);
-			this.chkReexpedicion.TabIndex = 22;
-			this.chkReexpedicion.Text = "R";
-			this.chkReexpedicion.UseVisualStyleBackColor = true;
-			// 
 			// txtCodigoRuta
 			// 
 			this.txtCodigoRuta.Enabled = false;
-			this.txtCodigoRuta.Location = new System.Drawing.Point(431, 57);
+			this.txtCodigoRuta.Location = new System.Drawing.Point(459, 57);
 			this.txtCodigoRuta.Name = "txtCodigoRuta";
 			this.txtCodigoRuta.Size = new System.Drawing.Size(27, 20);
 			this.txtCodigoRuta.TabIndex = 21;
@@ -175,7 +169,7 @@
 			// txtOrdenRuta
 			// 
 			this.txtOrdenRuta.Enabled = false;
-			this.txtOrdenRuta.Location = new System.Drawing.Point(461, 57);
+			this.txtOrdenRuta.Location = new System.Drawing.Point(492, 57);
 			this.txtOrdenRuta.Name = "txtOrdenRuta";
 			this.txtOrdenRuta.Size = new System.Drawing.Size(25, 20);
 			this.txtOrdenRuta.TabIndex = 20;
@@ -195,7 +189,7 @@
 			this.txtNombreCiudadDestino.Location = new System.Drawing.Point(125, 57);
 			this.txtNombreCiudadDestino.Name = "txtNombreCiudadDestino";
 			this.txtNombreCiudadDestino.ReadOnly = true;
-			this.txtNombreCiudadDestino.Size = new System.Drawing.Size(300, 20);
+			this.txtNombreCiudadDestino.Size = new System.Drawing.Size(328, 20);
 			this.txtNombreCiudadDestino.TabIndex = 18;
 			// 
 			// txtCodigoCiudadDestino
@@ -204,6 +198,7 @@
 			this.txtCodigoCiudadDestino.Name = "txtCodigoCiudadDestino";
 			this.txtCodigoCiudadDestino.Size = new System.Drawing.Size(42, 20);
 			this.txtCodigoCiudadDestino.TabIndex = 10;
+			this.txtCodigoCiudadDestino.TextChanged += new System.EventHandler(this.txtCodigoCiudadDestino_TextChanged);
 			this.txtCodigoCiudadDestino.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigoCiudadDestino_KeyDown);
 			this.txtCodigoCiudadDestino.Validated += new System.EventHandler(this.txtCodigoCiudadDestino_Validated);
 			// 
@@ -796,15 +791,10 @@
 			// 
 			// gbDatos
 			// 
-			this.gbDatos.Controls.Add(this.checkBox9);
-			this.gbDatos.Controls.Add(this.checkBox8);
-			this.gbDatos.Controls.Add(this.checkBox7);
-			this.gbDatos.Controls.Add(this.checkBox6);
-			this.gbDatos.Controls.Add(this.checkBox5);
-			this.gbDatos.Controls.Add(this.checkBox4);
-			this.gbDatos.Controls.Add(this.checkBox3);
-			this.gbDatos.Controls.Add(this.checkBox2);
-			this.gbDatos.Controls.Add(this.checkBox1);
+			this.gbDatos.Controls.Add(this.label30);
+			this.gbDatos.Controls.Add(this.txtAbono);
+			this.gbDatos.Controls.Add(this.chkReexpedicion);
+			this.gbDatos.Controls.Add(this.chkFactura);
 			this.gbDatos.Controls.Add(this.label28);
 			this.gbDatos.Controls.Add(this.txtNumero);
 			this.gbDatos.Controls.Add(this.txtOperacionIngreso);
@@ -825,96 +815,6 @@
 			this.gbDatos.Size = new System.Drawing.Size(239, 235);
 			this.gbDatos.TabIndex = 17;
 			this.gbDatos.TabStop = false;
-			// 
-			// checkBox9
-			// 
-			this.checkBox9.AutoSize = true;
-			this.checkBox9.Location = new System.Drawing.Point(146, 194);
-			this.checkBox9.Name = "checkBox9";
-			this.checkBox9.Size = new System.Drawing.Size(65, 17);
-			this.checkBox9.TabIndex = 22;
-			this.checkBox9.Text = "Anulado";
-			this.checkBox9.UseVisualStyleBackColor = true;
-			// 
-			// checkBox8
-			// 
-			this.checkBox8.AutoSize = true;
-			this.checkBox8.Location = new System.Drawing.Point(146, 211);
-			this.checkBox8.Name = "checkBox8";
-			this.checkBox8.Size = new System.Drawing.Size(62, 17);
-			this.checkBox8.TabIndex = 21;
-			this.checkBox8.Text = "Factura";
-			this.checkBox8.UseVisualStyleBackColor = true;
-			// 
-			// checkBox7
-			// 
-			this.checkBox7.AutoSize = true;
-			this.checkBox7.Location = new System.Drawing.Point(65, 214);
-			this.checkBox7.Name = "checkBox7";
-			this.checkBox7.Size = new System.Drawing.Size(75, 17);
-			this.checkBox7.TabIndex = 20;
-			this.checkBox7.Text = "Prefactura";
-			this.checkBox7.UseVisualStyleBackColor = true;
-			// 
-			// checkBox6
-			// 
-			this.checkBox6.AutoSize = true;
-			this.checkBox6.Location = new System.Drawing.Point(65, 197);
-			this.checkBox6.Name = "checkBox6";
-			this.checkBox6.Size = new System.Drawing.Size(69, 17);
-			this.checkBox6.TabIndex = 19;
-			this.checkBox6.Text = "Cumplido";
-			this.checkBox6.UseVisualStyleBackColor = true;
-			// 
-			// checkBox5
-			// 
-			this.checkBox5.AutoSize = true;
-			this.checkBox5.Location = new System.Drawing.Point(146, 177);
-			this.checkBox5.Name = "checkBox5";
-			this.checkBox5.Size = new System.Drawing.Size(63, 17);
-			this.checkBox5.TabIndex = 18;
-			this.checkBox5.Text = "Soporte";
-			this.checkBox5.UseVisualStyleBackColor = true;
-			// 
-			// checkBox4
-			// 
-			this.checkBox4.AutoSize = true;
-			this.checkBox4.Location = new System.Drawing.Point(65, 180);
-			this.checkBox4.Name = "checkBox4";
-			this.checkBox4.Size = new System.Drawing.Size(75, 17);
-			this.checkBox4.TabIndex = 17;
-			this.checkBox4.Text = "Entregado";
-			this.checkBox4.UseVisualStyleBackColor = true;
-			// 
-			// checkBox3
-			// 
-			this.checkBox3.AutoSize = true;
-			this.checkBox3.Location = new System.Drawing.Point(146, 160);
-			this.checkBox3.Name = "checkBox3";
-			this.checkBox3.Size = new System.Drawing.Size(87, 17);
-			this.checkBox3.TabIndex = 16;
-			this.checkBox3.Text = "Despachado";
-			this.checkBox3.UseVisualStyleBackColor = true;
-			// 
-			// checkBox2
-			// 
-			this.checkBox2.AutoSize = true;
-			this.checkBox2.Location = new System.Drawing.Point(65, 163);
-			this.checkBox2.Name = "checkBox2";
-			this.checkBox2.Size = new System.Drawing.Size(80, 17);
-			this.checkBox2.TabIndex = 15;
-			this.checkBox2.Text = "Embarcado";
-			this.checkBox2.UseVisualStyleBackColor = true;
-			// 
-			// checkBox1
-			// 
-			this.checkBox1.AutoSize = true;
-			this.checkBox1.Location = new System.Drawing.Point(65, 146);
-			this.checkBox1.Name = "checkBox1";
-			this.checkBox1.Size = new System.Drawing.Size(63, 17);
-			this.checkBox1.TabIndex = 14;
-			this.checkBox1.Text = "Impreso";
-			this.checkBox1.UseVisualStyleBackColor = true;
 			// 
 			// label28
 			// 
@@ -1029,12 +929,168 @@
 			this.label20.TabIndex = 0;
 			this.label20.Text = "Id:";
 			// 
+			// button1
+			// 
+			this.button1.Location = new System.Drawing.Point(580, 450);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(93, 20);
+			this.button1.TabIndex = 18;
+			this.button1.Text = "button1";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.button1_Click_2);
+			// 
+			// groupBox1
+			// 
+			this.groupBox1.Controls.Add(this.checkBox9);
+			this.groupBox1.Controls.Add(this.chkFacturado);
+			this.groupBox1.Controls.Add(this.checkBox7);
+			this.groupBox1.Controls.Add(this.checkBox6);
+			this.groupBox1.Controls.Add(this.checkBox5);
+			this.groupBox1.Controls.Add(this.checkBox4);
+			this.groupBox1.Controls.Add(this.checkBox3);
+			this.groupBox1.Controls.Add(this.checkBox2);
+			this.groupBox1.Controls.Add(this.checkBox1);
+			this.groupBox1.Location = new System.Drawing.Point(552, 281);
+			this.groupBox1.Name = "groupBox1";
+			this.groupBox1.Size = new System.Drawing.Size(238, 120);
+			this.groupBox1.TabIndex = 19;
+			this.groupBox1.TabStop = false;
+			// 
+			// checkBox9
+			// 
+			this.checkBox9.AutoSize = true;
+			this.checkBox9.Location = new System.Drawing.Point(146, 69);
+			this.checkBox9.Name = "checkBox9";
+			this.checkBox9.Size = new System.Drawing.Size(65, 17);
+			this.checkBox9.TabIndex = 31;
+			this.checkBox9.Text = "Anulado";
+			this.checkBox9.UseVisualStyleBackColor = true;
+			// 
+			// chkFacturado
+			// 
+			this.chkFacturado.AutoSize = true;
+			this.chkFacturado.Location = new System.Drawing.Point(146, 86);
+			this.chkFacturado.Name = "chkFacturado";
+			this.chkFacturado.Size = new System.Drawing.Size(74, 17);
+			this.chkFacturado.TabIndex = 30;
+			this.chkFacturado.Text = "Facturado";
+			this.chkFacturado.UseVisualStyleBackColor = true;
+			// 
+			// checkBox7
+			// 
+			this.checkBox7.AutoSize = true;
+			this.checkBox7.Location = new System.Drawing.Point(65, 89);
+			this.checkBox7.Name = "checkBox7";
+			this.checkBox7.Size = new System.Drawing.Size(75, 17);
+			this.checkBox7.TabIndex = 29;
+			this.checkBox7.Text = "Prefactura";
+			this.checkBox7.UseVisualStyleBackColor = true;
+			// 
+			// checkBox6
+			// 
+			this.checkBox6.AutoSize = true;
+			this.checkBox6.Location = new System.Drawing.Point(65, 72);
+			this.checkBox6.Name = "checkBox6";
+			this.checkBox6.Size = new System.Drawing.Size(69, 17);
+			this.checkBox6.TabIndex = 28;
+			this.checkBox6.Text = "Cumplido";
+			this.checkBox6.UseVisualStyleBackColor = true;
+			// 
+			// checkBox5
+			// 
+			this.checkBox5.AutoSize = true;
+			this.checkBox5.Location = new System.Drawing.Point(146, 52);
+			this.checkBox5.Name = "checkBox5";
+			this.checkBox5.Size = new System.Drawing.Size(63, 17);
+			this.checkBox5.TabIndex = 27;
+			this.checkBox5.Text = "Soporte";
+			this.checkBox5.UseVisualStyleBackColor = true;
+			// 
+			// checkBox4
+			// 
+			this.checkBox4.AutoSize = true;
+			this.checkBox4.Location = new System.Drawing.Point(65, 55);
+			this.checkBox4.Name = "checkBox4";
+			this.checkBox4.Size = new System.Drawing.Size(75, 17);
+			this.checkBox4.TabIndex = 26;
+			this.checkBox4.Text = "Entregado";
+			this.checkBox4.UseVisualStyleBackColor = true;
+			// 
+			// checkBox3
+			// 
+			this.checkBox3.AutoSize = true;
+			this.checkBox3.Location = new System.Drawing.Point(146, 35);
+			this.checkBox3.Name = "checkBox3";
+			this.checkBox3.Size = new System.Drawing.Size(87, 17);
+			this.checkBox3.TabIndex = 25;
+			this.checkBox3.Text = "Despachado";
+			this.checkBox3.UseVisualStyleBackColor = true;
+			// 
+			// checkBox2
+			// 
+			this.checkBox2.AutoSize = true;
+			this.checkBox2.Location = new System.Drawing.Point(65, 38);
+			this.checkBox2.Name = "checkBox2";
+			this.checkBox2.Size = new System.Drawing.Size(80, 17);
+			this.checkBox2.TabIndex = 24;
+			this.checkBox2.Text = "Embarcado";
+			this.checkBox2.UseVisualStyleBackColor = true;
+			// 
+			// checkBox1
+			// 
+			this.checkBox1.AutoSize = true;
+			this.checkBox1.Location = new System.Drawing.Point(65, 21);
+			this.checkBox1.Name = "checkBox1";
+			this.checkBox1.Size = new System.Drawing.Size(63, 17);
+			this.checkBox1.TabIndex = 23;
+			this.checkBox1.Text = "Impreso";
+			this.checkBox1.UseVisualStyleBackColor = true;
+			// 
+			// chkFactura
+			// 
+			this.chkFactura.AutoSize = true;
+			this.chkFactura.Location = new System.Drawing.Point(65, 181);
+			this.chkFactura.Name = "chkFactura";
+			this.chkFactura.Size = new System.Drawing.Size(62, 17);
+			this.chkFactura.TabIndex = 21;
+			this.chkFactura.Text = "Factura";
+			this.chkFactura.UseVisualStyleBackColor = true;
+			// 
+			// chkReexpedicion
+			// 
+			this.chkReexpedicion.AutoSize = true;
+			this.chkReexpedicion.Enabled = false;
+			this.chkReexpedicion.Location = new System.Drawing.Point(65, 199);
+			this.chkReexpedicion.Name = "chkReexpedicion";
+			this.chkReexpedicion.Size = new System.Drawing.Size(91, 17);
+			this.chkReexpedicion.TabIndex = 23;
+			this.chkReexpedicion.Text = "Reexpedicion";
+			this.chkReexpedicion.UseVisualStyleBackColor = true;
+			// 
+			// txtAbono
+			// 
+			this.txtAbono.Location = new System.Drawing.Point(65, 148);
+			this.txtAbono.Name = "txtAbono";
+			this.txtAbono.Size = new System.Drawing.Size(164, 20);
+			this.txtAbono.TabIndex = 24;
+			// 
+			// label30
+			// 
+			this.label30.AutoSize = true;
+			this.label30.Location = new System.Drawing.Point(21, 149);
+			this.label30.Name = "label30";
+			this.label30.Size = new System.Drawing.Size(41, 13);
+			this.label30.TabIndex = 25;
+			this.label30.Text = "Abono:";
+			// 
 			// frmGuia
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1123, 555);
 			this.ControlBox = false;
+			this.Controls.Add(this.groupBox1);
+			this.Controls.Add(this.button1);
 			this.Controls.Add(this.gbDatos);
 			this.Controls.Add(this.gbInformacion);
 			this.Controls.Add(this.toolStrip1);
@@ -1060,6 +1116,8 @@
 			this.menuStrip1.PerformLayout();
 			this.gbDatos.ResumeLayout(false);
 			this.gbDatos.PerformLayout();
+			this.groupBox1.ResumeLayout(false);
+			this.groupBox1.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -1141,19 +1199,9 @@
 		private System.Windows.Forms.TextBox txtCodigoRuta;
 		private System.Windows.Forms.Label label26;
 		private System.Windows.Forms.ComboBox cboProducto;
-		private System.Windows.Forms.CheckBox chkReexpedicion;
 		private System.Windows.Forms.Label label27;
 		private System.Windows.Forms.TextBox txtNombreCondicion;
 		private System.Windows.Forms.TextBox txtCodigoCondicion;
-		private System.Windows.Forms.CheckBox checkBox9;
-		private System.Windows.Forms.CheckBox checkBox8;
-		private System.Windows.Forms.CheckBox checkBox7;
-		private System.Windows.Forms.CheckBox checkBox6;
-		private System.Windows.Forms.CheckBox checkBox5;
-		private System.Windows.Forms.CheckBox checkBox4;
-		private System.Windows.Forms.CheckBox checkBox3;
-		private System.Windows.Forms.CheckBox checkBox2;
-		private System.Windows.Forms.CheckBox checkBox1;
 		private System.Windows.Forms.Label label28;
 		private System.Windows.Forms.TextBox txtNumero;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
@@ -1161,6 +1209,21 @@
 		private System.Windows.Forms.ToolStripMenuItem mnuImprimir;
 		private System.Windows.Forms.Label label29;
 		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.CheckBox chkReexpedicion;
+		private System.Windows.Forms.CheckBox chkFactura;
+		private System.Windows.Forms.GroupBox groupBox1;
+		private System.Windows.Forms.CheckBox checkBox9;
+		private System.Windows.Forms.CheckBox chkFacturado;
+		private System.Windows.Forms.CheckBox checkBox7;
+		private System.Windows.Forms.CheckBox checkBox6;
+		private System.Windows.Forms.CheckBox checkBox5;
+		private System.Windows.Forms.CheckBox checkBox4;
+		private System.Windows.Forms.CheckBox checkBox3;
+		private System.Windows.Forms.CheckBox checkBox2;
+		private System.Windows.Forms.CheckBox checkBox1;
+		private System.Windows.Forms.Label label30;
+		private System.Windows.Forms.TextBox txtAbono;
 	}
 }
 

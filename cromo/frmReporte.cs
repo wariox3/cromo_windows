@@ -27,17 +27,26 @@ namespace cromo
 			crystalReportViewer1.ReportSource = rpt;
 			crystalReportViewer1.Refresh();*/
 
-			FormatoGuia objRpt = new FormatoGuia();
+			/*FormatoGuia objRpt = new FormatoGuia();
 			string sql = "SELECT tte_guia.codigo_guia_pk, tte_guia.numero, tte_guia.documento_cliente FROM tte_guia WHERE codigo_guia_pk = 1";			
 			DataSet ds;
 			string strSql = string.Format(sql);
 			ds = Utilidades.Ejecutar(strSql);
-			objRpt.SetDataSource(ds.Tables[0]);
-			crystalReportViewer1.ReportSource = objRpt;
-			crystalReportViewer1.Refresh();
+			objRpt.SetDataSource(ds.Tables[0]);*/
+
 			//crystalReportViewer1.PrintReport();
-
-
+			DataSet ds;
+			string strSql = string.Format(General.sql);
+			ds = Utilidades.Ejecutar(strSql);
+			switch (General.codigoReporte)
+			{
+				case 1:
+					FormatoRecibo objRpt = new FormatoRecibo();
+					objRpt.SetDataSource(ds.Tables[0]);
+					crystalReportViewer1.ReportSource = objRpt;
+					crystalReportViewer1.Refresh();
+					break;
+			}
 		}
 	}
 }

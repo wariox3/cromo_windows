@@ -16,14 +16,14 @@ namespace cromo {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class recibo : ReportClass {
+    public class FormatoRecibo : ReportClass {
         
-        public recibo() {
+        public FormatoRecibo() {
         }
         
         public override string ResourceName {
             get {
-                return "recibo.rpt";
+                return "FormatoRecibo.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace cromo {
         
         public override string FullResourceName {
             get {
-                return "cromo.recibo.rpt";
+                return "cromo.FormatoRecibo.rpt";
             }
             set {
                 // Do nothing
@@ -87,20 +87,12 @@ namespace cromo {
                 return this.ReportDefinition.Sections[4];
             }
         }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_codigoRecibo {
-            get {
-                return this.DataDefinition.ParameterFields[0];
-            }
-        }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class Cachedrecibo : Component, ICachedReport {
+    public class CachedFormatoRecibo : Component, ICachedReport {
         
-        public Cachedrecibo() {
+        public CachedFormatoRecibo() {
         }
         
         [Browsable(false)]
@@ -137,7 +129,7 @@ namespace cromo {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            recibo rpt = new recibo();
+            FormatoRecibo rpt = new FormatoRecibo();
             rpt.Site = this.Site;
             return rpt;
         }

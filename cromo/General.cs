@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
-
 namespace cromo
 {
 	class General
@@ -21,6 +20,27 @@ namespace cromo
 		{
 			get { return v_CodigoCiudad; }
 			set { v_CodigoCiudad = value; }
+		}
+
+		private static int v_CodigoGuia = 0;
+		public static int codigoGuia
+		{
+			get { return v_CodigoGuia; }
+			set { v_CodigoGuia = value; }
+		}
+
+		private static int v_CodigoReporte = 0;
+		public static int codigoReporte
+		{
+			get { return v_CodigoReporte; }
+			set { v_CodigoReporte = value; }
+		}
+
+		private static string v_Sql = "";
+		public static string sql
+		{
+			get { return v_Sql; }
+			set { v_Sql = value; }
 		}
 
 	}
@@ -66,5 +86,31 @@ namespace cromo
 			//crystalReportViewer1.Refresh();
 			//crystalReportViewer1.PrintReport();
 		}
+
+		public void formato(int codigo, string sql)
+		{
+			General.codigoReporte = codigo;
+			General.sql = sql;
+			frmReporte frm = new frmReporte();
+			frm.ShowDialog();
+
+		}
 	}
+
+	class FuncionesGuia
+	{
+		public int Ultima()
+		{
+			int ultimaGuia = 0;
+			string sql = "SELECT MAX(codigo_guia_pk) AS ultima FROM tte_guia";
+			DataSet ds = Utilidades.Ejecutar(sql);
+			DataTable dt = ds.Tables[0];
+			if(dt.Rows[0]["ultima"] != DBNull.Value)			
+			{
+				ultimaGuia = Convert.ToInt32(dt.Rows[0]["ultima"]);
+			}			
+			return ultimaGuia;
+		}
+	}
+
 }

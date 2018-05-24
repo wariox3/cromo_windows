@@ -47,6 +47,8 @@ namespace cromo
 			cargar_servicio();
 			cargar_empaque();
 			cargar_producto();
+			FuncionesGuia fg = new FuncionesGuia();
+			TraerGuia(fg.Ultima());		
 		}
 
         private void button2_Click(object sender, EventArgs e)
@@ -131,6 +133,14 @@ namespace cromo
 
 			if (validacion == true)
 			{
+				string sql = "SELECT factura FROM tte_guia_tipo WHERE codigo_guia_tipo_pk ='" + cboTipo.SelectedValue.ToString() + "'";
+				DataSet ds = Utilidades.Ejecutar(sql);
+				DataTable dt = ds.Tables[0];
+				if (dt.Rows.Count > 0)
+				{
+					chkFactura.Checked = Convert.ToBoolean(dt.Rows[0]["factura"]);					
+				}
+
 				//https://www.youtube.com/watch?v=IT_R46g7YTk&t=227s
 				guia pGuia = new guia();
 				pGuia.codigoOperacionIngresoFk = txtOperacionIngreso.Text;
@@ -159,7 +169,7 @@ namespace cromo
 				pGuia.ordenRuta = Convert.ToInt32(txtOrdenRuta.Text);				
 				pGuia.reexpedicion = chkReexpedicion.Checked;
 				pGuia.codigoCondicionFk = Convert.ToInt32(txtCodigoCondicion.Text);
-
+				pGuia.factura = chkFactura.Checked;
 				long resultado = GuiaRepositorio.Agregar(pGuia);
 
 				if (resultado > 0)
@@ -186,6 +196,8 @@ namespace cromo
 			txtOperacionCargo.Text = "";
 			txtCodigoCliente.Text = "";
 			txtNombreCliente.Text = "";
+			txtCodigoCondicion.Text = "";
+			txtNombreCondicion.Text = "";
 			txtRemitente.Text = "";
 			txtDocumentoCliente.Text = "";
 			txtCodigoCiudadOrigen.Text = "";
@@ -203,6 +215,8 @@ namespace cromo
 			txtFlete.Text = "0";
 			txtManejo.Text = "0";
 			txtRecaudo.Text = "0";
+			txtNumero.Text = "";
+			txtAbono.Text = "0";
 
 		}
 
@@ -347,7 +361,7 @@ namespace cromo
 		private void cargar_servicio()
 		{
 			/* https://www.youtube.com/watch?v=O2CwKIV9bn0 */
-			string query = "SELECT codigo_servicio_pk, nombre FROM tte_servicio";
+			string query = "SELECT codigo_servicio_pk, nombre FROM tte_servicio ORDER BY orden";
 			MySqlConnection bd = BdCromo.ObtenerConexion();
 			MySqlCommand cmd = new MySqlCommand(query, bd);
 			MySqlDataAdapter da = new MySqlDataAdapter(query, bd);
@@ -407,61 +421,71 @@ namespace cromo
 
 			BuscarGuia buscar = new BuscarGuia();
 			buscar.devolverGuia();
-			TraerGuia(BuscarGuia.codigoGuia.ToString());
+			TraerGuia(BuscarGuia.codigoGuia);
 		}
 
 		private void mnuBuscar_Click(object sender, EventArgs e)
 		{
 			BuscarGuia buscar = new BuscarGuia();
 			buscar.devolverGuia();			
-			TraerGuia(BuscarGuia.codigoGuia.ToString());
+			TraerGuia(BuscarGuia.codigoGuia);
 		}
-		public void TraerGuia(string codigoGuia)
+		public void TraerGuia(int codigoGuia)
 		{
 			try
 			{
-				string cmd = string.Format("SELECT codigo_guia_pk, numero, codigo_cliente_fk, tte_cliente.nombre_corto as nombreCliente, " +
-					"remitente, documento_cliente, codigo_ciudad_origen_fk, nombre_destinatario, telefono_destinatario, " +
-					"direccion_destinatario, codigo_ciudad_destino_fk, unidades, peso_real, peso_volumen, peso_facturado, " +
-					"vr_declara, vr_flete, vr_manejo, vr_recaudo, CiudadOrigen.nombre as ciudadOrigen, CiudadDestino.nombre as ciudadDestino, " +
-					"codigo_guia_tipo_fk, codigo_servicio_fk, codigo_empaque_fk, fecha_ingreso, fecha_despacho, fecha_entrega, " +
-					"codigo_operacion_ingreso_fk, codigo_operacion_cargo_fk, codigo_producto_fk " +
-					"FROM tte_guia " +
-					"LEFT JOIN tte_cliente ON tte_guia.codigo_cliente_fk = tte_cliente.codigo_cliente_pk " +
-					"LEFT JOIN tte_ciudad as CiudadOrigen ON tte_guia.codigo_ciudad_origen_fk = CiudadOrigen.codigo_ciudad_pk " +
-					"LEFT JOIN tte_ciudad as CiudadDestino ON tte_guia.codigo_ciudad_destino_fk = CiudadDestino.codigo_ciudad_pk " +
-					"WHERE codigo_guia_pk = " + codigoGuia);
-				DataSet ds = Utilidades.Ejecutar(cmd);
-				txtCodigo.Text = ds.Tables[0].Rows[0]["codigo_guia_pk"].ToString();
-				txtFechaIngreso.Text = ds.Tables[0].Rows[0]["fecha_ingreso"].ToString();
-				txtFechaDespacho.Text = ds.Tables[0].Rows[0]["fecha_despacho"].ToString();
-				txtFechaEntrega.Text = ds.Tables[0].Rows[0]["fecha_entrega"].ToString();
-				txtOperacionIngreso.Text = ds.Tables[0].Rows[0]["codigo_operacion_ingreso_fk"].ToString();
-				txtOperacionCargo.Text = ds.Tables[0].Rows[0]["codigo_operacion_cargo_fk"].ToString();
-				txtCodigoCliente.Text = ds.Tables[0].Rows[0]["codigo_cliente_fk"].ToString();				
-				txtNombreCliente.Text = ds.Tables[0].Rows[0]["nombreCliente"].ToString();
-				txtRemitente.Text = ds.Tables[0].Rows[0]["remitente"].ToString();
-				txtDocumentoCliente.Text = ds.Tables[0].Rows[0]["documento_cliente"].ToString();
-				txtCodigoCiudadOrigen.Text = ds.Tables[0].Rows[0]["codigo_ciudad_origen_fk"].ToString();
-				txtNombreCiudadOrigen.Text = ds.Tables[0].Rows[0]["ciudadOrigen"].ToString();
-				txtNombreDestinatario.Text = ds.Tables[0].Rows[0]["nombre_destinatario"].ToString();
-				txtTelefonoDestinatario.Text = ds.Tables[0].Rows[0]["telefono_destinatario"].ToString();
-				txtDireccionDestinatario.Text = ds.Tables[0].Rows[0]["direccion_destinatario"].ToString();
-				txtCodigoCiudadDestino.Text = ds.Tables[0].Rows[0]["codigo_ciudad_destino_fk"].ToString();
-				txtNombreCiudadDestino.Text = ds.Tables[0].Rows[0]["ciudadDestino"].ToString();
-				txtUnidades.Text = ds.Tables[0].Rows[0]["unidades"].ToString();
-				txtPeso.Text = ds.Tables[0].Rows[0]["peso_real"].ToString();
-				txtVolumen.Text = ds.Tables[0].Rows[0]["peso_volumen"].ToString();
-				txtPesoFacturar.Text = ds.Tables[0].Rows[0]["peso_facturado"].ToString();
-				txtDeclarado.Text = ds.Tables[0].Rows[0]["vr_declara"].ToString();
-				txtFlete.Text = ds.Tables[0].Rows[0]["vr_flete"].ToString();
-				txtManejo.Text = ds.Tables[0].Rows[0]["vr_manejo"].ToString();
-				txtRecaudo.Text = ds.Tables[0].Rows[0]["vr_recaudo"].ToString();
-				cboTipo.SelectedValue = ds.Tables[0].Rows[0]["codigo_guia_tipo_fk"].ToString();
-				cboServicio.SelectedValue = ds.Tables[0].Rows[0]["codigo_servicio_fk"].ToString();
-				cboEmpaque.SelectedValue = ds.Tables[0].Rows[0]["codigo_empaque_fk"].ToString();
-				cboProducto.SelectedValue = ds.Tables[0].Rows[0]["codigo_producto_fk"].ToString();
-				txtNumero.Text = ds.Tables[0].Rows[0]["numero"].ToString();
+				if(codigoGuia != 0)
+				{
+					string cmd = string.Format("SELECT codigo_guia_pk, numero, codigo_cliente_fk, tte_cliente.nombre_corto as nombreCliente, " +
+						"remitente, documento_cliente, codigo_ciudad_origen_fk, nombre_destinatario, telefono_destinatario, " +
+						"direccion_destinatario, codigo_ciudad_destino_fk, unidades, peso_real, peso_volumen, peso_facturado, " +
+						"vr_declara, vr_flete, vr_manejo, vr_recaudo, CiudadOrigen.nombre as ciudadOrigen, CiudadDestino.nombre as ciudadDestino, " +
+						"codigo_guia_tipo_fk, codigo_servicio_fk, codigo_empaque_fk, fecha_ingreso, fecha_despacho, fecha_entrega, " +
+						"codigo_operacion_ingreso_fk, codigo_operacion_cargo_fk, codigo_producto_fk, tte_guia.codigo_condicion_fk, tte_condicion.nombre as nombreCondicion, " +
+						"tte_guia.reexpedicion, factura, vr_abono " +
+						"FROM tte_guia " +
+						"LEFT JOIN tte_cliente ON tte_guia.codigo_cliente_fk = tte_cliente.codigo_cliente_pk " +
+						"LEFT JOIN tte_ciudad as CiudadOrigen ON tte_guia.codigo_ciudad_origen_fk = CiudadOrigen.codigo_ciudad_pk " +
+						"LEFT JOIN tte_ciudad as CiudadDestino ON tte_guia.codigo_ciudad_destino_fk = CiudadDestino.codigo_ciudad_pk " +
+						"LEFT JOIN tte_condicion ON tte_guia.codigo_condicion_fk = tte_condicion.codigo_condicion_pk " +
+						"WHERE codigo_guia_pk = " + codigoGuia.ToString());
+					DataSet ds = Utilidades.Ejecutar(cmd);
+					txtCodigo.Text = ds.Tables[0].Rows[0]["codigo_guia_pk"].ToString();
+					txtFechaIngreso.Text = ds.Tables[0].Rows[0]["fecha_ingreso"].ToString();
+					txtFechaDespacho.Text = ds.Tables[0].Rows[0]["fecha_despacho"].ToString();
+					txtFechaEntrega.Text = ds.Tables[0].Rows[0]["fecha_entrega"].ToString();
+					txtOperacionIngreso.Text = ds.Tables[0].Rows[0]["codigo_operacion_ingreso_fk"].ToString();
+					txtOperacionCargo.Text = ds.Tables[0].Rows[0]["codigo_operacion_cargo_fk"].ToString();
+					txtAbono.Text = ds.Tables[0].Rows[0]["vr_abono"].ToString();
+					txtCodigoCliente.Text = ds.Tables[0].Rows[0]["codigo_cliente_fk"].ToString();
+					txtNombreCliente.Text = ds.Tables[0].Rows[0]["nombreCliente"].ToString();
+					txtCodigoCondicion.Text = ds.Tables[0].Rows[0]["codigo_condicion_fk"].ToString();
+					txtNombreCondicion.Text = ds.Tables[0].Rows[0]["nombreCondicion"].ToString();
+					txtRemitente.Text = ds.Tables[0].Rows[0]["remitente"].ToString();
+					txtDocumentoCliente.Text = ds.Tables[0].Rows[0]["documento_cliente"].ToString();
+					txtCodigoCiudadOrigen.Text = ds.Tables[0].Rows[0]["codigo_ciudad_origen_fk"].ToString();
+					txtNombreCiudadOrigen.Text = ds.Tables[0].Rows[0]["ciudadOrigen"].ToString();
+					txtNombreDestinatario.Text = ds.Tables[0].Rows[0]["nombre_destinatario"].ToString();
+					txtTelefonoDestinatario.Text = ds.Tables[0].Rows[0]["telefono_destinatario"].ToString();
+					txtDireccionDestinatario.Text = ds.Tables[0].Rows[0]["direccion_destinatario"].ToString();
+					txtCodigoCiudadDestino.Text = ds.Tables[0].Rows[0]["codigo_ciudad_destino_fk"].ToString();
+					txtNombreCiudadDestino.Text = ds.Tables[0].Rows[0]["ciudadDestino"].ToString();
+					txtUnidades.Text = ds.Tables[0].Rows[0]["unidades"].ToString();
+					txtPeso.Text = ds.Tables[0].Rows[0]["peso_real"].ToString();
+					txtVolumen.Text = ds.Tables[0].Rows[0]["peso_volumen"].ToString();
+					txtPesoFacturar.Text = ds.Tables[0].Rows[0]["peso_facturado"].ToString();
+					txtDeclarado.Text = ds.Tables[0].Rows[0]["vr_declara"].ToString();
+					txtFlete.Text = ds.Tables[0].Rows[0]["vr_flete"].ToString();
+					txtManejo.Text = ds.Tables[0].Rows[0]["vr_manejo"].ToString();
+					txtRecaudo.Text = ds.Tables[0].Rows[0]["vr_recaudo"].ToString();
+					cboTipo.SelectedValue = ds.Tables[0].Rows[0]["codigo_guia_tipo_fk"].ToString();
+					cboServicio.SelectedValue = ds.Tables[0].Rows[0]["codigo_servicio_fk"].ToString();
+					cboEmpaque.SelectedValue = ds.Tables[0].Rows[0]["codigo_empaque_fk"].ToString();
+					cboProducto.SelectedValue = ds.Tables[0].Rows[0]["codigo_producto_fk"].ToString();
+					txtNumero.Text = ds.Tables[0].Rows[0]["numero"].ToString();
+					chkReexpedicion.Checked = Convert.ToBoolean(ds.Tables[0].Rows[0]["reexpedicion"]);
+					chkFactura.Checked = Convert.ToBoolean(ds.Tables[0].Rows[0]["factura"]);
+				}
 			}
 			catch (Exception error)
 			{
@@ -586,6 +610,18 @@ namespace cromo
 			imp.formatoGuia(Convert.ToInt32(txtCodigo.Text));
 			//frmReporte frmReporte = new frmReporte();
 			//frmReporte.Show();
+		}
+
+		private void button1_Click_2(object sender, EventArgs e)
+		{
+			General.codigoGuia = Convert.ToInt32(txtCodigo.Text);
+			frmRecibo frmRecibo = new frmRecibo();
+			frmRecibo.ShowDialog();
+		}
+
+		private void txtCodigoCiudadDestino_TextChanged(object sender, EventArgs e)
+		{
+
 		}
 	}
 }
