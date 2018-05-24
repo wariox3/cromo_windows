@@ -42,6 +42,8 @@
 			this.label5 = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
 			this.txtCodigoCiudadOrigen = new System.Windows.Forms.TextBox();
+			this.txtPuerto = new System.Windows.Forms.TextBox();
+			this.label7 = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// btnGuardar
@@ -82,7 +84,7 @@
 			// 
 			// txtBaseDatos
 			// 
-			this.txtBaseDatos.Location = new System.Drawing.Point(155, 155);
+			this.txtBaseDatos.Location = new System.Drawing.Point(155, 181);
 			this.txtBaseDatos.Name = "txtBaseDatos";
 			this.txtBaseDatos.Size = new System.Drawing.Size(145, 20);
 			this.txtBaseDatos.TabIndex = 4;
@@ -111,7 +113,7 @@
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(86, 158);
+			this.label2.Location = new System.Drawing.Point(86, 181);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(63, 13);
 			this.label2.TabIndex = 8;
@@ -160,11 +162,29 @@
 			this.txtCodigoCiudadOrigen.Size = new System.Drawing.Size(145, 20);
 			this.txtCodigoCiudadOrigen.TabIndex = 13;
 			// 
+			// txtPuerto
+			// 
+			this.txtPuerto.Location = new System.Drawing.Point(155, 155);
+			this.txtPuerto.Name = "txtPuerto";
+			this.txtPuerto.Size = new System.Drawing.Size(145, 20);
+			this.txtPuerto.TabIndex = 14;
+			// 
+			// label7
+			// 
+			this.label7.AutoSize = true;
+			this.label7.Location = new System.Drawing.Point(108, 158);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(41, 13);
+			this.label7.TabIndex = 15;
+			this.label7.Text = "Puerto:";
+			// 
 			// frmConfiguracion
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(396, 299);
+			this.Controls.Add(this.label7);
+			this.Controls.Add(this.txtPuerto);
 			this.Controls.Add(this.txtCodigoCiudadOrigen);
 			this.Controls.Add(this.label6);
 			this.Controls.Add(this.label5);
@@ -206,5 +226,7 @@
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.TextBox txtCodigoCiudadOrigen;
+		private System.Windows.Forms.TextBox txtPuerto;
+		private System.Windows.Forms.Label label7;
 	}
 }

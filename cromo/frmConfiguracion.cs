@@ -24,6 +24,7 @@ namespace cromo
 			txtUsuario.Text = cromo.Properties.Settings.Default.usuarioBaseDatos;
 			txtClave.Text = cromo.Properties.Settings.Default.claveBaseDatos;
 			txtBaseDatos.Text = cromo.Properties.Settings.Default.baseDatos;
+			txtPuerto.Text = cromo.Properties.Settings.Default.puertoBaseDatos;
 			txtCodigoCiudadOrigen.Text = cromo.Properties.Settings.Default.ciudadOrigen;
 		}
 
@@ -34,6 +35,7 @@ namespace cromo
 			cromo.Properties.Settings.Default.usuarioBaseDatos = txtUsuario.Text;
 			cromo.Properties.Settings.Default.claveBaseDatos = txtClave.Text;
 			cromo.Properties.Settings.Default.baseDatos = txtBaseDatos.Text;
+			cromo.Properties.Settings.Default.puertoBaseDatos = txtPuerto.Text;
 			cromo.Properties.Settings.Default.ciudadOrigen = txtCodigoCiudadOrigen.Text;
 			cromo.Properties.Settings.Default.Save();
             Close();

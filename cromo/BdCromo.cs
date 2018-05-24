@@ -13,10 +13,11 @@ namespace cromo
         {
 			/*https://www.youtube.com/watch?v=e8R3-EXqQIM */
 			string servirdor = cromo.Properties.Settings.Default.servidorBaseDatos;
+			string puerto = cromo.Properties.Settings.Default.puertoBaseDatos;
 			string usuario = cromo.Properties.Settings.Default.usuarioBaseDatos;
 			string clave = cromo.Properties.Settings.Default.claveBaseDatos;
 			string baseDatos = cromo.Properties.Settings.Default.baseDatos;
-			MySqlConnection conectar = new MySqlConnection("server="+ servirdor + "; database="+baseDatos+"; Uid="+usuario+"; pwd="+clave+";");
+			MySqlConnection conectar = new MySqlConnection("server="+ servirdor + "; database="+baseDatos+"; Uid="+usuario+"; pwd="+clave+ "; port=" + puerto + ";");
             conectar.Open();
             return conectar;
         }
@@ -27,10 +28,11 @@ namespace cromo
 		public static DataSet Ejecutar(string cmd)
 		{
 			string servirdor = cromo.Properties.Settings.Default.servidorBaseDatos;
+			string puerto = cromo.Properties.Settings.Default.puertoBaseDatos;
 			string usuario = cromo.Properties.Settings.Default.usuarioBaseDatos;
 			string clave = cromo.Properties.Settings.Default.claveBaseDatos;
 			string baseDatos = cromo.Properties.Settings.Default.baseDatos;
-			MySqlConnection bd = new MySqlConnection("server=" + servirdor + "; database=" + baseDatos + "; Uid=" + usuario + "; pwd=" + clave + ";");
+			MySqlConnection bd = new MySqlConnection("server=" + servirdor + "; database=" + baseDatos + "; Uid=" + usuario + "; pwd=" + clave + "; port=" + puerto + ";");
 			bd.Open();
 			DataSet ds = new DataSet();
 			MySqlDataAdapter dp = new MySqlDataAdapter(cmd, bd);

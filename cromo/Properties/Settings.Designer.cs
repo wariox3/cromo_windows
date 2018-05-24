@@ -94,5 +94,17 @@ namespace cromo.Properties {
                 this["ciudadOrigen"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3306")]
+        public string puertoBaseDatos {
+            get {
+                return ((string)(this["puertoBaseDatos"]));
+            }
+            set {
+                this["puertoBaseDatos"] = value;
+            }
+        }
     }
 }
