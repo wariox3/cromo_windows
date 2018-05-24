@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MiLibreria;
 using MySql.Data.MySqlClient;
 
 namespace cromo
@@ -15,7 +14,7 @@ namespace cromo
     public partial class frmGuia : Form
     {
 		string ultimoCliente = "";
-		int pesoMinimo = 0;
+		int pesoMinimoCondicion = 0;
 		double porcentajeManejo = 0;
 		double manejoMinimoUnidad = 0;
 		double manejoMinimoDespacho = 0;
@@ -109,17 +108,22 @@ namespace cromo
 				txtCodigoCiudadDestino.Focus();
 				validacion = false;
 			}
-			if (cboTipo.SelectedIndex <= 0)
+			if (cboTipo.SelectedIndex < 0)
 			{
 				cboTipo.Focus();
 				validacion = false;
 			}
-			if (cboServicio.SelectedIndex <= 0)
+			if (cboServicio.SelectedIndex < 0)
 			{
 				cboServicio.Focus();
 				validacion = false;
 			}
-			if (cboEmpaque.SelectedIndex <= 0)
+			if (cboProducto.SelectedIndex < 0)
+			{
+				cboProducto.Focus();
+				validacion = false;
+			}
+			if (cboEmpaque.SelectedIndex < 0)
 			{
 				cboEmpaque.Focus();
 				validacion = false;
@@ -152,9 +156,10 @@ namespace cromo
 				pGuia.vrDeclara = Convert.ToDouble(txtDeclarado.Text);
 				pGuia.vrRecaudo = Convert.ToDouble(txtRecaudo.Text);
 				pGuia.codigoRutaFk = txtCodigoRuta.Text;
-				pGuia.ordenRuta = Convert.ToInt32(txtOrdenRuta.Text);
-				//pGuia.reexpedicion = Convert.ToBoolean(chkReexpedicion.Checked);
+				pGuia.ordenRuta = Convert.ToInt32(txtOrdenRuta.Text);				
 				pGuia.reexpedicion = chkReexpedicion.Checked;
+				pGuia.codigoCondicionFk = Convert.ToInt32(txtCodigoCondicion.Text);
+
 				long resultado = GuiaRepositorio.Agregar(pGuia);
 
 				if (resultado > 0)
@@ -207,6 +212,7 @@ namespace cromo
 			tsbCancelar.Enabled = true;
 			tsbNuevo.Enabled = false;
 			tsbBuscar.Enabled = false;
+			tsbImprimir.Enabled = false;
             gbCliente.Enabled = true;
             gbDestinatario.Enabled = true;
             gbTotales.Enabled = true;
@@ -219,6 +225,7 @@ namespace cromo
 			tsbBuscar.Enabled = true;
 			tsbGuardar.Enabled = false;
 			tsbCancelar.Enabled = false;
+			tsbImprimir.Enabled = true;
 			gbCliente.Enabled = false;
             gbDestinatario.Enabled = false;
             gbTotales.Enabled = false;
@@ -276,18 +283,14 @@ namespace cromo
         {
 			if(txtCodigoCliente.Text != "")
 			{
-				DataSet ds = Utilidades.Ejecutar("SELECT nombre_corto, porcentaje_manejo, manejo_minimo_unidad, manejo_minimo_despacho, peso_minimo, descuento_peso, codigo_precio_fk " +
-					"FROM tte_cliente where codigo_cliente_pk = " + txtCodigoCliente.Text);
+				DataSet ds = Utilidades.Ejecutar("SELECT nombre_corto, codigo_condicion_fk " +
+					"FROM tte_cliente " +					
+					"WHERE codigo_cliente_pk = " + txtCodigoCliente.Text);
 				DataTable dt = ds.Tables[0];
 				if (dt.Rows.Count > 0)
 				{
+					txtCodigoCondicion.Text = dt.Rows[0]["codigo_condicion_fk"].ToString();
 					txtNombreCliente.Text = Convert.ToString(dt.Rows[0]["nombre_corto"]);
-					pesoMinimo = Convert.ToInt32(dt.Rows[0]["peso_minimo"]);
-					porcentajeManejo = Convert.ToDouble(dt.Rows[0]["porcentaje_manejo"]);
-					manejoMinimoUnidad = Convert.ToDouble(dt.Rows[0]["manejo_minimo_unidad"]);
-					manejoMinimoDespacho = Convert.ToDouble(dt.Rows[0]["manejo_minimo_despacho"]);
-					descuentoPeso = Convert.ToDouble(dt.Rows[0]["descuento_peso"]);
-					codigoPrecio = Convert.ToInt32(dt.Rows[0]["codigo_precio_fk"]);
 				}
 				if (txtRemitente.Text == "")
 				{
@@ -326,7 +329,7 @@ namespace cromo
 		private void cargar_tipo ()
 		{
 			/* https://www.youtube.com/watch?v=O2CwKIV9bn0 */
-			string query = "SELECT codigo_guia_tipo_pk, nombre FROM tte_guia_tipo";
+			string query = "SELECT codigo_guia_tipo_pk, nombre FROM tte_guia_tipo ORDER BY orden";
 			MySqlConnection bd = BdCromo.ObtenerConexion();
 
 			MySqlCommand cmd = new MySqlCommand(query, bd);
@@ -399,12 +402,6 @@ namespace cromo
 			Bloquear();
 		}
 
-		private void button1_Click_2(object sender, EventArgs e)
-		{			
-			frmReporte frmReporte = new frmReporte();
-			frmReporte.Show();
-		}
-
 		private void tsbBuscar_Click(object sender, EventArgs e)
 		{
 
@@ -423,12 +420,12 @@ namespace cromo
 		{
 			try
 			{
-				string cmd = string.Format("SELECT codigo_guia_pk, codigo_cliente_fk, tte_cliente.nombre_corto as nombreCliente, " +
+				string cmd = string.Format("SELECT codigo_guia_pk, numero, codigo_cliente_fk, tte_cliente.nombre_corto as nombreCliente, " +
 					"remitente, documento_cliente, codigo_ciudad_origen_fk, nombre_destinatario, telefono_destinatario, " +
 					"direccion_destinatario, codigo_ciudad_destino_fk, unidades, peso_real, peso_volumen, peso_facturado, " +
 					"vr_declara, vr_flete, vr_manejo, vr_recaudo, CiudadOrigen.nombre as ciudadOrigen, CiudadDestino.nombre as ciudadDestino, " +
 					"codigo_guia_tipo_fk, codigo_servicio_fk, codigo_empaque_fk, fecha_ingreso, fecha_despacho, fecha_entrega, " +
-					"codigo_operacion_ingreso_fk, codigo_operacion_cargo_fk " +
+					"codigo_operacion_ingreso_fk, codigo_operacion_cargo_fk, codigo_producto_fk " +
 					"FROM tte_guia " +
 					"LEFT JOIN tte_cliente ON tte_guia.codigo_cliente_fk = tte_cliente.codigo_cliente_pk " +
 					"LEFT JOIN tte_ciudad as CiudadOrigen ON tte_guia.codigo_ciudad_origen_fk = CiudadOrigen.codigo_ciudad_pk " +
@@ -463,6 +460,8 @@ namespace cromo
 				cboTipo.SelectedValue = ds.Tables[0].Rows[0]["codigo_guia_tipo_fk"].ToString();
 				cboServicio.SelectedValue = ds.Tables[0].Rows[0]["codigo_servicio_fk"].ToString();
 				cboEmpaque.SelectedValue = ds.Tables[0].Rows[0]["codigo_empaque_fk"].ToString();
+				cboProducto.SelectedValue = ds.Tables[0].Rows[0]["codigo_producto_fk"].ToString();
+				txtNumero.Text = ds.Tables[0].Rows[0]["numero"].ToString();
 			}
 			catch (Exception error)
 			{
@@ -495,6 +494,8 @@ namespace cromo
 			}
 		}
 
+
+
 		private void txtUnidades_Validated(object sender, EventArgs e)
 		{
 			DataSet ds = Utilidades.Ejecutar("SELECT minimo " +
@@ -504,18 +505,87 @@ namespace cromo
 			DataTable dt = ds.Tables[0];
 			if (dt.Rows.Count > 0)
 			{
-				if(Convert.ToInt32(txtPesoFacturar.Text) <= 0)
+				if (Convert.ToInt32(txtPesoFacturar.Text) <= 0)
 				{
 					if (Convert.ToInt32(dt.Rows[0]["minimo"]) > 0)
 					{
-						txtPesoFacturar.Text = dt.Rows[0]["minimo"].ToString();
+						txtPesoFacturar.Text = (Convert.ToInt32(dt.Rows[0]["minimo"]) * Convert.ToInt32(txtUnidades.Text)).ToString();
 					}
 				}
-				if(pesoMinimo > 0)
+			}
+			if(pesoMinimoCondicion > 0)
+			{
+				txtPesoFacturar.Text = (pesoMinimoCondicion * Convert.ToInt32(txtUnidades.Text)).ToString();
+				if(Convert.ToInt32(txtPeso.Text) <= 0)
 				{
-
+					txtPeso.Text = (pesoMinimoCondicion * Convert.ToInt32(txtUnidades.Text)).ToString();
 				}
 			}
+			
+		}
+
+		private void txtCodigoCondicion_Validated(object sender, EventArgs e)
+		{
+			if (txtCodigoCondicion.Text != "")
+			{
+				DataSet ds = Utilidades.Ejecutar("SELECT nombre, porcentaje_manejo, manejo_minimo_unidad, manejo_minimo_despacho, peso_minimo, descuento_peso, codigo_precio_fk " +
+					"FROM tte_condicion " +					
+					"WHERE codigo_condicion_pk = " + txtCodigoCondicion.Text);
+				DataTable dt = ds.Tables[0];
+				if (dt.Rows.Count > 0)
+				{					
+					txtNombreCondicion.Text = Convert.ToString(dt.Rows[0]["nombre"]);
+					pesoMinimoCondicion = Convert.ToInt32(dt.Rows[0]["peso_minimo"]);
+					porcentajeManejo = Convert.ToDouble(dt.Rows[0]["porcentaje_manejo"]);
+					manejoMinimoUnidad = Convert.ToDouble(dt.Rows[0]["manejo_minimo_unidad"]);
+					manejoMinimoDespacho = Convert.ToDouble(dt.Rows[0]["manejo_minimo_despacho"]);
+					descuentoPeso = Convert.ToDouble(dt.Rows[0]["descuento_peso"]);
+					codigoPrecio = Convert.ToInt32(dt.Rows[0]["codigo_precio_fk"]);
+				}
+			}
+		}
+
+		private void txtVolumen_Validated(object sender, EventArgs e)
+		{
+			liquidarPesoFacturar();
+		}
+		private void txtPeso_Validated(object sender, EventArgs e)
+		{
+			liquidarPesoFacturar();
+		}
+		private void liquidarPesoFacturar()
+		{
+			if(Convert.ToInt32(txtPeso.Text) > Convert.ToInt32(txtPesoFacturar.Text))
+			{
+				txtPesoFacturar.Text = txtPeso.Text;
+			}
+			if(Convert.ToInt32(txtVolumen.Text) > Convert.ToInt32(txtPesoFacturar.Text))
+			{
+				txtPesoFacturar.Text = txtVolumen.Text;
+			}
+		}
+
+		private void txtDeclarado_Validated(object sender, EventArgs e)
+		{
+			if(Convert.ToDouble(txtManejo.Text) == 0 && Convert.ToDouble(txtDeclarado.Text) > 0)
+			{
+				txtManejo.Text = (Convert.ToDouble(txtDeclarado.Text) * porcentajeManejo / 100).ToString();
+				if(manejoMinimoDespacho > Convert.ToDouble(txtDeclarado.Text)) {
+					txtManejo.Text = manejoMinimoDespacho.ToString();
+				}
+				if(manejoMinimoUnidad * Convert.ToInt32(txtUnidades.Text) > Convert.ToDouble(txtDeclarado.Text))
+				{
+					txtManejo.Text = (manejoMinimoUnidad * Convert.ToInt32(txtUnidades.Text)).ToString();
+				}
+			}
+		}
+
+		private void mnuImprimir_Click(object sender, EventArgs e)
+		{
+			Impresion imp = new Impresion();
+			imp.formatoGuia(Convert.ToInt32(txtCodigo.Text));
+			//frmReporte frmReporte = new frmReporte();
+			//frmReporte.Show();
 		}
 	}
 }

@@ -5,8 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Data;
-using MiLibreria;
-
 namespace cromo
 {
     class ClienteRepositorio

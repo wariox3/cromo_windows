@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace cromo
 {
@@ -39,6 +40,31 @@ namespace cromo
 			frmDevolverGuia frm = new frmDevolverGuia();
 			frm.ShowDialog();
 
+		}
+	}
+
+	class Impresion
+	{
+		public void formatoGuia(int codigoGuia)
+		{
+			/* http://csharp.net-informations.com/crystal-reports/csharp-crystal-reports-string-parameter.htm */
+			/* https:/www.youtube.com/watch?v=iisXC_RsZ3w */
+			/*ReportDocument rpt = new ReportDocument();
+			rpt.Load(@"C:\Users\desarrollo\source\repos\cromo\cromo\FormatoGuia.rpt");
+			crystalReportViewer1.ReportSource = rpt;
+			crystalReportViewer1.Refresh();*/
+
+			FormatoGuia objRpt = new FormatoGuia();
+			string sql = "SELECT tte_guia.codigo_guia_pk, tte_guia.numero, tte_guia.documento_cliente FROM tte_guia WHERE codigo_guia_pk = 1";
+			DataSet ds;
+			string strSql = string.Format(sql);
+			ds = Utilidades.Ejecutar(strSql);
+			objRpt.SetDataSource(ds.Tables[0]);
+			objRpt.PrintToPrinter(1,false, 0, 1);
+
+			//crystalReportViewer1.ReportSource = objRpt;
+			//crystalReportViewer1.Refresh();
+			//crystalReportViewer1.PrintReport();
 		}
 	}
 }

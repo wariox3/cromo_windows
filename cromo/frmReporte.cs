@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CrystalDecisions.CrystalReports.Engine;
-using MiLibreria;
 using MySql.Data.MySqlClient;
 namespace cromo
 {
@@ -29,14 +28,14 @@ namespace cromo
 			crystalReportViewer1.Refresh();*/
 
 			FormatoGuia objRpt = new FormatoGuia();
-			string sql = "SELECT tte_guia.codigo_guia_pk, tte_guia.numero, tte_guia.documento_cliente FROM tte_guia WHERE codigo_guia_pk = 15";			
+			string sql = "SELECT tte_guia.codigo_guia_pk, tte_guia.numero, tte_guia.documento_cliente FROM tte_guia WHERE codigo_guia_pk = 1";			
 			DataSet ds;
 			string strSql = string.Format(sql);
 			ds = Utilidades.Ejecutar(strSql);
 			objRpt.SetDataSource(ds.Tables[0]);
 			crystalReportViewer1.ReportSource = objRpt;
 			crystalReportViewer1.Refresh();
-			crystalReportViewer1.PrintReport();
+			//crystalReportViewer1.PrintReport();
 
 
 		}

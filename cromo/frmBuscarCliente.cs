@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MiLibreria;
 namespace cromo
 {
     public partial class frmBuscarCliente : Form

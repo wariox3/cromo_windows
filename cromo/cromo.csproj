@@ -656,11 +656,5 @@
   <ItemGroup>
     <None Include="Resources\Zoom_out.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MiLibreria\MiLibreria.csproj">
-      <Project>{007f536b-8894-42d3-ac53-4a2829812d75}</Project>
-      <Name>MiLibreria</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
