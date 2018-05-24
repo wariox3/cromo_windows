@@ -17,7 +17,7 @@ namespace cromo
 			string usuario = cromo.Properties.Settings.Default.usuarioBaseDatos;
 			string clave = cromo.Properties.Settings.Default.claveBaseDatos;
 			string baseDatos = cromo.Properties.Settings.Default.baseDatos;
-			MySqlConnection conectar = new MySqlConnection("server="+ servirdor + "; database="+baseDatos+"; Uid="+usuario+"; pwd="+clave+ "; port=" + puerto + ";");
+			MySqlConnection conectar = new MySqlConnection("server="+ servirdor + "; database="+baseDatos+"; Uid="+usuario+"; pwd="+clave+ "; port=" + puerto + "; SslMode=none;");
             conectar.Open();
             return conectar;
         }
@@ -32,7 +32,7 @@ namespace cromo
 			string usuario = cromo.Properties.Settings.Default.usuarioBaseDatos;
 			string clave = cromo.Properties.Settings.Default.claveBaseDatos;
 			string baseDatos = cromo.Properties.Settings.Default.baseDatos;
-			MySqlConnection bd = new MySqlConnection("server=" + servirdor + "; database=" + baseDatos + "; Uid=" + usuario + "; pwd=" + clave + "; port=" + puerto + ";");
+			MySqlConnection bd = new MySqlConnection("server=" + servirdor + "; database=" + baseDatos + "; Uid=" + usuario + "; pwd=" + clave + "; port=" + puerto + "; SslMode=none;");
 			bd.Open();
 			DataSet ds = new DataSet();
 			MySqlDataAdapter dp = new MySqlDataAdapter(cmd, bd);
