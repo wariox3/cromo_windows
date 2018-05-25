@@ -29,6 +29,13 @@ namespace cromo
 			set { v_CodigoGuia = value; }
 		}
 
+		private static int v_NumeroGuia = 0;
+		public static int numeroGuia
+		{
+			get { return v_NumeroGuia; }
+			set { v_NumeroGuia = value; }
+		}
+
 		private static int v_CodigoReporte = 0;
 		public static int codigoReporte
 		{
@@ -43,24 +50,6 @@ namespace cromo
 			set { v_Sql = value; }
 		}
 
-	}
-
-	class BuscarGuia
-	{
-
-		private static int v_CodigoGuia = 0;
-		public static int codigoGuia
-		{
-			get { return v_CodigoGuia; }
-			set { v_CodigoGuia = value; }
-		}
-
-		public void devolverGuia()
-		{
-			frmDevolverGuia frm = new frmDevolverGuia();
-			frm.ShowDialog();
-
-		}
 	}
 
 	class Impresion
@@ -99,6 +88,13 @@ namespace cromo
 
 	class FuncionesGuia
 	{
+		private static int v_CodigoGuia = 0;
+		public static int codigoGuia
+		{
+			get { return v_CodigoGuia; }
+			set { v_CodigoGuia = value; }
+		}
+
 		public int Ultima()
 		{
 			int ultimaGuia = 0;
@@ -111,6 +107,14 @@ namespace cromo
 			}			
 			return ultimaGuia;
 		}
+
+		public void devolverGuia()
+		{
+			frmDevolverGuia frm = new frmDevolverGuia();
+			frm.ShowDialog();
+
+		}
+
 	}
 
 }

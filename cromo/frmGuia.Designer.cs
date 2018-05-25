@@ -99,6 +99,10 @@
 			this.mnuBuscar = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuImprimir = new System.Windows.Forms.ToolStripMenuItem();
 			this.gbDatos = new System.Windows.Forms.GroupBox();
+			this.label30 = new System.Windows.Forms.Label();
+			this.txtAbono = new System.Windows.Forms.TextBox();
+			this.chkReexpedicion = new System.Windows.Forms.CheckBox();
+			this.chkFactura = new System.Windows.Forms.CheckBox();
 			this.label28 = new System.Windows.Forms.Label();
 			this.txtNumero = new System.Windows.Forms.TextBox();
 			this.txtOperacionIngreso = new System.Windows.Forms.TextBox();
@@ -124,10 +128,6 @@
 			this.checkBox3 = new System.Windows.Forms.CheckBox();
 			this.checkBox2 = new System.Windows.Forms.CheckBox();
 			this.checkBox1 = new System.Windows.Forms.CheckBox();
-			this.chkFactura = new System.Windows.Forms.CheckBox();
-			this.chkReexpedicion = new System.Windows.Forms.CheckBox();
-			this.txtAbono = new System.Windows.Forms.TextBox();
-			this.label30 = new System.Windows.Forms.Label();
 			this.gbDestinatario.SuspendLayout();
 			this.gbTotales.SuspendLayout();
 			this.gbCliente.SuspendLayout();
@@ -816,6 +816,43 @@
 			this.gbDatos.TabIndex = 17;
 			this.gbDatos.TabStop = false;
 			// 
+			// label30
+			// 
+			this.label30.AutoSize = true;
+			this.label30.Location = new System.Drawing.Point(21, 149);
+			this.label30.Name = "label30";
+			this.label30.Size = new System.Drawing.Size(41, 13);
+			this.label30.TabIndex = 25;
+			this.label30.Text = "Abono:";
+			// 
+			// txtAbono
+			// 
+			this.txtAbono.Location = new System.Drawing.Point(65, 148);
+			this.txtAbono.Name = "txtAbono";
+			this.txtAbono.Size = new System.Drawing.Size(164, 20);
+			this.txtAbono.TabIndex = 24;
+			// 
+			// chkReexpedicion
+			// 
+			this.chkReexpedicion.AutoSize = true;
+			this.chkReexpedicion.Enabled = false;
+			this.chkReexpedicion.Location = new System.Drawing.Point(65, 199);
+			this.chkReexpedicion.Name = "chkReexpedicion";
+			this.chkReexpedicion.Size = new System.Drawing.Size(91, 17);
+			this.chkReexpedicion.TabIndex = 23;
+			this.chkReexpedicion.Text = "Reexpedicion";
+			this.chkReexpedicion.UseVisualStyleBackColor = true;
+			// 
+			// chkFactura
+			// 
+			this.chkFactura.AutoSize = true;
+			this.chkFactura.Location = new System.Drawing.Point(65, 181);
+			this.chkFactura.Name = "chkFactura";
+			this.chkFactura.Size = new System.Drawing.Size(62, 17);
+			this.chkFactura.TabIndex = 21;
+			this.chkFactura.Text = "Factura";
+			this.chkFactura.UseVisualStyleBackColor = true;
+			// 
 			// label28
 			// 
 			this.label28.AutoSize = true;
@@ -950,6 +987,7 @@
 			this.groupBox1.Controls.Add(this.checkBox3);
 			this.groupBox1.Controls.Add(this.checkBox2);
 			this.groupBox1.Controls.Add(this.checkBox1);
+			this.groupBox1.Enabled = false;
 			this.groupBox1.Location = new System.Drawing.Point(552, 281);
 			this.groupBox1.Name = "groupBox1";
 			this.groupBox1.Size = new System.Drawing.Size(238, 120);
@@ -1045,43 +1083,6 @@
 			this.checkBox1.TabIndex = 23;
 			this.checkBox1.Text = "Impreso";
 			this.checkBox1.UseVisualStyleBackColor = true;
-			// 
-			// chkFactura
-			// 
-			this.chkFactura.AutoSize = true;
-			this.chkFactura.Location = new System.Drawing.Point(65, 181);
-			this.chkFactura.Name = "chkFactura";
-			this.chkFactura.Size = new System.Drawing.Size(62, 17);
-			this.chkFactura.TabIndex = 21;
-			this.chkFactura.Text = "Factura";
-			this.chkFactura.UseVisualStyleBackColor = true;
-			// 
-			// chkReexpedicion
-			// 
-			this.chkReexpedicion.AutoSize = true;
-			this.chkReexpedicion.Enabled = false;
-			this.chkReexpedicion.Location = new System.Drawing.Point(65, 199);
-			this.chkReexpedicion.Name = "chkReexpedicion";
-			this.chkReexpedicion.Size = new System.Drawing.Size(91, 17);
-			this.chkReexpedicion.TabIndex = 23;
-			this.chkReexpedicion.Text = "Reexpedicion";
-			this.chkReexpedicion.UseVisualStyleBackColor = true;
-			// 
-			// txtAbono
-			// 
-			this.txtAbono.Location = new System.Drawing.Point(65, 148);
-			this.txtAbono.Name = "txtAbono";
-			this.txtAbono.Size = new System.Drawing.Size(164, 20);
-			this.txtAbono.TabIndex = 24;
-			// 
-			// label30
-			// 
-			this.label30.AutoSize = true;
-			this.label30.Location = new System.Drawing.Point(21, 149);
-			this.label30.Name = "label30";
-			this.label30.Size = new System.Drawing.Size(41, 13);
-			this.label30.TabIndex = 25;
-			this.label30.Text = "Abono:";
 			// 
 			// frmGuia
 			// 

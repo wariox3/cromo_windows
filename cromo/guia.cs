@@ -9,7 +9,8 @@ namespace cromo
     class guia
     {
         public int codigoGuiaPk { get; set; }
-        public string codigoOperacionIngresoFk { get; set; }
+		public int numero { get; set; }
+		public string codigoOperacionIngresoFk { get; set; }
         public string codigoOperacionCargoFk { get; set; }
         public int codigoClienteFk { get; set; }        
         public string codigoCiudadOrigenFk { get; set; }
@@ -44,9 +45,10 @@ namespace cromo
             string premitente, string pcodigoServicioFk, string pcodigoGuiaTipoFk, string pcodigoProductoFk, string pcodigoEmpaqueFk, string pnombreDestinatario,
 			string pdireccionDestinatario, string ptelefonoDestinatario, string pfechaIngreso, int punidades, int ppesoReal, 
 			int ppesovolumen, int ppesoFacturar, double pvrFlete, double pvrManejo, double pvrDeclara, double pvrRecaudo,
-			string pcodigoRutaFk, int pordenRuta, bool preexpedicion, int pcodigoCondicionFk, bool pfactura)
+			string pcodigoRutaFk, int pordenRuta, bool preexpedicion, int pcodigoCondicionFk, bool pfactura, int pnumero)
         {
             this.codigoGuiaPk = pcodigoGuiaPk;
+			this.numero = pnumero;
             this.codigoOperacionIngresoFk = pcodigoOperacionIngresoFk;
             this.codigoOperacionCargoFk = pcodigoOperacionCargoFk;
             this.codigoClienteFk = pcodigoClienteFk;

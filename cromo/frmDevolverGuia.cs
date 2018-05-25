@@ -38,7 +38,7 @@ namespace cromo
 			{				
 				string cmd = string.Format("SELECT codigo_guia_pk FROM tte_guia WHERE codigo_guia_tipo_fk = '" + cboGuiaTipo.SelectedValue + "' AND numero = " + txtNumero.Text);
 				DataSet ds = Utilidades.Ejecutar(cmd);
-				BuscarGuia.codigoGuia = Convert.ToInt32(ds.Tables[0].Rows[0]["codigo_guia_pk"].ToString());				
+				FuncionesGuia.codigoGuia = Convert.ToInt32(ds.Tables[0].Rows[0]["codigo_guia_pk"].ToString());				
 				DialogResult = DialogResult.OK;
 				Close();
 			} catch (Exception error)

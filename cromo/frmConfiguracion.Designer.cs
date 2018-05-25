@@ -48,7 +48,7 @@
 			// 
 			// btnGuardar
 			// 
-			this.btnGuardar.Location = new System.Drawing.Point(229, 250);
+			this.btnGuardar.Location = new System.Drawing.Point(227, 227);
 			this.btnGuardar.Name = "btnGuardar";
 			this.btnGuardar.Size = new System.Drawing.Size(140, 27);
 			this.btnGuardar.TabIndex = 0;
@@ -58,7 +58,7 @@
 			// 
 			// btnCancelar
 			// 
-			this.btnCancelar.Location = new System.Drawing.Point(24, 252);
+			this.btnCancelar.Location = new System.Drawing.Point(24, 227);
 			this.btnCancelar.Name = "btnCancelar";
 			this.btnCancelar.Size = new System.Drawing.Size(154, 25);
 			this.btnCancelar.TabIndex = 1;
@@ -80,35 +80,35 @@
 			this.txtCentroOperacion.Location = new System.Drawing.Point(155, 25);
 			this.txtCentroOperacion.Name = "txtCentroOperacion";
 			this.txtCentroOperacion.Size = new System.Drawing.Size(145, 20);
-			this.txtCentroOperacion.TabIndex = 3;
+			this.txtCentroOperacion.TabIndex = 0;
 			// 
 			// txtBaseDatos
 			// 
 			this.txtBaseDatos.Location = new System.Drawing.Point(155, 181);
 			this.txtBaseDatos.Name = "txtBaseDatos";
 			this.txtBaseDatos.Size = new System.Drawing.Size(145, 20);
-			this.txtBaseDatos.TabIndex = 4;
+			this.txtBaseDatos.TabIndex = 6;
 			// 
 			// txtClave
 			// 
 			this.txtClave.Location = new System.Drawing.Point(155, 129);
 			this.txtClave.Name = "txtClave";
 			this.txtClave.Size = new System.Drawing.Size(145, 20);
-			this.txtClave.TabIndex = 5;
+			this.txtClave.TabIndex = 4;
 			// 
 			// txtUsuario
 			// 
 			this.txtUsuario.Location = new System.Drawing.Point(155, 103);
 			this.txtUsuario.Name = "txtUsuario";
 			this.txtUsuario.Size = new System.Drawing.Size(145, 20);
-			this.txtUsuario.TabIndex = 6;
+			this.txtUsuario.TabIndex = 3;
 			// 
 			// txtServidor
 			// 
 			this.txtServidor.Location = new System.Drawing.Point(155, 77);
 			this.txtServidor.Name = "txtServidor";
 			this.txtServidor.Size = new System.Drawing.Size(145, 20);
-			this.txtServidor.TabIndex = 7;
+			this.txtServidor.TabIndex = 2;
 			// 
 			// label2
 			// 
@@ -160,14 +160,14 @@
 			this.txtCodigoCiudadOrigen.Location = new System.Drawing.Point(155, 51);
 			this.txtCodigoCiudadOrigen.Name = "txtCodigoCiudadOrigen";
 			this.txtCodigoCiudadOrigen.Size = new System.Drawing.Size(145, 20);
-			this.txtCodigoCiudadOrigen.TabIndex = 13;
+			this.txtCodigoCiudadOrigen.TabIndex = 1;
 			// 
 			// txtPuerto
 			// 
 			this.txtPuerto.Location = new System.Drawing.Point(155, 155);
 			this.txtPuerto.Name = "txtPuerto";
 			this.txtPuerto.Size = new System.Drawing.Size(145, 20);
-			this.txtPuerto.TabIndex = 14;
+			this.txtPuerto.TabIndex = 5;
 			// 
 			// label7
 			// 
@@ -182,7 +182,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(396, 299);
+			this.ClientSize = new System.Drawing.Size(378, 266);
 			this.Controls.Add(this.label7);
 			this.Controls.Add(this.txtPuerto);
 			this.Controls.Add(this.txtCodigoCiudadOrigen);

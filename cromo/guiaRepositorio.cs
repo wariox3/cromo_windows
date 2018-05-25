@@ -18,15 +18,15 @@ namespace cromo
 				"documento_cliente, remitente, codigo_servicio_fk, codigo_guia_tipo_fk, codigo_empaque_fk, nombre_destinatario, " +
 				"direccion_destinatario, telefono_destinatario, fecha_ingreso, unidades, peso_real, peso_volumen, peso_facturado, " +
 				"vr_flete, vr_manejo, vr_declara, vr_recaudo, codigo_ruta_fk, orden_ruta, codigo_producto_fk, reexpedicion, " +
-				"codigo_condicion_fk, factura)" +
+				"codigo_condicion_fk, factura, numero)" +
 				" values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}', now(), " +
-				"{13}, {14}, {15}, {16}, {17}, {18}, {19}, {20},'{21}',{22},'{23}', {24}, {25}, {26})",
+				"{13}, {14}, {15}, {16}, {17}, {18}, {19}, {20},'{21}',{22},'{23}', {24}, {25}, {26}, {27})",
                 pGuia.codigoOperacionIngresoFk, pGuia.codigoOperacionCargoFk, pGuia.codigoClienteFk, pGuia.codigoCiudadOrigenFk, 
                 pGuia.codigoCiudadDestinoFk, pGuia.documentoCliente, pGuia.remitente, pGuia.codigoServicioFk, pGuia.codigoGuiaTipoFk,
 				pGuia.codigoEmpaqueFk, pGuia.nombreDestinatario, pGuia.direccionDestinatario, pGuia.telefonoDestinatario,
 				pGuia.unidades, pGuia.pesoReal, pGuia.pesoVolumen, pGuia.pesoFacturar, pGuia.vrFlete, pGuia.vrManejo, pGuia.vrDeclara,
 				pGuia.vrRecaudo, pGuia.codigoRutaFk, pGuia.ordenRuta, pGuia.codigoProductoFk, pGuia.reexpedicion, pGuia.codigoCondicionFk,
-				pGuia.factura
+				pGuia.factura, pGuia.numero
 				), BdCromo.ObtenerConexion());
             retorno = comando.ExecuteNonQuery();
 			

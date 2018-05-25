@@ -14,6 +14,11 @@ namespace cromo
     public partial class frmGuia : Form
     {
 		string ultimoCliente = "";
+		string ultimoTipo = "";
+		string ultimoServicio = "";
+		string ultimoProducto = "";
+		string ultimoEmpaque = "";
+
 		int pesoMinimoCondicion = 0;
 		double porcentajeManejo = 0;
 		double manejoMinimoUnidad = 0;
@@ -83,6 +88,14 @@ namespace cromo
         {			
 			Desbloquear();
             Limpiar();
+			if(ultimoTipo != "")
+			{
+				cboTipo.SelectedValue = ultimoTipo;
+			} else
+			{
+				cboTipo.SelectedIndex = 0;
+			}
+
 			txtFechaIngreso.Text = DateTime.Now.ToString("G");
 			txtCodigoCliente.Text = ultimoCliente;
 			txtCodigoCiudadOrigen.Text = cromo.Properties.Settings.Default.ciudadOrigen;
@@ -131,57 +144,81 @@ namespace cromo
 				validacion = false;
 			}
 
+
 			if (validacion == true)
 			{
-				string sql = "SELECT factura FROM tte_guia_tipo WHERE codigo_guia_tipo_pk ='" + cboTipo.SelectedValue.ToString() + "'";
+				string sql = "SELECT factura, exige_numero, consecutivo FROM tte_guia_tipo WHERE codigo_guia_tipo_pk ='" + cboTipo.SelectedValue.ToString() + "'";
 				DataSet ds = Utilidades.Ejecutar(sql);
 				DataTable dt = ds.Tables[0];
 				if (dt.Rows.Count > 0)
 				{
-					chkFactura.Checked = Convert.ToBoolean(dt.Rows[0]["factura"]);					
+					chkFactura.Checked = Convert.ToBoolean(dt.Rows[0]["factura"]);
+					if (Convert.ToBoolean(dt.Rows[0]["exige_numero"]))
+					{
+						frmDevolverNumero frm = new frmDevolverNumero();
+						frm.ShowDialog();
+						if(General.numeroGuia != 0)
+						{
+							txtNumero.Text = General.numeroGuia.ToString();
+						} else
+						{
+							validacion = false;
+						}
+					} else
+					{
+						txtNumero.Text = dt.Rows[0]["consecutivo"].ToString();
+						MySqlCommand cmdGuia = new MySqlCommand("UPDATE tte_guia_tipo SET consecutivo = consecutivo+1 WHERE codigo_guia_tipo_pk = '" + cboTipo.SelectedValue.ToString() + "'",
+							BdCromo.ObtenerConexion());
+					}
 				}
-
-				//https://www.youtube.com/watch?v=IT_R46g7YTk&t=227s
-				guia pGuia = new guia();
-				pGuia.codigoOperacionIngresoFk = txtOperacionIngreso.Text;
-				pGuia.codigoOperacionCargoFk = txtOperacionCargo.Text;
-				pGuia.codigoClienteFk = Convert.ToInt32(txtCodigoCliente.Text);
-				pGuia.codigoCiudadOrigenFk = txtCodigoCiudadOrigen.Text;
-				pGuia.codigoCiudadDestinoFk = txtCodigoCiudadDestino.Text;
-				pGuia.documentoCliente = txtDocumentoCliente.Text;
-				pGuia.remitente = txtRemitente.Text;
-				pGuia.codigoServicioFk = cboServicio.SelectedValue.ToString();
-				pGuia.codigoGuiaTipoFk = cboTipo.SelectedValue.ToString();
-				pGuia.codigoProductoFk = cboProducto.SelectedValue.ToString();
-				pGuia.codigoEmpaqueFk = cboEmpaque.SelectedValue.ToString();
-				pGuia.nombreDestinatario = txtNombreDestinatario.Text;
-				pGuia.direccionDestinatario = txtDireccionDestinatario.Text;
-				pGuia.telefonoDestinatario = txtTelefonoDestinatario.Text;
-				pGuia.unidades = Convert.ToInt32(txtUnidades.Text);
-				pGuia.pesoReal = Convert.ToInt32(txtPeso.Text);
-				pGuia.pesoVolumen = Convert.ToInt32(txtVolumen.Text);
-				pGuia.pesoFacturar = Convert.ToInt32(txtPesoFacturar.Text);
-				pGuia.vrFlete = Convert.ToDouble(txtFlete.Text);
-				pGuia.vrManejo = Convert.ToDouble(txtManejo.Text);
-				pGuia.vrDeclara = Convert.ToDouble(txtDeclarado.Text);
-				pGuia.vrRecaudo = Convert.ToDouble(txtRecaudo.Text);
-				pGuia.codigoRutaFk = txtCodigoRuta.Text;
-				pGuia.ordenRuta = Convert.ToInt32(txtOrdenRuta.Text);				
-				pGuia.reexpedicion = chkReexpedicion.Checked;
-				pGuia.codigoCondicionFk = Convert.ToInt32(txtCodigoCondicion.Text);
-				pGuia.factura = chkFactura.Checked;
-				long resultado = GuiaRepositorio.Agregar(pGuia);
-
-				if (resultado > 0)
+				if(validacion == true)
 				{
-					txtCodigo.Text = resultado.ToString();
-					MessageBox.Show("Se guardo exitosamente");
-					ultimoCliente = txtCodigoCliente.Text;
-					Bloquear();
-				}
-				else
-				{
-					MessageBox.Show("Error");
+					//https://www.youtube.com/watch?v=IT_R46g7YTk&t=227s
+					guia pGuia = new guia();
+					pGuia.codigoOperacionIngresoFk = txtOperacionIngreso.Text;
+					pGuia.codigoOperacionCargoFk = txtOperacionCargo.Text;
+					pGuia.codigoClienteFk = Convert.ToInt32(txtCodigoCliente.Text);
+					pGuia.codigoCiudadOrigenFk = txtCodigoCiudadOrigen.Text;
+					pGuia.codigoCiudadDestinoFk = txtCodigoCiudadDestino.Text;
+					pGuia.documentoCliente = txtDocumentoCliente.Text;
+					pGuia.remitente = txtRemitente.Text;
+					pGuia.codigoServicioFk = cboServicio.SelectedValue.ToString();
+					pGuia.codigoGuiaTipoFk = cboTipo.SelectedValue.ToString();
+					pGuia.codigoProductoFk = cboProducto.SelectedValue.ToString();
+					pGuia.codigoEmpaqueFk = cboEmpaque.SelectedValue.ToString();
+					pGuia.nombreDestinatario = txtNombreDestinatario.Text;
+					pGuia.direccionDestinatario = txtDireccionDestinatario.Text;
+					pGuia.telefonoDestinatario = txtTelefonoDestinatario.Text;
+					pGuia.unidades = Convert.ToInt32(txtUnidades.Text);
+					pGuia.pesoReal = Convert.ToInt32(txtPeso.Text);
+					pGuia.pesoVolumen = Convert.ToInt32(txtVolumen.Text);
+					pGuia.pesoFacturar = Convert.ToInt32(txtPesoFacturar.Text);
+					pGuia.vrFlete = Convert.ToDouble(txtFlete.Text);
+					pGuia.vrManejo = Convert.ToDouble(txtManejo.Text);
+					pGuia.vrDeclara = Convert.ToDouble(txtDeclarado.Text);
+					pGuia.vrRecaudo = Convert.ToDouble(txtRecaudo.Text);
+					pGuia.codigoRutaFk = txtCodigoRuta.Text;
+					pGuia.ordenRuta = Convert.ToInt32(txtOrdenRuta.Text);
+					pGuia.reexpedicion = chkReexpedicion.Checked;
+					pGuia.codigoCondicionFk = Convert.ToInt32(txtCodigoCondicion.Text);
+					pGuia.factura = chkFactura.Checked;
+					long resultado = GuiaRepositorio.Agregar(pGuia);
+
+					if (resultado > 0)
+					{
+						txtCodigo.Text = resultado.ToString();
+						MessageBox.Show("Se guardo exitosamente");
+						ultimoCliente = txtCodigoCliente.Text;
+						ultimoTipo = cboTipo.SelectedValue.ToString();
+						ultimoServicio = cboServicio.SelectedValue.ToString();
+						ultimoProducto = cboProducto.SelectedValue.ToString();
+						ultimoEmpaque = cboEmpaque.SelectedValue.ToString();
+						Bloquear();
+					}
+					else
+					{
+						MessageBox.Show("Error");
+					}
 				}
 			}
 		}
@@ -291,7 +328,9 @@ namespace cromo
         private void tsbCancelar_Click(object sender, EventArgs e)
         {
             Bloquear();
-        }
+			FuncionesGuia fg = new FuncionesGuia();
+			TraerGuia(fg.Ultima());
+		}
 
         private void txtCodigoCliente_Validated(object sender, EventArgs e)
         {
@@ -419,16 +458,16 @@ namespace cromo
 		private void tsbBuscar_Click(object sender, EventArgs e)
 		{
 
-			BuscarGuia buscar = new BuscarGuia();
+			FuncionesGuia buscar = new FuncionesGuia();
 			buscar.devolverGuia();
-			TraerGuia(BuscarGuia.codigoGuia);
+			TraerGuia(FuncionesGuia.codigoGuia);
 		}
 
 		private void mnuBuscar_Click(object sender, EventArgs e)
 		{
-			BuscarGuia buscar = new BuscarGuia();
+			FuncionesGuia buscar = new FuncionesGuia();
 			buscar.devolverGuia();			
-			TraerGuia(BuscarGuia.codigoGuia);
+			TraerGuia(FuncionesGuia.codigoGuia);
 		}
 		public void TraerGuia(int codigoGuia)
 		{
