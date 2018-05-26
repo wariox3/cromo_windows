@@ -167,8 +167,9 @@ namespace cromo
 					} else
 					{
 						txtNumero.Text = dt.Rows[0]["consecutivo"].ToString();
-						MySqlCommand cmdGuia = new MySqlCommand("UPDATE tte_guia_tipo SET consecutivo = consecutivo+1 WHERE codigo_guia_tipo_pk = '" + cboTipo.SelectedValue.ToString() + "'",
+						MySqlCommand cmd = new MySqlCommand("UPDATE tte_guia_tipo SET consecutivo = consecutivo+1 WHERE codigo_guia_tipo_pk = '" + cboTipo.SelectedValue.ToString() + "'",
 							BdCromo.ObtenerConexion());
+						cmd.ExecuteNonQuery();
 					}
 				}
 				if(validacion == true)
@@ -202,6 +203,7 @@ namespace cromo
 					pGuia.reexpedicion = chkReexpedicion.Checked;
 					pGuia.codigoCondicionFk = Convert.ToInt32(txtCodigoCondicion.Text);
 					pGuia.factura = chkFactura.Checked;
+					pGuia.comentario = txtComentario.Text;
 					long resultado = GuiaRepositorio.Agregar(pGuia);
 
 					if (resultado > 0)
@@ -614,6 +616,10 @@ namespace cromo
 		}
 		private void txtPeso_Validated(object sender, EventArgs e)
 		{
+			if(Convert.ToInt32(txtVolumen.Text) <= 0)
+			{
+				txtVolumen.Text = txtPeso.Text;
+			}
 			liquidarPesoFacturar();
 		}
 		private void liquidarPesoFacturar()
@@ -651,16 +657,18 @@ namespace cromo
 			//frmReporte.Show();
 		}
 
-		private void button1_Click_2(object sender, EventArgs e)
-		{
-			General.codigoGuia = Convert.ToInt32(txtCodigo.Text);
-			frmRecibo frmRecibo = new frmRecibo();
-			frmRecibo.ShowDialog();
-		}
+
 
 		private void txtCodigoCiudadDestino_TextChanged(object sender, EventArgs e)
 		{
 
+		}
+
+		private void tsbRecibo_Click(object sender, EventArgs e)
+		{
+			General.codigoGuia = Convert.ToInt32(txtCodigo.Text);
+			frmRecibo frmRecibo = new frmRecibo();
+			frmRecibo.ShowDialog();
 		}
 	}
 }

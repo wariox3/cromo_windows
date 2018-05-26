@@ -80,9 +80,11 @@
 			this.tsbBuscar = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this.tsbImprimir = new System.Windows.Forms.ToolStripButton();
+			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+			this.tsbRecibo = new System.Windows.Forms.ToolStripButton();
 			this.gbInformacion = new System.Windows.Forms.GroupBox();
 			this.label29 = new System.Windows.Forms.Label();
-			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.txtComentario = new System.Windows.Forms.TextBox();
 			this.label26 = new System.Windows.Forms.Label();
 			this.cboProducto = new System.Windows.Forms.ComboBox();
 			this.label19 = new System.Windows.Forms.Label();
@@ -117,7 +119,6 @@
 			this.label21 = new System.Windows.Forms.Label();
 			this.txtCodigo = new System.Windows.Forms.TextBox();
 			this.label20 = new System.Windows.Forms.Label();
-			this.button1 = new System.Windows.Forms.Button();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.checkBox9 = new System.Windows.Forms.CheckBox();
 			this.chkFacturado = new System.Windows.Forms.CheckBox();
@@ -554,7 +555,9 @@
             this.toolStripSeparator1,
             this.tsbBuscar,
             this.toolStripSeparator2,
-            this.tsbImprimir});
+            this.tsbImprimir,
+            this.toolStripSeparator3,
+            this.tsbRecibo});
 			this.toolStrip1.Location = new System.Drawing.Point(0, 0);
 			this.toolStrip1.Name = "toolStrip1";
 			this.toolStrip1.Size = new System.Drawing.Size(1123, 25);
@@ -622,10 +625,25 @@
 			this.tsbImprimir.Size = new System.Drawing.Size(23, 22);
 			this.tsbImprimir.Text = "toolStripButton1";
 			// 
+			// toolStripSeparator3
+			// 
+			this.toolStripSeparator3.Name = "toolStripSeparator3";
+			this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+			// 
+			// tsbRecibo
+			// 
+			this.tsbRecibo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.tsbRecibo.Image = ((System.Drawing.Image)(resources.GetObject("tsbRecibo.Image")));
+			this.tsbRecibo.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.tsbRecibo.Name = "tsbRecibo";
+			this.tsbRecibo.Size = new System.Drawing.Size(23, 22);
+			this.tsbRecibo.Text = "toolStripButton1";
+			this.tsbRecibo.Click += new System.EventHandler(this.tsbRecibo_Click);
+			// 
 			// gbInformacion
 			// 
 			this.gbInformacion.Controls.Add(this.label29);
-			this.gbInformacion.Controls.Add(this.textBox1);
+			this.gbInformacion.Controls.Add(this.txtComentario);
 			this.gbInformacion.Controls.Add(this.label26);
 			this.gbInformacion.Controls.Add(this.cboProducto);
 			this.gbInformacion.Controls.Add(this.label19);
@@ -650,13 +668,13 @@
 			this.label29.TabIndex = 17;
 			this.label29.Text = "Comentario:";
 			// 
-			// textBox1
+			// txtComentario
 			// 
-			this.textBox1.Location = new System.Drawing.Point(73, 110);
-			this.textBox1.Multiline = true;
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(201, 79);
-			this.textBox1.TabIndex = 16;
+			this.txtComentario.Location = new System.Drawing.Point(73, 110);
+			this.txtComentario.Multiline = true;
+			this.txtComentario.Name = "txtComentario";
+			this.txtComentario.Size = new System.Drawing.Size(201, 79);
+			this.txtComentario.TabIndex = 16;
 			// 
 			// label26
 			// 
@@ -966,16 +984,6 @@
 			this.label20.TabIndex = 0;
 			this.label20.Text = "Id:";
 			// 
-			// button1
-			// 
-			this.button1.Location = new System.Drawing.Point(580, 450);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(93, 20);
-			this.button1.TabIndex = 18;
-			this.button1.Text = "button1";
-			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.button1_Click_2);
-			// 
 			// groupBox1
 			// 
 			this.groupBox1.Controls.Add(this.checkBox9);
@@ -1091,7 +1099,6 @@
 			this.ClientSize = new System.Drawing.Size(1123, 555);
 			this.ControlBox = false;
 			this.Controls.Add(this.groupBox1);
-			this.Controls.Add(this.button1);
 			this.Controls.Add(this.gbDatos);
 			this.Controls.Add(this.gbInformacion);
 			this.Controls.Add(this.toolStrip1);
@@ -1209,8 +1216,7 @@
 		private System.Windows.Forms.ToolStripButton tsbImprimir;
 		private System.Windows.Forms.ToolStripMenuItem mnuImprimir;
 		private System.Windows.Forms.Label label29;
-		private System.Windows.Forms.TextBox textBox1;
-		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.TextBox txtComentario;
 		private System.Windows.Forms.CheckBox chkReexpedicion;
 		private System.Windows.Forms.CheckBox chkFactura;
 		private System.Windows.Forms.GroupBox groupBox1;
@@ -1225,6 +1231,8 @@
 		private System.Windows.Forms.CheckBox checkBox1;
 		private System.Windows.Forms.Label label30;
 		private System.Windows.Forms.TextBox txtAbono;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+		private System.Windows.Forms.ToolStripButton tsbRecibo;
 	}
 }
 
