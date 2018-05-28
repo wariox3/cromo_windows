@@ -170,6 +170,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
             }
         }
         "Release"
@@ -194,6 +202,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
             }
         }
     }
@@ -560,7 +576,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:cromo"
         "ProductCode" = "8:{1384ED66-1AD3-48F9-9CCB-6212990C5248}"
-        "PackageCode" = "8:{838AAF2D-435F-4675-A488-DABAEFE8B439}"
+        "PackageCode" = "8:{AF705B2E-BB2E-41E4-B425-C65C5D61AE79}"
         "UpgradeCode" = "8:{F4DD945A-F6E8-4865-8A5A-7BE5E229507B}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

@@ -129,6 +129,7 @@
 			this.checkBox3 = new System.Windows.Forms.CheckBox();
 			this.checkBox2 = new System.Windows.Forms.CheckBox();
 			this.checkBox1 = new System.Windows.Forms.CheckBox();
+			this.tsbVistaPrevia = new System.Windows.Forms.ToolStripButton();
 			this.gbDestinatario.SuspendLayout();
 			this.gbTotales.SuspendLayout();
 			this.gbCliente.SuspendLayout();
@@ -556,6 +557,7 @@
             this.tsbBuscar,
             this.toolStripSeparator2,
             this.tsbImprimir,
+            this.tsbVistaPrevia,
             this.toolStripSeparator3,
             this.tsbRecibo});
 			this.toolStrip1.Location = new System.Drawing.Point(0, 0);
@@ -571,7 +573,7 @@
 			this.tsbNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.tsbNuevo.Name = "tsbNuevo";
 			this.tsbNuevo.Size = new System.Drawing.Size(23, 22);
-			this.tsbNuevo.Text = "Nuevo";
+			this.tsbNuevo.Text = "Nuevo F5";
 			this.tsbNuevo.Click += new System.EventHandler(this.tsbNuevo_Click);
 			// 
 			// tsbGuardar
@@ -582,7 +584,7 @@
 			this.tsbGuardar.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.tsbGuardar.Name = "tsbGuardar";
 			this.tsbGuardar.Size = new System.Drawing.Size(23, 22);
-			this.tsbGuardar.Text = "Guardar";
+			this.tsbGuardar.Text = "Guardar F6";
 			this.tsbGuardar.Click += new System.EventHandler(this.tsbGuardar_Click);
 			// 
 			// tsbCancelar
@@ -593,7 +595,7 @@
 			this.tsbCancelar.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.tsbCancelar.Name = "tsbCancelar";
 			this.tsbCancelar.Size = new System.Drawing.Size(23, 22);
-			this.tsbCancelar.Text = "Cancelar";
+			this.tsbCancelar.Text = "Cancelar F7";
 			this.tsbCancelar.Click += new System.EventHandler(this.tsbCancelar_Click);
 			// 
 			// toolStripSeparator1
@@ -608,7 +610,7 @@
 			this.tsbBuscar.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.tsbBuscar.Name = "tsbBuscar";
 			this.tsbBuscar.Size = new System.Drawing.Size(23, 22);
-			this.tsbBuscar.Text = "Buscar";
+			this.tsbBuscar.Text = "Buscar F8";
 			this.tsbBuscar.Click += new System.EventHandler(this.tsbBuscar_Click);
 			// 
 			// toolStripSeparator2
@@ -623,7 +625,8 @@
 			this.tsbImprimir.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.tsbImprimir.Name = "tsbImprimir";
 			this.tsbImprimir.Size = new System.Drawing.Size(23, 22);
-			this.tsbImprimir.Text = "toolStripButton1";
+			this.tsbImprimir.Text = "Imprimir Ctr+P";
+			this.tsbImprimir.Click += new System.EventHandler(this.tsbImprimir_Click);
 			// 
 			// toolStripSeparator3
 			// 
@@ -637,7 +640,7 @@
 			this.tsbRecibo.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.tsbRecibo.Name = "tsbRecibo";
 			this.tsbRecibo.Size = new System.Drawing.Size(23, 22);
-			this.tsbRecibo.Text = "toolStripButton1";
+			this.tsbRecibo.Text = "Ver / agregar recibo";
 			this.tsbRecibo.Click += new System.EventHandler(this.tsbRecibo_Click);
 			// 
 			// gbInformacion
@@ -1092,6 +1095,16 @@
 			this.checkBox1.Text = "Impreso";
 			this.checkBox1.UseVisualStyleBackColor = true;
 			// 
+			// tsbVistaPrevia
+			// 
+			this.tsbVistaPrevia.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.tsbVistaPrevia.Image = ((System.Drawing.Image)(resources.GetObject("tsbVistaPrevia.Image")));
+			this.tsbVistaPrevia.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.tsbVistaPrevia.Name = "tsbVistaPrevia";
+			this.tsbVistaPrevia.Size = new System.Drawing.Size(23, 22);
+			this.tsbVistaPrevia.Text = "Vista previa";
+			this.tsbVistaPrevia.Click += new System.EventHandler(this.tsbVistaPrevia_Click);
+			// 
 			// frmGuia
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1233,6 +1246,7 @@
 		private System.Windows.Forms.TextBox txtAbono;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
 		private System.Windows.Forms.ToolStripButton tsbRecibo;
+		private System.Windows.Forms.ToolStripButton tsbVistaPrevia;
 	}
 }
 

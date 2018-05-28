@@ -41,10 +41,34 @@ namespace cromo
 			switch (General.codigoReporte)
 			{
 				case 1:
-					FormatoRecibo objRpt = new FormatoRecibo();
+					FormatoRecibo objRpt = new FormatoRecibo();					
 					objRpt.SetDataSource(ds.Tables[0]);
 					crystalReportViewer1.ReportSource = objRpt;
 					crystalReportViewer1.Refresh();
+					break;
+				case 2:
+					/*FormatoGuia reporteGuia = new FormatoGuia();
+					reporteGuia.SetDataSource(ds.Tables[0]);
+					crystalReportViewer1.ReportSource = reporteGuia;
+					crystalReportViewer1.Refresh();*/
+
+					/*string servirdor = cromo.Properties.Settings.Default.servidorBaseDatos;
+					string puerto = cromo.Properties.Settings.Default.puertoBaseDatos;
+					string usuario = cromo.Properties.Settings.Default.usuarioBaseDatos;
+					string clave = cromo.Properties.Settings.Default.claveBaseDatos;
+					string baseDatos = cromo.Properties.Settings.Default.baseDatos;
+					MySqlConnection bd = new MySqlConnection("server=" + servirdor + "; database=" + baseDatos + "; Uid=" + usuario + "; pwd=" + clave + "; port=" + puerto + "; SslMode=none;");
+					bd.Open();*/
+
+					ReportDocument rpt = new ReportDocument();
+					rpt.Load(@"C:\reportes\FormatoGuia.rpt");
+					rpt.SetDataSource(ds.Tables[0]);
+					crystalReportViewer1.ReportSource = rpt;
+					crystalReportViewer1.Refresh();
+
+					//crystalReportViewer1.ReportSource = rpt;
+					//crystalReportViewer1.Refresh();
+
 					break;
 			}
 		}
