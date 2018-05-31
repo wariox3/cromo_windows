@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CrystalDecisions.CrystalReports.Engine;
 using MySql.Data.MySqlClient;
+using System.IO;
 namespace cromo
 {
 	public partial class frmReporte : Form
@@ -18,7 +19,7 @@ namespace cromo
 			InitializeComponent();
 		}
 
-		private void frmReporte_Load(object sender, EventArgs e)
+		private void frmReporte_Load_1(object sender, EventArgs e)
 		{
 			/* http://csharp.net-informations.com/crystal-reports/csharp-crystal-reports-string-parameter.htm */
 			/* https:/www.youtube.com/watch?v=iisXC_RsZ3w */
@@ -27,49 +28,52 @@ namespace cromo
 			crystalReportViewer1.ReportSource = rpt;
 			crystalReportViewer1.Refresh();*/
 
-			/*FormatoGuia objRpt = new FormatoGuia();
-			string sql = "SELECT tte_guia.codigo_guia_pk, tte_guia.numero, tte_guia.documento_cliente FROM tte_guia WHERE codigo_guia_pk = 1";			
-			DataSet ds;
-			string strSql = string.Format(sql);
-			ds = Utilidades.Ejecutar(strSql);
-			objRpt.SetDataSource(ds.Tables[0]);*/
+			string servirdor = cromo.Properties.Settings.Default.servidorBaseDatos;
+			string puerto = cromo.Properties.Settings.Default.puertoBaseDatos;
+			string usuario = cromo.Properties.Settings.Default.usuarioBaseDatos;
+			string clave = cromo.Properties.Settings.Default.claveBaseDatos;
+			string baseDatos = cromo.Properties.Settings.Default.baseDatos;
+			string driver = cromo.Properties.Settings.Default.driverBaseDatos;
+			string rutaReportes = cromo.Properties.Settings.Default.rutaReportes;
+			string ruta = "";
+			DataSet dsReporte = Utilidades.Ejecutar("SELECT modulo, nombre, archivo " +
+				"FROM gen_reporte WHERE codigo_reporte_pk = " + General.codigoReporte.ToString());
+			DataTable dt = dsReporte.Tables[0];
+			if (dt.Rows.Count > 0)
+			{
+				ruta = rutaReportes + dt.Rows[0]["modulo"].ToString() + @"\" + dt.Rows[0]["archivo"].ToString();
+			}
+			string path = Directory.GetCurrentDirectory();
 
-			//crystalReportViewer1.PrintReport();
 			DataSet ds;
 			string strSql = string.Format(General.sql);
 			ds = Utilidades.Ejecutar(strSql);
-			switch (General.codigoReporte)
+
+			ReportDocument rpt = new ReportDocument();
+			if (File.Exists(ruta))
 			{
-				case 1:
-					FormatoRecibo objRpt = new FormatoRecibo();					
-					objRpt.SetDataSource(ds.Tables[0]);
-					crystalReportViewer1.ReportSource = objRpt;
-					crystalReportViewer1.Refresh();
-					break;
-				case 2:
-					/*FormatoGuia reporteGuia = new FormatoGuia();
-					reporteGuia.SetDataSource(ds.Tables[0]);
-					crystalReportViewer1.ReportSource = reporteGuia;
-					crystalReportViewer1.Refresh();*/
+				rpt.Load(ruta);
+				rpt.SetDataSource(ds.Tables[0]);
+				crvReporte.ReportSource = rpt;
+				crvReporte.Refresh();
+				foreach (CrystalDecisions.CrystalReports.Engine.Table item in rpt.Database.Tables)
+				{
+					var tliCurrent = item.LogOnInfo;
+					//tliCurrent.ConnectionInfo.ServerName = "DRIVER={MySQL ODBC 5.3 ANSI Driver};SERVER=localhost;Port=3306;UID=root;";													
+					//tliCurrent.ConnectionInfo.UserID = "root";
+					//tliCurrent.ConnectionInfo.Password = "70143086";
+					//tliCurrent.ConnectionInfo.DatabaseName = "bdcuartas";
 
-					/*string servirdor = cromo.Properties.Settings.Default.servidorBaseDatos;
-					string puerto = cromo.Properties.Settings.Default.puertoBaseDatos;
-					string usuario = cromo.Properties.Settings.Default.usuarioBaseDatos;
-					string clave = cromo.Properties.Settings.Default.claveBaseDatos;
-					string baseDatos = cromo.Properties.Settings.Default.baseDatos;
-					MySqlConnection bd = new MySqlConnection("server=" + servirdor + "; database=" + baseDatos + "; Uid=" + usuario + "; pwd=" + clave + "; port=" + puerto + "; SslMode=none;");
-					bd.Open();*/
-
-					ReportDocument rpt = new ReportDocument();
-					rpt.Load(@"C:\reportes\FormatoGuia.rpt");
-					rpt.SetDataSource(ds.Tables[0]);
-					crystalReportViewer1.ReportSource = rpt;
-					crystalReportViewer1.Refresh();
-
-					//crystalReportViewer1.ReportSource = rpt;
-					//crystalReportViewer1.Refresh();
-
-					break;
+					tliCurrent.ConnectionInfo.ServerName = "DRIVER=" + driver + ";SERVER=" + servirdor + ";Port=" + puerto + ";UID=" + usuario + ";";
+					tliCurrent.ConnectionInfo.UserID = usuario;
+					tliCurrent.ConnectionInfo.Password = clave;
+					tliCurrent.ConnectionInfo.DatabaseName = baseDatos;
+					item.ApplyLogOnInfo(tliCurrent);
+				}
+			}
+			else
+			{
+				MessageBox.Show("No se encuentra el archivo" + ruta);
 			}
 		}
 	}

@@ -26,6 +26,8 @@ namespace cromo
 			txtBaseDatos.Text = cromo.Properties.Settings.Default.baseDatos;
 			txtPuerto.Text = cromo.Properties.Settings.Default.puertoBaseDatos;
 			txtCodigoCiudadOrigen.Text = cromo.Properties.Settings.Default.ciudadOrigen;
+			txtDriver.Text = cromo.Properties.Settings.Default.driverBaseDatos;
+			txtRutaReportes.Text = cromo.Properties.Settings.Default.rutaReportes;
 		}
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -37,6 +39,8 @@ namespace cromo
 			cromo.Properties.Settings.Default.baseDatos = txtBaseDatos.Text;
 			cromo.Properties.Settings.Default.puertoBaseDatos = txtPuerto.Text;
 			cromo.Properties.Settings.Default.ciudadOrigen = txtCodigoCiudadOrigen.Text;
+			cromo.Properties.Settings.Default.driverBaseDatos = txtDriver.Text;
+			cromo.Properties.Settings.Default.rutaReportes = txtRutaReportes.Text;
 			cromo.Properties.Settings.Default.Save();
             Close();
         }
@@ -45,5 +49,10 @@ namespace cromo
         {
             Close();
         }
-    }
+
+		private void label9_Click(object sender, EventArgs e)
+		{
+
+		}
+	}
 }

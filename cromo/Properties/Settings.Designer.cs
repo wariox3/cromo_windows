@@ -106,5 +106,29 @@ namespace cromo.Properties {
                 this["puertoBaseDatos"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("DRIVER={MySQL ODBC 5.3 ANSI Driver}")]
+        public string driverBaseDatos {
+            get {
+                return ((string)(this["driverBaseDatos"]));
+            }
+            set {
+                this["driverBaseDatos"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\reportes\\")]
+        public string rutaReportes {
+            get {
+                return ((string)(this["rutaReportes"]));
+            }
+            set {
+                this["rutaReportes"] = value;
+            }
+        }
     }
 }

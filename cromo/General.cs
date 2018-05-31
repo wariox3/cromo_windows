@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using CrystalDecisions.CrystalReports.Engine;
+using System.IO;
 namespace cromo
 {
 	class General
@@ -54,36 +56,41 @@ namespace cromo
 
 	class Impresion
 	{
-		public void formatoGuia(int codigoGuia)
+		public void formatoGuia(string codigoGuia)
 		{
-			/* http://csharp.net-informations.com/crystal-reports/csharp-crystal-reports-string-parameter.htm */
-			/* https:/www.youtube.com/watch?v=iisXC_RsZ3w */
-			/*ReportDocument rpt = new ReportDocument();
-			rpt.Load(@"C:\Users\desarrollo\source\repos\cromo\cromo\FormatoGuia.rpt");
-			crystalReportViewer1.ReportSource = rpt;
-			crystalReportViewer1.Refresh();*/
-
-			FormatoGuia objRpt = new FormatoGuia();
-			string sql = "SELECT tte_guia.codigo_guia_pk, tte_guia.numero, tte_guia.documento_cliente, tte_guia.fecha_ingreso, " +
-				"ciudad_origen.nombre as ciudad_origen_nombre, ciudad_destino.nombre as ciudad_destino_nombre, " +
-				"tte_guia.remitente, tte_cliente.nombre_corto as cliente_nombre,  tte_cliente.direccion as cliente_direccion, " +
-				"tte_cliente.telefono as cliente_telefono, tte_guia.nombre_destinatario, tte_guia.direccion_destinatario, " +
-				"tte_guia.telefono_destinatario, tte_guia.comentario, tte_guia.factura, tte_guia.unidades, tte_guia.vr_flete, " +
-				"tte_guia.vr_manejo, tte_guia.vr_abono, tte_guia.vr_recaudo " +
-				"FROM tte_guia " +
-				"LEFT JOIN tte_ciudad as ciudad_origen ON tte_guia.codigo_ciudad_origen_fk = ciudad_origen.codigo_ciudad_pk " +
-				"LEFT JOIN tte_ciudad as ciudad_destino ON tte_guia.codigo_ciudad_destino_fk = ciudad_destino.codigo_ciudad_pk " +
-				"LEFT JOIN tte_cliente ON tte_guia.codigo_cliente_fk = tte_cliente.codigo_cliente_pk " +
-				"WHERE codigo_guia_pk = " + codigoGuia.ToString(); 
+			string servirdor = cromo.Properties.Settings.Default.servidorBaseDatos;
+			string puerto = cromo.Properties.Settings.Default.puertoBaseDatos;
+			string usuario = cromo.Properties.Settings.Default.usuarioBaseDatos;
+			string clave = cromo.Properties.Settings.Default.claveBaseDatos;
+			string baseDatos = cromo.Properties.Settings.Default.baseDatos;
+			string driver = cromo.Properties.Settings.Default.driverBaseDatos;
+			string rutaReportes = cromo.Properties.Settings.Default.rutaReportes;
+			string ruta = "";
+			DataSet dsReporte = Utilidades.Ejecutar("SELECT modulo, nombre, archivo " +
+				"FROM gen_reporte WHERE codigo_reporte_pk = 2");
+			DataTable dt = dsReporte.Tables[0];
+			if (dt.Rows.Count > 0)
+			{
+				ruta = rutaReportes + dt.Rows[0]["modulo"].ToString() + @"\" + dt.Rows[0]["archivo"].ToString();
+			}
+			string path = Directory.GetCurrentDirectory();
+			GuiaRepositorio guiaRepositorio = new GuiaRepositorio();
 			DataSet ds;
-			string strSql = string.Format(sql);
+			string strSql = string.Format(guiaRepositorio.sqlFormato(codigoGuia));
 			ds = Utilidades.Ejecutar(strSql);
-			objRpt.SetDataSource(ds.Tables[0]);
-			objRpt.PrintToPrinter(1,false, 0, 1);
 
-			//crystalReportViewer1.ReportSource = objRpt;
-			//crystalReportViewer1.Refresh();
-			//crystalReportViewer1.PrintReport();
+			ReportDocument rpt = new ReportDocument();
+			rpt.Load(ruta);
+			rpt.SetDataSource(ds.Tables[0]);
+			rpt.PrintToPrinter(1, false, 0, 1);
+			foreach (CrystalDecisions.CrystalReports.Engine.Table item in rpt.Database.Tables)
+			{
+				var tliCurrent = item.LogOnInfo;
+				tliCurrent.ConnectionInfo.ServerName = "DRIVER=" + driver + ";SERVER=" + servirdor + ";Port=" + puerto + ";UID=" + usuario + ";";
+				tliCurrent.ConnectionInfo.Password = clave;
+				tliCurrent.ConnectionInfo.DatabaseName = baseDatos;
+				item.ApplyLogOnInfo(tliCurrent);
+			}
 		}
 
 		public void formato(int codigo, string sql)

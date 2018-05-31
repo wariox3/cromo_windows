@@ -1413,6 +1413,16 @@ namespace cromo.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
         /// </summary>
+        internal static System.Drawing.Icon truck_23929 {
+            get {
+                object obj = ResourceManager.GetObject("truck_23929", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
+        /// </summary>
         internal static System.Drawing.Icon Unlock {
             get {
                 object obj = ResourceManager.GetObject("Unlock", resourceCulture);

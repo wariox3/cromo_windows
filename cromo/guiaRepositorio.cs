@@ -32,5 +32,37 @@ namespace cromo
 			
 			return comando.LastInsertedId;
         }
+
+		public string sqlFormato(string codigoGuia)
+		{
+			string sql = "SELECT " +
+			"tte_guia.codigo_guia_pk, " +
+			"tte_guia.numero, " +
+			"tte_guia.documento_cliente, " +
+			"tte_guia.fecha_ingreso, " +
+			"ciudad_origen.nombre as ciudad_origen_nombre, " +
+			"ciudad_destino.nombre as ciudad_destino_nombre, " +
+			"tte_guia.remitente, " +
+			"tte_cliente.nombre_corto as cliente_nombre, " +
+			"tte_cliente.direccion as cliente_direccion, " +
+			"tte_cliente.telefono as cliente_telefono, " +
+			"tte_guia.nombre_destinatario, " +
+			"tte_guia.direccion_destinatario, " +
+			"tte_guia.telefono_destinatario, " +
+			"tte_guia.comentario, " +
+			"tte_guia.factura, " +
+			"tte_guia.unidades, " +
+			"tte_guia.vr_flete, " +
+			"tte_guia.vr_manejo, " +
+			"tte_guia.vr_abono, " +
+			"tte_guia.vr_recaudo " +
+			"FROM " +
+			"tte_guia " +
+			"LEFT JOIN tte_ciudad as ciudad_origen ON tte_guia.codigo_ciudad_origen_fk = ciudad_origen.codigo_ciudad_pk " +
+			"LEFT JOIN tte_ciudad as ciudad_destino ON tte_guia.codigo_ciudad_destino_fk = ciudad_destino.codigo_ciudad_pk " +
+			"LEFT JOIN tte_cliente ON tte_guia.codigo_cliente_fk = tte_cliente.codigo_cliente_pk " +
+			"WHERE codigo_guia_pk = " + codigoGuia;
+			return sql;
+		}
     }
 }

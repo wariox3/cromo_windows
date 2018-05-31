@@ -80,6 +80,7 @@
 			this.tsbBuscar = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this.tsbImprimir = new System.Windows.Forms.ToolStripButton();
+			this.tsbVistaPrevia = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
 			this.tsbRecibo = new System.Windows.Forms.ToolStripButton();
 			this.gbInformacion = new System.Windows.Forms.GroupBox();
@@ -129,7 +130,6 @@
 			this.checkBox3 = new System.Windows.Forms.CheckBox();
 			this.checkBox2 = new System.Windows.Forms.CheckBox();
 			this.checkBox1 = new System.Windows.Forms.CheckBox();
-			this.tsbVistaPrevia = new System.Windows.Forms.ToolStripButton();
 			this.gbDestinatario.SuspendLayout();
 			this.gbTotales.SuspendLayout();
 			this.gbCliente.SuspendLayout();
@@ -293,6 +293,7 @@
 			this.txtRecaudo.Name = "txtRecaudo";
 			this.txtRecaudo.Size = new System.Drawing.Size(111, 20);
 			this.txtRecaudo.TabIndex = 24;
+			this.txtRecaudo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// txtManejo
 			// 
@@ -300,6 +301,7 @@
 			this.txtManejo.Name = "txtManejo";
 			this.txtManejo.Size = new System.Drawing.Size(111, 20);
 			this.txtManejo.TabIndex = 23;
+			this.txtManejo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// txtFlete
 			// 
@@ -307,6 +309,7 @@
 			this.txtFlete.Name = "txtFlete";
 			this.txtFlete.Size = new System.Drawing.Size(111, 20);
 			this.txtFlete.TabIndex = 22;
+			this.txtFlete.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// txtDeclarado
 			// 
@@ -314,6 +317,7 @@
 			this.txtDeclarado.Name = "txtDeclarado";
 			this.txtDeclarado.Size = new System.Drawing.Size(111, 20);
 			this.txtDeclarado.TabIndex = 21;
+			this.txtDeclarado.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.txtDeclarado.Validated += new System.EventHandler(this.txtDeclarado_Validated);
 			// 
 			// txtPesoFacturar
@@ -322,6 +326,7 @@
 			this.txtPesoFacturar.Name = "txtPesoFacturar";
 			this.txtPesoFacturar.Size = new System.Drawing.Size(111, 20);
 			this.txtPesoFacturar.TabIndex = 20;
+			this.txtPesoFacturar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.txtPesoFacturar.Validated += new System.EventHandler(this.txtPesoFacturar_Validated);
 			// 
 			// txtVolumen
@@ -330,6 +335,7 @@
 			this.txtVolumen.Name = "txtVolumen";
 			this.txtVolumen.Size = new System.Drawing.Size(111, 20);
 			this.txtVolumen.TabIndex = 19;
+			this.txtVolumen.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.txtVolumen.Validated += new System.EventHandler(this.txtVolumen_Validated);
 			// 
 			// txtPeso
@@ -338,6 +344,7 @@
 			this.txtPeso.Name = "txtPeso";
 			this.txtPeso.Size = new System.Drawing.Size(111, 20);
 			this.txtPeso.TabIndex = 18;
+			this.txtPeso.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.txtPeso.Validated += new System.EventHandler(this.txtPeso_Validated);
 			// 
 			// txtUnidades
@@ -346,6 +353,7 @@
 			this.txtUnidades.Name = "txtUnidades";
 			this.txtUnidades.Size = new System.Drawing.Size(111, 20);
 			this.txtUnidades.TabIndex = 17;
+			this.txtUnidades.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.txtUnidades.Validated += new System.EventHandler(this.txtUnidades_Validated);
 			// 
 			// label12
@@ -627,6 +635,16 @@
 			this.tsbImprimir.Size = new System.Drawing.Size(23, 22);
 			this.tsbImprimir.Text = "Imprimir Ctr+P";
 			this.tsbImprimir.Click += new System.EventHandler(this.tsbImprimir_Click);
+			// 
+			// tsbVistaPrevia
+			// 
+			this.tsbVistaPrevia.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.tsbVistaPrevia.Image = ((System.Drawing.Image)(resources.GetObject("tsbVistaPrevia.Image")));
+			this.tsbVistaPrevia.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.tsbVistaPrevia.Name = "tsbVistaPrevia";
+			this.tsbVistaPrevia.Size = new System.Drawing.Size(23, 22);
+			this.tsbVistaPrevia.Text = "Vista previa";
+			this.tsbVistaPrevia.Click += new System.EventHandler(this.tsbVistaPrevia_Click);
 			// 
 			// toolStripSeparator3
 			// 
@@ -1094,16 +1112,6 @@
 			this.checkBox1.TabIndex = 23;
 			this.checkBox1.Text = "Impreso";
 			this.checkBox1.UseVisualStyleBackColor = true;
-			// 
-			// tsbVistaPrevia
-			// 
-			this.tsbVistaPrevia.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.tsbVistaPrevia.Image = ((System.Drawing.Image)(resources.GetObject("tsbVistaPrevia.Image")));
-			this.tsbVistaPrevia.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.tsbVistaPrevia.Name = "tsbVistaPrevia";
-			this.tsbVistaPrevia.Size = new System.Drawing.Size(23, 22);
-			this.tsbVistaPrevia.Text = "Vista previa";
-			this.tsbVistaPrevia.Click += new System.EventHandler(this.tsbVistaPrevia_Click);
 			// 
 			// frmGuia
 			// 
