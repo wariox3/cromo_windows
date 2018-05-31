@@ -257,10 +257,6 @@
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Recursos\CRRuntime_32bit_13_0_22.msi" />
-    <None Include="Recursos\CRRuntime_64bit_13_0_22.msi" />
-    <None Include="Recursos\mysql-connector-odbc-5.3.10-win32.msi" />
-    <None Include="Recursos\mysql-connector-odbc-5.3.10-winx64.msi" />
     <None Include="Resources\24-7.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -709,9 +705,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\truck_23929.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Recursos\NDP452-KB2901907-x86-x64-AllOS-ENU.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
