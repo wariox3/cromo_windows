@@ -1,6 +1,6 @@
 ﻿namespace cromo
 {
-    partial class frmBuscarCliente
+    partial class FrmBuscarCliente
     {
         /// <summary>
         /// Required designer variable.
@@ -28,35 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-			this.dgClientes = new System.Windows.Forms.DataGridView();
+			this.DgClientes = new System.Windows.Forms.DataGridView();
 			this.clmCodigoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.clmNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.btnCancelar = new System.Windows.Forms.Button();
-			this.btnSeleccionar = new System.Windows.Forms.Button();
+			this.BtnCancelar = new System.Windows.Forms.Button();
+			this.BtnSeleccionar = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
-			this.txtNombre = new System.Windows.Forms.TextBox();
-			this.btnFiltrar = new System.Windows.Forms.Button();
-			((System.ComponentModel.ISupportInitialize)(this.dgClientes)).BeginInit();
+			this.TxtNombre = new System.Windows.Forms.TextBox();
+			this.BtnFiltrar = new System.Windows.Forms.Button();
+			((System.ComponentModel.ISupportInitialize)(this.DgClientes)).BeginInit();
 			this.SuspendLayout();
 			// 
-			// dgClientes
+			// DgClientes
 			// 
-			this.dgClientes.AllowUserToAddRows = false;
-			this.dgClientes.AllowUserToDeleteRows = false;
-			this.dgClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+			this.DgClientes.AllowUserToAddRows = false;
+			this.DgClientes.AllowUserToDeleteRows = false;
+			this.DgClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.DgClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmCodigoCliente,
             this.clmNombre});
-			this.dgClientes.Location = new System.Drawing.Point(12, 36);
-			this.dgClientes.MultiSelect = false;
-			this.dgClientes.Name = "dgClientes";
-			this.dgClientes.ReadOnly = true;
-			this.dgClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dgClientes.Size = new System.Drawing.Size(712, 301);
-			this.dgClientes.StandardTab = true;
-			this.dgClientes.TabIndex = 1;
-			this.dgClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgClientes_CellContentClick);
-			this.dgClientes.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgClientes_KeyDown);
+			this.DgClientes.Location = new System.Drawing.Point(12, 36);
+			this.DgClientes.MultiSelect = false;
+			this.DgClientes.Name = "DgClientes";
+			this.DgClientes.ReadOnly = true;
+			this.DgClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.DgClientes.Size = new System.Drawing.Size(712, 301);
+			this.DgClientes.StandardTab = true;
+			this.DgClientes.TabIndex = 1;			
+			this.DgClientes.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DgClientes_KeyDown);
 			// 
 			// clmCodigoCliente
 			// 
@@ -74,26 +73,26 @@
 			this.clmNombre.ReadOnly = true;
 			this.clmNombre.Width = 400;
 			// 
-			// btnCancelar
+			// BtnCancelar
 			// 
-			this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.btnCancelar.Location = new System.Drawing.Point(12, 343);
-			this.btnCancelar.Name = "btnCancelar";
-			this.btnCancelar.Size = new System.Drawing.Size(106, 23);
-			this.btnCancelar.TabIndex = 3;
-			this.btnCancelar.Text = "Cancelar";
-			this.btnCancelar.UseVisualStyleBackColor = true;
-			this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+			this.BtnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.BtnCancelar.Location = new System.Drawing.Point(12, 343);
+			this.BtnCancelar.Name = "BtnCancelar";
+			this.BtnCancelar.Size = new System.Drawing.Size(106, 23);
+			this.BtnCancelar.TabIndex = 3;
+			this.BtnCancelar.Text = "Cancelar";
+			this.BtnCancelar.UseVisualStyleBackColor = true;
+			this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
 			// 
-			// btnSeleccionar
+			// BtnSeleccionar
 			// 
-			this.btnSeleccionar.Location = new System.Drawing.Point(618, 343);
-			this.btnSeleccionar.Name = "btnSeleccionar";
-			this.btnSeleccionar.Size = new System.Drawing.Size(106, 23);
-			this.btnSeleccionar.TabIndex = 2;
-			this.btnSeleccionar.Text = "Seleccionar";
-			this.btnSeleccionar.UseVisualStyleBackColor = true;
-			this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);
+			this.BtnSeleccionar.Location = new System.Drawing.Point(618, 343);
+			this.BtnSeleccionar.Name = "BtnSeleccionar";
+			this.BtnSeleccionar.Size = new System.Drawing.Size(106, 23);
+			this.BtnSeleccionar.TabIndex = 2;
+			this.BtnSeleccionar.Text = "Seleccionar";
+			this.BtnSeleccionar.UseVisualStyleBackColor = true;
+			this.BtnSeleccionar.Click += new System.EventHandler(this.BtnSeleccionar_Click);
 			// 
 			// label1
 			// 
@@ -104,54 +103,54 @@
 			this.label1.TabIndex = 4;
 			this.label1.Text = "Nombre:";
 			// 
-			// txtNombre
+			// TxtNombre
 			// 
-			this.txtNombre.Location = new System.Drawing.Point(65, 9);
-			this.txtNombre.Name = "txtNombre";
-			this.txtNombre.Size = new System.Drawing.Size(294, 20);
-			this.txtNombre.TabIndex = 0;
-			this.txtNombre.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNombre_KeyDown);
-			this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
+			this.TxtNombre.Location = new System.Drawing.Point(65, 9);
+			this.TxtNombre.Name = "TxtNombre";
+			this.TxtNombre.Size = new System.Drawing.Size(294, 20);
+			this.TxtNombre.TabIndex = 0;
+			this.TxtNombre.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtNombre_KeyDown);
+			this.TxtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNombre_KeyPress);
 			// 
-			// btnFiltrar
+			// BtnFiltrar
 			// 
-			this.btnFiltrar.Location = new System.Drawing.Point(371, 9);
-			this.btnFiltrar.Name = "btnFiltrar";
-			this.btnFiltrar.Size = new System.Drawing.Size(84, 20);
-			this.btnFiltrar.TabIndex = 6;
-			this.btnFiltrar.Text = "Filtrar";
-			this.btnFiltrar.UseVisualStyleBackColor = true;
-			this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
+			this.BtnFiltrar.Location = new System.Drawing.Point(371, 9);
+			this.BtnFiltrar.Name = "BtnFiltrar";
+			this.BtnFiltrar.Size = new System.Drawing.Size(84, 20);
+			this.BtnFiltrar.TabIndex = 6;
+			this.BtnFiltrar.Text = "Filtrar";
+			this.BtnFiltrar.UseVisualStyleBackColor = true;
+			this.BtnFiltrar.Click += new System.EventHandler(this.BtnFiltrar_Click);
 			// 
-			// frmBuscarCliente
+			// FrmBuscarCliente
 			// 
 			this.ClientSize = new System.Drawing.Size(736, 383);
-			this.Controls.Add(this.btnFiltrar);
-			this.Controls.Add(this.txtNombre);
+			this.Controls.Add(this.BtnFiltrar);
+			this.Controls.Add(this.TxtNombre);
 			this.Controls.Add(this.label1);
-			this.Controls.Add(this.btnCancelar);
-			this.Controls.Add(this.btnSeleccionar);
-			this.Controls.Add(this.dgClientes);
+			this.Controls.Add(this.BtnCancelar);
+			this.Controls.Add(this.BtnSeleccionar);
+			this.Controls.Add(this.DgClientes);
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
-			this.Name = "frmBuscarCliente";
+			this.Name = "FrmBuscarCliente";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Buscar cliente";
-			this.Load += new System.EventHandler(this.frmBuscarCliente_Load);
-			((System.ComponentModel.ISupportInitialize)(this.dgClientes)).EndInit();
+			this.Load += new System.EventHandler(this.FrmBuscarCliente_Load);
+			((System.ComponentModel.ISupportInitialize)(this.DgClientes)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
         }
 
         #endregion
-        public System.Windows.Forms.DataGridView dgClientes;
-        private System.Windows.Forms.Button btnCancelar;
+        public System.Windows.Forms.DataGridView DgClientes;
+        private System.Windows.Forms.Button BtnCancelar;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmCodigoCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmNombre;
-		private System.Windows.Forms.Button btnSeleccionar;
+		private System.Windows.Forms.Button BtnSeleccionar;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.TextBox txtNombre;
-		private System.Windows.Forms.Button btnFiltrar;
+		private System.Windows.Forms.TextBox TxtNombre;
+		private System.Windows.Forms.Button BtnFiltrar;
 	}
 }

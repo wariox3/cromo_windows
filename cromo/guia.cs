@@ -38,6 +38,7 @@ namespace cromo
 		public int codigoCondicionFk { get; set; }
 		public bool factura { get; set; }
 		public string comentario { get; set; }
+		public string usuario { get; set; }
 		public guia() { }
 
         public guia(int pcodigoGuiaPk, string pcodigoOperacionIngresoFk, string pcodigoOperacionCargoFk,
@@ -46,7 +47,7 @@ namespace cromo
 			string pdireccionDestinatario, string ptelefonoDestinatario, string pfechaIngreso, int punidades, int ppesoReal, 
 			int ppesovolumen, int ppesoFacturar, double pvrFlete, double pvrManejo, double pvrDeclara, double pvrRecaudo,
 			string pcodigoRutaFk, int pordenRuta, bool preexpedicion, int pcodigoCondicionFk, bool pfactura, int pnumero,
-			string pcomentario)
+			string pcomentario, string pusuario)
         {
             this.codigoGuiaPk = pcodigoGuiaPk;
 			this.numero = pnumero;
@@ -77,6 +78,7 @@ namespace cromo
 			this.reexpedicion = preexpedicion;
 			this.codigoCondicionFk = pcodigoCondicionFk;
 			this.factura = pfactura;
+			this.usuario = pusuario;
 			this.comentario = pcomentario;
 		}
 

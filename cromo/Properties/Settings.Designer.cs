@@ -109,7 +109,7 @@ namespace cromo.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("DRIVER={MySQL ODBC 5.3 ANSI Driver}")]
+        [global::System.Configuration.DefaultSettingValueAttribute("{MySQL ODBC 5.3 ANSI Driver}")]
         public string driverBaseDatos {
             get {
                 return ((string)(this["driverBaseDatos"]));

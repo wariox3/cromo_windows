@@ -1,6 +1,6 @@
 ﻿namespace cromo
 {
-	partial class frmDevolverGuia
+	partial class FrmDevolverGuia
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -76,7 +76,7 @@
 			this.btnAceptar.TabIndex = 2;
 			this.btnAceptar.Text = "Aceptar";
 			this.btnAceptar.UseVisualStyleBackColor = true;
-			this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+			this.btnAceptar.Click += new System.EventHandler(this.BtnAceptar_Click);
 			// 
 			// frmDevolverGuia
 			// 
@@ -91,7 +91,7 @@
 			this.Name = "frmDevolverGuia";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Buscar guia..";
-			this.Load += new System.EventHandler(this.frmDevolverGuia_Load);
+			this.Load += new System.EventHandler(this.FrmDevolverGuia_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

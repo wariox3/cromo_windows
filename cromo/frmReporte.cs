@@ -12,22 +12,21 @@ using MySql.Data.MySqlClient;
 using System.IO;
 namespace cromo
 {
-	public partial class frmReporte : Form
+	public partial class FrmReporte : Form
 	{
-		public frmReporte()
+		public FrmReporte()
 		{
-			InitializeComponent();
+			InitializeComponent();			
 		}
 
-		private void frmReporte_Load_1(object sender, EventArgs e)
+		private void FrmReporte_Load(object sender, EventArgs e)
 		{
 			/* http://csharp.net-informations.com/crystal-reports/csharp-crystal-reports-string-parameter.htm */
 			/* https:/www.youtube.com/watch?v=iisXC_RsZ3w */
 			/*ReportDocument rpt = new ReportDocument();
 			rpt.Load(@"C:\Users\desarrollo\source\repos\cromo\cromo\FormatoGuia.rpt");
 			crystalReportViewer1.ReportSource = rpt;
-			crystalReportViewer1.Refresh();*/
-
+			crystalReportViewer1.Refresh();*/			
 			string servirdor = cromo.Properties.Settings.Default.servidorBaseDatos;
 			string puerto = cromo.Properties.Settings.Default.puertoBaseDatos;
 			string usuario = cromo.Properties.Settings.Default.usuarioBaseDatos;
@@ -37,7 +36,7 @@ namespace cromo
 			string rutaReportes = cromo.Properties.Settings.Default.rutaReportes;
 			string ruta = "";
 			DataSet dsReporte = Utilidades.Ejecutar("SELECT modulo, nombre, archivo " +
-				"FROM gen_reporte WHERE codigo_reporte_pk = " + General.codigoReporte.ToString());
+				"FROM gen_reporte WHERE codigo_reporte_pk = " + General.CodigoReporte.ToString());
 			DataTable dt = dsReporte.Tables[0];
 			if (dt.Rows.Count > 0)
 			{
@@ -46,7 +45,7 @@ namespace cromo
 			string path = Directory.GetCurrentDirectory();
 
 			DataSet ds;
-			string strSql = string.Format(General.sql);
+			string strSql = string.Format(General.Sql);
 			ds = Utilidades.Ejecutar(strSql);
 
 			ReportDocument rpt = new ReportDocument();
@@ -57,17 +56,18 @@ namespace cromo
 				crvReporte.ReportSource = rpt;
 				crvReporte.Refresh();
 				foreach (CrystalDecisions.CrystalReports.Engine.Table item in rpt.Database.Tables)
-				{
+				{					
 					var tliCurrent = item.LogOnInfo;
-					//tliCurrent.ConnectionInfo.ServerName = "DRIVER={MySQL ODBC 5.3 ANSI Driver};SERVER=localhost;Port=3306;UID=root;";													
-					//tliCurrent.ConnectionInfo.UserID = "root";
-					//tliCurrent.ConnectionInfo.Password = "70143086";
-					//tliCurrent.ConnectionInfo.DatabaseName = "bdcuartas";
+					//tliCurrent.ConnectionInfo.ServerName = "DRIVER={MySQL ODBC 5.3 ANSI Driver};SERVER=190.85.62.78;Port=3306;UID=administrador;";					
+					//tliCurrent.ConnectionInfo.UserID = "administrador";
+					//tliCurrent.ConnectionInfo.Password = "Nor4m628";
+					//tliCurrent.ConnectionInfo.DatabaseName = "bdlogicuartas";
 
-					tliCurrent.ConnectionInfo.ServerName = "DRIVER=" + driver + ";SERVER=" + servirdor + ";Port=" + puerto + ";UID=" + usuario + ";";
+					tliCurrent.ConnectionInfo.ServerName = "DRIVER=" + driver + "; SERVER=" + servirdor + ";Port=" + puerto + ";UID=" + usuario + ";";
 					tliCurrent.ConnectionInfo.UserID = usuario;
 					tliCurrent.ConnectionInfo.Password = clave;
 					tliCurrent.ConnectionInfo.DatabaseName = baseDatos;
+
 					item.ApplyLogOnInfo(tliCurrent);
 				}
 			}

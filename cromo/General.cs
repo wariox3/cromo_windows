@@ -6,57 +6,65 @@ using System.Threading.Tasks;
 using System.Data;
 using CrystalDecisions.CrystalReports.Engine;
 using System.IO;
+using MySql.Data.MySqlClient;
 namespace cromo
 {
 	class General
 	{
 		private static string v_CodigoCliente = "";
-		public static string codigoCliente
+		public static string CodigoCliente
 		{
 			get { return v_CodigoCliente; }
 			set { v_CodigoCliente = value; }
 		}
 
 		private static string v_CodigoCiudad = "";
-		public static string codigoCiudad
+		public static string CodigoCiudad
 		{
 			get { return v_CodigoCiudad; }
 			set { v_CodigoCiudad = value; }
 		}
 
 		private static int v_CodigoGuia = 0;
-		public static int codigoGuia
+		public static int CodigoGuia
 		{
 			get { return v_CodigoGuia; }
 			set { v_CodigoGuia = value; }
 		}
 
 		private static int v_NumeroGuia = 0;
-		public static int numeroGuia
+		public static int NumeroGuia
 		{
 			get { return v_NumeroGuia; }
 			set { v_NumeroGuia = value; }
 		}
 
 		private static int v_CodigoReporte = 0;
-		public static int codigoReporte
+		public static int CodigoReporte
 		{
 			get { return v_CodigoReporte; }
 			set { v_CodigoReporte = value; }
 		}
 
 		private static string v_Sql = "";
-		public static string sql
+		public static string Sql
 		{
 			get { return v_Sql; }
 			set { v_Sql = value; }
+		}
+
+		private static string v_UsuarioActivo = "";
+		public static string UsuarioActivo
+		{
+			get { return v_UsuarioActivo; }
+			set { v_UsuarioActivo = value; }
 		}
 
 	}
 
 	class Impresion
 	{
-		public void formatoGuia(string codigoGuia)
+		public void FormatoGuia(string codigoGuia)
 		{
 			string servirdor = cromo.Properties.Settings.Default.servidorBaseDatos;
 			string puerto = cromo.Properties.Settings.Default.puertoBaseDatos;
@@ -76,28 +84,33 @@ namespace cromo
 			string path = Directory.GetCurrentDirectory();
 			GuiaRepositorio guiaRepositorio = new GuiaRepositorio();
 			DataSet ds;
-			string strSql = string.Format(guiaRepositorio.sqlFormato(codigoGuia));
+			string strSql = string.Format(guiaRepositorio.sqlFormato(codigoGuia));			
 			ds = Utilidades.Ejecutar(strSql);
 
 			ReportDocument rpt = new ReportDocument();
 			rpt.Load(ruta);
-			rpt.SetDataSource(ds.Tables[0]);
-			rpt.PrintToPrinter(1, false, 0, 1);
+			rpt.SetDataSource(ds.Tables[0]);						
 			foreach (CrystalDecisions.CrystalReports.Engine.Table item in rpt.Database.Tables)
-			{
+			{				
 				var tliCurrent = item.LogOnInfo;
-				tliCurrent.ConnectionInfo.ServerName = "DRIVER=" + driver + ";SERVER=" + servirdor + ";Port=" + puerto + ";UID=" + usuario + ";";
+				tliCurrent.ConnectionInfo.ServerName = "DRIVER=" + driver + "; SERVER=" + servirdor + ";Port=" + puerto + ";UID=" + usuario + ";";
+				tliCurrent.ConnectionInfo.UserID = usuario;
 				tliCurrent.ConnectionInfo.Password = clave;
 				tliCurrent.ConnectionInfo.DatabaseName = baseDatos;
+
 				item.ApplyLogOnInfo(tliCurrent);
 			}
+			rpt.PrintToPrinter(1, false, 0, 1);
+			MySqlCommand cmd = new MySqlCommand("UPDATE tte_guia SET estado_impreso = 1 WHERE codigo_guia_pk = " + codigoGuia,
+			BdCromo.ObtenerConexion());
+			cmd.ExecuteNonQuery();
 		}
 
-		public void formato(int codigo, string sql)
+		public void Formato(int codigo, string sql)
 		{
-			General.codigoReporte = codigo;
-			General.sql = sql;
-			frmReporte frm = new frmReporte();
+			General.CodigoReporte = codigo;
+			General.Sql = sql;
+			FrmReporte frm = new FrmReporte();
 			frm.ShowDialog();
 
 		}
@@ -106,7 +119,7 @@ namespace cromo
 	class FuncionesGuia
 	{
 		private static int v_CodigoGuia = 0;
-		public static int codigoGuia
+		public static int CodigoGuia
 		{
 			get { return v_CodigoGuia; }
 			set { v_CodigoGuia = value; }
@@ -125,9 +138,9 @@ namespace cromo
 			return ultimaGuia;
 		}
 
-		public void devolverGuia()
+		public void DevolverGuia()
 		{
-			frmDevolverGuia frm = new frmDevolverGuia();
+			FrmDevolverGuia frm = new FrmDevolverGuia();
 			frm.ShowDialog();
 
 		}

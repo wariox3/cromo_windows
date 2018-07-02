@@ -1,6 +1,6 @@
 ﻿namespace cromo
 {
-	partial class frmDevolverNumero
+	partial class FrmDevolverNumero
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -28,30 +28,30 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.btnAceptar = new System.Windows.Forms.Button();
-			this.txtNumero = new System.Windows.Forms.TextBox();
+			this.BtnAceptar = new System.Windows.Forms.Button();
+			this.TxtNumero = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
-			this.btnCancelar = new System.Windows.Forms.Button();
+			this.BtnCancelar = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
-			// btnAceptar
+			// BtnAceptar
 			// 
-			this.btnAceptar.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.btnAceptar.Location = new System.Drawing.Point(189, 47);
-			this.btnAceptar.Name = "btnAceptar";
-			this.btnAceptar.Size = new System.Drawing.Size(75, 23);
-			this.btnAceptar.TabIndex = 1;
-			this.btnAceptar.Text = "Aceptar";
-			this.btnAceptar.UseVisualStyleBackColor = true;
-			this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+			this.BtnAceptar.DialogResult = System.Windows.Forms.DialogResult.OK;
+			this.BtnAceptar.Location = new System.Drawing.Point(189, 47);
+			this.BtnAceptar.Name = "BtnAceptar";
+			this.BtnAceptar.Size = new System.Drawing.Size(75, 23);
+			this.BtnAceptar.TabIndex = 1;
+			this.BtnAceptar.Text = "Aceptar";
+			this.BtnAceptar.UseVisualStyleBackColor = true;
+			this.BtnAceptar.Click += new System.EventHandler(this.BtnAceptar_Click);
 			// 
-			// txtNumero
+			// TxtNumero
 			// 
-			this.txtNumero.Location = new System.Drawing.Point(87, 12);
-			this.txtNumero.Name = "txtNumero";
-			this.txtNumero.Size = new System.Drawing.Size(177, 20);
-			this.txtNumero.TabIndex = 0;
-			this.txtNumero.Enter += new System.EventHandler(this.txtNumero_Enter);
+			this.TxtNumero.Location = new System.Drawing.Point(87, 12);
+			this.TxtNumero.Name = "TxtNumero";
+			this.TxtNumero.Size = new System.Drawing.Size(177, 20);
+			this.TxtNumero.TabIndex = 0;
+			this.TxtNumero.Enter += new System.EventHandler(this.TxtNumero_Enter);
 			// 
 			// label1
 			// 
@@ -62,31 +62,32 @@
 			this.label1.TabIndex = 2;
 			this.label1.Text = "Numero:";
 			// 
-			// btnCancelar
+			// BtnCancelar
 			// 
-			this.btnCancelar.Location = new System.Drawing.Point(87, 47);
-			this.btnCancelar.Name = "btnCancelar";
-			this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-			this.btnCancelar.TabIndex = 2;
-			this.btnCancelar.Text = "Cancelar";
-			this.btnCancelar.UseVisualStyleBackColor = true;
-			this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+			this.BtnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.BtnCancelar.Location = new System.Drawing.Point(87, 47);
+			this.BtnCancelar.Name = "BtnCancelar";
+			this.BtnCancelar.Size = new System.Drawing.Size(75, 23);
+			this.BtnCancelar.TabIndex = 2;
+			this.BtnCancelar.Text = "Cancelar";
+			this.BtnCancelar.UseVisualStyleBackColor = true;
+			this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
 			// 
-			// frmDevolverNumero
+			// FrmDevolverNumero
 			// 
-			this.AcceptButton = this.btnAceptar;
+			this.AcceptButton = this.BtnAceptar;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.CancelButton = this.btnCancelar;
+			this.CancelButton = this.BtnCancelar;
 			this.ClientSize = new System.Drawing.Size(274, 86);
-			this.Controls.Add(this.btnCancelar);
+			this.Controls.Add(this.BtnCancelar);
 			this.Controls.Add(this.label1);
-			this.Controls.Add(this.txtNumero);
-			this.Controls.Add(this.btnAceptar);
-			this.Name = "frmDevolverNumero";
+			this.Controls.Add(this.TxtNumero);
+			this.Controls.Add(this.BtnAceptar);
+			this.Name = "FrmDevolverNumero";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Ingresar numero guia";
-			this.Load += new System.EventHandler(this.frmDevolverNumero_Load);
+			this.Load += new System.EventHandler(this.FrmDevolverNumero_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -94,9 +95,9 @@
 
 		#endregion
 
-		private System.Windows.Forms.Button btnAceptar;
-		private System.Windows.Forms.TextBox txtNumero;
+		private System.Windows.Forms.Button BtnAceptar;
+		private System.Windows.Forms.TextBox TxtNumero;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Button btnCancelar;
+		private System.Windows.Forms.Button BtnCancelar;
 	}
 }

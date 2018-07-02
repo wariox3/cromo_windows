@@ -24,7 +24,7 @@
       <Value Profile="(Default)">3306</Value>
     </Setting>
     <Setting Name="driverBaseDatos" Type="System.String" Scope="User">
-      <Value Profile="(Default)">DRIVER={MySQL ODBC 5.3 ANSI Driver}</Value>
+      <Value Profile="(Default)">{MySQL ODBC 5.3 ANSI Driver}</Value>
     </Setting>
     <Setting Name="rutaReportes" Type="System.String" Scope="User">
       <Value Profile="(Default)">C:\reportes\</Value>

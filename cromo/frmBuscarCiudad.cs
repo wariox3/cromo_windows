@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 namespace cromo
 {
-    public partial class frmBuscarCiudad : Form
+    public partial class FrmBuscarCiudad : Form
     {
-        public frmBuscarCiudad()
+        public FrmBuscarCiudad()
         {
             InitializeComponent();
         }
@@ -19,61 +19,62 @@ namespace cromo
         public DataSet LlenarDatos()
         {
 			string sql = "SELECT * FROM tte_ciudad ";
-			if(txtNombre.Text != "")
+			if(TxtNombre.Text != "")
 			{
-				sql = sql + "WHERE nombre LIKE '%" + txtNombre.Text + "%'";
+				sql = sql + "WHERE nombre LIKE '%" + TxtNombre.Text + "%'";
 			}
+			sql = sql + " limit 20";
 			DataSet ds;
             string strSql = string.Format(sql);
             ds = Utilidades.Ejecutar(strSql);
             return ds;
         }
 
-        private void frmBuscarCiudad_Load(object sender, EventArgs e)
+        private void FrmBuscarCiudad_Load(object sender, EventArgs e)
         {
-            dgCiudades.DataSource = LlenarDatos().Tables[0];            
+            DgCiudades.DataSource = LlenarDatos().Tables[0];            
         }
 
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void BtnCancelar_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void btnSeleccionar_Click_1(object sender, EventArgs e)
+        private void BtnSeleccionar_Click_1(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
             Close();
         }
 
-		private void dgCiudades_KeyDown(object sender, KeyEventArgs e)
+		private void DgCiudades_KeyDown(object sender, KeyEventArgs e)
 		{
 			if (e.KeyCode == Keys.Enter)
 			{
-				General.codigoCiudad = dgCiudades.Rows[dgCiudades.CurrentRow.Index].Cells[0].Value.ToString();
+				General.CodigoCiudad = DgCiudades.Rows[DgCiudades.CurrentRow.Index].Cells[0].Value.ToString();
 				DialogResult = DialogResult.OK;
 				Close();
 			}
 		}
 
-		private void btnFiltrar_Click(object sender, EventArgs e)
+		private void BtnFiltrar_Click(object sender, EventArgs e)
 		{
-			dgCiudades.DataSource = LlenarDatos().Tables[0];
+			DgCiudades.DataSource = LlenarDatos().Tables[0];
 		}
 
-		private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+		private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
 		{
 			if (e.KeyChar == Convert.ToChar(Keys.Enter))
 			{
-				dgCiudades.DataSource = LlenarDatos().Tables[0];
+				DgCiudades.DataSource = LlenarDatos().Tables[0];
 			}
 		}
 
-		private void txtNombre_KeyDown(object sender, KeyEventArgs e)
+		private void TxtNombre_KeyDown(object sender, KeyEventArgs e)
 		{
 			if(e.KeyCode == Keys.Down)
 			{
-				dgCiudades.Focus();
+				DgCiudades.Focus();
 			}
 		}
 	}

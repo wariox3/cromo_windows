@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 namespace cromo
 {
-    public partial class frmBuscarCliente : Form
+    public partial class FrmBuscarCliente : Form
     {
-        public frmBuscarCliente()
+        public FrmBuscarCliente()
         {
             InitializeComponent();
         }
@@ -19,68 +19,65 @@ namespace cromo
         public DataSet LlenarDatos()
         {
 			string sql = "SELECT * FROM tte_cliente";
-			if(txtNombre.Text != "")
+			if(TxtNombre.Text != "")
 			{
-				sql = sql + " WHERE nombre_corto LIKE '%" + txtNombre.Text + "%'";
+				sql = sql + " WHERE nombre_corto LIKE '%" + TxtNombre.Text + "%'";
 			}
+			sql = sql + " limit 20";
 			DataSet ds;
             string strSql = string.Format(sql);
             ds = Utilidades.Ejecutar(strSql);
             return ds;
         }
 
-        private void frmBuscarCliente_Load(object sender, EventArgs e)
+        private void FrmBuscarCliente_Load(object sender, EventArgs e)
         {
-            dgClientes.DataSource = LlenarDatos().Tables[0];
+            DgClientes.DataSource = LlenarDatos().Tables[0];
         }
 
-        private void btnSeleccionar_Click(object sender, EventArgs e)
+        private void BtnSeleccionar_Click(object sender, EventArgs e)
         {
-			General.codigoCliente = dgClientes.Rows[dgClientes.CurrentRow.Index].Cells[0].Value.ToString(); 
+			General.CodigoCliente = DgClientes.Rows[DgClientes.CurrentRow.Index].Cells[0].Value.ToString(); 
 			DialogResult = DialogResult.OK;
             Close();
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void BtnCancelar_Click(object sender, EventArgs e)
         {
             Close();
         }
 
 
-		private void dgClientes_KeyDown(object sender, KeyEventArgs e)
+		private void DgClientes_KeyDown(object sender, KeyEventArgs e)
 		{
 			if (e.KeyCode == Keys.Enter)
 			{
-				General.codigoCliente = dgClientes.Rows[dgClientes.CurrentRow.Index].Cells[0].Value.ToString();
+				General.CodigoCliente = DgClientes.Rows[DgClientes.CurrentRow.Index].Cells[0].Value.ToString();
 				DialogResult = DialogResult.OK;
 				Close();
 			}
 		}
 
-		private void btnFiltrar_Click(object sender, EventArgs e)
+		private void BtnFiltrar_Click(object sender, EventArgs e)
 		{
-			dgClientes.DataSource = LlenarDatos().Tables[0];
+			DgClientes.DataSource = LlenarDatos().Tables[0];
 		}
 
-		private void txtNombre_KeyDown(object sender, KeyEventArgs e)
+		private void TxtNombre_KeyDown(object sender, KeyEventArgs e)
 		{
 			if(e.KeyCode == Keys.Down)
 			{
-				dgClientes.Focus();
+				DgClientes.Focus();
 			}
 		}
 
-		private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+		private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
 		{
 			if (e.KeyChar == Convert.ToChar(Keys.Enter))
 			{
-				dgClientes.DataSource = LlenarDatos().Tables[0];
+				DgClientes.DataSource = LlenarDatos().Tables[0];
 			}
 		}
 
-		private void dgClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
-		{
-
-		}
 	}
 }

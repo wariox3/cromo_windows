@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -26,7 +27,6 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -72,6 +72,10 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
@@ -100,6 +104,18 @@
     <Compile Include="BdCromo.cs" />
     <Compile Include="CiudadRepositorio.cs" />
     <Compile Include="ClienteRepositorio.cs" />
+    <Compile Include="FrmImprimirGuia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmImprimirGuia.Designer.cs">
+      <DependentUpon>FrmImprimirGuia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmIngreso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmIngreso.Designer.cs">
+      <DependentUpon>FrmIngreso.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\Transporte\FormatoGuia.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -112,65 +128,65 @@
       <DependentUpon>FormatoRecibo.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="frmBuscarCiudad.cs">
+    <Compile Include="FrmBuscarCiudad.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmBuscarCiudad.Designer.cs">
-      <DependentUpon>frmBuscarCiudad.cs</DependentUpon>
+    <Compile Include="FrmBuscarCiudad.Designer.cs">
+      <DependentUpon>FrmBuscarCiudad.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmBuscarGuia.cs">
+    <Compile Include="FrmBuscarGuia.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmBuscarGuia.Designer.cs">
-      <DependentUpon>frmBuscarGuia.cs</DependentUpon>
+    <Compile Include="FrmBuscarGuia.Designer.cs">
+      <DependentUpon>FrmBuscarGuia.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmConfiguracion.cs">
+    <Compile Include="FrmConfiguracion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmConfiguracion.Designer.cs">
-      <DependentUpon>frmConfiguracion.cs</DependentUpon>
+    <Compile Include="FrmConfiguracion.Designer.cs">
+      <DependentUpon>FrmConfiguracion.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmBuscarCliente.cs">
+    <Compile Include="FrmBuscarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmBuscarCliente.Designer.cs">
-      <DependentUpon>frmBuscarCliente.cs</DependentUpon>
+    <Compile Include="FrmBuscarCliente.Designer.cs">
+      <DependentUpon>FrmBuscarCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmDevolverGuia.cs">
+    <Compile Include="FrmDevolverGuia.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDevolverGuia.Designer.cs">
-      <DependentUpon>frmDevolverGuia.cs</DependentUpon>
+    <Compile Include="FrmDevolverGuia.Designer.cs">
+      <DependentUpon>FrmDevolverGuia.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmDevolverNumero.cs">
+    <Compile Include="FrmDevolverNumero.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDevolverNumero.Designer.cs">
-      <DependentUpon>frmDevolverNumero.cs</DependentUpon>
+    <Compile Include="FrmDevolverNumero.Designer.cs">
+      <DependentUpon>FrmDevolverNumero.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmGuia.cs">
+    <Compile Include="FrmGuia.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmGuia.Designer.cs">
-      <DependentUpon>frmGuia.cs</DependentUpon>
+    <Compile Include="FrmGuia.Designer.cs">
+      <DependentUpon>FrmGuia.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPrincipal.cs">
+    <Compile Include="FrmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPrincipal.Designer.cs">
-      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    <Compile Include="FrmPrincipal.Designer.cs">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmRecibo.cs">
+    <Compile Include="FrmRecibo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRecibo.Designer.cs">
-      <DependentUpon>frmRecibo.cs</DependentUpon>
+    <Compile Include="FrmRecibo.Designer.cs">
+      <DependentUpon>FrmRecibo.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmReporte.cs">
+    <Compile Include="FrmReporte.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmReporte.Designer.cs">
-      <DependentUpon>frmReporte.cs</DependentUpon>
+    <Compile Include="FrmReporte.Designer.cs">
+      <DependentUpon>FrmReporte.cs</DependentUpon>
     </Compile>
     <Compile Include="General.cs" />
     <Compile Include="guia.cs" />
@@ -180,6 +196,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="Validar.cs" />
+    <EmbeddedResource Include="FrmImprimirGuia.resx">
+      <DependentUpon>FrmImprimirGuia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmIngreso.resx">
+      <DependentUpon>FrmIngreso.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Transporte\FormatoGuia.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>FormatoGuia.cs</LastGenOutput>
@@ -188,35 +210,35 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>FormatoRecibo1.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmBuscarCiudad.resx">
-      <DependentUpon>frmBuscarCiudad.cs</DependentUpon>
+    <EmbeddedResource Include="FrmBuscarCiudad.resx">
+      <DependentUpon>FrmBuscarCiudad.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmBuscarGuia.resx">
-      <DependentUpon>frmBuscarGuia.cs</DependentUpon>
+    <EmbeddedResource Include="FrmBuscarGuia.resx">
+      <DependentUpon>FrmBuscarGuia.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmConfiguracion.resx">
-      <DependentUpon>frmConfiguracion.cs</DependentUpon>
+    <EmbeddedResource Include="FrmConfiguracion.resx">
+      <DependentUpon>FrmConfiguracion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmBuscarCliente.resx">
-      <DependentUpon>frmBuscarCliente.cs</DependentUpon>
+    <EmbeddedResource Include="FrmBuscarCliente.resx">
+      <DependentUpon>FrmBuscarCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDevolverGuia.resx">
-      <DependentUpon>frmDevolverGuia.cs</DependentUpon>
+    <EmbeddedResource Include="FrmDevolverGuia.resx">
+      <DependentUpon>FrmDevolverGuia.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDevolverNumero.resx">
-      <DependentUpon>frmDevolverNumero.cs</DependentUpon>
+    <EmbeddedResource Include="FrmDevolverNumero.resx">
+      <DependentUpon>FrmDevolverNumero.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmGuia.resx">
-      <DependentUpon>frmGuia.cs</DependentUpon>
+    <EmbeddedResource Include="FrmGuia.resx">
+      <DependentUpon>FrmGuia.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPrincipal.resx">
-      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    <EmbeddedResource Include="FrmPrincipal.resx">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRecibo.resx">
-      <DependentUpon>frmRecibo.cs</DependentUpon>
+    <EmbeddedResource Include="FrmRecibo.resx">
+      <DependentUpon>FrmRecibo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmReporte.resx">
-      <DependentUpon>frmReporte.cs</DependentUpon>
+    <EmbeddedResource Include="FrmReporte.resx">
+      <DependentUpon>FrmReporte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

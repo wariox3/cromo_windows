@@ -1,6 +1,6 @@
 ﻿namespace cromo
 {
-    partial class frmPrincipal
+    partial class FrmPrincipal
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
 			this.components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
 			this.menuStrip = new System.Windows.Forms.MenuStrip();
 			this.fileMenu = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuArchivoConfigurcion = new System.Windows.Forms.ToolStripMenuItem();
 			this.editMenu = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuGuia = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuImprimirGuia = new System.Windows.Forms.ToolStripMenuItem();
 			this.helpMenu = new System.Windows.Forms.ToolStripMenuItem();
 			this.contentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.indexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -79,7 +80,8 @@
 			// editMenu
 			// 
 			this.editMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuGuia});
+            this.mnuGuia,
+            this.mnuImprimirGuia});
 			this.editMenu.Name = "editMenu";
 			this.editMenu.Size = new System.Drawing.Size(84, 20);
 			this.editMenu.Text = "&Movimiento";
@@ -89,9 +91,16 @@
 			this.mnuGuia.ImageTransparentColor = System.Drawing.Color.Black;
 			this.mnuGuia.Name = "mnuGuia";
 			this.mnuGuia.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
-			this.mnuGuia.Size = new System.Drawing.Size(139, 22);
+			this.mnuGuia.Size = new System.Drawing.Size(151, 22);
 			this.mnuGuia.Text = "&Guia";
 			this.mnuGuia.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
+			// 
+			// mnuImprimirGuia
+			// 
+			this.mnuImprimirGuia.Name = "mnuImprimirGuia";
+			this.mnuImprimirGuia.Size = new System.Drawing.Size(151, 22);
+			this.mnuImprimirGuia.Text = "Imprimir guias";
+			this.mnuImprimirGuia.Click += new System.EventHandler(this.mnuImprimirGuia_Click);
 			// 
 			// helpMenu
 			// 
@@ -155,7 +164,7 @@
 			this.toolStripStatusLabel.Size = new System.Drawing.Size(42, 17);
 			this.toolStripStatusLabel.Text = "Estado";
 			// 
-			// frmPrincipal
+			// FrmPrincipal
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -164,9 +173,10 @@
 			this.Controls.Add(this.menuStrip);
 			this.IsMdiContainer = true;
 			this.MainMenuStrip = this.menuStrip;
-			this.Name = "frmPrincipal";
+			this.Name = "FrmPrincipal";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Cromo escritorio";
+			this.Load += new System.EventHandler(this.FrmPrincipal_Load);
 			this.menuStrip.ResumeLayout(false);
 			this.menuStrip.PerformLayout();
 			this.statusStrip.ResumeLayout(false);
@@ -192,7 +202,8 @@
         private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.ToolStripMenuItem mnuArchivoConfigurcion;
-    }
+		private System.Windows.Forms.ToolStripMenuItem mnuImprimirGuia;
+	}
 }
 
 

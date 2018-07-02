@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace cromo
 {
-    public partial class frmConfiguracion : Form
+    public partial class FrmConfiguracion : Form
     {
-        public frmConfiguracion()
+        public FrmConfiguracion()
         {
             InitializeComponent();
         }

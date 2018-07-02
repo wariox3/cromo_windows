@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 namespace cromo
 {
-	public partial class frmBuscarGuia : Form
+	public partial class FrmBuscarGuia : Form
 	{
-		public frmBuscarGuia()
+		public FrmBuscarGuia()
 		{
 			InitializeComponent();
 		}
@@ -24,9 +24,9 @@ namespace cromo
 			return ds;
 		}
 
-		private void frmBuscarGuia_Load(object sender, EventArgs e)
+		private void FrmBuscarGuia_Load(object sender, EventArgs e)
 		{
-			dgGuias.DataSource = LlenarDatos().Tables[0];
+			DgGuias.DataSource = LlenarDatos().Tables[0];
 		}
 	}
 }

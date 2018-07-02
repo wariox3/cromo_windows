@@ -1,6 +1,6 @@
 ﻿namespace cromo
 {
-	partial class frmRecibo
+	partial class FrmRecibo
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -28,37 +28,37 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.dgRecibos = new System.Windows.Forms.DataGridView();
+			this.DgRecibos = new System.Windows.Forms.DataGridView();
 			this.clmCodigoReciboPk = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.clmFlete = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.clmManejo = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.clmTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.txtManejo = new System.Windows.Forms.TextBox();
-			this.txtFlete = new System.Windows.Forms.TextBox();
-			this.btnAgregar = new System.Windows.Forms.Button();
+			this.TxtManejo = new System.Windows.Forms.TextBox();
+			this.TxtFlete = new System.Windows.Forms.TextBox();
+			this.BtnAgregar = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
-			this.Eliminar = new System.Windows.Forms.Button();
-			this.btnImprimir = new System.Windows.Forms.Button();
-			((System.ComponentModel.ISupportInitialize)(this.dgRecibos)).BeginInit();
+			this.BtnEliminar = new System.Windows.Forms.Button();
+			this.BtnImprimir = new System.Windows.Forms.Button();
+			((System.ComponentModel.ISupportInitialize)(this.DgRecibos)).BeginInit();
 			this.SuspendLayout();
 			// 
-			// dgRecibos
+			// DgRecibos
 			// 
-			this.dgRecibos.AllowUserToAddRows = false;
-			this.dgRecibos.AllowUserToDeleteRows = false;
-			this.dgRecibos.AllowUserToResizeColumns = false;
-			this.dgRecibos.AllowUserToResizeRows = false;
-			this.dgRecibos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgRecibos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+			this.DgRecibos.AllowUserToAddRows = false;
+			this.DgRecibos.AllowUserToDeleteRows = false;
+			this.DgRecibos.AllowUserToResizeColumns = false;
+			this.DgRecibos.AllowUserToResizeRows = false;
+			this.DgRecibos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.DgRecibos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmCodigoReciboPk,
             this.clmFlete,
             this.clmManejo,
             this.clmTotal});
-			this.dgRecibos.Location = new System.Drawing.Point(25, 12);
-			this.dgRecibos.Name = "dgRecibos";
-			this.dgRecibos.Size = new System.Drawing.Size(467, 212);
-			this.dgRecibos.TabIndex = 5;
+			this.DgRecibos.Location = new System.Drawing.Point(25, 12);
+			this.DgRecibos.Name = "DgRecibos";
+			this.DgRecibos.Size = new System.Drawing.Size(467, 212);
+			this.DgRecibos.TabIndex = 5;
 			// 
 			// clmCodigoReciboPk
 			// 
@@ -84,29 +84,29 @@
 			this.clmTotal.HeaderText = "TOTAL";
 			this.clmTotal.Name = "clmTotal";
 			// 
-			// txtManejo
+			// TxtManejo
 			// 
-			this.txtManejo.Location = new System.Drawing.Point(83, 257);
-			this.txtManejo.Name = "txtManejo";
-			this.txtManejo.Size = new System.Drawing.Size(100, 20);
-			this.txtManejo.TabIndex = 1;
+			this.TxtManejo.Location = new System.Drawing.Point(83, 257);
+			this.TxtManejo.Name = "TxtManejo";
+			this.TxtManejo.Size = new System.Drawing.Size(100, 20);
+			this.TxtManejo.TabIndex = 1;
 			// 
-			// txtFlete
+			// TxtFlete
 			// 
-			this.txtFlete.Location = new System.Drawing.Point(83, 233);
-			this.txtFlete.Name = "txtFlete";
-			this.txtFlete.Size = new System.Drawing.Size(100, 20);
-			this.txtFlete.TabIndex = 0;
+			this.TxtFlete.Location = new System.Drawing.Point(83, 233);
+			this.TxtFlete.Name = "TxtFlete";
+			this.TxtFlete.Size = new System.Drawing.Size(100, 20);
+			this.TxtFlete.TabIndex = 0;
 			// 
-			// btnAgregar
+			// BtnAgregar
 			// 
-			this.btnAgregar.Location = new System.Drawing.Point(200, 231);
-			this.btnAgregar.Name = "btnAgregar";
-			this.btnAgregar.Size = new System.Drawing.Size(75, 23);
-			this.btnAgregar.TabIndex = 2;
-			this.btnAgregar.Text = "Agregar";
-			this.btnAgregar.UseVisualStyleBackColor = true;
-			this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+			this.BtnAgregar.Location = new System.Drawing.Point(200, 231);
+			this.BtnAgregar.Name = "BtnAgregar";
+			this.BtnAgregar.Size = new System.Drawing.Size(75, 23);
+			this.BtnAgregar.TabIndex = 2;
+			this.BtnAgregar.Text = "Agregar";
+			this.BtnAgregar.UseVisualStyleBackColor = true;
+			this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
 			// 
 			// label1
 			// 
@@ -126,44 +126,44 @@
 			this.label2.TabIndex = 5;
 			this.label2.Text = "Flete:";
 			// 
-			// Eliminar
+			// BtnEliminar
 			// 
-			this.Eliminar.Location = new System.Drawing.Point(417, 231);
-			this.Eliminar.Name = "Eliminar";
-			this.Eliminar.Size = new System.Drawing.Size(75, 23);
-			this.Eliminar.TabIndex = 4;
-			this.Eliminar.Text = "Eliminar";
-			this.Eliminar.UseVisualStyleBackColor = true;
-			this.Eliminar.Click += new System.EventHandler(this.Eliminar_Click);
+			this.BtnEliminar.Location = new System.Drawing.Point(417, 231);
+			this.BtnEliminar.Name = "BtnEliminar";
+			this.BtnEliminar.Size = new System.Drawing.Size(75, 23);
+			this.BtnEliminar.TabIndex = 4;
+			this.BtnEliminar.Text = "Eliminar";
+			this.BtnEliminar.UseVisualStyleBackColor = true;
+			this.BtnEliminar.Click += new System.EventHandler(this.Eliminar_Click);
 			// 
-			// btnImprimir
+			// BtnImprimir
 			// 
-			this.btnImprimir.Location = new System.Drawing.Point(336, 230);
-			this.btnImprimir.Name = "btnImprimir";
-			this.btnImprimir.Size = new System.Drawing.Size(75, 23);
-			this.btnImprimir.TabIndex = 6;
-			this.btnImprimir.Text = "Imprimir";
-			this.btnImprimir.UseVisualStyleBackColor = true;
-			this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+			this.BtnImprimir.Location = new System.Drawing.Point(336, 230);
+			this.BtnImprimir.Name = "BtnImprimir";
+			this.BtnImprimir.Size = new System.Drawing.Size(75, 23);
+			this.BtnImprimir.TabIndex = 6;
+			this.BtnImprimir.Text = "Imprimir";
+			this.BtnImprimir.UseVisualStyleBackColor = true;
+			this.BtnImprimir.Click += new System.EventHandler(this.BtnImprimir_Click);
 			// 
-			// frmRecibo
+			// FrmRecibo
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(509, 288);
-			this.Controls.Add(this.btnImprimir);
-			this.Controls.Add(this.Eliminar);
+			this.Controls.Add(this.BtnImprimir);
+			this.Controls.Add(this.BtnEliminar);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
-			this.Controls.Add(this.btnAgregar);
-			this.Controls.Add(this.txtFlete);
-			this.Controls.Add(this.txtManejo);
-			this.Controls.Add(this.dgRecibos);
-			this.Name = "frmRecibo";
+			this.Controls.Add(this.BtnAgregar);
+			this.Controls.Add(this.TxtFlete);
+			this.Controls.Add(this.TxtManejo);
+			this.Controls.Add(this.DgRecibos);
+			this.Name = "FrmRecibo";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Generar recibo";
-			this.Load += new System.EventHandler(this.frmRecibo_Load);
-			((System.ComponentModel.ISupportInitialize)(this.dgRecibos)).EndInit();
+			this.Load += new System.EventHandler(this.FrmRecibo_Load);
+			((System.ComponentModel.ISupportInitialize)(this.DgRecibos)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -171,17 +171,17 @@
 
 		#endregion
 
-		private System.Windows.Forms.DataGridView dgRecibos;
-		private System.Windows.Forms.TextBox txtManejo;
-		private System.Windows.Forms.TextBox txtFlete;
-		private System.Windows.Forms.Button btnAgregar;
+		private System.Windows.Forms.DataGridView DgRecibos;
+		private System.Windows.Forms.TextBox TxtManejo;
+		private System.Windows.Forms.TextBox TxtFlete;
+		private System.Windows.Forms.Button BtnAgregar;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.Button Eliminar;
+		private System.Windows.Forms.Button BtnEliminar;
 		private System.Windows.Forms.DataGridViewTextBoxColumn clmCodigoReciboPk;
 		private System.Windows.Forms.DataGridViewTextBoxColumn clmFlete;
 		private System.Windows.Forms.DataGridViewTextBoxColumn clmManejo;
 		private System.Windows.Forms.DataGridViewTextBoxColumn clmTotal;
-		private System.Windows.Forms.Button btnImprimir;
+		private System.Windows.Forms.Button BtnImprimir;
 	}
 }

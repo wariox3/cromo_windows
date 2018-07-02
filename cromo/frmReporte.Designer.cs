@@ -1,6 +1,6 @@
 ﻿namespace cromo
 {
-	partial class frmReporte
+	partial class FrmReporte
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -48,14 +48,14 @@
 			this.Controls.Add(this.crvReporte);
 			this.Name = "frmReporte";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Load += new System.EventHandler(this.frmReporte_Load_1);
+			this.Load += new System.EventHandler(this.FrmReporte_Load);
 			this.ResumeLayout(false);
 
 		}
 
 		#endregion
 
-		private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
+		//private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
 		private CrystalDecisions.Windows.Forms.CrystalReportViewer crvReporte;
 	}
 }

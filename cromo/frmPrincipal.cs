@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace cromo
 {
-    public partial class frmPrincipal : Form
+    public partial class FrmPrincipal : Form
     {
         private int childFormNumber = 0;
 
-        public frmPrincipal()
+        public FrmPrincipal()
         {
             InitializeComponent();
         }
@@ -96,15 +96,31 @@ namespace cromo
 
         private void undoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmGuia frmGuia = new frmGuia();
+            FrmGuia frmGuia = new FrmGuia();
             frmGuia.MdiParent = this;
             frmGuia.Show();
         }
 
         private void mnuArchivoConfigurcion_Click(object sender, EventArgs e)
         {
-            frmConfiguracion frmConfiguracion = new frmConfiguracion();
+            FrmConfiguracion frmConfiguracion = new FrmConfiguracion();
             frmConfiguracion.ShowDialog();
         }
-    }
+
+		private void mnuImprimirGuia_Click(object sender, EventArgs e)
+		{
+			FrmImprimirGuia frm = new FrmImprimirGuia();
+			frm.ShowDialog();
+		}
+
+		private void FrmPrincipal_Load(object sender, EventArgs e)
+		{
+			FrmIngreso FrmIngrero = new FrmIngreso();
+			FrmIngrero.ShowDialog();
+			if (FrmIngrero.DialogResult != DialogResult.OK)
+			{
+				Close();
+			}
+		}
+	}
 }

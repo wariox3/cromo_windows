@@ -1,6 +1,6 @@
 ﻿namespace cromo
 {
-	partial class frmBuscarGuia
+	partial class FrmBuscarGuia
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -28,25 +28,25 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.dgGuias = new System.Windows.Forms.DataGridView();
+			this.DgGuias = new System.Windows.Forms.DataGridView();
 			this.clmCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.clmNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			((System.ComponentModel.ISupportInitialize)(this.dgGuias)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.DgGuias)).BeginInit();
 			this.SuspendLayout();
 			// 
-			// dgGuias
+			// DgGuias
 			// 
-			this.dgGuias.AllowUserToAddRows = false;
-			this.dgGuias.AllowUserToDeleteRows = false;
-			this.dgGuias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgGuias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+			this.DgGuias.AllowUserToAddRows = false;
+			this.DgGuias.AllowUserToDeleteRows = false;
+			this.DgGuias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.DgGuias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmCodigo,
             this.clmNumero});
-			this.dgGuias.Location = new System.Drawing.Point(8, 37);
-			this.dgGuias.Name = "dgGuias";
-			this.dgGuias.ReadOnly = true;
-			this.dgGuias.Size = new System.Drawing.Size(783, 305);
-			this.dgGuias.TabIndex = 0;
+			this.DgGuias.Location = new System.Drawing.Point(8, 37);
+			this.DgGuias.Name = "DgGuias";
+			this.DgGuias.ReadOnly = true;
+			this.DgGuias.Size = new System.Drawing.Size(783, 305);
+			this.DgGuias.TabIndex = 0;
 			// 
 			// clmCodigo
 			// 
@@ -62,24 +62,24 @@
 			this.clmNumero.Name = "clmNumero";
 			this.clmNumero.ReadOnly = true;
 			// 
-			// frmBuscarGuia
+			// FrmBuscarGuia
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
-			this.Controls.Add(this.dgGuias);
-			this.Name = "frmBuscarGuia";
+			this.Controls.Add(this.DgGuias);
+			this.Name = "FrmBuscarGuia";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Buscar guia";
-			this.Load += new System.EventHandler(this.frmBuscarGuia_Load);
-			((System.ComponentModel.ISupportInitialize)(this.dgGuias)).EndInit();
+			this.Load += new System.EventHandler(this.FrmBuscarGuia_Load);
+			((System.ComponentModel.ISupportInitialize)(this.DgGuias)).EndInit();
 			this.ResumeLayout(false);
 
 		}
 
 		#endregion
 
-		private System.Windows.Forms.DataGridView dgGuias;
+		private System.Windows.Forms.DataGridView DgGuias;
 		private System.Windows.Forms.DataGridViewTextBoxColumn clmCodigo;
 		private System.Windows.Forms.DataGridViewTextBoxColumn clmNumero;
 	}

@@ -22,19 +22,25 @@
         "Entry"
         {
         "MsmKey" = "8:_1859020D8DB619DACD2809BF0664817A"
-        "OwnerKey" = "8:_B7311D7AE22B4A4FA03755CEB73D35FD"
+        "OwnerKey" = "8:_1B4357B7A0A44C9AA86FBF28446B6D05"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_1B4357B7A0A44C9AA86FBF28446B6D05"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_28A0B70E879F2B47F7DDD19C6C407372"
-        "OwnerKey" = "8:_B7311D7AE22B4A4FA03755CEB73D35FD"
+        "OwnerKey" = "8:_1B4357B7A0A44C9AA86FBF28446B6D05"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_60CCBFE154B156F400233D9E23FA0864"
-        "OwnerKey" = "8:_B7311D7AE22B4A4FA03755CEB73D35FD"
+        "OwnerKey" = "8:_1B4357B7A0A44C9AA86FBF28446B6D05"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -46,7 +52,7 @@
         "Entry"
         {
         "MsmKey" = "8:_656151CA910A389AC1A44AF8D207AF2C"
-        "OwnerKey" = "8:_B7311D7AE22B4A4FA03755CEB73D35FD"
+        "OwnerKey" = "8:_1B4357B7A0A44C9AA86FBF28446B6D05"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -58,7 +64,7 @@
         "Entry"
         {
         "MsmKey" = "8:_7C98978808AC70ADB437720868126ECB"
-        "OwnerKey" = "8:_B7311D7AE22B4A4FA03755CEB73D35FD"
+        "OwnerKey" = "8:_1B4357B7A0A44C9AA86FBF28446B6D05"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -75,31 +81,19 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_B7311D7AE22B4A4FA03755CEB73D35FD"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_C24FF7D318104A8A875A99808EAE9196"
-        "OwnerKey" = "8:_B7311D7AE22B4A4FA03755CEB73D35FD"
+        "OwnerKey" = "8:_1B4357B7A0A44C9AA86FBF28446B6D05"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_CD01C8ACA100E34EA82D481DBB0F6B1E"
-        "OwnerKey" = "8:_B7311D7AE22B4A4FA03755CEB73D35FD"
+        "OwnerKey" = "8:_1B4357B7A0A44C9AA86FBF28446B6D05"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_D6F10CD2A00948E19FF9656DF27A79EE"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_DCECB47D58684768914827339833165C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -112,19 +106,19 @@
         "Entry"
         {
         "MsmKey" = "8:_F84672191462196EEEB991D9A54A8BC6"
-        "OwnerKey" = "8:_B7311D7AE22B4A4FA03755CEB73D35FD"
+        "OwnerKey" = "8:_1B4357B7A0A44C9AA86FBF28446B6D05"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B7311D7AE22B4A4FA03755CEB73D35FD"
+        "OwnerKey" = "8:_656151CA910A389AC1A44AF8D207AF2C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_DCECB47D58684768914827339833165C"
+        "OwnerKey" = "8:_1B4357B7A0A44C9AA86FBF28446B6D05"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -167,12 +161,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_60CCBFE154B156F400233D9E23FA0864"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_656151CA910A389AC1A44AF8D207AF2C"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -348,7 +336,7 @@
             "SharedLegacy" = "11:FALSE"
             "PackageAs" = "3:1"
             "Register" = "3:1"
-            "Exclude" = "11:TRUE"
+            "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
@@ -567,37 +555,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_DCECB47D58684768914827339833165C"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:TRUE"
-            "AssemblyAsmDisplayName" = "8:log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=x86"
-                "ScatterAssemblies"
-                {
-                    "_DCECB47D58684768914827339833165C"
-                    {
-                    "Name" = "8:log4net.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:C:\\WINDOWS\\assembly\\GAC_32\\log4net\\1.2.10.0__692fbea5521e1304\\log4net.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_31A1918671924523B81D3032570FFFCA"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F84672191462196EEEB991D9A54A8BC6"
             {
             "AssemblyRegister" = "3:1"
@@ -637,7 +594,7 @@
         {
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_31A1918671924523B81D3032570FFFCA"
             {
-            "DefaultLocation" = "8:[ProgramFilesFolder][Manufacturer]\\[ProductName]"
+            "DefaultLocation" = "8:[ProgramFiles64Folder][Manufacturer]\\[ProductName]"
             "Name" = "8:#1925"
             "AlwaysCreate" = "11:FALSE"
             "Condition" = "8:"
@@ -719,7 +676,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:cromo"
         "ProductCode" = "8:{1384ED66-1AD3-48F9-9CCB-6212990C5248}"
-        "PackageCode" = "8:{01CA3E77-9AA9-4E0C-95BE-D022E2F30190}"
+        "PackageCode" = "8:{FA46D2AC-CBC0-4495-A8C2-E55D40DFCD93}"
         "UpgradeCode" = "8:{F4DD945A-F6E8-4865-8A5A-7BE5E229507B}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -740,7 +697,7 @@
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
-        "TargetPlatform" = "3:0"
+        "TargetPlatform" = "3:1"
         "PreBuildEvent" = "8:"
         "PostBuildEvent" = "8:"
         "RunPostBuildEvent" = "3:0"
@@ -839,34 +796,6 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_4B52700521EB4B01B1ADF45420561158"
-            {
-            "Name" = "8:cromo"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_B7311D7AE22B4A4FA03755CEB73D35FD"
-            "Folder" = "8:_0DD0A1671D69466FA9E5EA16B462C92D"
-            "WorkingFolder" = "8:_31A1918671924523B81D3032570FFFCA"
-            "Icon" = "8:_0F0E3EA32C19466A94F8DC740FC65E22"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_D4F30E230A0841F895A057B615DA46C6"
-            {
-            "Name" = "8:cromo"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_B7311D7AE22B4A4FA03755CEB73D35FD"
-            "Folder" = "8:_BD66E67FC4444D2BB52F6844F24D1AF5"
-            "WorkingFolder" = "8:_31A1918671924523B81D3032570FFFCA"
-            "Icon" = "8:_0F0E3EA32C19466A94F8DC740FC65E22"
-            "Feature" = "8:"
-            }
         }
         "UserInterface"
         {
@@ -1266,7 +1195,7 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_B7311D7AE22B4A4FA03755CEB73D35FD"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_1B4357B7A0A44C9AA86FBF28446B6D05"
             {
             "SourcePath" = "8:..\\cromo\\obj\\Debug\\cromo.exe"
             "TargetName" = "8:"
