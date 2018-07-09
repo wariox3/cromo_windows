@@ -78,8 +78,9 @@
 			this.btnAceptar.UseVisualStyleBackColor = true;
 			this.btnAceptar.Click += new System.EventHandler(this.BtnAceptar_Click);
 			// 
-			// frmDevolverGuia
+			// FrmDevolverGuia
 			// 
+			this.AcceptButton = this.btnAceptar;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(342, 113);
@@ -88,7 +89,7 @@
 			this.Controls.Add(this.cboGuiaTipo);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
-			this.Name = "frmDevolverGuia";
+			this.Name = "FrmDevolverGuia";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Buscar guia..";
 			this.Load += new System.EventHandler(this.FrmDevolverGuia_Load);

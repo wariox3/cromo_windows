@@ -16,7 +16,8 @@ namespace cromo
         public string codigoCiudadOrigenFk { get; set; }
         public string codigoCiudadDestinoFk { get; set; }
         public string documentoCliente { get; set; }
-        public string remitente { get; set; }
+		public string relacionCliente { get; set; }
+		public string remitente { get; set; }
 		public string codigoServicioFk { get; set; }
 		public string codigoGuiaTipoFk { get; set; }
 		public string codigoProductoFk { get; set; }
@@ -47,7 +48,7 @@ namespace cromo
 			string pdireccionDestinatario, string ptelefonoDestinatario, string pfechaIngreso, int punidades, int ppesoReal, 
 			int ppesovolumen, int ppesoFacturar, double pvrFlete, double pvrManejo, double pvrDeclara, double pvrRecaudo,
 			string pcodigoRutaFk, int pordenRuta, bool preexpedicion, int pcodigoCondicionFk, bool pfactura, int pnumero,
-			string pcomentario, string pusuario)
+			string pcomentario, string pusuario, string prelacionCliente)
         {
             this.codigoGuiaPk = pcodigoGuiaPk;
 			this.numero = pnumero;
@@ -80,6 +81,7 @@ namespace cromo
 			this.factura = pfactura;
 			this.usuario = pusuario;
 			this.comentario = pcomentario;
+			this.relacionCliente = prelacionCliente;
 		}
 
 	}

@@ -42,6 +42,8 @@
 			this.label3 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.gbTotales = new System.Windows.Forms.GroupBox();
+			this.label30 = new System.Windows.Forms.Label();
+			this.TxtAbono = new System.Windows.Forms.TextBox();
 			this.label16 = new System.Windows.Forms.Label();
 			this.TxtRecaudo = new System.Windows.Forms.TextBox();
 			this.TxtManejo = new System.Windows.Forms.TextBox();
@@ -59,6 +61,8 @@
 			this.label7 = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
 			this.gbCliente = new System.Windows.Forms.GroupBox();
+			this.TxtRelacion = new System.Windows.Forms.TextBox();
+			this.label32 = new System.Windows.Forms.Label();
 			this.label27 = new System.Windows.Forms.Label();
 			this.txtNombreCondicion = new System.Windows.Forms.TextBox();
 			this.TxtCodigoCondicion = new System.Windows.Forms.TextBox();
@@ -76,6 +80,7 @@
 			this.TsbNuevo = new System.Windows.Forms.ToolStripButton();
 			this.TsbGuardar = new System.Windows.Forms.ToolStripButton();
 			this.TsbCancelar = new System.Windows.Forms.ToolStripButton();
+			this.TsbPrecargar = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.TsbBuscar = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -84,8 +89,6 @@
 			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
 			this.TsbRecibo = new System.Windows.Forms.ToolStripButton();
 			this.gbInformacion = new System.Windows.Forms.GroupBox();
-			this.label29 = new System.Windows.Forms.Label();
-			this.TxtComentario = new System.Windows.Forms.TextBox();
 			this.label26 = new System.Windows.Forms.Label();
 			this.CboProducto = new System.Windows.Forms.ComboBox();
 			this.label19 = new System.Windows.Forms.Label();
@@ -102,6 +105,8 @@
 			this.MnuBuscar = new System.Windows.Forms.ToolStripMenuItem();
 			this.MnuImprimir = new System.Windows.Forms.ToolStripMenuItem();
 			this.gbDatos = new System.Windows.Forms.GroupBox();
+			this.label31 = new System.Windows.Forms.Label();
+			this.TxtUsuario = new System.Windows.Forms.TextBox();
 			this.ChkReexpedicion = new System.Windows.Forms.CheckBox();
 			this.ChkFactura = new System.Windows.Forms.CheckBox();
 			this.label28 = new System.Windows.Forms.Label();
@@ -128,10 +133,10 @@
 			this.ChkEstadoDespachado = new System.Windows.Forms.CheckBox();
 			this.ChkEstadoEmbarcado = new System.Windows.Forms.CheckBox();
 			this.ChkEstadoImpreso = new System.Windows.Forms.CheckBox();
-			this.label30 = new System.Windows.Forms.Label();
-			this.TxtAbono = new System.Windows.Forms.TextBox();
-			this.TxtUsuario = new System.Windows.Forms.TextBox();
-			this.label31 = new System.Windows.Forms.Label();
+			this.MnuPrecargar = new System.Windows.Forms.ToolStripMenuItem();
+			this.gbComentario = new System.Windows.Forms.GroupBox();
+			this.label29 = new System.Windows.Forms.Label();
+			this.TxtComentario = new System.Windows.Forms.TextBox();
 			this.gbDestinatario.SuspendLayout();
 			this.gbTotales.SuspendLayout();
 			this.gbCliente.SuspendLayout();
@@ -140,6 +145,7 @@
 			this.menuStrip1.SuspendLayout();
 			this.gbDatos.SuspendLayout();
 			this.groupBox1.SuspendLayout();
+			this.gbComentario.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// gbDestinatario
@@ -159,7 +165,7 @@
 			this.gbDestinatario.Location = new System.Drawing.Point(18, 175);
 			this.gbDestinatario.Name = "gbDestinatario";
 			this.gbDestinatario.Size = new System.Drawing.Size(528, 100);
-			this.gbDestinatario.TabIndex = 6;
+			this.gbDestinatario.TabIndex = 7;
 			this.gbDestinatario.TabStop = false;
 			// 
 			// TxtCodigoRuta
@@ -201,8 +207,9 @@
 			this.TxtCodigoCiudadDestino.Location = new System.Drawing.Point(76, 57);
 			this.TxtCodigoCiudadDestino.Name = "TxtCodigoCiudadDestino";
 			this.TxtCodigoCiudadDestino.Size = new System.Drawing.Size(42, 20);
-			this.TxtCodigoCiudadDestino.TabIndex = 10;
+			this.TxtCodigoCiudadDestino.TabIndex = 11;
 			this.TxtCodigoCiudadDestino.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCodigoCiudadDestino_KeyDown);
+			this.TxtCodigoCiudadDestino.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
 			this.TxtCodigoCiudadDestino.Validated += new System.EventHandler(this.TxtCodigoCiudadDestino_Validated);
 			// 
 			// TxtDireccionDestinatario
@@ -210,21 +217,24 @@
 			this.TxtDireccionDestinatario.Location = new System.Drawing.Point(76, 34);
 			this.TxtDireccionDestinatario.Name = "TxtDireccionDestinatario";
 			this.TxtDireccionDestinatario.Size = new System.Drawing.Size(441, 20);
-			this.TxtDireccionDestinatario.TabIndex = 9;
+			this.TxtDireccionDestinatario.TabIndex = 10;
+			this.TxtDireccionDestinatario.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
 			// 
 			// TxtTelefonoDestinatario
 			// 
 			this.TxtTelefonoDestinatario.Location = new System.Drawing.Point(428, 11);
 			this.TxtTelefonoDestinatario.Name = "TxtTelefonoDestinatario";
 			this.TxtTelefonoDestinatario.Size = new System.Drawing.Size(89, 20);
-			this.TxtTelefonoDestinatario.TabIndex = 8;
+			this.TxtTelefonoDestinatario.TabIndex = 9;
+			this.TxtTelefonoDestinatario.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
 			// 
 			// TxtNombreDestinatario
 			// 
 			this.TxtNombreDestinatario.Location = new System.Drawing.Point(76, 11);
 			this.TxtNombreDestinatario.Name = "TxtNombreDestinatario";
 			this.TxtNombreDestinatario.Size = new System.Drawing.Size(298, 20);
-			this.TxtNombreDestinatario.TabIndex = 7;
+			this.TxtNombreDestinatario.TabIndex = 8;
+			this.TxtNombreDestinatario.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
 			// 
 			// label4
 			// 
@@ -277,9 +287,26 @@
 			this.gbTotales.Location = new System.Drawing.Point(338, 281);
 			this.gbTotales.Name = "gbTotales";
 			this.gbTotales.Size = new System.Drawing.Size(208, 222);
-			this.gbTotales.TabIndex = 16;
+			this.gbTotales.TabIndex = 17;
 			this.gbTotales.TabStop = false;
 			this.gbTotales.Text = "Totales";
+			// 
+			// label30
+			// 
+			this.label30.AutoSize = true;
+			this.label30.Location = new System.Drawing.Point(40, 196);
+			this.label30.Name = "label30";
+			this.label30.Size = new System.Drawing.Size(41, 13);
+			this.label30.TabIndex = 27;
+			this.label30.Text = "Abono:";
+			// 
+			// TxtAbono
+			// 
+			this.TxtAbono.Location = new System.Drawing.Point(86, 194);
+			this.TxtAbono.Name = "TxtAbono";
+			this.TxtAbono.Size = new System.Drawing.Size(111, 20);
+			this.TxtAbono.TabIndex = 26;
+			this.TxtAbono.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// label16
 			// 
@@ -295,32 +322,36 @@
 			this.TxtRecaudo.Location = new System.Drawing.Point(86, 171);
 			this.TxtRecaudo.Name = "TxtRecaudo";
 			this.TxtRecaudo.Size = new System.Drawing.Size(111, 20);
-			this.TxtRecaudo.TabIndex = 24;
+			this.TxtRecaudo.TabIndex = 25;
 			this.TxtRecaudo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.TxtRecaudo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
 			// 
 			// TxtManejo
 			// 
 			this.TxtManejo.Location = new System.Drawing.Point(86, 148);
 			this.TxtManejo.Name = "TxtManejo";
 			this.TxtManejo.Size = new System.Drawing.Size(111, 20);
-			this.TxtManejo.TabIndex = 23;
+			this.TxtManejo.TabIndex = 24;
 			this.TxtManejo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.TxtManejo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
 			// 
 			// TxtFlete
 			// 
 			this.TxtFlete.Location = new System.Drawing.Point(86, 126);
 			this.TxtFlete.Name = "TxtFlete";
 			this.TxtFlete.Size = new System.Drawing.Size(111, 20);
-			this.TxtFlete.TabIndex = 22;
+			this.TxtFlete.TabIndex = 23;
 			this.TxtFlete.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.TxtFlete.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
 			// 
 			// TxtDeclarado
 			// 
 			this.TxtDeclarado.Location = new System.Drawing.Point(86, 104);
 			this.TxtDeclarado.Name = "TxtDeclarado";
 			this.TxtDeclarado.Size = new System.Drawing.Size(111, 20);
-			this.TxtDeclarado.TabIndex = 21;
+			this.TxtDeclarado.TabIndex = 22;
 			this.TxtDeclarado.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.TxtDeclarado.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
 			this.TxtDeclarado.Validated += new System.EventHandler(this.TxtDeclarado_Validated);
 			// 
 			// TxtPesoFacturar
@@ -328,8 +359,9 @@
 			this.TxtPesoFacturar.Location = new System.Drawing.Point(86, 82);
 			this.TxtPesoFacturar.Name = "TxtPesoFacturar";
 			this.TxtPesoFacturar.Size = new System.Drawing.Size(111, 20);
-			this.TxtPesoFacturar.TabIndex = 20;
+			this.TxtPesoFacturar.TabIndex = 21;
 			this.TxtPesoFacturar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.TxtPesoFacturar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
 			this.TxtPesoFacturar.Validated += new System.EventHandler(this.TxtPesoFacturar_Validated);
 			// 
 			// TxtVolumen
@@ -337,8 +369,9 @@
 			this.TxtVolumen.Location = new System.Drawing.Point(86, 60);
 			this.TxtVolumen.Name = "TxtVolumen";
 			this.TxtVolumen.Size = new System.Drawing.Size(111, 20);
-			this.TxtVolumen.TabIndex = 19;
+			this.TxtVolumen.TabIndex = 20;
 			this.TxtVolumen.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.TxtVolumen.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
 			this.TxtVolumen.Validated += new System.EventHandler(this.TxtVolumen_Validated);
 			// 
 			// TxtPeso
@@ -346,8 +379,9 @@
 			this.TxtPeso.Location = new System.Drawing.Point(86, 38);
 			this.TxtPeso.Name = "TxtPeso";
 			this.TxtPeso.Size = new System.Drawing.Size(111, 20);
-			this.TxtPeso.TabIndex = 18;
+			this.TxtPeso.TabIndex = 19;
 			this.TxtPeso.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.TxtPeso.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
 			this.TxtPeso.Validated += new System.EventHandler(this.TxtPeso_Validated);
 			// 
 			// TxtUnidades
@@ -355,8 +389,9 @@
 			this.TxtUnidades.Location = new System.Drawing.Point(86, 15);
 			this.TxtUnidades.Name = "TxtUnidades";
 			this.TxtUnidades.Size = new System.Drawing.Size(111, 20);
-			this.TxtUnidades.TabIndex = 17;
+			this.TxtUnidades.TabIndex = 18;
 			this.TxtUnidades.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.TxtUnidades.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
 			this.TxtUnidades.Validated += new System.EventHandler(this.TxtUnidades_Validated);
 			// 
 			// label12
@@ -424,6 +459,8 @@
 			// 
 			// gbCliente
 			// 
+			this.gbCliente.Controls.Add(this.TxtRelacion);
+			this.gbCliente.Controls.Add(this.label32);
 			this.gbCliente.Controls.Add(this.label27);
 			this.gbCliente.Controls.Add(this.txtNombreCondicion);
 			this.gbCliente.Controls.Add(this.TxtCodigoCondicion);
@@ -443,6 +480,23 @@
 			this.gbCliente.Size = new System.Drawing.Size(528, 129);
 			this.gbCliente.TabIndex = 0;
 			this.gbCliente.TabStop = false;
+			// 
+			// TxtRelacion
+			// 
+			this.TxtRelacion.Location = new System.Drawing.Point(344, 80);
+			this.TxtRelacion.Name = "TxtRelacion";
+			this.TxtRelacion.Size = new System.Drawing.Size(172, 20);
+			this.TxtRelacion.TabIndex = 5;
+			this.TxtRelacion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+			// 
+			// label32
+			// 
+			this.label32.AutoSize = true;
+			this.label32.Location = new System.Drawing.Point(291, 81);
+			this.label32.Name = "label32";
+			this.label32.Size = new System.Drawing.Size(52, 13);
+			this.label32.TabIndex = 26;
+			this.label32.Text = "Relacion:";
 			// 
 			// label27
 			// 
@@ -468,6 +522,7 @@
 			this.TxtCodigoCondicion.Name = "TxtCodigoCondicion";
 			this.TxtCodigoCondicion.Size = new System.Drawing.Size(100, 20);
 			this.TxtCodigoCondicion.TabIndex = 2;
+			this.TxtCodigoCondicion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
 			this.TxtCodigoCondicion.Validated += new System.EventHandler(this.TxtCodigoCondicion_Validated);
 			// 
 			// label15
@@ -493,8 +548,9 @@
 			this.TxtCodigoCiudadOrigen.Location = new System.Drawing.Point(76, 102);
 			this.TxtCodigoCiudadOrigen.Name = "TxtCodigoCiudadOrigen";
 			this.TxtCodigoCiudadOrigen.Size = new System.Drawing.Size(39, 20);
-			this.TxtCodigoCiudadOrigen.TabIndex = 5;
+			this.TxtCodigoCiudadOrigen.TabIndex = 6;
 			this.TxtCodigoCiudadOrigen.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCodigoCiudadOrigen_KeyDown);
+			this.TxtCodigoCiudadOrigen.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
 			this.TxtCodigoCiudadOrigen.Validated += new System.EventHandler(this.TxtCodigoCiudadOrigen_Validated);
 			// 
 			// label14
@@ -519,8 +575,9 @@
 			// 
 			this.TxtDocumentoCliente.Location = new System.Drawing.Point(76, 79);
 			this.TxtDocumentoCliente.Name = "TxtDocumentoCliente";
-			this.TxtDocumentoCliente.Size = new System.Drawing.Size(176, 20);
+			this.TxtDocumentoCliente.Size = new System.Drawing.Size(208, 20);
 			this.TxtDocumentoCliente.TabIndex = 4;
+			this.TxtDocumentoCliente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
 			// 
 			// TxtRemitente
 			// 
@@ -528,6 +585,7 @@
 			this.TxtRemitente.Name = "TxtRemitente";
 			this.TxtRemitente.Size = new System.Drawing.Size(441, 20);
 			this.TxtRemitente.TabIndex = 3;
+			this.TxtRemitente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
 			// 
 			// txtNombreCliente
 			// 
@@ -553,9 +611,9 @@
 			this.TxtCodigoCliente.Name = "TxtCodigoCliente";
 			this.TxtCodigoCliente.Size = new System.Drawing.Size(100, 20);
 			this.TxtCodigoCliente.TabIndex = 1;
-			this.TxtCodigoCliente.TextChanged += new System.EventHandler(this.TxtCodigoCliente_TextChanged);
 			this.TxtCodigoCliente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCodigoCliente_KeyDown);
 			this.TxtCodigoCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCodigoCliente_KeyPress);
+			this.TxtCodigoCliente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
 			this.TxtCodigoCliente.Validated += new System.EventHandler(this.TxtCodigoCliente_Validated);
 			// 
 			// toolStrip1
@@ -564,6 +622,7 @@
             this.TsbNuevo,
             this.TsbGuardar,
             this.TsbCancelar,
+            this.TsbPrecargar,
             this.toolStripSeparator1,
             this.TsbBuscar,
             this.toolStripSeparator2,
@@ -609,6 +668,17 @@
 			this.TsbCancelar.Text = "Cancelar F7";
 			this.TsbCancelar.Click += new System.EventHandler(this.TsbCancelar_Click);
 			// 
+			// TsbPrecargar
+			// 
+			this.TsbPrecargar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.TsbPrecargar.Enabled = false;
+			this.TsbPrecargar.Image = ((System.Drawing.Image)(resources.GetObject("TsbPrecargar.Image")));
+			this.TsbPrecargar.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.TsbPrecargar.Name = "TsbPrecargar";
+			this.TsbPrecargar.Size = new System.Drawing.Size(23, 22);
+			this.TsbPrecargar.Text = "Precargar F8";
+			this.TsbPrecargar.Click += new System.EventHandler(this.TsbPrecargar_Click);
+			// 
 			// toolStripSeparator1
 			// 
 			this.toolStripSeparator1.Name = "toolStripSeparator1";
@@ -621,7 +691,7 @@
 			this.TsbBuscar.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.TsbBuscar.Name = "TsbBuscar";
 			this.TsbBuscar.Size = new System.Drawing.Size(23, 22);
-			this.TsbBuscar.Text = "Buscar F8";
+			this.TsbBuscar.Text = "Buscar F9";
 			this.TsbBuscar.Click += new System.EventHandler(this.TsbBuscar_Click);
 			// 
 			// toolStripSeparator2
@@ -666,8 +736,6 @@
 			// 
 			// gbInformacion
 			// 
-			this.gbInformacion.Controls.Add(this.label29);
-			this.gbInformacion.Controls.Add(this.TxtComentario);
 			this.gbInformacion.Controls.Add(this.label26);
 			this.gbInformacion.Controls.Add(this.CboProducto);
 			this.gbInformacion.Controls.Add(this.label19);
@@ -679,26 +747,9 @@
 			this.gbInformacion.Enabled = false;
 			this.gbInformacion.Location = new System.Drawing.Point(18, 281);
 			this.gbInformacion.Name = "gbInformacion";
-			this.gbInformacion.Size = new System.Drawing.Size(284, 222);
-			this.gbInformacion.TabIndex = 11;
+			this.gbInformacion.Size = new System.Drawing.Size(284, 120);
+			this.gbInformacion.TabIndex = 12;
 			this.gbInformacion.TabStop = false;
-			// 
-			// label29
-			// 
-			this.label29.AutoSize = true;
-			this.label29.Location = new System.Drawing.Point(7, 113);
-			this.label29.Name = "label29";
-			this.label29.Size = new System.Drawing.Size(63, 13);
-			this.label29.TabIndex = 17;
-			this.label29.Text = "Comentario:";
-			// 
-			// TxtComentario
-			// 
-			this.TxtComentario.Location = new System.Drawing.Point(73, 110);
-			this.TxtComentario.Multiline = true;
-			this.TxtComentario.Name = "TxtComentario";
-			this.TxtComentario.Size = new System.Drawing.Size(201, 99);
-			this.TxtComentario.TabIndex = 16;
 			// 
 			// label26
 			// 
@@ -715,7 +766,8 @@
 			this.CboProducto.Location = new System.Drawing.Point(73, 62);
 			this.CboProducto.Name = "CboProducto";
 			this.CboProducto.Size = new System.Drawing.Size(201, 21);
-			this.CboProducto.TabIndex = 14;
+			this.CboProducto.TabIndex = 15;
+			this.CboProducto.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
 			// 
 			// label19
 			// 
@@ -750,7 +802,8 @@
 			this.CboEmpaque.Location = new System.Drawing.Point(73, 85);
 			this.CboEmpaque.Name = "CboEmpaque";
 			this.CboEmpaque.Size = new System.Drawing.Size(201, 21);
-			this.CboEmpaque.TabIndex = 15;
+			this.CboEmpaque.TabIndex = 16;
+			this.CboEmpaque.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
 			// 
 			// CboServicio
 			// 
@@ -758,7 +811,8 @@
 			this.CboServicio.Location = new System.Drawing.Point(73, 40);
 			this.CboServicio.Name = "CboServicio";
 			this.CboServicio.Size = new System.Drawing.Size(201, 21);
-			this.CboServicio.TabIndex = 13;
+			this.CboServicio.TabIndex = 14;
+			this.CboServicio.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
 			// 
 			// CboTipo
 			// 
@@ -766,7 +820,8 @@
 			this.CboTipo.Location = new System.Drawing.Point(73, 17);
 			this.CboTipo.Name = "CboTipo";
 			this.CboTipo.Size = new System.Drawing.Size(201, 21);
-			this.CboTipo.TabIndex = 12;
+			this.CboTipo.TabIndex = 13;
+			this.CboTipo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
 			// 
 			// menuStrip1
 			// 
@@ -785,6 +840,7 @@
             this.MnuNuevo,
             this.MnuGuardar,
             this.MnuCancelar,
+            this.MnuPrecargar,
             this.MnuBuscar,
             this.MnuImprimir});
 			this.accionesToolStripMenuItem.Name = "accionesToolStripMenuItem";
@@ -795,31 +851,33 @@
 			// 
 			this.MnuNuevo.Name = "MnuNuevo";
 			this.MnuNuevo.ShortcutKeys = System.Windows.Forms.Keys.F5;
-			this.MnuNuevo.Size = new System.Drawing.Size(161, 22);
+			this.MnuNuevo.Size = new System.Drawing.Size(180, 22);
 			this.MnuNuevo.Text = "Nuevo";
 			this.MnuNuevo.Click += new System.EventHandler(this.MnuNuevo_Click);
 			// 
 			// MnuGuardar
 			// 
+			this.MnuGuardar.Enabled = false;
 			this.MnuGuardar.Name = "MnuGuardar";
 			this.MnuGuardar.ShortcutKeys = System.Windows.Forms.Keys.F6;
-			this.MnuGuardar.Size = new System.Drawing.Size(161, 22);
+			this.MnuGuardar.Size = new System.Drawing.Size(180, 22);
 			this.MnuGuardar.Text = "Guardar";
 			this.MnuGuardar.Click += new System.EventHandler(this.MnuGuardar_Click);
 			// 
 			// MnuCancelar
 			// 
+			this.MnuCancelar.Enabled = false;
 			this.MnuCancelar.Name = "MnuCancelar";
 			this.MnuCancelar.ShortcutKeys = System.Windows.Forms.Keys.F7;
-			this.MnuCancelar.Size = new System.Drawing.Size(161, 22);
+			this.MnuCancelar.Size = new System.Drawing.Size(180, 22);
 			this.MnuCancelar.Text = "Cancelar";
 			this.MnuCancelar.Click += new System.EventHandler(this.MnuCancelar_Click);
 			// 
 			// MnuBuscar
 			// 
 			this.MnuBuscar.Name = "MnuBuscar";
-			this.MnuBuscar.ShortcutKeys = System.Windows.Forms.Keys.F8;
-			this.MnuBuscar.Size = new System.Drawing.Size(161, 22);
+			this.MnuBuscar.ShortcutKeys = System.Windows.Forms.Keys.F9;
+			this.MnuBuscar.Size = new System.Drawing.Size(180, 22);
 			this.MnuBuscar.Text = "Buscar";
 			this.MnuBuscar.Click += new System.EventHandler(this.MnuBuscar_Click);
 			// 
@@ -827,7 +885,7 @@
 			// 
 			this.MnuImprimir.Name = "MnuImprimir";
 			this.MnuImprimir.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-			this.MnuImprimir.Size = new System.Drawing.Size(161, 22);
+			this.MnuImprimir.Size = new System.Drawing.Size(180, 22);
 			this.MnuImprimir.Text = "Imprimir";
 			this.MnuImprimir.Click += new System.EventHandler(this.MnuImprimir_Click);
 			// 
@@ -857,6 +915,22 @@
 			this.gbDatos.Size = new System.Drawing.Size(239, 235);
 			this.gbDatos.TabIndex = 17;
 			this.gbDatos.TabStop = false;
+			// 
+			// label31
+			// 
+			this.label31.AutoSize = true;
+			this.label31.Location = new System.Drawing.Point(18, 149);
+			this.label31.Name = "label31";
+			this.label31.Size = new System.Drawing.Size(46, 13);
+			this.label31.TabIndex = 25;
+			this.label31.Text = "Usuario:";
+			// 
+			// TxtUsuario
+			// 
+			this.TxtUsuario.Location = new System.Drawing.Point(65, 146);
+			this.TxtUsuario.Name = "TxtUsuario";
+			this.TxtUsuario.Size = new System.Drawing.Size(164, 20);
+			this.TxtUsuario.TabIndex = 24;
 			// 
 			// ChkReexpedicion
 			// 
@@ -1099,38 +1173,42 @@
 			this.ChkEstadoImpreso.Text = "Impreso";
 			this.ChkEstadoImpreso.UseVisualStyleBackColor = true;
 			// 
-			// label30
+			// MnuPrecargar
 			// 
-			this.label30.AutoSize = true;
-			this.label30.Location = new System.Drawing.Point(40, 196);
-			this.label30.Name = "label30";
-			this.label30.Size = new System.Drawing.Size(41, 13);
-			this.label30.TabIndex = 27;
-			this.label30.Text = "Abono:";
+			this.MnuPrecargar.Enabled = false;
+			this.MnuPrecargar.Name = "MnuPrecargar";
+			this.MnuPrecargar.ShortcutKeys = System.Windows.Forms.Keys.F8;
+			this.MnuPrecargar.Size = new System.Drawing.Size(180, 22);
+			this.MnuPrecargar.Text = "Precargar";
+			this.MnuPrecargar.Click += new System.EventHandler(this.MnuPrecargar_Click);
 			// 
-			// TxtAbono
+			// gbComentario
 			// 
-			this.TxtAbono.Location = new System.Drawing.Point(86, 194);
-			this.TxtAbono.Name = "TxtAbono";
-			this.TxtAbono.Size = new System.Drawing.Size(111, 20);
-			this.TxtAbono.TabIndex = 26;
-			this.TxtAbono.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.gbComentario.Controls.Add(this.label29);
+			this.gbComentario.Controls.Add(this.TxtComentario);
+			this.gbComentario.Enabled = false;
+			this.gbComentario.Location = new System.Drawing.Point(18, 404);
+			this.gbComentario.Name = "gbComentario";
+			this.gbComentario.Size = new System.Drawing.Size(284, 99);
+			this.gbComentario.TabIndex = 27;
+			this.gbComentario.TabStop = false;
 			// 
-			// TxtUsuario
+			// label29
 			// 
-			this.TxtUsuario.Location = new System.Drawing.Point(65, 146);
-			this.TxtUsuario.Name = "TxtUsuario";
-			this.TxtUsuario.Size = new System.Drawing.Size(164, 20);
-			this.TxtUsuario.TabIndex = 24;
+			this.label29.AutoSize = true;
+			this.label29.Location = new System.Drawing.Point(7, 22);
+			this.label29.Name = "label29";
+			this.label29.Size = new System.Drawing.Size(63, 13);
+			this.label29.TabIndex = 28;
+			this.label29.Text = "Comentario:";
 			// 
-			// label31
+			// TxtComentario
 			// 
-			this.label31.AutoSize = true;
-			this.label31.Location = new System.Drawing.Point(18, 149);
-			this.label31.Name = "label31";
-			this.label31.Size = new System.Drawing.Size(46, 13);
-			this.label31.TabIndex = 25;
-			this.label31.Text = "Usuario:";
+			this.TxtComentario.Location = new System.Drawing.Point(73, 19);
+			this.TxtComentario.Multiline = true;
+			this.TxtComentario.Name = "TxtComentario";
+			this.TxtComentario.Size = new System.Drawing.Size(201, 72);
+			this.TxtComentario.TabIndex = 28;
 			// 
 			// FrmGuia
 			// 
@@ -1138,6 +1216,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1123, 555);
 			this.ControlBox = false;
+			this.Controls.Add(this.gbComentario);
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.gbDatos);
 			this.Controls.Add(this.gbInformacion);
@@ -1166,6 +1245,8 @@
 			this.gbDatos.PerformLayout();
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
+			this.gbComentario.ResumeLayout(false);
+			this.gbComentario.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -1255,8 +1336,6 @@
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
 		private System.Windows.Forms.ToolStripButton TsbImprimir;
 		private System.Windows.Forms.ToolStripMenuItem MnuImprimir;
-		private System.Windows.Forms.Label label29;
-		private System.Windows.Forms.TextBox TxtComentario;
 		private System.Windows.Forms.CheckBox ChkReexpedicion;
 		private System.Windows.Forms.CheckBox ChkFactura;
 		private System.Windows.Forms.GroupBox groupBox1;
@@ -1276,6 +1355,13 @@
 		private System.Windows.Forms.TextBox TxtAbono;
 		private System.Windows.Forms.Label label31;
 		private System.Windows.Forms.TextBox TxtUsuario;
+		private System.Windows.Forms.Label label32;
+		private System.Windows.Forms.TextBox TxtRelacion;
+		private System.Windows.Forms.ToolStripButton TsbPrecargar;
+		private System.Windows.Forms.ToolStripMenuItem MnuPrecargar;
+		private System.Windows.Forms.GroupBox gbComentario;
+		private System.Windows.Forms.Label label29;
+		private System.Windows.Forms.TextBox TxtComentario;
 	}
 }
 

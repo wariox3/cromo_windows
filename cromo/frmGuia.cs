@@ -156,6 +156,7 @@ namespace cromo
 					pGuia.codigoCiudadOrigenFk = TxtCodigoCiudadOrigen.Text;
 					pGuia.codigoCiudadDestinoFk = TxtCodigoCiudadDestino.Text;
 					pGuia.documentoCliente = TxtDocumentoCliente.Text;
+					pGuia.relacionCliente = TxtRelacion.Text;
 					pGuia.remitente = TxtRemitente.Text;
 					pGuia.codigoServicioFk = CboServicio.SelectedValue.ToString();
 					pGuia.codigoGuiaTipoFk = CboTipo.SelectedValue.ToString();
@@ -215,6 +216,7 @@ namespace cromo
 			txtNombreCondicion.Text = "";
 			TxtRemitente.Text = "";
 			TxtDocumentoCliente.Text = "";
+			TxtRelacion.Text = "";
 			TxtCodigoCiudadOrigen.Text = "";
 			txtNombreCiudadOrigen.Text = "";
 			TxtNombreDestinatario.Text = "";
@@ -239,14 +241,24 @@ namespace cromo
         {
 			TsbGuardar.Enabled = true;
 			TsbCancelar.Enabled = true;
+			TsbPrecargar.Enabled = true;
 			TsbNuevo.Enabled = false;
 			TsbBuscar.Enabled = false;
 			TsbImprimir.Enabled = false;
-            gbCliente.Enabled = true;
+
+			MnuGuardar.Enabled = true;
+			MnuCancelar.Enabled = true;
+			MnuPrecargar.Enabled = true;
+			MnuNuevo.Enabled = false;
+			MnuBuscar.Enabled = false;
+			MnuImprimir.Enabled = false;
+
+			gbCliente.Enabled = true;
             gbDestinatario.Enabled = true;
             gbTotales.Enabled = true;
 			gbInformacion.Enabled = true;
-        }
+			gbComentario.Enabled = true;
+		}
 
         public void Bloquear()
         {
@@ -254,12 +266,22 @@ namespace cromo
 			TsbBuscar.Enabled = true;
 			TsbGuardar.Enabled = false;
 			TsbCancelar.Enabled = false;
+			TsbPrecargar.Enabled = false;
 			TsbImprimir.Enabled = true;
+
+			MnuNuevo.Enabled = true;
+			MnuBuscar.Enabled = true;
+			MnuGuardar.Enabled = false;
+			MnuCancelar.Enabled = false;
+			MnuPrecargar.Enabled = false;
+			MnuImprimir.Enabled = true;
+
 			gbCliente.Enabled = false;
             gbDestinatario.Enabled = false;
             gbTotales.Enabled = false;
 			gbInformacion.Enabled = false;
-        }
+			gbComentario.Enabled = false;
+		}
 
 		private void TxtCodigoCliente_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -428,7 +450,6 @@ namespace cromo
 
 		private void TsbBuscar_Click(object sender, EventArgs e)
 		{
-
 			FuncionesGuia buscar = new FuncionesGuia();
 			buscar.DevolverGuia();
 			TraerGuia(FuncionesGuia.CodigoGuia);
@@ -453,7 +474,7 @@ namespace cromo
 						"codigo_guia_tipo_fk, codigo_servicio_fk, codigo_empaque_fk, fecha_ingreso, fecha_despacho, fecha_entrega, " +
 						"codigo_operacion_ingreso_fk, codigo_operacion_cargo_fk, codigo_producto_fk, tte_guia.codigo_condicion_fk, tte_condicion.nombre as nombreCondicion, " +
 						"tte_guia.reexpedicion, factura, vr_abono, estado_impreso, estado_embarcado, estado_despachado, estado_entregado, estado_soporte, " +
-						"estado_cumplido, estado_facturado, estado_factura_generada, estado_anulado, usuario " +
+						"estado_cumplido, estado_facturado, estado_factura_generada, estado_anulado, usuario, relacion_cliente " +
 						"FROM tte_guia " +
 						"LEFT JOIN tte_cliente ON tte_guia.codigo_cliente_fk = tte_cliente.codigo_cliente_pk " +
 						"LEFT JOIN tte_ciudad as CiudadOrigen ON tte_guia.codigo_ciudad_origen_fk = CiudadOrigen.codigo_ciudad_pk " +
@@ -474,6 +495,7 @@ namespace cromo
 					txtNombreCondicion.Text = ds.Tables[0].Rows[0]["nombreCondicion"].ToString();
 					TxtRemitente.Text = ds.Tables[0].Rows[0]["remitente"].ToString();
 					TxtDocumentoCliente.Text = ds.Tables[0].Rows[0]["documento_cliente"].ToString();
+					TxtRelacion.Text = ds.Tables[0].Rows[0]["relacion_cliente"].ToString();
 					TxtCodigoCiudadOrigen.Text = ds.Tables[0].Rows[0]["codigo_ciudad_origen_fk"].ToString();
 					txtNombreCiudadOrigen.Text = ds.Tables[0].Rows[0]["ciudadOrigen"].ToString();
 					TxtNombreDestinatario.Text = ds.Tables[0].Rows[0]["nombre_destinatario"].ToString();
@@ -655,9 +677,65 @@ namespace cromo
 			imp.Formato(2, repositorio.sqlFormato(TxtCodigo.Text));
 		}
 
-		private void TxtCodigoCliente_TextChanged(object sender, EventArgs e)
-		{
+		private void TabularEnter(object sender, KeyEventArgs e)
+		{			
+			if (e.KeyCode == Keys.Enter)
+			{
+				this.SelectNextControl((Control)sender, true, true, true, true);
+			}			
+		}
 
+		private void TsbPrecargar_Click(object sender, EventArgs e)
+		{
+			Precargar();
+		}
+
+		private void MnuPrecargar_Click(object sender, EventArgs e)
+		{
+			Precargar();
+		}
+
+		private void Precargar()
+		{
+			FrmDevolverDocumento frm = new FrmDevolverDocumento();
+			frm.ShowDialog();
+			if (frm.DialogResult == DialogResult.OK)
+			{
+				TraerPrecarga(General.DocumentoCliente);
+
+			}
+
+		}
+		public void TraerPrecarga(string documentoCliente)
+		{
+			try
+			{
+				if (documentoCliente != "")
+				{
+					string cmd = string.Format("SELECT codigo_guia_carga_pk, documento_cliente, remitente, numero, relacion_cliente, nombre_destinatario," +
+						" direccion_destinatario, telefono_destinatario, comentario, vr_declarado " +
+						"FROM tte_guia_carga " +
+						"WHERE documento_cliente = " + documentoCliente);
+					DataSet ds = Utilidades.Ejecutar(cmd);
+					DataTable dt = ds.Tables[0];
+					if (dt.Rows.Count > 0)
+					{
+						TxtRemitente.Text = dt.Rows[0]["remitente"].ToString();
+						TxtDocumentoCliente.Text = dt.Rows[0]["documento_cliente"].ToString();
+						TxtNumero.Text = dt.Rows[0]["numero"].ToString();
+						TxtRelacion.Text = dt.Rows[0]["relacion_cliente"].ToString();
+						TxtNombreDestinatario.Text = dt.Rows[0]["nombre_destinatario"].ToString();
+						TxtDireccionDestinatario.Text = dt.Rows[0]["direccion_destinatario"].ToString();
+						TxtTelefonoDestinatario.Text = dt.Rows[0]["telefono_destinatario"].ToString();
+						TxtComentario.Text = dt.Rows[0]["comentario"].ToString();
+						TxtDeclarado.Text = dt.Rows[0]["vr_declarado"].ToString();
+					} 					
+				}
+			}
+			catch (Exception error)
+			{
+				MessageBox.Show("No se pudo cargar la informacion inicial (" + error.Message + ")");
+			}
 		}
 	}
 }

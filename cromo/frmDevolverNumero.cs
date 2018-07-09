@@ -26,7 +26,7 @@ namespace cromo
 				Close();
 			} else
 			{
-				MessageBox.Show("Debe serleccionar el numero para la guia");
+				MessageBox.Show("Debe seleccionar el numero para la guia");
 			}
 		}
 

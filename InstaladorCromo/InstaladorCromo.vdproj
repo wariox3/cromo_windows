@@ -112,19 +112,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_656151CA910A389AC1A44AF8D207AF2C"
+        "OwnerKey" = "8:_28A0B70E879F2B47F7DDD19C6C407372"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_1B4357B7A0A44C9AA86FBF28446B6D05"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_28A0B70E879F2B47F7DDD19C6C407372"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -161,6 +155,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_60CCBFE154B156F400233D9E23FA0864"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_656151CA910A389AC1A44AF8D207AF2C"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -796,6 +796,34 @@
         }
         "Shortcut"
         {
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_065315558F654E4E95904D960F407B1B"
+            {
+            "Name" = "8:cromo"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_1B4357B7A0A44C9AA86FBF28446B6D05"
+            "Folder" = "8:_BD66E67FC4444D2BB52F6844F24D1AF5"
+            "WorkingFolder" = "8:_31A1918671924523B81D3032570FFFCA"
+            "Icon" = "8:_0F0E3EA32C19466A94F8DC740FC65E22"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_56BE07BA95A446E8B779FE505A3A15D7"
+            {
+            "Name" = "8:cromo"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_1B4357B7A0A44C9AA86FBF28446B6D05"
+            "Folder" = "8:_0DD0A1671D69466FA9E5EA16B462C92D"
+            "WorkingFolder" = "8:_31A1918671924523B81D3032570FFFCA"
+            "Icon" = "8:_0F0E3EA32C19466A94F8DC740FC65E22"
+            "Feature" = "8:"
+            }
         }
         "UserInterface"
         {

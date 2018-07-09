@@ -60,6 +60,13 @@ namespace cromo
 			set { v_UsuarioActivo = value; }
 		}
 
+		private static string v_DocumentoCliente = "";
+		public static string DocumentoCliente
+		{
+			get { return v_DocumentoCliente; }
+			set { v_DocumentoCliente = value; }
+		}
+
 	}
 
 	class Impresion
