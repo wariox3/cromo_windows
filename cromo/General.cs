@@ -67,6 +67,13 @@ namespace cromo
 			set { v_DocumentoCliente = value; }
 		}
 
+		private static string v_CodigoCondicion = "";
+		public static string CodigoCondicion
+		{
+			get { return v_CodigoCondicion; }
+			set { v_CodigoCondicion = value; }
+		}
+
 	}
 
 	class Impresion

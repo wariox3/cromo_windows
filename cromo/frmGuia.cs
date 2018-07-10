@@ -234,6 +234,17 @@ namespace cromo
 			TxtRecaudo.Text = "0";
 			TxtNumero.Text = "";
 			TxtAbono.Text = "0";
+			ChkFactura.Checked = false;
+			ChkReexpedicion.Checked = false;
+			ChkEstadoImpreso.Checked = false;
+			ChkEstadoEmbarcado.Checked = false;
+			ChkEstadoEntregado.Checked = false;
+			ChkEstadoCumplido.Checked = false;
+			ChkEstadoFacturaGenerada.Checked = false;
+			ChkEstadoDespachado.Checked = false;
+			ChkEstadoSoporte.Checked = false;
+			ChkEstadoAnulado.Checked = false;
+			ChkEstadoFacturado.Checked = false;
 
 		}
 
@@ -407,7 +418,7 @@ namespace cromo
 		private void CargarProducto()
 		{
 			/* https://www.youtube.com/watch?v=O2CwKIV9bn0 */
-			string query = "SELECT codigo_producto_pk, nombre FROM tte_producto";
+			string query = "SELECT codigo_producto_pk, nombre FROM tte_producto ORDER BY nombre";
 			MySqlConnection bd = BdCromo.ObtenerConexion();
 			MySqlCommand cmd = new MySqlCommand(query, bd);
 			MySqlDataAdapter da = new MySqlDataAdapter(query, bd);
@@ -539,17 +550,20 @@ namespace cromo
 
 		private void TxtPesoFacturar_Validated(object sender, EventArgs e)
 		{
-			DataSet ds = Utilidades.Ejecutar("SELECT vr_peso, minimo " +
-				"FROM tte_precio_detalle where codigo_precio_fk = " + codigoPrecio + " AND codigo_ciudad_origen_fk = " + TxtCodigoCiudadOrigen.Text + " AND " +
-				"codigo_ciudad_destino_fk = " + TxtCodigoCiudadDestino.Text + " AND codigo_producto_fk = '" + CboProducto.SelectedValue.ToString() + "' AND " +
-				"vr_peso > 0");
-			DataTable dt = ds.Tables[0];
-			if (dt.Rows.Count > 0)
+			if(codigoPrecio != 0)
 			{
-				int pesoFacturar = Convert.ToInt32(TxtPesoFacturar.Text);
-				double vrPeso = Convert.ToDouble(dt.Rows[0]["vr_peso"]);				
-				double vrFlete = pesoFacturar * (vrPeso - (vrPeso * descuentoPeso / 100));
-				TxtFlete.Text = Math.Round(vrFlete).ToString();
+				DataSet ds = Utilidades.Ejecutar("SELECT vr_peso, minimo " +
+					"FROM tte_precio_detalle where codigo_precio_fk = " + codigoPrecio + " AND codigo_ciudad_origen_fk = " + TxtCodigoCiudadOrigen.Text + " AND " +
+					"codigo_ciudad_destino_fk = " + TxtCodigoCiudadDestino.Text + " AND codigo_producto_fk = '" + CboProducto.SelectedValue.ToString() + "' AND " +
+					"vr_peso > 0");
+				DataTable dt = ds.Tables[0];
+				if (dt.Rows.Count > 0)
+				{
+					int pesoFacturar = Convert.ToInt32(TxtPesoFacturar.Text);
+					double vrPeso = Convert.ToDouble(dt.Rows[0]["vr_peso"]);
+					double vrFlete = pesoFacturar * (vrPeso - (vrPeso * descuentoPeso / 100));
+					TxtFlete.Text = Math.Round(vrFlete).ToString();
+				}
 			}
 			if (TxtRemitente.Text == "")
 			{
@@ -561,21 +575,25 @@ namespace cromo
 
 		private void TxtUnidades_Validated(object sender, EventArgs e)
 		{
-			DataSet ds = Utilidades.Ejecutar("SELECT minimo " +
-				"FROM tte_precio_detalle where codigo_precio_fk = " + codigoPrecio + " AND codigo_ciudad_origen_fk = " + TxtCodigoCiudadOrigen.Text + " AND " +
-				"codigo_ciudad_destino_fk = " + TxtCodigoCiudadDestino.Text + " AND codigo_producto_fk = '" + CboProducto.SelectedValue.ToString() + "' AND " +
-				"vr_peso > 0");
-			DataTable dt = ds.Tables[0];
-			if (dt.Rows.Count > 0)
+			if(codigoPrecio != 0)
 			{
-				if (Convert.ToInt32(TxtPesoFacturar.Text) <= 0)
+				DataSet ds = Utilidades.Ejecutar("SELECT minimo " +
+					"FROM tte_precio_detalle where codigo_precio_fk = " + codigoPrecio + " AND codigo_ciudad_origen_fk = " + TxtCodigoCiudadOrigen.Text + " AND " +
+					"codigo_ciudad_destino_fk = " + TxtCodigoCiudadDestino.Text + " AND codigo_producto_fk = '" + CboProducto.SelectedValue.ToString() + "' AND " +
+					"vr_peso > 0");
+				DataTable dt = ds.Tables[0];
+				if (dt.Rows.Count > 0)
 				{
-					if (Convert.ToInt32(dt.Rows[0]["minimo"]) > 0)
+					if (Convert.ToInt32(TxtPesoFacturar.Text) <= 0)
 					{
-						TxtPesoFacturar.Text = (Convert.ToInt32(dt.Rows[0]["minimo"]) * Convert.ToInt32(TxtUnidades.Text)).ToString();
+						if (Convert.ToInt32(dt.Rows[0]["minimo"]) > 0)
+						{
+							TxtPesoFacturar.Text = (Convert.ToInt32(dt.Rows[0]["minimo"]) * Convert.ToInt32(TxtUnidades.Text)).ToString();
+						}
 					}
 				}
 			}
+
 			if(pesoMinimoCondicion > 0)
 			{
 				TxtPesoFacturar.Text = (pesoMinimoCondicion * Convert.ToInt32(TxtUnidades.Text)).ToString();
@@ -735,6 +753,23 @@ namespace cromo
 			catch (Exception error)
 			{
 				MessageBox.Show("No se pudo cargar la informacion inicial (" + error.Message + ")");
+			}
+		}
+
+		private void TxtCodigoCondicion_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.KeyCode.ToString() == "F2")
+			{
+				if(TxtCodigoCliente.Text != "")
+				{
+					General.CodigoCliente = TxtCodigoCliente.Text;
+					FrmBuscarCondicion frm = new FrmBuscarCondicion();
+					frm.ShowDialog();
+					if (frm.DialogResult == DialogResult.OK)
+					{						
+						TxtCodigoCondicion.Text = General.CodigoCondicion;
+					}
+				}
 			}
 		}
 	}

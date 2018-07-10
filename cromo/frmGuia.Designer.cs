@@ -102,6 +102,7 @@
 			this.MnuNuevo = new System.Windows.Forms.ToolStripMenuItem();
 			this.MnuGuardar = new System.Windows.Forms.ToolStripMenuItem();
 			this.MnuCancelar = new System.Windows.Forms.ToolStripMenuItem();
+			this.MnuPrecargar = new System.Windows.Forms.ToolStripMenuItem();
 			this.MnuBuscar = new System.Windows.Forms.ToolStripMenuItem();
 			this.MnuImprimir = new System.Windows.Forms.ToolStripMenuItem();
 			this.gbDatos = new System.Windows.Forms.GroupBox();
@@ -133,7 +134,6 @@
 			this.ChkEstadoDespachado = new System.Windows.Forms.CheckBox();
 			this.ChkEstadoEmbarcado = new System.Windows.Forms.CheckBox();
 			this.ChkEstadoImpreso = new System.Windows.Forms.CheckBox();
-			this.MnuPrecargar = new System.Windows.Forms.ToolStripMenuItem();
 			this.gbComentario = new System.Windows.Forms.GroupBox();
 			this.label29 = new System.Windows.Forms.Label();
 			this.TxtComentario = new System.Windows.Forms.TextBox();
@@ -522,6 +522,7 @@
 			this.TxtCodigoCondicion.Name = "TxtCodigoCondicion";
 			this.TxtCodigoCondicion.Size = new System.Drawing.Size(100, 20);
 			this.TxtCodigoCondicion.TabIndex = 2;
+			this.TxtCodigoCondicion.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCodigoCondicion_KeyDown);
 			this.TxtCodigoCondicion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
 			this.TxtCodigoCondicion.Validated += new System.EventHandler(this.TxtCodigoCondicion_Validated);
 			// 
@@ -851,7 +852,7 @@
 			// 
 			this.MnuNuevo.Name = "MnuNuevo";
 			this.MnuNuevo.ShortcutKeys = System.Windows.Forms.Keys.F5;
-			this.MnuNuevo.Size = new System.Drawing.Size(180, 22);
+			this.MnuNuevo.Size = new System.Drawing.Size(161, 22);
 			this.MnuNuevo.Text = "Nuevo";
 			this.MnuNuevo.Click += new System.EventHandler(this.MnuNuevo_Click);
 			// 
@@ -860,7 +861,7 @@
 			this.MnuGuardar.Enabled = false;
 			this.MnuGuardar.Name = "MnuGuardar";
 			this.MnuGuardar.ShortcutKeys = System.Windows.Forms.Keys.F6;
-			this.MnuGuardar.Size = new System.Drawing.Size(180, 22);
+			this.MnuGuardar.Size = new System.Drawing.Size(161, 22);
 			this.MnuGuardar.Text = "Guardar";
 			this.MnuGuardar.Click += new System.EventHandler(this.MnuGuardar_Click);
 			// 
@@ -869,15 +870,24 @@
 			this.MnuCancelar.Enabled = false;
 			this.MnuCancelar.Name = "MnuCancelar";
 			this.MnuCancelar.ShortcutKeys = System.Windows.Forms.Keys.F7;
-			this.MnuCancelar.Size = new System.Drawing.Size(180, 22);
+			this.MnuCancelar.Size = new System.Drawing.Size(161, 22);
 			this.MnuCancelar.Text = "Cancelar";
 			this.MnuCancelar.Click += new System.EventHandler(this.MnuCancelar_Click);
+			// 
+			// MnuPrecargar
+			// 
+			this.MnuPrecargar.Enabled = false;
+			this.MnuPrecargar.Name = "MnuPrecargar";
+			this.MnuPrecargar.ShortcutKeys = System.Windows.Forms.Keys.F8;
+			this.MnuPrecargar.Size = new System.Drawing.Size(161, 22);
+			this.MnuPrecargar.Text = "Precargar";
+			this.MnuPrecargar.Click += new System.EventHandler(this.MnuPrecargar_Click);
 			// 
 			// MnuBuscar
 			// 
 			this.MnuBuscar.Name = "MnuBuscar";
 			this.MnuBuscar.ShortcutKeys = System.Windows.Forms.Keys.F9;
-			this.MnuBuscar.Size = new System.Drawing.Size(180, 22);
+			this.MnuBuscar.Size = new System.Drawing.Size(161, 22);
 			this.MnuBuscar.Text = "Buscar";
 			this.MnuBuscar.Click += new System.EventHandler(this.MnuBuscar_Click);
 			// 
@@ -885,7 +895,7 @@
 			// 
 			this.MnuImprimir.Name = "MnuImprimir";
 			this.MnuImprimir.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-			this.MnuImprimir.Size = new System.Drawing.Size(180, 22);
+			this.MnuImprimir.Size = new System.Drawing.Size(161, 22);
 			this.MnuImprimir.Text = "Imprimir";
 			this.MnuImprimir.Click += new System.EventHandler(this.MnuImprimir_Click);
 			// 
@@ -1173,15 +1183,6 @@
 			this.ChkEstadoImpreso.Text = "Impreso";
 			this.ChkEstadoImpreso.UseVisualStyleBackColor = true;
 			// 
-			// MnuPrecargar
-			// 
-			this.MnuPrecargar.Enabled = false;
-			this.MnuPrecargar.Name = "MnuPrecargar";
-			this.MnuPrecargar.ShortcutKeys = System.Windows.Forms.Keys.F8;
-			this.MnuPrecargar.Size = new System.Drawing.Size(180, 22);
-			this.MnuPrecargar.Text = "Precargar";
-			this.MnuPrecargar.Click += new System.EventHandler(this.MnuPrecargar_Click);
-			// 
 			// gbComentario
 			// 
 			this.gbComentario.Controls.Add(this.label29);
@@ -1214,7 +1215,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1123, 555);
+			this.ClientSize = new System.Drawing.Size(1123, 551);
 			this.ControlBox = false;
 			this.Controls.Add(this.gbComentario);
 			this.Controls.Add(this.groupBox1);
