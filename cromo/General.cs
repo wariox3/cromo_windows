@@ -25,6 +25,13 @@ namespace cromo
 			set { v_CodigoCiudad = value; }
 		}
 
+		private static string v_CodigoCiudadDestino = "";
+		public static string CodigoCiudadDestino
+		{
+			get { return v_CodigoCiudadDestino; }
+			set { v_CodigoCiudadDestino = value; }
+		}
+
 		private static int v_CodigoGuia = 0;
 		public static int CodigoGuia
 		{
@@ -73,6 +80,50 @@ namespace cromo
 			get { return v_CodigoCondicion; }
 			set { v_CodigoCondicion = value; }
 		}
+
+		private static int v_CodigoPrecio = 0;
+		public static int CodigoPrecio
+		{
+			get { return v_CodigoPrecio; }
+			set { v_CodigoPrecio = value; }
+		}
+
+		private static double v_VrFlete = 0;
+		public static double VrFlete
+		{
+			get { return v_VrFlete; }
+			set { v_VrFlete = value; }
+		}
+
+		private static int v_Peso = 0;
+		public static int Peso
+		{
+			get { return v_Peso; }
+			set { v_Peso = value; }
+		}
+
+		private static int v_Volumen = 0;
+		public static int Volumen
+		{
+			get { return v_Volumen; }
+			set { v_Volumen = value; }
+		}
+
+		private static int v_PesoFacturar = 0;
+		public static int PesoFacturar
+		{
+			get { return v_PesoFacturar; }
+			set { v_PesoFacturar = value; }
+		}
+
+		private static int v_Unidades = 0;
+		public static int Unidades
+		{
+			get { return v_Unidades; }
+			set { v_Unidades = value; }
+		}
+
+		public static GuiaDetalle[] guiaDetallePublica = new GuiaDetalle[0];
 
 	}
 
@@ -158,6 +209,24 @@ namespace cromo
 			frm.ShowDialog();
 
 		}
+
+		public void DevolverCodigoGuia()
+		{
+			FrmDevolverGuiaCodigo frm = new FrmDevolverGuiaCodigo();
+			frm.ShowDialog();
+		}
+
+	}
+
+	class GuiaDetalle
+	{
+		public int codigoProducto;
+		public string producto;
+		public int unidades;
+		public int pesoReal;
+		public int pesoVolumen;
+		public int pesoFacturar;
+		public double vrFlete;
 
 	}
 

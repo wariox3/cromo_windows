@@ -30,13 +30,7 @@ namespace cromo
 			}
 		}
 
-		private void FrmDevolverNumero_Load(object sender, EventArgs e)
-		{
-			if(General.NumeroGuia != 0)
-			{
-				TxtNumero.Text = (General.NumeroGuia + 1).ToString();
-			}			
-		}
+
 
 		private void BtnCancelar_Click(object sender, EventArgs e)
 		{
@@ -49,6 +43,11 @@ namespace cromo
 		{
 			TxtNumero.SelectionStart = 0;
 			TxtNumero.SelectionLength = TxtNumero.Text.Length;
+		}
+
+		private void TxtNumero_TextChanged(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

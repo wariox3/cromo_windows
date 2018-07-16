@@ -50,8 +50,8 @@
 			this.txtClave = new System.Windows.Forms.TextBox();
 			this.txtBaseDatos = new System.Windows.Forms.TextBox();
 			this.tbpRutas = new System.Windows.Forms.TabPage();
-			this.label9 = new System.Windows.Forms.Label();
 			this.txtRutaReportes = new System.Windows.Forms.TextBox();
+			this.label9 = new System.Windows.Forms.Label();
 			this.tabConfiguracion.SuspendLayout();
 			this.tbpOperacion.SuspendLayout();
 			this.tbpBaseDatos.SuspendLayout();
@@ -264,6 +264,13 @@
 			this.tbpRutas.Text = "Rutas";
 			this.tbpRutas.UseVisualStyleBackColor = true;
 			// 
+			// txtRutaReportes
+			// 
+			this.txtRutaReportes.Location = new System.Drawing.Point(74, 18);
+			this.txtRutaReportes.Name = "txtRutaReportes";
+			this.txtRutaReportes.Size = new System.Drawing.Size(249, 20);
+			this.txtRutaReportes.TabIndex = 1;
+			// 
 			// label9
 			// 
 			this.label9.AutoSize = true;
@@ -274,14 +281,7 @@
 			this.label9.Text = "Reportes:";
 			this.label9.Click += new System.EventHandler(this.label9_Click);
 			// 
-			// txtRutaReportes
-			// 
-			this.txtRutaReportes.Location = new System.Drawing.Point(74, 18);
-			this.txtRutaReportes.Name = "txtRutaReportes";
-			this.txtRutaReportes.Size = new System.Drawing.Size(249, 20);
-			this.txtRutaReportes.TabIndex = 1;
-			// 
-			// frmConfiguracion
+			// FrmConfiguracion
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -291,7 +291,7 @@
 			this.Controls.Add(this.btnGuardar);
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
-			this.Name = "frmConfiguracion";
+			this.Name = "FrmConfiguracion";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Configuracion";
 			this.Load += new System.EventHandler(this.frmConfiguracion_Load);

@@ -11,8 +11,10 @@ using MySql.Data.MySqlClient;
 
 namespace cromo
 {
+	
     public partial class FrmGuia : Form
     {
+		
 		string ultimoCliente = "";
 		string ultimoTipo = "";
 		string ultimoServicio = "";
@@ -25,7 +27,7 @@ namespace cromo
 		double manejoMinimoDespacho = 0;
 		double descuentoPeso = 0;
 		int codigoPrecio = 0;
-
+		int codigoPrecioGeneral = 0;
         public FrmGuia()
         {
             InitializeComponent();
@@ -39,7 +41,14 @@ namespace cromo
 			CargarEmpaque();
 			CargarProducto();
 			FuncionesGuia fg = new FuncionesGuia();
-			TraerGuia(fg.Ultima());		
+			TraerGuia(fg.Ultima());
+			string sql = "SELECT codigo_precio_general_fk FROM tte_configuracion WHERE codigo_configuracion_pk = 1";
+			DataSet ds = Utilidades.Ejecutar(sql);
+			DataTable dt = ds.Tables[0];
+			if (dt.Rows.Count > 0)
+			{
+				codigoPrecioGeneral = Convert.ToInt32(dt.Rows[0]["codigo_precio_general_fk"]);
+			}
 		}
 
 
@@ -86,117 +95,174 @@ namespace cromo
 			{
 				TxtCodigoCliente.Focus();
 				validacion = false;
-			}
-			if (TxtCodigoCiudadOrigen.Text == "")
+			} else
 			{
-				TxtCodigoCiudadOrigen.Focus();
-				validacion = false;
+				if (TxtCodigoCiudadOrigen.Text == "")
+				{
+					TxtCodigoCiudadOrigen.Focus();
+					validacion = false;
+				} else
+				{
+					if (TxtCodigoCiudadDestino.Text == "")
+					{
+						TxtCodigoCiudadDestino.Focus();
+						validacion = false;
+					} else
+					{
+						if (CboTipo.SelectedIndex < 0)
+						{
+							CboTipo.Focus();
+							validacion = false;
+						} else
+						{
+							if (CboServicio.SelectedIndex < 0)
+							{
+								CboServicio.Focus();
+								validacion = false;
+							} else
+							{
+								if (CboProducto.SelectedIndex < 0)
+								{
+									CboProducto.Focus();
+									validacion = false;
+								} else
+								{
+									if (CboEmpaque.SelectedIndex < 0)
+									{
+										CboEmpaque.Focus();
+										validacion = false;
+									}
+								}
+							}
+						}
+					}
+				}
 			}
-			if (TxtCodigoCiudadDestino.Text == "")
-			{
-				TxtCodigoCiudadDestino.Focus();
-				validacion = false;
-			}
-			if (CboTipo.SelectedIndex < 0)
-			{
-				CboTipo.Focus();
-				validacion = false;
-			}
-			if (CboServicio.SelectedIndex < 0)
-			{
-				CboServicio.Focus();
-				validacion = false;
-			}
-			if (CboProducto.SelectedIndex < 0)
-			{
-				CboProducto.Focus();
-				validacion = false;
-			}
-			if (CboEmpaque.SelectedIndex < 0)
-			{
-				CboEmpaque.Focus();
-				validacion = false;
-			}
-
 
 			if (validacion == true)
 			{
-				string sql = "SELECT factura, exige_numero, consecutivo FROM tte_guia_tipo WHERE codigo_guia_tipo_pk ='" + CboTipo.SelectedValue.ToString() + "'";
+				string sql = "SELECT factura, exige_numero, consecutivo, validar_flete, validar_rango FROM tte_guia_tipo WHERE codigo_guia_tipo_pk ='" + CboTipo.SelectedValue.ToString() + "'";
 				DataSet ds = Utilidades.Ejecutar(sql);
-				DataTable dt = ds.Tables[0];
-				if (dt.Rows.Count > 0)
+				DataTable dtGuiaTipo = ds.Tables[0];
+				if (dtGuiaTipo.Rows.Count > 0)
 				{
-					ChkFactura.Checked = Convert.ToBoolean(dt.Rows[0]["factura"]);
-					if (Convert.ToBoolean(dt.Rows[0]["exige_numero"]))
+					if(Convert.ToBoolean(dtGuiaTipo.Rows[0]["validar_flete"]) == true && Convert.ToDouble(TxtFlete.Text) <= 0)
 					{
-						FrmDevolverNumero frm = new FrmDevolverNumero();
-						frm.ShowDialog();
-						if(General.NumeroGuia != 0)
-						{
-							TxtNumero.Text = General.NumeroGuia.ToString();
-						} else
-						{
-							validacion = false;
-						}
+						MessageBox.Show("Este tipo de guia no puede tener flete en cero");
 					} else
 					{
-						TxtNumero.Text = dt.Rows[0]["consecutivo"].ToString();
-						MySqlCommand cmd = new MySqlCommand("UPDATE tte_guia_tipo SET consecutivo = consecutivo+1 WHERE codigo_guia_tipo_pk = '" + CboTipo.SelectedValue.ToString() + "'",
-							BdCromo.ObtenerConexion());
-						cmd.ExecuteNonQuery();
-					}
-				}
-				if(validacion == true)
-				{
-					//https://www.youtube.com/watch?v=IT_R46g7YTk&t=227s
-					guia pGuia = new guia();
-					pGuia.codigoOperacionIngresoFk = TxtOperacionIngreso.Text;
-					pGuia.codigoOperacionCargoFk = TxtOperacionCargo.Text;
-					pGuia.codigoClienteFk = Convert.ToInt32(TxtCodigoCliente.Text);
-					pGuia.codigoCiudadOrigenFk = TxtCodigoCiudadOrigen.Text;
-					pGuia.codigoCiudadDestinoFk = TxtCodigoCiudadDestino.Text;
-					pGuia.documentoCliente = TxtDocumentoCliente.Text;
-					pGuia.relacionCliente = TxtRelacion.Text;
-					pGuia.remitente = TxtRemitente.Text;
-					pGuia.codigoServicioFk = CboServicio.SelectedValue.ToString();
-					pGuia.codigoGuiaTipoFk = CboTipo.SelectedValue.ToString();
-					pGuia.codigoProductoFk = CboProducto.SelectedValue.ToString();
-					pGuia.codigoEmpaqueFk = CboEmpaque.SelectedValue.ToString();
-					pGuia.nombreDestinatario = TxtNombreDestinatario.Text;
-					pGuia.direccionDestinatario = TxtDireccionDestinatario.Text;
-					pGuia.telefonoDestinatario = TxtTelefonoDestinatario.Text;
-					pGuia.unidades = Convert.ToInt32(TxtUnidades.Text);
-					pGuia.pesoReal = Convert.ToInt32(TxtPeso.Text);
-					pGuia.pesoVolumen = Convert.ToInt32(TxtVolumen.Text);
-					pGuia.pesoFacturar = Convert.ToInt32(TxtPesoFacturar.Text);
-					pGuia.vrFlete = Convert.ToDouble(TxtFlete.Text);
-					pGuia.vrManejo = Convert.ToDouble(TxtManejo.Text);
-					pGuia.vrDeclara = Convert.ToDouble(TxtDeclarado.Text);
-					pGuia.vrRecaudo = Convert.ToDouble(TxtRecaudo.Text);
-					pGuia.codigoRutaFk = TxtCodigoRuta.Text;
-					pGuia.ordenRuta = Convert.ToInt32(TxtOrdenRuta.Text);
-					pGuia.reexpedicion = ChkReexpedicion.Checked;
-					pGuia.codigoCondicionFk = Convert.ToInt32(TxtCodigoCondicion.Text);
-					pGuia.factura = ChkFactura.Checked;
-					pGuia.comentario = TxtComentario.Text;
-					pGuia.numero = Convert.ToInt32(TxtNumero.Text);
-					pGuia.usuario = General.UsuarioActivo;
-					long resultado = GuiaRepositorio.Agregar(pGuia);
+						ChkFactura.Checked = Convert.ToBoolean(dtGuiaTipo.Rows[0]["factura"]);
+						if (Convert.ToBoolean(dtGuiaTipo.Rows[0]["exige_numero"]))
+						{
+							FrmDevolverNumero frm = new FrmDevolverNumero();
+							frm.ShowDialog();
+							if (General.NumeroGuia != 0)
+							{
+								sql = "SELECT numero FROM tte_guia WHERE codigo_guia_tipo_fk ='" + CboTipo.SelectedValue.ToString() + "' AND numero = " + General.NumeroGuia;
+								ds = Utilidades.Ejecutar(sql);
+								DataTable dtGuia = ds.Tables[0];
+								if (dtGuia.Rows.Count > 0)
+								{
+									MessageBox.Show("El numero de guia " + General.NumeroGuia + " ya existe para el tipo: " + CboTipo.SelectedValue.ToString());
+									validacion = false;
+								} else
+								{
+									//Validar si tiene rango asignado
+									if (Convert.ToBoolean(dtGuiaTipo.Rows[0]["validar_rango"]))
+									{
+										sql = "SELECT desde, hasta FROM tte_guia_cliente WHERE codigo_guia_tipo_fk ='" + CboTipo.SelectedValue.ToString() + "' AND codigo_cliente_fk=" + TxtCodigoCliente.Text + " AND estado_activo = 1";
+										ds = Utilidades.Ejecutar(sql);
+										DataTable dtGuiaCliente = ds.Tables[0];
+										if (dtGuiaCliente.Rows.Count > 0)
+										{
+											if(General.NumeroGuia < Convert.ToInt32(dtGuiaCliente.Rows[0]["desde"]) || General.NumeroGuia > Convert.ToInt32(dtGuiaCliente.Rows[0]["hasta"]))
+											{
+												MessageBox.Show("El numero digitado esta fuera del rango asignado para el cliente desde: " + dtGuiaCliente.Rows[0]["desde"] + " hasta:" + dtGuiaCliente.Rows[0]["hasta"]);
+												validacion = false;
+											}											
+										}
+										else
+										{
+											MessageBox.Show("El tipo de guia exige rango y el cliente no tiene uno asignado");
+											validacion = false;
+										}
+									}
+									TxtNumero.Text = General.NumeroGuia.ToString();
+								}								
+							}
+							else
+							{
+								validacion = false;
+							}
+						}
+						else
+						{
+							TxtNumero.Text = dtGuiaTipo.Rows[0]["consecutivo"].ToString();
+							MySqlCommand cmd = new MySqlCommand("UPDATE tte_guia_tipo SET consecutivo = consecutivo+1 WHERE codigo_guia_tipo_pk = '" + CboTipo.SelectedValue.ToString() + "'",
+								BdCromo.ObtenerConexion());
+							cmd.ExecuteNonQuery();
+						}
 
-					if (resultado > 0)
-					{
-						TxtCodigo.Text = resultado.ToString();
-						MessageBox.Show("Se guardo exitosamente");
-						ultimoCliente = TxtCodigoCliente.Text;
-						ultimoTipo = CboTipo.SelectedValue.ToString();
-						ultimoServicio = CboServicio.SelectedValue.ToString();
-						ultimoProducto = CboProducto.SelectedValue.ToString();
-						ultimoEmpaque = CboEmpaque.SelectedValue.ToString();
-						Bloquear();
-					}
-					else
-					{
-						MessageBox.Show("Error");
+
+						if(validacion == true)
+						{
+							//https://www.youtube.com/watch?v=IT_R46g7YTk&t=227s
+							guia pGuia = new guia();
+							pGuia.codigoOperacionIngresoFk = TxtOperacionIngreso.Text;
+							pGuia.codigoOperacionCargoFk = TxtOperacionCargo.Text;
+							pGuia.codigoClienteFk = Convert.ToInt32(TxtCodigoCliente.Text);
+							pGuia.codigoCiudadOrigenFk = TxtCodigoCiudadOrigen.Text;
+							pGuia.codigoCiudadDestinoFk = TxtCodigoCiudadDestino.Text;
+							pGuia.documentoCliente = TxtDocumentoCliente.Text;
+							pGuia.relacionCliente = TxtRelacion.Text;
+							pGuia.remitente = TxtRemitente.Text;
+							pGuia.codigoServicioFk = CboServicio.SelectedValue.ToString();
+							pGuia.codigoGuiaTipoFk = CboTipo.SelectedValue.ToString();
+							pGuia.codigoProductoFk = CboProducto.SelectedValue.ToString();
+							pGuia.codigoEmpaqueFk = CboEmpaque.SelectedValue.ToString();
+							pGuia.nombreDestinatario = TxtNombreDestinatario.Text;
+							pGuia.direccionDestinatario = TxtDireccionDestinatario.Text;
+							pGuia.telefonoDestinatario = TxtTelefonoDestinatario.Text;
+							pGuia.unidades = Convert.ToInt32(TxtUnidades.Text);
+							pGuia.pesoReal = Convert.ToInt32(TxtPeso.Text);
+							pGuia.pesoVolumen = Convert.ToInt32(TxtVolumen.Text);
+							pGuia.pesoFacturar = Convert.ToInt32(TxtPesoFacturar.Text);
+							pGuia.vrFlete = Convert.ToDouble(TxtFlete.Text);
+							pGuia.vrManejo = Convert.ToDouble(TxtManejo.Text);
+							pGuia.vrDeclara = Convert.ToDouble(TxtDeclarado.Text);
+							pGuia.vrRecaudo = Convert.ToDouble(TxtRecaudo.Text);
+							pGuia.codigoRutaFk = TxtCodigoRuta.Text;
+							pGuia.ordenRuta = Convert.ToInt32(TxtOrdenRuta.Text);
+							pGuia.reexpedicion = ChkReexpedicion.Checked;
+							pGuia.codigoCondicionFk = Convert.ToInt32(TxtCodigoCondicion.Text);
+							pGuia.factura = ChkFactura.Checked;
+							pGuia.comentario = TxtComentario.Text;
+							pGuia.numero = Convert.ToInt32(TxtNumero.Text);
+							pGuia.usuario = General.UsuarioActivo;
+							long resultado = GuiaRepositorio.Agregar(pGuia);
+
+							if (resultado > 0)
+							{
+								TxtCodigo.Text = resultado.ToString();
+								MessageBox.Show("Se guardo exitosamente");
+								GuardarDetalle(TxtCodigo.Text);
+
+								ultimoCliente = TxtCodigoCliente.Text;
+								ultimoTipo = CboTipo.SelectedValue.ToString();
+								ultimoServicio = CboServicio.SelectedValue.ToString();
+								ultimoProducto = CboProducto.SelectedValue.ToString();
+								ultimoEmpaque = CboEmpaque.SelectedValue.ToString();
+								ChkLiquidado.Checked = false;
+								RbPeso.Checked = false;
+								RbUnidad.Checked = false;
+								RbAdicional.Checked = false;
+								Bloquear();
+							}
+							else
+							{
+								MessageBox.Show("Se presento un error al guardar");
+							}
+						}
 					}
 				}
 			}
@@ -245,7 +311,23 @@ namespace cromo
 			ChkEstadoSoporte.Checked = false;
 			ChkEstadoAnulado.Checked = false;
 			ChkEstadoFacturado.Checked = false;
-
+			TxtPesoMinimo.Text = "0";
+			TxtDescuentoPeso.Text = "0";
+			TxtPorcentajeManejo.Text = "0";
+			TxtManejoMinimoUnidad.Text = "0";
+			TxtManejoMinimoDespacho.Text = "0";
+			ChkListaGeneral.Checked = false;
+			TxtVrPeso.Text = "0";
+			TxtVrTope.Text = "0";
+			TxtVrAdicional.Text = "0";
+			TxtVrUnidad.Text = "0";
+			TxtTope.Text = "0";
+			TxtPesoMinimoPrecio.Text = "0";
+			LblPrecioDetalle.Text = "";
+			ChkLiquidado.Checked = false;
+			RbPeso.Checked = false;
+			RbUnidad.Checked = false;
+			RbAdicional.Checked = false;
 		}
 
         public void Desbloquear()
@@ -262,6 +344,7 @@ namespace cromo
 			MnuPrecargar.Enabled = true;
 			MnuNuevo.Enabled = false;
 			MnuBuscar.Enabled = false;
+			MnuBuscarGuia.Enabled = false;
 			MnuImprimir.Enabled = false;
 
 			gbCliente.Enabled = true;
@@ -269,6 +352,8 @@ namespace cromo
             gbTotales.Enabled = true;
 			gbInformacion.Enabled = true;
 			gbComentario.Enabled = true;
+			GbPrecioDetalle.Visible = true;
+			GbCondiciones.Visible = true;
 		}
 
         public void Bloquear()
@@ -282,6 +367,7 @@ namespace cromo
 
 			MnuNuevo.Enabled = true;
 			MnuBuscar.Enabled = true;
+			MnuBuscarGuia.Enabled = true;
 			MnuGuardar.Enabled = false;
 			MnuCancelar.Enabled = false;
 			MnuPrecargar.Enabled = false;
@@ -292,6 +378,9 @@ namespace cromo
             gbTotales.Enabled = false;
 			gbInformacion.Enabled = false;
 			gbComentario.Enabled = false;
+			GbPrecioDetalle.Visible = false;
+			GbCondiciones.Visible = false;
+			LblPrecioDetalle.Text = "";
 		}
 
 		private void TxtCodigoCliente_KeyPress(object sender, KeyPressEventArgs e)
@@ -379,6 +468,35 @@ namespace cromo
 				TxtCodigoRuta.Text = Convert.ToString(dt.Rows[0][1]);
 				TxtOrdenRuta.Text = Convert.ToString(dt.Rows[0][2]);
 				ChkReexpedicion.Checked = Convert.ToBoolean(dt.Rows[0][3]);
+
+				if (codigoPrecio != 0 && TxtCodigoCiudadOrigen.Text != "" && TxtCodigoCiudadDestino.Text != "")
+				{
+					 ds = Utilidades.Ejecutar("SELECT vr_peso, vr_unidad, peso_tope, vr_peso_tope, vr_peso_tope_adicional, minimo, nombre " +
+						"FROM tte_precio_detalle " +
+						"LEFT JOIN tte_producto ON tte_precio_detalle.codigo_producto_fk = tte_producto.codigo_producto_pk " +
+						"WHERE codigo_precio_fk = " + codigoPrecio + " AND codigo_ciudad_origen_fk = " + TxtCodigoCiudadOrigen.Text + " AND " +
+						"codigo_ciudad_destino_fk = " + TxtCodigoCiudadDestino.Text + " LIMIT 3");
+					/*DataSet ds = Utilidades.Ejecutar("SELECT vr_peso, minimo " +
+						"FROM tte_precio_detalle where codigo_precio_fk = " + codigoPrecio + " AND codigo_ciudad_origen_fk = " + TxtCodigoCiudadOrigen.Text + " AND " +
+						"codigo_ciudad_destino_fk = " + TxtCodigoCiudadDestino.Text + " AND codigo_producto_fk = '" + CboProducto.SelectedValue.ToString() + "' AND " +
+						"vr_peso > 0");*/
+					dt = ds.Tables[0];
+					if (dt.Rows.Count > 0)
+					{
+						string texto = "";
+						foreach (DataRow row in dt.Rows)
+						{
+
+							texto = texto + "Producto: " + row[6].ToString() + " Pes:" + row[0].ToString() + " Und:" + row[1].ToString() + " Tope:" + row[2].ToString() + " VrTope:" + row[3].ToString() + " VrAdc:" + row[4].ToString() + " Min:" + row[5].ToString() + "\r\n";
+						}
+						LblPrecioDetalle.Text = texto;
+					}
+				}
+				else
+				{
+					MessageBox.Show("Debe seleccionar una condicion comercial, origen y destino del servicio");
+				}
+
 			}
 		}
 
@@ -457,6 +575,8 @@ namespace cromo
 		private void MnuCancelar_Click(object sender, EventArgs e)
 		{
 			Bloquear();
+			FuncionesGuia fg = new FuncionesGuia();
+			TraerGuia(fg.Ultima());
 		}
 
 		private void TsbBuscar_Click(object sender, EventArgs e)
@@ -550,24 +670,50 @@ namespace cromo
 
 		private void TxtPesoFacturar_Validated(object sender, EventArgs e)
 		{
-			if(codigoPrecio != 0)
+			if(ChkLiquidado.Checked == false)
 			{
-				DataSet ds = Utilidades.Ejecutar("SELECT vr_peso, minimo " +
-					"FROM tte_precio_detalle where codigo_precio_fk = " + codigoPrecio + " AND codigo_ciudad_origen_fk = " + TxtCodigoCiudadOrigen.Text + " AND " +
-					"codigo_ciudad_destino_fk = " + TxtCodigoCiudadDestino.Text + " AND codigo_producto_fk = '" + CboProducto.SelectedValue.ToString() + "' AND " +
-					"vr_peso > 0");
-				DataTable dt = ds.Tables[0];
-				if (dt.Rows.Count > 0)
-				{
+				if(Convert.ToDouble(TxtFlete.Text) <= 0)
+				{					
+					double vrFlete = 0;
+					double precioPeso = Convert.ToDouble(TxtVrPeso.Text);
+					double precioTope = Convert.ToDouble(TxtVrTope.Text);					
+					double precioUnidad = Convert.ToDouble(TxtVrUnidad.Text);
+					double precioAdicional = Convert.ToDouble(TxtVrAdicional.Text);
+					int tope = Convert.ToInt32(TxtTope.Text);
 					int pesoFacturar = Convert.ToInt32(TxtPesoFacturar.Text);
-					double vrPeso = Convert.ToDouble(dt.Rows[0]["vr_peso"]);
-					double vrFlete = pesoFacturar * (vrPeso - (vrPeso * descuentoPeso / 100));
-					TxtFlete.Text = Math.Round(vrFlete).ToString();
+					int unidades = Convert.ToInt32(TxtUnidades.Text);
+
+					if (RbPeso.Checked)
+					{
+						precioPeso = Convert.ToDouble(TxtVrPeso.Text);
+						if (precioPeso == 0 && ChkListaGeneral.Checked == true && codigoPrecioGeneral != 0)
+						{
+							DataSet ds = Utilidades.Ejecutar("SELECT vr_peso " +
+								"FROM tte_precio_detalle where codigo_precio_fk = " + codigoPrecioGeneral + " AND codigo_ciudad_origen_fk = " + TxtCodigoCiudadOrigen.Text + " AND " +
+								"codigo_ciudad_destino_fk = " + TxtCodigoCiudadDestino.Text + " AND codigo_producto_fk = '" + CboProducto.SelectedValue.ToString() + "'");
+							DataTable dt = ds.Tables[0];
+							if (dt.Rows.Count > 0)
+							{
+								precioPeso = Convert.ToDouble(dt.Rows[0]["vr_peso"]);								
+							}
+						}						
+						vrFlete = pesoFacturar * precioPeso;
+					}
+					else if (RbUnidad.Checked)
+					{
+						vrFlete = unidades * precioUnidad;
+					}
+					else if (RbAdicional.Checked)
+					{
+						vrFlete = precioTope * unidades;
+						if (pesoFacturar > (tope * unidades))
+						{
+							int diferencia = pesoFacturar - (tope * unidades);
+							vrFlete += diferencia * precioAdicional;
+						}
+					}
+					TxtFlete.Text = vrFlete.ToString();
 				}
-			}
-			if (TxtRemitente.Text == "")
-			{
-				TxtRemitente.Text = txtNombreCliente.Text;
 			}
 		}
 
@@ -575,41 +721,47 @@ namespace cromo
 
 		private void TxtUnidades_Validated(object sender, EventArgs e)
 		{
-			if(codigoPrecio != 0)
+			if(ChkLiquidado.Checked == false)
 			{
-				DataSet ds = Utilidades.Ejecutar("SELECT minimo " +
-					"FROM tte_precio_detalle where codigo_precio_fk = " + codigoPrecio + " AND codigo_ciudad_origen_fk = " + TxtCodigoCiudadOrigen.Text + " AND " +
-					"codigo_ciudad_destino_fk = " + TxtCodigoCiudadDestino.Text + " AND codigo_producto_fk = '" + CboProducto.SelectedValue.ToString() + "' AND " +
-					"vr_peso > 0");
-				DataTable dt = ds.Tables[0];
-				if (dt.Rows.Count > 0)
+				if (codigoPrecio != 0 && TxtCodigoCiudadOrigen.Text != "" && TxtCodigoCiudadDestino.Text != "")
 				{
-					if (Convert.ToInt32(TxtPesoFacturar.Text) <= 0)
+					DataSet ds = Utilidades.Ejecutar("SELECT minimo " +
+						"FROM tte_precio_detalle where codigo_precio_fk = " + codigoPrecio + " AND codigo_ciudad_origen_fk = " + TxtCodigoCiudadOrigen.Text + " AND " +
+						"codigo_ciudad_destino_fk = " + TxtCodigoCiudadDestino.Text + " AND codigo_producto_fk = '" + CboProducto.SelectedValue.ToString() + "' AND " +
+						"vr_peso > 0");
+					DataTable dt = ds.Tables[0];
+					if (dt.Rows.Count > 0)
 					{
-						if (Convert.ToInt32(dt.Rows[0]["minimo"]) > 0)
+						if (Convert.ToInt32(TxtPesoFacturar.Text) <= 0)
 						{
-							TxtPesoFacturar.Text = (Convert.ToInt32(dt.Rows[0]["minimo"]) * Convert.ToInt32(TxtUnidades.Text)).ToString();
+							if (Convert.ToInt32(dt.Rows[0]["minimo"]) > 0)
+							{
+								TxtPesoFacturar.Text = (Convert.ToInt32(dt.Rows[0]["minimo"]) * Convert.ToInt32(TxtUnidades.Text)).ToString();
+							}
 						}
 					}
 				}
-			}
 
-			if(pesoMinimoCondicion > 0)
-			{
-				TxtPesoFacturar.Text = (pesoMinimoCondicion * Convert.ToInt32(TxtUnidades.Text)).ToString();
-				if(Convert.ToInt32(TxtPeso.Text) <= 0)
+				if (pesoMinimoCondicion > 0)
 				{
-					TxtPeso.Text = (pesoMinimoCondicion * Convert.ToInt32(TxtUnidades.Text)).ToString();
+					TxtPesoFacturar.Text = (pesoMinimoCondicion * Convert.ToInt32(TxtUnidades.Text)).ToString();
+					if (Convert.ToInt32(TxtPeso.Text) <= 0)
+					{
+						TxtPeso.Text = (pesoMinimoCondicion * Convert.ToInt32(TxtUnidades.Text)).ToString();
+					}
 				}
-			}
-			
+			} else
+			{
+				TxtDeclarado.Focus();
+			}						
 		}
 
 		private void TxtCodigoCondicion_Validated(object sender, EventArgs e)
 		{
 			if (TxtCodigoCondicion.Text != "")
 			{
-				DataSet ds = Utilidades.Ejecutar("SELECT nombre, porcentaje_manejo, manejo_minimo_unidad, manejo_minimo_despacho, peso_minimo, descuento_peso, codigo_precio_fk " +
+				DataSet ds = Utilidades.Ejecutar("SELECT nombre, porcentaje_manejo, manejo_minimo_unidad, manejo_minimo_despacho, peso_minimo, " +
+					"descuento_peso, codigo_precio_fk, precio_general,  precio_peso, precio_unidad, precio_adicional " +
 					"FROM tte_condicion " +					
 					"WHERE codigo_condicion_pk = " + TxtCodigoCondicion.Text);
 				DataTable dt = ds.Tables[0];
@@ -622,6 +774,46 @@ namespace cromo
 					manejoMinimoDespacho = Convert.ToDouble(dt.Rows[0]["manejo_minimo_despacho"]);
 					descuentoPeso = Convert.ToDouble(dt.Rows[0]["descuento_peso"]);
 					codigoPrecio = Convert.ToInt32(dt.Rows[0]["codigo_precio_fk"]);
+					ChkListaGeneral.Checked = Convert.ToBoolean(dt.Rows[0]["precio_general"]);
+					TxtPesoMinimo.Text = pesoMinimoCondicion.ToString();
+					TxtPorcentajeManejo.Text = porcentajeManejo.ToString();
+					TxtDescuentoPeso.Text = descuentoPeso.ToString();
+					TxtManejoMinimoUnidad.Text = manejoMinimoUnidad.ToString();
+					TxtManejoMinimoDespacho.Text = manejoMinimoDespacho.ToString();
+
+					bool precioPeso = Convert.ToBoolean(dt.Rows[0]["precio_peso"]);
+					bool precioUnidad = Convert.ToBoolean(dt.Rows[0]["precio_unidad"]);
+					bool precioAdicional = Convert.ToBoolean(dt.Rows[0]["precio_adicional"]);
+					if (precioPeso)
+					{
+						RbPeso.Checked = true;
+					}
+					else
+					{
+						RbPeso.Enabled = false;
+					}
+					if (precioUnidad)
+					{
+						if (precioPeso == false)
+						{
+							RbUnidad.Checked = true;
+						}
+					}
+					else
+					{
+						RbUnidad.Enabled = false;
+					}
+					if (precioAdicional)
+					{
+						if (precioPeso == false && precioUnidad == false)
+						{
+							RbAdicional.Checked = true;
+						}
+					}
+					else
+					{
+						RbAdicional.Enabled = false;
+					}
 				}
 			}
 		}
@@ -772,5 +964,107 @@ namespace cromo
 				}
 			}
 		}
+
+
+
+		private void TxtUnidades_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.KeyCode.ToString() == "F2")
+			{
+				
+				ChkLiquidado.Checked = true;
+				if(codigoPrecio != 0 && TxtCodigoCiudadDestino.Text != "" && TxtCodigoCiudadOrigen.Text != "" && TxtCodigoCondicion.Text != "")
+				{					
+					General.CodigoPrecio = codigoPrecio;
+					General.CodigoCiudad = TxtCodigoCiudadOrigen.Text;
+					General.CodigoCiudadDestino = TxtCodigoCiudadDestino.Text;
+					General.CodigoCondicion = TxtCodigoCondicion.Text;
+					FrmGuiaDetalle frm = new FrmGuiaDetalle();
+					frm.ShowDialog();
+					if (frm.DialogResult == DialogResult.OK)
+					{
+						TxtUnidades.Text = General.Unidades.ToString();
+						TxtFlete.Text = General.VrFlete.ToString();
+						TxtPeso.Text = General.Peso.ToString();
+						TxtVolumen.Text = General.Volumen.ToString();
+						TxtPesoFacturar.Text = General.PesoFacturar.ToString();													
+					}
+				} else
+				{
+					MessageBox.Show("Verifique si tiene seleccionada una condicion comercial, ciudad de origen y ciudad de destino");
+				}				
+			}
+		}
+
+		private void GuardarDetalle (string codigoGuia)
+		{
+			if (General.guiaDetallePublica.Length > 0)
+			{
+				string sql = "";
+				for (int i = 0; i < General.guiaDetallePublica.Length; i++)
+				{
+					sql = "INSERT INTO tte_guia_detalle (" +
+						"codigo_guia_fk, codigo_producto_fk, unidades, peso_real, peso_volumen, peso_facturado, vr_flete) VALUES (" +
+						codigoGuia + "," + General.guiaDetallePublica[i].codigoProducto.ToString() + "" +
+						"," + General.guiaDetallePublica[i].unidades + "" +
+						"," + General.guiaDetallePublica[i].pesoReal + "" +
+						"," + General.guiaDetallePublica[i].pesoVolumen + "" +
+						"," + General.guiaDetallePublica[i].pesoFacturar + "" +
+						"," + General.guiaDetallePublica[i].vrFlete + ") ";
+					MySqlCommand cmd = new MySqlCommand(sql,
+					BdCromo.ObtenerConexion());
+					cmd.ExecuteNonQuery();
+				}
+				General.guiaDetallePublica = new GuiaDetalle[0];
+			}
+		}
+
+		private void CboProducto_Validated(object sender, EventArgs e)
+		{
+			if (codigoPrecio != 0 && TxtCodigoCiudadOrigen.Text != "" && TxtCodigoCiudadDestino.Text != "")
+			{
+				DataSet ds = Utilidades.Ejecutar("SELECT vr_peso, vr_unidad, peso_tope, vr_peso_tope, vr_peso_tope_adicional, minimo " +
+					"FROM tte_precio_detalle where codigo_precio_fk = " + codigoPrecio + " AND codigo_ciudad_origen_fk = " + TxtCodigoCiudadOrigen.Text + " AND " +
+					"codigo_ciudad_destino_fk = " + TxtCodigoCiudadDestino.Text + " AND codigo_producto_fk = '" + CboProducto.SelectedValue.ToString() + "'");
+				DataTable dt = ds.Tables[0];
+				if (dt.Rows.Count > 0)
+				{
+					TxtVrPeso.Text = dt.Rows[0]["vr_peso"].ToString();
+					TxtVrUnidad.Text = dt.Rows[0]["vr_unidad"].ToString();
+					TxtTope.Text = dt.Rows[0]["peso_tope"].ToString();
+					TxtVrTope.Text = dt.Rows[0]["vr_peso_tope"].ToString();
+					TxtVrAdicional.Text = dt.Rows[0]["vr_peso_tope_adicional"].ToString();
+					TxtPesoMinimoPrecio.Text = dt.Rows[0]["minimo"].ToString();					
+				} else 
+				{
+					MessageBox.Show("No existe precio para este producto con esta condicion y este destino");
+				}
+			}
+			else
+			{
+				MessageBox.Show("Debe seleccionar una condicion comercial, origen y destino del servicio");
+			}
+		}
+
+		private void TsbBuscarGuia_Click(object sender, EventArgs e)
+		{
+			FuncionesGuia buscar = new FuncionesGuia();
+			buscar.DevolverCodigoGuia();
+			if(General.CodigoGuia != 0)
+			{
+				TraerGuia(General.CodigoGuia);
+			}
+		}
+
+		private void MnuBuscarGuia_Click(object sender, EventArgs e)
+		{
+			FuncionesGuia buscar = new FuncionesGuia();
+			buscar.DevolverCodigoGuia();
+			if (General.CodigoGuia != 0)
+			{
+				TraerGuia(General.CodigoGuia);
+			}
+		}
 	}
+
 }

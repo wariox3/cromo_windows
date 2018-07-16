@@ -116,6 +116,18 @@
     <Compile Include="FrmDevolverDocumento.Designer.cs">
       <DependentUpon>FrmDevolverDocumento.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmDevolverGuiaCodigo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDevolverGuiaCodigo.Designer.cs">
+      <DependentUpon>FrmDevolverGuiaCodigo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGuiaDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGuiaDetalle.Designer.cs">
+      <DependentUpon>FrmGuiaDetalle.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmImprimirGuia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,6 +225,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDevolverDocumento.resx">
       <DependentUpon>FrmDevolverDocumento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDevolverGuiaCodigo.resx">
+      <DependentUpon>FrmDevolverGuiaCodigo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGuiaDetalle.resx">
+      <DependentUpon>FrmGuiaDetalle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmImprimirGuia.resx">
       <DependentUpon>FrmImprimirGuia.cs</DependentUpon>

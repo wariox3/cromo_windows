@@ -55,6 +55,7 @@
 			this.DgCiudades.Size = new System.Drawing.Size(712, 325);
 			this.DgCiudades.StandardTab = true;
 			this.DgCiudades.TabIndex = 1;
+			this.DgCiudades.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgCiudades_CellContentClick);
 			this.DgCiudades.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DgCiudades_KeyDown);
 			// 
 			// ID

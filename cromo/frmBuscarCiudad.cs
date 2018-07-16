@@ -77,5 +77,10 @@ namespace cromo
 				DgCiudades.Focus();
 			}
 		}
+
+		private void DgCiudades_CellContentClick(object sender, DataGridViewCellEventArgs e)
+		{
+
+		}
 	}
 }
