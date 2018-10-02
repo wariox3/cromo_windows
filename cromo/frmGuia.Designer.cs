@@ -42,6 +42,8 @@
 			this.label3 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.gbTotales = new System.Windows.Forms.GroupBox();
+			this.label45 = new System.Windows.Forms.Label();
+			this.TxtCostoReexpedicion = new System.Windows.Forms.TextBox();
 			this.ChkLiquidado = new System.Windows.Forms.CheckBox();
 			this.RbUnidad = new System.Windows.Forms.RadioButton();
 			this.RbPeso = new System.Windows.Forms.RadioButton();
@@ -86,6 +88,7 @@
 			this.TsbCancelar = new System.Windows.Forms.ToolStripButton();
 			this.TsbPrecargar = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+			this.TsbBuscarGuia = new System.Windows.Forms.ToolStripButton();
 			this.TsbBuscar = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this.TsbImprimir = new System.Windows.Forms.ToolStripButton();
@@ -93,6 +96,8 @@
 			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
 			this.TsbRecibo = new System.Windows.Forms.ToolStripButton();
 			this.gbInformacion = new System.Windows.Forms.GroupBox();
+			this.label44 = new System.Windows.Forms.Label();
+			this.TxtReferenciaEmpaque = new System.Windows.Forms.TextBox();
 			this.label26 = new System.Windows.Forms.Label();
 			this.CboProducto = new System.Windows.Forms.ComboBox();
 			this.label19 = new System.Windows.Forms.Label();
@@ -107,9 +112,12 @@
 			this.MnuGuardar = new System.Windows.Forms.ToolStripMenuItem();
 			this.MnuCancelar = new System.Windows.Forms.ToolStripMenuItem();
 			this.MnuPrecargar = new System.Windows.Forms.ToolStripMenuItem();
+			this.MnuBuscarGuia = new System.Windows.Forms.ToolStripMenuItem();
 			this.MnuBuscar = new System.Windows.Forms.ToolStripMenuItem();
 			this.MnuImprimir = new System.Windows.Forms.ToolStripMenuItem();
 			this.gbDatos = new System.Windows.Forms.GroupBox();
+			this.label46 = new System.Windows.Forms.Label();
+			this.TxtCodigoDespacho = new System.Windows.Forms.TextBox();
 			this.ChkEstadoAnulado = new System.Windows.Forms.CheckBox();
 			this.ChkEstadoFacturado = new System.Windows.Forms.CheckBox();
 			this.ChkEstadoFacturaGenerada = new System.Windows.Forms.CheckBox();
@@ -166,8 +174,7 @@
 			this.label40 = new System.Windows.Forms.Label();
 			this.label39 = new System.Windows.Forms.Label();
 			this.label38 = new System.Windows.Forms.Label();
-			this.TsbBuscarGuia = new System.Windows.Forms.ToolStripButton();
-			this.MnuBuscarGuia = new System.Windows.Forms.ToolStripMenuItem();
+			this.ChkCortesia = new System.Windows.Forms.CheckBox();
 			this.gbDestinatario.SuspendLayout();
 			this.gbTotales.SuspendLayout();
 			this.gbCliente.SuspendLayout();
@@ -266,6 +273,7 @@
 			this.TxtNombreDestinatario.Name = "TxtNombreDestinatario";
 			this.TxtNombreDestinatario.Size = new System.Drawing.Size(298, 20);
 			this.TxtNombreDestinatario.TabIndex = 8;
+			this.TxtNombreDestinatario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtNombreDestinatario_KeyDown);
 			this.TxtNombreDestinatario.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
 			// 
 			// label4
@@ -297,6 +305,8 @@
 			// 
 			// gbTotales
 			// 
+			this.gbTotales.Controls.Add(this.label45);
+			this.gbTotales.Controls.Add(this.TxtCostoReexpedicion);
 			this.gbTotales.Controls.Add(this.ChkLiquidado);
 			this.gbTotales.Controls.Add(this.RbUnidad);
 			this.gbTotales.Controls.Add(this.RbPeso);
@@ -322,9 +332,26 @@
 			this.gbTotales.Enabled = false;
 			this.gbTotales.Location = new System.Drawing.Point(338, 246);
 			this.gbTotales.Name = "gbTotales";
-			this.gbTotales.Size = new System.Drawing.Size(208, 239);
+			this.gbTotales.Size = new System.Drawing.Size(208, 266);
 			this.gbTotales.TabIndex = 17;
 			this.gbTotales.TabStop = false;
+			// 
+			// label45
+			// 
+			this.label45.AutoSize = true;
+			this.label45.Location = new System.Drawing.Point(32, 217);
+			this.label45.Name = "label45";
+			this.label45.Size = new System.Drawing.Size(48, 13);
+			this.label45.TabIndex = 34;
+			this.label45.Text = "C_Reex:";
+			// 
+			// TxtCostoReexpedicion
+			// 
+			this.TxtCostoReexpedicion.Location = new System.Drawing.Point(86, 214);
+			this.TxtCostoReexpedicion.Name = "TxtCostoReexpedicion";
+			this.TxtCostoReexpedicion.Size = new System.Drawing.Size(111, 20);
+			this.TxtCostoReexpedicion.TabIndex = 26;
+			this.TxtCostoReexpedicion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// ChkLiquidado
 			// 
@@ -371,7 +398,7 @@
 			// 
 			// TxtAbono
 			// 
-			this.TxtAbono.Location = new System.Drawing.Point(86, 213);
+			this.TxtAbono.Location = new System.Drawing.Point(86, 237);
 			this.TxtAbono.Name = "TxtAbono";
 			this.TxtAbono.Size = new System.Drawing.Size(111, 20);
 			this.TxtAbono.TabIndex = 28;
@@ -380,7 +407,7 @@
 			// label30
 			// 
 			this.label30.AutoSize = true;
-			this.label30.Location = new System.Drawing.Point(40, 216);
+			this.label30.Location = new System.Drawing.Point(40, 240);
 			this.label30.Name = "label30";
 			this.label30.Size = new System.Drawing.Size(41, 13);
 			this.label30.TabIndex = 27;
@@ -402,6 +429,7 @@
 			this.TxtRecaudo.Size = new System.Drawing.Size(111, 20);
 			this.TxtRecaudo.TabIndex = 25;
 			this.TxtRecaudo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.TxtRecaudo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
 			// 
 			// TxtManejo
 			// 
@@ -710,7 +738,7 @@
             this.TsbVistaPrevia,
             this.toolStripSeparator3,
             this.TsbRecibo});
-			this.toolStrip1.Location = new System.Drawing.Point(0, 24);
+			this.toolStrip1.Location = new System.Drawing.Point(0, 0);
 			this.toolStrip1.Name = "toolStrip1";
 			this.toolStrip1.Size = new System.Drawing.Size(1123, 25);
 			this.toolStrip1.TabIndex = 12;
@@ -764,6 +792,16 @@
 			this.toolStripSeparator1.Name = "toolStripSeparator1";
 			this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
 			// 
+			// TsbBuscarGuia
+			// 
+			this.TsbBuscarGuia.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.TsbBuscarGuia.Image = ((System.Drawing.Image)(resources.GetObject("TsbBuscarGuia.Image")));
+			this.TsbBuscarGuia.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.TsbBuscarGuia.Name = "TsbBuscarGuia";
+			this.TsbBuscarGuia.Size = new System.Drawing.Size(23, 22);
+			this.TsbBuscarGuia.Text = "Buscar guia F9";
+			this.TsbBuscarGuia.Click += new System.EventHandler(this.TsbBuscarGuia_Click);
+			// 
 			// TsbBuscar
 			// 
 			this.TsbBuscar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -816,6 +854,8 @@
 			// 
 			// gbInformacion
 			// 
+			this.gbInformacion.Controls.Add(this.label44);
+			this.gbInformacion.Controls.Add(this.TxtReferenciaEmpaque);
 			this.gbInformacion.Controls.Add(this.label26);
 			this.gbInformacion.Controls.Add(this.CboProducto);
 			this.gbInformacion.Controls.Add(this.label19);
@@ -827,9 +867,26 @@
 			this.gbInformacion.Enabled = false;
 			this.gbInformacion.Location = new System.Drawing.Point(18, 247);
 			this.gbInformacion.Name = "gbInformacion";
-			this.gbInformacion.Size = new System.Drawing.Size(284, 120);
+			this.gbInformacion.Size = new System.Drawing.Size(289, 139);
 			this.gbInformacion.TabIndex = 12;
 			this.gbInformacion.TabStop = false;
+			// 
+			// label44
+			// 
+			this.label44.AutoSize = true;
+			this.label44.Location = new System.Drawing.Point(16, 113);
+			this.label44.Name = "label44";
+			this.label44.Size = new System.Drawing.Size(54, 13);
+			this.label44.TabIndex = 18;
+			this.label44.Text = "Ref_Emp:";
+			// 
+			// TxtReferenciaEmpaque
+			// 
+			this.TxtReferenciaEmpaque.Location = new System.Drawing.Point(73, 110);
+			this.TxtReferenciaEmpaque.Name = "TxtReferenciaEmpaque";
+			this.TxtReferenciaEmpaque.Size = new System.Drawing.Size(201, 20);
+			this.TxtReferenciaEmpaque.TabIndex = 17;
+			this.TxtReferenciaEmpaque.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
 			// 
 			// label26
 			// 
@@ -933,7 +990,7 @@
 			// 
 			this.MnuNuevo.Name = "MnuNuevo";
 			this.MnuNuevo.ShortcutKeys = System.Windows.Forms.Keys.F5;
-			this.MnuNuevo.Size = new System.Drawing.Size(180, 22);
+			this.MnuNuevo.Size = new System.Drawing.Size(161, 22);
 			this.MnuNuevo.Text = "Nuevo";
 			this.MnuNuevo.Click += new System.EventHandler(this.MnuNuevo_Click);
 			// 
@@ -942,7 +999,7 @@
 			this.MnuGuardar.Enabled = false;
 			this.MnuGuardar.Name = "MnuGuardar";
 			this.MnuGuardar.ShortcutKeys = System.Windows.Forms.Keys.F6;
-			this.MnuGuardar.Size = new System.Drawing.Size(180, 22);
+			this.MnuGuardar.Size = new System.Drawing.Size(161, 22);
 			this.MnuGuardar.Text = "Guardar";
 			this.MnuGuardar.Click += new System.EventHandler(this.MnuGuardar_Click);
 			// 
@@ -951,7 +1008,7 @@
 			this.MnuCancelar.Enabled = false;
 			this.MnuCancelar.Name = "MnuCancelar";
 			this.MnuCancelar.ShortcutKeys = System.Windows.Forms.Keys.F7;
-			this.MnuCancelar.Size = new System.Drawing.Size(180, 22);
+			this.MnuCancelar.Size = new System.Drawing.Size(161, 22);
 			this.MnuCancelar.Text = "Cancelar";
 			this.MnuCancelar.Click += new System.EventHandler(this.MnuCancelar_Click);
 			// 
@@ -960,15 +1017,23 @@
 			this.MnuPrecargar.Enabled = false;
 			this.MnuPrecargar.Name = "MnuPrecargar";
 			this.MnuPrecargar.ShortcutKeys = System.Windows.Forms.Keys.F8;
-			this.MnuPrecargar.Size = new System.Drawing.Size(180, 22);
+			this.MnuPrecargar.Size = new System.Drawing.Size(161, 22);
 			this.MnuPrecargar.Text = "Precargar";
 			this.MnuPrecargar.Click += new System.EventHandler(this.MnuPrecargar_Click);
+			// 
+			// MnuBuscarGuia
+			// 
+			this.MnuBuscarGuia.Name = "MnuBuscarGuia";
+			this.MnuBuscarGuia.ShortcutKeys = System.Windows.Forms.Keys.F9;
+			this.MnuBuscarGuia.Size = new System.Drawing.Size(161, 22);
+			this.MnuBuscarGuia.Text = "Buscar guia";
+			this.MnuBuscarGuia.Click += new System.EventHandler(this.MnuBuscarGuia_Click);
 			// 
 			// MnuBuscar
 			// 
 			this.MnuBuscar.Name = "MnuBuscar";
 			this.MnuBuscar.ShortcutKeys = System.Windows.Forms.Keys.F10;
-			this.MnuBuscar.Size = new System.Drawing.Size(180, 22);
+			this.MnuBuscar.Size = new System.Drawing.Size(161, 22);
 			this.MnuBuscar.Text = "Buscar";
 			this.MnuBuscar.Click += new System.EventHandler(this.MnuBuscar_Click);
 			// 
@@ -976,12 +1041,15 @@
 			// 
 			this.MnuImprimir.Name = "MnuImprimir";
 			this.MnuImprimir.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-			this.MnuImprimir.Size = new System.Drawing.Size(180, 22);
+			this.MnuImprimir.Size = new System.Drawing.Size(161, 22);
 			this.MnuImprimir.Text = "Imprimir";
 			this.MnuImprimir.Click += new System.EventHandler(this.MnuImprimir_Click);
 			// 
 			// gbDatos
 			// 
+			this.gbDatos.Controls.Add(this.ChkCortesia);
+			this.gbDatos.Controls.Add(this.label46);
+			this.gbDatos.Controls.Add(this.TxtCodigoDespacho);
 			this.gbDatos.Controls.Add(this.ChkEstadoAnulado);
 			this.gbDatos.Controls.Add(this.ChkEstadoFacturado);
 			this.gbDatos.Controls.Add(this.ChkEstadoFacturaGenerada);
@@ -1012,14 +1080,30 @@
 			this.gbDatos.Enabled = false;
 			this.gbDatos.Location = new System.Drawing.Point(552, 22);
 			this.gbDatos.Name = "gbDatos";
-			this.gbDatos.Size = new System.Drawing.Size(239, 272);
+			this.gbDatos.Size = new System.Drawing.Size(238, 326);
 			this.gbDatos.TabIndex = 17;
 			this.gbDatos.TabStop = false;
+			// 
+			// label46
+			// 
+			this.label46.AutoSize = true;
+			this.label46.Location = new System.Drawing.Point(5, 127);
+			this.label46.Name = "label46";
+			this.label46.Size = new System.Drawing.Size(59, 13);
+			this.label46.TabIndex = 51;
+			this.label46.Text = "Despacho:";
+			// 
+			// TxtCodigoDespacho
+			// 
+			this.TxtCodigoDespacho.Location = new System.Drawing.Point(65, 124);
+			this.TxtCodigoDespacho.Name = "TxtCodigoDespacho";
+			this.TxtCodigoDespacho.Size = new System.Drawing.Size(164, 20);
+			this.TxtCodigoDespacho.TabIndex = 50;
 			// 
 			// ChkEstadoAnulado
 			// 
 			this.ChkEstadoAnulado.AutoSize = true;
-			this.ChkEstadoAnulado.Location = new System.Drawing.Point(145, 232);
+			this.ChkEstadoAnulado.Location = new System.Drawing.Point(146, 287);
 			this.ChkEstadoAnulado.Name = "ChkEstadoAnulado";
 			this.ChkEstadoAnulado.Size = new System.Drawing.Size(65, 17);
 			this.ChkEstadoAnulado.TabIndex = 49;
@@ -1029,7 +1113,7 @@
 			// ChkEstadoFacturado
 			// 
 			this.ChkEstadoFacturado.AutoSize = true;
-			this.ChkEstadoFacturado.Location = new System.Drawing.Point(145, 249);
+			this.ChkEstadoFacturado.Location = new System.Drawing.Point(146, 304);
 			this.ChkEstadoFacturado.Name = "ChkEstadoFacturado";
 			this.ChkEstadoFacturado.Size = new System.Drawing.Size(74, 17);
 			this.ChkEstadoFacturado.TabIndex = 48;
@@ -1039,7 +1123,7 @@
 			// ChkEstadoFacturaGenerada
 			// 
 			this.ChkEstadoFacturaGenerada.AutoSize = true;
-			this.ChkEstadoFacturaGenerada.Location = new System.Drawing.Point(64, 252);
+			this.ChkEstadoFacturaGenerada.Location = new System.Drawing.Point(65, 307);
 			this.ChkEstadoFacturaGenerada.Name = "ChkEstadoFacturaGenerada";
 			this.ChkEstadoFacturaGenerada.Size = new System.Drawing.Size(75, 17);
 			this.ChkEstadoFacturaGenerada.TabIndex = 47;
@@ -1049,7 +1133,7 @@
 			// ChkEstadoCumplido
 			// 
 			this.ChkEstadoCumplido.AutoSize = true;
-			this.ChkEstadoCumplido.Location = new System.Drawing.Point(64, 235);
+			this.ChkEstadoCumplido.Location = new System.Drawing.Point(65, 290);
 			this.ChkEstadoCumplido.Name = "ChkEstadoCumplido";
 			this.ChkEstadoCumplido.Size = new System.Drawing.Size(69, 17);
 			this.ChkEstadoCumplido.TabIndex = 46;
@@ -1059,7 +1143,7 @@
 			// ChkEstadoSoporte
 			// 
 			this.ChkEstadoSoporte.AutoSize = true;
-			this.ChkEstadoSoporte.Location = new System.Drawing.Point(145, 215);
+			this.ChkEstadoSoporte.Location = new System.Drawing.Point(146, 270);
 			this.ChkEstadoSoporte.Name = "ChkEstadoSoporte";
 			this.ChkEstadoSoporte.Size = new System.Drawing.Size(63, 17);
 			this.ChkEstadoSoporte.TabIndex = 45;
@@ -1069,7 +1153,7 @@
 			// ChkEstadoEntregado
 			// 
 			this.ChkEstadoEntregado.AutoSize = true;
-			this.ChkEstadoEntregado.Location = new System.Drawing.Point(64, 218);
+			this.ChkEstadoEntregado.Location = new System.Drawing.Point(65, 273);
 			this.ChkEstadoEntregado.Name = "ChkEstadoEntregado";
 			this.ChkEstadoEntregado.Size = new System.Drawing.Size(75, 17);
 			this.ChkEstadoEntregado.TabIndex = 44;
@@ -1079,7 +1163,7 @@
 			// ChkEstadoDespachado
 			// 
 			this.ChkEstadoDespachado.AutoSize = true;
-			this.ChkEstadoDespachado.Location = new System.Drawing.Point(145, 198);
+			this.ChkEstadoDespachado.Location = new System.Drawing.Point(146, 254);
 			this.ChkEstadoDespachado.Name = "ChkEstadoDespachado";
 			this.ChkEstadoDespachado.Size = new System.Drawing.Size(87, 17);
 			this.ChkEstadoDespachado.TabIndex = 43;
@@ -1089,7 +1173,7 @@
 			// ChkEstadoEmbarcado
 			// 
 			this.ChkEstadoEmbarcado.AutoSize = true;
-			this.ChkEstadoEmbarcado.Location = new System.Drawing.Point(64, 201);
+			this.ChkEstadoEmbarcado.Location = new System.Drawing.Point(65, 256);
 			this.ChkEstadoEmbarcado.Name = "ChkEstadoEmbarcado";
 			this.ChkEstadoEmbarcado.Size = new System.Drawing.Size(80, 17);
 			this.ChkEstadoEmbarcado.TabIndex = 42;
@@ -1099,7 +1183,7 @@
 			// ChkEstadoImpreso
 			// 
 			this.ChkEstadoImpreso.AutoSize = true;
-			this.ChkEstadoImpreso.Location = new System.Drawing.Point(64, 184);
+			this.ChkEstadoImpreso.Location = new System.Drawing.Point(65, 239);
 			this.ChkEstadoImpreso.Name = "ChkEstadoImpreso";
 			this.ChkEstadoImpreso.Size = new System.Drawing.Size(63, 17);
 			this.ChkEstadoImpreso.TabIndex = 41;
@@ -1109,7 +1193,7 @@
 			// label31
 			// 
 			this.label31.AutoSize = true;
-			this.label31.Location = new System.Drawing.Point(18, 149);
+			this.label31.Location = new System.Drawing.Point(18, 174);
 			this.label31.Name = "label31";
 			this.label31.Size = new System.Drawing.Size(46, 13);
 			this.label31.TabIndex = 25;
@@ -1117,7 +1201,7 @@
 			// 
 			// TxtUsuario
 			// 
-			this.TxtUsuario.Location = new System.Drawing.Point(65, 146);
+			this.TxtUsuario.Location = new System.Drawing.Point(65, 171);
 			this.TxtUsuario.Name = "TxtUsuario";
 			this.TxtUsuario.Size = new System.Drawing.Size(164, 20);
 			this.TxtUsuario.TabIndex = 24;
@@ -1126,7 +1210,7 @@
 			// 
 			this.ChkReexpedicion.AutoSize = true;
 			this.ChkReexpedicion.Enabled = false;
-			this.ChkReexpedicion.Location = new System.Drawing.Point(145, 169);
+			this.ChkReexpedicion.Location = new System.Drawing.Point(146, 224);
 			this.ChkReexpedicion.Name = "ChkReexpedicion";
 			this.ChkReexpedicion.Size = new System.Drawing.Size(91, 17);
 			this.ChkReexpedicion.TabIndex = 23;
@@ -1136,7 +1220,7 @@
 			// ChkFactura
 			// 
 			this.ChkFactura.AutoSize = true;
-			this.ChkFactura.Location = new System.Drawing.Point(64, 169);
+			this.ChkFactura.Location = new System.Drawing.Point(65, 224);
 			this.ChkFactura.Name = "ChkFactura";
 			this.ChkFactura.Size = new System.Drawing.Size(62, 17);
 			this.ChkFactura.TabIndex = 21;
@@ -1161,14 +1245,14 @@
 			// 
 			// TxtOperacionIngreso
 			// 
-			this.TxtOperacionIngreso.Location = new System.Drawing.Point(65, 124);
+			this.TxtOperacionIngreso.Location = new System.Drawing.Point(65, 149);
 			this.TxtOperacionIngreso.Name = "TxtOperacionIngreso";
 			this.TxtOperacionIngreso.Size = new System.Drawing.Size(56, 20);
 			this.TxtOperacionIngreso.TabIndex = 11;
 			// 
 			// TxtOperacionCargo
 			// 
-			this.TxtOperacionCargo.Location = new System.Drawing.Point(172, 124);
+			this.TxtOperacionCargo.Location = new System.Drawing.Point(172, 149);
 			this.TxtOperacionCargo.Name = "TxtOperacionCargo";
 			this.TxtOperacionCargo.Size = new System.Drawing.Size(57, 20);
 			this.TxtOperacionCargo.TabIndex = 10;
@@ -1176,7 +1260,7 @@
 			// label25
 			// 
 			this.label25.AutoSize = true;
-			this.label25.Location = new System.Drawing.Point(145, 127);
+			this.label25.Location = new System.Drawing.Point(145, 152);
 			this.label25.Name = "label25";
 			this.label25.Size = new System.Drawing.Size(25, 13);
 			this.label25.TabIndex = 9;
@@ -1185,7 +1269,7 @@
 			// label24
 			// 
 			this.label24.AutoSize = true;
-			this.label24.Location = new System.Drawing.Point(41, 127);
+			this.label24.Location = new System.Drawing.Point(41, 152);
 			this.label24.Name = "label24";
 			this.label24.Size = new System.Drawing.Size(21, 13);
 			this.label24.TabIndex = 8;
@@ -1193,7 +1277,7 @@
 			// 
 			// TxtFechaEntrega
 			// 
-			this.TxtFechaEntrega.Location = new System.Drawing.Point(65, 101);
+			this.TxtFechaEntrega.Location = new System.Drawing.Point(65, 102);
 			this.TxtFechaEntrega.Name = "TxtFechaEntrega";
 			this.TxtFechaEntrega.Size = new System.Drawing.Size(164, 20);
 			this.TxtFechaEntrega.TabIndex = 7;
@@ -1215,7 +1299,7 @@
 			// label23
 			// 
 			this.label23.AutoSize = true;
-			this.label23.Location = new System.Drawing.Point(16, 102);
+			this.label23.Location = new System.Drawing.Point(15, 102);
 			this.label23.Name = "label23";
 			this.label23.Size = new System.Drawing.Size(47, 13);
 			this.label23.TabIndex = 4;
@@ -1224,11 +1308,11 @@
 			// label22
 			// 
 			this.label22.AutoSize = true;
-			this.label22.Location = new System.Drawing.Point(5, 81);
+			this.label22.Location = new System.Drawing.Point(15, 81);
 			this.label22.Name = "label22";
-			this.label22.Size = new System.Drawing.Size(59, 13);
+			this.label22.Size = new System.Drawing.Size(47, 13);
 			this.label22.TabIndex = 3;
-			this.label22.Text = "Despacho:";
+			this.label22.Text = "F_Desp:";
 			// 
 			// label21
 			// 
@@ -1260,16 +1344,16 @@
 			this.gbComentario.Controls.Add(this.label29);
 			this.gbComentario.Controls.Add(this.TxtComentario);
 			this.gbComentario.Enabled = false;
-			this.gbComentario.Location = new System.Drawing.Point(18, 369);
+			this.gbComentario.Location = new System.Drawing.Point(25, 392);
 			this.gbComentario.Name = "gbComentario";
-			this.gbComentario.Size = new System.Drawing.Size(284, 116);
+			this.gbComentario.Size = new System.Drawing.Size(284, 93);
 			this.gbComentario.TabIndex = 27;
 			this.gbComentario.TabStop = false;
 			// 
 			// label29
 			// 
 			this.label29.AutoSize = true;
-			this.label29.Location = new System.Drawing.Point(7, 22);
+			this.label29.Location = new System.Drawing.Point(8, 13);
 			this.label29.Name = "label29";
 			this.label29.Size = new System.Drawing.Size(63, 13);
 			this.label29.TabIndex = 28;
@@ -1277,10 +1361,10 @@
 			// 
 			// TxtComentario
 			// 
-			this.TxtComentario.Location = new System.Drawing.Point(73, 19);
+			this.TxtComentario.Location = new System.Drawing.Point(73, 10);
 			this.TxtComentario.Multiline = true;
 			this.TxtComentario.Name = "TxtComentario";
-			this.TxtComentario.Size = new System.Drawing.Size(201, 87);
+			this.TxtComentario.Size = new System.Drawing.Size(201, 58);
 			this.TxtComentario.TabIndex = 28;
 			// 
 			// GbCondiciones
@@ -1297,11 +1381,12 @@
 			this.GbCondiciones.Controls.Add(this.label33);
 			this.GbCondiciones.Controls.Add(this.ChkListaGeneral);
 			this.GbCondiciones.Enabled = false;
-			this.GbCondiciones.Location = new System.Drawing.Point(553, 300);
+			this.GbCondiciones.Location = new System.Drawing.Point(553, 348);
 			this.GbCondiciones.Name = "GbCondiciones";
-			this.GbCondiciones.Size = new System.Drawing.Size(236, 104);
+			this.GbCondiciones.Size = new System.Drawing.Size(236, 86);
 			this.GbCondiciones.TabIndex = 28;
 			this.GbCondiciones.TabStop = false;
+			this.GbCondiciones.Visible = false;
 			// 
 			// TxtDescuentoPeso
 			// 
@@ -1313,7 +1398,7 @@
 			// 
 			// TxtManejoMinimoDespacho
 			// 
-			this.TxtManejoMinimoDespacho.Location = new System.Drawing.Point(81, 79);
+			this.TxtManejoMinimoDespacho.Location = new System.Drawing.Point(169, 57);
 			this.TxtManejoMinimoDespacho.Name = "TxtManejoMinimoDespacho";
 			this.TxtManejoMinimoDespacho.Size = new System.Drawing.Size(49, 20);
 			this.TxtManejoMinimoDespacho.TabIndex = 9;
@@ -1355,11 +1440,11 @@
 			// label36
 			// 
 			this.label36.AutoSize = true;
-			this.label36.Location = new System.Drawing.Point(7, 77);
+			this.label36.Location = new System.Drawing.Point(138, 55);
 			this.label36.Name = "label36";
-			this.label36.Size = new System.Drawing.Size(70, 13);
+			this.label36.Size = new System.Drawing.Size(27, 13);
 			this.label36.TabIndex = 4;
-			this.label36.Text = "Man min des:";
+			this.label36.Text = "des:";
 			// 
 			// label35
 			// 
@@ -1422,11 +1507,12 @@
 			this.GbPrecioDetalle.Controls.Add(this.label39);
 			this.GbPrecioDetalle.Controls.Add(this.label38);
 			this.GbPrecioDetalle.Enabled = false;
-			this.GbPrecioDetalle.Location = new System.Drawing.Point(553, 405);
+			this.GbPrecioDetalle.Location = new System.Drawing.Point(553, 432);
 			this.GbPrecioDetalle.Name = "GbPrecioDetalle";
 			this.GbPrecioDetalle.Size = new System.Drawing.Size(237, 80);
 			this.GbPrecioDetalle.TabIndex = 30;
 			this.GbPrecioDetalle.TabStop = false;
+			this.GbPrecioDetalle.Visible = false;
 			// 
 			// TxtVrAdicional
 			// 
@@ -1530,23 +1616,15 @@
 			this.label38.TabIndex = 0;
 			this.label38.Text = "VrAdi:";
 			// 
-			// TsbBuscarGuia
+			// ChkCortesia
 			// 
-			this.TsbBuscarGuia.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.TsbBuscarGuia.Image = ((System.Drawing.Image)(resources.GetObject("TsbBuscarGuia.Image")));
-			this.TsbBuscarGuia.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.TsbBuscarGuia.Name = "TsbBuscarGuia";
-			this.TsbBuscarGuia.Size = new System.Drawing.Size(23, 22);
-			this.TsbBuscarGuia.Text = "Buscar guia F9";
-			this.TsbBuscarGuia.Click += new System.EventHandler(this.TsbBuscarGuia_Click);
-			// 
-			// MnuBuscarGuia
-			// 
-			this.MnuBuscarGuia.Name = "MnuBuscarGuia";
-			this.MnuBuscarGuia.ShortcutKeys = System.Windows.Forms.Keys.F9;
-			this.MnuBuscarGuia.Size = new System.Drawing.Size(180, 22);
-			this.MnuBuscarGuia.Text = "Buscar guia";
-			this.MnuBuscarGuia.Click += new System.EventHandler(this.MnuBuscarGuia_Click);
+			this.ChkCortesia.AutoSize = true;
+			this.ChkCortesia.Location = new System.Drawing.Point(146, 238);
+			this.ChkCortesia.Name = "ChkCortesia";
+			this.ChkCortesia.Size = new System.Drawing.Size(64, 17);
+			this.ChkCortesia.TabIndex = 52;
+			this.ChkCortesia.Text = "Cortesia";
+			this.ChkCortesia.UseVisualStyleBackColor = true;
 			// 
 			// FrmGuia
 			// 
@@ -1735,6 +1813,13 @@
 		private System.Windows.Forms.CheckBox ChkLiquidado;
 		private System.Windows.Forms.ToolStripButton TsbBuscarGuia;
 		private System.Windows.Forms.ToolStripMenuItem MnuBuscarGuia;
+		private System.Windows.Forms.Label label44;
+		private System.Windows.Forms.TextBox TxtReferenciaEmpaque;
+		private System.Windows.Forms.Label label45;
+		private System.Windows.Forms.TextBox TxtCostoReexpedicion;
+		private System.Windows.Forms.Label label46;
+		private System.Windows.Forms.TextBox TxtCodigoDespacho;
+		private System.Windows.Forms.CheckBox ChkCortesia;
 	}
 }
 

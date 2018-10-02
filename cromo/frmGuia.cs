@@ -16,6 +16,7 @@ namespace cromo
     {
 		
 		string ultimoCliente = "";
+		string ultimaCondicion = "";
 		string ultimoTipo = "";
 		string ultimoServicio = "";
 		string ultimoProducto = "";
@@ -80,10 +81,14 @@ namespace cromo
 
 			TxtFechaIngreso.Text = DateTime.Now.ToString("G");
 			TxtCodigoCliente.Text = ultimoCliente;
+			TxtCodigoCondicion.Text = ultimaCondicion;
 			TxtCodigoCiudadOrigen.Text = cromo.Properties.Settings.Default.ciudadOrigen;
 			TxtOperacionIngreso.Text = cromo.Properties.Settings.Default.centroOperacion;			
 			TxtOperacionCargo.Text = cromo.Properties.Settings.Default.centroOperacion;
 			TxtUsuario.Text = General.UsuarioActivo;
+			RbPeso.Enabled = true;
+			RbUnidad.Enabled = true;
+			RbAdicional.Enabled = true;
 			TxtCodigoCliente.Focus();
         }
 
@@ -141,7 +146,7 @@ namespace cromo
 
 			if (validacion == true)
 			{
-				string sql = "SELECT factura, exige_numero, consecutivo, validar_flete, validar_rango FROM tte_guia_tipo WHERE codigo_guia_tipo_pk ='" + CboTipo.SelectedValue.ToString() + "'";
+				string sql = "SELECT factura, exige_numero, consecutivo, validar_flete, validar_rango, genera_cobro, cortesia FROM tte_guia_tipo WHERE codigo_guia_tipo_pk ='" + CboTipo.SelectedValue.ToString() + "'";
 				DataSet ds = Utilidades.Ejecutar(sql);
 				DataTable dtGuiaTipo = ds.Tables[0];
 				if (dtGuiaTipo.Rows.Count > 0)
@@ -152,6 +157,12 @@ namespace cromo
 					} else
 					{
 						ChkFactura.Checked = Convert.ToBoolean(dtGuiaTipo.Rows[0]["factura"]);
+						ChkCortesia.Checked = Convert.ToBoolean(dtGuiaTipo.Rows[0]["cortesia"]);
+						if(Convert.ToBoolean(dtGuiaTipo.Rows[0]["cortesia"]))
+						{
+							TxtFlete.Text = "0";
+							TxtManejo.Text = "0";
+						}
 						if (Convert.ToBoolean(dtGuiaTipo.Rows[0]["exige_numero"]))
 						{
 							FrmDevolverNumero frm = new FrmDevolverNumero();
@@ -206,6 +217,12 @@ namespace cromo
 
 						if(validacion == true)
 						{
+							double cobro = Convert.ToDouble(TxtRecaudo.Text);
+							if(Convert.ToBoolean(dtGuiaTipo.Rows[0]["genera_cobro"]))
+							{
+								double vrGuia = Convert.ToDouble(TxtFlete.Text) + Convert.ToDouble(TxtManejo.Text);								
+								cobro = cobro + vrGuia;
+							}
 							//https://www.youtube.com/watch?v=IT_R46g7YTk&t=227s
 							guia pGuia = new guia();
 							pGuia.codigoOperacionIngresoFk = TxtOperacionIngreso.Text;
@@ -231,14 +248,18 @@ namespace cromo
 							pGuia.vrManejo = Convert.ToDouble(TxtManejo.Text);
 							pGuia.vrDeclara = Convert.ToDouble(TxtDeclarado.Text);
 							pGuia.vrRecaudo = Convert.ToDouble(TxtRecaudo.Text);
+							pGuia.vrCostoReexpedicion = Convert.ToDouble(TxtCostoReexpedicion.Text);
+							pGuia.vrCobroEntrega = cobro;
 							pGuia.codigoRutaFk = TxtCodigoRuta.Text;
 							pGuia.ordenRuta = Convert.ToInt32(TxtOrdenRuta.Text);
 							pGuia.reexpedicion = ChkReexpedicion.Checked;
 							pGuia.codigoCondicionFk = Convert.ToInt32(TxtCodigoCondicion.Text);
 							pGuia.factura = ChkFactura.Checked;
+							pGuia.cortesia = ChkCortesia.Checked;
 							pGuia.comentario = TxtComentario.Text;
 							pGuia.numero = Convert.ToInt32(TxtNumero.Text);
 							pGuia.usuario = General.UsuarioActivo;
+							pGuia.empaqueReferencia = TxtReferenciaEmpaque.Text;
 							long resultado = GuiaRepositorio.Agregar(pGuia);
 
 							if (resultado > 0)
@@ -248,6 +269,7 @@ namespace cromo
 								GuardarDetalle(TxtCodigo.Text);
 
 								ultimoCliente = TxtCodigoCliente.Text;
+								ultimaCondicion = TxtCodigoCondicion.Text;
 								ultimoTipo = CboTipo.SelectedValue.ToString();
 								ultimoServicio = CboServicio.SelectedValue.ToString();
 								ultimoProducto = CboProducto.SelectedValue.ToString();
@@ -300,6 +322,10 @@ namespace cromo
 			TxtRecaudo.Text = "0";
 			TxtNumero.Text = "";
 			TxtAbono.Text = "0";
+			TxtComentario.Text = "";
+			TxtReferenciaEmpaque.Text = "";
+			TxtCostoReexpedicion.Text = "0";
+			TxtCodigoDespacho.Text = "";
 			ChkFactura.Checked = false;
 			ChkReexpedicion.Checked = false;
 			ChkEstadoImpreso.Checked = false;
@@ -436,19 +462,30 @@ namespace cromo
         {
 			if(TxtCodigoCliente.Text != "")
 			{
-				DataSet ds = Utilidades.Ejecutar("SELECT nombre_corto, codigo_condicion_fk " +
+				DataSet ds = Utilidades.Ejecutar("SELECT nombre_corto, codigo_condicion_fk, estado_inactivo " +
 					"FROM tte_cliente " +					
 					"WHERE codigo_cliente_pk = " + TxtCodigoCliente.Text);
 				DataTable dt = ds.Tables[0];
 				if (dt.Rows.Count > 0)
 				{
-					TxtCodigoCondicion.Text = dt.Rows[0]["codigo_condicion_fk"].ToString();
-					txtNombreCliente.Text = Convert.ToString(dt.Rows[0]["nombre_corto"]);
+					if(Convert.ToBoolean(dt.Rows[0]["estado_inactivo"]) == false)
+					{
+						if (ultimoCliente != TxtCodigoCliente.Text)
+						{
+							TxtCodigoCondicion.Text = dt.Rows[0]["codigo_condicion_fk"].ToString();
+						}
+						txtNombreCliente.Text = Convert.ToString(dt.Rows[0]["nombre_corto"]);
+					} else
+					{
+						TxtCodigoCliente.Text = "";
+						txtNombreCliente.Text = "";
+						MessageBox.Show("El cliente esta inactivo debe seleccionar otro");
+					}
 				}
 				if (TxtRemitente.Text == "")
 				{
 					TxtRemitente.Text = txtNombreCliente.Text;
-				}
+				}				
 			}
 
         }
@@ -605,7 +642,8 @@ namespace cromo
 						"codigo_guia_tipo_fk, codigo_servicio_fk, codigo_empaque_fk, fecha_ingreso, fecha_despacho, fecha_entrega, " +
 						"codigo_operacion_ingreso_fk, codigo_operacion_cargo_fk, codigo_producto_fk, tte_guia.codigo_condicion_fk, tte_condicion.nombre as nombreCondicion, " +
 						"tte_guia.reexpedicion, factura, vr_abono, estado_impreso, estado_embarcado, estado_despachado, estado_entregado, estado_soporte, " +
-						"estado_cumplido, estado_facturado, estado_factura_generada, estado_anulado, usuario, relacion_cliente " +
+						"estado_cumplido, estado_facturado, estado_factura_generada, estado_anulado, usuario, relacion_cliente, empaque_referencia, " +
+						"tte_guia.comentario, codigo_despacho_fk, vr_costo_reexpedicion, cortesia " +
 						"FROM tte_guia " +
 						"LEFT JOIN tte_cliente ON tte_guia.codigo_cliente_fk = tte_cliente.codigo_cliente_pk " +
 						"LEFT JOIN tte_ciudad as CiudadOrigen ON tte_guia.codigo_ciudad_origen_fk = CiudadOrigen.codigo_ciudad_pk " +
@@ -614,6 +652,8 @@ namespace cromo
 						"WHERE codigo_guia_pk = " + codigoGuia.ToString());
 					DataSet ds = Utilidades.Ejecutar(cmd);
 					TxtCodigo.Text = ds.Tables[0].Rows[0]["codigo_guia_pk"].ToString();
+					TxtNumero.Text = ds.Tables[0].Rows[0]["numero"].ToString();
+					TxtCodigoDespacho.Text = ds.Tables[0].Rows[0]["codigo_despacho_fk"].ToString();
 					TxtFechaIngreso.Text = ds.Tables[0].Rows[0]["fecha_ingreso"].ToString();
 					TxtFechaDespacho.Text = ds.Tables[0].Rows[0]["fecha_despacho"].ToString();
 					TxtFechaEntrega.Text = ds.Tables[0].Rows[0]["fecha_entrega"].ToString();
@@ -642,13 +682,17 @@ namespace cromo
 					TxtFlete.Text = ds.Tables[0].Rows[0]["vr_flete"].ToString();
 					TxtManejo.Text = ds.Tables[0].Rows[0]["vr_manejo"].ToString();
 					TxtRecaudo.Text = ds.Tables[0].Rows[0]["vr_recaudo"].ToString();
+					TxtCostoReexpedicion.Text = ds.Tables[0].Rows[0]["vr_costo_reexpedicion"].ToString();
+					TxtReferenciaEmpaque.Text = ds.Tables[0].Rows[0]["empaque_referencia"].ToString();
+					TxtComentario.Text = ds.Tables[0].Rows[0]["comentario"].ToString();
+					TxtUsuario.Text = ds.Tables[0].Rows[0]["usuario"].ToString();
 					CboTipo.SelectedValue = ds.Tables[0].Rows[0]["codigo_guia_tipo_fk"].ToString();
 					CboServicio.SelectedValue = ds.Tables[0].Rows[0]["codigo_servicio_fk"].ToString();
 					CboEmpaque.SelectedValue = ds.Tables[0].Rows[0]["codigo_empaque_fk"].ToString();
-					CboProducto.SelectedValue = ds.Tables[0].Rows[0]["codigo_producto_fk"].ToString();
-					TxtNumero.Text = ds.Tables[0].Rows[0]["numero"].ToString();
+					CboProducto.SelectedValue = ds.Tables[0].Rows[0]["codigo_producto_fk"].ToString();					
 					ChkReexpedicion.Checked = Convert.ToBoolean(ds.Tables[0].Rows[0]["reexpedicion"]);
 					ChkFactura.Checked = Convert.ToBoolean(ds.Tables[0].Rows[0]["factura"]);
+					ChkCortesia.Checked = Convert.ToBoolean(ds.Tables[0].Rows[0]["cortesia"]);
 					ChkEstadoImpreso.Checked = Convert.ToBoolean(ds.Tables[0].Rows[0]["estado_impreso"]);
 					ChkEstadoEmbarcado.Checked = Convert.ToBoolean(ds.Tables[0].Rows[0]["estado_embarcado"]);
 					ChkEstadoDespachado.Checked = Convert.ToBoolean(ds.Tables[0].Rows[0]["estado_despachado"]);
@@ -658,7 +702,7 @@ namespace cromo
 					ChkEstadoFacturado.Checked = Convert.ToBoolean(ds.Tables[0].Rows[0]["estado_facturado"]);
 					ChkEstadoFacturaGenerada.Checked = Convert.ToBoolean(ds.Tables[0].Rows[0]["estado_factura_generada"]);
 					ChkEstadoAnulado.Checked = Convert.ToBoolean(ds.Tables[0].Rows[0]["estado_anulado"]);
-					TxtUsuario.Text = ds.Tables[0].Rows[0]["usuario"].ToString();
+					
 				}
 			}
 			catch (Exception error)
@@ -847,10 +891,10 @@ namespace cromo
 			if(Convert.ToDouble(TxtManejo.Text) == 0 && Convert.ToDouble(TxtDeclarado.Text) > 0)
 			{
 				TxtManejo.Text = (Convert.ToDouble(TxtDeclarado.Text) * porcentajeManejo / 100).ToString();
-				if(manejoMinimoDespacho > Convert.ToDouble(TxtDeclarado.Text)) {
+				if(manejoMinimoDespacho > Convert.ToDouble(TxtManejo.Text)) {
 					TxtManejo.Text = manejoMinimoDespacho.ToString();
 				}
-				if(manejoMinimoUnidad * Convert.ToInt32(TxtUnidades.Text) > Convert.ToDouble(TxtDeclarado.Text))
+				if(manejoMinimoUnidad * Convert.ToInt32(TxtUnidades.Text) > Convert.ToDouble(TxtManejo.Text))
 				{
 					TxtManejo.Text = (manejoMinimoUnidad * Convert.ToInt32(TxtUnidades.Text)).ToString();
 				}
@@ -1063,6 +1107,33 @@ namespace cromo
 			if (General.CodigoGuia != 0)
 			{
 				TraerGuia(General.CodigoGuia);
+			}
+		}
+
+		private void TxtNombreDestinatario_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.KeyCode.ToString() == "F2")
+			{
+				FrmBuscarDestinatario frmBuscarDestinatario= new FrmBuscarDestinatario();
+				frmBuscarDestinatario.ShowDialog();
+				if (frmBuscarDestinatario.DialogResult == DialogResult.OK)
+				{
+					DataSet ds = Utilidades.Ejecutar("SELECT nombre_corto, direccion, telefono, codigo_ciudad_fk " +
+						"FROM tte_destinatario WHERE codigo_destinatario_pk = " + General.CodigoDestinatario + " AND estado_inactivo = 0");
+					DataTable dt = ds.Tables[0];
+					if (dt.Rows.Count > 0)
+					{
+						TxtNombreDestinatario.Text = dt.Rows[0]["nombre_corto"].ToString();
+						TxtDireccionDestinatario.Text = dt.Rows[0]["direccion"].ToString();
+						TxtTelefonoDestinatario.Text = dt.Rows[0]["telefono"].ToString();
+						TxtCodigoCiudadDestino.Text = dt.Rows[0]["codigo_ciudad_fk"].ToString();
+					}
+					else
+					{
+						MessageBox.Show("No existe el destinatario");
+					}
+					
+				}
 			}
 		}
 	}

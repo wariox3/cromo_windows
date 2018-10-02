@@ -37,7 +37,14 @@ namespace cromo
 					"FROM tte_guia WHERE codigo_guia_pk = " + General.CodigoGuia;
 			DataSet ds = Utilidades.Ejecutar(sql);
 			DataTable dt = ds.Tables[0];
-
+			if(TxtFlete.Text == "")
+			{
+				TxtFlete.Text = "0";
+			}
+			if (TxtManejo.Text == "")
+			{
+				TxtManejo.Text = "0";
+			}
 			double total = Convert.ToDouble(TxtFlete.Text) + Convert.ToDouble(TxtManejo.Text);
 			MySqlCommand comando = new MySqlCommand(string.Format("INSERT INTO tte_recibo (codigo_guia_fk, " +
 				"vr_flete, vr_manejo, vr_total, fecha, codigo_cliente_fk, codigo_operacion_fk)" +
@@ -46,12 +53,13 @@ namespace cromo
 				dt.Rows[0]["codigo_operacion_ingreso_fk"]
 				), BdCromo.ObtenerConexion());
 			comando.ExecuteNonQuery();
-			MySqlCommand cmdGuia = new MySqlCommand("UPDATE tte_guia SET vr_abono = vr_abono + "+ total + " WHERE codigo_guia_pk = " + General.CodigoGuia, 
+			MySqlCommand cmdGuia = new MySqlCommand("UPDATE tte_guia SET vr_abono = vr_abono + "+ total + ", vr_cobro_entrega = (vr_recaudo + vr_flete + vr_manejo) - vr_abono" + 
+				" WHERE codigo_guia_pk = " + General.CodigoGuia, 
 				BdCromo.ObtenerConexion());
 			cmdGuia.ExecuteNonQuery();
 			DgRecibos.DataSource = LlenarDatos().Tables[0];
-			TxtFlete.Text = "";
-			TxtManejo.Text = "";
+			TxtFlete.Text = "0";
+			TxtManejo.Text = "0";
 			TxtFlete.Focus();
 		}
 
@@ -64,7 +72,7 @@ namespace cromo
 				MySqlCommand comando = new MySqlCommand("DELETE FROM tte_recibo WHERE codigo_recibo_pk = " + codigoRecibo, BdCromo.ObtenerConexion());
 				comando.ExecuteNonQuery();
 
-				MySqlCommand cmdGuia = new MySqlCommand("UPDATE tte_guia SET vr_abono = vr_abono - " + total + " WHERE codigo_guia_pk = " + General.CodigoGuia,
+				MySqlCommand cmdGuia = new MySqlCommand("UPDATE tte_guia SET vr_abono = vr_abono - " + total + ", vr_cobro_entrega = (vr_recaudo + vr_flete + vr_manejo) - vr_abono WHERE codigo_guia_pk = " + General.CodigoGuia,
 					BdCromo.ObtenerConexion());
 				cmdGuia.ExecuteNonQuery();
 				DgRecibos.DataSource = LlenarDatos().Tables[0];

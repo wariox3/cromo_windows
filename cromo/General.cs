@@ -18,6 +18,13 @@ namespace cromo
 			set { v_CodigoCliente = value; }
 		}
 
+		private static string v_CodigoDestinatario = "";
+		public static string CodigoDestinatario
+		{
+			get { return v_CodigoDestinatario; }
+			set { v_CodigoDestinatario = value; }
+		}
+
 		private static string v_CodigoCiudad = "";
 		public static string CodigoCiudad
 		{

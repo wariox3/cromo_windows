@@ -110,6 +110,12 @@
     <Compile Include="FrmBuscarCondicion.Designer.cs">
       <DependentUpon>FrmBuscarCondicion.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmBuscarDestinatario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBuscarDestinatario.Designer.cs">
+      <DependentUpon>FrmBuscarDestinatario.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmDevolverDocumento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +228,9 @@
     <Compile Include="Validar.cs" />
     <EmbeddedResource Include="FrmBuscarCondicion.resx">
       <DependentUpon>FrmBuscarCondicion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBuscarDestinatario.resx">
+      <DependentUpon>FrmBuscarDestinatario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDevolverDocumento.resx">
       <DependentUpon>FrmDevolverDocumento.cs</DependentUpon>

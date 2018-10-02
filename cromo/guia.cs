@@ -40,6 +40,10 @@ namespace cromo
 		public bool factura { get; set; }
 		public string comentario { get; set; }
 		public string usuario { get; set; }
+		public string empaqueReferencia { get; set; }
+		public double vrCostoReexpedicion { get; set; }
+		public double vrCobroEntrega { get; set; }
+		public bool cortesia { get; set; }
 		public guia() { }
 
         public guia(int pcodigoGuiaPk, string pcodigoOperacionIngresoFk, string pcodigoOperacionCargoFk,
@@ -48,7 +52,8 @@ namespace cromo
 			string pdireccionDestinatario, string ptelefonoDestinatario, string pfechaIngreso, int punidades, int ppesoReal, 
 			int ppesovolumen, int ppesoFacturar, double pvrFlete, double pvrManejo, double pvrDeclara, double pvrRecaudo,
 			string pcodigoRutaFk, int pordenRuta, bool preexpedicion, int pcodigoCondicionFk, bool pfactura, int pnumero,
-			string pcomentario, string pusuario, string prelacionCliente)
+			string pcomentario, string pusuario, string prelacionCliente, string pempaqueReferencia, double pvrCostoReexpedicion,
+			double pvrCobroEntrega, bool pcortesia)
         {
             this.codigoGuiaPk = pcodigoGuiaPk;
 			this.numero = pnumero;
@@ -74,6 +79,8 @@ namespace cromo
 			this.vrManejo = pvrManejo;
 			this.vrDeclara = pvrDeclara;
 			this.vrRecaudo = pvrRecaudo;
+			this.vrCostoReexpedicion = pvrCostoReexpedicion;
+			this.vrCobroEntrega = pvrCobroEntrega;
 			this.codigoRutaFk = pcodigoRutaFk;
 			this.ordenRuta = pordenRuta;
 			this.reexpedicion = preexpedicion;
@@ -82,6 +89,8 @@ namespace cromo
 			this.usuario = pusuario;
 			this.comentario = pcomentario;
 			this.relacionCliente = prelacionCliente;
+			this.empaqueReferencia = pempaqueReferencia;
+			this.cortesia = pcortesia;
 		}
 
 	}

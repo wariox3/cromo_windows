@@ -90,6 +90,8 @@
 			this.TxtManejo.Name = "TxtManejo";
 			this.TxtManejo.Size = new System.Drawing.Size(100, 20);
 			this.TxtManejo.TabIndex = 1;
+			this.TxtManejo.Text = "0";
+			this.TxtManejo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// TxtFlete
 			// 
@@ -97,6 +99,8 @@
 			this.TxtFlete.Name = "TxtFlete";
 			this.TxtFlete.Size = new System.Drawing.Size(100, 20);
 			this.TxtFlete.TabIndex = 0;
+			this.TxtFlete.Text = "0";
+			this.TxtFlete.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// BtnAgregar
 			// 
