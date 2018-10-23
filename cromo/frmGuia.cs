@@ -260,6 +260,7 @@ namespace cromo
 							pGuia.numero = Convert.ToInt32(TxtNumero.Text);
 							pGuia.usuario = General.UsuarioActivo;
 							pGuia.empaqueReferencia = TxtReferenciaEmpaque.Text;
+							pGuia.mercanciaPeligrosa = ChkMercanciaPeligrosa.Checked;
 							long resultado = GuiaRepositorio.Agregar(pGuia);
 
 							if (resultado > 0)

@@ -44,6 +44,7 @@ namespace cromo
 		public double vrCostoReexpedicion { get; set; }
 		public double vrCobroEntrega { get; set; }
 		public bool cortesia { get; set; }
+		public bool mercanciaPeligrosa { get; set; }
 		public guia() { }
 
         public guia(int pcodigoGuiaPk, string pcodigoOperacionIngresoFk, string pcodigoOperacionCargoFk,
@@ -53,7 +54,7 @@ namespace cromo
 			int ppesovolumen, int ppesoFacturar, double pvrFlete, double pvrManejo, double pvrDeclara, double pvrRecaudo,
 			string pcodigoRutaFk, int pordenRuta, bool preexpedicion, int pcodigoCondicionFk, bool pfactura, int pnumero,
 			string pcomentario, string pusuario, string prelacionCliente, string pempaqueReferencia, double pvrCostoReexpedicion,
-			double pvrCobroEntrega, bool pcortesia)
+			double pvrCobroEntrega, bool pcortesia, bool pmercanciaPeligrosa)
         {
             this.codigoGuiaPk = pcodigoGuiaPk;
 			this.numero = pnumero;
@@ -91,6 +92,7 @@ namespace cromo
 			this.relacionCliente = prelacionCliente;
 			this.empaqueReferencia = pempaqueReferencia;
 			this.cortesia = pcortesia;
+			this.mercanciaPeligrosa = pmercanciaPeligrosa;
 		}
 
 	}

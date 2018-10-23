@@ -96,6 +96,7 @@
 			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
 			this.TsbRecibo = new System.Windows.Forms.ToolStripButton();
 			this.gbInformacion = new System.Windows.Forms.GroupBox();
+			this.ChkMercanciaPeligrosa = new System.Windows.Forms.CheckBox();
 			this.label44 = new System.Windows.Forms.Label();
 			this.TxtReferenciaEmpaque = new System.Windows.Forms.TextBox();
 			this.label26 = new System.Windows.Forms.Label();
@@ -116,6 +117,7 @@
 			this.MnuBuscar = new System.Windows.Forms.ToolStripMenuItem();
 			this.MnuImprimir = new System.Windows.Forms.ToolStripMenuItem();
 			this.gbDatos = new System.Windows.Forms.GroupBox();
+			this.ChkCortesia = new System.Windows.Forms.CheckBox();
 			this.label46 = new System.Windows.Forms.Label();
 			this.TxtCodigoDespacho = new System.Windows.Forms.TextBox();
 			this.ChkEstadoAnulado = new System.Windows.Forms.CheckBox();
@@ -174,7 +176,6 @@
 			this.label40 = new System.Windows.Forms.Label();
 			this.label39 = new System.Windows.Forms.Label();
 			this.label38 = new System.Windows.Forms.Label();
-			this.ChkCortesia = new System.Windows.Forms.CheckBox();
 			this.gbDestinatario.SuspendLayout();
 			this.gbTotales.SuspendLayout();
 			this.gbCliente.SuspendLayout();
@@ -854,6 +855,7 @@
 			// 
 			// gbInformacion
 			// 
+			this.gbInformacion.Controls.Add(this.ChkMercanciaPeligrosa);
 			this.gbInformacion.Controls.Add(this.label44);
 			this.gbInformacion.Controls.Add(this.TxtReferenciaEmpaque);
 			this.gbInformacion.Controls.Add(this.label26);
@@ -871,6 +873,17 @@
 			this.gbInformacion.TabIndex = 12;
 			this.gbInformacion.TabStop = false;
 			// 
+			// ChkMercanciaPeligrosa
+			// 
+			this.ChkMercanciaPeligrosa.AutoSize = true;
+			this.ChkMercanciaPeligrosa.Location = new System.Drawing.Point(182, 109);
+			this.ChkMercanciaPeligrosa.Name = "ChkMercanciaPeligrosa";
+			this.ChkMercanciaPeligrosa.Size = new System.Drawing.Size(94, 17);
+			this.ChkMercanciaPeligrosa.TabIndex = 18;
+			this.ChkMercanciaPeligrosa.Text = "Mcia peligrosa";
+			this.ChkMercanciaPeligrosa.UseVisualStyleBackColor = true;
+			this.ChkMercanciaPeligrosa.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+			// 
 			// label44
 			// 
 			this.label44.AutoSize = true;
@@ -884,7 +897,7 @@
 			// 
 			this.TxtReferenciaEmpaque.Location = new System.Drawing.Point(73, 110);
 			this.TxtReferenciaEmpaque.Name = "TxtReferenciaEmpaque";
-			this.TxtReferenciaEmpaque.Size = new System.Drawing.Size(201, 20);
+			this.TxtReferenciaEmpaque.Size = new System.Drawing.Size(103, 20);
 			this.TxtReferenciaEmpaque.TabIndex = 17;
 			this.TxtReferenciaEmpaque.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
 			// 
@@ -1083,6 +1096,16 @@
 			this.gbDatos.Size = new System.Drawing.Size(238, 326);
 			this.gbDatos.TabIndex = 17;
 			this.gbDatos.TabStop = false;
+			// 
+			// ChkCortesia
+			// 
+			this.ChkCortesia.AutoSize = true;
+			this.ChkCortesia.Location = new System.Drawing.Point(146, 238);
+			this.ChkCortesia.Name = "ChkCortesia";
+			this.ChkCortesia.Size = new System.Drawing.Size(64, 17);
+			this.ChkCortesia.TabIndex = 52;
+			this.ChkCortesia.Text = "Cortesia";
+			this.ChkCortesia.UseVisualStyleBackColor = true;
 			// 
 			// label46
 			// 
@@ -1616,16 +1639,6 @@
 			this.label38.TabIndex = 0;
 			this.label38.Text = "VrAdi:";
 			// 
-			// ChkCortesia
-			// 
-			this.ChkCortesia.AutoSize = true;
-			this.ChkCortesia.Location = new System.Drawing.Point(146, 238);
-			this.ChkCortesia.Name = "ChkCortesia";
-			this.ChkCortesia.Size = new System.Drawing.Size(64, 17);
-			this.ChkCortesia.TabIndex = 52;
-			this.ChkCortesia.Text = "Cortesia";
-			this.ChkCortesia.UseVisualStyleBackColor = true;
-			// 
 			// FrmGuia
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1820,6 +1833,7 @@
 		private System.Windows.Forms.Label label46;
 		private System.Windows.Forms.TextBox TxtCodigoDespacho;
 		private System.Windows.Forms.CheckBox ChkCortesia;
+		private System.Windows.Forms.CheckBox ChkMercanciaPeligrosa;
 	}
 }
 
