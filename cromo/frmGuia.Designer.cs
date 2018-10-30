@@ -236,17 +236,17 @@
 			// TxtNombreCiudadDestino
 			// 
 			this.TxtNombreCiudadDestino.Enabled = false;
-			this.TxtNombreCiudadDestino.Location = new System.Drawing.Point(125, 57);
+			this.TxtNombreCiudadDestino.Location = new System.Drawing.Point(161, 57);
 			this.TxtNombreCiudadDestino.Name = "TxtNombreCiudadDestino";
 			this.TxtNombreCiudadDestino.ReadOnly = true;
-			this.TxtNombreCiudadDestino.Size = new System.Drawing.Size(328, 20);
+			this.TxtNombreCiudadDestino.Size = new System.Drawing.Size(292, 20);
 			this.TxtNombreCiudadDestino.TabIndex = 18;
 			// 
 			// TxtCodigoCiudadDestino
 			// 
 			this.TxtCodigoCiudadDestino.Location = new System.Drawing.Point(76, 57);
 			this.TxtCodigoCiudadDestino.Name = "TxtCodigoCiudadDestino";
-			this.TxtCodigoCiudadDestino.Size = new System.Drawing.Size(42, 20);
+			this.TxtCodigoCiudadDestino.Size = new System.Drawing.Size(79, 20);
 			this.TxtCodigoCiudadDestino.TabIndex = 11;
 			this.TxtCodigoCiudadDestino.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCodigoCiudadDestino_KeyDown);
 			this.TxtCodigoCiudadDestino.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
@@ -645,17 +645,17 @@
 			// txtNombreCiudadOrigen
 			// 
 			this.txtNombreCiudadOrigen.Enabled = false;
-			this.txtNombreCiudadOrigen.Location = new System.Drawing.Point(118, 102);
+			this.txtNombreCiudadOrigen.Location = new System.Drawing.Point(161, 102);
 			this.txtNombreCiudadOrigen.Name = "txtNombreCiudadOrigen";
 			this.txtNombreCiudadOrigen.ReadOnly = true;
-			this.txtNombreCiudadOrigen.Size = new System.Drawing.Size(399, 20);
+			this.txtNombreCiudadOrigen.Size = new System.Drawing.Size(356, 20);
 			this.txtNombreCiudadOrigen.TabIndex = 21;
 			// 
 			// TxtCodigoCiudadOrigen
 			// 
 			this.TxtCodigoCiudadOrigen.Location = new System.Drawing.Point(76, 102);
 			this.TxtCodigoCiudadOrigen.Name = "TxtCodigoCiudadOrigen";
-			this.TxtCodigoCiudadOrigen.Size = new System.Drawing.Size(39, 20);
+			this.TxtCodigoCiudadOrigen.Size = new System.Drawing.Size(79, 20);
 			this.TxtCodigoCiudadOrigen.TabIndex = 6;
 			this.TxtCodigoCiudadOrigen.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCodigoCiudadOrigen_KeyDown);
 			this.TxtCodigoCiudadOrigen.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);

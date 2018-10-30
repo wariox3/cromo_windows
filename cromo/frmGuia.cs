@@ -143,7 +143,15 @@ namespace cromo
 					}
 				}
 			}
-
+			string tipoLiquidacion = "K";		
+			if(RbUnidad.Checked)
+			{
+				tipoLiquidacion = "U";
+			}
+			if(RbAdicional.Checked)
+			{
+				tipoLiquidacion = "A";
+			}
 			if (validacion == true)
 			{
 				string sql = "SELECT factura, exige_numero, consecutivo, validar_flete, validar_rango, genera_cobro, cortesia FROM tte_guia_tipo WHERE codigo_guia_tipo_pk ='" + CboTipo.SelectedValue.ToString() + "'";
@@ -261,6 +269,7 @@ namespace cromo
 							pGuia.usuario = General.UsuarioActivo;
 							pGuia.empaqueReferencia = TxtReferenciaEmpaque.Text;
 							pGuia.mercanciaPeligrosa = ChkMercanciaPeligrosa.Checked;
+							pGuia.tipoLiquidacion = tipoLiquidacion;
 							long resultado = GuiaRepositorio.Agregar(pGuia);
 
 							if (resultado > 0)
