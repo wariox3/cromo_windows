@@ -48,7 +48,14 @@ namespace cromo
 			DataTable dt = ds.Tables[0];
 			if (dt.Rows.Count > 0)
 			{
-				codigoPrecioGeneral = Convert.ToInt32(dt.Rows[0]["codigo_precio_general_fk"]);
+				if(dt.Rows[0]["codigo_precio_general_fk"] != null && dt.Rows[0]["codigo_precio_general_fk"].ToString() != "")
+				{
+					codigoPrecioGeneral = Convert.ToInt32(dt.Rows[0]["codigo_precio_general_fk"]);
+				} else
+				{
+					MessageBox.Show("No existe una lista general configurada, esto puede generar un error");
+				}
+				
 			}
 		}
 
@@ -1145,6 +1152,11 @@ namespace cromo
 					
 				}
 			}
+		}
+
+		private void TxtCodigoCiudadDestino_TextChanged(object sender, EventArgs e)
+		{
+
 		}
 	}
 

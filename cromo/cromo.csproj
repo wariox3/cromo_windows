@@ -146,6 +146,12 @@
     <Compile Include="FrmIngreso.Designer.cs">
       <DependentUpon>FrmIngreso.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmValidarAdministrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmValidarAdministrador.Designer.cs">
+      <DependentUpon>FrmValidarAdministrador.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\Transporte\FormatoGuia.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -246,6 +252,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmIngreso.resx">
       <DependentUpon>FrmIngreso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmValidarAdministrador.resx">
+      <DependentUpon>FrmValidarAdministrador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Transporte\FormatoGuia.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
