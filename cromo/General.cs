@@ -130,6 +130,13 @@ namespace cromo
 			set { v_Unidades = value; }
 		}
 
+		private static bool v_NumeroUnicoGuia = false;
+		public static bool NumeroUnicoGuia
+		{
+			get { return v_NumeroUnicoGuia; }
+			set { v_NumeroUnicoGuia = value; }
+		}
+
 		public static GuiaDetalle[] guiaDetallePublica = new GuiaDetalle[0];
 
 	}

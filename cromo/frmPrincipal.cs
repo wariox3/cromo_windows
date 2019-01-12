@@ -103,8 +103,13 @@ namespace cromo
 
         private void mnuArchivoConfigurcion_Click(object sender, EventArgs e)
         {
-            FrmConfiguracion frmConfiguracion = new FrmConfiguracion();
-            frmConfiguracion.ShowDialog();
+			FrmValidarAdministrador frmValidarAdministrador = new FrmValidarAdministrador();
+			frmValidarAdministrador.ShowDialog();
+			if (frmValidarAdministrador.DialogResult == DialogResult.OK)
+			{
+				FrmConfiguracion frmConfiguracion = new FrmConfiguracion();
+				frmConfiguracion.ShowDialog();
+			}
         }
 
 		private void mnuImprimirGuia_Click(object sender, EventArgs e)

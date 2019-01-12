@@ -30,7 +30,14 @@ namespace cromo
 					if(dt.Rows[0]["clave_escritorio"].ToString() == TxtContraseña.Text)
 					{
 						General.UsuarioActivo = TxtUsuario.Text;
-						DialogResult = DialogResult.OK;
+						string sql = "SELECT numero_unico_guia FROM tte_configuracion WHERE codigo_configuracion_pk =1";
+						DataSet dsConfiguracion = Utilidades.Ejecutar(sql);
+						DataTable dtConfiguracion = dsConfiguracion.Tables[0];
+						if (dtConfiguracion.Rows.Count > 0)
+						{
+							General.NumeroUnicoGuia = Convert.ToBoolean(dtConfiguracion.Rows[0]["numero_unico_guia"]);
+						}
+							DialogResult = DialogResult.OK;
 						Close();						
 					} else
 					{

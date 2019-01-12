@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
 			this.DgCiudades = new System.Windows.Forms.DataGridView();
-			this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.BtnSeleccionar = new System.Windows.Forms.Button();
 			this.BtnCancelar = new System.Windows.Forms.Button();
 			this.TxtNombre = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.BtnFiltrar = new System.Windows.Forms.Button();
+			this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Departamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			((System.ComponentModel.ISupportInitialize)(this.DgCiudades)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -46,7 +47,8 @@
 			this.DgCiudades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.DgCiudades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
-            this.Nombre});
+            this.Nombre,
+            this.Departamento});
 			this.DgCiudades.Location = new System.Drawing.Point(44, 45);
 			this.DgCiudades.MultiSelect = false;
 			this.DgCiudades.Name = "DgCiudades";
@@ -57,21 +59,6 @@
 			this.DgCiudades.TabIndex = 1;
 			this.DgCiudades.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgCiudades_CellContentClick);
 			this.DgCiudades.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DgCiudades_KeyDown);
-			// 
-			// ID
-			// 
-			this.ID.DataPropertyName = "codigo_ciudad_pk";
-			this.ID.HeaderText = "ID";
-			this.ID.Name = "ID";
-			this.ID.ReadOnly = true;
-			// 
-			// Nombre
-			// 
-			this.Nombre.DataPropertyName = "nombre";
-			this.Nombre.HeaderText = "Nombre";
-			this.Nombre.Name = "Nombre";
-			this.Nombre.ReadOnly = true;
-			this.Nombre.Width = 300;
 			// 
 			// BtnSeleccionar
 			// 
@@ -122,6 +109,29 @@
 			this.BtnFiltrar.UseVisualStyleBackColor = true;
 			this.BtnFiltrar.Click += new System.EventHandler(this.BtnFiltrar_Click);
 			// 
+			// ID
+			// 
+			this.ID.DataPropertyName = "codigo_ciudad_pk";
+			this.ID.HeaderText = "ID";
+			this.ID.Name = "ID";
+			this.ID.ReadOnly = true;
+			// 
+			// Nombre
+			// 
+			this.Nombre.DataPropertyName = "ciudad_nombre";
+			this.Nombre.HeaderText = "Nombre";
+			this.Nombre.Name = "Nombre";
+			this.Nombre.ReadOnly = true;
+			this.Nombre.Width = 250;
+			// 
+			// Departamento
+			// 
+			this.Departamento.DataPropertyName = "departamento_nombre";
+			this.Departamento.HeaderText = "Departamento";
+			this.Departamento.Name = "Departamento";
+			this.Departamento.ReadOnly = true;
+			this.Departamento.Width = 250;
+			// 
 			// FrmBuscarCiudad
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -147,12 +157,13 @@
         #endregion
 
         public System.Windows.Forms.DataGridView DgCiudades;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
 		private System.Windows.Forms.Button BtnSeleccionar;
 		private System.Windows.Forms.Button BtnCancelar;
 		private System.Windows.Forms.TextBox TxtNombre;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Button BtnFiltrar;
+		private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Departamento;
 	}
 }

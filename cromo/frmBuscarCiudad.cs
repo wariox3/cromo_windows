@@ -18,10 +18,10 @@ namespace cromo
 
         public DataSet LlenarDatos()
         {
-			string sql = "SELECT * FROM tte_ciudad ";
+			string sql = "SELECT codigo_ciudad_pk, tte_ciudad.nombre as ciudad_nombre, tte_departamento.nombre as departamento_nombre FROM tte_ciudad LEFT JOIN tte_departamento ON codigo_departamento_fk = codigo_departamento_pk ";
 			if(TxtNombre.Text != "")
 			{
-				sql = sql + "WHERE nombre LIKE '%" + TxtNombre.Text + "%'";
+				sql = sql + "WHERE tte_ciudad.nombre LIKE '%" + TxtNombre.Text + "%'";
 			}
 			sql = sql + " limit 20";
 			DataSet ds;

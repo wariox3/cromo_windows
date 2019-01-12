@@ -161,7 +161,7 @@ namespace cromo
 			}
 			if (validacion == true)
 			{
-				string sql = "SELECT factura, exige_numero, consecutivo, validar_flete, validar_rango, genera_cobro, cortesia FROM tte_guia_tipo WHERE codigo_guia_tipo_pk ='" + CboTipo.SelectedValue.ToString() + "'";
+				string sql = "SELECT factura, exige_numero, consecutivo, consecutivo_factura, validar_flete, validar_rango, genera_cobro, cortesia FROM tte_guia_tipo WHERE codigo_guia_tipo_pk ='" + CboTipo.SelectedValue.ToString() + "'";
 				DataSet ds = Utilidades.Ejecutar(sql);
 				DataTable dtGuiaTipo = ds.Tables[0];
 				if (dtGuiaTipo.Rows.Count > 0)
@@ -228,10 +228,31 @@ namespace cromo
 								BdCromo.ObtenerConexion());
 							cmd.ExecuteNonQuery();
 						}
-
-
-						if(validacion == true)
+						if (validacion == true)
 						{
+							if (General.NumeroUnicoGuia)
+							{
+								sql = "SELECT codigo_guia_pk FROM tte_guia WHERE codigo_guia_pk = " + TxtNumero.Text;
+								ds = Utilidades.Ejecutar(sql);
+								DataTable dtGuia = ds.Tables[0];
+								if (dtGuia.Rows.Count > 0)
+								{
+									MessageBox.Show("El numero de guia " + TxtNumero.Text + " ya existe");
+									validacion = false;
+								}
+							}
+						}					
+						if (validacion == true)
+						{
+							//Si es una factura se le asigna el consecutivo
+							if (Convert.ToBoolean(dtGuiaTipo.Rows[0]["factura"]))
+							{
+								TxtNumeroFactura.Text = dtGuiaTipo.Rows[0]["consecutivo_factura"].ToString();
+								MySqlCommand cmd = new MySqlCommand("UPDATE tte_guia_tipo SET consecutivo_factura = consecutivo_factura+1 WHERE codigo_guia_tipo_pk = '" + CboTipo.SelectedValue.ToString() + "'",
+									BdCromo.ObtenerConexion());
+								cmd.ExecuteNonQuery();
+							}
+
 							double cobro = Convert.ToDouble(TxtRecaudo.Text);
 							if(Convert.ToBoolean(dtGuiaTipo.Rows[0]["genera_cobro"]))
 							{
@@ -240,6 +261,10 @@ namespace cromo
 							}
 							//https://www.youtube.com/watch?v=IT_R46g7YTk&t=227s
 							guia pGuia = new guia();
+							if(General.NumeroUnicoGuia)
+							{
+								pGuia.codigoGuiaPk = Convert.ToInt32(TxtNumero.Text);
+							}
 							pGuia.codigoOperacionIngresoFk = TxtOperacionIngreso.Text;
 							pGuia.codigoOperacionCargoFk = TxtOperacionCargo.Text;
 							pGuia.codigoClienteFk = Convert.ToInt32(TxtCodigoCliente.Text);
@@ -273,6 +298,10 @@ namespace cromo
 							pGuia.cortesia = ChkCortesia.Checked;
 							pGuia.comentario = TxtComentario.Text;
 							pGuia.numero = Convert.ToInt32(TxtNumero.Text);
+							if(TxtNumeroFactura.Text != "")
+							{
+								pGuia.numeroFactura = Convert.ToInt32(TxtNumeroFactura.Text);
+							}							
 							pGuia.usuario = General.UsuarioActivo;
 							pGuia.empaqueReferencia = TxtReferenciaEmpaque.Text;
 							pGuia.mercanciaPeligrosa = ChkMercanciaPeligrosa.Checked;
@@ -338,6 +367,7 @@ namespace cromo
 			TxtManejo.Text = "0";
 			TxtRecaudo.Text = "0";
 			TxtNumero.Text = "";
+			TxtNumeroFactura.Text = "";
 			TxtAbono.Text = "0";
 			TxtComentario.Text = "";
 			TxtReferenciaEmpaque.Text = "";
@@ -660,7 +690,7 @@ namespace cromo
 						"codigo_operacion_ingreso_fk, codigo_operacion_cargo_fk, codigo_producto_fk, tte_guia.codigo_condicion_fk, tte_condicion.nombre as nombreCondicion, " +
 						"tte_guia.reexpedicion, factura, vr_abono, estado_impreso, estado_embarcado, estado_despachado, estado_entregado, estado_soporte, " +
 						"estado_cumplido, estado_facturado, estado_factura_generada, estado_anulado, usuario, relacion_cliente, empaque_referencia, " +
-						"tte_guia.comentario, codigo_despacho_fk, vr_costo_reexpedicion, cortesia " +
+						"tte_guia.comentario, codigo_despacho_fk, vr_costo_reexpedicion, cortesia, numero_factura " +
 						"FROM tte_guia " +
 						"LEFT JOIN tte_cliente ON tte_guia.codigo_cliente_fk = tte_cliente.codigo_cliente_pk " +
 						"LEFT JOIN tte_ciudad as CiudadOrigen ON tte_guia.codigo_ciudad_origen_fk = CiudadOrigen.codigo_ciudad_pk " +
@@ -670,6 +700,7 @@ namespace cromo
 					DataSet ds = Utilidades.Ejecutar(cmd);
 					TxtCodigo.Text = ds.Tables[0].Rows[0]["codigo_guia_pk"].ToString();
 					TxtNumero.Text = ds.Tables[0].Rows[0]["numero"].ToString();
+					TxtNumeroFactura.Text = ds.Tables[0].Rows[0]["numero_factura"].ToString();
 					TxtCodigoDespacho.Text = ds.Tables[0].Rows[0]["codigo_despacho_fk"].ToString();
 					TxtFechaIngreso.Text = ds.Tables[0].Rows[0]["fecha_ingreso"].ToString();
 					TxtFechaDespacho.Text = ds.Tables[0].Rows[0]["fecha_despacho"].ToString();

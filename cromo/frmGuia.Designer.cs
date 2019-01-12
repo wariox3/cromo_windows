@@ -117,6 +117,8 @@
 			this.MnuBuscar = new System.Windows.Forms.ToolStripMenuItem();
 			this.MnuImprimir = new System.Windows.Forms.ToolStripMenuItem();
 			this.gbDatos = new System.Windows.Forms.GroupBox();
+			this.label47 = new System.Windows.Forms.Label();
+			this.TxtNumeroFactura = new System.Windows.Forms.TextBox();
 			this.ChkCortesia = new System.Windows.Forms.CheckBox();
 			this.label46 = new System.Windows.Forms.Label();
 			this.TxtCodigoDespacho = new System.Windows.Forms.TextBox();
@@ -1061,6 +1063,8 @@
 			// 
 			// gbDatos
 			// 
+			this.gbDatos.Controls.Add(this.label47);
+			this.gbDatos.Controls.Add(this.TxtNumeroFactura);
 			this.gbDatos.Controls.Add(this.ChkCortesia);
 			this.gbDatos.Controls.Add(this.label46);
 			this.gbDatos.Controls.Add(this.TxtCodigoDespacho);
@@ -1097,6 +1101,22 @@
 			this.gbDatos.Size = new System.Drawing.Size(238, 326);
 			this.gbDatos.TabIndex = 17;
 			this.gbDatos.TabStop = false;
+			// 
+			// label47
+			// 
+			this.label47.AutoSize = true;
+			this.label47.Location = new System.Drawing.Point(16, 194);
+			this.label47.Name = "label47";
+			this.label47.Size = new System.Drawing.Size(46, 13);
+			this.label47.TabIndex = 54;
+			this.label47.Text = "Factura:";
+			// 
+			// TxtNumeroFactura
+			// 
+			this.TxtNumeroFactura.Location = new System.Drawing.Point(65, 191);
+			this.TxtNumeroFactura.Name = "TxtNumeroFactura";
+			this.TxtNumeroFactura.Size = new System.Drawing.Size(164, 20);
+			this.TxtNumeroFactura.TabIndex = 53;
 			// 
 			// ChkCortesia
 			// 
@@ -1217,7 +1237,7 @@
 			// label31
 			// 
 			this.label31.AutoSize = true;
-			this.label31.Location = new System.Drawing.Point(18, 174);
+			this.label31.Location = new System.Drawing.Point(18, 172);
 			this.label31.Name = "label31";
 			this.label31.Size = new System.Drawing.Size(46, 13);
 			this.label31.TabIndex = 25;
@@ -1225,7 +1245,7 @@
 			// 
 			// TxtUsuario
 			// 
-			this.TxtUsuario.Location = new System.Drawing.Point(65, 171);
+			this.TxtUsuario.Location = new System.Drawing.Point(65, 169);
 			this.TxtUsuario.Name = "TxtUsuario";
 			this.TxtUsuario.Size = new System.Drawing.Size(164, 20);
 			this.TxtUsuario.TabIndex = 24;
@@ -1269,14 +1289,14 @@
 			// 
 			// TxtOperacionIngreso
 			// 
-			this.TxtOperacionIngreso.Location = new System.Drawing.Point(65, 149);
+			this.TxtOperacionIngreso.Location = new System.Drawing.Point(65, 147);
 			this.TxtOperacionIngreso.Name = "TxtOperacionIngreso";
-			this.TxtOperacionIngreso.Size = new System.Drawing.Size(56, 20);
+			this.TxtOperacionIngreso.Size = new System.Drawing.Size(69, 20);
 			this.TxtOperacionIngreso.TabIndex = 11;
 			// 
 			// TxtOperacionCargo
 			// 
-			this.TxtOperacionCargo.Location = new System.Drawing.Point(172, 149);
+			this.TxtOperacionCargo.Location = new System.Drawing.Point(172, 147);
 			this.TxtOperacionCargo.Name = "TxtOperacionCargo";
 			this.TxtOperacionCargo.Size = new System.Drawing.Size(57, 20);
 			this.TxtOperacionCargo.TabIndex = 10;
@@ -1284,7 +1304,7 @@
 			// label25
 			// 
 			this.label25.AutoSize = true;
-			this.label25.Location = new System.Drawing.Point(145, 152);
+			this.label25.Location = new System.Drawing.Point(145, 150);
 			this.label25.Name = "label25";
 			this.label25.Size = new System.Drawing.Size(25, 13);
 			this.label25.TabIndex = 9;
@@ -1293,7 +1313,7 @@
 			// label24
 			// 
 			this.label24.AutoSize = true;
-			this.label24.Location = new System.Drawing.Point(41, 152);
+			this.label24.Location = new System.Drawing.Point(41, 150);
 			this.label24.Name = "label24";
 			this.label24.Size = new System.Drawing.Size(21, 13);
 			this.label24.TabIndex = 8;
@@ -1357,11 +1377,11 @@
 			// label20
 			// 
 			this.label20.AutoSize = true;
-			this.label20.Location = new System.Drawing.Point(45, 16);
+			this.label20.Location = new System.Drawing.Point(31, 16);
 			this.label20.Name = "label20";
-			this.label20.Size = new System.Drawing.Size(19, 13);
+			this.label20.Size = new System.Drawing.Size(32, 13);
 			this.label20.TabIndex = 0;
-			this.label20.Text = "Id:";
+			this.label20.Text = "Guia:";
 			// 
 			// gbComentario
 			// 
@@ -1455,7 +1475,7 @@
 			// label37
 			// 
 			this.label37.AutoSize = true;
-			this.label37.Location = new System.Drawing.Point(109, 12);
+			this.label37.Location = new System.Drawing.Point(110, 16);
 			this.label37.Name = "label37";
 			this.label37.Size = new System.Drawing.Size(33, 13);
 			this.label37.TabIndex = 5;
@@ -1835,6 +1855,8 @@
 		private System.Windows.Forms.TextBox TxtCodigoDespacho;
 		private System.Windows.Forms.CheckBox ChkCortesia;
 		private System.Windows.Forms.CheckBox ChkMercanciaPeligrosa;
+		private System.Windows.Forms.Label label47;
+		private System.Windows.Forms.TextBox TxtNumeroFactura;
 	}
 }
 
