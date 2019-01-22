@@ -175,7 +175,7 @@
 			this.MainMenuStrip = this.menuStrip;
 			this.Name = "FrmPrincipal";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "Cromo escritorio 19";
+			this.Text = "Cromo escritorio 20";
 			this.Load += new System.EventHandler(this.FrmPrincipal_Load);
 			this.menuStrip.ResumeLayout(false);
 			this.menuStrip.PerformLayout();

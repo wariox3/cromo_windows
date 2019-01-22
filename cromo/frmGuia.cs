@@ -1017,7 +1017,7 @@ namespace cromo
 					string cmd = string.Format("SELECT codigo_guia_carga_pk, documento_cliente, remitente, numero, relacion_cliente, nombre_destinatario," +
 						" direccion_destinatario, telefono_destinatario, comentario, vr_declarado " +
 						"FROM tte_guia_carga " +
-						"WHERE documento_cliente = " + documentoCliente);
+						"WHERE documento_cliente = '" + documentoCliente + "'");
 					DataSet ds = Utilidades.Ejecutar(cmd);
 					DataTable dt = ds.Tables[0];
 					if (dt.Rows.Count > 0)
