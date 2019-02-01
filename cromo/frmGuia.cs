@@ -103,46 +103,59 @@ namespace cromo
 		{
 			//Validar informacion formulario
 			bool validacion = true;
-			if (TxtCodigoCliente.Text == "")
+			if (TxtCodigoCliente.Text == "" )
 			{
 				TxtCodigoCliente.Focus();
 				validacion = false;
 			} else
 			{
-				if (TxtCodigoCiudadOrigen.Text == "")
+				if (TxtCodigoCondicion.Text == "")
 				{
-					TxtCodigoCiudadOrigen.Focus();
+					TxtCodigoCondicion.Focus();
 					validacion = false;
-				} else
+				}
+				else
 				{
-					if (TxtCodigoCiudadDestino.Text == "")
+					if (TxtCodigoCiudadOrigen.Text == "")
 					{
-						TxtCodigoCiudadDestino.Focus();
+						TxtCodigoCiudadOrigen.Focus();
 						validacion = false;
-					} else
+					}
+					else
 					{
-						if (CboTipo.SelectedIndex < 0)
+						if (TxtCodigoCiudadDestino.Text == "")
 						{
-							CboTipo.Focus();
+							TxtCodigoCiudadDestino.Focus();
 							validacion = false;
-						} else
+						}
+						else
 						{
-							if (CboServicio.SelectedIndex < 0)
+							if (CboTipo.SelectedIndex < 0)
 							{
-								CboServicio.Focus();
+								CboTipo.Focus();
 								validacion = false;
-							} else
+							}
+							else
 							{
-								if (CboProducto.SelectedIndex < 0)
+								if (CboServicio.SelectedIndex < 0)
 								{
-									CboProducto.Focus();
+									CboServicio.Focus();
 									validacion = false;
-								} else
+								}
+								else
 								{
-									if (CboEmpaque.SelectedIndex < 0)
+									if (CboProducto.SelectedIndex < 0)
 									{
-										CboEmpaque.Focus();
+										CboProducto.Focus();
 										validacion = false;
+									}
+									else
+									{
+										if (CboEmpaque.SelectedIndex < 0)
+										{
+											CboEmpaque.Focus();
+											validacion = false;
+										}
 									}
 								}
 							}
@@ -161,7 +174,7 @@ namespace cromo
 			}
 			if (validacion == true)
 			{
-				string sql = "SELECT factura, exige_numero, consecutivo, consecutivo_factura, validar_flete, validar_rango, genera_cobro, cortesia FROM tte_guia_tipo WHERE codigo_guia_tipo_pk ='" + CboTipo.SelectedValue.ToString() + "'";
+				string sql = "SELECT factura, exige_numero, consecutivo, consecutivo_factura, validar_flete, validar_rango, genera_cobro, cortesia, codigo_forma_pago FROM tte_guia_tipo WHERE codigo_guia_tipo_pk ='" + CboTipo.SelectedValue.ToString() + "'";
 				DataSet ds = Utilidades.Ejecutar(sql);
 				DataTable dtGuiaTipo = ds.Tables[0];
 				if (dtGuiaTipo.Rows.Count > 0)
@@ -241,7 +254,50 @@ namespace cromo
 									validacion = false;
 								}
 							}
-						}					
+						}
+
+						if (validacion == true)
+						{
+							switch (dtGuiaTipo.Rows[0]["codigo_forma_pago"])
+							{
+								case "CR":
+									if (!ChkPagoCredito.Checked)
+									{
+										MessageBox.Show("El cliente no maneja pago credito");
+										validacion = false;
+									}
+									break;
+								case "CO":
+									if (!ChkPagoContado.Checked)
+									{
+										MessageBox.Show("El cliente no maneja pago contado");
+										validacion = false;
+									}
+									break;
+								case "DE":
+									if (!ChkPagoDestino.Checked)
+									{
+										MessageBox.Show("El cliente no maneja pago destino");
+										validacion = false;
+									}
+									break;
+								case "CT":
+									if (!ChkPagoCortesia.Checked)
+									{
+										MessageBox.Show("El cliente no maneja pago cortesia");
+										validacion = false;
+									}
+									break;
+								case "RE":
+									if (!ChkPagoRecogida.Checked)
+									{
+										MessageBox.Show("El cliente no maneja pago recogida");
+										validacion = false;
+									}
+									break;
+							}
+						}
+
 						if (validacion == true)
 						{
 							//Si es una factura se le asigna el consecutivo
@@ -264,6 +320,17 @@ namespace cromo
 							if(General.NumeroUnicoGuia)
 							{
 								pGuia.codigoGuiaPk = Convert.ToInt32(TxtNumero.Text);
+							} else
+							{
+								string sqlConsecutivo = "SELECT guia FROM tte_consecutivo WHERE codigo_consecutivo_pk =1";
+								DataSet dsConsecutivo = Utilidades.Ejecutar(sqlConsecutivo);
+								DataTable dtConsecutivo = dsConsecutivo.Tables[0];
+								
+								pGuia.codigoGuiaPk = Convert.ToInt32(dtConsecutivo.Rows[0]["guia"].ToString());
+								TxtCodigo.Text = dtConsecutivo.Rows[0]["guia"].ToString();
+								MySqlCommand cmd = new MySqlCommand("UPDATE tte_consecutivo SET guia = guia+1 WHERE codigo_consecutivo_pk = 1",
+									BdCromo.ObtenerConexion());
+								cmd.ExecuteNonQuery();
 							}
 							pGuia.codigoOperacionIngresoFk = TxtOperacionIngreso.Text;
 							pGuia.codigoOperacionCargoFk = TxtOperacionCargo.Text;
@@ -306,31 +373,22 @@ namespace cromo
 							pGuia.empaqueReferencia = TxtReferenciaEmpaque.Text;
 							pGuia.mercanciaPeligrosa = ChkMercanciaPeligrosa.Checked;
 							pGuia.tipoLiquidacion = tipoLiquidacion;
-							long resultado = GuiaRepositorio.Agregar(pGuia);
-
-							if (resultado > 0)
-							{
-								TxtCodigo.Text = resultado.ToString();
-								MessageBox.Show("Se guardo exitosamente");
-								GuardarDetalle(TxtCodigo.Text);
-
-								ultimoCliente = TxtCodigoCliente.Text;
-								ultimaCondicion = TxtCodigoCondicion.Text;
-								ultimoTipo = CboTipo.SelectedValue.ToString();
-								ultimoServicio = CboServicio.SelectedValue.ToString();
-								ultimoProducto = CboProducto.SelectedValue.ToString();
-								ultimoEmpaque = CboEmpaque.SelectedValue.ToString();
-								ChkLiquidado.Checked = false;
-								RbPeso.Checked = false;
-								RbUnidad.Checked = false;
-								RbAdicional.Checked = false;
-								Bloquear();
-							}
-							else
-							{
-								MessageBox.Show("Se presento un error al guardar");
-							}
+							GuiaRepositorio.Agregar(pGuia);
+							MessageBox.Show("Se guardo exitosamente");
+							GuardarDetalle(TxtCodigo.Text);
+							ultimoCliente = TxtCodigoCliente.Text;
+							ultimaCondicion = TxtCodigoCondicion.Text;
+							ultimoTipo = CboTipo.SelectedValue.ToString();
+							ultimoServicio = CboServicio.SelectedValue.ToString();
+							ultimoProducto = CboProducto.SelectedValue.ToString();
+							ultimoEmpaque = CboEmpaque.SelectedValue.ToString();
+							ChkLiquidado.Checked = false;
+							RbPeso.Checked = false;
+							RbUnidad.Checked = false;
+							RbAdicional.Checked = false;
+							Bloquear();
 						}
+
 					}
 				}
 			}
@@ -509,7 +567,7 @@ namespace cromo
         {
 			if(TxtCodigoCliente.Text != "")
 			{
-				DataSet ds = Utilidades.Ejecutar("SELECT nombre_corto, codigo_condicion_fk, estado_inactivo " +
+				DataSet ds = Utilidades.Ejecutar("SELECT nombre_corto, codigo_condicion_fk, estado_inactivo, guia_pago_credito, guia_pago_contado, guia_pago_destino, guia_pago_cortesia, guia_pago_recogida " +
 					"FROM tte_cliente " +					
 					"WHERE codigo_cliente_pk = " + TxtCodigoCliente.Text);
 				DataTable dt = ds.Tables[0];
@@ -522,6 +580,11 @@ namespace cromo
 							TxtCodigoCondicion.Text = dt.Rows[0]["codigo_condicion_fk"].ToString();
 						}
 						txtNombreCliente.Text = Convert.ToString(dt.Rows[0]["nombre_corto"]);
+						ChkPagoCredito.Checked = Convert.ToBoolean(dt.Rows[0]["guia_pago_credito"]);
+						ChkPagoContado.Checked = Convert.ToBoolean(dt.Rows[0]["guia_pago_contado"]);
+						ChkPagoDestino.Checked = Convert.ToBoolean(dt.Rows[0]["guia_pago_destino"]);
+						ChkPagoCortesia.Checked = Convert.ToBoolean(dt.Rows[0]["guia_pago_cortesia"]);
+						ChkPagoRecogida.Checked = Convert.ToBoolean(dt.Rows[0]["guia_pago_recogida"]);
 					} else
 					{
 						TxtCodigoCliente.Text = "";
