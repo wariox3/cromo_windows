@@ -11,7 +11,8 @@
 *.userprefs
 
 # Build results
-[Dd]ebug/
+#Lo quite para que pudiera montarme en git el resultado de los instaladores MarioA
+#[Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/

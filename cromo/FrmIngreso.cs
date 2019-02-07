@@ -29,16 +29,33 @@ namespace cromo
 				{
 					if(dt.Rows[0]["clave_escritorio"].ToString() == TxtContraseña.Text)
 					{
-						General.UsuarioActivo = TxtUsuario.Text;
-						string sql = "SELECT numero_unico_guia FROM tte_configuracion WHERE codigo_configuracion_pk =1";
-						DataSet dsConfiguracion = Utilidades.Ejecutar(sql);
-						DataTable dtConfiguracion = dsConfiguracion.Tables[0];
+						DataSet dsVersion = Utilidades.Ejecutar("SELECT version_base_datos FROM gen_configuracion where codigo_configuracion_pk=1");
+						DataTable dtConfiguracion = dsVersion.Tables[0];
 						if (dtConfiguracion.Rows.Count > 0)
 						{
-							General.NumeroUnicoGuia = Convert.ToBoolean(dtConfiguracion.Rows[0]["numero_unico_guia"]);
-						}
-							DialogResult = DialogResult.OK;
-						Close();						
+							if (Convert.ToInt32(dtConfiguracion.Rows[0]["version_base_datos"].ToString()) <= 1)
+							{
+								General.UsuarioActivo = TxtUsuario.Text;
+								string sql = "SELECT numero_unico_guia FROM tte_configuracion WHERE codigo_configuracion_pk = 1";
+								DataSet dsConfiguracionTransporte = Utilidades.Ejecutar(sql);
+								DataTable dtConfiguracionTransporte = dsConfiguracionTransporte.Tables[0];
+								if (dtConfiguracionTransporte.Rows.Count > 0)
+								{
+									General.NumeroUnicoGuia = Convert.ToBoolean(dtConfiguracionTransporte.Rows[0]["numero_unico_guia"]);
+								}
+								DialogResult = DialogResult.OK;
+								Close();
+							} else {								
+								DialogResult resultado = MessageBox.Show(this, "La base de datos conectada require de una actualizacion de la aplicacion de escritorio desea descargar la actualizacion?",
+																   "Actualizacion requerida", MessageBoxButtons.YesNo,
+																   MessageBoxIcon.Question);
+								if(resultado == DialogResult.Yes)
+								{
+									System.Diagnostics.Process.Start("http://www.semantica.com.co/semanticaweb/public/recursos/InstaladorCromo.msi");
+									Close();
+								}
+							}
+						}						
 					} else
 					{
 						MessageBox.Show("Clave incorrecta");

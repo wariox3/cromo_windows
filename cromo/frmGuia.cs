@@ -304,9 +304,6 @@ namespace cromo
 							if (Convert.ToBoolean(dtGuiaTipo.Rows[0]["factura"]))
 							{
 								TxtNumeroFactura.Text = dtGuiaTipo.Rows[0]["consecutivo_factura"].ToString();
-								MySqlCommand cmd = new MySqlCommand("UPDATE tte_guia_tipo SET consecutivo_factura = consecutivo_factura+1 WHERE codigo_guia_tipo_pk = '" + CboTipo.SelectedValue.ToString() + "'",
-									BdCromo.ObtenerConexion());
-								cmd.ExecuteNonQuery();
 							}
 
 							double cobro = Convert.ToDouble(TxtRecaudo.Text);
@@ -374,6 +371,12 @@ namespace cromo
 							pGuia.mercanciaPeligrosa = ChkMercanciaPeligrosa.Checked;
 							pGuia.tipoLiquidacion = tipoLiquidacion;
 							GuiaRepositorio.Agregar(pGuia);
+							if (Convert.ToBoolean(dtGuiaTipo.Rows[0]["factura"]))
+							{								
+								MySqlCommand cmd = new MySqlCommand("UPDATE tte_guia_tipo SET consecutivo_factura = consecutivo_factura+1 WHERE codigo_guia_tipo_pk = '" + CboTipo.SelectedValue.ToString() + "'",
+									BdCromo.ObtenerConexion());
+								cmd.ExecuteNonQuery();
+							}
 							MessageBox.Show("Se guardo exitosamente");
 							GuardarDetalle(TxtCodigo.Text);
 							ultimoCliente = TxtCodigoCliente.Text;
