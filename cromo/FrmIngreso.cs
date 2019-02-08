@@ -51,7 +51,7 @@ namespace cromo
 																   MessageBoxIcon.Question);
 								if(resultado == DialogResult.Yes)
 								{
-									System.Diagnostics.Process.Start("http://www.semantica.com.co/semanticaweb/public/recursos/InstaladorCromo.msi");
+									System.Diagnostics.Process.Start("https://github.com/wariox3/cromo_windows/tree/master/InstaladorCromo/Debug");
 									Close();
 								}
 							}
