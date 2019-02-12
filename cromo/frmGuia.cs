@@ -233,14 +233,11 @@ namespace cromo
 							{
 								validacion = false;
 							}
-						}
-						else
+						} else
 						{
 							TxtNumero.Text = dtGuiaTipo.Rows[0]["consecutivo"].ToString();
-							MySqlCommand cmd = new MySqlCommand("UPDATE tte_guia_tipo SET consecutivo = consecutivo+1 WHERE codigo_guia_tipo_pk = '" + CboTipo.SelectedValue.ToString() + "'",
-								BdCromo.ObtenerConexion());
-							cmd.ExecuteNonQuery();
 						}
+
 						if (validacion == true)
 						{
 							if (General.NumeroUnicoGuia)
@@ -256,6 +253,7 @@ namespace cromo
 							}
 						}
 
+						//Validar formas de pago (cre,con,des)
 						if (validacion == true)
 						{
 							switch (dtGuiaTipo.Rows[0]["codigo_forma_pago"])
@@ -325,9 +323,6 @@ namespace cromo
 								
 								pGuia.codigoGuiaPk = Convert.ToInt32(dtConsecutivo.Rows[0]["guia"].ToString());
 								TxtCodigo.Text = dtConsecutivo.Rows[0]["guia"].ToString();
-								MySqlCommand cmd = new MySqlCommand("UPDATE tte_consecutivo SET guia = guia+1 WHERE codigo_consecutivo_pk = 1",
-									BdCromo.ObtenerConexion());
-								cmd.ExecuteNonQuery();
 							}
 							pGuia.codigoOperacionIngresoFk = TxtOperacionIngreso.Text;
 							pGuia.codigoOperacionCargoFk = TxtOperacionCargo.Text;
@@ -371,12 +366,26 @@ namespace cromo
 							pGuia.mercanciaPeligrosa = ChkMercanciaPeligrosa.Checked;
 							pGuia.tipoLiquidacion = tipoLiquidacion;
 							GuiaRepositorio.Agregar(pGuia);
+
 							if (Convert.ToBoolean(dtGuiaTipo.Rows[0]["factura"]))
 							{								
 								MySqlCommand cmd = new MySqlCommand("UPDATE tte_guia_tipo SET consecutivo_factura = consecutivo_factura+1 WHERE codigo_guia_tipo_pk = '" + CboTipo.SelectedValue.ToString() + "'",
 									BdCromo.ObtenerConexion());
 								cmd.ExecuteNonQuery();
 							}
+							if (!General.NumeroUnicoGuia)
+							{
+								MySqlCommand cmd = new MySqlCommand("UPDATE tte_consecutivo SET guia = guia+1 WHERE codigo_consecutivo_pk = 1",
+								BdCromo.ObtenerConexion());
+								cmd.ExecuteNonQuery();
+							}
+							if (!Convert.ToBoolean(dtGuiaTipo.Rows[0]["exige_numero"]))
+							{								
+								MySqlCommand cmd = new MySqlCommand("UPDATE tte_guia_tipo SET consecutivo = consecutivo+1 WHERE codigo_guia_tipo_pk = '" + CboTipo.SelectedValue.ToString() + "'",
+									BdCromo.ObtenerConexion());
+								cmd.ExecuteNonQuery();
+							}
+
 							MessageBox.Show("Se guardo exitosamente");
 							GuardarDetalle(TxtCodigo.Text);
 							ultimoCliente = TxtCodigoCliente.Text;
