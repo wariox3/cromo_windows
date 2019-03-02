@@ -863,8 +863,13 @@ namespace cromo
 							{
 								precioPeso = Convert.ToDouble(dt.Rows[0]["vr_peso"]);								
 							}
-						}						
+						}                        
 						vrFlete = pesoFacturar * precioPeso;
+                        if(descuentoPeso > 0)
+                        {
+                            vrFlete -=  vrFlete * descuentoPeso / 100;
+                        }
+
 					}
 					else if (RbUnidad.Checked)
 					{

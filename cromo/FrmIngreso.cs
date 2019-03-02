@@ -33,7 +33,7 @@ namespace cromo
 						DataTable dtConfiguracion = dsVersion.Tables[0];
 						if (dtConfiguracion.Rows.Count > 0)
 						{
-							if (Convert.ToInt32(dtConfiguracion.Rows[0]["version_base_datos"].ToString()) <= 1)
+							if (Convert.ToInt32(dtConfiguracion.Rows[0]["version_base_datos"].ToString()) <= 2)
 							{
 								General.UsuarioActivo = TxtUsuario.Text;
 								string sql = "SELECT numero_unico_guia FROM tte_configuracion WHERE codigo_configuracion_pk = 1";
