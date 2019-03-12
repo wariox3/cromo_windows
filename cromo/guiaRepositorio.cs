@@ -57,8 +57,9 @@ namespace cromo
 			"tte_guia.vr_recaudo, " +
 			"tte_guia.peso_real, " +
 			"tte_guia_tipo.nombre as tipo_guia, " +
-			"tte_guia.vr_cobro_entrega " +
-			"FROM " +
+			"tte_guia.vr_cobro_entrega, " +
+            "tte_guia.numero_factura " +
+            "FROM " +
 			"tte_guia " +
 			"LEFT JOIN tte_ciudad as ciudad_origen ON tte_guia.codigo_ciudad_origen_fk = ciudad_origen.codigo_ciudad_pk " +
 			"LEFT JOIN tte_ciudad as ciudad_destino ON tte_guia.codigo_ciudad_destino_fk = ciudad_destino.codigo_ciudad_pk " +
