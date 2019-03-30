@@ -59,14 +59,16 @@ namespace cromo
 			"tte_guia_tipo.nombre as tipo_guia, " +
 			"tte_guia.vr_cobro_entrega, " +
             "tte_guia.numero_factura, " +
-            "tte_guia_tipo.mensaje_formato as mensaje_formato " +
+            "tte_guia_tipo.mensaje_formato as mensaje_formato, " +
+            "tte_factura_tipo.prefijo " +
             "FROM " +
 			"tte_guia " +
 			"LEFT JOIN tte_ciudad as ciudad_origen ON tte_guia.codigo_ciudad_origen_fk = ciudad_origen.codigo_ciudad_pk " +
 			"LEFT JOIN tte_ciudad as ciudad_destino ON tte_guia.codigo_ciudad_destino_fk = ciudad_destino.codigo_ciudad_pk " +
 			"LEFT JOIN tte_cliente ON tte_guia.codigo_cliente_fk = tte_cliente.codigo_cliente_pk " +
 			"LEFT JOIN tte_guia_tipo ON tte_guia.codigo_guia_tipo_fk = tte_guia_tipo.codigo_guia_tipo_pk " +
-			"WHERE codigo_guia_pk = " + codigoGuia;
+            "LEFT JOIN tte_factura_tipo ON tte_guia_tipo.codigo_factura_tipo_fk = tte_factura_tipo.codigo_factura_tipo_pk " +
+            "WHERE codigo_guia_pk = " + codigoGuia;
 			return sql;
 		}
     }
