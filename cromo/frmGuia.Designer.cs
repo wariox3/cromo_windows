@@ -257,7 +257,6 @@
             this.TxtCodigoCiudadDestino.Name = "TxtCodigoCiudadDestino";
             this.TxtCodigoCiudadDestino.Size = new System.Drawing.Size(79, 20);
             this.TxtCodigoCiudadDestino.TabIndex = 11;
-            this.TxtCodigoCiudadDestino.TextChanged += new System.EventHandler(this.TxtCodigoCiudadDestino_TextChanged);
             this.TxtCodigoCiudadDestino.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCodigoCiudadDestino_KeyDown);
             this.TxtCodigoCiudadDestino.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
             this.TxtCodigoCiudadDestino.Validated += new System.EventHandler(this.TxtCodigoCiudadDestino_Validated);

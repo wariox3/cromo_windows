@@ -35,7 +35,6 @@
             this.mnuArchivoConfigurcion = new System.Windows.Forms.ToolStripMenuItem();
             this.editMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuGuia = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuImprimirGuia = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.contentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.indexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,15 +72,14 @@
             // mnuArchivoConfigurcion
             // 
             this.mnuArchivoConfigurcion.Name = "mnuArchivoConfigurcion";
-            this.mnuArchivoConfigurcion.Size = new System.Drawing.Size(150, 22);
+            this.mnuArchivoConfigurcion.Size = new System.Drawing.Size(180, 22);
             this.mnuArchivoConfigurcion.Text = "Configuracion";
             this.mnuArchivoConfigurcion.Click += new System.EventHandler(this.mnuArchivoConfigurcion_Click);
             // 
             // editMenu
             // 
             this.editMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuGuia,
-            this.mnuImprimirGuia});
+            this.mnuGuia});
             this.editMenu.Name = "editMenu";
             this.editMenu.Size = new System.Drawing.Size(84, 20);
             this.editMenu.Text = "&Movimiento";
@@ -91,16 +89,9 @@
             this.mnuGuia.ImageTransparentColor = System.Drawing.Color.Black;
             this.mnuGuia.Name = "mnuGuia";
             this.mnuGuia.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
-            this.mnuGuia.Size = new System.Drawing.Size(151, 22);
+            this.mnuGuia.Size = new System.Drawing.Size(180, 22);
             this.mnuGuia.Text = "&Guia";
             this.mnuGuia.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
-            // 
-            // mnuImprimirGuia
-            // 
-            this.mnuImprimirGuia.Name = "mnuImprimirGuia";
-            this.mnuImprimirGuia.Size = new System.Drawing.Size(151, 22);
-            this.mnuImprimirGuia.Text = "Imprimir guias";
-            this.mnuImprimirGuia.Click += new System.EventHandler(this.mnuImprimirGuia_Click);
             // 
             // helpMenu
             // 
@@ -118,7 +109,7 @@
             // 
             this.contentsToolStripMenuItem.Name = "contentsToolStripMenuItem";
             this.contentsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F1)));
-            this.contentsToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.contentsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.contentsToolStripMenuItem.Text = "&Contenido";
             // 
             // indexToolStripMenuItem
@@ -126,7 +117,7 @@
             this.indexToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("indexToolStripMenuItem.Image")));
             this.indexToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             this.indexToolStripMenuItem.Name = "indexToolStripMenuItem";
-            this.indexToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.indexToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.indexToolStripMenuItem.Text = "&Índice";
             // 
             // searchToolStripMenuItem
@@ -134,18 +125,18 @@
             this.searchToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("searchToolStripMenuItem.Image")));
             this.searchToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.searchToolStripMenuItem.Text = "&Buscar";
             // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(173, 6);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(177, 6);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aboutToolStripMenuItem.Text = "&Acerca de... ...";
             // 
             // statusStrip
@@ -202,7 +193,6 @@
         private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.ToolStripMenuItem mnuArchivoConfigurcion;
-		private System.Windows.Forms.ToolStripMenuItem mnuImprimirGuia;
 	}
 }
 

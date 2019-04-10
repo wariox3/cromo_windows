@@ -45,5 +45,6 @@ namespace cromo
         public bool cortesia  { get; set; }
         public bool mercanciaPeligrosa { get; set; }
         public string ordenRuta { get; set; }
+
     }
 }

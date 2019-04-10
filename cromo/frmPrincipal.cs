@@ -112,12 +112,6 @@ namespace cromo
 			}
         }
 
-		private void mnuImprimirGuia_Click(object sender, EventArgs e)
-		{
-			FrmImprimirGuia frm = new FrmImprimirGuia();
-			frm.ShowDialog();
-		}
-
 		private void FrmPrincipal_Load(object sender, EventArgs e)
 		{
 			FrmIngreso FrmIngrero = new FrmIngreso();

@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Web.Script.Serialization;
 namespace cromo
 {
 	public partial class FrmBuscarDestinatario : Form
 	{
-		public FrmBuscarDestinatario()
+        JavaScriptSerializer ser = new JavaScriptSerializer();
+
+        public FrmBuscarDestinatario()
 		{
 			InitializeComponent();
 		}
@@ -20,24 +22,19 @@ namespace cromo
 		private void FrmBuscarDestinatario_Load(object sender, EventArgs e)
 		{
             DgDestinatarios.AutoGenerateColumns = false;
-            DgDestinatarios.DataSource = LlenarDatos().Tables[0];
-		}
+            LlenarDatosApi();
+        }
 
-		public DataSet LlenarDatos()
-		{
-			string sql = "SELECT * FROM tte_destinatario";
-			if (TxtNombre.Text != "")
-			{
-				sql = sql + " WHERE nombre_corto LIKE '%" + TxtNombre.Text + "%'";
-			}
-			sql = sql + " limit 20";
-			DataSet ds;
-			string strSql = string.Format(sql);
-			ds = Utilidades.Ejecutar(strSql);
-			return ds;
-		}
+        public void LlenarDatosApi()
+        {
+            string parametrosJson = "{\"nombre\":\"" + TxtNombre.Text + "\"}";
+            string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/destinatario/buscar", parametrosJson);
+            List<ApiDestinatario> apiDestinatarioLista = ser.Deserialize<List<ApiDestinatario>>(jsonRespuesta);
+            DgDestinatarios.DataSource = apiDestinatarioLista;
 
-		private void BtnCancelar_Click(object sender, EventArgs e)
+        }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
 		{
 			Close();
 		}
@@ -61,7 +58,7 @@ namespace cromo
 
 		private void BtnFiltrar_Click(object sender, EventArgs e)
 		{
-			DgDestinatarios.DataSource = LlenarDatos().Tables[0];
+            LlenarDatosApi();
 		}
 
 		private void TxtNombre_KeyDown(object sender, KeyEventArgs e)
@@ -76,8 +73,8 @@ namespace cromo
 		{
 			if (e.KeyChar == Convert.ToChar(Keys.Enter))
 			{
-				DgDestinatarios.DataSource = LlenarDatos().Tables[0];
-			}
+                LlenarDatosApi();
+            }
 		}
 	}
 }
