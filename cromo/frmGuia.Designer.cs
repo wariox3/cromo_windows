@@ -28,715 +28,715 @@
         /// </summary>
         private void InitializeComponent()
         {
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGuia));
-			this.gbDestinatario = new System.Windows.Forms.GroupBox();
-			this.TxtCodigoRuta = new System.Windows.Forms.TextBox();
-			this.TxtOrdenRuta = new System.Windows.Forms.TextBox();
-			this.label5 = new System.Windows.Forms.Label();
-			this.TxtNombreCiudadDestino = new System.Windows.Forms.TextBox();
-			this.TxtCodigoCiudadDestino = new System.Windows.Forms.TextBox();
-			this.TxtDireccionDestinatario = new System.Windows.Forms.TextBox();
-			this.TxtTelefonoDestinatario = new System.Windows.Forms.TextBox();
-			this.TxtNombreDestinatario = new System.Windows.Forms.TextBox();
-			this.label4 = new System.Windows.Forms.Label();
-			this.label3 = new System.Windows.Forms.Label();
-			this.label2 = new System.Windows.Forms.Label();
-			this.gbTotales = new System.Windows.Forms.GroupBox();
-			this.label45 = new System.Windows.Forms.Label();
-			this.TxtCostoReexpedicion = new System.Windows.Forms.TextBox();
-			this.ChkLiquidado = new System.Windows.Forms.CheckBox();
-			this.RbUnidad = new System.Windows.Forms.RadioButton();
-			this.RbPeso = new System.Windows.Forms.RadioButton();
-			this.RbAdicional = new System.Windows.Forms.RadioButton();
-			this.TxtAbono = new System.Windows.Forms.TextBox();
-			this.label30 = new System.Windows.Forms.Label();
-			this.label16 = new System.Windows.Forms.Label();
-			this.TxtRecaudo = new System.Windows.Forms.TextBox();
-			this.TxtManejo = new System.Windows.Forms.TextBox();
-			this.TxtFlete = new System.Windows.Forms.TextBox();
-			this.TxtDeclarado = new System.Windows.Forms.TextBox();
-			this.TxtPesoFacturar = new System.Windows.Forms.TextBox();
-			this.TxtVolumen = new System.Windows.Forms.TextBox();
-			this.TxtPeso = new System.Windows.Forms.TextBox();
-			this.TxtUnidades = new System.Windows.Forms.TextBox();
-			this.label12 = new System.Windows.Forms.Label();
-			this.label11 = new System.Windows.Forms.Label();
-			this.label10 = new System.Windows.Forms.Label();
-			this.label9 = new System.Windows.Forms.Label();
-			this.label8 = new System.Windows.Forms.Label();
-			this.label7 = new System.Windows.Forms.Label();
-			this.label6 = new System.Windows.Forms.Label();
-			this.gbCliente = new System.Windows.Forms.GroupBox();
-			this.TxtRelacion = new System.Windows.Forms.TextBox();
-			this.label32 = new System.Windows.Forms.Label();
-			this.label27 = new System.Windows.Forms.Label();
-			this.txtNombreCondicion = new System.Windows.Forms.TextBox();
-			this.TxtCodigoCondicion = new System.Windows.Forms.TextBox();
-			this.label15 = new System.Windows.Forms.Label();
-			this.txtNombreCiudadOrigen = new System.Windows.Forms.TextBox();
-			this.TxtCodigoCiudadOrigen = new System.Windows.Forms.TextBox();
-			this.label14 = new System.Windows.Forms.Label();
-			this.label13 = new System.Windows.Forms.Label();
-			this.TxtDocumentoCliente = new System.Windows.Forms.TextBox();
-			this.TxtRemitente = new System.Windows.Forms.TextBox();
-			this.txtNombreCliente = new System.Windows.Forms.TextBox();
-			this.label1 = new System.Windows.Forms.Label();
-			this.TxtCodigoCliente = new System.Windows.Forms.TextBox();
-			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-			this.TsbNuevo = new System.Windows.Forms.ToolStripButton();
-			this.TsbGuardar = new System.Windows.Forms.ToolStripButton();
-			this.TsbCancelar = new System.Windows.Forms.ToolStripButton();
-			this.TsbPrecargar = new System.Windows.Forms.ToolStripButton();
-			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-			this.TsbBuscarGuia = new System.Windows.Forms.ToolStripButton();
-			this.TsbBuscar = new System.Windows.Forms.ToolStripButton();
-			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-			this.TsbImprimir = new System.Windows.Forms.ToolStripButton();
-			this.TsbVistaPrevia = new System.Windows.Forms.ToolStripButton();
-			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-			this.TsbRecibo = new System.Windows.Forms.ToolStripButton();
-			this.gbInformacion = new System.Windows.Forms.GroupBox();
-			this.ChkMercanciaPeligrosa = new System.Windows.Forms.CheckBox();
-			this.label44 = new System.Windows.Forms.Label();
-			this.TxtReferenciaEmpaque = new System.Windows.Forms.TextBox();
-			this.label26 = new System.Windows.Forms.Label();
-			this.CboProducto = new System.Windows.Forms.ComboBox();
-			this.label19 = new System.Windows.Forms.Label();
-			this.label18 = new System.Windows.Forms.Label();
-			this.label17 = new System.Windows.Forms.Label();
-			this.CboEmpaque = new System.Windows.Forms.ComboBox();
-			this.CboServicio = new System.Windows.Forms.ComboBox();
-			this.CboTipo = new System.Windows.Forms.ComboBox();
-			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-			this.accionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.MnuNuevo = new System.Windows.Forms.ToolStripMenuItem();
-			this.MnuGuardar = new System.Windows.Forms.ToolStripMenuItem();
-			this.MnuCancelar = new System.Windows.Forms.ToolStripMenuItem();
-			this.MnuPrecargar = new System.Windows.Forms.ToolStripMenuItem();
-			this.MnuBuscarGuia = new System.Windows.Forms.ToolStripMenuItem();
-			this.MnuBuscar = new System.Windows.Forms.ToolStripMenuItem();
-			this.MnuImprimir = new System.Windows.Forms.ToolStripMenuItem();
-			this.gbDatos = new System.Windows.Forms.GroupBox();
-			this.label47 = new System.Windows.Forms.Label();
-			this.TxtNumeroFactura = new System.Windows.Forms.TextBox();
-			this.ChkCortesia = new System.Windows.Forms.CheckBox();
-			this.label46 = new System.Windows.Forms.Label();
-			this.TxtCodigoDespacho = new System.Windows.Forms.TextBox();
-			this.ChkEstadoAnulado = new System.Windows.Forms.CheckBox();
-			this.ChkEstadoFacturado = new System.Windows.Forms.CheckBox();
-			this.ChkEstadoFacturaGenerada = new System.Windows.Forms.CheckBox();
-			this.ChkEstadoCumplido = new System.Windows.Forms.CheckBox();
-			this.ChkEstadoSoporte = new System.Windows.Forms.CheckBox();
-			this.ChkEstadoEntregado = new System.Windows.Forms.CheckBox();
-			this.ChkEstadoDespachado = new System.Windows.Forms.CheckBox();
-			this.ChkEstadoEmbarcado = new System.Windows.Forms.CheckBox();
-			this.ChkEstadoImpreso = new System.Windows.Forms.CheckBox();
-			this.label31 = new System.Windows.Forms.Label();
-			this.TxtUsuario = new System.Windows.Forms.TextBox();
-			this.ChkReexpedicion = new System.Windows.Forms.CheckBox();
-			this.ChkFactura = new System.Windows.Forms.CheckBox();
-			this.label28 = new System.Windows.Forms.Label();
-			this.TxtNumero = new System.Windows.Forms.TextBox();
-			this.TxtOperacionIngreso = new System.Windows.Forms.TextBox();
-			this.TxtOperacionCargo = new System.Windows.Forms.TextBox();
-			this.label25 = new System.Windows.Forms.Label();
-			this.label24 = new System.Windows.Forms.Label();
-			this.TxtFechaEntrega = new System.Windows.Forms.TextBox();
-			this.TxtFechaDespacho = new System.Windows.Forms.TextBox();
-			this.TxtFechaIngreso = new System.Windows.Forms.TextBox();
-			this.label23 = new System.Windows.Forms.Label();
-			this.label22 = new System.Windows.Forms.Label();
-			this.label21 = new System.Windows.Forms.Label();
-			this.TxtCodigo = new System.Windows.Forms.TextBox();
-			this.label20 = new System.Windows.Forms.Label();
-			this.gbComentario = new System.Windows.Forms.GroupBox();
-			this.label29 = new System.Windows.Forms.Label();
-			this.TxtComentario = new System.Windows.Forms.TextBox();
-			this.GbCondiciones = new System.Windows.Forms.GroupBox();
-			this.TxtDescuentoPeso = new System.Windows.Forms.TextBox();
-			this.TxtPesoMinimo = new System.Windows.Forms.TextBox();
-			this.label37 = new System.Windows.Forms.Label();
-			this.label33 = new System.Windows.Forms.Label();
-			this.ChkListaGeneral = new System.Windows.Forms.CheckBox();
-			this.LblPrecioDetalle = new System.Windows.Forms.Label();
-			this.GbPrecioDetalle = new System.Windows.Forms.GroupBox();
-			this.TxtVrAdicional = new System.Windows.Forms.TextBox();
-			this.TxtPesoMinimoPrecio = new System.Windows.Forms.TextBox();
-			this.TxtTope = new System.Windows.Forms.TextBox();
-			this.TxtVrUnidad = new System.Windows.Forms.TextBox();
-			this.TxtVrPeso = new System.Windows.Forms.TextBox();
-			this.TxtVrTope = new System.Windows.Forms.TextBox();
-			this.label43 = new System.Windows.Forms.Label();
-			this.label42 = new System.Windows.Forms.Label();
-			this.label41 = new System.Windows.Forms.Label();
-			this.label40 = new System.Windows.Forms.Label();
-			this.label39 = new System.Windows.Forms.Label();
-			this.label38 = new System.Windows.Forms.Label();
-			this.GdManejo = new System.Windows.Forms.GroupBox();
-			this.TxtManejoMinimoDespacho = new System.Windows.Forms.TextBox();
-			this.TxtManejoMinimoUnidad = new System.Windows.Forms.TextBox();
-			this.TxtPorcentajeManejo = new System.Windows.Forms.TextBox();
-			this.label36 = new System.Windows.Forms.Label();
-			this.label35 = new System.Windows.Forms.Label();
-			this.label34 = new System.Windows.Forms.Label();
-			this.ChkPagoDestino = new System.Windows.Forms.CheckBox();
-			this.ChkPagoContado = new System.Windows.Forms.CheckBox();
-			this.ChkPagoCredito = new System.Windows.Forms.CheckBox();
-			this.ChkPagoRecogida = new System.Windows.Forms.CheckBox();
-			this.ChkPagoCortesia = new System.Windows.Forms.CheckBox();
-			this.gbDestinatario.SuspendLayout();
-			this.gbTotales.SuspendLayout();
-			this.gbCliente.SuspendLayout();
-			this.toolStrip1.SuspendLayout();
-			this.gbInformacion.SuspendLayout();
-			this.menuStrip1.SuspendLayout();
-			this.gbDatos.SuspendLayout();
-			this.gbComentario.SuspendLayout();
-			this.GbCondiciones.SuspendLayout();
-			this.GbPrecioDetalle.SuspendLayout();
-			this.GdManejo.SuspendLayout();
-			this.SuspendLayout();
-			// 
-			// gbDestinatario
-			// 
-			this.gbDestinatario.Controls.Add(this.TxtCodigoRuta);
-			this.gbDestinatario.Controls.Add(this.TxtOrdenRuta);
-			this.gbDestinatario.Controls.Add(this.label5);
-			this.gbDestinatario.Controls.Add(this.TxtNombreCiudadDestino);
-			this.gbDestinatario.Controls.Add(this.TxtCodigoCiudadDestino);
-			this.gbDestinatario.Controls.Add(this.TxtDireccionDestinatario);
-			this.gbDestinatario.Controls.Add(this.TxtTelefonoDestinatario);
-			this.gbDestinatario.Controls.Add(this.TxtNombreDestinatario);
-			this.gbDestinatario.Controls.Add(this.label4);
-			this.gbDestinatario.Controls.Add(this.label3);
-			this.gbDestinatario.Controls.Add(this.label2);
-			this.gbDestinatario.Enabled = false;
-			this.gbDestinatario.Location = new System.Drawing.Point(18, 146);
-			this.gbDestinatario.Name = "gbDestinatario";
-			this.gbDestinatario.Size = new System.Drawing.Size(528, 100);
-			this.gbDestinatario.TabIndex = 7;
-			this.gbDestinatario.TabStop = false;
-			// 
-			// TxtCodigoRuta
-			// 
-			this.TxtCodigoRuta.Enabled = false;
-			this.TxtCodigoRuta.Location = new System.Drawing.Point(459, 57);
-			this.TxtCodigoRuta.Name = "TxtCodigoRuta";
-			this.TxtCodigoRuta.Size = new System.Drawing.Size(27, 20);
-			this.TxtCodigoRuta.TabIndex = 21;
-			// 
-			// TxtOrdenRuta
-			// 
-			this.TxtOrdenRuta.Enabled = false;
-			this.TxtOrdenRuta.Location = new System.Drawing.Point(492, 57);
-			this.TxtOrdenRuta.Name = "TxtOrdenRuta";
-			this.TxtOrdenRuta.Size = new System.Drawing.Size(25, 20);
-			this.TxtOrdenRuta.TabIndex = 20;
-			// 
-			// label5
-			// 
-			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(25, 60);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(46, 13);
-			this.label5.TabIndex = 19;
-			this.label5.Text = "Destino:";
-			// 
-			// TxtNombreCiudadDestino
-			// 
-			this.TxtNombreCiudadDestino.Enabled = false;
-			this.TxtNombreCiudadDestino.Location = new System.Drawing.Point(161, 57);
-			this.TxtNombreCiudadDestino.Name = "TxtNombreCiudadDestino";
-			this.TxtNombreCiudadDestino.ReadOnly = true;
-			this.TxtNombreCiudadDestino.Size = new System.Drawing.Size(292, 20);
-			this.TxtNombreCiudadDestino.TabIndex = 18;
-			// 
-			// TxtCodigoCiudadDestino
-			// 
-			this.TxtCodigoCiudadDestino.Location = new System.Drawing.Point(76, 57);
-			this.TxtCodigoCiudadDestino.Name = "TxtCodigoCiudadDestino";
-			this.TxtCodigoCiudadDestino.Size = new System.Drawing.Size(79, 20);
-			this.TxtCodigoCiudadDestino.TabIndex = 11;
-			this.TxtCodigoCiudadDestino.TextChanged += new System.EventHandler(this.TxtCodigoCiudadDestino_TextChanged);
-			this.TxtCodigoCiudadDestino.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCodigoCiudadDestino_KeyDown);
-			this.TxtCodigoCiudadDestino.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
-			this.TxtCodigoCiudadDestino.Validated += new System.EventHandler(this.TxtCodigoCiudadDestino_Validated);
-			// 
-			// TxtDireccionDestinatario
-			// 
-			this.TxtDireccionDestinatario.Location = new System.Drawing.Point(76, 34);
-			this.TxtDireccionDestinatario.Name = "TxtDireccionDestinatario";
-			this.TxtDireccionDestinatario.Size = new System.Drawing.Size(441, 20);
-			this.TxtDireccionDestinatario.TabIndex = 10;
-			this.TxtDireccionDestinatario.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
-			// 
-			// TxtTelefonoDestinatario
-			// 
-			this.TxtTelefonoDestinatario.Location = new System.Drawing.Point(428, 11);
-			this.TxtTelefonoDestinatario.Name = "TxtTelefonoDestinatario";
-			this.TxtTelefonoDestinatario.Size = new System.Drawing.Size(89, 20);
-			this.TxtTelefonoDestinatario.TabIndex = 9;
-			this.TxtTelefonoDestinatario.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
-			// 
-			// TxtNombreDestinatario
-			// 
-			this.TxtNombreDestinatario.Location = new System.Drawing.Point(76, 11);
-			this.TxtNombreDestinatario.Name = "TxtNombreDestinatario";
-			this.TxtNombreDestinatario.Size = new System.Drawing.Size(298, 20);
-			this.TxtNombreDestinatario.TabIndex = 8;
-			this.TxtNombreDestinatario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtNombreDestinatario_KeyDown);
-			this.TxtNombreDestinatario.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
-			// 
-			// label4
-			// 
-			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(380, 13);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(52, 13);
-			this.label4.TabIndex = 12;
-			this.label4.Text = "Telefono:";
-			// 
-			// label3
-			// 
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(15, 37);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(55, 13);
-			this.label3.TabIndex = 11;
-			this.label3.Text = "Direccion:";
-			// 
-			// label2
-			// 
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(4, 15);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(66, 13);
-			this.label2.TabIndex = 10;
-			this.label2.Text = "Destinatario:";
-			// 
-			// gbTotales
-			// 
-			this.gbTotales.Controls.Add(this.label45);
-			this.gbTotales.Controls.Add(this.TxtCostoReexpedicion);
-			this.gbTotales.Controls.Add(this.ChkLiquidado);
-			this.gbTotales.Controls.Add(this.RbUnidad);
-			this.gbTotales.Controls.Add(this.RbPeso);
-			this.gbTotales.Controls.Add(this.RbAdicional);
-			this.gbTotales.Controls.Add(this.TxtAbono);
-			this.gbTotales.Controls.Add(this.label30);
-			this.gbTotales.Controls.Add(this.label16);
-			this.gbTotales.Controls.Add(this.TxtRecaudo);
-			this.gbTotales.Controls.Add(this.TxtManejo);
-			this.gbTotales.Controls.Add(this.TxtFlete);
-			this.gbTotales.Controls.Add(this.TxtDeclarado);
-			this.gbTotales.Controls.Add(this.TxtPesoFacturar);
-			this.gbTotales.Controls.Add(this.TxtVolumen);
-			this.gbTotales.Controls.Add(this.TxtPeso);
-			this.gbTotales.Controls.Add(this.TxtUnidades);
-			this.gbTotales.Controls.Add(this.label12);
-			this.gbTotales.Controls.Add(this.label11);
-			this.gbTotales.Controls.Add(this.label10);
-			this.gbTotales.Controls.Add(this.label9);
-			this.gbTotales.Controls.Add(this.label8);
-			this.gbTotales.Controls.Add(this.label7);
-			this.gbTotales.Controls.Add(this.label6);
-			this.gbTotales.Enabled = false;
-			this.gbTotales.Location = new System.Drawing.Point(338, 246);
-			this.gbTotales.Name = "gbTotales";
-			this.gbTotales.Size = new System.Drawing.Size(208, 266);
-			this.gbTotales.TabIndex = 17;
-			this.gbTotales.TabStop = false;
-			// 
-			// label45
-			// 
-			this.label45.AutoSize = true;
-			this.label45.Location = new System.Drawing.Point(32, 217);
-			this.label45.Name = "label45";
-			this.label45.Size = new System.Drawing.Size(48, 13);
-			this.label45.TabIndex = 34;
-			this.label45.Text = "C_Reex:";
-			// 
-			// TxtCostoReexpedicion
-			// 
-			this.TxtCostoReexpedicion.Location = new System.Drawing.Point(86, 214);
-			this.TxtCostoReexpedicion.Name = "TxtCostoReexpedicion";
-			this.TxtCostoReexpedicion.Size = new System.Drawing.Size(111, 20);
-			this.TxtCostoReexpedicion.TabIndex = 26;
-			this.TxtCostoReexpedicion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			// 
-			// ChkLiquidado
-			// 
-			this.ChkLiquidado.AutoSize = true;
-			this.ChkLiquidado.Location = new System.Drawing.Point(138, 13);
-			this.ChkLiquidado.Name = "ChkLiquidado";
-			this.ChkLiquidado.Size = new System.Drawing.Size(32, 17);
-			this.ChkLiquidado.TabIndex = 32;
-			this.ChkLiquidado.Text = "L";
-			this.ChkLiquidado.UseVisualStyleBackColor = true;
-			// 
-			// RbUnidad
-			// 
-			this.RbUnidad.AutoSize = true;
-			this.RbUnidad.Location = new System.Drawing.Point(48, 12);
-			this.RbUnidad.Name = "RbUnidad";
-			this.RbUnidad.Size = new System.Drawing.Size(45, 17);
-			this.RbUnidad.TabIndex = 30;
-			this.RbUnidad.TabStop = true;
-			this.RbUnidad.Text = "Und";
-			this.RbUnidad.UseVisualStyleBackColor = true;
-			// 
-			// RbPeso
-			// 
-			this.RbPeso.AutoSize = true;
-			this.RbPeso.Location = new System.Drawing.Point(6, 12);
-			this.RbPeso.Name = "RbPeso";
-			this.RbPeso.Size = new System.Drawing.Size(43, 17);
-			this.RbPeso.TabIndex = 29;
-			this.RbPeso.TabStop = true;
-			this.RbPeso.Text = "Pes";
-			this.RbPeso.UseVisualStyleBackColor = true;
-			// 
-			// RbAdicional
-			// 
-			this.RbAdicional.AutoSize = true;
-			this.RbAdicional.Location = new System.Drawing.Point(94, 12);
-			this.RbAdicional.Name = "RbAdicional";
-			this.RbAdicional.Size = new System.Drawing.Size(40, 17);
-			this.RbAdicional.TabIndex = 31;
-			this.RbAdicional.TabStop = true;
-			this.RbAdicional.Text = "Adi";
-			this.RbAdicional.UseVisualStyleBackColor = true;
-			// 
-			// TxtAbono
-			// 
-			this.TxtAbono.Location = new System.Drawing.Point(86, 237);
-			this.TxtAbono.Name = "TxtAbono";
-			this.TxtAbono.Size = new System.Drawing.Size(111, 20);
-			this.TxtAbono.TabIndex = 28;
-			this.TxtAbono.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			// 
-			// label30
-			// 
-			this.label30.AutoSize = true;
-			this.label30.Location = new System.Drawing.Point(40, 240);
-			this.label30.Name = "label30";
-			this.label30.Size = new System.Drawing.Size(41, 13);
-			this.label30.TabIndex = 27;
-			this.label30.Text = "Abono:";
-			// 
-			// label16
-			// 
-			this.label16.AutoSize = true;
-			this.label16.Location = new System.Drawing.Point(27, 192);
-			this.label16.Name = "label16";
-			this.label16.Size = new System.Drawing.Size(54, 13);
-			this.label16.TabIndex = 17;
-			this.label16.Text = "Recaudo:";
-			// 
-			// TxtRecaudo
-			// 
-			this.TxtRecaudo.Location = new System.Drawing.Point(86, 191);
-			this.TxtRecaudo.Name = "TxtRecaudo";
-			this.TxtRecaudo.Size = new System.Drawing.Size(111, 20);
-			this.TxtRecaudo.TabIndex = 25;
-			this.TxtRecaudo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.TxtRecaudo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
-			// 
-			// TxtManejo
-			// 
-			this.TxtManejo.Location = new System.Drawing.Point(86, 168);
-			this.TxtManejo.Name = "TxtManejo";
-			this.TxtManejo.Size = new System.Drawing.Size(111, 20);
-			this.TxtManejo.TabIndex = 24;
-			this.TxtManejo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.TxtManejo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
-			// 
-			// TxtFlete
-			// 
-			this.TxtFlete.Location = new System.Drawing.Point(86, 146);
-			this.TxtFlete.Name = "TxtFlete";
-			this.TxtFlete.Size = new System.Drawing.Size(111, 20);
-			this.TxtFlete.TabIndex = 23;
-			this.TxtFlete.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.TxtFlete.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
-			// 
-			// TxtDeclarado
-			// 
-			this.TxtDeclarado.Location = new System.Drawing.Point(86, 124);
-			this.TxtDeclarado.Name = "TxtDeclarado";
-			this.TxtDeclarado.Size = new System.Drawing.Size(111, 20);
-			this.TxtDeclarado.TabIndex = 22;
-			this.TxtDeclarado.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.TxtDeclarado.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
-			this.TxtDeclarado.Validated += new System.EventHandler(this.TxtDeclarado_Validated);
-			// 
-			// TxtPesoFacturar
-			// 
-			this.TxtPesoFacturar.Location = new System.Drawing.Point(86, 102);
-			this.TxtPesoFacturar.Name = "TxtPesoFacturar";
-			this.TxtPesoFacturar.Size = new System.Drawing.Size(111, 20);
-			this.TxtPesoFacturar.TabIndex = 21;
-			this.TxtPesoFacturar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.TxtPesoFacturar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
-			this.TxtPesoFacturar.Validated += new System.EventHandler(this.TxtPesoFacturar_Validated);
-			// 
-			// TxtVolumen
-			// 
-			this.TxtVolumen.Location = new System.Drawing.Point(86, 80);
-			this.TxtVolumen.Name = "TxtVolumen";
-			this.TxtVolumen.Size = new System.Drawing.Size(111, 20);
-			this.TxtVolumen.TabIndex = 20;
-			this.TxtVolumen.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.TxtVolumen.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
-			this.TxtVolumen.Validated += new System.EventHandler(this.TxtVolumen_Validated);
-			// 
-			// TxtPeso
-			// 
-			this.TxtPeso.Location = new System.Drawing.Point(86, 58);
-			this.TxtPeso.Name = "TxtPeso";
-			this.TxtPeso.Size = new System.Drawing.Size(111, 20);
-			this.TxtPeso.TabIndex = 19;
-			this.TxtPeso.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.TxtPeso.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
-			this.TxtPeso.Validated += new System.EventHandler(this.TxtPeso_Validated);
-			// 
-			// TxtUnidades
-			// 
-			this.TxtUnidades.Location = new System.Drawing.Point(86, 35);
-			this.TxtUnidades.Name = "TxtUnidades";
-			this.TxtUnidades.Size = new System.Drawing.Size(111, 20);
-			this.TxtUnidades.TabIndex = 18;
-			this.TxtUnidades.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.TxtUnidades.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtUnidades_KeyDown);
-			this.TxtUnidades.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
-			this.TxtUnidades.Validated += new System.EventHandler(this.TxtUnidades_Validated);
-			// 
-			// label12
-			// 
-			this.label12.AutoSize = true;
-			this.label12.Location = new System.Drawing.Point(35, 171);
-			this.label12.Name = "label12";
-			this.label12.Size = new System.Drawing.Size(45, 13);
-			this.label12.TabIndex = 6;
-			this.label12.Text = "Manejo:";
-			// 
-			// label11
-			// 
-			this.label11.AutoSize = true;
-			this.label11.Location = new System.Drawing.Point(47, 149);
-			this.label11.Name = "label11";
-			this.label11.Size = new System.Drawing.Size(33, 13);
-			this.label11.TabIndex = 5;
-			this.label11.Text = "Flete:";
-			// 
-			// label10
-			// 
-			this.label10.AutoSize = true;
-			this.label10.Location = new System.Drawing.Point(33, 127);
-			this.label10.Name = "label10";
-			this.label10.Size = new System.Drawing.Size(47, 13);
-			this.label10.TabIndex = 4;
-			this.label10.Text = "Declara:";
-			// 
-			// label9
-			// 
-			this.label9.AutoSize = true;
-			this.label9.Location = new System.Drawing.Point(21, 105);
-			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(59, 13);
-			this.label9.TabIndex = 3;
-			this.label9.Text = "P.Facturar:";
-			// 
-			// label8
-			// 
-			this.label8.AutoSize = true;
-			this.label8.Location = new System.Drawing.Point(29, 83);
-			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(51, 13);
-			this.label8.TabIndex = 2;
-			this.label8.Text = "Volumen:";
-			// 
-			// label7
-			// 
-			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(46, 61);
-			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(34, 13);
-			this.label7.TabIndex = 1;
-			this.label7.Text = "Peso:";
-			// 
-			// label6
-			// 
-			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(25, 38);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(55, 13);
-			this.label6.TabIndex = 0;
-			this.label6.Text = "Unidades:";
-			// 
-			// gbCliente
-			// 
-			this.gbCliente.Controls.Add(this.TxtRelacion);
-			this.gbCliente.Controls.Add(this.label32);
-			this.gbCliente.Controls.Add(this.label27);
-			this.gbCliente.Controls.Add(this.txtNombreCondicion);
-			this.gbCliente.Controls.Add(this.TxtCodigoCondicion);
-			this.gbCliente.Controls.Add(this.label15);
-			this.gbCliente.Controls.Add(this.txtNombreCiudadOrigen);
-			this.gbCliente.Controls.Add(this.TxtCodigoCiudadOrigen);
-			this.gbCliente.Controls.Add(this.label14);
-			this.gbCliente.Controls.Add(this.label13);
-			this.gbCliente.Controls.Add(this.TxtDocumentoCliente);
-			this.gbCliente.Controls.Add(this.TxtRemitente);
-			this.gbCliente.Controls.Add(this.txtNombreCliente);
-			this.gbCliente.Controls.Add(this.label1);
-			this.gbCliente.Controls.Add(this.TxtCodigoCliente);
-			this.gbCliente.Enabled = false;
-			this.gbCliente.Location = new System.Drawing.Point(18, 22);
-			this.gbCliente.Name = "gbCliente";
-			this.gbCliente.Size = new System.Drawing.Size(528, 129);
-			this.gbCliente.TabIndex = 0;
-			this.gbCliente.TabStop = false;
-			// 
-			// TxtRelacion
-			// 
-			this.TxtRelacion.Location = new System.Drawing.Point(344, 80);
-			this.TxtRelacion.Name = "TxtRelacion";
-			this.TxtRelacion.Size = new System.Drawing.Size(172, 20);
-			this.TxtRelacion.TabIndex = 5;
-			this.TxtRelacion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
-			// 
-			// label32
-			// 
-			this.label32.AutoSize = true;
-			this.label32.Location = new System.Drawing.Point(291, 81);
-			this.label32.Name = "label32";
-			this.label32.Size = new System.Drawing.Size(52, 13);
-			this.label32.TabIndex = 26;
-			this.label32.Text = "Relacion:";
-			// 
-			// label27
-			// 
-			this.label27.AutoSize = true;
-			this.label27.Location = new System.Drawing.Point(13, 38);
-			this.label27.Name = "label27";
-			this.label27.Size = new System.Drawing.Size(57, 13);
-			this.label27.TabIndex = 25;
-			this.label27.Text = "Condicion:";
-			// 
-			// txtNombreCondicion
-			// 
-			this.txtNombreCondicion.Enabled = false;
-			this.txtNombreCondicion.Location = new System.Drawing.Point(182, 35);
-			this.txtNombreCondicion.Name = "txtNombreCondicion";
-			this.txtNombreCondicion.ReadOnly = true;
-			this.txtNombreCondicion.Size = new System.Drawing.Size(335, 20);
-			this.txtNombreCondicion.TabIndex = 24;
-			// 
-			// TxtCodigoCondicion
-			// 
-			this.TxtCodigoCondicion.Location = new System.Drawing.Point(76, 34);
-			this.TxtCodigoCondicion.Name = "TxtCodigoCondicion";
-			this.TxtCodigoCondicion.Size = new System.Drawing.Size(100, 20);
-			this.TxtCodigoCondicion.TabIndex = 2;
-			this.TxtCodigoCondicion.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCodigoCondicion_KeyDown);
-			this.TxtCodigoCondicion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
-			this.TxtCodigoCondicion.Validated += new System.EventHandler(this.TxtCodigoCondicion_Validated);
-			// 
-			// label15
-			// 
-			this.label15.AutoSize = true;
-			this.label15.Location = new System.Drawing.Point(29, 105);
-			this.label15.Name = "label15";
-			this.label15.Size = new System.Drawing.Size(41, 13);
-			this.label15.TabIndex = 22;
-			this.label15.Text = "Origen:";
-			// 
-			// txtNombreCiudadOrigen
-			// 
-			this.txtNombreCiudadOrigen.Enabled = false;
-			this.txtNombreCiudadOrigen.Location = new System.Drawing.Point(161, 102);
-			this.txtNombreCiudadOrigen.Name = "txtNombreCiudadOrigen";
-			this.txtNombreCiudadOrigen.ReadOnly = true;
-			this.txtNombreCiudadOrigen.Size = new System.Drawing.Size(356, 20);
-			this.txtNombreCiudadOrigen.TabIndex = 21;
-			// 
-			// TxtCodigoCiudadOrigen
-			// 
-			this.TxtCodigoCiudadOrigen.Location = new System.Drawing.Point(76, 102);
-			this.TxtCodigoCiudadOrigen.Name = "TxtCodigoCiudadOrigen";
-			this.TxtCodigoCiudadOrigen.Size = new System.Drawing.Size(79, 20);
-			this.TxtCodigoCiudadOrigen.TabIndex = 6;
-			this.TxtCodigoCiudadOrigen.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCodigoCiudadOrigen_KeyDown);
-			this.TxtCodigoCiudadOrigen.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
-			this.TxtCodigoCiudadOrigen.Validated += new System.EventHandler(this.TxtCodigoCiudadOrigen_Validated);
-			// 
-			// label14
-			// 
-			this.label14.AutoSize = true;
-			this.label14.Location = new System.Drawing.Point(13, 59);
-			this.label14.Name = "label14";
-			this.label14.Size = new System.Drawing.Size(58, 13);
-			this.label14.TabIndex = 13;
-			this.label14.Text = "Remitente:";
-			// 
-			// label13
-			// 
-			this.label13.AutoSize = true;
-			this.label13.Location = new System.Drawing.Point(6, 82);
-			this.label13.Name = "label13";
-			this.label13.Size = new System.Drawing.Size(65, 13);
-			this.label13.TabIndex = 12;
-			this.label13.Text = "Documento:";
-			// 
-			// TxtDocumentoCliente
-			// 
-			this.TxtDocumentoCliente.Location = new System.Drawing.Point(76, 79);
-			this.TxtDocumentoCliente.Name = "TxtDocumentoCliente";
-			this.TxtDocumentoCliente.Size = new System.Drawing.Size(208, 20);
-			this.TxtDocumentoCliente.TabIndex = 4;
-			this.TxtDocumentoCliente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
-			// 
-			// TxtRemitente
-			// 
-			this.TxtRemitente.Location = new System.Drawing.Point(76, 57);
-			this.TxtRemitente.Name = "TxtRemitente";
-			this.TxtRemitente.Size = new System.Drawing.Size(441, 20);
-			this.TxtRemitente.TabIndex = 3;
-			this.TxtRemitente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
-			// 
-			// txtNombreCliente
-			// 
-			this.txtNombreCliente.Enabled = false;
-			this.txtNombreCliente.Location = new System.Drawing.Point(182, 12);
-			this.txtNombreCliente.Name = "txtNombreCliente";
-			this.txtNombreCliente.ReadOnly = true;
-			this.txtNombreCliente.Size = new System.Drawing.Size(335, 20);
-			this.txtNombreCliente.TabIndex = 9;
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(24, 16);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(47, 13);
-			this.label1.TabIndex = 8;
-			this.label1.Text = "Tercero:";
-			// 
-			// TxtCodigoCliente
-			// 
-			this.TxtCodigoCliente.Location = new System.Drawing.Point(76, 12);
-			this.TxtCodigoCliente.Name = "TxtCodigoCliente";
-			this.TxtCodigoCliente.Size = new System.Drawing.Size(100, 20);
-			this.TxtCodigoCliente.TabIndex = 1;
-			this.TxtCodigoCliente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCodigoCliente_KeyDown);
-			this.TxtCodigoCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCodigoCliente_KeyPress);
-			this.TxtCodigoCliente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
-			this.TxtCodigoCliente.Validated += new System.EventHandler(this.TxtCodigoCliente_Validated);
-			// 
-			// toolStrip1
-			// 
-			this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGuia));
+            this.gbDestinatario = new System.Windows.Forms.GroupBox();
+            this.TxtCodigoRuta = new System.Windows.Forms.TextBox();
+            this.TxtOrdenRuta = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.TxtNombreCiudadDestino = new System.Windows.Forms.TextBox();
+            this.TxtCodigoCiudadDestino = new System.Windows.Forms.TextBox();
+            this.TxtDireccionDestinatario = new System.Windows.Forms.TextBox();
+            this.TxtTelefonoDestinatario = new System.Windows.Forms.TextBox();
+            this.TxtNombreDestinatario = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.gbTotales = new System.Windows.Forms.GroupBox();
+            this.label45 = new System.Windows.Forms.Label();
+            this.TxtCostoReexpedicion = new System.Windows.Forms.TextBox();
+            this.ChkLiquidado = new System.Windows.Forms.CheckBox();
+            this.RbUnidad = new System.Windows.Forms.RadioButton();
+            this.RbPeso = new System.Windows.Forms.RadioButton();
+            this.RbAdicional = new System.Windows.Forms.RadioButton();
+            this.TxtAbono = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.TxtRecaudo = new System.Windows.Forms.TextBox();
+            this.TxtManejo = new System.Windows.Forms.TextBox();
+            this.TxtFlete = new System.Windows.Forms.TextBox();
+            this.TxtDeclarado = new System.Windows.Forms.TextBox();
+            this.TxtPesoFacturar = new System.Windows.Forms.TextBox();
+            this.TxtVolumen = new System.Windows.Forms.TextBox();
+            this.TxtPeso = new System.Windows.Forms.TextBox();
+            this.TxtUnidades = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.gbCliente = new System.Windows.Forms.GroupBox();
+            this.TxtRelacion = new System.Windows.Forms.TextBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.txtNombreCondicion = new System.Windows.Forms.TextBox();
+            this.TxtCodigoCondicion = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtNombreCiudadOrigen = new System.Windows.Forms.TextBox();
+            this.TxtCodigoCiudadOrigen = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.TxtDocumentoCliente = new System.Windows.Forms.TextBox();
+            this.TxtRemitente = new System.Windows.Forms.TextBox();
+            this.txtNombreCliente = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.TxtCodigoCliente = new System.Windows.Forms.TextBox();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.TsbNuevo = new System.Windows.Forms.ToolStripButton();
+            this.TsbGuardar = new System.Windows.Forms.ToolStripButton();
+            this.TsbCancelar = new System.Windows.Forms.ToolStripButton();
+            this.TsbPrecargar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.TsbBuscarGuia = new System.Windows.Forms.ToolStripButton();
+            this.TsbBuscar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.TsbImprimir = new System.Windows.Forms.ToolStripButton();
+            this.TsbVistaPrevia = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.TsbRecibo = new System.Windows.Forms.ToolStripButton();
+            this.gbInformacion = new System.Windows.Forms.GroupBox();
+            this.ChkMercanciaPeligrosa = new System.Windows.Forms.CheckBox();
+            this.label44 = new System.Windows.Forms.Label();
+            this.TxtReferenciaEmpaque = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.CboProducto = new System.Windows.Forms.ComboBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.CboEmpaque = new System.Windows.Forms.ComboBox();
+            this.CboServicio = new System.Windows.Forms.ComboBox();
+            this.CboTipo = new System.Windows.Forms.ComboBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.accionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuNuevo = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuGuardar = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuCancelar = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuPrecargar = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuBuscarGuia = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuBuscar = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuImprimir = new System.Windows.Forms.ToolStripMenuItem();
+            this.gbDatos = new System.Windows.Forms.GroupBox();
+            this.label47 = new System.Windows.Forms.Label();
+            this.TxtNumeroFactura = new System.Windows.Forms.TextBox();
+            this.ChkCortesia = new System.Windows.Forms.CheckBox();
+            this.label46 = new System.Windows.Forms.Label();
+            this.TxtCodigoDespacho = new System.Windows.Forms.TextBox();
+            this.ChkEstadoAnulado = new System.Windows.Forms.CheckBox();
+            this.ChkEstadoFacturado = new System.Windows.Forms.CheckBox();
+            this.ChkEstadoFacturaGenerada = new System.Windows.Forms.CheckBox();
+            this.ChkEstadoCumplido = new System.Windows.Forms.CheckBox();
+            this.ChkEstadoSoporte = new System.Windows.Forms.CheckBox();
+            this.ChkEstadoEntregado = new System.Windows.Forms.CheckBox();
+            this.ChkEstadoDespachado = new System.Windows.Forms.CheckBox();
+            this.ChkEstadoEmbarcado = new System.Windows.Forms.CheckBox();
+            this.ChkEstadoImpreso = new System.Windows.Forms.CheckBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.TxtUsuario = new System.Windows.Forms.TextBox();
+            this.ChkReexpedicion = new System.Windows.Forms.CheckBox();
+            this.ChkFactura = new System.Windows.Forms.CheckBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.TxtNumero = new System.Windows.Forms.TextBox();
+            this.TxtOperacionIngreso = new System.Windows.Forms.TextBox();
+            this.TxtOperacionCargo = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.TxtFechaEntrega = new System.Windows.Forms.TextBox();
+            this.TxtFechaDespacho = new System.Windows.Forms.TextBox();
+            this.TxtFechaIngreso = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.TxtCodigo = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.gbComentario = new System.Windows.Forms.GroupBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.TxtComentario = new System.Windows.Forms.TextBox();
+            this.GbCondiciones = new System.Windows.Forms.GroupBox();
+            this.ChkPagoCortesia = new System.Windows.Forms.CheckBox();
+            this.ChkPagoRecogida = new System.Windows.Forms.CheckBox();
+            this.ChkPagoCredito = new System.Windows.Forms.CheckBox();
+            this.ChkPagoContado = new System.Windows.Forms.CheckBox();
+            this.ChkPagoDestino = new System.Windows.Forms.CheckBox();
+            this.TxtDescuentoPeso = new System.Windows.Forms.TextBox();
+            this.TxtPesoMinimo = new System.Windows.Forms.TextBox();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.ChkListaGeneral = new System.Windows.Forms.CheckBox();
+            this.LblPrecioDetalle = new System.Windows.Forms.Label();
+            this.GbPrecioDetalle = new System.Windows.Forms.GroupBox();
+            this.TxtVrAdicional = new System.Windows.Forms.TextBox();
+            this.TxtPesoMinimoPrecio = new System.Windows.Forms.TextBox();
+            this.TxtTope = new System.Windows.Forms.TextBox();
+            this.TxtVrUnidad = new System.Windows.Forms.TextBox();
+            this.TxtVrPeso = new System.Windows.Forms.TextBox();
+            this.TxtVrTope = new System.Windows.Forms.TextBox();
+            this.label43 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.GdManejo = new System.Windows.Forms.GroupBox();
+            this.TxtManejoMinimoDespacho = new System.Windows.Forms.TextBox();
+            this.TxtManejoMinimoUnidad = new System.Windows.Forms.TextBox();
+            this.TxtPorcentajeManejo = new System.Windows.Forms.TextBox();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.gbDestinatario.SuspendLayout();
+            this.gbTotales.SuspendLayout();
+            this.gbCliente.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
+            this.gbInformacion.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
+            this.gbDatos.SuspendLayout();
+            this.gbComentario.SuspendLayout();
+            this.GbCondiciones.SuspendLayout();
+            this.GbPrecioDetalle.SuspendLayout();
+            this.GdManejo.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // gbDestinatario
+            // 
+            this.gbDestinatario.Controls.Add(this.TxtCodigoRuta);
+            this.gbDestinatario.Controls.Add(this.TxtOrdenRuta);
+            this.gbDestinatario.Controls.Add(this.label5);
+            this.gbDestinatario.Controls.Add(this.TxtNombreCiudadDestino);
+            this.gbDestinatario.Controls.Add(this.TxtCodigoCiudadDestino);
+            this.gbDestinatario.Controls.Add(this.TxtDireccionDestinatario);
+            this.gbDestinatario.Controls.Add(this.TxtTelefonoDestinatario);
+            this.gbDestinatario.Controls.Add(this.TxtNombreDestinatario);
+            this.gbDestinatario.Controls.Add(this.label4);
+            this.gbDestinatario.Controls.Add(this.label3);
+            this.gbDestinatario.Controls.Add(this.label2);
+            this.gbDestinatario.Enabled = false;
+            this.gbDestinatario.Location = new System.Drawing.Point(18, 146);
+            this.gbDestinatario.Name = "gbDestinatario";
+            this.gbDestinatario.Size = new System.Drawing.Size(528, 100);
+            this.gbDestinatario.TabIndex = 7;
+            this.gbDestinatario.TabStop = false;
+            // 
+            // TxtCodigoRuta
+            // 
+            this.TxtCodigoRuta.Enabled = false;
+            this.TxtCodigoRuta.Location = new System.Drawing.Point(459, 57);
+            this.TxtCodigoRuta.Name = "TxtCodigoRuta";
+            this.TxtCodigoRuta.Size = new System.Drawing.Size(27, 20);
+            this.TxtCodigoRuta.TabIndex = 21;
+            // 
+            // TxtOrdenRuta
+            // 
+            this.TxtOrdenRuta.Enabled = false;
+            this.TxtOrdenRuta.Location = new System.Drawing.Point(492, 57);
+            this.TxtOrdenRuta.Name = "TxtOrdenRuta";
+            this.TxtOrdenRuta.Size = new System.Drawing.Size(25, 20);
+            this.TxtOrdenRuta.TabIndex = 20;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(25, 60);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(46, 13);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Destino:";
+            // 
+            // TxtNombreCiudadDestino
+            // 
+            this.TxtNombreCiudadDestino.Enabled = false;
+            this.TxtNombreCiudadDestino.Location = new System.Drawing.Point(161, 57);
+            this.TxtNombreCiudadDestino.Name = "TxtNombreCiudadDestino";
+            this.TxtNombreCiudadDestino.ReadOnly = true;
+            this.TxtNombreCiudadDestino.Size = new System.Drawing.Size(292, 20);
+            this.TxtNombreCiudadDestino.TabIndex = 18;
+            // 
+            // TxtCodigoCiudadDestino
+            // 
+            this.TxtCodigoCiudadDestino.Location = new System.Drawing.Point(76, 57);
+            this.TxtCodigoCiudadDestino.Name = "TxtCodigoCiudadDestino";
+            this.TxtCodigoCiudadDestino.Size = new System.Drawing.Size(79, 20);
+            this.TxtCodigoCiudadDestino.TabIndex = 11;
+            this.TxtCodigoCiudadDestino.TextChanged += new System.EventHandler(this.TxtCodigoCiudadDestino_TextChanged);
+            this.TxtCodigoCiudadDestino.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCodigoCiudadDestino_KeyDown);
+            this.TxtCodigoCiudadDestino.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            this.TxtCodigoCiudadDestino.Validated += new System.EventHandler(this.TxtCodigoCiudadDestino_Validated);
+            // 
+            // TxtDireccionDestinatario
+            // 
+            this.TxtDireccionDestinatario.Location = new System.Drawing.Point(76, 34);
+            this.TxtDireccionDestinatario.Name = "TxtDireccionDestinatario";
+            this.TxtDireccionDestinatario.Size = new System.Drawing.Size(441, 20);
+            this.TxtDireccionDestinatario.TabIndex = 10;
+            this.TxtDireccionDestinatario.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            // 
+            // TxtTelefonoDestinatario
+            // 
+            this.TxtTelefonoDestinatario.Location = new System.Drawing.Point(428, 11);
+            this.TxtTelefonoDestinatario.Name = "TxtTelefonoDestinatario";
+            this.TxtTelefonoDestinatario.Size = new System.Drawing.Size(89, 20);
+            this.TxtTelefonoDestinatario.TabIndex = 9;
+            this.TxtTelefonoDestinatario.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            // 
+            // TxtNombreDestinatario
+            // 
+            this.TxtNombreDestinatario.Location = new System.Drawing.Point(76, 11);
+            this.TxtNombreDestinatario.Name = "TxtNombreDestinatario";
+            this.TxtNombreDestinatario.Size = new System.Drawing.Size(298, 20);
+            this.TxtNombreDestinatario.TabIndex = 8;
+            this.TxtNombreDestinatario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtNombreDestinatario_KeyDown);
+            this.TxtNombreDestinatario.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(380, 13);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(52, 13);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Telefono:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(15, 37);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(55, 13);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Direccion:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(4, 15);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(66, 13);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Destinatario:";
+            // 
+            // gbTotales
+            // 
+            this.gbTotales.Controls.Add(this.label45);
+            this.gbTotales.Controls.Add(this.TxtCostoReexpedicion);
+            this.gbTotales.Controls.Add(this.ChkLiquidado);
+            this.gbTotales.Controls.Add(this.RbUnidad);
+            this.gbTotales.Controls.Add(this.RbPeso);
+            this.gbTotales.Controls.Add(this.RbAdicional);
+            this.gbTotales.Controls.Add(this.TxtAbono);
+            this.gbTotales.Controls.Add(this.label30);
+            this.gbTotales.Controls.Add(this.label16);
+            this.gbTotales.Controls.Add(this.TxtRecaudo);
+            this.gbTotales.Controls.Add(this.TxtManejo);
+            this.gbTotales.Controls.Add(this.TxtFlete);
+            this.gbTotales.Controls.Add(this.TxtDeclarado);
+            this.gbTotales.Controls.Add(this.TxtPesoFacturar);
+            this.gbTotales.Controls.Add(this.TxtVolumen);
+            this.gbTotales.Controls.Add(this.TxtPeso);
+            this.gbTotales.Controls.Add(this.TxtUnidades);
+            this.gbTotales.Controls.Add(this.label12);
+            this.gbTotales.Controls.Add(this.label11);
+            this.gbTotales.Controls.Add(this.label10);
+            this.gbTotales.Controls.Add(this.label9);
+            this.gbTotales.Controls.Add(this.label8);
+            this.gbTotales.Controls.Add(this.label7);
+            this.gbTotales.Controls.Add(this.label6);
+            this.gbTotales.Enabled = false;
+            this.gbTotales.Location = new System.Drawing.Point(338, 246);
+            this.gbTotales.Name = "gbTotales";
+            this.gbTotales.Size = new System.Drawing.Size(208, 266);
+            this.gbTotales.TabIndex = 17;
+            this.gbTotales.TabStop = false;
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(32, 217);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(48, 13);
+            this.label45.TabIndex = 34;
+            this.label45.Text = "C_Reex:";
+            // 
+            // TxtCostoReexpedicion
+            // 
+            this.TxtCostoReexpedicion.Location = new System.Drawing.Point(86, 214);
+            this.TxtCostoReexpedicion.Name = "TxtCostoReexpedicion";
+            this.TxtCostoReexpedicion.Size = new System.Drawing.Size(111, 20);
+            this.TxtCostoReexpedicion.TabIndex = 26;
+            this.TxtCostoReexpedicion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // ChkLiquidado
+            // 
+            this.ChkLiquidado.AutoSize = true;
+            this.ChkLiquidado.Location = new System.Drawing.Point(138, 13);
+            this.ChkLiquidado.Name = "ChkLiquidado";
+            this.ChkLiquidado.Size = new System.Drawing.Size(32, 17);
+            this.ChkLiquidado.TabIndex = 32;
+            this.ChkLiquidado.Text = "L";
+            this.ChkLiquidado.UseVisualStyleBackColor = true;
+            // 
+            // RbUnidad
+            // 
+            this.RbUnidad.AutoSize = true;
+            this.RbUnidad.Location = new System.Drawing.Point(48, 12);
+            this.RbUnidad.Name = "RbUnidad";
+            this.RbUnidad.Size = new System.Drawing.Size(45, 17);
+            this.RbUnidad.TabIndex = 30;
+            this.RbUnidad.TabStop = true;
+            this.RbUnidad.Text = "Und";
+            this.RbUnidad.UseVisualStyleBackColor = true;
+            // 
+            // RbPeso
+            // 
+            this.RbPeso.AutoSize = true;
+            this.RbPeso.Location = new System.Drawing.Point(6, 12);
+            this.RbPeso.Name = "RbPeso";
+            this.RbPeso.Size = new System.Drawing.Size(43, 17);
+            this.RbPeso.TabIndex = 29;
+            this.RbPeso.TabStop = true;
+            this.RbPeso.Text = "Pes";
+            this.RbPeso.UseVisualStyleBackColor = true;
+            // 
+            // RbAdicional
+            // 
+            this.RbAdicional.AutoSize = true;
+            this.RbAdicional.Location = new System.Drawing.Point(94, 12);
+            this.RbAdicional.Name = "RbAdicional";
+            this.RbAdicional.Size = new System.Drawing.Size(40, 17);
+            this.RbAdicional.TabIndex = 31;
+            this.RbAdicional.TabStop = true;
+            this.RbAdicional.Text = "Adi";
+            this.RbAdicional.UseVisualStyleBackColor = true;
+            // 
+            // TxtAbono
+            // 
+            this.TxtAbono.Location = new System.Drawing.Point(86, 237);
+            this.TxtAbono.Name = "TxtAbono";
+            this.TxtAbono.Size = new System.Drawing.Size(111, 20);
+            this.TxtAbono.TabIndex = 28;
+            this.TxtAbono.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(40, 240);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(41, 13);
+            this.label30.TabIndex = 27;
+            this.label30.Text = "Abono:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(27, 192);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(54, 13);
+            this.label16.TabIndex = 17;
+            this.label16.Text = "Recaudo:";
+            // 
+            // TxtRecaudo
+            // 
+            this.TxtRecaudo.Location = new System.Drawing.Point(86, 191);
+            this.TxtRecaudo.Name = "TxtRecaudo";
+            this.TxtRecaudo.Size = new System.Drawing.Size(111, 20);
+            this.TxtRecaudo.TabIndex = 25;
+            this.TxtRecaudo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TxtRecaudo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            // 
+            // TxtManejo
+            // 
+            this.TxtManejo.Location = new System.Drawing.Point(86, 168);
+            this.TxtManejo.Name = "TxtManejo";
+            this.TxtManejo.Size = new System.Drawing.Size(111, 20);
+            this.TxtManejo.TabIndex = 24;
+            this.TxtManejo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TxtManejo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            // 
+            // TxtFlete
+            // 
+            this.TxtFlete.Location = new System.Drawing.Point(86, 146);
+            this.TxtFlete.Name = "TxtFlete";
+            this.TxtFlete.Size = new System.Drawing.Size(111, 20);
+            this.TxtFlete.TabIndex = 23;
+            this.TxtFlete.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TxtFlete.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            // 
+            // TxtDeclarado
+            // 
+            this.TxtDeclarado.Location = new System.Drawing.Point(86, 124);
+            this.TxtDeclarado.Name = "TxtDeclarado";
+            this.TxtDeclarado.Size = new System.Drawing.Size(111, 20);
+            this.TxtDeclarado.TabIndex = 22;
+            this.TxtDeclarado.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TxtDeclarado.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            this.TxtDeclarado.Validated += new System.EventHandler(this.TxtDeclarado_Validated);
+            // 
+            // TxtPesoFacturar
+            // 
+            this.TxtPesoFacturar.Location = new System.Drawing.Point(86, 102);
+            this.TxtPesoFacturar.Name = "TxtPesoFacturar";
+            this.TxtPesoFacturar.Size = new System.Drawing.Size(111, 20);
+            this.TxtPesoFacturar.TabIndex = 21;
+            this.TxtPesoFacturar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TxtPesoFacturar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            this.TxtPesoFacturar.Validated += new System.EventHandler(this.TxtPesoFacturar_Validated);
+            // 
+            // TxtVolumen
+            // 
+            this.TxtVolumen.Location = new System.Drawing.Point(86, 80);
+            this.TxtVolumen.Name = "TxtVolumen";
+            this.TxtVolumen.Size = new System.Drawing.Size(111, 20);
+            this.TxtVolumen.TabIndex = 20;
+            this.TxtVolumen.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TxtVolumen.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            this.TxtVolumen.Validated += new System.EventHandler(this.TxtVolumen_Validated);
+            // 
+            // TxtPeso
+            // 
+            this.TxtPeso.Location = new System.Drawing.Point(86, 58);
+            this.TxtPeso.Name = "TxtPeso";
+            this.TxtPeso.Size = new System.Drawing.Size(111, 20);
+            this.TxtPeso.TabIndex = 19;
+            this.TxtPeso.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TxtPeso.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            this.TxtPeso.Validated += new System.EventHandler(this.TxtPeso_Validated);
+            // 
+            // TxtUnidades
+            // 
+            this.TxtUnidades.Location = new System.Drawing.Point(86, 35);
+            this.TxtUnidades.Name = "TxtUnidades";
+            this.TxtUnidades.Size = new System.Drawing.Size(111, 20);
+            this.TxtUnidades.TabIndex = 18;
+            this.TxtUnidades.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TxtUnidades.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtUnidades_KeyDown);
+            this.TxtUnidades.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            this.TxtUnidades.Validated += new System.EventHandler(this.TxtUnidades_Validated);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(35, 171);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(45, 13);
+            this.label12.TabIndex = 6;
+            this.label12.Text = "Manejo:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(47, 149);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(33, 13);
+            this.label11.TabIndex = 5;
+            this.label11.Text = "Flete:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(33, 127);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(47, 13);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "Declara:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(21, 105);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(59, 13);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "P.Facturar:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(29, 83);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(51, 13);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "Volumen:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(46, 61);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(34, 13);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Peso:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(25, 38);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(55, 13);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Unidades:";
+            // 
+            // gbCliente
+            // 
+            this.gbCliente.Controls.Add(this.TxtRelacion);
+            this.gbCliente.Controls.Add(this.label32);
+            this.gbCliente.Controls.Add(this.label27);
+            this.gbCliente.Controls.Add(this.txtNombreCondicion);
+            this.gbCliente.Controls.Add(this.TxtCodigoCondicion);
+            this.gbCliente.Controls.Add(this.label15);
+            this.gbCliente.Controls.Add(this.txtNombreCiudadOrigen);
+            this.gbCliente.Controls.Add(this.TxtCodigoCiudadOrigen);
+            this.gbCliente.Controls.Add(this.label14);
+            this.gbCliente.Controls.Add(this.label13);
+            this.gbCliente.Controls.Add(this.TxtDocumentoCliente);
+            this.gbCliente.Controls.Add(this.TxtRemitente);
+            this.gbCliente.Controls.Add(this.txtNombreCliente);
+            this.gbCliente.Controls.Add(this.label1);
+            this.gbCliente.Controls.Add(this.TxtCodigoCliente);
+            this.gbCliente.Enabled = false;
+            this.gbCliente.Location = new System.Drawing.Point(18, 22);
+            this.gbCliente.Name = "gbCliente";
+            this.gbCliente.Size = new System.Drawing.Size(528, 129);
+            this.gbCliente.TabIndex = 0;
+            this.gbCliente.TabStop = false;
+            // 
+            // TxtRelacion
+            // 
+            this.TxtRelacion.Location = new System.Drawing.Point(344, 80);
+            this.TxtRelacion.Name = "TxtRelacion";
+            this.TxtRelacion.Size = new System.Drawing.Size(172, 20);
+            this.TxtRelacion.TabIndex = 5;
+            this.TxtRelacion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(291, 81);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(52, 13);
+            this.label32.TabIndex = 26;
+            this.label32.Text = "Relacion:";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(13, 38);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(57, 13);
+            this.label27.TabIndex = 25;
+            this.label27.Text = "Condicion:";
+            // 
+            // txtNombreCondicion
+            // 
+            this.txtNombreCondicion.Enabled = false;
+            this.txtNombreCondicion.Location = new System.Drawing.Point(182, 35);
+            this.txtNombreCondicion.Name = "txtNombreCondicion";
+            this.txtNombreCondicion.ReadOnly = true;
+            this.txtNombreCondicion.Size = new System.Drawing.Size(335, 20);
+            this.txtNombreCondicion.TabIndex = 24;
+            // 
+            // TxtCodigoCondicion
+            // 
+            this.TxtCodigoCondicion.Location = new System.Drawing.Point(76, 34);
+            this.TxtCodigoCondicion.Name = "TxtCodigoCondicion";
+            this.TxtCodigoCondicion.Size = new System.Drawing.Size(100, 20);
+            this.TxtCodigoCondicion.TabIndex = 2;
+            this.TxtCodigoCondicion.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCodigoCondicion_KeyDown);
+            this.TxtCodigoCondicion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            this.TxtCodigoCondicion.Validated += new System.EventHandler(this.TxtCodigoCondicion_Validated);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(29, 105);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(41, 13);
+            this.label15.TabIndex = 22;
+            this.label15.Text = "Origen:";
+            // 
+            // txtNombreCiudadOrigen
+            // 
+            this.txtNombreCiudadOrigen.Enabled = false;
+            this.txtNombreCiudadOrigen.Location = new System.Drawing.Point(161, 102);
+            this.txtNombreCiudadOrigen.Name = "txtNombreCiudadOrigen";
+            this.txtNombreCiudadOrigen.ReadOnly = true;
+            this.txtNombreCiudadOrigen.Size = new System.Drawing.Size(356, 20);
+            this.txtNombreCiudadOrigen.TabIndex = 21;
+            // 
+            // TxtCodigoCiudadOrigen
+            // 
+            this.TxtCodigoCiudadOrigen.Location = new System.Drawing.Point(76, 102);
+            this.TxtCodigoCiudadOrigen.Name = "TxtCodigoCiudadOrigen";
+            this.TxtCodigoCiudadOrigen.Size = new System.Drawing.Size(79, 20);
+            this.TxtCodigoCiudadOrigen.TabIndex = 6;
+            this.TxtCodigoCiudadOrigen.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCodigoCiudadOrigen_KeyDown);
+            this.TxtCodigoCiudadOrigen.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            this.TxtCodigoCiudadOrigen.Validated += new System.EventHandler(this.TxtCodigoCiudadOrigen_Validated);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(13, 59);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(58, 13);
+            this.label14.TabIndex = 13;
+            this.label14.Text = "Remitente:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(6, 82);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(65, 13);
+            this.label13.TabIndex = 12;
+            this.label13.Text = "Documento:";
+            // 
+            // TxtDocumentoCliente
+            // 
+            this.TxtDocumentoCliente.Location = new System.Drawing.Point(76, 79);
+            this.TxtDocumentoCliente.Name = "TxtDocumentoCliente";
+            this.TxtDocumentoCliente.Size = new System.Drawing.Size(208, 20);
+            this.TxtDocumentoCliente.TabIndex = 4;
+            this.TxtDocumentoCliente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            // 
+            // TxtRemitente
+            // 
+            this.TxtRemitente.Location = new System.Drawing.Point(76, 57);
+            this.TxtRemitente.Name = "TxtRemitente";
+            this.TxtRemitente.Size = new System.Drawing.Size(441, 20);
+            this.TxtRemitente.TabIndex = 3;
+            this.TxtRemitente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            // 
+            // txtNombreCliente
+            // 
+            this.txtNombreCliente.Enabled = false;
+            this.txtNombreCliente.Location = new System.Drawing.Point(182, 12);
+            this.txtNombreCliente.Name = "txtNombreCliente";
+            this.txtNombreCliente.ReadOnly = true;
+            this.txtNombreCliente.Size = new System.Drawing.Size(335, 20);
+            this.txtNombreCliente.TabIndex = 9;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(24, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Tercero:";
+            // 
+            // TxtCodigoCliente
+            // 
+            this.TxtCodigoCliente.Location = new System.Drawing.Point(76, 12);
+            this.TxtCodigoCliente.Name = "TxtCodigoCliente";
+            this.TxtCodigoCliente.Size = new System.Drawing.Size(100, 20);
+            this.TxtCodigoCliente.TabIndex = 1;
+            this.TxtCodigoCliente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCodigoCliente_KeyDown);
+            this.TxtCodigoCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCodigoCliente_KeyPress);
+            this.TxtCodigoCliente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            this.TxtCodigoCliente.Validated += new System.EventHandler(this.TxtCodigoCliente_Validated);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TsbNuevo,
             this.TsbGuardar,
             this.TsbCancelar,
@@ -749,255 +749,255 @@
             this.TsbVistaPrevia,
             this.toolStripSeparator3,
             this.TsbRecibo});
-			this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-			this.toolStrip1.Name = "toolStrip1";
-			this.toolStrip1.Size = new System.Drawing.Size(1183, 25);
-			this.toolStrip1.TabIndex = 12;
-			this.toolStrip1.Text = "toolStrip1";
-			// 
-			// TsbNuevo
-			// 
-			this.TsbNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.TsbNuevo.Image = ((System.Drawing.Image)(resources.GetObject("TsbNuevo.Image")));
-			this.TsbNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.TsbNuevo.Name = "TsbNuevo";
-			this.TsbNuevo.Size = new System.Drawing.Size(23, 22);
-			this.TsbNuevo.Text = "Nuevo F5";
-			this.TsbNuevo.Click += new System.EventHandler(this.TsbNuevo_Click);
-			// 
-			// TsbGuardar
-			// 
-			this.TsbGuardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.TsbGuardar.Enabled = false;
-			this.TsbGuardar.Image = ((System.Drawing.Image)(resources.GetObject("TsbGuardar.Image")));
-			this.TsbGuardar.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.TsbGuardar.Name = "TsbGuardar";
-			this.TsbGuardar.Size = new System.Drawing.Size(23, 22);
-			this.TsbGuardar.Text = "Guardar F6";
-			this.TsbGuardar.Click += new System.EventHandler(this.TsbGuardar_Click);
-			// 
-			// TsbCancelar
-			// 
-			this.TsbCancelar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.TsbCancelar.Enabled = false;
-			this.TsbCancelar.Image = ((System.Drawing.Image)(resources.GetObject("TsbCancelar.Image")));
-			this.TsbCancelar.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.TsbCancelar.Name = "TsbCancelar";
-			this.TsbCancelar.Size = new System.Drawing.Size(23, 22);
-			this.TsbCancelar.Text = "Cancelar F7";
-			this.TsbCancelar.Click += new System.EventHandler(this.TsbCancelar_Click);
-			// 
-			// TsbPrecargar
-			// 
-			this.TsbPrecargar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.TsbPrecargar.Enabled = false;
-			this.TsbPrecargar.Image = ((System.Drawing.Image)(resources.GetObject("TsbPrecargar.Image")));
-			this.TsbPrecargar.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.TsbPrecargar.Name = "TsbPrecargar";
-			this.TsbPrecargar.Size = new System.Drawing.Size(23, 22);
-			this.TsbPrecargar.Text = "Precargar F8";
-			this.TsbPrecargar.Click += new System.EventHandler(this.TsbPrecargar_Click);
-			// 
-			// toolStripSeparator1
-			// 
-			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-			// 
-			// TsbBuscarGuia
-			// 
-			this.TsbBuscarGuia.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.TsbBuscarGuia.Image = ((System.Drawing.Image)(resources.GetObject("TsbBuscarGuia.Image")));
-			this.TsbBuscarGuia.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.TsbBuscarGuia.Name = "TsbBuscarGuia";
-			this.TsbBuscarGuia.Size = new System.Drawing.Size(23, 22);
-			this.TsbBuscarGuia.Text = "Buscar guia F9";
-			this.TsbBuscarGuia.Click += new System.EventHandler(this.TsbBuscarGuia_Click);
-			// 
-			// TsbBuscar
-			// 
-			this.TsbBuscar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.TsbBuscar.Image = ((System.Drawing.Image)(resources.GetObject("TsbBuscar.Image")));
-			this.TsbBuscar.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.TsbBuscar.Name = "TsbBuscar";
-			this.TsbBuscar.Size = new System.Drawing.Size(23, 22);
-			this.TsbBuscar.Text = "Buscar numero F10";
-			this.TsbBuscar.Click += new System.EventHandler(this.TsbBuscar_Click);
-			// 
-			// toolStripSeparator2
-			// 
-			this.toolStripSeparator2.Name = "toolStripSeparator2";
-			this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-			// 
-			// TsbImprimir
-			// 
-			this.TsbImprimir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.TsbImprimir.Image = ((System.Drawing.Image)(resources.GetObject("TsbImprimir.Image")));
-			this.TsbImprimir.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.TsbImprimir.Name = "TsbImprimir";
-			this.TsbImprimir.Size = new System.Drawing.Size(23, 22);
-			this.TsbImprimir.Text = "Imprimir Ctr+P";
-			this.TsbImprimir.Click += new System.EventHandler(this.TsbImprimir_Click);
-			// 
-			// TsbVistaPrevia
-			// 
-			this.TsbVistaPrevia.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.TsbVistaPrevia.Image = ((System.Drawing.Image)(resources.GetObject("TsbVistaPrevia.Image")));
-			this.TsbVistaPrevia.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.TsbVistaPrevia.Name = "TsbVistaPrevia";
-			this.TsbVistaPrevia.Size = new System.Drawing.Size(23, 22);
-			this.TsbVistaPrevia.Text = "Vista previa";
-			this.TsbVistaPrevia.Click += new System.EventHandler(this.TsbVistaPrevia_Click);
-			// 
-			// toolStripSeparator3
-			// 
-			this.toolStripSeparator3.Name = "toolStripSeparator3";
-			this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
-			// 
-			// TsbRecibo
-			// 
-			this.TsbRecibo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.TsbRecibo.Image = ((System.Drawing.Image)(resources.GetObject("TsbRecibo.Image")));
-			this.TsbRecibo.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.TsbRecibo.Name = "TsbRecibo";
-			this.TsbRecibo.Size = new System.Drawing.Size(23, 22);
-			this.TsbRecibo.Text = "Ver / agregar recibo";
-			this.TsbRecibo.Click += new System.EventHandler(this.TsbRecibo_Click);
-			// 
-			// gbInformacion
-			// 
-			this.gbInformacion.Controls.Add(this.ChkMercanciaPeligrosa);
-			this.gbInformacion.Controls.Add(this.label44);
-			this.gbInformacion.Controls.Add(this.TxtReferenciaEmpaque);
-			this.gbInformacion.Controls.Add(this.label26);
-			this.gbInformacion.Controls.Add(this.CboProducto);
-			this.gbInformacion.Controls.Add(this.label19);
-			this.gbInformacion.Controls.Add(this.label18);
-			this.gbInformacion.Controls.Add(this.label17);
-			this.gbInformacion.Controls.Add(this.CboEmpaque);
-			this.gbInformacion.Controls.Add(this.CboServicio);
-			this.gbInformacion.Controls.Add(this.CboTipo);
-			this.gbInformacion.Enabled = false;
-			this.gbInformacion.Location = new System.Drawing.Point(18, 247);
-			this.gbInformacion.Name = "gbInformacion";
-			this.gbInformacion.Size = new System.Drawing.Size(289, 139);
-			this.gbInformacion.TabIndex = 12;
-			this.gbInformacion.TabStop = false;
-			// 
-			// ChkMercanciaPeligrosa
-			// 
-			this.ChkMercanciaPeligrosa.AutoSize = true;
-			this.ChkMercanciaPeligrosa.Location = new System.Drawing.Point(182, 109);
-			this.ChkMercanciaPeligrosa.Name = "ChkMercanciaPeligrosa";
-			this.ChkMercanciaPeligrosa.Size = new System.Drawing.Size(94, 17);
-			this.ChkMercanciaPeligrosa.TabIndex = 18;
-			this.ChkMercanciaPeligrosa.Text = "Mcia peligrosa";
-			this.ChkMercanciaPeligrosa.UseVisualStyleBackColor = true;
-			this.ChkMercanciaPeligrosa.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
-			// 
-			// label44
-			// 
-			this.label44.AutoSize = true;
-			this.label44.Location = new System.Drawing.Point(16, 113);
-			this.label44.Name = "label44";
-			this.label44.Size = new System.Drawing.Size(54, 13);
-			this.label44.TabIndex = 18;
-			this.label44.Text = "Ref_Emp:";
-			// 
-			// TxtReferenciaEmpaque
-			// 
-			this.TxtReferenciaEmpaque.Location = new System.Drawing.Point(73, 110);
-			this.TxtReferenciaEmpaque.Name = "TxtReferenciaEmpaque";
-			this.TxtReferenciaEmpaque.Size = new System.Drawing.Size(103, 20);
-			this.TxtReferenciaEmpaque.TabIndex = 17;
-			this.TxtReferenciaEmpaque.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
-			// 
-			// label26
-			// 
-			this.label26.AutoSize = true;
-			this.label26.Location = new System.Drawing.Point(15, 66);
-			this.label26.Name = "label26";
-			this.label26.Size = new System.Drawing.Size(53, 13);
-			this.label26.TabIndex = 7;
-			this.label26.Text = "Producto:";
-			// 
-			// CboProducto
-			// 
-			this.CboProducto.FormattingEnabled = true;
-			this.CboProducto.Location = new System.Drawing.Point(73, 62);
-			this.CboProducto.Name = "CboProducto";
-			this.CboProducto.Size = new System.Drawing.Size(201, 21);
-			this.CboProducto.TabIndex = 15;
-			this.CboProducto.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
-			this.CboProducto.Validated += new System.EventHandler(this.CboProducto_Validated);
-			// 
-			// label19
-			// 
-			this.label19.AutoSize = true;
-			this.label19.Location = new System.Drawing.Point(13, 88);
-			this.label19.Name = "label19";
-			this.label19.Size = new System.Drawing.Size(55, 13);
-			this.label19.TabIndex = 5;
-			this.label19.Text = "Empaque:";
-			// 
-			// label18
-			// 
-			this.label18.AutoSize = true;
-			this.label18.Location = new System.Drawing.Point(20, 40);
-			this.label18.Name = "label18";
-			this.label18.Size = new System.Drawing.Size(48, 13);
-			this.label18.TabIndex = 4;
-			this.label18.Text = "Servicio:";
-			// 
-			// label17
-			// 
-			this.label17.AutoSize = true;
-			this.label17.Location = new System.Drawing.Point(36, 16);
-			this.label17.Name = "label17";
-			this.label17.Size = new System.Drawing.Size(31, 13);
-			this.label17.TabIndex = 3;
-			this.label17.Text = "Tipo:";
-			// 
-			// CboEmpaque
-			// 
-			this.CboEmpaque.FormattingEnabled = true;
-			this.CboEmpaque.Location = new System.Drawing.Point(73, 85);
-			this.CboEmpaque.Name = "CboEmpaque";
-			this.CboEmpaque.Size = new System.Drawing.Size(201, 21);
-			this.CboEmpaque.TabIndex = 16;
-			this.CboEmpaque.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
-			// 
-			// CboServicio
-			// 
-			this.CboServicio.FormattingEnabled = true;
-			this.CboServicio.Location = new System.Drawing.Point(73, 40);
-			this.CboServicio.Name = "CboServicio";
-			this.CboServicio.Size = new System.Drawing.Size(201, 21);
-			this.CboServicio.TabIndex = 14;
-			this.CboServicio.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
-			// 
-			// CboTipo
-			// 
-			this.CboTipo.FormattingEnabled = true;
-			this.CboTipo.Location = new System.Drawing.Point(73, 17);
-			this.CboTipo.Name = "CboTipo";
-			this.CboTipo.Size = new System.Drawing.Size(201, 21);
-			this.CboTipo.TabIndex = 13;
-			this.CboTipo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
-			// 
-			// menuStrip1
-			// 
-			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1183, 25);
+            this.toolStrip1.TabIndex = 12;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // TsbNuevo
+            // 
+            this.TsbNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TsbNuevo.Image = ((System.Drawing.Image)(resources.GetObject("TsbNuevo.Image")));
+            this.TsbNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TsbNuevo.Name = "TsbNuevo";
+            this.TsbNuevo.Size = new System.Drawing.Size(23, 22);
+            this.TsbNuevo.Text = "Nuevo F5";
+            this.TsbNuevo.Click += new System.EventHandler(this.TsbNuevo_Click);
+            // 
+            // TsbGuardar
+            // 
+            this.TsbGuardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TsbGuardar.Enabled = false;
+            this.TsbGuardar.Image = ((System.Drawing.Image)(resources.GetObject("TsbGuardar.Image")));
+            this.TsbGuardar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TsbGuardar.Name = "TsbGuardar";
+            this.TsbGuardar.Size = new System.Drawing.Size(23, 22);
+            this.TsbGuardar.Text = "Guardar F6";
+            this.TsbGuardar.Click += new System.EventHandler(this.TsbGuardar_Click);
+            // 
+            // TsbCancelar
+            // 
+            this.TsbCancelar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TsbCancelar.Enabled = false;
+            this.TsbCancelar.Image = ((System.Drawing.Image)(resources.GetObject("TsbCancelar.Image")));
+            this.TsbCancelar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TsbCancelar.Name = "TsbCancelar";
+            this.TsbCancelar.Size = new System.Drawing.Size(23, 22);
+            this.TsbCancelar.Text = "Cancelar F7";
+            this.TsbCancelar.Click += new System.EventHandler(this.TsbCancelar_Click);
+            // 
+            // TsbPrecargar
+            // 
+            this.TsbPrecargar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TsbPrecargar.Enabled = false;
+            this.TsbPrecargar.Image = ((System.Drawing.Image)(resources.GetObject("TsbPrecargar.Image")));
+            this.TsbPrecargar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TsbPrecargar.Name = "TsbPrecargar";
+            this.TsbPrecargar.Size = new System.Drawing.Size(23, 22);
+            this.TsbPrecargar.Text = "Precargar F8";
+            this.TsbPrecargar.Click += new System.EventHandler(this.TsbPrecargar_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // TsbBuscarGuia
+            // 
+            this.TsbBuscarGuia.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TsbBuscarGuia.Image = ((System.Drawing.Image)(resources.GetObject("TsbBuscarGuia.Image")));
+            this.TsbBuscarGuia.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TsbBuscarGuia.Name = "TsbBuscarGuia";
+            this.TsbBuscarGuia.Size = new System.Drawing.Size(23, 22);
+            this.TsbBuscarGuia.Text = "Buscar guia F9";
+            this.TsbBuscarGuia.Click += new System.EventHandler(this.TsbBuscarGuia_Click);
+            // 
+            // TsbBuscar
+            // 
+            this.TsbBuscar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TsbBuscar.Image = ((System.Drawing.Image)(resources.GetObject("TsbBuscar.Image")));
+            this.TsbBuscar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TsbBuscar.Name = "TsbBuscar";
+            this.TsbBuscar.Size = new System.Drawing.Size(23, 22);
+            this.TsbBuscar.Text = "Buscar numero F10";
+            this.TsbBuscar.Click += new System.EventHandler(this.TsbBuscar_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // TsbImprimir
+            // 
+            this.TsbImprimir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TsbImprimir.Image = ((System.Drawing.Image)(resources.GetObject("TsbImprimir.Image")));
+            this.TsbImprimir.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TsbImprimir.Name = "TsbImprimir";
+            this.TsbImprimir.Size = new System.Drawing.Size(23, 22);
+            this.TsbImprimir.Text = "Imprimir Ctr+P";
+            this.TsbImprimir.Click += new System.EventHandler(this.TsbImprimir_Click);
+            // 
+            // TsbVistaPrevia
+            // 
+            this.TsbVistaPrevia.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TsbVistaPrevia.Image = ((System.Drawing.Image)(resources.GetObject("TsbVistaPrevia.Image")));
+            this.TsbVistaPrevia.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TsbVistaPrevia.Name = "TsbVistaPrevia";
+            this.TsbVistaPrevia.Size = new System.Drawing.Size(23, 22);
+            this.TsbVistaPrevia.Text = "Vista previa";
+            this.TsbVistaPrevia.Click += new System.EventHandler(this.TsbVistaPrevia_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // TsbRecibo
+            // 
+            this.TsbRecibo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TsbRecibo.Image = ((System.Drawing.Image)(resources.GetObject("TsbRecibo.Image")));
+            this.TsbRecibo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TsbRecibo.Name = "TsbRecibo";
+            this.TsbRecibo.Size = new System.Drawing.Size(23, 22);
+            this.TsbRecibo.Text = "Ver / agregar recibo";
+            this.TsbRecibo.Click += new System.EventHandler(this.TsbRecibo_Click);
+            // 
+            // gbInformacion
+            // 
+            this.gbInformacion.Controls.Add(this.ChkMercanciaPeligrosa);
+            this.gbInformacion.Controls.Add(this.label44);
+            this.gbInformacion.Controls.Add(this.TxtReferenciaEmpaque);
+            this.gbInformacion.Controls.Add(this.label26);
+            this.gbInformacion.Controls.Add(this.CboProducto);
+            this.gbInformacion.Controls.Add(this.label19);
+            this.gbInformacion.Controls.Add(this.label18);
+            this.gbInformacion.Controls.Add(this.label17);
+            this.gbInformacion.Controls.Add(this.CboEmpaque);
+            this.gbInformacion.Controls.Add(this.CboServicio);
+            this.gbInformacion.Controls.Add(this.CboTipo);
+            this.gbInformacion.Enabled = false;
+            this.gbInformacion.Location = new System.Drawing.Point(18, 247);
+            this.gbInformacion.Name = "gbInformacion";
+            this.gbInformacion.Size = new System.Drawing.Size(289, 139);
+            this.gbInformacion.TabIndex = 12;
+            this.gbInformacion.TabStop = false;
+            // 
+            // ChkMercanciaPeligrosa
+            // 
+            this.ChkMercanciaPeligrosa.AutoSize = true;
+            this.ChkMercanciaPeligrosa.Location = new System.Drawing.Point(182, 109);
+            this.ChkMercanciaPeligrosa.Name = "ChkMercanciaPeligrosa";
+            this.ChkMercanciaPeligrosa.Size = new System.Drawing.Size(94, 17);
+            this.ChkMercanciaPeligrosa.TabIndex = 18;
+            this.ChkMercanciaPeligrosa.Text = "Mcia peligrosa";
+            this.ChkMercanciaPeligrosa.UseVisualStyleBackColor = true;
+            this.ChkMercanciaPeligrosa.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(16, 113);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(54, 13);
+            this.label44.TabIndex = 18;
+            this.label44.Text = "Ref_Emp:";
+            // 
+            // TxtReferenciaEmpaque
+            // 
+            this.TxtReferenciaEmpaque.Location = new System.Drawing.Point(73, 110);
+            this.TxtReferenciaEmpaque.Name = "TxtReferenciaEmpaque";
+            this.TxtReferenciaEmpaque.Size = new System.Drawing.Size(103, 20);
+            this.TxtReferenciaEmpaque.TabIndex = 17;
+            this.TxtReferenciaEmpaque.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(15, 66);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(53, 13);
+            this.label26.TabIndex = 7;
+            this.label26.Text = "Producto:";
+            // 
+            // CboProducto
+            // 
+            this.CboProducto.FormattingEnabled = true;
+            this.CboProducto.Location = new System.Drawing.Point(73, 62);
+            this.CboProducto.Name = "CboProducto";
+            this.CboProducto.Size = new System.Drawing.Size(201, 21);
+            this.CboProducto.TabIndex = 15;
+            this.CboProducto.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            this.CboProducto.Validated += new System.EventHandler(this.CboProducto_Validated);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(13, 88);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(55, 13);
+            this.label19.TabIndex = 5;
+            this.label19.Text = "Empaque:";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(20, 40);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(48, 13);
+            this.label18.TabIndex = 4;
+            this.label18.Text = "Servicio:";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(36, 16);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(31, 13);
+            this.label17.TabIndex = 3;
+            this.label17.Text = "Tipo:";
+            // 
+            // CboEmpaque
+            // 
+            this.CboEmpaque.FormattingEnabled = true;
+            this.CboEmpaque.Location = new System.Drawing.Point(73, 85);
+            this.CboEmpaque.Name = "CboEmpaque";
+            this.CboEmpaque.Size = new System.Drawing.Size(201, 21);
+            this.CboEmpaque.TabIndex = 16;
+            this.CboEmpaque.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            // 
+            // CboServicio
+            // 
+            this.CboServicio.FormattingEnabled = true;
+            this.CboServicio.Location = new System.Drawing.Point(73, 40);
+            this.CboServicio.Name = "CboServicio";
+            this.CboServicio.Size = new System.Drawing.Size(201, 21);
+            this.CboServicio.TabIndex = 14;
+            this.CboServicio.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            // 
+            // CboTipo
+            // 
+            this.CboTipo.FormattingEnabled = true;
+            this.CboTipo.Location = new System.Drawing.Point(73, 17);
+            this.CboTipo.Name = "CboTipo";
+            this.CboTipo.Size = new System.Drawing.Size(201, 21);
+            this.CboTipo.TabIndex = 13;
+            this.CboTipo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.accionesToolStripMenuItem});
-			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(1123, 24);
-			this.menuStrip1.TabIndex = 15;
-			this.menuStrip1.Text = "menuStrip1";
-			this.menuStrip1.Visible = false;
-			// 
-			// accionesToolStripMenuItem
-			// 
-			this.accionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1123, 24);
+            this.menuStrip1.TabIndex = 15;
+            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.Visible = false;
+            // 
+            // accionesToolStripMenuItem
+            // 
+            this.accionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MnuNuevo,
             this.MnuGuardar,
             this.MnuCancelar,
@@ -1005,782 +1005,782 @@
             this.MnuBuscarGuia,
             this.MnuBuscar,
             this.MnuImprimir});
-			this.accionesToolStripMenuItem.Name = "accionesToolStripMenuItem";
-			this.accionesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-			this.accionesToolStripMenuItem.Text = "acciones";
-			// 
-			// MnuNuevo
-			// 
-			this.MnuNuevo.Name = "MnuNuevo";
-			this.MnuNuevo.ShortcutKeys = System.Windows.Forms.Keys.F5;
-			this.MnuNuevo.Size = new System.Drawing.Size(161, 22);
-			this.MnuNuevo.Text = "Nuevo";
-			this.MnuNuevo.Click += new System.EventHandler(this.MnuNuevo_Click);
-			// 
-			// MnuGuardar
-			// 
-			this.MnuGuardar.Enabled = false;
-			this.MnuGuardar.Name = "MnuGuardar";
-			this.MnuGuardar.ShortcutKeys = System.Windows.Forms.Keys.F6;
-			this.MnuGuardar.Size = new System.Drawing.Size(161, 22);
-			this.MnuGuardar.Text = "Guardar";
-			this.MnuGuardar.Click += new System.EventHandler(this.MnuGuardar_Click);
-			// 
-			// MnuCancelar
-			// 
-			this.MnuCancelar.Enabled = false;
-			this.MnuCancelar.Name = "MnuCancelar";
-			this.MnuCancelar.ShortcutKeys = System.Windows.Forms.Keys.F7;
-			this.MnuCancelar.Size = new System.Drawing.Size(161, 22);
-			this.MnuCancelar.Text = "Cancelar";
-			this.MnuCancelar.Click += new System.EventHandler(this.MnuCancelar_Click);
-			// 
-			// MnuPrecargar
-			// 
-			this.MnuPrecargar.Enabled = false;
-			this.MnuPrecargar.Name = "MnuPrecargar";
-			this.MnuPrecargar.ShortcutKeys = System.Windows.Forms.Keys.F8;
-			this.MnuPrecargar.Size = new System.Drawing.Size(161, 22);
-			this.MnuPrecargar.Text = "Precargar";
-			this.MnuPrecargar.Click += new System.EventHandler(this.MnuPrecargar_Click);
-			// 
-			// MnuBuscarGuia
-			// 
-			this.MnuBuscarGuia.Name = "MnuBuscarGuia";
-			this.MnuBuscarGuia.ShortcutKeys = System.Windows.Forms.Keys.F9;
-			this.MnuBuscarGuia.Size = new System.Drawing.Size(161, 22);
-			this.MnuBuscarGuia.Text = "Buscar guia";
-			this.MnuBuscarGuia.Click += new System.EventHandler(this.MnuBuscarGuia_Click);
-			// 
-			// MnuBuscar
-			// 
-			this.MnuBuscar.Name = "MnuBuscar";
-			this.MnuBuscar.ShortcutKeys = System.Windows.Forms.Keys.F10;
-			this.MnuBuscar.Size = new System.Drawing.Size(161, 22);
-			this.MnuBuscar.Text = "Buscar";
-			this.MnuBuscar.Click += new System.EventHandler(this.MnuBuscar_Click);
-			// 
-			// MnuImprimir
-			// 
-			this.MnuImprimir.Name = "MnuImprimir";
-			this.MnuImprimir.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-			this.MnuImprimir.Size = new System.Drawing.Size(161, 22);
-			this.MnuImprimir.Text = "Imprimir";
-			this.MnuImprimir.Click += new System.EventHandler(this.MnuImprimir_Click);
-			// 
-			// gbDatos
-			// 
-			this.gbDatos.Controls.Add(this.label47);
-			this.gbDatos.Controls.Add(this.TxtNumeroFactura);
-			this.gbDatos.Controls.Add(this.ChkCortesia);
-			this.gbDatos.Controls.Add(this.label46);
-			this.gbDatos.Controls.Add(this.TxtCodigoDespacho);
-			this.gbDatos.Controls.Add(this.ChkEstadoAnulado);
-			this.gbDatos.Controls.Add(this.ChkEstadoFacturado);
-			this.gbDatos.Controls.Add(this.ChkEstadoFacturaGenerada);
-			this.gbDatos.Controls.Add(this.ChkEstadoCumplido);
-			this.gbDatos.Controls.Add(this.ChkEstadoSoporte);
-			this.gbDatos.Controls.Add(this.ChkEstadoEntregado);
-			this.gbDatos.Controls.Add(this.ChkEstadoDespachado);
-			this.gbDatos.Controls.Add(this.ChkEstadoEmbarcado);
-			this.gbDatos.Controls.Add(this.ChkEstadoImpreso);
-			this.gbDatos.Controls.Add(this.label31);
-			this.gbDatos.Controls.Add(this.TxtUsuario);
-			this.gbDatos.Controls.Add(this.ChkReexpedicion);
-			this.gbDatos.Controls.Add(this.ChkFactura);
-			this.gbDatos.Controls.Add(this.label28);
-			this.gbDatos.Controls.Add(this.TxtNumero);
-			this.gbDatos.Controls.Add(this.TxtOperacionIngreso);
-			this.gbDatos.Controls.Add(this.TxtOperacionCargo);
-			this.gbDatos.Controls.Add(this.label25);
-			this.gbDatos.Controls.Add(this.label24);
-			this.gbDatos.Controls.Add(this.TxtFechaEntrega);
-			this.gbDatos.Controls.Add(this.TxtFechaDespacho);
-			this.gbDatos.Controls.Add(this.TxtFechaIngreso);
-			this.gbDatos.Controls.Add(this.label23);
-			this.gbDatos.Controls.Add(this.label22);
-			this.gbDatos.Controls.Add(this.label21);
-			this.gbDatos.Controls.Add(this.TxtCodigo);
-			this.gbDatos.Controls.Add(this.label20);
-			this.gbDatos.Enabled = false;
-			this.gbDatos.Location = new System.Drawing.Point(552, 22);
-			this.gbDatos.Name = "gbDatos";
-			this.gbDatos.Size = new System.Drawing.Size(209, 326);
-			this.gbDatos.TabIndex = 17;
-			this.gbDatos.TabStop = false;
-			// 
-			// label47
-			// 
-			this.label47.AutoSize = true;
-			this.label47.Location = new System.Drawing.Point(16, 194);
-			this.label47.Name = "label47";
-			this.label47.Size = new System.Drawing.Size(46, 13);
-			this.label47.TabIndex = 54;
-			this.label47.Text = "Factura:";
-			// 
-			// TxtNumeroFactura
-			// 
-			this.TxtNumeroFactura.Location = new System.Drawing.Point(65, 191);
-			this.TxtNumeroFactura.Name = "TxtNumeroFactura";
-			this.TxtNumeroFactura.Size = new System.Drawing.Size(116, 20);
-			this.TxtNumeroFactura.TabIndex = 53;
-			// 
-			// ChkCortesia
-			// 
-			this.ChkCortesia.AutoSize = true;
-			this.ChkCortesia.Location = new System.Drawing.Point(97, 238);
-			this.ChkCortesia.Name = "ChkCortesia";
-			this.ChkCortesia.Size = new System.Drawing.Size(64, 17);
-			this.ChkCortesia.TabIndex = 52;
-			this.ChkCortesia.Text = "Cortesia";
-			this.ChkCortesia.UseVisualStyleBackColor = true;
-			// 
-			// label46
-			// 
-			this.label46.AutoSize = true;
-			this.label46.Location = new System.Drawing.Point(5, 127);
-			this.label46.Name = "label46";
-			this.label46.Size = new System.Drawing.Size(59, 13);
-			this.label46.TabIndex = 51;
-			this.label46.Text = "Despacho:";
-			// 
-			// TxtCodigoDespacho
-			// 
-			this.TxtCodigoDespacho.Location = new System.Drawing.Point(65, 124);
-			this.TxtCodigoDespacho.Name = "TxtCodigoDespacho";
-			this.TxtCodigoDespacho.Size = new System.Drawing.Size(116, 20);
-			this.TxtCodigoDespacho.TabIndex = 50;
-			// 
-			// ChkEstadoAnulado
-			// 
-			this.ChkEstadoAnulado.AutoSize = true;
-			this.ChkEstadoAnulado.Location = new System.Drawing.Point(97, 287);
-			this.ChkEstadoAnulado.Name = "ChkEstadoAnulado";
-			this.ChkEstadoAnulado.Size = new System.Drawing.Size(65, 17);
-			this.ChkEstadoAnulado.TabIndex = 49;
-			this.ChkEstadoAnulado.Text = "Anulado";
-			this.ChkEstadoAnulado.UseVisualStyleBackColor = true;
-			// 
-			// ChkEstadoFacturado
-			// 
-			this.ChkEstadoFacturado.AutoSize = true;
-			this.ChkEstadoFacturado.Location = new System.Drawing.Point(97, 304);
-			this.ChkEstadoFacturado.Name = "ChkEstadoFacturado";
-			this.ChkEstadoFacturado.Size = new System.Drawing.Size(74, 17);
-			this.ChkEstadoFacturado.TabIndex = 48;
-			this.ChkEstadoFacturado.Text = "Facturado";
-			this.ChkEstadoFacturado.UseVisualStyleBackColor = true;
-			// 
-			// ChkEstadoFacturaGenerada
-			// 
-			this.ChkEstadoFacturaGenerada.AutoSize = true;
-			this.ChkEstadoFacturaGenerada.Location = new System.Drawing.Point(16, 307);
-			this.ChkEstadoFacturaGenerada.Name = "ChkEstadoFacturaGenerada";
-			this.ChkEstadoFacturaGenerada.Size = new System.Drawing.Size(75, 17);
-			this.ChkEstadoFacturaGenerada.TabIndex = 47;
-			this.ChkEstadoFacturaGenerada.Text = "Prefactura";
-			this.ChkEstadoFacturaGenerada.UseVisualStyleBackColor = true;
-			// 
-			// ChkEstadoCumplido
-			// 
-			this.ChkEstadoCumplido.AutoSize = true;
-			this.ChkEstadoCumplido.Location = new System.Drawing.Point(16, 290);
-			this.ChkEstadoCumplido.Name = "ChkEstadoCumplido";
-			this.ChkEstadoCumplido.Size = new System.Drawing.Size(69, 17);
-			this.ChkEstadoCumplido.TabIndex = 46;
-			this.ChkEstadoCumplido.Text = "Cumplido";
-			this.ChkEstadoCumplido.UseVisualStyleBackColor = true;
-			// 
-			// ChkEstadoSoporte
-			// 
-			this.ChkEstadoSoporte.AutoSize = true;
-			this.ChkEstadoSoporte.Location = new System.Drawing.Point(97, 270);
-			this.ChkEstadoSoporte.Name = "ChkEstadoSoporte";
-			this.ChkEstadoSoporte.Size = new System.Drawing.Size(63, 17);
-			this.ChkEstadoSoporte.TabIndex = 45;
-			this.ChkEstadoSoporte.Text = "Soporte";
-			this.ChkEstadoSoporte.UseVisualStyleBackColor = true;
-			// 
-			// ChkEstadoEntregado
-			// 
-			this.ChkEstadoEntregado.AutoSize = true;
-			this.ChkEstadoEntregado.Location = new System.Drawing.Point(16, 273);
-			this.ChkEstadoEntregado.Name = "ChkEstadoEntregado";
-			this.ChkEstadoEntregado.Size = new System.Drawing.Size(75, 17);
-			this.ChkEstadoEntregado.TabIndex = 44;
-			this.ChkEstadoEntregado.Text = "Entregado";
-			this.ChkEstadoEntregado.UseVisualStyleBackColor = true;
-			// 
-			// ChkEstadoDespachado
-			// 
-			this.ChkEstadoDespachado.AutoSize = true;
-			this.ChkEstadoDespachado.Location = new System.Drawing.Point(97, 254);
-			this.ChkEstadoDespachado.Name = "ChkEstadoDespachado";
-			this.ChkEstadoDespachado.Size = new System.Drawing.Size(87, 17);
-			this.ChkEstadoDespachado.TabIndex = 43;
-			this.ChkEstadoDespachado.Text = "Despachado";
-			this.ChkEstadoDespachado.UseVisualStyleBackColor = true;
-			// 
-			// ChkEstadoEmbarcado
-			// 
-			this.ChkEstadoEmbarcado.AutoSize = true;
-			this.ChkEstadoEmbarcado.Location = new System.Drawing.Point(16, 256);
-			this.ChkEstadoEmbarcado.Name = "ChkEstadoEmbarcado";
-			this.ChkEstadoEmbarcado.Size = new System.Drawing.Size(80, 17);
-			this.ChkEstadoEmbarcado.TabIndex = 42;
-			this.ChkEstadoEmbarcado.Text = "Embarcado";
-			this.ChkEstadoEmbarcado.UseVisualStyleBackColor = true;
-			// 
-			// ChkEstadoImpreso
-			// 
-			this.ChkEstadoImpreso.AutoSize = true;
-			this.ChkEstadoImpreso.Location = new System.Drawing.Point(16, 239);
-			this.ChkEstadoImpreso.Name = "ChkEstadoImpreso";
-			this.ChkEstadoImpreso.Size = new System.Drawing.Size(63, 17);
-			this.ChkEstadoImpreso.TabIndex = 41;
-			this.ChkEstadoImpreso.Text = "Impreso";
-			this.ChkEstadoImpreso.UseVisualStyleBackColor = true;
-			// 
-			// label31
-			// 
-			this.label31.AutoSize = true;
-			this.label31.Location = new System.Drawing.Point(18, 172);
-			this.label31.Name = "label31";
-			this.label31.Size = new System.Drawing.Size(46, 13);
-			this.label31.TabIndex = 25;
-			this.label31.Text = "Usuario:";
-			// 
-			// TxtUsuario
-			// 
-			this.TxtUsuario.Location = new System.Drawing.Point(65, 169);
-			this.TxtUsuario.Name = "TxtUsuario";
-			this.TxtUsuario.Size = new System.Drawing.Size(116, 20);
-			this.TxtUsuario.TabIndex = 24;
-			// 
-			// ChkReexpedicion
-			// 
-			this.ChkReexpedicion.AutoSize = true;
-			this.ChkReexpedicion.Enabled = false;
-			this.ChkReexpedicion.Location = new System.Drawing.Point(97, 224);
-			this.ChkReexpedicion.Name = "ChkReexpedicion";
-			this.ChkReexpedicion.Size = new System.Drawing.Size(91, 17);
-			this.ChkReexpedicion.TabIndex = 23;
-			this.ChkReexpedicion.Text = "Reexpedicion";
-			this.ChkReexpedicion.UseVisualStyleBackColor = true;
-			// 
-			// ChkFactura
-			// 
-			this.ChkFactura.AutoSize = true;
-			this.ChkFactura.Location = new System.Drawing.Point(16, 224);
-			this.ChkFactura.Name = "ChkFactura";
-			this.ChkFactura.Size = new System.Drawing.Size(62, 17);
-			this.ChkFactura.TabIndex = 21;
-			this.ChkFactura.Text = "Factura";
-			this.ChkFactura.UseVisualStyleBackColor = true;
-			// 
-			// label28
-			// 
-			this.label28.AutoSize = true;
-			this.label28.Location = new System.Drawing.Point(17, 37);
-			this.label28.Name = "label28";
-			this.label28.Size = new System.Drawing.Size(47, 13);
-			this.label28.TabIndex = 13;
-			this.label28.Text = "Numero:";
-			// 
-			// TxtNumero
-			// 
-			this.TxtNumero.Location = new System.Drawing.Point(65, 35);
-			this.TxtNumero.Name = "TxtNumero";
-			this.TxtNumero.Size = new System.Drawing.Size(116, 20);
-			this.TxtNumero.TabIndex = 12;
-			// 
-			// TxtOperacionIngreso
-			// 
-			this.TxtOperacionIngreso.Location = new System.Drawing.Point(65, 147);
-			this.TxtOperacionIngreso.Name = "TxtOperacionIngreso";
-			this.TxtOperacionIngreso.Size = new System.Drawing.Size(40, 20);
-			this.TxtOperacionIngreso.TabIndex = 11;
-			// 
-			// TxtOperacionCargo
-			// 
-			this.TxtOperacionCargo.Location = new System.Drawing.Point(142, 147);
-			this.TxtOperacionCargo.Name = "TxtOperacionCargo";
-			this.TxtOperacionCargo.Size = new System.Drawing.Size(39, 20);
-			this.TxtOperacionCargo.TabIndex = 10;
-			// 
-			// label25
-			// 
-			this.label25.AutoSize = true;
-			this.label25.Location = new System.Drawing.Point(115, 150);
-			this.label25.Name = "label25";
-			this.label25.Size = new System.Drawing.Size(25, 13);
-			this.label25.TabIndex = 9;
-			this.label25.Text = "OC:";
-			// 
-			// label24
-			// 
-			this.label24.AutoSize = true;
-			this.label24.Location = new System.Drawing.Point(41, 150);
-			this.label24.Name = "label24";
-			this.label24.Size = new System.Drawing.Size(21, 13);
-			this.label24.TabIndex = 8;
-			this.label24.Text = "OI:";
-			// 
-			// TxtFechaEntrega
-			// 
-			this.TxtFechaEntrega.Location = new System.Drawing.Point(65, 102);
-			this.TxtFechaEntrega.Name = "TxtFechaEntrega";
-			this.TxtFechaEntrega.Size = new System.Drawing.Size(116, 20);
-			this.TxtFechaEntrega.TabIndex = 7;
-			// 
-			// TxtFechaDespacho
-			// 
-			this.TxtFechaDespacho.Location = new System.Drawing.Point(65, 79);
-			this.TxtFechaDespacho.Name = "TxtFechaDespacho";
-			this.TxtFechaDespacho.Size = new System.Drawing.Size(116, 20);
-			this.TxtFechaDespacho.TabIndex = 6;
-			// 
-			// TxtFechaIngreso
-			// 
-			this.TxtFechaIngreso.Location = new System.Drawing.Point(65, 57);
-			this.TxtFechaIngreso.Name = "TxtFechaIngreso";
-			this.TxtFechaIngreso.Size = new System.Drawing.Size(116, 20);
-			this.TxtFechaIngreso.TabIndex = 5;
-			// 
-			// label23
-			// 
-			this.label23.AutoSize = true;
-			this.label23.Location = new System.Drawing.Point(15, 102);
-			this.label23.Name = "label23";
-			this.label23.Size = new System.Drawing.Size(47, 13);
-			this.label23.TabIndex = 4;
-			this.label23.Text = "Entrega:";
-			// 
-			// label22
-			// 
-			this.label22.AutoSize = true;
-			this.label22.Location = new System.Drawing.Point(15, 81);
-			this.label22.Name = "label22";
-			this.label22.Size = new System.Drawing.Size(47, 13);
-			this.label22.TabIndex = 3;
-			this.label22.Text = "F_Desp:";
-			// 
-			// label21
-			// 
-			this.label21.AutoSize = true;
-			this.label21.Location = new System.Drawing.Point(19, 58);
-			this.label21.Name = "label21";
-			this.label21.Size = new System.Drawing.Size(45, 13);
-			this.label21.TabIndex = 2;
-			this.label21.Text = "Ingreso:";
-			// 
-			// TxtCodigo
-			// 
-			this.TxtCodigo.Location = new System.Drawing.Point(65, 13);
-			this.TxtCodigo.Name = "TxtCodigo";
-			this.TxtCodigo.Size = new System.Drawing.Size(116, 20);
-			this.TxtCodigo.TabIndex = 1;
-			// 
-			// label20
-			// 
-			this.label20.AutoSize = true;
-			this.label20.Location = new System.Drawing.Point(31, 16);
-			this.label20.Name = "label20";
-			this.label20.Size = new System.Drawing.Size(32, 13);
-			this.label20.TabIndex = 0;
-			this.label20.Text = "Guia:";
-			// 
-			// gbComentario
-			// 
-			this.gbComentario.Controls.Add(this.label29);
-			this.gbComentario.Controls.Add(this.TxtComentario);
-			this.gbComentario.Enabled = false;
-			this.gbComentario.Location = new System.Drawing.Point(18, 392);
-			this.gbComentario.Name = "gbComentario";
-			this.gbComentario.Size = new System.Drawing.Size(291, 93);
-			this.gbComentario.TabIndex = 27;
-			this.gbComentario.TabStop = false;
-			// 
-			// label29
-			// 
-			this.label29.AutoSize = true;
-			this.label29.Location = new System.Drawing.Point(8, 13);
-			this.label29.Name = "label29";
-			this.label29.Size = new System.Drawing.Size(63, 13);
-			this.label29.TabIndex = 28;
-			this.label29.Text = "Comentario:";
-			// 
-			// TxtComentario
-			// 
-			this.TxtComentario.Location = new System.Drawing.Point(73, 10);
-			this.TxtComentario.Multiline = true;
-			this.TxtComentario.Name = "TxtComentario";
-			this.TxtComentario.Size = new System.Drawing.Size(201, 58);
-			this.TxtComentario.TabIndex = 28;
-			// 
-			// GbCondiciones
-			// 
-			this.GbCondiciones.Controls.Add(this.ChkPagoCortesia);
-			this.GbCondiciones.Controls.Add(this.ChkPagoRecogida);
-			this.GbCondiciones.Controls.Add(this.ChkPagoCredito);
-			this.GbCondiciones.Controls.Add(this.ChkPagoContado);
-			this.GbCondiciones.Controls.Add(this.ChkPagoDestino);
-			this.GbCondiciones.Controls.Add(this.TxtDescuentoPeso);
-			this.GbCondiciones.Controls.Add(this.TxtPesoMinimo);
-			this.GbCondiciones.Controls.Add(this.label37);
-			this.GbCondiciones.Controls.Add(this.label33);
-			this.GbCondiciones.Controls.Add(this.ChkListaGeneral);
-			this.GbCondiciones.Enabled = false;
-			this.GbCondiciones.Location = new System.Drawing.Point(552, 351);
-			this.GbCondiciones.Name = "GbCondiciones";
-			this.GbCondiciones.Size = new System.Drawing.Size(208, 103);
-			this.GbCondiciones.TabIndex = 28;
-			this.GbCondiciones.TabStop = false;
-			this.GbCondiciones.Text = "Condicion";
-			this.GbCondiciones.Visible = false;
-			// 
-			// TxtDescuentoPeso
-			// 
-			this.TxtDescuentoPeso.Location = new System.Drawing.Point(81, 37);
-			this.TxtDescuentoPeso.Name = "TxtDescuentoPeso";
-			this.TxtDescuentoPeso.Size = new System.Drawing.Size(39, 20);
-			this.TxtDescuentoPeso.TabIndex = 10;
-			this.TxtDescuentoPeso.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			// 
-			// TxtPesoMinimo
-			// 
-			this.TxtPesoMinimo.Location = new System.Drawing.Point(81, 14);
-			this.TxtPesoMinimo.Name = "TxtPesoMinimo";
-			this.TxtPesoMinimo.Size = new System.Drawing.Size(39, 20);
-			this.TxtPesoMinimo.TabIndex = 6;
-			this.TxtPesoMinimo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			// 
-			// label37
-			// 
-			this.label37.AutoSize = true;
-			this.label37.Location = new System.Drawing.Point(12, 37);
-			this.label37.Name = "label37";
-			this.label37.Size = new System.Drawing.Size(62, 13);
-			this.label37.TabIndex = 5;
-			this.label37.Text = "Descuento:";
-			// 
-			// label33
-			// 
-			this.label33.AutoSize = true;
-			this.label33.Location = new System.Drawing.Point(6, 17);
-			this.label33.Name = "label33";
-			this.label33.Size = new System.Drawing.Size(69, 13);
-			this.label33.TabIndex = 1;
-			this.label33.Text = "Peso minimo:";
-			// 
-			// ChkListaGeneral
-			// 
-			this.ChkListaGeneral.AutoSize = true;
-			this.ChkListaGeneral.Location = new System.Drawing.Point(18, 61);
-			this.ChkListaGeneral.Name = "ChkListaGeneral";
-			this.ChkListaGeneral.Size = new System.Drawing.Size(94, 17);
-			this.ChkListaGeneral.TabIndex = 0;
-			this.ChkListaGeneral.Text = "Precio general";
-			this.ChkListaGeneral.UseVisualStyleBackColor = true;
-			// 
-			// LblPrecioDetalle
-			// 
-			this.LblPrecioDetalle.AutoSize = true;
-			this.LblPrecioDetalle.Location = new System.Drawing.Point(20, 488);
-			this.LblPrecioDetalle.Name = "LblPrecioDetalle";
-			this.LblPrecioDetalle.Size = new System.Drawing.Size(16, 13);
-			this.LblPrecioDetalle.TabIndex = 29;
-			this.LblPrecioDetalle.Text = "...";
-			// 
-			// GbPrecioDetalle
-			// 
-			this.GbPrecioDetalle.Controls.Add(this.TxtVrAdicional);
-			this.GbPrecioDetalle.Controls.Add(this.TxtPesoMinimoPrecio);
-			this.GbPrecioDetalle.Controls.Add(this.TxtTope);
-			this.GbPrecioDetalle.Controls.Add(this.TxtVrUnidad);
-			this.GbPrecioDetalle.Controls.Add(this.TxtVrPeso);
-			this.GbPrecioDetalle.Controls.Add(this.TxtVrTope);
-			this.GbPrecioDetalle.Controls.Add(this.label43);
-			this.GbPrecioDetalle.Controls.Add(this.label42);
-			this.GbPrecioDetalle.Controls.Add(this.label41);
-			this.GbPrecioDetalle.Controls.Add(this.label40);
-			this.GbPrecioDetalle.Controls.Add(this.label39);
-			this.GbPrecioDetalle.Controls.Add(this.label38);
-			this.GbPrecioDetalle.Enabled = false;
-			this.GbPrecioDetalle.Location = new System.Drawing.Point(552, 456);
-			this.GbPrecioDetalle.Name = "GbPrecioDetalle";
-			this.GbPrecioDetalle.Size = new System.Drawing.Size(239, 80);
-			this.GbPrecioDetalle.TabIndex = 30;
-			this.GbPrecioDetalle.TabStop = false;
-			this.GbPrecioDetalle.Visible = false;
-			// 
-			// TxtVrAdicional
-			// 
-			this.TxtVrAdicional.Location = new System.Drawing.Point(51, 54);
-			this.TxtVrAdicional.Name = "TxtVrAdicional";
-			this.TxtVrAdicional.Size = new System.Drawing.Size(69, 20);
-			this.TxtVrAdicional.TabIndex = 11;
-			this.TxtVrAdicional.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			// 
-			// TxtPesoMinimoPrecio
-			// 
-			this.TxtPesoMinimoPrecio.Location = new System.Drawing.Point(159, 54);
-			this.TxtPesoMinimoPrecio.Name = "TxtPesoMinimoPrecio";
-			this.TxtPesoMinimoPrecio.Size = new System.Drawing.Size(69, 20);
-			this.TxtPesoMinimoPrecio.TabIndex = 10;
-			this.TxtPesoMinimoPrecio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			// 
-			// TxtTope
-			// 
-			this.TxtTope.Location = new System.Drawing.Point(159, 33);
-			this.TxtTope.Name = "TxtTope";
-			this.TxtTope.Size = new System.Drawing.Size(69, 20);
-			this.TxtTope.TabIndex = 9;
-			this.TxtTope.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			// 
-			// TxtVrUnidad
-			// 
-			this.TxtVrUnidad.Location = new System.Drawing.Point(159, 12);
-			this.TxtVrUnidad.Name = "TxtVrUnidad";
-			this.TxtVrUnidad.Size = new System.Drawing.Size(69, 20);
-			this.TxtVrUnidad.TabIndex = 8;
-			this.TxtVrUnidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			// 
-			// TxtVrPeso
-			// 
-			this.TxtVrPeso.Location = new System.Drawing.Point(51, 12);
-			this.TxtVrPeso.Name = "TxtVrPeso";
-			this.TxtVrPeso.Size = new System.Drawing.Size(69, 20);
-			this.TxtVrPeso.TabIndex = 7;
-			this.TxtVrPeso.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			// 
-			// TxtVrTope
-			// 
-			this.TxtVrTope.Location = new System.Drawing.Point(51, 33);
-			this.TxtVrTope.Name = "TxtVrTope";
-			this.TxtVrTope.Size = new System.Drawing.Size(69, 20);
-			this.TxtVrTope.TabIndex = 6;
-			this.TxtVrTope.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			// 
-			// label43
-			// 
-			this.label43.AutoSize = true;
-			this.label43.Location = new System.Drawing.Point(128, 58);
-			this.label43.Name = "label43";
-			this.label43.Size = new System.Drawing.Size(27, 13);
-			this.label43.TabIndex = 5;
-			this.label43.Text = "Min:";
-			// 
-			// label42
-			// 
-			this.label42.AutoSize = true;
-			this.label42.Location = new System.Drawing.Point(18, 12);
-			this.label42.Name = "label42";
-			this.label42.Size = new System.Drawing.Size(34, 13);
-			this.label42.TabIndex = 4;
-			this.label42.Text = "Peso:";
-			// 
-			// label41
-			// 
-			this.label41.AutoSize = true;
-			this.label41.Location = new System.Drawing.Point(125, 12);
-			this.label41.Name = "label41";
-			this.label41.Size = new System.Drawing.Size(30, 13);
-			this.label41.TabIndex = 3;
-			this.label41.Text = "Und:";
-			// 
-			// label40
-			// 
-			this.label40.AutoSize = true;
-			this.label40.Location = new System.Drawing.Point(120, 35);
-			this.label40.Name = "label40";
-			this.label40.Size = new System.Drawing.Size(35, 13);
-			this.label40.TabIndex = 2;
-			this.label40.Text = "Tope:";
-			// 
-			// label39
-			// 
-			this.label39.AutoSize = true;
-			this.label39.Location = new System.Drawing.Point(7, 33);
-			this.label39.Name = "label39";
-			this.label39.Size = new System.Drawing.Size(45, 13);
-			this.label39.TabIndex = 1;
-			this.label39.Text = "VrTope:";
-			// 
-			// label38
-			// 
-			this.label38.AutoSize = true;
-			this.label38.Location = new System.Drawing.Point(13, 57);
-			this.label38.Name = "label38";
-			this.label38.Size = new System.Drawing.Size(35, 13);
-			this.label38.TabIndex = 0;
-			this.label38.Text = "VrAdi:";
-			// 
-			// GdManejo
-			// 
-			this.GdManejo.Controls.Add(this.TxtManejoMinimoDespacho);
-			this.GdManejo.Controls.Add(this.TxtManejoMinimoUnidad);
-			this.GdManejo.Controls.Add(this.TxtPorcentajeManejo);
-			this.GdManejo.Controls.Add(this.label36);
-			this.GdManejo.Controls.Add(this.label35);
-			this.GdManejo.Controls.Add(this.label34);
-			this.GdManejo.Enabled = false;
-			this.GdManejo.Location = new System.Drawing.Point(767, 351);
-			this.GdManejo.Name = "GdManejo";
-			this.GdManejo.Size = new System.Drawing.Size(133, 103);
-			this.GdManejo.TabIndex = 31;
-			this.GdManejo.TabStop = false;
-			this.GdManejo.Text = "Manejo";
-			this.GdManejo.Visible = false;
-			// 
-			// TxtManejoMinimoDespacho
-			// 
-			this.TxtManejoMinimoDespacho.Location = new System.Drawing.Point(69, 58);
-			this.TxtManejoMinimoDespacho.Name = "TxtManejoMinimoDespacho";
-			this.TxtManejoMinimoDespacho.Size = new System.Drawing.Size(49, 20);
-			this.TxtManejoMinimoDespacho.TabIndex = 15;
-			this.TxtManejoMinimoDespacho.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			// 
-			// TxtManejoMinimoUnidad
-			// 
-			this.TxtManejoMinimoUnidad.Location = new System.Drawing.Point(69, 36);
-			this.TxtManejoMinimoUnidad.Name = "TxtManejoMinimoUnidad";
-			this.TxtManejoMinimoUnidad.Size = new System.Drawing.Size(49, 20);
-			this.TxtManejoMinimoUnidad.TabIndex = 14;
-			this.TxtManejoMinimoUnidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			// 
-			// TxtPorcentajeManejo
-			// 
-			this.TxtPorcentajeManejo.Location = new System.Drawing.Point(69, 14);
-			this.TxtPorcentajeManejo.Name = "TxtPorcentajeManejo";
-			this.TxtPorcentajeManejo.Size = new System.Drawing.Size(49, 20);
-			this.TxtPorcentajeManejo.TabIndex = 13;
-			this.TxtPorcentajeManejo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			// 
-			// label36
-			// 
-			this.label36.AutoSize = true;
-			this.label36.Location = new System.Drawing.Point(10, 59);
-			this.label36.Name = "label36";
-			this.label36.Size = new System.Drawing.Size(59, 13);
-			this.label36.TabIndex = 12;
-			this.label36.Text = "Despacho:";
-			// 
-			// label35
-			// 
-			this.label35.AutoSize = true;
-			this.label35.Location = new System.Drawing.Point(26, 36);
-			this.label35.Name = "label35";
-			this.label35.Size = new System.Drawing.Size(43, 13);
-			this.label35.TabIndex = 11;
-			this.label35.Text = "Minimo:";
-			// 
-			// label34
-			// 
-			this.label34.AutoSize = true;
-			this.label34.Location = new System.Drawing.Point(8, 17);
-			this.label34.Name = "label34";
-			this.label34.Size = new System.Drawing.Size(61, 13);
-			this.label34.TabIndex = 10;
-			this.label34.Text = "Porcentaje:";
-			// 
-			// ChkPagoDestino
-			// 
-			this.ChkPagoDestino.AutoSize = true;
-			this.ChkPagoDestino.Location = new System.Drawing.Point(128, 43);
-			this.ChkPagoDestino.Name = "ChkPagoDestino";
-			this.ChkPagoDestino.Size = new System.Drawing.Size(62, 17);
-			this.ChkPagoDestino.TabIndex = 11;
-			this.ChkPagoDestino.Text = "Destino";
-			this.ChkPagoDestino.UseVisualStyleBackColor = true;
-			// 
-			// ChkPagoContado
-			// 
-			this.ChkPagoContado.AutoSize = true;
-			this.ChkPagoContado.Location = new System.Drawing.Point(128, 27);
-			this.ChkPagoContado.Name = "ChkPagoContado";
-			this.ChkPagoContado.Size = new System.Drawing.Size(66, 17);
-			this.ChkPagoContado.TabIndex = 12;
-			this.ChkPagoContado.Text = "Contado";
-			this.ChkPagoContado.UseVisualStyleBackColor = true;
-			// 
-			// ChkPagoCredito
-			// 
-			this.ChkPagoCredito.AutoSize = true;
-			this.ChkPagoCredito.Location = new System.Drawing.Point(128, 11);
-			this.ChkPagoCredito.Name = "ChkPagoCredito";
-			this.ChkPagoCredito.Size = new System.Drawing.Size(59, 17);
-			this.ChkPagoCredito.TabIndex = 13;
-			this.ChkPagoCredito.Text = "Credito";
-			this.ChkPagoCredito.UseVisualStyleBackColor = true;
-			// 
-			// ChkPagoRecogida
-			// 
-			this.ChkPagoRecogida.AutoSize = true;
-			this.ChkPagoRecogida.Location = new System.Drawing.Point(128, 74);
-			this.ChkPagoRecogida.Name = "ChkPagoRecogida";
-			this.ChkPagoRecogida.Size = new System.Drawing.Size(72, 17);
-			this.ChkPagoRecogida.TabIndex = 14;
-			this.ChkPagoRecogida.Text = "Recogida";
-			this.ChkPagoRecogida.UseVisualStyleBackColor = true;
-			// 
-			// ChkPagoCortesia
-			// 
-			this.ChkPagoCortesia.AutoSize = true;
-			this.ChkPagoCortesia.Location = new System.Drawing.Point(128, 58);
-			this.ChkPagoCortesia.Name = "ChkPagoCortesia";
-			this.ChkPagoCortesia.Size = new System.Drawing.Size(64, 17);
-			this.ChkPagoCortesia.TabIndex = 15;
-			this.ChkPagoCortesia.Text = "Cortesia";
-			this.ChkPagoCortesia.UseVisualStyleBackColor = true;
-			// 
-			// FrmGuia
-			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1183, 713);
-			this.ControlBox = false;
-			this.Controls.Add(this.GdManejo);
-			this.Controls.Add(this.GbPrecioDetalle);
-			this.Controls.Add(this.LblPrecioDetalle);
-			this.Controls.Add(this.GbCondiciones);
-			this.Controls.Add(this.gbComentario);
-			this.Controls.Add(this.gbDatos);
-			this.Controls.Add(this.gbInformacion);
-			this.Controls.Add(this.toolStrip1);
-			this.Controls.Add(this.gbCliente);
-			this.Controls.Add(this.gbTotales);
-			this.Controls.Add(this.gbDestinatario);
-			this.Controls.Add(this.menuStrip1);
-			this.Name = "FrmGuia";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Guia";
-			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-			this.Load += new System.EventHandler(this.Guia_Load);
-			this.gbDestinatario.ResumeLayout(false);
-			this.gbDestinatario.PerformLayout();
-			this.gbTotales.ResumeLayout(false);
-			this.gbTotales.PerformLayout();
-			this.gbCliente.ResumeLayout(false);
-			this.gbCliente.PerformLayout();
-			this.toolStrip1.ResumeLayout(false);
-			this.toolStrip1.PerformLayout();
-			this.gbInformacion.ResumeLayout(false);
-			this.gbInformacion.PerformLayout();
-			this.menuStrip1.ResumeLayout(false);
-			this.menuStrip1.PerformLayout();
-			this.gbDatos.ResumeLayout(false);
-			this.gbDatos.PerformLayout();
-			this.gbComentario.ResumeLayout(false);
-			this.gbComentario.PerformLayout();
-			this.GbCondiciones.ResumeLayout(false);
-			this.GbCondiciones.PerformLayout();
-			this.GbPrecioDetalle.ResumeLayout(false);
-			this.GbPrecioDetalle.PerformLayout();
-			this.GdManejo.ResumeLayout(false);
-			this.GdManejo.PerformLayout();
-			this.ResumeLayout(false);
-			this.PerformLayout();
+            this.accionesToolStripMenuItem.Name = "accionesToolStripMenuItem";
+            this.accionesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.accionesToolStripMenuItem.Text = "acciones";
+            // 
+            // MnuNuevo
+            // 
+            this.MnuNuevo.Name = "MnuNuevo";
+            this.MnuNuevo.ShortcutKeys = System.Windows.Forms.Keys.F5;
+            this.MnuNuevo.Size = new System.Drawing.Size(161, 22);
+            this.MnuNuevo.Text = "Nuevo";
+            this.MnuNuevo.Click += new System.EventHandler(this.MnuNuevo_Click);
+            // 
+            // MnuGuardar
+            // 
+            this.MnuGuardar.Enabled = false;
+            this.MnuGuardar.Name = "MnuGuardar";
+            this.MnuGuardar.ShortcutKeys = System.Windows.Forms.Keys.F6;
+            this.MnuGuardar.Size = new System.Drawing.Size(161, 22);
+            this.MnuGuardar.Text = "Guardar";
+            this.MnuGuardar.Click += new System.EventHandler(this.MnuGuardar_Click);
+            // 
+            // MnuCancelar
+            // 
+            this.MnuCancelar.Enabled = false;
+            this.MnuCancelar.Name = "MnuCancelar";
+            this.MnuCancelar.ShortcutKeys = System.Windows.Forms.Keys.F7;
+            this.MnuCancelar.Size = new System.Drawing.Size(161, 22);
+            this.MnuCancelar.Text = "Cancelar";
+            this.MnuCancelar.Click += new System.EventHandler(this.MnuCancelar_Click);
+            // 
+            // MnuPrecargar
+            // 
+            this.MnuPrecargar.Enabled = false;
+            this.MnuPrecargar.Name = "MnuPrecargar";
+            this.MnuPrecargar.ShortcutKeys = System.Windows.Forms.Keys.F8;
+            this.MnuPrecargar.Size = new System.Drawing.Size(161, 22);
+            this.MnuPrecargar.Text = "Precargar";
+            this.MnuPrecargar.Click += new System.EventHandler(this.MnuPrecargar_Click);
+            // 
+            // MnuBuscarGuia
+            // 
+            this.MnuBuscarGuia.Name = "MnuBuscarGuia";
+            this.MnuBuscarGuia.ShortcutKeys = System.Windows.Forms.Keys.F9;
+            this.MnuBuscarGuia.Size = new System.Drawing.Size(161, 22);
+            this.MnuBuscarGuia.Text = "Buscar guia";
+            this.MnuBuscarGuia.Click += new System.EventHandler(this.MnuBuscarGuia_Click);
+            // 
+            // MnuBuscar
+            // 
+            this.MnuBuscar.Name = "MnuBuscar";
+            this.MnuBuscar.ShortcutKeys = System.Windows.Forms.Keys.F10;
+            this.MnuBuscar.Size = new System.Drawing.Size(161, 22);
+            this.MnuBuscar.Text = "Buscar";
+            this.MnuBuscar.Click += new System.EventHandler(this.MnuBuscar_Click);
+            // 
+            // MnuImprimir
+            // 
+            this.MnuImprimir.Name = "MnuImprimir";
+            this.MnuImprimir.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
+            this.MnuImprimir.Size = new System.Drawing.Size(161, 22);
+            this.MnuImprimir.Text = "Imprimir";
+            this.MnuImprimir.Click += new System.EventHandler(this.MnuImprimir_Click);
+            // 
+            // gbDatos
+            // 
+            this.gbDatos.Controls.Add(this.label47);
+            this.gbDatos.Controls.Add(this.TxtNumeroFactura);
+            this.gbDatos.Controls.Add(this.ChkCortesia);
+            this.gbDatos.Controls.Add(this.label46);
+            this.gbDatos.Controls.Add(this.TxtCodigoDespacho);
+            this.gbDatos.Controls.Add(this.ChkEstadoAnulado);
+            this.gbDatos.Controls.Add(this.ChkEstadoFacturado);
+            this.gbDatos.Controls.Add(this.ChkEstadoFacturaGenerada);
+            this.gbDatos.Controls.Add(this.ChkEstadoCumplido);
+            this.gbDatos.Controls.Add(this.ChkEstadoSoporte);
+            this.gbDatos.Controls.Add(this.ChkEstadoEntregado);
+            this.gbDatos.Controls.Add(this.ChkEstadoDespachado);
+            this.gbDatos.Controls.Add(this.ChkEstadoEmbarcado);
+            this.gbDatos.Controls.Add(this.ChkEstadoImpreso);
+            this.gbDatos.Controls.Add(this.label31);
+            this.gbDatos.Controls.Add(this.TxtUsuario);
+            this.gbDatos.Controls.Add(this.ChkReexpedicion);
+            this.gbDatos.Controls.Add(this.ChkFactura);
+            this.gbDatos.Controls.Add(this.label28);
+            this.gbDatos.Controls.Add(this.TxtNumero);
+            this.gbDatos.Controls.Add(this.TxtOperacionIngreso);
+            this.gbDatos.Controls.Add(this.TxtOperacionCargo);
+            this.gbDatos.Controls.Add(this.label25);
+            this.gbDatos.Controls.Add(this.label24);
+            this.gbDatos.Controls.Add(this.TxtFechaEntrega);
+            this.gbDatos.Controls.Add(this.TxtFechaDespacho);
+            this.gbDatos.Controls.Add(this.TxtFechaIngreso);
+            this.gbDatos.Controls.Add(this.label23);
+            this.gbDatos.Controls.Add(this.label22);
+            this.gbDatos.Controls.Add(this.label21);
+            this.gbDatos.Controls.Add(this.TxtCodigo);
+            this.gbDatos.Controls.Add(this.label20);
+            this.gbDatos.Enabled = false;
+            this.gbDatos.Location = new System.Drawing.Point(552, 22);
+            this.gbDatos.Name = "gbDatos";
+            this.gbDatos.Size = new System.Drawing.Size(209, 326);
+            this.gbDatos.TabIndex = 17;
+            this.gbDatos.TabStop = false;
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(16, 194);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(46, 13);
+            this.label47.TabIndex = 54;
+            this.label47.Text = "Factura:";
+            // 
+            // TxtNumeroFactura
+            // 
+            this.TxtNumeroFactura.Location = new System.Drawing.Point(65, 191);
+            this.TxtNumeroFactura.Name = "TxtNumeroFactura";
+            this.TxtNumeroFactura.Size = new System.Drawing.Size(116, 20);
+            this.TxtNumeroFactura.TabIndex = 53;
+            // 
+            // ChkCortesia
+            // 
+            this.ChkCortesia.AutoSize = true;
+            this.ChkCortesia.Location = new System.Drawing.Point(97, 238);
+            this.ChkCortesia.Name = "ChkCortesia";
+            this.ChkCortesia.Size = new System.Drawing.Size(64, 17);
+            this.ChkCortesia.TabIndex = 52;
+            this.ChkCortesia.Text = "Cortesia";
+            this.ChkCortesia.UseVisualStyleBackColor = true;
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(5, 127);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(59, 13);
+            this.label46.TabIndex = 51;
+            this.label46.Text = "Despacho:";
+            // 
+            // TxtCodigoDespacho
+            // 
+            this.TxtCodigoDespacho.Location = new System.Drawing.Point(65, 124);
+            this.TxtCodigoDespacho.Name = "TxtCodigoDespacho";
+            this.TxtCodigoDespacho.Size = new System.Drawing.Size(116, 20);
+            this.TxtCodigoDespacho.TabIndex = 50;
+            // 
+            // ChkEstadoAnulado
+            // 
+            this.ChkEstadoAnulado.AutoSize = true;
+            this.ChkEstadoAnulado.Location = new System.Drawing.Point(97, 287);
+            this.ChkEstadoAnulado.Name = "ChkEstadoAnulado";
+            this.ChkEstadoAnulado.Size = new System.Drawing.Size(65, 17);
+            this.ChkEstadoAnulado.TabIndex = 49;
+            this.ChkEstadoAnulado.Text = "Anulado";
+            this.ChkEstadoAnulado.UseVisualStyleBackColor = true;
+            // 
+            // ChkEstadoFacturado
+            // 
+            this.ChkEstadoFacturado.AutoSize = true;
+            this.ChkEstadoFacturado.Location = new System.Drawing.Point(97, 304);
+            this.ChkEstadoFacturado.Name = "ChkEstadoFacturado";
+            this.ChkEstadoFacturado.Size = new System.Drawing.Size(74, 17);
+            this.ChkEstadoFacturado.TabIndex = 48;
+            this.ChkEstadoFacturado.Text = "Facturado";
+            this.ChkEstadoFacturado.UseVisualStyleBackColor = true;
+            // 
+            // ChkEstadoFacturaGenerada
+            // 
+            this.ChkEstadoFacturaGenerada.AutoSize = true;
+            this.ChkEstadoFacturaGenerada.Location = new System.Drawing.Point(16, 307);
+            this.ChkEstadoFacturaGenerada.Name = "ChkEstadoFacturaGenerada";
+            this.ChkEstadoFacturaGenerada.Size = new System.Drawing.Size(75, 17);
+            this.ChkEstadoFacturaGenerada.TabIndex = 47;
+            this.ChkEstadoFacturaGenerada.Text = "Prefactura";
+            this.ChkEstadoFacturaGenerada.UseVisualStyleBackColor = true;
+            // 
+            // ChkEstadoCumplido
+            // 
+            this.ChkEstadoCumplido.AutoSize = true;
+            this.ChkEstadoCumplido.Location = new System.Drawing.Point(16, 290);
+            this.ChkEstadoCumplido.Name = "ChkEstadoCumplido";
+            this.ChkEstadoCumplido.Size = new System.Drawing.Size(69, 17);
+            this.ChkEstadoCumplido.TabIndex = 46;
+            this.ChkEstadoCumplido.Text = "Cumplido";
+            this.ChkEstadoCumplido.UseVisualStyleBackColor = true;
+            // 
+            // ChkEstadoSoporte
+            // 
+            this.ChkEstadoSoporte.AutoSize = true;
+            this.ChkEstadoSoporte.Location = new System.Drawing.Point(97, 270);
+            this.ChkEstadoSoporte.Name = "ChkEstadoSoporte";
+            this.ChkEstadoSoporte.Size = new System.Drawing.Size(63, 17);
+            this.ChkEstadoSoporte.TabIndex = 45;
+            this.ChkEstadoSoporte.Text = "Soporte";
+            this.ChkEstadoSoporte.UseVisualStyleBackColor = true;
+            // 
+            // ChkEstadoEntregado
+            // 
+            this.ChkEstadoEntregado.AutoSize = true;
+            this.ChkEstadoEntregado.Location = new System.Drawing.Point(16, 273);
+            this.ChkEstadoEntregado.Name = "ChkEstadoEntregado";
+            this.ChkEstadoEntregado.Size = new System.Drawing.Size(75, 17);
+            this.ChkEstadoEntregado.TabIndex = 44;
+            this.ChkEstadoEntregado.Text = "Entregado";
+            this.ChkEstadoEntregado.UseVisualStyleBackColor = true;
+            // 
+            // ChkEstadoDespachado
+            // 
+            this.ChkEstadoDespachado.AutoSize = true;
+            this.ChkEstadoDespachado.Location = new System.Drawing.Point(97, 254);
+            this.ChkEstadoDespachado.Name = "ChkEstadoDespachado";
+            this.ChkEstadoDespachado.Size = new System.Drawing.Size(87, 17);
+            this.ChkEstadoDespachado.TabIndex = 43;
+            this.ChkEstadoDespachado.Text = "Despachado";
+            this.ChkEstadoDespachado.UseVisualStyleBackColor = true;
+            // 
+            // ChkEstadoEmbarcado
+            // 
+            this.ChkEstadoEmbarcado.AutoSize = true;
+            this.ChkEstadoEmbarcado.Location = new System.Drawing.Point(16, 256);
+            this.ChkEstadoEmbarcado.Name = "ChkEstadoEmbarcado";
+            this.ChkEstadoEmbarcado.Size = new System.Drawing.Size(80, 17);
+            this.ChkEstadoEmbarcado.TabIndex = 42;
+            this.ChkEstadoEmbarcado.Text = "Embarcado";
+            this.ChkEstadoEmbarcado.UseVisualStyleBackColor = true;
+            // 
+            // ChkEstadoImpreso
+            // 
+            this.ChkEstadoImpreso.AutoSize = true;
+            this.ChkEstadoImpreso.Location = new System.Drawing.Point(16, 239);
+            this.ChkEstadoImpreso.Name = "ChkEstadoImpreso";
+            this.ChkEstadoImpreso.Size = new System.Drawing.Size(63, 17);
+            this.ChkEstadoImpreso.TabIndex = 41;
+            this.ChkEstadoImpreso.Text = "Impreso";
+            this.ChkEstadoImpreso.UseVisualStyleBackColor = true;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(18, 172);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(46, 13);
+            this.label31.TabIndex = 25;
+            this.label31.Text = "Usuario:";
+            // 
+            // TxtUsuario
+            // 
+            this.TxtUsuario.Location = new System.Drawing.Point(65, 169);
+            this.TxtUsuario.Name = "TxtUsuario";
+            this.TxtUsuario.Size = new System.Drawing.Size(116, 20);
+            this.TxtUsuario.TabIndex = 24;
+            // 
+            // ChkReexpedicion
+            // 
+            this.ChkReexpedicion.AutoSize = true;
+            this.ChkReexpedicion.Enabled = false;
+            this.ChkReexpedicion.Location = new System.Drawing.Point(97, 224);
+            this.ChkReexpedicion.Name = "ChkReexpedicion";
+            this.ChkReexpedicion.Size = new System.Drawing.Size(91, 17);
+            this.ChkReexpedicion.TabIndex = 23;
+            this.ChkReexpedicion.Text = "Reexpedicion";
+            this.ChkReexpedicion.UseVisualStyleBackColor = true;
+            // 
+            // ChkFactura
+            // 
+            this.ChkFactura.AutoSize = true;
+            this.ChkFactura.Location = new System.Drawing.Point(16, 224);
+            this.ChkFactura.Name = "ChkFactura";
+            this.ChkFactura.Size = new System.Drawing.Size(62, 17);
+            this.ChkFactura.TabIndex = 21;
+            this.ChkFactura.Text = "Factura";
+            this.ChkFactura.UseVisualStyleBackColor = true;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(17, 37);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(47, 13);
+            this.label28.TabIndex = 13;
+            this.label28.Text = "Numero:";
+            // 
+            // TxtNumero
+            // 
+            this.TxtNumero.Location = new System.Drawing.Point(65, 35);
+            this.TxtNumero.Name = "TxtNumero";
+            this.TxtNumero.Size = new System.Drawing.Size(116, 20);
+            this.TxtNumero.TabIndex = 12;
+            // 
+            // TxtOperacionIngreso
+            // 
+            this.TxtOperacionIngreso.Location = new System.Drawing.Point(65, 147);
+            this.TxtOperacionIngreso.Name = "TxtOperacionIngreso";
+            this.TxtOperacionIngreso.Size = new System.Drawing.Size(40, 20);
+            this.TxtOperacionIngreso.TabIndex = 11;
+            // 
+            // TxtOperacionCargo
+            // 
+            this.TxtOperacionCargo.Location = new System.Drawing.Point(142, 147);
+            this.TxtOperacionCargo.Name = "TxtOperacionCargo";
+            this.TxtOperacionCargo.Size = new System.Drawing.Size(39, 20);
+            this.TxtOperacionCargo.TabIndex = 10;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(115, 150);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(25, 13);
+            this.label25.TabIndex = 9;
+            this.label25.Text = "OC:";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(41, 150);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(21, 13);
+            this.label24.TabIndex = 8;
+            this.label24.Text = "OI:";
+            // 
+            // TxtFechaEntrega
+            // 
+            this.TxtFechaEntrega.Location = new System.Drawing.Point(65, 102);
+            this.TxtFechaEntrega.Name = "TxtFechaEntrega";
+            this.TxtFechaEntrega.Size = new System.Drawing.Size(116, 20);
+            this.TxtFechaEntrega.TabIndex = 7;
+            // 
+            // TxtFechaDespacho
+            // 
+            this.TxtFechaDespacho.Location = new System.Drawing.Point(65, 79);
+            this.TxtFechaDespacho.Name = "TxtFechaDespacho";
+            this.TxtFechaDespacho.Size = new System.Drawing.Size(116, 20);
+            this.TxtFechaDespacho.TabIndex = 6;
+            // 
+            // TxtFechaIngreso
+            // 
+            this.TxtFechaIngreso.Location = new System.Drawing.Point(65, 57);
+            this.TxtFechaIngreso.Name = "TxtFechaIngreso";
+            this.TxtFechaIngreso.Size = new System.Drawing.Size(116, 20);
+            this.TxtFechaIngreso.TabIndex = 5;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(15, 102);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(47, 13);
+            this.label23.TabIndex = 4;
+            this.label23.Text = "Entrega:";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(15, 81);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(47, 13);
+            this.label22.TabIndex = 3;
+            this.label22.Text = "F_Desp:";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(19, 58);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(45, 13);
+            this.label21.TabIndex = 2;
+            this.label21.Text = "Ingreso:";
+            // 
+            // TxtCodigo
+            // 
+            this.TxtCodigo.Location = new System.Drawing.Point(65, 13);
+            this.TxtCodigo.Name = "TxtCodigo";
+            this.TxtCodigo.Size = new System.Drawing.Size(116, 20);
+            this.TxtCodigo.TabIndex = 1;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(31, 16);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(32, 13);
+            this.label20.TabIndex = 0;
+            this.label20.Text = "Guia:";
+            // 
+            // gbComentario
+            // 
+            this.gbComentario.Controls.Add(this.label29);
+            this.gbComentario.Controls.Add(this.TxtComentario);
+            this.gbComentario.Enabled = false;
+            this.gbComentario.Location = new System.Drawing.Point(18, 392);
+            this.gbComentario.Name = "gbComentario";
+            this.gbComentario.Size = new System.Drawing.Size(291, 93);
+            this.gbComentario.TabIndex = 27;
+            this.gbComentario.TabStop = false;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(8, 13);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(63, 13);
+            this.label29.TabIndex = 28;
+            this.label29.Text = "Comentario:";
+            // 
+            // TxtComentario
+            // 
+            this.TxtComentario.Location = new System.Drawing.Point(73, 10);
+            this.TxtComentario.Multiline = true;
+            this.TxtComentario.Name = "TxtComentario";
+            this.TxtComentario.Size = new System.Drawing.Size(201, 58);
+            this.TxtComentario.TabIndex = 28;
+            // 
+            // GbCondiciones
+            // 
+            this.GbCondiciones.Controls.Add(this.ChkPagoCortesia);
+            this.GbCondiciones.Controls.Add(this.ChkPagoRecogida);
+            this.GbCondiciones.Controls.Add(this.ChkPagoCredito);
+            this.GbCondiciones.Controls.Add(this.ChkPagoContado);
+            this.GbCondiciones.Controls.Add(this.ChkPagoDestino);
+            this.GbCondiciones.Controls.Add(this.TxtDescuentoPeso);
+            this.GbCondiciones.Controls.Add(this.TxtPesoMinimo);
+            this.GbCondiciones.Controls.Add(this.label37);
+            this.GbCondiciones.Controls.Add(this.label33);
+            this.GbCondiciones.Controls.Add(this.ChkListaGeneral);
+            this.GbCondiciones.Enabled = false;
+            this.GbCondiciones.Location = new System.Drawing.Point(552, 351);
+            this.GbCondiciones.Name = "GbCondiciones";
+            this.GbCondiciones.Size = new System.Drawing.Size(208, 103);
+            this.GbCondiciones.TabIndex = 28;
+            this.GbCondiciones.TabStop = false;
+            this.GbCondiciones.Text = "Condicion";
+            this.GbCondiciones.Visible = false;
+            // 
+            // ChkPagoCortesia
+            // 
+            this.ChkPagoCortesia.AutoSize = true;
+            this.ChkPagoCortesia.Location = new System.Drawing.Point(128, 58);
+            this.ChkPagoCortesia.Name = "ChkPagoCortesia";
+            this.ChkPagoCortesia.Size = new System.Drawing.Size(64, 17);
+            this.ChkPagoCortesia.TabIndex = 15;
+            this.ChkPagoCortesia.Text = "Cortesia";
+            this.ChkPagoCortesia.UseVisualStyleBackColor = true;
+            // 
+            // ChkPagoRecogida
+            // 
+            this.ChkPagoRecogida.AutoSize = true;
+            this.ChkPagoRecogida.Location = new System.Drawing.Point(128, 74);
+            this.ChkPagoRecogida.Name = "ChkPagoRecogida";
+            this.ChkPagoRecogida.Size = new System.Drawing.Size(72, 17);
+            this.ChkPagoRecogida.TabIndex = 14;
+            this.ChkPagoRecogida.Text = "Recogida";
+            this.ChkPagoRecogida.UseVisualStyleBackColor = true;
+            // 
+            // ChkPagoCredito
+            // 
+            this.ChkPagoCredito.AutoSize = true;
+            this.ChkPagoCredito.Location = new System.Drawing.Point(128, 11);
+            this.ChkPagoCredito.Name = "ChkPagoCredito";
+            this.ChkPagoCredito.Size = new System.Drawing.Size(59, 17);
+            this.ChkPagoCredito.TabIndex = 13;
+            this.ChkPagoCredito.Text = "Credito";
+            this.ChkPagoCredito.UseVisualStyleBackColor = true;
+            // 
+            // ChkPagoContado
+            // 
+            this.ChkPagoContado.AutoSize = true;
+            this.ChkPagoContado.Location = new System.Drawing.Point(128, 27);
+            this.ChkPagoContado.Name = "ChkPagoContado";
+            this.ChkPagoContado.Size = new System.Drawing.Size(66, 17);
+            this.ChkPagoContado.TabIndex = 12;
+            this.ChkPagoContado.Text = "Contado";
+            this.ChkPagoContado.UseVisualStyleBackColor = true;
+            // 
+            // ChkPagoDestino
+            // 
+            this.ChkPagoDestino.AutoSize = true;
+            this.ChkPagoDestino.Location = new System.Drawing.Point(128, 43);
+            this.ChkPagoDestino.Name = "ChkPagoDestino";
+            this.ChkPagoDestino.Size = new System.Drawing.Size(62, 17);
+            this.ChkPagoDestino.TabIndex = 11;
+            this.ChkPagoDestino.Text = "Destino";
+            this.ChkPagoDestino.UseVisualStyleBackColor = true;
+            // 
+            // TxtDescuentoPeso
+            // 
+            this.TxtDescuentoPeso.Location = new System.Drawing.Point(81, 37);
+            this.TxtDescuentoPeso.Name = "TxtDescuentoPeso";
+            this.TxtDescuentoPeso.Size = new System.Drawing.Size(39, 20);
+            this.TxtDescuentoPeso.TabIndex = 10;
+            this.TxtDescuentoPeso.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // TxtPesoMinimo
+            // 
+            this.TxtPesoMinimo.Location = new System.Drawing.Point(81, 14);
+            this.TxtPesoMinimo.Name = "TxtPesoMinimo";
+            this.TxtPesoMinimo.Size = new System.Drawing.Size(39, 20);
+            this.TxtPesoMinimo.TabIndex = 6;
+            this.TxtPesoMinimo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(12, 37);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(62, 13);
+            this.label37.TabIndex = 5;
+            this.label37.Text = "Descuento:";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(6, 17);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(69, 13);
+            this.label33.TabIndex = 1;
+            this.label33.Text = "Peso minimo:";
+            // 
+            // ChkListaGeneral
+            // 
+            this.ChkListaGeneral.AutoSize = true;
+            this.ChkListaGeneral.Location = new System.Drawing.Point(18, 61);
+            this.ChkListaGeneral.Name = "ChkListaGeneral";
+            this.ChkListaGeneral.Size = new System.Drawing.Size(94, 17);
+            this.ChkListaGeneral.TabIndex = 0;
+            this.ChkListaGeneral.Text = "Precio general";
+            this.ChkListaGeneral.UseVisualStyleBackColor = true;
+            // 
+            // LblPrecioDetalle
+            // 
+            this.LblPrecioDetalle.AutoSize = true;
+            this.LblPrecioDetalle.Location = new System.Drawing.Point(20, 488);
+            this.LblPrecioDetalle.Name = "LblPrecioDetalle";
+            this.LblPrecioDetalle.Size = new System.Drawing.Size(16, 13);
+            this.LblPrecioDetalle.TabIndex = 29;
+            this.LblPrecioDetalle.Text = "...";
+            // 
+            // GbPrecioDetalle
+            // 
+            this.GbPrecioDetalle.Controls.Add(this.TxtVrAdicional);
+            this.GbPrecioDetalle.Controls.Add(this.TxtPesoMinimoPrecio);
+            this.GbPrecioDetalle.Controls.Add(this.TxtTope);
+            this.GbPrecioDetalle.Controls.Add(this.TxtVrUnidad);
+            this.GbPrecioDetalle.Controls.Add(this.TxtVrPeso);
+            this.GbPrecioDetalle.Controls.Add(this.TxtVrTope);
+            this.GbPrecioDetalle.Controls.Add(this.label43);
+            this.GbPrecioDetalle.Controls.Add(this.label42);
+            this.GbPrecioDetalle.Controls.Add(this.label41);
+            this.GbPrecioDetalle.Controls.Add(this.label40);
+            this.GbPrecioDetalle.Controls.Add(this.label39);
+            this.GbPrecioDetalle.Controls.Add(this.label38);
+            this.GbPrecioDetalle.Enabled = false;
+            this.GbPrecioDetalle.Location = new System.Drawing.Point(552, 456);
+            this.GbPrecioDetalle.Name = "GbPrecioDetalle";
+            this.GbPrecioDetalle.Size = new System.Drawing.Size(239, 80);
+            this.GbPrecioDetalle.TabIndex = 30;
+            this.GbPrecioDetalle.TabStop = false;
+            this.GbPrecioDetalle.Visible = false;
+            // 
+            // TxtVrAdicional
+            // 
+            this.TxtVrAdicional.Location = new System.Drawing.Point(51, 54);
+            this.TxtVrAdicional.Name = "TxtVrAdicional";
+            this.TxtVrAdicional.Size = new System.Drawing.Size(69, 20);
+            this.TxtVrAdicional.TabIndex = 11;
+            this.TxtVrAdicional.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // TxtPesoMinimoPrecio
+            // 
+            this.TxtPesoMinimoPrecio.Location = new System.Drawing.Point(159, 54);
+            this.TxtPesoMinimoPrecio.Name = "TxtPesoMinimoPrecio";
+            this.TxtPesoMinimoPrecio.Size = new System.Drawing.Size(69, 20);
+            this.TxtPesoMinimoPrecio.TabIndex = 10;
+            this.TxtPesoMinimoPrecio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // TxtTope
+            // 
+            this.TxtTope.Location = new System.Drawing.Point(159, 33);
+            this.TxtTope.Name = "TxtTope";
+            this.TxtTope.Size = new System.Drawing.Size(69, 20);
+            this.TxtTope.TabIndex = 9;
+            this.TxtTope.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // TxtVrUnidad
+            // 
+            this.TxtVrUnidad.Location = new System.Drawing.Point(159, 12);
+            this.TxtVrUnidad.Name = "TxtVrUnidad";
+            this.TxtVrUnidad.Size = new System.Drawing.Size(69, 20);
+            this.TxtVrUnidad.TabIndex = 8;
+            this.TxtVrUnidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // TxtVrPeso
+            // 
+            this.TxtVrPeso.Location = new System.Drawing.Point(51, 12);
+            this.TxtVrPeso.Name = "TxtVrPeso";
+            this.TxtVrPeso.Size = new System.Drawing.Size(69, 20);
+            this.TxtVrPeso.TabIndex = 7;
+            this.TxtVrPeso.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // TxtVrTope
+            // 
+            this.TxtVrTope.Location = new System.Drawing.Point(51, 33);
+            this.TxtVrTope.Name = "TxtVrTope";
+            this.TxtVrTope.Size = new System.Drawing.Size(69, 20);
+            this.TxtVrTope.TabIndex = 6;
+            this.TxtVrTope.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(128, 58);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(27, 13);
+            this.label43.TabIndex = 5;
+            this.label43.Text = "Min:";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(18, 12);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(34, 13);
+            this.label42.TabIndex = 4;
+            this.label42.Text = "Peso:";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(125, 12);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(30, 13);
+            this.label41.TabIndex = 3;
+            this.label41.Text = "Und:";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(120, 35);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(35, 13);
+            this.label40.TabIndex = 2;
+            this.label40.Text = "Tope:";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(7, 33);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(45, 13);
+            this.label39.TabIndex = 1;
+            this.label39.Text = "VrTope:";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(13, 57);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(35, 13);
+            this.label38.TabIndex = 0;
+            this.label38.Text = "VrAdi:";
+            // 
+            // GdManejo
+            // 
+            this.GdManejo.Controls.Add(this.TxtManejoMinimoDespacho);
+            this.GdManejo.Controls.Add(this.TxtManejoMinimoUnidad);
+            this.GdManejo.Controls.Add(this.TxtPorcentajeManejo);
+            this.GdManejo.Controls.Add(this.label36);
+            this.GdManejo.Controls.Add(this.label35);
+            this.GdManejo.Controls.Add(this.label34);
+            this.GdManejo.Enabled = false;
+            this.GdManejo.Location = new System.Drawing.Point(767, 351);
+            this.GdManejo.Name = "GdManejo";
+            this.GdManejo.Size = new System.Drawing.Size(133, 103);
+            this.GdManejo.TabIndex = 31;
+            this.GdManejo.TabStop = false;
+            this.GdManejo.Text = "Manejo";
+            this.GdManejo.Visible = false;
+            // 
+            // TxtManejoMinimoDespacho
+            // 
+            this.TxtManejoMinimoDespacho.Location = new System.Drawing.Point(69, 58);
+            this.TxtManejoMinimoDespacho.Name = "TxtManejoMinimoDespacho";
+            this.TxtManejoMinimoDespacho.Size = new System.Drawing.Size(49, 20);
+            this.TxtManejoMinimoDespacho.TabIndex = 15;
+            this.TxtManejoMinimoDespacho.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // TxtManejoMinimoUnidad
+            // 
+            this.TxtManejoMinimoUnidad.Location = new System.Drawing.Point(69, 36);
+            this.TxtManejoMinimoUnidad.Name = "TxtManejoMinimoUnidad";
+            this.TxtManejoMinimoUnidad.Size = new System.Drawing.Size(49, 20);
+            this.TxtManejoMinimoUnidad.TabIndex = 14;
+            this.TxtManejoMinimoUnidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // TxtPorcentajeManejo
+            // 
+            this.TxtPorcentajeManejo.Location = new System.Drawing.Point(69, 14);
+            this.TxtPorcentajeManejo.Name = "TxtPorcentajeManejo";
+            this.TxtPorcentajeManejo.Size = new System.Drawing.Size(49, 20);
+            this.TxtPorcentajeManejo.TabIndex = 13;
+            this.TxtPorcentajeManejo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(10, 59);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(59, 13);
+            this.label36.TabIndex = 12;
+            this.label36.Text = "Despacho:";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(25, 38);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(43, 13);
+            this.label35.TabIndex = 11;
+            this.label35.Text = "Minimo:";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(8, 17);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(61, 13);
+            this.label34.TabIndex = 10;
+            this.label34.Text = "Porcentaje:";
+            // 
+            // FrmGuia
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1183, 713);
+            this.ControlBox = false;
+            this.Controls.Add(this.GdManejo);
+            this.Controls.Add(this.GbPrecioDetalle);
+            this.Controls.Add(this.LblPrecioDetalle);
+            this.Controls.Add(this.GbCondiciones);
+            this.Controls.Add(this.gbComentario);
+            this.Controls.Add(this.gbDatos);
+            this.Controls.Add(this.gbInformacion);
+            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.gbCliente);
+            this.Controls.Add(this.gbTotales);
+            this.Controls.Add(this.gbDestinatario);
+            this.Controls.Add(this.menuStrip1);
+            this.Name = "FrmGuia";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Guia";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Guia_Load);
+            this.gbDestinatario.ResumeLayout(false);
+            this.gbDestinatario.PerformLayout();
+            this.gbTotales.ResumeLayout(false);
+            this.gbTotales.PerformLayout();
+            this.gbCliente.ResumeLayout(false);
+            this.gbCliente.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
+            this.gbInformacion.ResumeLayout(false);
+            this.gbInformacion.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.gbDatos.ResumeLayout(false);
+            this.gbDatos.PerformLayout();
+            this.gbComentario.ResumeLayout(false);
+            this.gbComentario.PerformLayout();
+            this.GbCondiciones.ResumeLayout(false);
+            this.GbCondiciones.PerformLayout();
+            this.GbPrecioDetalle.ResumeLayout(false);
+            this.GbPrecioDetalle.PerformLayout();
+            this.GdManejo.ResumeLayout(false);
+            this.GdManejo.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1941,6 +1941,6 @@
 		private System.Windows.Forms.Label label34;
 		private System.Windows.Forms.CheckBox ChkPagoCortesia;
 		private System.Windows.Forms.CheckBox ChkPagoRecogida;
-	}
+    }
 }
 

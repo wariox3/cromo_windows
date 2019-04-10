@@ -19,7 +19,8 @@ namespace cromo
 
 		private void FrmBuscarDestinatario_Load(object sender, EventArgs e)
 		{
-			DgDestinatarios.DataSource = LlenarDatos().Tables[0];
+            DgDestinatarios.AutoGenerateColumns = false;
+            DgDestinatarios.DataSource = LlenarDatos().Tables[0];
 		}
 
 		public DataSet LlenarDatos()

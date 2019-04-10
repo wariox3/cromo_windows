@@ -52,7 +52,6 @@
 			this.DgCondiciones.ReadOnly = true;
 			this.DgCondiciones.Size = new System.Drawing.Size(600, 308);
 			this.DgCondiciones.TabIndex = 1;
-			this.DgCondiciones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgCondiciones_CellContentClick);
 			this.DgCondiciones.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DgCondiciones_KeyDown);
 			// 
 			// BtnFiltrar

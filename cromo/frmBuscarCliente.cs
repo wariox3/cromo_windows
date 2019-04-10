@@ -7,32 +7,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Web.Script.Serialization;
 namespace cromo
 {
     public partial class FrmBuscarCliente : Form
     {
+        JavaScriptSerializer ser = new JavaScriptSerializer();
+
         public FrmBuscarCliente()
         {
             InitializeComponent();
         }
 
-        public DataSet LlenarDatos()
+        public void LlenarDatosApi()
         {
-			string sql = "SELECT * FROM tte_cliente";
-			if(TxtNombre.Text != "")
-			{
-				sql = sql + " WHERE nombre_corto LIKE '%" + TxtNombre.Text + "%'";
-			}
-			sql = sql + " limit 20";
-			DataSet ds;
-            string strSql = string.Format(sql);
-            ds = Utilidades.Ejecutar(strSql);
-            return ds;
+            string parametrosJson = "{\"nombre\":\"" + TxtNombre.Text + "\"}";
+            string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/cliente/buscar", parametrosJson);
+            List<ApiCliente> apiClienteLista = ser.Deserialize<List<ApiCliente>>(jsonRespuesta);
+            DgClientes.DataSource = apiClienteLista;
+            
         }
 
         private void FrmBuscarCliente_Load(object sender, EventArgs e)
         {
-            DgClientes.DataSource = LlenarDatos().Tables[0];
+            DgClientes.AutoGenerateColumns = false;
+            LlenarDatosApi();
         }
 
         private void BtnSeleccionar_Click(object sender, EventArgs e)
@@ -47,7 +46,6 @@ namespace cromo
             Close();
         }
 
-
 		private void DgClientes_KeyDown(object sender, KeyEventArgs e)
 		{
 			if (e.KeyCode == Keys.Enter)
@@ -60,7 +58,7 @@ namespace cromo
 
 		private void BtnFiltrar_Click(object sender, EventArgs e)
 		{
-			DgClientes.DataSource = LlenarDatos().Tables[0];
+            LlenarDatosApi();
 		}
 
 		private void TxtNombre_KeyDown(object sender, KeyEventArgs e)
@@ -75,7 +73,7 @@ namespace cromo
 		{
 			if (e.KeyChar == Convert.ToChar(Keys.Enter))
 			{
-				DgClientes.DataSource = LlenarDatos().Tables[0];
+                LlenarDatosApi();
 			}
 		}
 

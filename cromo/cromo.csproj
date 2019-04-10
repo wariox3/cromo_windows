@@ -85,7 +85,10 @@
     <Reference Include="MySql.Data, Version=8.0.11.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -98,8 +101,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiCiudad.cs" />
+    <Compile Include="ApiCondicion.cs" />
+    <Compile Include="ApiControlador.cs" />
+    <Compile Include="ApiEmpaque.cs" />
+    <Compile Include="ApiGuia.cs" />
+    <Compile Include="ApiOperador.cs" />
+    <Compile Include="ApiPrecioDetalle.cs" />
+    <Compile Include="ApiProducto.cs" />
+    <Compile Include="ApiRespuesta.cs" />
+    <Compile Include="ApiServicio.cs" />
+    <Compile Include="ApiUsuario.cs" />
     <Compile Include="BdCromo.cs" />
     <Compile Include="CiudadRepositorio.cs" />
+    <Compile Include="ApiCliente.cs" />
     <Compile Include="ClienteRepositorio.cs" />
     <Compile Include="FrmBuscarCondicion.cs">
       <SubType>Form</SubType>
@@ -149,6 +164,7 @@
     <Compile Include="FrmValidarAdministrador.Designer.cs">
       <DependentUpon>FrmValidarAdministrador.cs</DependentUpon>
     </Compile>
+    <Compile Include="ApiGuiaTipo.cs" />
     <Compile Include="Reportes\Transporte\FormatoGuia.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

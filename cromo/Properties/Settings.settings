@@ -29,5 +29,17 @@
     <Setting Name="rutaReportes" Type="System.String" Scope="User">
       <Value Profile="(Default)">C:\reportes\</Value>
     </Setting>
+    <Setting Name="operador" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="usuario" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="clave" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="recordarClave" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -11,7 +11,14 @@ namespace cromo
 {
 	class General
 	{
-		private static string v_CodigoCliente = "";
+        private static string v_UrlServicio = "";
+        public static string UrlServicio
+        {
+            get { return v_UrlServicio; }
+            set { v_UrlServicio = value; }
+        }
+
+        private static string v_CodigoCliente = "";
 		public static string CodigoCliente
 		{
 			get { return v_CodigoCliente; }
@@ -137,7 +144,14 @@ namespace cromo
 			set { v_NumeroUnicoGuia = value; }
 		}
 
-		public static GuiaDetalle[] guiaDetallePublica = new GuiaDetalle[0];
+        private static int v_CodigoPrecioGeneral = 0;
+        public static int CodigoPrecioGeneral
+        {
+            get { return v_CodigoPrecioGeneral; }
+            set { v_CodigoPrecioGeneral = value; }
+        }
+
+        public static GuiaDetalle[] guiaDetallePublica = new GuiaDetalle[0];
 
 	}
 

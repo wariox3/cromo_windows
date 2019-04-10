@@ -7,34 +7,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Web.Script.Serialization;
 namespace cromo
 {
     public partial class FrmBuscarCiudad : Form
     {
+        JavaScriptSerializer ser = new JavaScriptSerializer();
+
         public FrmBuscarCiudad()
         {
             InitializeComponent();
         }
 
-        public DataSet LlenarDatos()
+        public void LlenarDatosApi()
         {
-			string sql = "SELECT codigo_ciudad_pk, tte_ciudad.nombre as ciudad_nombre, tte_departamento.nombre as departamento_nombre FROM tte_ciudad LEFT JOIN tte_departamento ON codigo_departamento_fk = codigo_departamento_pk ";
-			if(TxtNombre.Text != "")
-			{
-				sql = sql + "WHERE tte_ciudad.nombre LIKE '%" + TxtNombre.Text + "%'";
-			}
-			sql = sql + " limit 20";
-			DataSet ds;
-            string strSql = string.Format(sql);
-            ds = Utilidades.Ejecutar(strSql);
-            return ds;
+            string parametrosJson = "{\"nombre\":\"" + TxtNombre.Text + "\"}";
+            string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/ciudad/buscar", parametrosJson);
+            List<ApiCiudad> apiCiudadLista = ser.Deserialize<List<ApiCiudad>>(jsonRespuesta);
+            DgCiudades.DataSource = apiCiudadLista;
+
         }
 
         private void FrmBuscarCiudad_Load(object sender, EventArgs e)
         {
-            DgCiudades.DataSource = LlenarDatos().Tables[0];            
+            DgCiudades.AutoGenerateColumns = false;
+            LlenarDatosApi();            
         }
-
 
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
@@ -59,14 +57,14 @@ namespace cromo
 
 		private void BtnFiltrar_Click(object sender, EventArgs e)
 		{
-			DgCiudades.DataSource = LlenarDatos().Tables[0];
+            LlenarDatosApi();
 		}
 
 		private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
 		{
 			if (e.KeyChar == Convert.ToChar(Keys.Enter))
 			{
-				DgCiudades.DataSource = LlenarDatos().Tables[0];
+                LlenarDatosApi();
 			}
 		}
 
@@ -78,9 +76,5 @@ namespace cromo
 			}
 		}
 
-		private void DgCiudades_CellContentClick(object sender, DataGridViewCellEventArgs e)
-		{
-
-		}
 	}
 }

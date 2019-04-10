@@ -8,14 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Net;
+using System.Web.Script.Serialization;
 
 namespace cromo
 {
 	
     public partial class FrmGuia : Form
     {
-		
-		string ultimoCliente = "";
+        JavaScriptSerializer ser = new JavaScriptSerializer();
+        string ultimoCliente = "";
 		string ultimaCondicion = "";
 		string ultimoTipo = "";
 		string ultimoServicio = "";
@@ -28,12 +30,11 @@ namespace cromo
 		double manejoMinimoDespacho = 0;
 		double descuentoPeso = 0;
 		int codigoPrecio = 0;
-		int codigoPrecioGeneral = 0;
+		
         public FrmGuia()
         {
             InitializeComponent();
         }
-
 
         private void Guia_Load(object sender, EventArgs e)
         {
@@ -41,25 +42,8 @@ namespace cromo
 			CargarServicio();
 			CargarEmpaque();
 			CargarProducto();
-			FuncionesGuia fg = new FuncionesGuia();
-			TraerGuia(fg.Ultima());
-			string sql = "SELECT codigo_precio_general_fk FROM tte_configuracion WHERE codigo_configuracion_pk = 1";
-			DataSet ds = Utilidades.Ejecutar(sql);
-			DataTable dt = ds.Tables[0];
-			if (dt.Rows.Count > 0)
-			{
-				if(dt.Rows[0]["codigo_precio_general_fk"] != null && dt.Rows[0]["codigo_precio_general_fk"].ToString() != "")
-				{
-					codigoPrecioGeneral = Convert.ToInt32(dt.Rows[0]["codigo_precio_general_fk"]);
-				} else
-				{
-					MessageBox.Show("No existe una lista general configurada, esto puede generar un error");
-				}
-				
-			}
+			FuncionesGuia fg = new FuncionesGuia();			
 		}
-
-
 
         void TxtCodigoCliente_KeyDown(object sender, KeyEventArgs e)
         {
@@ -99,7 +83,275 @@ namespace cromo
 			TxtCodigoCliente.Focus();
         }
 
-		public void Guardar()
+        public void Guardar()
+        {
+            if(ValidarGuardar())
+            {
+                JavaScriptSerializer ser = new JavaScriptSerializer();
+                string parametrosJson = "{\"guiaTipo\":\"" + CboTipo.SelectedValue.ToString() + "\"}";
+                string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/guiatipo/detalle", parametrosJson);
+                ApiGuiaTipo apiGuiaTipo = ser.Deserialize<ApiGuiaTipo>(jsonRespuesta);
+                if (apiGuiaTipo.error == null)
+                {
+                    if(ValidarFormaPago(apiGuiaTipo.codigoFormaPago))
+                    {
+                        if (ValidarFlete(apiGuiaTipo.validarFlete, Convert.ToDouble(TxtFlete.Text)))
+                        {
+                            if (ValidarNumero(apiGuiaTipo.exigeNumero))
+                            {
+                                int numero = General.NumeroGuia;
+                                string tipoLiquidacion = this.TipoLiquidacion();
+                                if (apiGuiaTipo.cortesia)
+                                {
+                                    TxtFlete.Text = "0";
+                                    TxtManejo.Text = "0";
+                                }
+                                double cobro = Convert.ToDouble(TxtRecaudo.Text);
+                                if (apiGuiaTipo.generaCobro)
+                                {
+                                    cobro = cobro + Convert.ToDouble(TxtFlete.Text) + Convert.ToDouble(TxtManejo.Text);
+                                }
+
+                                ApiGuia apiGuia = new ApiGuia();
+                                apiGuia.numeroUnicoGuia = General.NumeroUnicoGuia;
+                                apiGuia.codigoGuiaTipo = CboTipo.SelectedValue.ToString();
+                                apiGuia.numero = numero;
+                                apiGuia.codigoOperacionIngreso = TxtOperacionIngreso.Text;
+                                apiGuia.codigoCliente = TxtCodigoCliente.Text;
+                                apiGuia.codigoCondicion = TxtCodigoCondicion.Text;
+                                apiGuia.codigoCiudadOrigen = TxtCodigoCiudadOrigen.Text;
+                                apiGuia.codigoCiudadDestino = TxtCodigoCiudadDestino.Text;
+                                apiGuia.codigoRuta = TxtCodigoRuta.Text;                                
+                                apiGuia.codigoServicio = CboServicio.SelectedValue.ToString();
+                                apiGuia.codigoProducto = CboProducto.SelectedValue.ToString();
+                                apiGuia.codigoEmpaque = CboEmpaque.SelectedValue.ToString();
+                                apiGuia.documentoCliente = TxtDocumentoCliente.Text;
+                                apiGuia.relacionCliente = TxtRelacion.Text;
+                                apiGuia.remitente = TxtRemitente.Text;
+                                apiGuia.nombreDestinatario = TxtNombreDestinatario.Text;
+                                apiGuia.direccionDestinatario = TxtDireccionDestinatario.Text;
+                                apiGuia.telefonoDestinatario = TxtTelefonoDestinatario.Text;
+                                apiGuia.pesoReal = TxtPeso.Text;
+                                apiGuia.pesoVolumen = TxtVolumen.Text;
+                                apiGuia.pesoFacturado = TxtPesoFacturar.Text;
+                                apiGuia.unidades = TxtUnidades.Text;
+                                apiGuia.vrRecaudo = TxtRecaudo.Text;
+                                apiGuia.vrDeclara = TxtDeclarado.Text;
+                                apiGuia.vrFlete = TxtFlete.Text;
+                                apiGuia.vrManejo = TxtManejo.Text;
+                                apiGuia.vrCostoReexpedicion = TxtCostoReexpedicion.Text;
+                                apiGuia.vrCobroEntrega = cobro.ToString();
+                                apiGuia.usuario = General.UsuarioActivo;
+                                apiGuia.empaqueReferencia = TxtReferenciaEmpaque.Text;
+                                apiGuia.tipoLiquidacion = tipoLiquidacion;
+                                apiGuia.comentario = TxtComentario.Text;
+                                apiGuia.factura = ChkFactura.Checked;
+                                apiGuia.reexpedicion = ChkReexpedicion.Checked;
+                                apiGuia.cortesia = ChkCortesia.Checked;
+                                apiGuia.mercanciaPeligrosa = ChkMercanciaPeligrosa.Checked;
+                                apiGuia.ordenRuta = TxtOrdenRuta.Text;
+
+                                parametrosJson = ser.Serialize(apiGuia);
+                                jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/guia/nuevo", parametrosJson);
+
+                                ApiRespuesta apiRespuesta = ser.Deserialize<ApiRespuesta>(jsonRespuesta);
+                                if(apiRespuesta.error == null)
+                                {
+                                    MessageBox.Show(this, "La guia se guardo con exito ", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                } else
+                                {
+                                    MessageBox.Show(this, "Ocurrio un error al guardar la guia: " + apiRespuesta.error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                            }
+                        }
+                    }                   
+                }
+            }
+
+        }
+
+        public bool ValidarGuardar()
+        {
+            if (TxtCodigoCliente.Text == "")
+            {
+                TxtCodigoCliente.Focus();
+                return false;
+            }
+            else
+            {
+                if (TxtCodigoCondicion.Text == "")
+                {
+                    TxtCodigoCondicion.Focus();
+                    return false;
+                }
+                else
+                {
+                    if (TxtCodigoCiudadOrigen.Text == "")
+                    {
+                        TxtCodigoCiudadOrigen.Focus();
+                        return false;
+                    }
+                    else
+                    {
+                        if (TxtCodigoCiudadDestino.Text == "")
+                        {
+                            TxtCodigoCiudadDestino.Focus();
+                            return false;
+                        }
+                        else
+                        {
+                            if (CboTipo.SelectedIndex < 0)
+                            {
+                                CboTipo.Focus();
+                                return false;
+                            }
+                            else
+                            {
+                                if (CboServicio.SelectedIndex < 0)
+                                {
+                                    CboServicio.Focus();
+                                    return false;
+                                }
+                                else
+                                {
+                                    if (CboProducto.SelectedIndex < 0)
+                                    {
+                                        CboProducto.Focus();
+                                        return false;
+                                    }
+                                    else
+                                    {
+                                        if (CboEmpaque.SelectedIndex < 0)
+                                        {
+                                            CboEmpaque.Focus();
+                                            return false;
+                                        } else
+                                        {
+                                            return true;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        public string TipoLiquidacion ()
+        {
+            string tipoLiquidacion = "K";
+            if (RbUnidad.Checked)
+            {
+                tipoLiquidacion = "U";
+            }
+            if (RbAdicional.Checked)
+            {
+                tipoLiquidacion = "A";
+            }
+            return tipoLiquidacion;
+        }
+
+        public bool ValidarFlete(bool validar, double flete)
+        {
+            if (validar)
+            {
+                if (flete > 0)
+                {
+                    return true;
+                } else
+                {
+                    MessageBox.Show(this, "Este tipo de guia no puede tener flete en cero", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            } else
+            {
+                return true;
+            }            
+        }
+
+        public bool ValidarNumero(bool exigeNumero)
+        {
+            if(exigeNumero)
+            {
+                FrmDevolverNumero frm = new FrmDevolverNumero();
+                frm.ShowDialog();
+                if (General.NumeroGuia != 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show(this, "Este tipo de guia exige numero y debe digitarlo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            } else
+            {
+                General.NumeroGuia = 0;
+                return true;
+            }            
+        }
+
+        public bool ValidarFormaPago(string codigoFormaPago)
+        {
+            switch (codigoFormaPago)
+            {
+                case "CR":
+                    if (!ChkPagoCredito.Checked)
+                    {                        
+                        MessageBox.Show(this, "El cliente no maneja pago credito", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;                        
+                    } else
+                    {
+                        return true;                        
+                    }                    
+                case "CO":
+                    if (!ChkPagoContado.Checked)
+                    {
+                        MessageBox.Show(this, "El cliente no maneja pago contado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }                    
+                case "DE":
+                    if (!ChkPagoDestino.Checked)
+                    {
+                        MessageBox.Show(this, "El cliente no maneja pago destino", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }                    
+                case "CT":
+                    if (!ChkPagoCortesia.Checked)
+                    {
+                        MessageBox.Show(this, "El cliente no maneja pago cortesia", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                case "RE":
+                    if (!ChkPagoRecogida.Checked)
+                    {
+                        MessageBox.Show(this, "El cliente no maneja pago recogida", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                default:
+                    return true;                    
+            }
+            
+        }
+
+        public void Guardar1()
 		{
 			//Validar informacion formulario
 			bool validacion = true;
@@ -557,7 +809,6 @@ namespace cromo
             }
         }
 
-
         private void TsbNuevo_Click(object sender, EventArgs e)
         {
             Nuevo();
@@ -579,31 +830,32 @@ namespace cromo
         {
 			if(TxtCodigoCliente.Text != "")
 			{
-				DataSet ds = Utilidades.Ejecutar("SELECT nombre_corto, codigo_condicion_fk, estado_inactivo, guia_pago_credito, guia_pago_contado, guia_pago_destino, guia_pago_cortesia, guia_pago_recogida " +
-					"FROM tte_cliente " +					
-					"WHERE codigo_cliente_pk = " + TxtCodigoCliente.Text);
-				DataTable dt = ds.Tables[0];
-				if (dt.Rows.Count > 0)
-				{
-					if(Convert.ToBoolean(dt.Rows[0]["estado_inactivo"]) == false)
-					{
-						if (ultimoCliente != TxtCodigoCliente.Text)
-						{
-							TxtCodigoCondicion.Text = dt.Rows[0]["codigo_condicion_fk"].ToString();
-						}
-						txtNombreCliente.Text = Convert.ToString(dt.Rows[0]["nombre_corto"]);
-						ChkPagoCredito.Checked = Convert.ToBoolean(dt.Rows[0]["guia_pago_credito"]);
-						ChkPagoContado.Checked = Convert.ToBoolean(dt.Rows[0]["guia_pago_contado"]);
-						ChkPagoDestino.Checked = Convert.ToBoolean(dt.Rows[0]["guia_pago_destino"]);
-						ChkPagoCortesia.Checked = Convert.ToBoolean(dt.Rows[0]["guia_pago_cortesia"]);
-						ChkPagoRecogida.Checked = Convert.ToBoolean(dt.Rows[0]["guia_pago_recogida"]);
-					} else
-					{
-						TxtCodigoCliente.Text = "";
-						txtNombreCliente.Text = "";
-						MessageBox.Show("El cliente esta inactivo debe seleccionar otro");
-					}
-				}
+                string parametrosJson = "{\"codigo\":\"" + TxtCodigoCliente.Text + "\"}";
+                string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/cliente/detalle", parametrosJson);
+                ApiCliente apiCliente = ser.Deserialize<ApiCliente>(jsonRespuesta);
+                if(apiCliente.error == null)
+                {
+                    if (apiCliente.estadoInactivo)
+                    {
+                        TxtCodigoCliente.Text = "";
+                        txtNombreCliente.Text = "";
+                        MessageBox.Show(this, "El cliente esta inactivo debe seleccionar otro ", "Cliente inactivo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        if (ultimoCliente != TxtCodigoCliente.Text)
+                        {
+                            TxtCodigoCondicion.Text = apiCliente.codigoCondicionFk;
+                        }
+                        txtNombreCliente.Text = apiCliente.nombreCorto;
+                        ChkPagoCredito.Checked = apiCliente.guiaPagoCredito;
+                        ChkPagoContado.Checked = apiCliente.guiaPagoContado;
+                        ChkPagoDestino.Checked = apiCliente.guiaPagoDestino;
+                        ChkPagoCortesia.Checked = apiCliente.guiaPagoCortesia;
+                        ChkPagoRecogida.Checked = apiCliente.guiaPagoRecogida;
+                    }
+                }
+				
 				if (TxtRemitente.Text == "")
 				{
 					TxtRemitente.Text = txtNombreCliente.Text;
@@ -614,112 +866,86 @@ namespace cromo
 
         private void TxtCodigoCiudadOrigen_Validated(object sender, EventArgs e)
         {
-            txtNombreCiudadOrigen.Text = CiudadRepositorio.nombreCiudad(TxtCodigoCiudadOrigen.Text);           
+            string parametrosJson = "{\"codigo\":\"" + TxtCodigoCiudadOrigen.Text + "\"}";
+            string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/ciudad/detalle", parametrosJson);
+            ApiCiudad apiCiudad = ser.Deserialize<ApiCiudad>(jsonRespuesta);
+            if (apiCiudad.error == null)
+            {
+                txtNombreCiudadOrigen.Text = apiCiudad.nombre;
+            }
+                 
         }
 
         private void TxtCodigoCiudadDestino_Validated(object sender, EventArgs e)
-        {            
-			DataSet ds = Utilidades.Ejecutar("SELECT nombre, codigo_ruta_fk, orden_ruta, reexpedicion FROM tte_ciudad where codigo_ciudad_pk = '" + TxtCodigoCiudadDestino.Text + "'");
-			DataTable dt = ds.Tables[0];
-			if (dt.Rows.Count > 0)
-			{
-				TxtNombreCiudadDestino.Text = Convert.ToString(dt.Rows[0][0]);
-				TxtCodigoRuta.Text = Convert.ToString(dt.Rows[0][1]);
-				TxtOrdenRuta.Text = Convert.ToString(dt.Rows[0][2]);
-				ChkReexpedicion.Checked = Convert.ToBoolean(dt.Rows[0][3]);
+        {
+            string parametrosJson = "{\"codigo\":\"" + TxtCodigoCiudadDestino.Text + "\"}";
+            string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/ciudad/detalle", parametrosJson);
+            ApiCiudad apiCiudad = ser.Deserialize<ApiCiudad>(jsonRespuesta);
+            if (apiCiudad.error == null)
+            {
+                TxtNombreCiudadDestino.Text = apiCiudad.nombre;
+                TxtCodigoRuta.Text = apiCiudad.codigoRutaFk;
+                TxtOrdenRuta.Text = apiCiudad.ordenRuta.ToString();
+                ChkReexpedicion.Checked = apiCiudad.reexpedicion;
 
-				if (codigoPrecio != 0 && TxtCodigoCiudadOrigen.Text != "" && TxtCodigoCiudadDestino.Text != "")
-				{
-					 ds = Utilidades.Ejecutar("SELECT vr_peso, vr_unidad, peso_tope, vr_peso_tope, vr_peso_tope_adicional, minimo, nombre " +
-						"FROM tte_precio_detalle " +
-						"LEFT JOIN tte_producto ON tte_precio_detalle.codigo_producto_fk = tte_producto.codigo_producto_pk " +
-						"WHERE codigo_precio_fk = " + codigoPrecio + " AND codigo_ciudad_origen_fk = " + TxtCodigoCiudadOrigen.Text + " AND " +
-						"codigo_ciudad_destino_fk = " + TxtCodigoCiudadDestino.Text + " LIMIT 3");
-					/*DataSet ds = Utilidades.Ejecutar("SELECT vr_peso, minimo " +
-						"FROM tte_precio_detalle where codigo_precio_fk = " + codigoPrecio + " AND codigo_ciudad_origen_fk = " + TxtCodigoCiudadOrigen.Text + " AND " +
-						"codigo_ciudad_destino_fk = " + TxtCodigoCiudadDestino.Text + " AND codigo_producto_fk = '" + CboProducto.SelectedValue.ToString() + "' AND " +
-						"vr_peso > 0");*/
-					dt = ds.Tables[0];
-					if (dt.Rows.Count > 0)
-					{
-						string texto = "";
-						foreach (DataRow row in dt.Rows)
-						{
-
-							texto = texto + "Producto: " + row[6].ToString() + " Pes:" + row[0].ToString() + " Und:" + row[1].ToString() + " Tope:" + row[2].ToString() + " VrTope:" + row[3].ToString() + " VrAdc:" + row[4].ToString() + " Min:" + row[5].ToString() + "\r\n";
-						}
-						LblPrecioDetalle.Text = texto;
-					}
-				}
-				else
-				{
-					MessageBox.Show("Debe seleccionar una condicion comercial, origen y destino del servicio");
-				}
-
-			}
+                if (codigoPrecio != 0 && TxtCodigoCiudadOrigen.Text != "" && TxtCodigoCiudadDestino.Text != "")
+                {
+                    parametrosJson = "{\"precio\":\"" + codigoPrecio + "\", \"origen\":\"" + TxtCodigoCiudadOrigen.Text + "\", \"destino\":\"" + TxtCodigoCiudadDestino.Text + "\"}";
+                    jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/preciodetalle/detalle", parametrosJson);                    
+                    List<ApiPrecioDetalle> apiPrecioDetalleLista = ser.Deserialize<List<ApiPrecioDetalle>>(jsonRespuesta);
+                    string texto = "";
+                    foreach (ApiPrecioDetalle apiPrecioDetalle in apiPrecioDetalleLista)
+                    {
+                        texto = texto + "Producto: " + apiPrecioDetalle.productoNombre + " Pes:" + apiPrecioDetalle.vrPeso + 
+                            " Und:" + apiPrecioDetalle.vrUnidad + " Tope:" + apiPrecioDetalle.pesoTope + " VrTope:" + apiPrecioDetalle.vrPesoTope + 
+                            " VrAdc:" + apiPrecioDetalle.vrPesoTopeAdicional + " Min:" + apiPrecioDetalle.minimo + "\r\n";
+                    }
+                    LblPrecioDetalle.Text = texto;                                            
+                }
+                else
+                {
+                    MessageBox.Show("Debe seleccionar una condicion comercial, origen y destino del servicio");
+                }
+            }
 		}
 
 
 		private void CargarTipo ()
-		{
-			/* https://www.youtube.com/watch?v=O2CwKIV9bn0 */
-			string query = "SELECT codigo_guia_tipo_pk, nombre FROM tte_guia_tipo ORDER BY orden";
-			MySqlConnection bd = BdCromo.ObtenerConexion();
-
-			MySqlCommand cmd = new MySqlCommand(query, bd);
-			MySqlDataAdapter da = new MySqlDataAdapter(query, bd);
-			DataTable dt = new DataTable();
-			da.Fill(dt);
-			//DataRow fila = dt.NewRow();
-			//fila["nombre"] = "Seleecciona un tipo";
-			//dt.Rows.InsertAt(fila, 0);
-			CboTipo.ValueMember = "codigo_guia_tipo_pk";
+		{            
+            string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/guiatipo/lista", null);
+            List<ApiGuiaTipo> apiGuiaTipoLista = ser.Deserialize<List<ApiGuiaTipo>>(jsonRespuesta);
+            CboTipo.ValueMember = "codigoGuiaTipoPk";
 			CboTipo.DisplayMember = "nombre";
-			CboTipo.DataSource = dt;
+			CboTipo.DataSource = apiGuiaTipoLista;
 		}
 
 		private void CargarServicio()
 		{
-			/* https://www.youtube.com/watch?v=O2CwKIV9bn0 */
-			string query = "SELECT codigo_servicio_pk, nombre FROM tte_servicio ORDER BY orden";
-			MySqlConnection bd = BdCromo.ObtenerConexion();
-			MySqlCommand cmd = new MySqlCommand(query, bd);
-			MySqlDataAdapter da = new MySqlDataAdapter(query, bd);
-			DataTable dt = new DataTable();
-			da.Fill(dt);
-			CboServicio.ValueMember = "codigo_servicio_pk";
-			CboServicio.DisplayMember = "nombre";
-			CboServicio.DataSource = dt;
-		}
+            
+            string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/servicio/lista", null);
+            List<ApiServicio> apiServicioLista = ser.Deserialize<List<ApiServicio>>(jsonRespuesta);
+            CboServicio.ValueMember = "codigoServicioPk";
+            CboServicio.DisplayMember = "nombre";
+            CboServicio.DataSource = apiServicioLista;
+        }
 
 		private void CargarProducto()
-		{
-			/* https://www.youtube.com/watch?v=O2CwKIV9bn0 */
-			string query = "SELECT codigo_producto_pk, nombre FROM tte_producto ORDER BY nombre";
-			MySqlConnection bd = BdCromo.ObtenerConexion();
-			MySqlCommand cmd = new MySqlCommand(query, bd);
-			MySqlDataAdapter da = new MySqlDataAdapter(query, bd);
-			DataTable dt = new DataTable();
-			da.Fill(dt);
-			CboProducto.ValueMember = "codigo_producto_pk";
-			CboProducto.DisplayMember = "nombre";
-			CboProducto.DataSource = dt;
-		}
+		{            
+            string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/producto/lista", null);
+            List<ApiProducto> apiProductoLista = ser.Deserialize<List<ApiProducto>>(jsonRespuesta);
+            CboProducto.ValueMember = "codigoProductoPk";
+            CboProducto.DisplayMember = "nombre";
+            CboProducto.DataSource = apiProductoLista;
+        }
 
 		private void CargarEmpaque()
-		{
-			/* https://www.youtube.com/watch?v=O2CwKIV9bn0 */
-			string query = "SELECT codigo_empaque_pk, nombre FROM tte_empaque";
-			MySqlConnection bd = BdCromo.ObtenerConexion();
-			MySqlCommand cmd = new MySqlCommand(query, bd);
-			MySqlDataAdapter da = new MySqlDataAdapter(query, bd);
-			DataTable dt = new DataTable();
-			da.Fill(dt);
-			CboEmpaque.ValueMember = "codigo_empaque_pk";
-			CboEmpaque.DisplayMember = "nombre";
-			CboEmpaque.DataSource = dt;
-		}
-
+		{            
+            string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/empaque/lista", null);
+            List<ApiEmpaque> apiEmpaqueLista = ser.Deserialize<List<ApiEmpaque>>(jsonRespuesta);
+            CboEmpaque.ValueMember = "codigoEmpaquePk";
+            CboEmpaque.DisplayMember = "nombre";
+            CboEmpaque.DataSource = apiEmpaqueLista;
+        }
 
 		private void MnuNuevo_Click(object sender, EventArgs e)
 		{
@@ -751,7 +977,8 @@ namespace cromo
 			buscar.DevolverGuia();			
 			TraerGuia(FuncionesGuia.CodigoGuia);
 		}
-		public void TraerGuia(int codigoGuia)
+
+        public void TraerGuia(int codigoGuia)
 		{
 			try
 			{
@@ -834,7 +1061,6 @@ namespace cromo
 			}
 		}
 
-
 		private void TxtPesoFacturar_Validated(object sender, EventArgs e)
 		{
 			if(ChkLiquidado.Checked == false)
@@ -853,10 +1079,10 @@ namespace cromo
 					if (RbPeso.Checked)
 					{
 						precioPeso = Convert.ToDouble(TxtVrPeso.Text);
-						if (precioPeso == 0 && ChkListaGeneral.Checked == true && codigoPrecioGeneral != 0)
+						if (precioPeso == 0 && ChkListaGeneral.Checked == true && General.CodigoPrecioGeneral != 0)
 						{
 							DataSet ds = Utilidades.Ejecutar("SELECT vr_peso " +
-								"FROM tte_precio_detalle where codigo_precio_fk = " + codigoPrecioGeneral + " AND codigo_ciudad_origen_fk = " + TxtCodigoCiudadOrigen.Text + " AND " +
+								"FROM tte_precio_detalle where codigo_precio_fk = " + General.CodigoPrecioGeneral + " AND codigo_ciudad_origen_fk = " + TxtCodigoCiudadOrigen.Text + " AND " +
 								"codigo_ciudad_destino_fk = " + TxtCodigoCiudadDestino.Text + " AND codigo_producto_fk = '" + CboProducto.SelectedValue.ToString() + "'");
 							DataTable dt = ds.Tables[0];
 							if (dt.Rows.Count > 0)
@@ -888,8 +1114,6 @@ namespace cromo
 				}
 			}
 		}
-
-
 
 		private void TxtUnidades_Validated(object sender, EventArgs e)
 		{
@@ -930,63 +1154,61 @@ namespace cromo
 
 		private void TxtCodigoCondicion_Validated(object sender, EventArgs e)
 		{
-			if (TxtCodigoCondicion.Text != "")
+            if (TxtCodigoCondicion.Text != "")
 			{
-				DataSet ds = Utilidades.Ejecutar("SELECT nombre, porcentaje_manejo, manejo_minimo_unidad, manejo_minimo_despacho, peso_minimo, " +
-					"descuento_peso, codigo_precio_fk, precio_general,  precio_peso, precio_unidad, precio_adicional " +
-					"FROM tte_condicion " +					
-					"WHERE codigo_condicion_pk = " + TxtCodigoCondicion.Text);
-				DataTable dt = ds.Tables[0];
-				if (dt.Rows.Count > 0)
-				{					
-					txtNombreCondicion.Text = Convert.ToString(dt.Rows[0]["nombre"]);
-					pesoMinimoCondicion = Convert.ToInt32(dt.Rows[0]["peso_minimo"]);
-					porcentajeManejo = Convert.ToDouble(dt.Rows[0]["porcentaje_manejo"]);
-					manejoMinimoUnidad = Convert.ToDouble(dt.Rows[0]["manejo_minimo_unidad"]);
-					manejoMinimoDespacho = Convert.ToDouble(dt.Rows[0]["manejo_minimo_despacho"]);
-					descuentoPeso = Convert.ToDouble(dt.Rows[0]["descuento_peso"]);
-					codigoPrecio = Convert.ToInt32(dt.Rows[0]["codigo_precio_fk"]);
-					ChkListaGeneral.Checked = Convert.ToBoolean(dt.Rows[0]["precio_general"]);
-					TxtPesoMinimo.Text = pesoMinimoCondicion.ToString();
-					TxtPorcentajeManejo.Text = porcentajeManejo.ToString();
-					TxtDescuentoPeso.Text = descuentoPeso.ToString();
-					TxtManejoMinimoUnidad.Text = manejoMinimoUnidad.ToString();
-					TxtManejoMinimoDespacho.Text = manejoMinimoDespacho.ToString();
+                string parametrosJson = "{\"codigo\":\"" + TxtCodigoCondicion.Text + "\"}";
+                string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/condicion/detalle", parametrosJson);
+                ApiCondicion apiCondicion = ser.Deserialize<ApiCondicion>(jsonRespuesta);
+                if (apiCondicion.error == null)
+                {
+                    txtNombreCondicion.Text = apiCondicion.nombre;
+                    pesoMinimoCondicion = apiCondicion.pesoMinimo;
+                    porcentajeManejo = apiCondicion.porcentajeManejo;
+                    manejoMinimoUnidad = apiCondicion.manejoMinimoUnidad;
+                    manejoMinimoDespacho = apiCondicion.manejoMinimoDespacho;
+                    descuentoPeso = apiCondicion.descuentoPeso;
+                    codigoPrecio = apiCondicion.codigoPrecioFk;
+                    ChkListaGeneral.Checked = apiCondicion.precioGeneral;
+                    TxtPesoMinimo.Text = pesoMinimoCondicion.ToString();
+                    TxtPorcentajeManejo.Text = porcentajeManejo.ToString();
+                    TxtDescuentoPeso.Text = descuentoPeso.ToString();
+                    TxtManejoMinimoUnidad.Text = manejoMinimoUnidad.ToString();
+                    TxtManejoMinimoDespacho.Text = manejoMinimoDespacho.ToString();
 
-					bool precioPeso = Convert.ToBoolean(dt.Rows[0]["precio_peso"]);
-					bool precioUnidad = Convert.ToBoolean(dt.Rows[0]["precio_unidad"]);
-					bool precioAdicional = Convert.ToBoolean(dt.Rows[0]["precio_adicional"]);
-					if (precioPeso)
-					{
-						RbPeso.Checked = true;
-					}
-					else
-					{
-						RbPeso.Enabled = false;
-					}
-					if (precioUnidad)
-					{
-						if (precioPeso == false)
-						{
-							RbUnidad.Checked = true;
-						}
-					}
-					else
-					{
-						RbUnidad.Enabled = false;
-					}
-					if (precioAdicional)
-					{
-						if (precioPeso == false && precioUnidad == false)
-						{
-							RbAdicional.Checked = true;
-						}
-					}
-					else
-					{
-						RbAdicional.Enabled = false;
-					}
-				}
+                    bool precioPeso = apiCondicion.precioPeso;
+                    bool precioUnidad = apiCondicion.precioUnidad;
+                    bool precioAdicional = apiCondicion.precioAdicional;
+                    if (precioPeso)
+                    {
+                        RbPeso.Checked = true;
+                    }
+                    else
+                    {
+                        RbPeso.Enabled = false;
+                    }
+                    if (precioUnidad)
+                    {
+                        if (precioPeso == false)
+                        {
+                            RbUnidad.Checked = true;
+                        }
+                    }
+                    else
+                    {
+                        RbUnidad.Enabled = false;
+                    }
+                    if (precioAdicional)
+                    {
+                        if (precioPeso == false && precioUnidad == false)
+                        {
+                            RbAdicional.Checked = true;
+                        }
+                    }
+                    else
+                    {
+                        RbAdicional.Enabled = false;
+                    }
+                }
 			}
 		}
 
@@ -994,6 +1216,7 @@ namespace cromo
 		{
 			LiquidarPesoFacturar();
 		}
+
 		private void TxtPeso_Validated(object sender, EventArgs e)
 		{
 			if(Convert.ToInt32(TxtVolumen.Text) <= 0)
@@ -1002,6 +1225,7 @@ namespace cromo
 			}
 			LiquidarPesoFacturar();
 		}
+
 		private void LiquidarPesoFacturar()
 		{
 			if(Convert.ToInt32(TxtPeso.Text) > Convert.ToInt32(TxtPesoFacturar.Text))
@@ -1034,10 +1258,6 @@ namespace cromo
 			Impresion imp = new Impresion();
 			imp.FormatoGuia(TxtCodigo.Text);
 		}
-
-
-
-
 
 		private void TsbRecibo_Click(object sender, EventArgs e)
 		{
@@ -1088,6 +1308,7 @@ namespace cromo
 			}
 
 		}
+
 		public void TraerPrecarga(string documentoCliente)
 		{
 			try
@@ -1136,8 +1357,6 @@ namespace cromo
 				}
 			}
 		}
-
-
 
 		private void TxtUnidades_KeyDown(object sender, KeyEventArgs e)
 		{
@@ -1269,6 +1488,7 @@ namespace cromo
 		{
 
 		}
-	}
+
+    }
 
 }
