@@ -107,7 +107,6 @@
     <Compile Include="ApiDestinatario.cs" />
     <Compile Include="ApiEmpaque.cs" />
     <Compile Include="ApiGuia.cs" />
-    <Compile Include="ApiGuiaRespuesta.cs" />
     <Compile Include="ApiOperador.cs" />
     <Compile Include="ApiPrecioDetalle.cs" />
     <Compile Include="ApiProducto.cs" />

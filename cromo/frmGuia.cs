@@ -114,17 +114,17 @@ namespace cromo
 
                                 ApiGuia apiGuia = new ApiGuia();
                                 apiGuia.numeroUnicoGuia = General.NumeroUnicoGuia;
-                                apiGuia.codigoGuiaTipo = CboTipo.SelectedValue.ToString();
+                                apiGuia.codigoGuiaTipoFk = CboTipo.SelectedValue.ToString();
                                 apiGuia.numero = numero;
-                                apiGuia.codigoOperacionIngreso = TxtOperacionIngreso.Text;
-                                apiGuia.codigoCliente = TxtCodigoCliente.Text;
-                                apiGuia.codigoCondicion = TxtCodigoCondicion.Text;
-                                apiGuia.codigoCiudadOrigen = TxtCodigoCiudadOrigen.Text;
-                                apiGuia.codigoCiudadDestino = TxtCodigoCiudadDestino.Text;
-                                apiGuia.codigoRuta = TxtCodigoRuta.Text;                                
-                                apiGuia.codigoServicio = CboServicio.SelectedValue.ToString();
-                                apiGuia.codigoProducto = CboProducto.SelectedValue.ToString();
-                                apiGuia.codigoEmpaque = CboEmpaque.SelectedValue.ToString();
+                                apiGuia.codigoOperacionIngresoFk = TxtOperacionIngreso.Text;
+                                apiGuia.codigoClienteFk = TxtCodigoCliente.Text;
+                                apiGuia.codigoCondicionFk = TxtCodigoCondicion.Text;
+                                apiGuia.codigoCiudadOrigenFk = TxtCodigoCiudadOrigen.Text;
+                                apiGuia.codigoCiudadDestinoFk = TxtCodigoCiudadDestino.Text;
+                                apiGuia.codigoRutaFk = TxtCodigoRuta.Text;                                
+                                apiGuia.codigoServicioFk = CboServicio.SelectedValue.ToString();
+                                apiGuia.codigoProductoFk = CboProducto.SelectedValue.ToString();
+                                apiGuia.codigoEmpaqueFk = CboEmpaque.SelectedValue.ToString();
                                 apiGuia.documentoCliente = TxtDocumentoCliente.Text;
                                 apiGuia.relacionCliente = TxtRelacion.Text;
                                 apiGuia.remitente = TxtRemitente.Text;
@@ -156,7 +156,7 @@ namespace cromo
                                     MessageBox.Show(this, "La guia se guardo con exito ", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     TxtNumero.Text = apiGuiaRespuesta.numero;
                                     TxtNumeroFactura.Text = apiGuiaRespuesta.numeroFactura;
-                                    TxtCodigo.Text = apiGuiaRespuesta.codigo;
+                                    TxtCodigo.Text = apiGuiaRespuesta.codigoGuiaPk;
                                     ultimoCliente = TxtCodigoCliente.Text;
                                     ultimaCondicion = TxtCodigoCondicion.Text;
                                     ultimoTipo = CboTipo.SelectedValue.ToString();
@@ -426,6 +426,7 @@ namespace cromo
 			RbPeso.Checked = false;
 			RbUnidad.Checked = false;
 			RbAdicional.Checked = false;
+            TxtUsuario.Text = "";
 		}
 
         public void Desbloquear()
@@ -1053,12 +1054,19 @@ namespace cromo
 
 		private void TsbBuscarGuia_Click(object sender, EventArgs e)
 		{
-			FuncionesGuia buscar = new FuncionesGuia();
-			buscar.DevolverCodigoGuia();
-			if(General.CodigoGuia != 0)
+            FrmDevolverGuiaCodigo frm = new FrmDevolverGuiaCodigo();
+            frm.ShowDialog();
+            if (General.CodigoGuia != 0)
 			{
-				//TraerGuia(General.CodigoGuia);
-			}
+                string parametrosJson = "{\"codigoGuiaPk\":\"" + General.CodigoGuia + "\"}";
+                string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/guia/detalle", parametrosJson);
+                ApiGuia apiGuia = ser.Deserialize<ApiGuia>(jsonRespuesta);
+                if (apiGuia.error == null)
+                {
+                    TraerGuia(apiGuia);                        
+                }
+
+            }
 		}
 
 		private void MnuBuscarGuia_Click(object sender, EventArgs e)
@@ -1097,7 +1105,61 @@ namespace cromo
 			}
 		}
 
-
+        private void TraerGuia (ApiGuia apiGuia)
+        {
+            TxtCodigo.Text = apiGuia.codigoGuiaPk;
+            TxtNumero.Text = apiGuia.numero.ToString();
+            TxtNumeroFactura.Text = apiGuia.numeroFactura;
+            TxtCodigoDespacho.Text = apiGuia.codigoDespachoFk;
+            TxtFechaIngreso.Text = apiGuia.fechaIngreso.ToString();
+            TxtFechaDespacho.Text = apiGuia.fechaDespacho.ToString();
+            TxtFechaEntrega.Text = apiGuia.fechaEntrega.ToString();
+            TxtOperacionIngreso.Text = apiGuia.codigoOperacionIngresoFk;
+            TxtOperacionCargo.Text = apiGuia.codigoOperacionCargoFk;
+            TxtAbono.Text = apiGuia.vrAbono;
+            TxtCodigoCliente.Text = apiGuia.codigoClienteFk;
+            txtNombreCliente.Text = apiGuia.clienteNombreCorto;
+            TxtCodigoCondicion.Text = apiGuia.codigoCondicionFk;
+            txtNombreCondicion.Text = apiGuia.condicionNombre;
+            TxtRemitente.Text = apiGuia.remitente;
+            TxtDocumentoCliente.Text = apiGuia.documentoCliente;
+            TxtRelacion.Text = apiGuia.relacionCliente;
+            TxtCodigoCiudadOrigen.Text = apiGuia.codigoCiudadOrigenFk;
+            txtNombreCiudadOrigen.Text = apiGuia.ciudadOrigenNombre;
+            TxtNombreDestinatario.Text = apiGuia.nombreDestinatario;
+            TxtTelefonoDestinatario.Text = apiGuia.telefonoDestinatario;
+            TxtDireccionDestinatario.Text = apiGuia.direccionDestinatario;
+            TxtCodigoCiudadDestino.Text = apiGuia.codigoCiudadDestinoFk;
+            TxtNombreCiudadDestino.Text = apiGuia.ciudadDestinoNombre;
+            TxtUnidades.Text = apiGuia.unidades;
+            TxtPeso.Text = apiGuia.pesoReal;
+            TxtVolumen.Text = apiGuia.pesoVolumen;
+            TxtPesoFacturar.Text = apiGuia.pesoFacturado;
+            TxtDeclarado.Text = apiGuia.vrDeclara;
+            TxtFlete.Text = apiGuia.vrFlete;
+            TxtManejo.Text = apiGuia.vrManejo;
+            TxtRecaudo.Text = apiGuia.vrRecaudo;
+            TxtCostoReexpedicion.Text = apiGuia.vrCostoReexpedicion;
+            TxtReferenciaEmpaque.Text = apiGuia.empaqueReferencia;
+            TxtComentario.Text = apiGuia.comentario;
+            TxtUsuario.Text = apiGuia.usuario;
+            CboTipo.SelectedValue = apiGuia.codigoGuiaTipoFk;
+            CboServicio.SelectedValue = apiGuia.codigoServicioFk;
+            CboEmpaque.SelectedValue = apiGuia.codigoEmpaqueFk;
+            CboProducto.SelectedValue = apiGuia.codigoProductoFk;
+            ChkReexpedicion.Checked = apiGuia.reexpedicion;
+            ChkFactura.Checked = apiGuia.factura;
+            ChkCortesia.Checked = apiGuia.cortesia;
+            ChkEstadoImpreso.Checked = apiGuia.estadoImpreso;
+            ChkEstadoEmbarcado.Checked = apiGuia.estadoEmbarcado;
+            ChkEstadoDespachado.Checked = apiGuia.estadoDespachado;
+            ChkEstadoEntregado.Checked = apiGuia.estadoEntregado;
+            ChkEstadoSoporte.Checked = apiGuia.estadoSoporte;
+            ChkEstadoCumplido.Checked = apiGuia.estadoCumplido;
+            ChkEstadoFacturado.Checked = apiGuia.estadoFacturado;
+            ChkEstadoFacturaGenerada.Checked = apiGuia.estadoFacturaGenerada;
+            ChkEstadoAnulado.Checked = apiGuia.estadoAnulado;
+        }
 
     }
 

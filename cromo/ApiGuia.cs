@@ -9,20 +9,25 @@ namespace cromo
     public class ApiGuia
     {
         public bool numeroUnicoGuia { get; set; }
-        public int numero { get; set; }
-        public string codigoOperacionIngreso { get; set; }
-        public string codigoCliente { get; set; }
-        public string codigoCondicion { get; set; }
-        public string codigoCiudadOrigen { get; set; }
-        public string codigoCiudadDestino { get; set; }
-        public string codigoRuta { get; set; }
-        public string codigoGuiaTipo { get; set; }
-        public string codigoServicio { get; set; }
-        public string codigoProducto { get; set; }
-        public string codigoEmpaque { get; set; }
+        public string codigoGuiaPk { get; set; }
+        public int numero { get; set; }        
+        public string codigoOperacionIngresoFk { get; set; }
+        public string codigoOperacionCargoFk { get; set; }
+        public string codigoClienteFk { get; set; }
+        public string codigoCondicionFk { get; set; }
+        public string codigoCiudadOrigenFk { get; set; }
+        public string codigoCiudadDestinoFk { get; set; }
+        public string codigoRutaFk { get; set; }
+        public string codigoGuiaTipoFk { get; set; }
+        public string codigoServicioFk { get; set; }
+        public string codigoProductoFk { get; set; }
+        public string codigoEmpaqueFk { get; set; }
         public string documentoCliente { get; set; }
         public string relacionCliente { get; set; }
         public string remitente { get; set; }
+        public DateTime fechaIngreso { get; set; }
+        public DateTime? fechaDespacho { get; set; }
+        public DateTime? fechaEntrega { get; set; }
         public string nombreDestinatario { get; set; }
         public string direccionDestinatario { get; set; }
         public string telefonoDestinatario { get; set; }
@@ -36,6 +41,7 @@ namespace cromo
         public string vrManejo { get; set; }
         public string vrCostoReexpedicion { get; set; }
         public string vrCobroEntrega { get; set; }
+        public string vrAbono { get; set; }
         public string usuario { get; set; }
         public string empaqueReferencia { get; set; }
         public string tipoLiquidacion { get; set; }
@@ -45,6 +51,29 @@ namespace cromo
         public bool cortesia  { get; set; }
         public bool mercanciaPeligrosa { get; set; }
         public string ordenRuta { get; set; }
+        public string numeroFactura { get; set; }
+        public string codigoDespachoFk { get; set; }
+        public bool estadoImpreso { get; set; }
+        public bool estadoEmbarcado { get; set; }
+        public bool estadoDespachado { get; set; }
+        public bool estadoEntregado { get; set; }
+        public bool estadoSoporte { get; set; }
+        public bool estadoCumplido { get; set; }
+        public bool estadoFacturado { get; set; }
+        public bool estadoFacturaGenerada { get; set; }
+        public bool estadoAnulado { get; set; }
+        public string clienteNombreCorto { get; set; }
+        public string ciudadOrigenNombre { get; set; }
+        public string ciudadDestinoNombre { get; set; }
+        public string condicionNombre { get; set; }
+        public string error { get; set; }
+    }
 
+    class ApiGuiaRespuesta
+    {
+        public string codigoGuiaPk { get; set; }
+        public string numero { get; set; }
+        public string numeroFactura { get; set; }
+        public string error { get; set; }
     }
 }

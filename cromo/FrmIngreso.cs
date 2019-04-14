@@ -26,7 +26,7 @@ namespace cromo
                         cromo.Properties.Settings.Default.operador = TxtOperador.Text;                        
                         cromo.Properties.Settings.Default.Save();
                         General.UrlServicio = apiOperador.urlServicio;
-                        General.UrlServicio = "http://192.168.15.43/cromo/public/index.php";
+                        //General.UrlServicio = "http://192.168.15.43/cromo/public/index.php";
 
                         parametrosJson = "{\"usuario\":\"" + TxtUsuario.Text + "\",\"clave\":\"" + TxtContraseña.Text + "\"}";
                         jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/usuario/validar", parametrosJson);                        
