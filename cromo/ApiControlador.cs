@@ -42,7 +42,7 @@ namespace cromo
 
         public static String ApiPostCesio(string ruta, string jsonParametros)
         {
-            string url = "http://192.168.15.43/cesio/public/index.php" + ruta;
+            string url = "http://159.65.52.53/cesio/public/index.php" + ruta;
 
             string jsonRespuesta = "";
             using (WebClient wc = new WebClient())
