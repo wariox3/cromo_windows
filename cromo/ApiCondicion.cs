@@ -8,7 +8,8 @@ namespace cromo
 {
     class ApiCondicion
     {
-        public string codigoCondicionPk { get; set; }
+        public string codigoClienteCondicionPk { get; set; }
+        public string codigoCondicionFk { get; set; }
         public string nombre { get; set; }
         public double porcentajeManejo { get; set; }
         public double manejoMinimoUnidad { get; set; }

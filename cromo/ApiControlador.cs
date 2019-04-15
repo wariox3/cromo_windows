@@ -24,7 +24,7 @@ namespace cromo
             string url = General.UrlServicio+ruta;
             
             string jsonRespuesta = "";
-            using (WebClient wc = new WebClient())
+            using (WebClient wc = new WebClient() { Encoding = Encoding.UTF8 })
             {
                 wc.Headers[HttpRequestHeader.ContentType] = "application/raw";
                 if (jsonParametros != null)
@@ -45,7 +45,7 @@ namespace cromo
             string url = "http://159.65.52.53/cesio/public/index.php" + ruta;
 
             string jsonRespuesta = "";
-            using (WebClient wc = new WebClient())
+            using (WebClient wc = new WebClient() { Encoding = Encoding.UTF8 })
             {
                 wc.Headers[HttpRequestHeader.ContentType] = "application/raw";
                 jsonRespuesta = wc.UploadString(url, jsonParametros);
