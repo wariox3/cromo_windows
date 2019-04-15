@@ -46,7 +46,7 @@ namespace cromo
                                 cromo.Properties.Settings.Default.recordarClave = false;
                                 cromo.Properties.Settings.Default.Save();
                             }
-                            if (apiUsuario.versionBaseDatos <= 2)
+                            if (apiUsuario.versionBaseDatos <= 3)
                             {
                                 General.UsuarioActivo = TxtUsuario.Text;                                    
                                 General.NumeroUnicoGuia = apiUsuario.numeroUnicoGuia;
