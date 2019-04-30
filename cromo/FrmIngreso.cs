@@ -2,6 +2,10 @@
 using System.Windows.Forms;
 using System.Web.Script.Serialization;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
+using System.Drawing.Imaging;
+
 namespace cromo
 {
 	public partial class FrmIngreso : Form
@@ -26,8 +30,26 @@ namespace cromo
                         cromo.Properties.Settings.Default.operador = TxtOperador.Text;                        
                         cromo.Properties.Settings.Default.Save();
                         General.UrlServicio = apiOperador.urlServicio;
-                        /*General.UrlServicio = "http://192.168.15.43/cromo/public/index.php";
-                        General.UrlServicio = "http://localhost/cromo/public";*/
+
+                        //General.UrlServicio = "http://192.168.15.43/cromo/public/index.php";
+                        //General.UrlServicio = "http://localhost/cromo/public";
+
+                        //Validar logo
+                        string logo = Directory.GetCurrentDirectory() + @"\logo.jpg";
+                        if(!File.Exists(logo))
+                        {
+                            jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/general/configuracion", "");
+                            ApiConfiguracion apiConfiguracion = ser.Deserialize<ApiConfiguracion>(jsonRespuesta);
+                            if (apiConfiguracion.error == null)
+                            {
+                                string base64 = apiConfiguracion.logo;
+                                byte[] bytes = Convert.FromBase64String(base64);
+                                using (Image image = Image.FromStream(new MemoryStream(bytes)))
+                                {
+                                    image.Save(Directory.GetCurrentDirectory() + @"\logo.jpg", ImageFormat.Jpeg);  // Or Png
+                                }
+                            }
+                        }                        
 
                         parametrosJson = "{\"usuario\":\"" + TxtUsuario.Text + "\",\"clave\":\"" + TxtContraseña.Text + "\"}";
                         jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/usuario/validar", parametrosJson);                        
@@ -100,8 +122,10 @@ namespace cromo
 
 		private void BtnCancelar_Click(object sender, EventArgs e)
 		{
-			Close();
-		}
+            FrmVisor frm = new FrmVisor();
+            frm.ShowDialog();
+            //Close();
+        }
 
         private void FrmIngreso_Load(object sender, EventArgs e)
         {

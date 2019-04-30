@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="cromo">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>b00ee2d1-c473-41c9-9379-d4ec130d7b81</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="Guia">
+      <Query>
+        <DataSourceName>cromo</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="ciudadDestinoNombre">
+          <DataField>ciudadDestinoNombre</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ciudadOrigenNombre">
+          <DataField>ciudadOrigenNombre</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="clienteNombreCorto">
+          <DataField>clienteNombreCorto</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="codigoCiudadDestinoFk">
+          <DataField>codigoCiudadDestinoFk</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="codigoCiudadOrigenFk">
+          <DataField>codigoCiudadOrigenFk</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="codigoClienteFk">
+          <DataField>codigoClienteFk</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="codigoCondicionFk">
+          <DataField>codigoCondicionFk</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="codigoDespachoFk">
+          <DataField>codigoDespachoFk</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="codigoEmpaqueFk">
+          <DataField>codigoEmpaqueFk</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="codigoGuiaPk">
+          <DataField>codigoGuiaPk</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="codigoGuiaTipoFk">
+          <DataField>codigoGuiaTipoFk</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="codigoOperacionCargoFk">
+          <DataField>codigoOperacionCargoFk</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="codigoOperacionIngresoFk">
+          <DataField>codigoOperacionIngresoFk</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="codigoProductoFk">
+          <DataField>codigoProductoFk</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="codigoRutaFk">
+          <DataField>codigoRutaFk</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="codigoServicioFk">
+          <DataField>codigoServicioFk</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="comentario">
+          <DataField>comentario</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="condicionNombre">
+          <DataField>condicionNombre</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="cortesia">
+          <DataField>cortesia</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="direccionDestinatario">
+          <DataField>direccionDestinatario</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="documentoCliente">
+          <DataField>documentoCliente</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="empaqueReferencia">
+          <DataField>empaqueReferencia</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="error">
+          <DataField>error</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="estadoAnulado">
+          <DataField>estadoAnulado</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="estadoCumplido">
+          <DataField>estadoCumplido</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="estadoDespachado">
+          <DataField>estadoDespachado</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="estadoEmbarcado">
+          <DataField>estadoEmbarcado</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="estadoEntregado">
+          <DataField>estadoEntregado</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="estadoFacturado">
+          <DataField>estadoFacturado</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="estadoFacturaGenerada">
+          <DataField>estadoFacturaGenerada</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="estadoImpreso">
+          <DataField>estadoImpreso</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="estadoSoporte">
+          <DataField>estadoSoporte</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="factura">
+          <DataField>factura</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="fechaDespacho">
+          <DataField>fechaDespacho</DataField>
+          <rd:TypeName>System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="fechaEntrega">
+          <DataField>fechaEntrega</DataField>
+          <rd:TypeName>System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="fechaIngreso">
+          <DataField>fechaIngreso</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="mercanciaPeligrosa">
+          <DataField>mercanciaPeligrosa</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="nombreDestinatario">
+          <DataField>nombreDestinatario</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="numero">
+          <DataField>numero</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="numeroFactura">
+          <DataField>numeroFactura</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="numeroUnicoGuia">
+          <DataField>numeroUnicoGuia</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="ordenRuta">
+          <DataField>ordenRuta</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="pesoFacturado">
+          <DataField>pesoFacturado</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="pesoReal">
+          <DataField>pesoReal</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="pesoVolumen">
+          <DataField>pesoVolumen</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="reexpedicion">
+          <DataField>reexpedicion</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="relacionCliente">
+          <DataField>relacionCliente</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="remitente">
+          <DataField>remitente</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="telefonoDestinatario">
+          <DataField>telefonoDestinatario</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="tipoLiquidacion">
+          <DataField>tipoLiquidacion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="unidades">
+          <DataField>unidades</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="usuario">
+          <DataField>usuario</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="vrAbono">
+          <DataField>vrAbono</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="vrCobroEntrega">
+          <DataField>vrCobroEntrega</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="vrCostoReexpedicion">
+          <DataField>vrCostoReexpedicion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="vrDeclara">
+          <DataField>vrDeclara</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="vrFlete">
+          <DataField>vrFlete</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="vrManejo">
+          <DataField>vrManejo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="vrRecaudo">
+          <DataField>vrRecaudo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>cromo</rd:DataSetName>
+        <rd:TableName>ApiGuia</rd:TableName>
+        <rd:ObjectDataSourceType>cromo.ApiGuia, cromo, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <ReportItems>
+          <Textbox Name="Textbox1">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Hola mundo</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox1</rd:DefaultName>
+            <Top>1.42557cm</Top>
+            <Left>6.77016cm</Left>
+            <Height>0.6cm</Height>
+            <Width>2.5cm</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="numero">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Sum(Fields!numero.Value, "Guia")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>numero</rd:DefaultName>
+            <Top>3.59516cm</Top>
+            <Left>13.70224cm</Left>
+            <Height>0.6cm</Height>
+            <Width>2.5cm</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Image Name="logo">
+            <Source>External</Source>
+            <Value>=Parameters!rutaImagen.Value</Value>
+            <Sizing>FitProportional</Sizing>
+            <Top>0.52557cm</Top>
+            <Left>0.28787cm</Left>
+            <Height>2.10854cm</Height>
+            <Width>4.56917cm</Width>
+            <ZIndex>2</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Image>
+        </ReportItems>
+        <Height>3.36458in</Height>
+        <Style />
+      </Body>
+      <Width>10.17708in</Width>
+      <Page>
+        <PageHeight>29.7cm</PageHeight>
+        <PageWidth>21cm</PageWidth>
+        <LeftMargin>2cm</LeftMargin>
+        <RightMargin>2cm</RightMargin>
+        <TopMargin>2cm</TopMargin>
+        <BottomMargin>2cm</BottomMargin>
+        <ColumnSpacing>0.13cm</ColumnSpacing>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="rutaImagen">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfRows>2</NumberOfRows>
+      <CellDefinitions>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>rutaImagen</ParameterName>
+        </CellDefinition>
+      </CellDefinitions>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
+  <EmbeddedImages>
+    <EmbeddedImage Name="logo">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>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</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportID>1594169a-78c3-49d3-8869-7b7c5c8904ff</rd:ReportID>
+</Report>
