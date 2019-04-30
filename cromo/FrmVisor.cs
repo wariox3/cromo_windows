@@ -8,12 +8,14 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 using System.Windows.Forms;
 
 namespace cromo
 {
     public partial class FrmVisor : Form
     {
+        JavaScriptSerializer ser = new JavaScriptSerializer();
         public FrmVisor()
         {
             InitializeComponent();
@@ -21,22 +23,37 @@ namespace cromo
 
         private void FrmVisor_Load(object sender, EventArgs e)
         {
-            string ruta = cromo.Properties.Settings.Default.rutaReportes + @"Transporte\Guia.rdlc";
-
-            List<ApiGuia> Agregar = new List<ApiGuia>();            
-            Agregar.Add(new ApiGuia
-            {
-                numero = 1123
-            });
             
-            MessageBox.Show(ruta);            
-            this.reportViewer1.LocalReport.ReportPath = ruta;
-            ReportParameter param = new ReportParameter("rutaImagen", @"file:\" + Directory.GetCurrentDirectory() + @"\logo.jpg", true);
-            this.reportViewer1.LocalReport.SetParameters(param);
-            ReportDataSource rds1 = new ReportDataSource("Guia", Agregar);
-            this.reportViewer1.LocalReport.DataSources.Clear();
-            this.reportViewer1.LocalReport.DataSources.Add(rds1);
-            this.reportViewer1.RefreshReport();                
+            if (General.Formato.tipo == "Guia")
+            {                
+                string parametrosJson = "{\"codigoGuiaPk\":\""+ General.Formato.codigo +"\"}";
+                string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/guia/imprimir", parametrosJson);                
+                ApiGuiaImprimir apiGuia = ser.Deserialize<ApiGuiaImprimir>(jsonRespuesta);
+                if (apiGuia.error == null)
+                {
+                    List<ApiGuiaImprimir> listaGuias = new List<ApiGuiaImprimir>();
+                    listaGuias.Add(apiGuia);
+                    string ruta = cromo.Properties.Settings.Default.rutaReportes;
+                    ruta = ruta + @"Transporte\Guia" + General.Formato.codigoFormato + ".rdlc";
+                    this.reportViewer1.LocalReport.ReportPath = ruta;
+                    ReportParameter param = new ReportParameter("rutaImagen", @"file:\" + Directory.GetCurrentDirectory() + @"\logo.jpg", true);
+                    this.reportViewer1.LocalReport.SetParameters(param);
+                    ReportDataSource rds1 = new ReportDataSource("GuiaImprimir", listaGuias);
+                    this.reportViewer1.LocalReport.DataSources.Clear();
+                    this.reportViewer1.LocalReport.DataSources.Add(rds1);
+                    this.reportViewer1.RefreshReport();
+
+                }
+
+
+                /*List<ApiGuia> Agregar = new List<ApiGuia>();
+                Agregar.Add(new ApiGuia
+                {
+                    numero = 1123
+                });*/
+
+
+            }            
 
         }
 

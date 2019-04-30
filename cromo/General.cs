@@ -151,6 +151,13 @@ namespace cromo
             set { v_CodigoPrecioGeneral = value; }
         }
 
+        private static ImprimirFormato v_Formato;
+        public static ImprimirFormato Formato
+        {
+            get { return v_Formato; }
+            set { v_Formato = value; }
+        }
+
         public static GuiaDetalle[] guiaDetallePublica = new GuiaDetalle[0];
 
 	}

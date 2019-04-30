@@ -7,257 +7,29 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>b00ee2d1-c473-41c9-9379-d4ec130d7b81</rd:DataSourceID>
+      <rd:DataSourceID>f1336bb5-1fd7-4348-940a-5e4408421d83</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="Guia">
+    <DataSet Name="GuiaImprimir">
       <Query>
         <DataSourceName>cromo</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="ciudadDestinoNombre">
-          <DataField>ciudadDestinoNombre</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="ciudadOrigenNombre">
-          <DataField>ciudadOrigenNombre</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="clienteNombreCorto">
-          <DataField>clienteNombreCorto</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="codigoCiudadDestinoFk">
-          <DataField>codigoCiudadDestinoFk</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="codigoCiudadOrigenFk">
-          <DataField>codigoCiudadOrigenFk</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="codigoClienteFk">
-          <DataField>codigoClienteFk</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="codigoCondicionFk">
-          <DataField>codigoCondicionFk</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="codigoDespachoFk">
-          <DataField>codigoDespachoFk</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="codigoEmpaqueFk">
-          <DataField>codigoEmpaqueFk</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="codigoGuiaPk">
           <DataField>codigoGuiaPk</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="codigoGuiaTipoFk">
-          <DataField>codigoGuiaTipoFk</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="codigoOperacionCargoFk">
-          <DataField>codigoOperacionCargoFk</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="codigoOperacionIngresoFk">
-          <DataField>codigoOperacionIngresoFk</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="codigoProductoFk">
-          <DataField>codigoProductoFk</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="codigoRutaFk">
-          <DataField>codigoRutaFk</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="codigoServicioFk">
-          <DataField>codigoServicioFk</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="comentario">
-          <DataField>comentario</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="condicionNombre">
-          <DataField>condicionNombre</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="cortesia">
-          <DataField>cortesia</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
-        <Field Name="direccionDestinatario">
-          <DataField>direccionDestinatario</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="documentoCliente">
-          <DataField>documentoCliente</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="empaqueReferencia">
-          <DataField>empaqueReferencia</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="error">
           <DataField>error</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="estadoAnulado">
-          <DataField>estadoAnulado</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
-        <Field Name="estadoCumplido">
-          <DataField>estadoCumplido</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
-        <Field Name="estadoDespachado">
-          <DataField>estadoDespachado</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
-        <Field Name="estadoEmbarcado">
-          <DataField>estadoEmbarcado</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
-        <Field Name="estadoEntregado">
-          <DataField>estadoEntregado</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
-        <Field Name="estadoFacturado">
-          <DataField>estadoFacturado</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
-        <Field Name="estadoFacturaGenerada">
-          <DataField>estadoFacturaGenerada</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
-        <Field Name="estadoImpreso">
-          <DataField>estadoImpreso</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
-        <Field Name="estadoSoporte">
-          <DataField>estadoSoporte</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
-        <Field Name="factura">
-          <DataField>factura</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
-        <Field Name="fechaDespacho">
-          <DataField>fechaDespacho</DataField>
-          <rd:TypeName>System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
-        </Field>
-        <Field Name="fechaEntrega">
-          <DataField>fechaEntrega</DataField>
-          <rd:TypeName>System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
-        </Field>
-        <Field Name="fechaIngreso">
-          <DataField>fechaIngreso</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="mercanciaPeligrosa">
-          <DataField>mercanciaPeligrosa</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
-        <Field Name="nombreDestinatario">
-          <DataField>nombreDestinatario</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="numero">
-          <DataField>numero</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="numeroFactura">
-          <DataField>numeroFactura</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="numeroUnicoGuia">
-          <DataField>numeroUnicoGuia</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
-        <Field Name="ordenRuta">
-          <DataField>ordenRuta</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="pesoFacturado">
-          <DataField>pesoFacturado</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="pesoReal">
-          <DataField>pesoReal</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="pesoVolumen">
-          <DataField>pesoVolumen</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="reexpedicion">
-          <DataField>reexpedicion</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
-        <Field Name="relacionCliente">
-          <DataField>relacionCliente</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="remitente">
-          <DataField>remitente</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="telefonoDestinatario">
-          <DataField>telefonoDestinatario</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="tipoLiquidacion">
-          <DataField>tipoLiquidacion</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="unidades">
-          <DataField>unidades</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="usuario">
-          <DataField>usuario</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="vrAbono">
-          <DataField>vrAbono</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="vrCobroEntrega">
-          <DataField>vrCobroEntrega</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="vrCostoReexpedicion">
-          <DataField>vrCostoReexpedicion</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="vrDeclara">
-          <DataField>vrDeclara</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="vrFlete">
-          <DataField>vrFlete</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="vrManejo">
-          <DataField>vrManejo</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="vrRecaudo">
-          <DataField>vrRecaudo</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>cromo</rd:DataSetName>
-        <rd:TableName>ApiGuia</rd:TableName>
-        <rd:ObjectDataSourceType>cromo.ApiGuia, cromo, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+        <rd:TableName>ApiGuiaImprimir</rd:TableName>
+        <rd:ObjectDataSourceType>cromo.ApiGuiaImprimir, cromo, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -294,26 +66,41 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Textbox Name="numero">
+          <Image Name="logo">
+            <Source>External</Source>
+            <Value>=Parameters!rutaImagen.Value</Value>
+            <Sizing>FitProportional</Sizing>
+            <Top>0.52557cm</Top>
+            <Left>0.28787cm</Left>
+            <Height>2.10854cm</Height>
+            <Width>4.56917cm</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Image>
+          <Textbox Name="codigoGuiaPk">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
             <Paragraphs>
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Sum(Fields!numero.Value, "Guia")</Value>
+                    <Value>=First(Fields!codigoGuiaPk.Value, "GuiaImprimir")</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
                 <Style />
               </Paragraph>
             </Paragraphs>
-            <rd:DefaultName>numero</rd:DefaultName>
-            <Top>3.59516cm</Top>
-            <Left>13.70224cm</Left>
+            <rd:DefaultName>codigoGuiaPk</rd:DefaultName>
+            <Top>4.17724cm</Top>
+            <Left>12.96141cm</Left>
             <Height>0.6cm</Height>
-            <Width>2.5cm</Width>
-            <ZIndex>1</ZIndex>
+            <Width>5.06646cm</Width>
+            <ZIndex>2</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -324,23 +111,8 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Image Name="logo">
-            <Source>External</Source>
-            <Value>=Parameters!rutaImagen.Value</Value>
-            <Sizing>FitProportional</Sizing>
-            <Top>0.52557cm</Top>
-            <Left>0.28787cm</Left>
-            <Height>2.10854cm</Height>
-            <Width>4.56917cm</Width>
-            <ZIndex>2</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-            </Style>
-          </Image>
         </ReportItems>
-        <Height>3.36458in</Height>
+        <Height>4.04166in</Height>
         <Style />
       </Body>
       <Width>10.17708in</Width>

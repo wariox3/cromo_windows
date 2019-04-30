@@ -32,7 +32,7 @@ namespace cromo
                         General.UrlServicio = apiOperador.urlServicio;
 
                         //General.UrlServicio = "http://192.168.15.43/cromo/public/index.php";
-                        //General.UrlServicio = "http://localhost/cromo/public";
+                        General.UrlServicio = "http://localhost/cromo/public";
 
                         //Validar logo
                         string logo = Directory.GetCurrentDirectory() + @"\logo.jpg";
@@ -122,9 +122,9 @@ namespace cromo
 
 		private void BtnCancelar_Click(object sender, EventArgs e)
 		{
-            FrmVisor frm = new FrmVisor();
-            frm.ShowDialog();
-            //Close();
+            //FrmVisor frm = new FrmVisor();
+            //frm.ShowDialog();
+            Close();
         }
 
         private void FrmIngreso_Load(object sender, EventArgs e)
