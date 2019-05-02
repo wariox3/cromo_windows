@@ -33,7 +33,7 @@ namespace cromo
 
 		private void BtnGuardar_Click(object sender, EventArgs e)
 		{
-			int registros = LvGuiaDetalles.Items.Count;
+			/*int registros = LvGuiaDetalles.Items.Count;
 			
 			GuiaDetalle[] detalles = new GuiaDetalle[registros];
 			for (int i = 0; i < LvGuiaDetalles.Items.Count; i++)
@@ -55,7 +55,7 @@ namespace cromo
 			General.PesoFacturar = Convert.ToInt32(TxtFacturarTotal.Text);
 			General.Unidades = Convert.ToInt32(TxtUnidadesTotal.Text);
 			DialogResult = DialogResult.OK;
-			Close();
+			Close();*/
 		}
 
 		private void label1_Click(object sender, EventArgs e)
@@ -65,7 +65,7 @@ namespace cromo
 
 		private void FrmGuiaDetalle_Load(object sender, EventArgs e)
 		{
-			DgListaPrecioDetalles.DataSource = LlenarDatos().Tables[0];
+			/*DgListaPrecioDetalles.DataSource = LlenarDatos().Tables[0];
 			TxtCodigoPrecio.Text = General.CodigoPrecio.ToString();
 			string cmd = string.Format("SELECT codigo_precio_general_fk FROM tte_configuracion WHERE codigo_configuracion_pk = 1");
 			DataSet ds = Utilidades.Ejecutar(cmd);
@@ -113,20 +113,22 @@ namespace cromo
 				}
 				TxtPesoMinimo.Text = dt.Rows[0]["peso_minimo"].ToString();
 				pesoMinimoCondicion = Convert.ToInt32(TxtPesoMinimo.Text);
-			}
+			}*/
 
 		}
 		public DataSet LlenarDatos()
 		{
-			string sql = "SELECT codigo_producto_fk, tte_producto.nombre, vr_peso, vr_unidad, peso_tope, vr_peso_tope, vr_peso_tope_adicional, minimo " +
+			/*string sql = "SELECT codigo_producto_fk, tte_producto.nombre, vr_peso, vr_unidad, peso_tope, vr_peso_tope, vr_peso_tope_adicional, minimo " +
 				"FROM tte_precio_detalle " +
 				"LEFT JOIN tte_producto ON tte_precio_detalle.codigo_producto_fk = tte_producto.codigo_producto_pk " +
 				"WHERE codigo_precio_fk = " + General.CodigoPrecio +
 				" AND codigo_ciudad_origen_fk = " + General.CodigoCiudad + " AND codigo_ciudad_destino_fk = " + General.CodigoCiudadDestino;			
 			DataSet ds;
 			string strSql = string.Format(sql);
-			ds = Utilidades.Ejecutar(strSql);
-			return ds;
+			ds = Utilidades.Ejecutar(strSql);*/
+
+            DataSet ds = new DataSet();
+            return ds;
 		}
 
 		private void DgListaPrecioDetalles_KeyDown(object sender, KeyEventArgs e)

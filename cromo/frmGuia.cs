@@ -7,11 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 using System.Net;
 using System.Web.Script.Serialization;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
 using System.IO;
 using System.Diagnostics;
 
@@ -45,8 +42,7 @@ namespace cromo
 			CargarTipo();
 			CargarServicio();
 			CargarEmpaque();
-			CargarProducto();
-			FuncionesGuia fg = new FuncionesGuia();			
+			CargarProducto();			
 		}
 
         void TxtCodigoCliente_KeyDown(object sender, KeyEventArgs e)
@@ -529,8 +525,7 @@ namespace cromo
 
         private void TsbCancelar_Click(object sender, EventArgs e)
         {
-            Bloquear();
-			FuncionesGuia fg = new FuncionesGuia();			
+            Bloquear();					
 		}
 
         private void TxtCodigoCliente_Validated(object sender, EventArgs e)
@@ -665,21 +660,18 @@ namespace cromo
 
 		private void MnuCancelar_Click(object sender, EventArgs e)
 		{
-			Bloquear();
-			FuncionesGuia fg = new FuncionesGuia();			
+			Bloquear();					
 		}
 
 		private void TsbBuscar_Click(object sender, EventArgs e)
 		{
-			FuncionesGuia buscar = new FuncionesGuia();
-			buscar.DevolverGuia();
+			
 			//TraerGuia(FuncionesGuia.CodigoGuia);
 		}
 
 		private void MnuBuscar_Click(object sender, EventArgs e)
 		{
-			FuncionesGuia buscar = new FuncionesGuia();
-			buscar.DevolverGuia();			
+					
 			//TraerGuia(FuncionesGuia.CodigoGuia);
 		}
 
@@ -703,21 +695,20 @@ namespace cromo
 						precioPeso = Convert.ToDouble(TxtVrPeso.Text);
 						if (precioPeso == 0 && ChkListaGeneral.Checked == true && General.CodigoPrecioGeneral != 0)
 						{
-							DataSet ds = Utilidades.Ejecutar("SELECT vr_peso " +
-								"FROM tte_precio_detalle where codigo_precio_fk = " + General.CodigoPrecioGeneral + " AND codigo_ciudad_origen_fk = " + TxtCodigoCiudadOrigen.Text + " AND " +
-								"codigo_ciudad_destino_fk = " + TxtCodigoCiudadDestino.Text + " AND codigo_producto_fk = '" + CboProducto.SelectedValue.ToString() + "'");
-							DataTable dt = ds.Tables[0];
-							if (dt.Rows.Count > 0)
-							{
-								precioPeso = Convert.ToDouble(dt.Rows[0]["vr_peso"]);								
-							}
+                            string parametrosJson = "{\"precio\":\"" + codigoPrecio + "\", \"origen\":\"" + TxtCodigoCiudadOrigen.Text + "\", \"destino\":\"" + TxtCodigoCiudadDestino.Text + "\", \"producto\":\"" + CboProducto.SelectedValue.ToString() + "\"}";
+                            string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/preciodetalle/detalleproducto", parametrosJson);
+                            ApiPrecioDetalle apiPrecioDetalle = ser.Deserialize<ApiPrecioDetalle>(jsonRespuesta);
+                            if (apiPrecioDetalle.error == null)
+                            {
+                                precioPeso = apiPrecioDetalle.vrPeso;
+                            }
+
 						}                        
 						vrFlete = pesoFacturar * precioPeso;
                         if(descuentoPeso > 0)
                         {
                             vrFlete -=  vrFlete * descuentoPeso / 100;
                         }
-
 					}
 					else if (RbUnidad.Checked)
 					{
@@ -875,8 +866,7 @@ namespace cromo
 
 		private void MnuImprimir_Click(object sender, EventArgs e)
 		{
-			Impresion imp = new Impresion();
-			imp.FormatoGuia(TxtCodigo.Text);
+
 		}
 
 		private void TsbRecibo_Click(object sender, EventArgs e)
@@ -888,8 +878,7 @@ namespace cromo
 
 		private void TsbImprimir_Click(object sender, EventArgs e)
 		{
-			Impresion imp = new Impresion();
-			imp.FormatoGuia(TxtCodigo.Text);
+
 		}
 
 		private void TsbVistaPrevia_Click(object sender, EventArgs e)
@@ -943,7 +932,7 @@ namespace cromo
 			{
 				if (documentoCliente != "")
 				{
-					string cmd = string.Format("SELECT codigo_guia_carga_pk, documento_cliente, remitente, numero, relacion_cliente, nombre_destinatario," +
+					/*string cmd = string.Format("SELECT codigo_guia_carga_pk, documento_cliente, remitente, numero, relacion_cliente, nombre_destinatario," +
 						" direccion_destinatario, telefono_destinatario, comentario, vr_declarado " +
 						"FROM tte_guia_carga " +
 						"WHERE documento_cliente = '" + documentoCliente + "'");
@@ -960,7 +949,7 @@ namespace cromo
 						TxtTelefonoDestinatario.Text = dt.Rows[0]["telefono_destinatario"].ToString();
 						TxtComentario.Text = dt.Rows[0]["comentario"].ToString();
 						TxtDeclarado.Text = dt.Rows[0]["vr_declarado"].ToString();
-					} 					
+					}*/ 					
 				}
 			}
 			catch (Exception error)
@@ -1017,7 +1006,7 @@ namespace cromo
 
 		private void GuardarDetalle (string codigoGuia)
 		{
-			if (General.guiaDetallePublica.Length > 0)
+			/*if (General.guiaDetallePublica.Length > 0)
 			{
 				string sql = "";
 				for (int i = 0; i < General.guiaDetallePublica.Length; i++)
@@ -1035,7 +1024,7 @@ namespace cromo
 					cmd.ExecuteNonQuery();
 				}
 				General.guiaDetallePublica = new GuiaDetalle[0];
-			}
+			}*/
 		}
 
 		private void CboProducto_Validated(object sender, EventArgs e)
@@ -1083,12 +1072,12 @@ namespace cromo
 
 		private void MnuBuscarGuia_Click(object sender, EventArgs e)
 		{
-			FuncionesGuia buscar = new FuncionesGuia();
+			/*FuncionesGuia buscar = new FuncionesGuia();
 			buscar.DevolverCodigoGuia();
 			if (General.CodigoGuia != 0)
 			{
 				//TraerGuia(General.CodigoGuia);
-			}
+			}*/
 		}
 
 		private void TxtNombreDestinatario_KeyDown(object sender, KeyEventArgs e)

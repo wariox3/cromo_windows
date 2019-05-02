@@ -4,9 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
-using CrystalDecisions.CrystalReports.Engine;
 using System.IO;
-using MySql.Data.MySqlClient;
 namespace cromo
 {
 	class General
@@ -157,111 +155,6 @@ namespace cromo
             get { return v_Formato; }
             set { v_Formato = value; }
         }
-
-        public static GuiaDetalle[] guiaDetallePublica = new GuiaDetalle[0];
-
-	}
-
-	class Impresion
-	{
-		public void FormatoGuia(string codigoGuia)
-		{
-			string servirdor = cromo.Properties.Settings.Default.servidorBaseDatos;
-			string puerto = cromo.Properties.Settings.Default.puertoBaseDatos;
-			string usuario = cromo.Properties.Settings.Default.usuarioBaseDatos;
-			string clave = cromo.Properties.Settings.Default.claveBaseDatos;
-			string baseDatos = cromo.Properties.Settings.Default.baseDatos;
-			string driver = cromo.Properties.Settings.Default.driverBaseDatos;
-			string rutaReportes = cromo.Properties.Settings.Default.rutaReportes;
-			string ruta = "";
-			DataSet dsReporte = Utilidades.Ejecutar("SELECT modulo, nombre, archivo " +
-				"FROM gen_reporte WHERE codigo_reporte_pk = 2");
-			DataTable dt = dsReporte.Tables[0];
-			if (dt.Rows.Count > 0)
-			{
-				ruta = rutaReportes + dt.Rows[0]["modulo"].ToString() + @"\" + dt.Rows[0]["archivo"].ToString();
-			}
-			string path = Directory.GetCurrentDirectory();
-			GuiaRepositorio guiaRepositorio = new GuiaRepositorio();
-			DataSet ds;
-			string strSql = string.Format(guiaRepositorio.sqlFormato(codigoGuia));			
-			ds = Utilidades.Ejecutar(strSql);
-
-			ReportDocument rpt = new ReportDocument();
-			rpt.Load(ruta);
-			rpt.SetDataSource(ds.Tables[0]);						
-			foreach (CrystalDecisions.CrystalReports.Engine.Table item in rpt.Database.Tables)
-			{				
-				var tliCurrent = item.LogOnInfo;
-				tliCurrent.ConnectionInfo.ServerName = "DRIVER=" + driver + "; SERVER=" + servirdor + ";Port=" + puerto + ";UID=" + usuario + ";";
-				tliCurrent.ConnectionInfo.UserID = usuario;
-				tliCurrent.ConnectionInfo.Password = clave;
-				tliCurrent.ConnectionInfo.DatabaseName = baseDatos;
-
-				item.ApplyLogOnInfo(tliCurrent);
-			}
-			rpt.PrintToPrinter(1, false, 0, 1);
-			MySqlCommand cmd = new MySqlCommand("UPDATE tte_guia SET estado_impreso = 1 WHERE codigo_guia_pk = " + codigoGuia,
-			BdCromo.ObtenerConexion());
-			cmd.ExecuteNonQuery();
-		}
-
-		public void Formato(int codigo, string sql)
-		{
-			General.CodigoReporte = codigo;
-			General.Sql = sql;
-			FrmReporte frm = new FrmReporte();
-			frm.ShowDialog();
-
-		}
-	}
-
-	class FuncionesGuia
-	{
-		private static int v_CodigoGuia = 0;
-		public static int CodigoGuia
-		{
-			get { return v_CodigoGuia; }
-			set { v_CodigoGuia = value; }
-		}
-
-		public int Ultima()
-		{
-			int ultimaGuia = 0;
-			string sql = "SELECT MAX(codigo_guia_pk) AS ultima FROM tte_guia";
-			DataSet ds = Utilidades.Ejecutar(sql);
-			DataTable dt = ds.Tables[0];
-			if(dt.Rows[0]["ultima"] != DBNull.Value)			
-			{
-				ultimaGuia = Convert.ToInt32(dt.Rows[0]["ultima"]);
-			}			
-			return ultimaGuia;
-		}
-
-		public void DevolverGuia()
-		{
-			FrmDevolverGuia frm = new FrmDevolverGuia();
-			frm.ShowDialog();
-
-		}
-
-		public void DevolverCodigoGuia()
-		{
-			FrmDevolverGuiaCodigo frm = new FrmDevolverGuiaCodigo();
-			frm.ShowDialog();
-		}
-
-	}
-
-	class GuiaDetalle
-	{
-		public int codigoProducto;
-		public string producto;
-		public int unidades;
-		public int pesoReal;
-		public int pesoVolumen;
-		public int pesoFacturar;
-		public double vrFlete;
 
 	}
 

@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 namespace cromo
 {
 	public partial class FrmDevolverGuia : Form
@@ -19,7 +18,7 @@ namespace cromo
 
 		private void FrmDevolverGuia_Load(object sender, EventArgs e)
 		{
-			string query = "SELECT codigo_guia_tipo_pk, nombre FROM tte_guia_tipo ORDER BY orden";
+			/*string query = "SELECT codigo_guia_tipo_pk, nombre FROM tte_guia_tipo ORDER BY orden";
 			MySqlConnection bd = BdCromo.ObtenerConexion();
 
 			MySqlCommand cmd = new MySqlCommand(query, bd);
@@ -29,17 +28,17 @@ namespace cromo
 
 			cboGuiaTipo.ValueMember = "codigo_guia_tipo_pk";
 			cboGuiaTipo.DisplayMember = "nombre";
-			cboGuiaTipo.DataSource = dt;
+			cboGuiaTipo.DataSource = dt;*/
 		}
 
 		private void BtnAceptar_Click(object sender, EventArgs e)
 		{
 			try
 			{				
-				string cmd = string.Format("SELECT codigo_guia_pk FROM tte_guia WHERE codigo_guia_tipo_fk = '" + cboGuiaTipo.SelectedValue + "' AND numero = " + txtNumero.Text);
+				/*string cmd = string.Format("SELECT codigo_guia_pk FROM tte_guia WHERE codigo_guia_tipo_fk = '" + cboGuiaTipo.SelectedValue + "' AND numero = " + txtNumero.Text);
 				DataSet ds = Utilidades.Ejecutar(cmd);
 				FuncionesGuia.CodigoGuia = Convert.ToInt32(ds.Tables[0].Rows[0]["codigo_guia_pk"].ToString());				
-				DialogResult = DialogResult.OK;
+				DialogResult = DialogResult.OK;*/
 				Close();
 			} catch (Exception error)
 			{

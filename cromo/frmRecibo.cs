@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 namespace cromo
 {
 	public partial class FrmRecibo : Form
@@ -23,17 +22,19 @@ namespace cromo
 		}
 		public DataSet LlenarDatos()
 		{
-			string sql = "SELECT codigo_recibo_pk, vr_flete, vr_manejo, vr_total " +
+            /*string sql = "SELECT codigo_recibo_pk, vr_flete, vr_manejo, vr_total " +
 					"FROM tte_recibo WHERE codigo_guia_fk = " + General.CodigoGuia;
 			DataSet ds;
 			string strSql = string.Format(sql);
 			ds = Utilidades.Ejecutar(strSql);
-			return ds;
-		}
+			return ds;*/
+            DataSet ds = new DataSet();
+            return ds;
+        }
 
 		private void BtnAgregar_Click(object sender, EventArgs e)
 		{
-			string sql = "SELECT codigo_cliente_fk, codigo_operacion_ingreso_fk " +
+			/*string sql = "SELECT codigo_cliente_fk, codigo_operacion_ingreso_fk " +
 					"FROM tte_guia WHERE codigo_guia_pk = " + General.CodigoGuia;
 			DataSet ds = Utilidades.Ejecutar(sql);
 			DataTable dt = ds.Tables[0];
@@ -60,14 +61,14 @@ namespace cromo
 			DgRecibos.DataSource = LlenarDatos().Tables[0];
 			TxtFlete.Text = "0";
 			TxtManejo.Text = "0";
-			TxtFlete.Focus();
+			TxtFlete.Focus();*/
 		}
 
 		private void Eliminar_Click(object sender, EventArgs e)
 		{			
 			if (DgRecibos.CurrentRow  != null )
 			{
-				int codigoRecibo = Convert.ToInt32(DgRecibos.Rows[DgRecibos.CurrentRow.Index].Cells[0].Value);
+				/*int codigoRecibo = Convert.ToInt32(DgRecibos.Rows[DgRecibos.CurrentRow.Index].Cells[0].Value);
 				double total = Convert.ToInt32(DgRecibos.Rows[DgRecibos.CurrentRow.Index].Cells[3].Value);
 				MySqlCommand comando = new MySqlCommand("DELETE FROM tte_recibo WHERE codigo_recibo_pk = " + codigoRecibo, BdCromo.ObtenerConexion());
 				comando.ExecuteNonQuery();
@@ -75,7 +76,7 @@ namespace cromo
 				MySqlCommand cmdGuia = new MySqlCommand("UPDATE tte_guia SET vr_abono = vr_abono - " + total + ", vr_cobro_entrega = (vr_recaudo + vr_flete + vr_manejo) - vr_abono WHERE codigo_guia_pk = " + General.CodigoGuia,
 					BdCromo.ObtenerConexion());
 				cmdGuia.ExecuteNonQuery();
-				DgRecibos.DataSource = LlenarDatos().Tables[0];
+				DgRecibos.DataSource = LlenarDatos().Tables[0];*/
 			}
 		}
 
@@ -110,8 +111,8 @@ namespace cromo
 							"LEFT JOIN tte_guia ON tte_recibo.codigo_guia_fk = tte_guia.codigo_guia_pk " +
 							"LEFT JOIN tte_ciudad as ciudad_destino ON tte_guia.codigo_ciudad_destino_fk = ciudad_destino.codigo_ciudad_pk " +
 							"WHERE tte_recibo.codigo_recibo_pk = " + DgRecibos.Rows[DgRecibos.CurrentRow.Index].Cells[0].Value;				
-				Impresion imp = new Impresion();
-				imp.Formato(1, sql);
+				/*Impresion imp = new Impresion();
+				imp.Formato(1, sql);*/
 			}
 		}
 	}

@@ -17,16 +17,18 @@ namespace cromo
 		}
 		public DataSet LlenarDatos()
 		{
-			string sql = "SELECT * FROM tte_guia";
+            /*string sql = "SELECT * FROM tte_guia";
 			DataSet ds;
-			string strSql = string.Format(sql);
+			string strSql = string.Format(sql);            
 			ds = Utilidades.Ejecutar(strSql);
-			return ds;
+            */
+            DataSet ds = new DataSet();
+            return ds;
 		}
 
 		private void FrmBuscarGuia_Load(object sender, EventArgs e)
 		{
-			DgGuias.DataSource = LlenarDatos().Tables[0];
+			//DgGuias.DataSource = LlenarDatos().Tables[0];
 		}
 	}
 }

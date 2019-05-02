@@ -37,54 +37,6 @@ namespace cromo.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("localhost")]
-        public string servidorBaseDatos {
-            get {
-                return ((string)(this["servidorBaseDatos"]));
-            }
-            set {
-                this["servidorBaseDatos"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("root")]
-        public string usuarioBaseDatos {
-            get {
-                return ((string)(this["usuarioBaseDatos"]));
-            }
-            set {
-                this["usuarioBaseDatos"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("000000")]
-        public string claveBaseDatos {
-            get {
-                return ((string)(this["claveBaseDatos"]));
-            }
-            set {
-                this["claveBaseDatos"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("bd")]
-        public string baseDatos {
-            get {
-                return ((string)(this["baseDatos"]));
-            }
-            set {
-                this["baseDatos"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("209")]
         public string ciudadOrigen {
             get {
@@ -92,30 +44,6 @@ namespace cromo.Properties {
             }
             set {
                 this["ciudadOrigen"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("3306")]
-        public string puertoBaseDatos {
-            get {
-                return ((string)(this["puertoBaseDatos"]));
-            }
-            set {
-                this["puertoBaseDatos"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("{MySQL ODBC 5.3 ANSI Driver}")]
-        public string driverBaseDatos {
-            get {
-                return ((string)(this["driverBaseDatos"]));
-            }
-            set {
-                this["driverBaseDatos"] = value;
             }
         }
         
