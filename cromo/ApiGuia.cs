@@ -66,6 +66,8 @@ namespace cromo
         public string ciudadOrigenNombre { get; set; }
         public string ciudadDestinoNombre { get; set; }
         public string condicionNombre { get; set; }
+        public string codigoZonaFk { get; set; }
+        public string codigoDestinatarioFk { get; set; }
         public string error { get; set; }
     }
 

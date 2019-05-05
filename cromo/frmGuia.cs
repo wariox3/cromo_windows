@@ -147,7 +147,8 @@ namespace cromo
                                 apiGuia.comentario = TxtComentario.Text;
                                 apiGuia.mercanciaPeligrosa = ChkMercanciaPeligrosa.Checked;
                                 apiGuia.ordenRuta = TxtOrdenRuta.Text;
-
+                                apiGuia.codigoZonaFk = TxtCodigoZona.Text;
+                                apiGuia.codigoDestinatarioFk = TxtCodigoDestinatario.Text;
                                 parametrosJson = ser.Serialize(apiGuia);
                                 jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/guia/nuevo", parametrosJson);
                                 ApiGuiaRespuesta apiGuiaRespuesta = ser.Deserialize<ApiGuiaRespuesta>(jsonRespuesta);
@@ -427,7 +428,8 @@ namespace cromo
 			RbUnidad.Checked = false;
 			RbAdicional.Checked = false;
             TxtUsuario.Text = "";
-		}
+            TxtDescuentoPesoZona.Text = "0";
+        }
 
         public void Desbloquear()
         {
@@ -588,6 +590,7 @@ namespace cromo
                 TxtNombreCiudadDestino.Text = apiCiudad.nombre;
                 TxtCodigoRuta.Text = apiCiudad.codigoRutaFk;
                 TxtOrdenRuta.Text = apiCiudad.ordenRuta.ToString();
+                TxtCodigoZona.Text = apiCiudad.codigoZonaFk;
                 ChkReexpedicion.Checked = apiCiudad.reexpedicion;
 
                 if (codigoPrecio != 0 && TxtCodigoCiudadOrigen.Text != "" && TxtCodigoCiudadDestino.Text != "")
@@ -602,7 +605,21 @@ namespace cromo
                             " Und:" + apiPrecioDetalle.vrUnidad + " Tope:" + apiPrecioDetalle.pesoTope + " VrTope:" + apiPrecioDetalle.vrPesoTope + 
                             " VrAdc:" + apiPrecioDetalle.vrPesoTopeAdicional + " Min:" + apiPrecioDetalle.minimo + "\r\n";
                     }
-                    LblPrecioDetalle.Text = texto;                                            
+                    LblPrecioDetalle.Text = texto; 
+                    
+                    if(apiCiudad.codigoZonaFk != "" && TxtCodigoCondicion.Text != "")
+                    {
+                        parametrosJson = "{\"origen\":\"" + TxtCodigoCiudadOrigen.Text + "\", \"codigoZona\":\"" + TxtCodigoZona.Text + "\", \"codigoCondicion\":\"" + TxtCodigoCondicion.Text + "\"}";
+                        jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/descuentozona/detalle", parametrosJson);
+                        ApiDescuentoZona apiDescuentoZona = ser.Deserialize<ApiDescuentoZona>(jsonRespuesta);
+                        if(apiDescuentoZona.error == null)
+                        {
+                            TxtDescuentoPesoZona.Text = apiDescuentoZona.descuentoPeso.ToString();
+                        }
+                    } else
+                    {
+                        TxtDescuentoPesoZona.Text = "0";
+                    }
                 }
                 else
                 {
@@ -709,7 +726,12 @@ namespace cromo
                         {
                             vrFlete -=  vrFlete * descuentoPeso / 100;
                         }
-					}
+                        double descuentoPesoZona = Convert.ToDouble(TxtDescuentoPesoZona.Text);
+                        if (descuentoPesoZona > 0)
+                        {
+                            vrFlete -= vrFlete * descuentoPesoZona / 100;
+                        }
+                    }
 					else if (RbUnidad.Checked)
 					{
 						vrFlete = unidades * precioUnidad;
@@ -1093,6 +1115,7 @@ namespace cromo
                     ApiDestinatario apiDestinatario = ser.Deserialize<ApiDestinatario>(jsonRespuesta);
                     if (apiDestinatario.error == null)
                     {
+                        TxtCodigoDestinatario.Text = apiDestinatario.codigoDestinatarioPk;
                         TxtNombreDestinatario.Text = apiDestinatario.nombreCorto;
                         TxtDireccionDestinatario.Text = apiDestinatario.direccion;
                         TxtTelefonoDestinatario.Text = apiDestinatario.telefono;
@@ -1144,6 +1167,8 @@ namespace cromo
             TxtReferenciaEmpaque.Text = apiGuia.empaqueReferencia;
             TxtComentario.Text = apiGuia.comentario;
             TxtUsuario.Text = apiGuia.usuario;
+            TxtCodigoZona.Text = apiGuia.codigoZonaFk;
+            TxtCodigoDestinatario.Text = apiGuia.codigoDestinatarioFk;
             CboTipo.SelectedValue = apiGuia.codigoGuiaTipoFk;
             CboServicio.SelectedValue = apiGuia.codigoServicioFk;
             CboEmpaque.SelectedValue = apiGuia.codigoEmpaqueFk;

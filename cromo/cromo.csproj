@@ -79,7 +79,7 @@
     </StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>F2D957E68B613B2D68F7FF9122CFA51C68204A9A</ManifestCertificateThumbprint>
@@ -107,7 +107,7 @@
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -131,6 +131,7 @@
     <Compile Include="ApiCondicion.cs" />
     <Compile Include="ApiConfiguracion.cs" />
     <Compile Include="ApiControlador.cs" />
+    <Compile Include="ApiDescuentoZona.cs" />
     <Compile Include="ApiDestinatario.cs" />
     <Compile Include="ApiEmpaque.cs" />
     <Compile Include="ApiGuia.cs" />

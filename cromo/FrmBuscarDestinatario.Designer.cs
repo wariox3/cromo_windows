@@ -35,7 +35,9 @@
             this.BtnSeleccionar = new System.Windows.Forms.Button();
             this.DgDestinatarios = new System.Windows.Forms.DataGridView();
             this.ClmCodigoDestinatario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClmNumeroIdentificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClmNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClmCiudad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgDestinatarios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,7 +97,9 @@
             this.DgDestinatarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgDestinatarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ClmCodigoDestinatario,
-            this.ClmNombre});
+            this.ClmNumeroIdentificacion,
+            this.ClmNombre,
+            this.ClmCiudad});
             this.DgDestinatarios.Location = new System.Drawing.Point(17, 49);
             this.DgDestinatarios.Name = "DgDestinatarios";
             this.DgDestinatarios.ReadOnly = true;
@@ -111,13 +115,29 @@
             this.ClmCodigoDestinatario.ReadOnly = true;
             this.ClmCodigoDestinatario.Width = 50;
             // 
+            // ClmNumeroIdentificacion
+            // 
+            this.ClmNumeroIdentificacion.DataPropertyName = "numeroIdentificacion";
+            this.ClmNumeroIdentificacion.HeaderText = "Identificacion";
+            this.ClmNumeroIdentificacion.Name = "ClmNumeroIdentificacion";
+            this.ClmNumeroIdentificacion.ReadOnly = true;
+            this.ClmNumeroIdentificacion.Width = 80;
+            // 
             // ClmNombre
             // 
             this.ClmNombre.DataPropertyName = "nombreCorto";
             this.ClmNombre.HeaderText = "Nombre";
             this.ClmNombre.Name = "ClmNombre";
             this.ClmNombre.ReadOnly = true;
-            this.ClmNombre.Width = 400;
+            this.ClmNombre.Width = 300;
+            // 
+            // ClmCiudad
+            // 
+            this.ClmCiudad.DataPropertyName = "ciudadNombre";
+            this.ClmCiudad.HeaderText = "Ciudad";
+            this.ClmCiudad.Name = "ClmCiudad";
+            this.ClmCiudad.ReadOnly = true;
+            this.ClmCiudad.Width = 150;
             // 
             // FrmBuscarDestinatario
             // 
@@ -147,6 +167,8 @@
 		private System.Windows.Forms.Button BtnSeleccionar;
 		private System.Windows.Forms.DataGridView DgDestinatarios;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmCodigoDestinatario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClmNumeroIdentificacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClmCiudad;
     }
 }

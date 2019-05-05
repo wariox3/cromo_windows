@@ -9,10 +9,12 @@ namespace cromo
     class ApiDestinatario
     {
         public string codigoDestinatarioPk { get; set; }
+        public string numeroIdentificacion { get; set; }
         public string nombreCorto { get; set; }
         public string direccion { get; set; }
         public string telefono { get; set; }
         public string codigoCiudadFk { get; set; }
+        public string ciudadNombre { get; set; }
         public string error { get; set; }
     }
 }

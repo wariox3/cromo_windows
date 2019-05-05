@@ -30,6 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGuia));
             this.gbDestinatario = new System.Windows.Forms.GroupBox();
+            this.TxtDescuentoPesoZona = new System.Windows.Forms.TextBox();
+            this.label51 = new System.Windows.Forms.Label();
+            this.TxtCodigoZona = new System.Windows.Forms.TextBox();
+            this.label50 = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
             this.TxtCodigoRuta = new System.Windows.Forms.TextBox();
             this.TxtOrdenRuta = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -184,6 +190,7 @@
             this.label36 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
+            this.TxtCodigoDestinatario = new System.Windows.Forms.TextBox();
             this.gbDestinatario.SuspendLayout();
             this.gbTotales.SuspendLayout();
             this.gbCliente.SuspendLayout();
@@ -199,6 +206,13 @@
             // 
             // gbDestinatario
             // 
+            this.gbDestinatario.Controls.Add(this.TxtCodigoDestinatario);
+            this.gbDestinatario.Controls.Add(this.TxtDescuentoPesoZona);
+            this.gbDestinatario.Controls.Add(this.label51);
+            this.gbDestinatario.Controls.Add(this.TxtCodigoZona);
+            this.gbDestinatario.Controls.Add(this.label50);
+            this.gbDestinatario.Controls.Add(this.label49);
+            this.gbDestinatario.Controls.Add(this.label48);
             this.gbDestinatario.Controls.Add(this.TxtCodigoRuta);
             this.gbDestinatario.Controls.Add(this.TxtOrdenRuta);
             this.gbDestinatario.Controls.Add(this.label5);
@@ -213,14 +227,67 @@
             this.gbDestinatario.Enabled = false;
             this.gbDestinatario.Location = new System.Drawing.Point(18, 146);
             this.gbDestinatario.Name = "gbDestinatario";
-            this.gbDestinatario.Size = new System.Drawing.Size(528, 100);
+            this.gbDestinatario.Size = new System.Drawing.Size(528, 112);
             this.gbDestinatario.TabIndex = 7;
             this.gbDestinatario.TabStop = false;
+            // 
+            // TxtDescuentoPesoZona
+            // 
+            this.TxtDescuentoPesoZona.Enabled = false;
+            this.TxtDescuentoPesoZona.Location = new System.Drawing.Point(380, 81);
+            this.TxtDescuentoPesoZona.Name = "TxtDescuentoPesoZona";
+            this.TxtDescuentoPesoZona.Size = new System.Drawing.Size(49, 20);
+            this.TxtDescuentoPesoZona.TabIndex = 27;
+            this.TxtDescuentoPesoZona.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(343, 84);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(33, 13);
+            this.label51.TabIndex = 26;
+            this.label51.Text = "Dcto:";
+            // 
+            // TxtCodigoZona
+            // 
+            this.TxtCodigoZona.Enabled = false;
+            this.TxtCodigoZona.Location = new System.Drawing.Point(274, 81);
+            this.TxtCodigoZona.Name = "TxtCodigoZona";
+            this.TxtCodigoZona.Size = new System.Drawing.Size(49, 20);
+            this.TxtCodigoZona.TabIndex = 25;
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(450, 84);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(39, 13);
+            this.label50.TabIndex = 24;
+            this.label50.Text = "Orden:";
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(239, 84);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(35, 13);
+            this.label49.TabIndex = 23;
+            this.label49.Text = "Zona:";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(165, 84);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(33, 13);
+            this.label48.TabIndex = 22;
+            this.label48.Text = "Ruta:";
             // 
             // TxtCodigoRuta
             // 
             this.TxtCodigoRuta.Enabled = false;
-            this.TxtCodigoRuta.Location = new System.Drawing.Point(459, 57);
+            this.TxtCodigoRuta.Location = new System.Drawing.Point(199, 81);
             this.TxtCodigoRuta.Name = "TxtCodigoRuta";
             this.TxtCodigoRuta.Size = new System.Drawing.Size(27, 20);
             this.TxtCodigoRuta.TabIndex = 21;
@@ -228,7 +295,7 @@
             // TxtOrdenRuta
             // 
             this.TxtOrdenRuta.Enabled = false;
-            this.TxtOrdenRuta.Location = new System.Drawing.Point(492, 57);
+            this.TxtOrdenRuta.Location = new System.Drawing.Point(491, 81);
             this.TxtOrdenRuta.Name = "TxtOrdenRuta";
             this.TxtOrdenRuta.Size = new System.Drawing.Size(25, 20);
             this.TxtOrdenRuta.TabIndex = 20;
@@ -248,7 +315,7 @@
             this.TxtNombreCiudadDestino.Location = new System.Drawing.Point(161, 57);
             this.TxtNombreCiudadDestino.Name = "TxtNombreCiudadDestino";
             this.TxtNombreCiudadDestino.ReadOnly = true;
-            this.TxtNombreCiudadDestino.Size = new System.Drawing.Size(292, 20);
+            this.TxtNombreCiudadDestino.Size = new System.Drawing.Size(355, 20);
             this.TxtNombreCiudadDestino.TabIndex = 18;
             // 
             // TxtCodigoCiudadDestino
@@ -265,7 +332,7 @@
             // 
             this.TxtDireccionDestinatario.Location = new System.Drawing.Point(76, 34);
             this.TxtDireccionDestinatario.Name = "TxtDireccionDestinatario";
-            this.TxtDireccionDestinatario.Size = new System.Drawing.Size(441, 20);
+            this.TxtDireccionDestinatario.Size = new System.Drawing.Size(400, 20);
             this.TxtDireccionDestinatario.TabIndex = 10;
             this.TxtDireccionDestinatario.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
             // 
@@ -340,7 +407,7 @@
             this.gbTotales.Controls.Add(this.label7);
             this.gbTotales.Controls.Add(this.label6);
             this.gbTotales.Enabled = false;
-            this.gbTotales.Location = new System.Drawing.Point(338, 246);
+            this.gbTotales.Location = new System.Drawing.Point(338, 258);
             this.gbTotales.Name = "gbTotales";
             this.gbTotales.Size = new System.Drawing.Size(208, 266);
             this.gbTotales.TabIndex = 17;
@@ -876,7 +943,7 @@
             this.gbInformacion.Controls.Add(this.CboServicio);
             this.gbInformacion.Controls.Add(this.CboTipo);
             this.gbInformacion.Enabled = false;
-            this.gbInformacion.Location = new System.Drawing.Point(18, 247);
+            this.gbInformacion.Location = new System.Drawing.Point(18, 260);
             this.gbInformacion.Name = "gbInformacion";
             this.gbInformacion.Size = new System.Drawing.Size(289, 139);
             this.gbInformacion.TabIndex = 12;
@@ -1394,9 +1461,9 @@
             this.gbComentario.Controls.Add(this.label29);
             this.gbComentario.Controls.Add(this.TxtComentario);
             this.gbComentario.Enabled = false;
-            this.gbComentario.Location = new System.Drawing.Point(18, 392);
+            this.gbComentario.Location = new System.Drawing.Point(18, 401);
             this.gbComentario.Name = "gbComentario";
-            this.gbComentario.Size = new System.Drawing.Size(291, 93);
+            this.gbComentario.Size = new System.Drawing.Size(291, 72);
             this.gbComentario.TabIndex = 27;
             this.gbComentario.TabStop = false;
             // 
@@ -1535,7 +1602,7 @@
             // LblPrecioDetalle
             // 
             this.LblPrecioDetalle.AutoSize = true;
-            this.LblPrecioDetalle.Location = new System.Drawing.Point(20, 488);
+            this.LblPrecioDetalle.Location = new System.Drawing.Point(15, 479);
             this.LblPrecioDetalle.Name = "LblPrecioDetalle";
             this.LblPrecioDetalle.Size = new System.Drawing.Size(16, 13);
             this.LblPrecioDetalle.TabIndex = 29;
@@ -1732,6 +1799,14 @@
             this.label34.Size = new System.Drawing.Size(61, 13);
             this.label34.TabIndex = 10;
             this.label34.Text = "Porcentaje:";
+            // 
+            // TxtCodigoDestinatario
+            // 
+            this.TxtCodigoDestinatario.Enabled = false;
+            this.TxtCodigoDestinatario.Location = new System.Drawing.Point(482, 34);
+            this.TxtCodigoDestinatario.Name = "TxtCodigoDestinatario";
+            this.TxtCodigoDestinatario.Size = new System.Drawing.Size(35, 20);
+            this.TxtCodigoDestinatario.TabIndex = 28;
             // 
             // FrmGuia
             // 
@@ -1940,6 +2015,13 @@
 		private System.Windows.Forms.Label label34;
 		private System.Windows.Forms.CheckBox ChkPagoCortesia;
 		private System.Windows.Forms.CheckBox ChkPagoRecogida;
+        private System.Windows.Forms.TextBox TxtDescuentoPesoZona;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.TextBox TxtCodigoZona;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.TextBox TxtCodigoDestinatario;
     }
 }
 
