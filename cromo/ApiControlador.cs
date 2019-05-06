@@ -11,18 +11,7 @@ namespace cromo
     {
         public static String ApiPost(string ruta, string jsonParametros)
         {
-            //string ejemploJson = "{\"numeroUnicoGuia\":\"S\",\"numero\":\"2000000000\"}";
-            
-            /*JavaScriptSerializer ser = new JavaScriptSerializer();
-            ApiRespuesta jsonRespuesta = ser.Deserialize<ApiRespuesta>(json);
-            
-            if(jsonRespuesta.error != "")
-            {
-                MessageBox.Show(jsonRespuesta.error);
-            }*/
-
-            string url = General.UrlServicio+ruta;
-            
+            string url = General.UrlServicio+ruta;            
             string jsonRespuesta = "";
             using (WebClient wc = new WebClient() { Encoding = Encoding.UTF8 })
             {
@@ -53,14 +42,5 @@ namespace cromo
             return jsonRespuesta;
         }
 
-        public static String ApiGet()
-        {
-            //string url = "http://192.168.15.43/cromo/public/index.php/transporte/api/windows/guia/prueba";
-            /*var json = new WebClient().DownloadString(url);
-            JavaScriptSerializer ser = new JavaScriptSerializer();
-            UsuarioEjemplo ueUsuario = ser.Deserialize<UsuarioEjemplo>(json);
-            MessageBox.Show(ueUsuario.mensaje);*/
-            return "hola";
-        }
     }
 }

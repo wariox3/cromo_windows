@@ -14,24 +14,24 @@ using System.Diagnostics;
 
 namespace cromo
 {
-	
+
     public partial class FrmGuia : Form
     {
         JavaScriptSerializer ser = new JavaScriptSerializer();
         string ultimoCliente = "";
-		string ultimaCondicion = "";
-		string ultimoTipo = "";
-		string ultimoServicio = "";
-		string ultimoProducto = "";
-		string ultimoEmpaque = "";
+        string ultimaCondicion = "";
+        string ultimoTipo = "";
+        string ultimoServicio = "";
+        string ultimoProducto = "";
+        string ultimoEmpaque = "";
 
-		int pesoMinimoCondicion = 0;
-		double porcentajeManejo = 0;
-		double manejoMinimoUnidad = 0;
-		double manejoMinimoDespacho = 0;
-		double descuentoPeso = 0;
-		int codigoPrecio = 0;
-		
+        int pesoMinimoCondicion = 0;
+        double porcentajeManejo = 0;
+        double manejoMinimoUnidad = 0;
+        double manejoMinimoDespacho = 0;
+        double descuentoPeso = 0;
+        int codigoPrecio = 0;
+
         public FrmGuia()
         {
             InitializeComponent();
@@ -39,11 +39,11 @@ namespace cromo
 
         private void Guia_Load(object sender, EventArgs e)
         {
-			CargarTipo();
-			CargarServicio();
-			CargarEmpaque();
-			CargarProducto();			
-		}
+            CargarTipo();
+            CargarServicio();
+            CargarEmpaque();
+            CargarProducto();
+        }
 
         void TxtCodigoCliente_KeyDown(object sender, KeyEventArgs e)
         {
@@ -52,40 +52,41 @@ namespace cromo
                 FrmBuscarCliente frmBuscarCliente = new FrmBuscarCliente();
                 frmBuscarCliente.ShowDialog();
                 if (frmBuscarCliente.DialogResult == DialogResult.OK)
-                {					
-					TxtCodigoCliente.Text = General.CodigoCliente;
-				}
+                {
+                    TxtCodigoCliente.Text = General.CodigoCliente;
+                }
             }
         }
 
         public void Nuevo()
-        {			
-			Desbloquear();
+        {
+            Desbloquear();
             Limpiar();
-			if(ultimoTipo != "")
-			{
-				CboTipo.SelectedValue = ultimoTipo;
-			} else
-			{
-				CboTipo.SelectedIndex = 0;
-			}
+            if (ultimoTipo != "")
+            {
+                CboTipo.SelectedValue = ultimoTipo;
+            }
+            else
+            {
+                CboTipo.SelectedIndex = 0;
+            }
 
-			TxtFechaIngreso.Text = DateTime.Now.ToString("G");
-			TxtCodigoCliente.Text = ultimoCliente;
-			TxtCodigoCondicion.Text = ultimaCondicion;
-			TxtCodigoCiudadOrigen.Text = cromo.Properties.Settings.Default.ciudadOrigen;
-			TxtOperacionIngreso.Text = cromo.Properties.Settings.Default.centroOperacion;			
-			TxtOperacionCargo.Text = cromo.Properties.Settings.Default.centroOperacion;
-			TxtUsuario.Text = General.UsuarioActivo;
-			RbPeso.Enabled = true;
-			RbUnidad.Enabled = true;
-			RbAdicional.Enabled = true;
-			TxtCodigoCliente.Focus();
+            TxtFechaIngreso.Text = DateTime.Now.ToString("G");
+            TxtCodigoCliente.Text = ultimoCliente;
+            TxtCodigoCondicion.Text = ultimaCondicion;
+            TxtCodigoCiudadOrigen.Text = cromo.Properties.Settings.Default.ciudadOrigen;
+            TxtOperacionIngreso.Text = cromo.Properties.Settings.Default.centroOperacion;
+            TxtOperacionCargo.Text = cromo.Properties.Settings.Default.centroOperacion;
+            TxtUsuario.Text = General.UsuarioActivo;
+            RbPeso.Enabled = true;
+            RbUnidad.Enabled = true;
+            RbAdicional.Enabled = true;
+            TxtCodigoCliente.Focus();
         }
 
         public void Guardar()
         {
-            if(ValidarGuardar())
+            if (ValidarGuardar())
             {
                 JavaScriptSerializer ser = new JavaScriptSerializer();
                 string parametrosJson = "{\"guiaTipo\":\"" + CboTipo.SelectedValue.ToString() + "\"}";
@@ -93,7 +94,7 @@ namespace cromo
                 ApiGuiaTipo apiGuiaTipo = ser.Deserialize<ApiGuiaTipo>(jsonRespuesta);
                 if (apiGuiaTipo.error == null)
                 {
-                    if(ValidarFormaPago(apiGuiaTipo.codigoFormaPago))
+                    if (ValidarFormaPago(apiGuiaTipo.codigoFormaPago))
                     {
                         if (ValidarFlete(apiGuiaTipo.validarFlete, Convert.ToDouble(TxtFlete.Text)))
                         {
@@ -121,7 +122,7 @@ namespace cromo
                                 apiGuia.codigoCondicionFk = TxtCodigoCondicion.Text;
                                 apiGuia.codigoCiudadOrigenFk = TxtCodigoCiudadOrigen.Text;
                                 apiGuia.codigoCiudadDestinoFk = TxtCodigoCiudadDestino.Text;
-                                apiGuia.codigoRutaFk = TxtCodigoRuta.Text;                                
+                                apiGuia.codigoRutaFk = TxtCodigoRuta.Text;
                                 apiGuia.codigoServicioFk = CboServicio.SelectedValue.ToString();
                                 apiGuia.codigoProductoFk = CboProducto.SelectedValue.ToString();
                                 apiGuia.codigoEmpaqueFk = CboEmpaque.SelectedValue.ToString();
@@ -152,7 +153,7 @@ namespace cromo
                                 parametrosJson = ser.Serialize(apiGuia);
                                 jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/guia/nuevo", parametrosJson);
                                 ApiGuiaRespuesta apiGuiaRespuesta = ser.Deserialize<ApiGuiaRespuesta>(jsonRespuesta);
-                                if(apiGuiaRespuesta.error == null)
+                                if (apiGuiaRespuesta.error == null)
                                 {
                                     MessageBox.Show(this, "La guia se guardo con exito ", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     TxtNumero.Text = apiGuiaRespuesta.numero;
@@ -169,13 +170,14 @@ namespace cromo
                                     RbUnidad.Checked = false;
                                     RbAdicional.Checked = false;
                                     Bloquear();
-                                } else
+                                }
+                                else
                                 {
                                     MessageBox.Show(this, "Ocurrio un error al guardar la guia: " + apiGuiaRespuesta.error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                             }
                         }
-                    }                   
+                    }
                 }
             }
 
@@ -236,7 +238,8 @@ namespace cromo
                                         {
                                             CboEmpaque.Focus();
                                             return false;
-                                        } else
+                                        }
+                                        else
                                         {
                                             return true;
                                         }
@@ -249,7 +252,7 @@ namespace cromo
             }
         }
 
-        public string TipoLiquidacion ()
+        public string TipoLiquidacion()
         {
             string tipoLiquidacion = "K";
             if (RbUnidad.Checked)
@@ -270,20 +273,22 @@ namespace cromo
                 if (flete > 0)
                 {
                     return true;
-                } else
+                }
+                else
                 {
                     MessageBox.Show(this, "Este tipo de guia no puede tener flete en cero", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
-            } else
+            }
+            else
             {
                 return true;
-            }            
+            }
         }
 
         public bool ValidarNumero(bool exigeNumero)
         {
-            if(exigeNumero)
+            if (exigeNumero)
             {
                 FrmDevolverNumero frm = new FrmDevolverNumero();
                 frm.ShowDialog();
@@ -296,11 +301,12 @@ namespace cromo
                     MessageBox.Show(this, "Este tipo de guia exige numero y debe digitarlo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
-            } else
+            }
+            else
             {
                 General.NumeroGuia = 0;
                 return true;
-            }            
+            }
         }
 
         public bool ValidarFormaPago(string codigoFormaPago)
@@ -309,13 +315,14 @@ namespace cromo
             {
                 case "CR":
                     if (!ChkPagoCredito.Checked)
-                    {                        
-                        MessageBox.Show(this, "El cliente no maneja pago credito", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return false;                        
-                    } else
                     {
-                        return true;                        
-                    }                    
+                        MessageBox.Show(this, "El cliente no maneja pago credito", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
                 case "CO":
                     if (!ChkPagoContado.Checked)
                     {
@@ -325,7 +332,7 @@ namespace cromo
                     else
                     {
                         return true;
-                    }                    
+                    }
                 case "DE":
                     if (!ChkPagoDestino.Checked)
                     {
@@ -335,7 +342,7 @@ namespace cromo
                     else
                     {
                         return true;
-                    }                    
+                    }
                 case "CT":
                     if (!ChkPagoCortesia.Checked)
                     {
@@ -357,134 +364,134 @@ namespace cromo
                         return true;
                     }
                 default:
-                    return true;                    
+                    return true;
             }
-            
+
         }
 
-		public void Limpiar()
+        public void Limpiar()
         {
-			TxtCodigo.Text = "";
-			TxtFechaIngreso.Text = "";
-			TxtFechaDespacho.Text = "";
-			TxtFechaEntrega.Text = "";
-			TxtOperacionIngreso.Text = "";
-			TxtOperacionCargo.Text = "";
-			TxtCodigoCliente.Text = "";
-			txtNombreCliente.Text = "";
-			TxtCodigoCondicion.Text = "";
-			txtNombreCondicion.Text = "";
-			TxtRemitente.Text = "";
-			TxtDocumentoCliente.Text = "";
-			TxtRelacion.Text = "";
-			TxtCodigoCiudadOrigen.Text = "";
-			txtNombreCiudadOrigen.Text = "";
-			TxtNombreDestinatario.Text = "";
-			TxtTelefonoDestinatario.Text = "";
-			TxtDireccionDestinatario.Text = "";
-			TxtCodigoCiudadDestino.Text = "";
-			TxtNombreCiudadDestino.Text = "";
-			TxtUnidades.Text = "0";
-			TxtPeso.Text = "0";
-			TxtVolumen.Text = "0";
-			TxtPesoFacturar.Text = "0";
-			TxtDeclarado.Text = "0";
-			TxtFlete.Text = "0";
-			TxtManejo.Text = "0";
-			TxtRecaudo.Text = "0";
-			TxtNumero.Text = "";
-			TxtNumeroFactura.Text = "";
-			TxtAbono.Text = "0";
-			TxtComentario.Text = "";
-			TxtReferenciaEmpaque.Text = "";
-			TxtCostoReexpedicion.Text = "0";
-			TxtCodigoDespacho.Text = "";
-			ChkFactura.Checked = false;
-			ChkReexpedicion.Checked = false;
-			ChkEstadoImpreso.Checked = false;
-			ChkEstadoEmbarcado.Checked = false;
-			ChkEstadoEntregado.Checked = false;
-			ChkEstadoCumplido.Checked = false;
-			ChkEstadoFacturaGenerada.Checked = false;
-			ChkEstadoDespachado.Checked = false;
-			ChkEstadoSoporte.Checked = false;
-			ChkEstadoAnulado.Checked = false;
-			ChkEstadoFacturado.Checked = false;
-			TxtPesoMinimo.Text = "0";
-			TxtDescuentoPeso.Text = "0";
-			TxtPorcentajeManejo.Text = "0";
-			TxtManejoMinimoUnidad.Text = "0";
-			TxtManejoMinimoDespacho.Text = "0";
-			ChkListaGeneral.Checked = false;
-			TxtVrPeso.Text = "0";
-			TxtVrTope.Text = "0";
-			TxtVrAdicional.Text = "0";
-			TxtVrUnidad.Text = "0";
-			TxtTope.Text = "0";
-			TxtPesoMinimoPrecio.Text = "0";
-			LblPrecioDetalle.Text = "";
-			ChkLiquidado.Checked = false;
-			RbPeso.Checked = false;
-			RbUnidad.Checked = false;
-			RbAdicional.Checked = false;
+            TxtCodigo.Text = "";
+            TxtFechaIngreso.Text = "";
+            TxtFechaDespacho.Text = "";
+            TxtFechaEntrega.Text = "";
+            TxtOperacionIngreso.Text = "";
+            TxtOperacionCargo.Text = "";
+            TxtCodigoCliente.Text = "";
+            txtNombreCliente.Text = "";
+            TxtCodigoCondicion.Text = "";
+            txtNombreCondicion.Text = "";
+            TxtRemitente.Text = "";
+            TxtDocumentoCliente.Text = "";
+            TxtRelacion.Text = "";
+            TxtCodigoCiudadOrigen.Text = "";
+            txtNombreCiudadOrigen.Text = "";
+            TxtNombreDestinatario.Text = "";
+            TxtTelefonoDestinatario.Text = "";
+            TxtDireccionDestinatario.Text = "";
+            TxtCodigoCiudadDestino.Text = "";
+            TxtNombreCiudadDestino.Text = "";
+            TxtUnidades.Text = "0";
+            TxtPeso.Text = "0";
+            TxtVolumen.Text = "0";
+            TxtPesoFacturar.Text = "0";
+            TxtDeclarado.Text = "0";
+            TxtFlete.Text = "0";
+            TxtManejo.Text = "0";
+            TxtRecaudo.Text = "0";
+            TxtNumero.Text = "";
+            TxtNumeroFactura.Text = "";
+            TxtAbono.Text = "0";
+            TxtComentario.Text = "";
+            TxtReferenciaEmpaque.Text = "";
+            TxtCostoReexpedicion.Text = "0";
+            TxtCodigoDespacho.Text = "";
+            ChkFactura.Checked = false;
+            ChkReexpedicion.Checked = false;
+            ChkEstadoImpreso.Checked = false;
+            ChkEstadoEmbarcado.Checked = false;
+            ChkEstadoEntregado.Checked = false;
+            ChkEstadoCumplido.Checked = false;
+            ChkEstadoFacturaGenerada.Checked = false;
+            ChkEstadoDespachado.Checked = false;
+            ChkEstadoSoporte.Checked = false;
+            ChkEstadoAnulado.Checked = false;
+            ChkEstadoFacturado.Checked = false;
+            TxtPesoMinimo.Text = "0";
+            TxtDescuentoPeso.Text = "0";
+            TxtPorcentajeManejo.Text = "0";
+            TxtManejoMinimoUnidad.Text = "0";
+            TxtManejoMinimoDespacho.Text = "0";
+            ChkListaGeneral.Checked = false;
+            TxtVrPeso.Text = "0";
+            TxtVrTope.Text = "0";
+            TxtVrAdicional.Text = "0";
+            TxtVrUnidad.Text = "0";
+            TxtTope.Text = "0";
+            TxtPesoMinimoPrecio.Text = "0";
+            LblPrecioDetalle.Text = "";
+            ChkLiquidado.Checked = false;
+            RbPeso.Checked = false;
+            RbUnidad.Checked = false;
+            RbAdicional.Checked = false;
             TxtUsuario.Text = "";
             TxtDescuentoPesoZona.Text = "0";
         }
 
         public void Desbloquear()
         {
-			TsbGuardar.Enabled = true;
-			TsbCancelar.Enabled = true;
-			TsbPrecargar.Enabled = true;
-			TsbNuevo.Enabled = false;
-			TsbBuscar.Enabled = false;
-			TsbImprimir.Enabled = false;
+            TsbGuardar.Enabled = true;
+            TsbCancelar.Enabled = true;
+            TsbPrecargar.Enabled = true;
+            TsbNuevo.Enabled = false;
+            TsbBuscar.Enabled = false;
+            TsbImprimir.Enabled = false;
 
-			MnuGuardar.Enabled = true;
-			MnuCancelar.Enabled = true;
-			MnuPrecargar.Enabled = true;
-			MnuNuevo.Enabled = false;
-			MnuBuscar.Enabled = false;
-			MnuBuscarGuia.Enabled = false;
-			MnuImprimir.Enabled = false;
+            MnuGuardar.Enabled = true;
+            MnuCancelar.Enabled = true;
+            MnuPrecargar.Enabled = true;
+            MnuNuevo.Enabled = false;
+            MnuBuscar.Enabled = false;
+            MnuBuscarGuia.Enabled = false;
+            MnuImprimir.Enabled = false;
 
-			gbCliente.Enabled = true;
+            gbCliente.Enabled = true;
             gbDestinatario.Enabled = true;
             gbTotales.Enabled = true;
-			gbInformacion.Enabled = true;
-			gbComentario.Enabled = true;
-			GbPrecioDetalle.Visible = true;
-			GbCondiciones.Visible = true;
-		}
+            gbInformacion.Enabled = true;
+            gbComentario.Enabled = true;
+            GbPrecioDetalle.Visible = true;
+            GbCondiciones.Visible = true;
+        }
 
         public void Bloquear()
         {
-			TsbNuevo.Enabled = true;
-			TsbBuscar.Enabled = true;
-			TsbGuardar.Enabled = false;
-			TsbCancelar.Enabled = false;
-			TsbPrecargar.Enabled = false;
-			TsbImprimir.Enabled = true;
+            TsbNuevo.Enabled = true;
+            TsbBuscar.Enabled = true;
+            TsbGuardar.Enabled = false;
+            TsbCancelar.Enabled = false;
+            TsbPrecargar.Enabled = false;
+            TsbImprimir.Enabled = true;
 
-			MnuNuevo.Enabled = true;
-			MnuBuscar.Enabled = true;
-			MnuBuscarGuia.Enabled = true;
-			MnuGuardar.Enabled = false;
-			MnuCancelar.Enabled = false;
-			MnuPrecargar.Enabled = false;
-			MnuImprimir.Enabled = true;
+            MnuNuevo.Enabled = true;
+            MnuBuscar.Enabled = true;
+            MnuBuscarGuia.Enabled = true;
+            MnuGuardar.Enabled = false;
+            MnuCancelar.Enabled = false;
+            MnuPrecargar.Enabled = false;
+            MnuImprimir.Enabled = true;
 
-			gbCliente.Enabled = false;
+            gbCliente.Enabled = false;
             gbDestinatario.Enabled = false;
             gbTotales.Enabled = false;
-			gbInformacion.Enabled = false;
-			gbComentario.Enabled = false;
-			GbPrecioDetalle.Visible = false;
-			GbCondiciones.Visible = false;
-			LblPrecioDetalle.Text = "";
-		}
+            gbInformacion.Enabled = false;
+            gbComentario.Enabled = false;
+            GbPrecioDetalle.Visible = false;
+            GbCondiciones.Visible = false;
+            LblPrecioDetalle.Text = "";
+        }
 
-		private void TxtCodigoCliente_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtCodigoCliente_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.SoloNumero(e);
         }
@@ -497,7 +504,7 @@ namespace cromo
                 frmBuscarCiudad.ShowDialog();
                 if (frmBuscarCiudad.DialogResult == DialogResult.OK)
                 {
-					TxtCodigoCiudadOrigen.Text = General.CodigoCiudad;
+                    TxtCodigoCiudadOrigen.Text = General.CodigoCiudad;
                 }
             }
         }
@@ -510,7 +517,7 @@ namespace cromo
                 frmBuscarCiudad.ShowDialog();
                 if (frmBuscarCiudad.DialogResult == DialogResult.OK)
                 {
-					TxtCodigoCiudadDestino.Text = General.CodigoCiudad;
+                    TxtCodigoCiudadDestino.Text = General.CodigoCiudad;
                 }
             }
         }
@@ -522,22 +529,22 @@ namespace cromo
 
         private void TsbGuardar_Click(object sender, EventArgs e)
         {
-			Guardar();
+            Guardar();
         }
 
         private void TsbCancelar_Click(object sender, EventArgs e)
         {
-            Bloquear();					
-		}
+            Bloquear();
+        }
 
         private void TxtCodigoCliente_Validated(object sender, EventArgs e)
         {
-			if(TxtCodigoCliente.Text != "")
-			{
+            if (TxtCodigoCliente.Text != "")
+            {
                 string parametrosJson = "{\"codigo\":\"" + TxtCodigoCliente.Text + "\"}";
                 string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/cliente/detalle", parametrosJson);
                 ApiCliente apiCliente = ser.Deserialize<ApiCliente>(jsonRespuesta);
-                if(apiCliente.error == null)
+                if (apiCliente.error == null)
                 {
                     if (apiCliente.estadoInactivo)
                     {
@@ -559,12 +566,12 @@ namespace cromo
                         ChkPagoRecogida.Checked = apiCliente.guiaPagoRecogida;
                     }
                 }
-				
-				if (TxtRemitente.Text == "")
-				{
-					TxtRemitente.Text = txtNombreCliente.Text;
-				}				
-			}
+
+                if (TxtRemitente.Text == "")
+                {
+                    TxtRemitente.Text = txtNombreCliente.Text;
+                }
+            }
 
         }
 
@@ -577,7 +584,7 @@ namespace cromo
             {
                 txtNombreCiudadOrigen.Text = apiCiudad.nombre;
             }
-                 
+
         }
 
         private void TxtCodigoCiudadDestino_Validated(object sender, EventArgs e)
@@ -596,27 +603,28 @@ namespace cromo
                 if (codigoPrecio != 0 && TxtCodigoCiudadOrigen.Text != "" && TxtCodigoCiudadDestino.Text != "")
                 {
                     parametrosJson = "{\"precio\":\"" + codigoPrecio + "\", \"origen\":\"" + TxtCodigoCiudadOrigen.Text + "\", \"destino\":\"" + TxtCodigoCiudadDestino.Text + "\"}";
-                    jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/preciodetalle/detalle", parametrosJson);                    
+                    jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/preciodetalle/detalle", parametrosJson);
                     List<ApiPrecioDetalle> apiPrecioDetalleLista = ser.Deserialize<List<ApiPrecioDetalle>>(jsonRespuesta);
                     string texto = "";
                     foreach (ApiPrecioDetalle apiPrecioDetalle in apiPrecioDetalleLista)
                     {
-                        texto = texto + "Producto: " + apiPrecioDetalle.productoNombre + " Pes:" + apiPrecioDetalle.vrPeso + 
-                            " Und:" + apiPrecioDetalle.vrUnidad + " Tope:" + apiPrecioDetalle.pesoTope + " VrTope:" + apiPrecioDetalle.vrPesoTope + 
+                        texto = texto + "Producto: " + apiPrecioDetalle.productoNombre + " Pes:" + apiPrecioDetalle.vrPeso +
+                            " Und:" + apiPrecioDetalle.vrUnidad + " Tope:" + apiPrecioDetalle.pesoTope + " VrTope:" + apiPrecioDetalle.vrPesoTope +
                             " VrAdc:" + apiPrecioDetalle.vrPesoTopeAdicional + " Min:" + apiPrecioDetalle.minimo + "\r\n";
                     }
-                    LblPrecioDetalle.Text = texto; 
-                    
-                    if(apiCiudad.codigoZonaFk != "" && TxtCodigoCondicion.Text != "")
+                    LblPrecioDetalle.Text = texto;
+
+                    if (apiCiudad.codigoZonaFk != "" && TxtCodigoCondicion.Text != "")
                     {
                         parametrosJson = "{\"origen\":\"" + TxtCodigoCiudadOrigen.Text + "\", \"codigoZona\":\"" + TxtCodigoZona.Text + "\", \"codigoCondicion\":\"" + TxtCodigoCondicion.Text + "\"}";
                         jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/descuentozona/detalle", parametrosJson);
                         ApiDescuentoZona apiDescuentoZona = ser.Deserialize<ApiDescuentoZona>(jsonRespuesta);
-                        if(apiDescuentoZona.error == null)
+                        if (apiDescuentoZona.error == null)
                         {
                             TxtDescuentoPesoZona.Text = apiDescuentoZona.descuentoPeso.ToString();
                         }
-                    } else
+                    }
+                    else
                     {
                         TxtDescuentoPesoZona.Text = "0";
                     }
@@ -626,20 +634,20 @@ namespace cromo
                     MessageBox.Show("Debe seleccionar una condicion comercial, origen y destino del servicio");
                 }
             }
-		}
+        }
 
-		private void CargarTipo ()
-		{            
+        private void CargarTipo()
+        {
             string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/guiatipo/lista", null);
             List<ApiGuiaTipo> apiGuiaTipoLista = ser.Deserialize<List<ApiGuiaTipo>>(jsonRespuesta);
             CboTipo.ValueMember = "codigoGuiaTipoPk";
-			CboTipo.DisplayMember = "nombre";
-			CboTipo.DataSource = apiGuiaTipoLista;
-		}
+            CboTipo.DisplayMember = "nombre";
+            CboTipo.DataSource = apiGuiaTipoLista;
+        }
 
-		private void CargarServicio()
-		{
-            
+        private void CargarServicio()
+        {
+
             string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/servicio/lista", null);
             List<ApiServicio> apiServicioLista = ser.Deserialize<List<ApiServicio>>(jsonRespuesta);
             CboServicio.ValueMember = "codigoServicioPk";
@@ -647,8 +655,8 @@ namespace cromo
             CboServicio.DataSource = apiServicioLista;
         }
 
-		private void CargarProducto()
-		{            
+        private void CargarProducto()
+        {
             string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/producto/lista", null);
             List<ApiProducto> apiProductoLista = ser.Deserialize<List<ApiProducto>>(jsonRespuesta);
             CboProducto.ValueMember = "codigoProductoPk";
@@ -656,8 +664,8 @@ namespace cromo
             CboProducto.DataSource = apiProductoLista;
         }
 
-		private void CargarEmpaque()
-		{            
+        private void CargarEmpaque()
+        {
             string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/empaque/lista", null);
             List<ApiEmpaque> apiEmpaqueLista = ser.Deserialize<List<ApiEmpaque>>(jsonRespuesta);
             CboEmpaque.ValueMember = "codigoEmpaquePk";
@@ -665,53 +673,53 @@ namespace cromo
             CboEmpaque.DataSource = apiEmpaqueLista;
         }
 
-		private void MnuNuevo_Click(object sender, EventArgs e)
-		{
-			Nuevo();
-		}
+        private void MnuNuevo_Click(object sender, EventArgs e)
+        {
+            Nuevo();
+        }
 
-		private void MnuGuardar_Click(object sender, EventArgs e)
-		{
-			Guardar();
-		}
+        private void MnuGuardar_Click(object sender, EventArgs e)
+        {
+            Guardar();
+        }
 
-		private void MnuCancelar_Click(object sender, EventArgs e)
-		{
-			Bloquear();					
-		}
+        private void MnuCancelar_Click(object sender, EventArgs e)
+        {
+            Bloquear();
+        }
 
-		private void TsbBuscar_Click(object sender, EventArgs e)
-		{
-			
-			//TraerGuia(FuncionesGuia.CodigoGuia);
-		}
+        private void TsbBuscar_Click(object sender, EventArgs e)
+        {
 
-		private void MnuBuscar_Click(object sender, EventArgs e)
-		{
-					
-			//TraerGuia(FuncionesGuia.CodigoGuia);
-		}
+            //TraerGuia(FuncionesGuia.CodigoGuia);
+        }
 
-		private void TxtPesoFacturar_Validated(object sender, EventArgs e)
-		{
-			if(ChkLiquidado.Checked == false)
-			{
-				if(Convert.ToDouble(TxtFlete.Text) <= 0)
-				{					
-					double vrFlete = 0;
-					double precioPeso = Convert.ToDouble(TxtVrPeso.Text);
-					double precioTope = Convert.ToDouble(TxtVrTope.Text);					
-					double precioUnidad = Convert.ToDouble(TxtVrUnidad.Text);
-					double precioAdicional = Convert.ToDouble(TxtVrAdicional.Text);
-					int tope = Convert.ToInt32(TxtTope.Text);
-					int pesoFacturar = Convert.ToInt32(TxtPesoFacturar.Text);
-					int unidades = Convert.ToInt32(TxtUnidades.Text);
+        private void MnuBuscar_Click(object sender, EventArgs e)
+        {
 
-					if (RbPeso.Checked)
-					{
-						precioPeso = Convert.ToDouble(TxtVrPeso.Text);
-						if (precioPeso == 0 && ChkListaGeneral.Checked == true && General.CodigoPrecioGeneral != 0)
-						{
+            //TraerGuia(FuncionesGuia.CodigoGuia);
+        }
+
+        private void TxtPesoFacturar_Validated(object sender, EventArgs e)
+        {
+            if (ChkLiquidado.Checked == false)
+            {
+                if (Convert.ToDouble(TxtFlete.Text) <= 0)
+                {
+                    double vrFlete = 0;
+                    double precioPeso = Convert.ToDouble(TxtVrPeso.Text);
+                    double precioTope = Convert.ToDouble(TxtVrTope.Text);
+                    double precioUnidad = Convert.ToDouble(TxtVrUnidad.Text);
+                    double precioAdicional = Convert.ToDouble(TxtVrAdicional.Text);
+                    int tope = Convert.ToInt32(TxtTope.Text);
+                    int pesoFacturar = Convert.ToInt32(TxtPesoFacturar.Text);
+                    int unidades = Convert.ToInt32(TxtUnidades.Text);
+
+                    if (RbPeso.Checked)
+                    {
+                        precioPeso = Convert.ToDouble(TxtVrPeso.Text);
+                        if (precioPeso == 0 && ChkListaGeneral.Checked == true && General.CodigoPrecioGeneral != 0)
+                        {
                             string parametrosJson = "{\"precio\":\"" + codigoPrecio + "\", \"origen\":\"" + TxtCodigoCiudadOrigen.Text + "\", \"destino\":\"" + TxtCodigoCiudadDestino.Text + "\", \"producto\":\"" + CboProducto.SelectedValue.ToString() + "\"}";
                             string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/preciodetalle/detalleproducto", parametrosJson);
                             ApiPrecioDetalle apiPrecioDetalle = ser.Deserialize<ApiPrecioDetalle>(jsonRespuesta);
@@ -720,11 +728,11 @@ namespace cromo
                                 precioPeso = apiPrecioDetalle.vrPeso;
                             }
 
-						}                        
-						vrFlete = pesoFacturar * precioPeso;
-                        if(descuentoPeso > 0)
+                        }
+                        vrFlete = pesoFacturar * precioPeso;
+                        if (descuentoPeso > 0)
                         {
-                            vrFlete -=  vrFlete * descuentoPeso / 100;
+                            vrFlete -= vrFlete * descuentoPeso / 100;
                         }
                         double descuentoPesoZona = Convert.ToDouble(TxtDescuentoPesoZona.Text);
                         if (descuentoPesoZona > 0)
@@ -732,30 +740,30 @@ namespace cromo
                             vrFlete -= vrFlete * descuentoPesoZona / 100;
                         }
                     }
-					else if (RbUnidad.Checked)
-					{
-						vrFlete = unidades * precioUnidad;
-					}
-					else if (RbAdicional.Checked)
-					{
-						vrFlete = precioTope * unidades;
-						if (pesoFacturar > (tope * unidades))
-						{
-							int diferencia = pesoFacturar - (tope * unidades);
-							vrFlete += diferencia * precioAdicional;
-						}
-					}
-					TxtFlete.Text = vrFlete.ToString();
-				}
-			}
-		}
+                    else if (RbUnidad.Checked)
+                    {
+                        vrFlete = unidades * precioUnidad;
+                    }
+                    else if (RbAdicional.Checked)
+                    {
+                        vrFlete = precioTope * unidades;
+                        if (pesoFacturar > (tope * unidades))
+                        {
+                            int diferencia = pesoFacturar - (tope * unidades);
+                            vrFlete += diferencia * precioAdicional;
+                        }
+                    }
+                    TxtFlete.Text = vrFlete.ToString();
+                }
+            }
+        }
 
-		private void TxtUnidades_Validated(object sender, EventArgs e)
-		{
-			if(ChkLiquidado.Checked == false)
-			{
-				if (codigoPrecio != 0 && TxtCodigoCiudadOrigen.Text != "" && TxtCodigoCiudadDestino.Text != "")
-				{
+        private void TxtUnidades_Validated(object sender, EventArgs e)
+        {
+            if (ChkLiquidado.Checked == false)
+            {
+                if (codigoPrecio != 0 && TxtCodigoCiudadOrigen.Text != "" && TxtCodigoCiudadDestino.Text != "")
+                {
                     string parametrosJson = "{\"precio\":\"" + codigoPrecio + "\", \"origen\":\"" + TxtCodigoCiudadOrigen.Text + "\", \"destino\":\"" + TxtCodigoCiudadDestino.Text + "\", \"producto\":\"" + CboProducto.SelectedValue.ToString() + "\"}";
                     string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/preciodetalle/detalleproducto", parametrosJson);
                     ApiPrecioDetalle apiPrecioDetalle = ser.Deserialize<ApiPrecioDetalle>(jsonRespuesta);
@@ -768,27 +776,28 @@ namespace cromo
                                 TxtPesoFacturar.Text = (apiPrecioDetalle.minimo * Convert.ToInt32(TxtUnidades.Text)).ToString();
                             }
                         }
-                    }					
-				}
+                    }
+                }
 
-				if (pesoMinimoCondicion > 0)
-				{
-					TxtPesoFacturar.Text = (pesoMinimoCondicion * Convert.ToInt32(TxtUnidades.Text)).ToString();
-					if (Convert.ToInt32(TxtPeso.Text) <= 0)
-					{
-						TxtPeso.Text = (pesoMinimoCondicion * Convert.ToInt32(TxtUnidades.Text)).ToString();
-					}
-				}
-			} else
-			{
-				TxtDeclarado.Focus();
-			}						
-		}
+                if (pesoMinimoCondicion > 0)
+                {
+                    TxtPesoFacturar.Text = (pesoMinimoCondicion * Convert.ToInt32(TxtUnidades.Text)).ToString();
+                    if (Convert.ToInt32(TxtPeso.Text) <= 0)
+                    {
+                        TxtPeso.Text = (pesoMinimoCondicion * Convert.ToInt32(TxtUnidades.Text)).ToString();
+                    }
+                }
+            }
+            else
+            {
+                TxtDeclarado.Focus();
+            }
+        }
 
-		private void TxtCodigoCondicion_Validated(object sender, EventArgs e)
-		{
+        private void TxtCodigoCondicion_Validated(object sender, EventArgs e)
+        {
             if (TxtCodigoCondicion.Text != "")
-			{
+            {
                 string parametrosJson = "{\"codigo\":\"" + TxtCodigoCondicion.Text + "\"}";
                 string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/condicion/detalle", parametrosJson);
                 ApiCondicion apiCondicion = ser.Deserialize<ApiCondicion>(jsonRespuesta);
@@ -842,119 +851,120 @@ namespace cromo
                         RbAdicional.Enabled = false;
                     }
                 }
-			}
-		}
+            }
+        }
 
-		private void TxtVolumen_Validated(object sender, EventArgs e)
-		{
-			LiquidarPesoFacturar();
-		}
+        private void TxtVolumen_Validated(object sender, EventArgs e)
+        {
+            LiquidarPesoFacturar();
+        }
 
-		private void TxtPeso_Validated(object sender, EventArgs e)
-		{
-			if(Convert.ToInt32(TxtVolumen.Text) <= 0)
-			{
-				TxtVolumen.Text = TxtPeso.Text;
-			}
-			LiquidarPesoFacturar();
-		}
+        private void TxtPeso_Validated(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(TxtVolumen.Text) <= 0)
+            {
+                TxtVolumen.Text = TxtPeso.Text;
+            }
+            LiquidarPesoFacturar();
+        }
 
-		private void LiquidarPesoFacturar()
-		{
-			if(Convert.ToInt32(TxtPeso.Text) > Convert.ToInt32(TxtPesoFacturar.Text))
-			{
-				TxtPesoFacturar.Text = TxtPeso.Text;
-			}
-			if(Convert.ToInt32(TxtVolumen.Text) > Convert.ToInt32(TxtPesoFacturar.Text))
-			{
-				TxtPesoFacturar.Text = TxtVolumen.Text;
-			}
-		}
+        private void LiquidarPesoFacturar()
+        {
+            if (Convert.ToInt32(TxtPeso.Text) > Convert.ToInt32(TxtPesoFacturar.Text))
+            {
+                TxtPesoFacturar.Text = TxtPeso.Text;
+            }
+            if (Convert.ToInt32(TxtVolumen.Text) > Convert.ToInt32(TxtPesoFacturar.Text))
+            {
+                TxtPesoFacturar.Text = TxtVolumen.Text;
+            }
+        }
 
-		private void TxtDeclarado_Validated(object sender, EventArgs e)
-		{
-			if(Convert.ToDouble(TxtManejo.Text) == 0 && Convert.ToDouble(TxtDeclarado.Text) > 0)
-			{
-				TxtManejo.Text = (Convert.ToDouble(TxtDeclarado.Text) * porcentajeManejo / 100).ToString();
-				if(manejoMinimoDespacho > Convert.ToDouble(TxtManejo.Text)) {
-					TxtManejo.Text = manejoMinimoDespacho.ToString();
-				}
-				if(manejoMinimoUnidad * Convert.ToInt32(TxtUnidades.Text) > Convert.ToDouble(TxtManejo.Text))
-				{
-					TxtManejo.Text = (manejoMinimoUnidad * Convert.ToInt32(TxtUnidades.Text)).ToString();
-				}
-			}
-		}
+        private void TxtDeclarado_Validated(object sender, EventArgs e)
+        {
+            if (Convert.ToDouble(TxtManejo.Text) == 0 && Convert.ToDouble(TxtDeclarado.Text) > 0)
+            {
+                TxtManejo.Text = (Convert.ToDouble(TxtDeclarado.Text) * porcentajeManejo / 100).ToString();
+                if (manejoMinimoDespacho > Convert.ToDouble(TxtManejo.Text))
+                {
+                    TxtManejo.Text = manejoMinimoDespacho.ToString();
+                }
+                if (manejoMinimoUnidad * Convert.ToInt32(TxtUnidades.Text) > Convert.ToDouble(TxtManejo.Text))
+                {
+                    TxtManejo.Text = (manejoMinimoUnidad * Convert.ToInt32(TxtUnidades.Text)).ToString();
+                }
+            }
+        }
 
-		private void MnuImprimir_Click(object sender, EventArgs e)
-		{
+        private void MnuImprimir_Click(object sender, EventArgs e)
+        {
 
-		}
+        }
 
-		private void TsbRecibo_Click(object sender, EventArgs e)
-		{
-			General.CodigoGuia = Convert.ToInt32(TxtCodigo.Text);
-			FrmRecibo frmRecibo = new FrmRecibo();
-			frmRecibo.ShowDialog();
-		}
+        private void TsbRecibo_Click(object sender, EventArgs e)
+        {
+            General.CodigoGuia = Convert.ToInt32(TxtCodigo.Text);
+            FrmRecibo frmRecibo = new FrmRecibo();
+            frmRecibo.ShowDialog();
+        }
 
-		private void TsbImprimir_Click(object sender, EventArgs e)
-		{
+        private void TsbImprimir_Click(object sender, EventArgs e)
+        {
 
-		}
+        }
 
-		private void TsbVistaPrevia_Click(object sender, EventArgs e)
-		{
+        private void TsbVistaPrevia_Click(object sender, EventArgs e)
+        {
             TxtCodigo.Text = "990106402";
-            if(TxtCodigo.Text != "")
+            if (TxtCodigo.Text != "")
             {
                 ImprimirFormato formato = new ImprimirFormato();
-                formato.codigoFormato = "";                
+                formato.codigoFormato = "";
                 formato.codigo = TxtCodigo.Text;
                 formato.tipo = "Guia";
                 General.Formato = formato;
                 FrmVisor frm = new FrmVisor();
                 frm.ShowDialog();
-             }
+            }
         }
 
         private void TabularEnter(object sender, KeyEventArgs e)
-		{			
-			if (e.KeyCode == Keys.Enter)
-			{
-				this.SelectNextControl((Control)sender, true, true, true, true);
-			}			
-		}
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.SelectNextControl((Control)sender, true, true, true, true);
+            }
+        }
 
-		private void TsbPrecargar_Click(object sender, EventArgs e)
-		{
-			Precargar();
-		}
+        private void TsbPrecargar_Click(object sender, EventArgs e)
+        {
+            Precargar();
+        }
 
-		private void MnuPrecargar_Click(object sender, EventArgs e)
-		{
-			Precargar();
-		}
+        private void MnuPrecargar_Click(object sender, EventArgs e)
+        {
+            Precargar();
+        }
 
-		private void Precargar()
-		{
-			FrmDevolverDocumento frm = new FrmDevolverDocumento();
-			frm.ShowDialog();
-			if (frm.DialogResult == DialogResult.OK)
-			{
-				TraerPrecarga(General.DocumentoCliente);
+        private void Precargar()
+        {
+            FrmDevolverDocumento frm = new FrmDevolverDocumento();
+            frm.ShowDialog();
+            if (frm.DialogResult == DialogResult.OK)
+            {
+                TraerPrecarga(General.DocumentoCliente);
 
-			}
+            }
 
-		}
+        }
 
-		public void TraerPrecarga(string documentoCliente)
-		{
-			try
-			{
-				if (documentoCliente != "")
-				{
-					/*string cmd = string.Format("SELECT codigo_guia_carga_pk, documento_cliente, remitente, numero, relacion_cliente, nombre_destinatario," +
+        public void TraerPrecarga(string documentoCliente)
+        {
+            try
+            {
+                if (documentoCliente != "")
+                {
+                    /*string cmd = string.Format("SELECT codigo_guia_carga_pk, documento_cliente, remitente, numero, relacion_cliente, nombre_destinatario," +
 						" direccion_destinatario, telefono_destinatario, comentario, vr_declarado " +
 						"FROM tte_guia_carga " +
 						"WHERE documento_cliente = '" + documentoCliente + "'");
@@ -971,64 +981,65 @@ namespace cromo
 						TxtTelefonoDestinatario.Text = dt.Rows[0]["telefono_destinatario"].ToString();
 						TxtComentario.Text = dt.Rows[0]["comentario"].ToString();
 						TxtDeclarado.Text = dt.Rows[0]["vr_declarado"].ToString();
-					}*/ 					
-				}
-			}
-			catch (Exception error)
-			{
-				MessageBox.Show("No se pudo cargar la informacion inicial (" + error.Message + ")");
-			}
-		}
+					}*/
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("No se pudo cargar la informacion inicial (" + error.Message + ")");
+            }
+        }
 
-		private void TxtCodigoCondicion_KeyDown(object sender, KeyEventArgs e)
-		{
-			if (e.KeyCode.ToString() == "F2")
-			{
-				if(TxtCodigoCliente.Text != "")
-				{
-					General.CodigoCliente = TxtCodigoCliente.Text;
-					FrmBuscarCondicion frm = new FrmBuscarCondicion();
-					frm.ShowDialog();
-					if (frm.DialogResult == DialogResult.OK)
-					{						
-						TxtCodigoCondicion.Text = General.CodigoCondicion;
-					}
-				}
-			}
-		}
+        private void TxtCodigoCondicion_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.ToString() == "F2")
+            {
+                if (TxtCodigoCliente.Text != "")
+                {
+                    General.CodigoCliente = TxtCodigoCliente.Text;
+                    FrmBuscarCondicion frm = new FrmBuscarCondicion();
+                    frm.ShowDialog();
+                    if (frm.DialogResult == DialogResult.OK)
+                    {
+                        TxtCodigoCondicion.Text = General.CodigoCondicion;
+                    }
+                }
+            }
+        }
 
-		private void TxtUnidades_KeyDown(object sender, KeyEventArgs e)
-		{
-			if (e.KeyCode.ToString() == "F2")
-			{
-				
-				ChkLiquidado.Checked = true;
-				if(codigoPrecio != 0 && TxtCodigoCiudadDestino.Text != "" && TxtCodigoCiudadOrigen.Text != "" && TxtCodigoCondicion.Text != "")
-				{					
-					General.CodigoPrecio = codigoPrecio;
-					General.CodigoCiudad = TxtCodigoCiudadOrigen.Text;
-					General.CodigoCiudadDestino = TxtCodigoCiudadDestino.Text;
-					General.CodigoCondicion = TxtCodigoCondicion.Text;
-					FrmGuiaDetalle frm = new FrmGuiaDetalle();
-					frm.ShowDialog();
-					if (frm.DialogResult == DialogResult.OK)
-					{
-						TxtUnidades.Text = General.Unidades.ToString();
-						TxtFlete.Text = General.VrFlete.ToString();
-						TxtPeso.Text = General.Peso.ToString();
-						TxtVolumen.Text = General.Volumen.ToString();
-						TxtPesoFacturar.Text = General.PesoFacturar.ToString();													
-					}
-				} else
-				{
-					MessageBox.Show("Verifique si tiene seleccionada una condicion comercial, ciudad de origen y ciudad de destino");
-				}				
-			}
-		}
+        private void TxtUnidades_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.ToString() == "F2")
+            {
 
-		private void GuardarDetalle (string codigoGuia)
-		{
-			/*if (General.guiaDetallePublica.Length > 0)
+                ChkLiquidado.Checked = true;
+                if (codigoPrecio != 0 && TxtCodigoCiudadDestino.Text != "" && TxtCodigoCiudadOrigen.Text != "" && TxtCodigoCondicion.Text != "")
+                {
+                    General.CodigoPrecio = codigoPrecio;
+                    General.CodigoCiudad = TxtCodigoCiudadOrigen.Text;
+                    General.CodigoCiudadDestino = TxtCodigoCiudadDestino.Text;
+                    General.CodigoCondicion = TxtCodigoCondicion.Text;
+                    FrmGuiaDetalle frm = new FrmGuiaDetalle();
+                    frm.ShowDialog();
+                    if (frm.DialogResult == DialogResult.OK)
+                    {
+                        TxtUnidades.Text = General.Unidades.ToString();
+                        TxtFlete.Text = General.VrFlete.ToString();
+                        TxtPeso.Text = General.Peso.ToString();
+                        TxtVolumen.Text = General.Volumen.ToString();
+                        TxtPesoFacturar.Text = General.PesoFacturar.ToString();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Verifique si tiene seleccionada una condicion comercial, ciudad de origen y ciudad de destino");
+                }
+            }
+        }
+
+        private void GuardarDetalle(string codigoGuia)
+        {
+            /*if (General.guiaDetallePublica.Length > 0)
 			{
 				string sql = "";
 				for (int i = 0; i < General.guiaDetallePublica.Length; i++)
@@ -1047,16 +1058,16 @@ namespace cromo
 				}
 				General.guiaDetallePublica = new GuiaDetalle[0];
 			}*/
-		}
+        }
 
-		private void CboProducto_Validated(object sender, EventArgs e)
-		{
-			if (codigoPrecio != 0 && TxtCodigoCiudadOrigen.Text != "" && TxtCodigoCiudadDestino.Text != "")
-			{
+        private void CboProducto_Validated(object sender, EventArgs e)
+        {
+            if (codigoPrecio != 0 && TxtCodigoCiudadOrigen.Text != "" && TxtCodigoCiudadDestino.Text != "")
+            {
                 string parametrosJson = "{\"precio\":\"" + codigoPrecio + "\", \"origen\":\"" + TxtCodigoCiudadOrigen.Text + "\", \"destino\":\"" + TxtCodigoCiudadDestino.Text + "\", \"producto\":\"" + CboProducto.SelectedValue.ToString() + "\"}";
                 string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/preciodetalle/detalleproducto", parametrosJson);
                 ApiPrecioDetalle apiPrecioDetalle = ser.Deserialize<ApiPrecioDetalle>(jsonRespuesta);
-                if(apiPrecioDetalle.error == null)
+                if (apiPrecioDetalle.error == null)
                 {
                     TxtVrPeso.Text = apiPrecioDetalle.vrPeso.ToString();
                     TxtVrUnidad.Text = apiPrecioDetalle.vrUnidad.ToString();
@@ -1064,52 +1075,53 @@ namespace cromo
                     TxtVrTope.Text = apiPrecioDetalle.vrPesoTope.ToString();
                     TxtVrAdicional.Text = apiPrecioDetalle.vrPesoTopeAdicional.ToString();
                     TxtPesoMinimoPrecio.Text = apiPrecioDetalle.minimo.ToString();
-                } else
-                {                    
+                }
+                else
+                {
                     MessageBox.Show(this, "No existe precio para este producto con esta condicion y este destino ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-			}
-			else
-			{
-				MessageBox.Show("Debe seleccionar una condicion comercial, origen y destino del servicio");
-			}
-		}
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar una condicion comercial, origen y destino del servicio");
+            }
+        }
 
-		private void TsbBuscarGuia_Click(object sender, EventArgs e)
-		{
+        private void TsbBuscarGuia_Click(object sender, EventArgs e)
+        {
             FrmDevolverGuiaCodigo frm = new FrmDevolverGuiaCodigo();
             frm.ShowDialog();
             if (General.CodigoGuia != 0)
-			{
+            {
                 string parametrosJson = "{\"codigoGuiaPk\":\"" + General.CodigoGuia + "\"}";
                 string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/guia/detalle", parametrosJson);
                 ApiGuia apiGuia = ser.Deserialize<ApiGuia>(jsonRespuesta);
                 if (apiGuia.error == null)
                 {
-                    TraerGuia(apiGuia);                        
+                    TraerGuia(apiGuia);
                 }
 
             }
-		}
+        }
 
-		private void MnuBuscarGuia_Click(object sender, EventArgs e)
-		{
-			/*FuncionesGuia buscar = new FuncionesGuia();
+        private void MnuBuscarGuia_Click(object sender, EventArgs e)
+        {
+            /*FuncionesGuia buscar = new FuncionesGuia();
 			buscar.DevolverCodigoGuia();
 			if (General.CodigoGuia != 0)
 			{
 				//TraerGuia(General.CodigoGuia);
 			}*/
-		}
+        }
 
-		private void TxtNombreDestinatario_KeyDown(object sender, KeyEventArgs e)
-		{
-			if (e.KeyCode.ToString() == "F2")
-			{
-				FrmBuscarDestinatario frmBuscarDestinatario= new FrmBuscarDestinatario();
-				frmBuscarDestinatario.ShowDialog();
-				if (frmBuscarDestinatario.DialogResult == DialogResult.OK)
-				{
+        private void TxtNombreDestinatario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.ToString() == "F2")
+            {
+                FrmBuscarDestinatario frmBuscarDestinatario = new FrmBuscarDestinatario();
+                frmBuscarDestinatario.ShowDialog();
+                if (frmBuscarDestinatario.DialogResult == DialogResult.OK)
+                {
                     string parametrosJson = "{\"codigo\":\"" + General.CodigoDestinatario + "\"}";
                     string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/destinatario/detalle", parametrosJson);
                     ApiDestinatario apiDestinatario = ser.Deserialize<ApiDestinatario>(jsonRespuesta);
@@ -1120,16 +1132,17 @@ namespace cromo
                         TxtDireccionDestinatario.Text = apiDestinatario.direccion;
                         TxtTelefonoDestinatario.Text = apiDestinatario.telefono;
                         TxtCodigoCiudadDestino.Text = apiDestinatario.codigoCiudadFk;
-                    } else
+                    }
+                    else
                     {
                         MessageBox.Show("No existe el destinatario");
                     }
-					
-				}
-			}
-		}
 
-        private void TraerGuia (ApiGuia apiGuia)
+                }
+            }
+        }
+
+        private void TraerGuia(ApiGuia apiGuia)
         {
             TxtCodigo.Text = apiGuia.codigoGuiaPk;
             TxtNumero.Text = apiGuia.numero.ToString();
