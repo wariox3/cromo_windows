@@ -898,7 +898,16 @@ namespace cromo
 
         private void MnuImprimir_Click(object sender, EventArgs e)
         {
-
+            if (TxtCodigo.Text != "")
+            {
+                ImprimirFormato formato = new ImprimirFormato();
+                formato.codigoFormato = "";
+                formato.codigo = TxtCodigo.Text;
+                formato.tipo = "Guia";
+                General.Formato = formato;
+                FrmVisor frm = new FrmVisor();
+                frm.ShowDialog();
+            }
         }
 
         private void TsbRecibo_Click(object sender, EventArgs e)
@@ -910,12 +919,20 @@ namespace cromo
 
         private void TsbImprimir_Click(object sender, EventArgs e)
         {
-
+            if (TxtCodigo.Text != "")
+            {
+                ImprimirFormato formato = new ImprimirFormato();
+                formato.codigoFormato = "";
+                formato.codigo = TxtCodigo.Text;
+                formato.tipo = "Guia";
+                General.Formato = formato;
+                FrmVisor frm = new FrmVisor();
+                frm.ShowDialog();
+            }
         }
 
         private void TsbVistaPrevia_Click(object sender, EventArgs e)
         {
-            TxtCodigo.Text = "990106402";
             if (TxtCodigo.Text != "")
             {
                 ImprimirFormato formato = new ImprimirFormato();
