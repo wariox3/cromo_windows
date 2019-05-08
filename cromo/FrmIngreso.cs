@@ -34,7 +34,7 @@ namespace cromo
                         General.UrlServicio = apiOperador.urlServicio;
 
                         //General.UrlServicio = "http://192.168.15.43/cromo/public/index.php";
-                        General.UrlServicio = "http://localhost/cromo/public";
+                        //General.UrlServicio = "http://localhost/cromo/public";
 
                         //Validar logo
                         string logo = Directory.GetCurrentDirectory() + @"\logo.jpg";
