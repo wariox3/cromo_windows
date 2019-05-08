@@ -140,6 +140,7 @@
     <Compile Include="ApiOperador.cs" />
     <Compile Include="ApiPrecioDetalle.cs" />
     <Compile Include="ApiProducto.cs" />
+    <Compile Include="ApiReciboImprimir.cs" />
     <Compile Include="ApiRespuesta.cs" />
     <Compile Include="ApiServicio.cs" />
     <Compile Include="ApiUsuario.cs" />
@@ -316,6 +317,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reportes\Transporte\Recibo.rdlc" />
     <None Include="cromo_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\ApiGuia.datasource" />

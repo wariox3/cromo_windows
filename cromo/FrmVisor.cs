@@ -44,17 +44,29 @@ namespace cromo
                     this.reportViewer1.RefreshReport();
 
                 }
+            }
 
+            if (General.Formato.tipo == "Recibo")
+            {
+                /*string parametrosJson = "{\"codigoGuiaPk\":\"" + General.Formato.codigo + "\"}";
+                string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/guia/imprimir", parametrosJson);
+                ApiGuiaImprimir apiGuia = ser.Deserialize<ApiGuiaImprimir>(jsonRespuesta);
+                if (apiGuia.error == null)
+                {*/
+                    //List<ApiGuiaImprimir> listaGuias = new List<ApiGuiaImprimir>();
+                    //listaGuias.Add(apiGuia);
+                    string ruta = cromo.Properties.Settings.Default.rutaReportes;
+                    ruta = ruta + @"Transporte\Recibo" + General.Formato.codigoFormato + ".rdlc";
+                    this.reportViewer1.LocalReport.ReportPath = ruta;
+                    //ReportParameter param = new ReportParameter("rutaImagen", @"file:\" + Directory.GetCurrentDirectory() + @"\logo.jpg", true);
+                    //this.reportViewer1.LocalReport.SetParameters(param);
+                    //ReportDataSource rds1 = new ReportDataSource("GuiaImprimir", listaGuias);
+                    this.reportViewer1.LocalReport.DataSources.Clear();
+                    //this.reportViewer1.LocalReport.DataSources.Add(rds1);
+                    this.reportViewer1.RefreshReport();
 
-                /*List<ApiGuia> Agregar = new List<ApiGuia>();
-                Agregar.Add(new ApiGuia
-                {
-                    numero = 1123
-                });*/
-
-
-            }            
-
+                //}
+            }
         }
 
 

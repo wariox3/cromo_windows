@@ -912,9 +912,16 @@ namespace cromo
 
         private void TsbRecibo_Click(object sender, EventArgs e)
         {
-            General.CodigoGuia = Convert.ToInt32(TxtCodigo.Text);
+            ImprimirFormato formato = new ImprimirFormato();
+            formato.codigoFormato = "";
+            formato.codigo = TxtCodigo.Text;
+            formato.tipo = "Recibo";
+            General.Formato = formato;
+            FrmVisor frm = new FrmVisor();
+            frm.ShowDialog();
+            /*General.CodigoGuia = Convert.ToInt32(TxtCodigo.Text);
             FrmRecibo frmRecibo = new FrmRecibo();
-            frmRecibo.ShowDialog();
+            frmRecibo.ShowDialog();*/
         }
 
         private void TsbImprimir_Click(object sender, EventArgs e)
