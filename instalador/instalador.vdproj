@@ -364,10 +364,10 @@
             "ComponentsUrl" = "8:"
                 "Items"
                 {
-                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Net.Framework.3.5.SP1"
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5.2"
                     {
-                    "Name" = "8:.NET Framework 3.5 SP1"
-                    "ProductCode" = "8:Microsoft.Net.Framework.3.5.SP1"
+                    "Name" = "8:Microsoft .NET Framework 4.5.2 (x86 y x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.5.2"
                     }
                 }
             }
@@ -969,7 +969,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:instalador"
         "ProductCode" = "8:{01F79E9E-548B-418A-BA59-0B3DE68FDA13}"
-        "PackageCode" = "8:{9D1D043B-3517-41D4-8E3A-FDEA340498C2}"
+        "PackageCode" = "8:{EDEB9FDC-02BE-4FB2-86CA-1354F1E55B45}"
         "UpgradeCode" = "8:{2F83045E-7551-45C1-97F1-93FC567D9668}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
