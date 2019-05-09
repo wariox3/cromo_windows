@@ -912,16 +912,9 @@ namespace cromo
 
         private void TsbRecibo_Click(object sender, EventArgs e)
         {
-            ImprimirFormato formato = new ImprimirFormato();
-            formato.codigoFormato = "";
-            formato.codigo = TxtCodigo.Text;
-            formato.tipo = "Recibo";
-            General.Formato = formato;
-            FrmVisor frm = new FrmVisor();
-            frm.ShowDialog();
-            /*General.CodigoGuia = Convert.ToInt32(TxtCodigo.Text);
+            General.CodigoGuia = Convert.ToInt32(TxtCodigo.Text);
             FrmRecibo frmRecibo = new FrmRecibo();
-            frmRecibo.ShowDialog();*/
+            frmRecibo.ShowDialog();
         }
 
         private void TsbImprimir_Click(object sender, EventArgs e)
@@ -988,24 +981,25 @@ namespace cromo
             {
                 if (documentoCliente != "")
                 {
-                    /*string cmd = string.Format("SELECT codigo_guia_carga_pk, documento_cliente, remitente, numero, relacion_cliente, nombre_destinatario," +
-						" direccion_destinatario, telefono_destinatario, comentario, vr_declarado " +
-						"FROM tte_guia_carga " +
-						"WHERE documento_cliente = '" + documentoCliente + "'");
-					DataSet ds = Utilidades.Ejecutar(cmd);
-					DataTable dt = ds.Tables[0];
-					if (dt.Rows.Count > 0)
-					{
-						TxtRemitente.Text = dt.Rows[0]["remitente"].ToString();
-						TxtDocumentoCliente.Text = dt.Rows[0]["documento_cliente"].ToString();
-						TxtNumero.Text = dt.Rows[0]["numero"].ToString();
-						TxtRelacion.Text = dt.Rows[0]["relacion_cliente"].ToString();
-						TxtNombreDestinatario.Text = dt.Rows[0]["nombre_destinatario"].ToString();
-						TxtDireccionDestinatario.Text = dt.Rows[0]["direccion_destinatario"].ToString();
-						TxtTelefonoDestinatario.Text = dt.Rows[0]["telefono_destinatario"].ToString();
-						TxtComentario.Text = dt.Rows[0]["comentario"].ToString();
-						TxtDeclarado.Text = dt.Rows[0]["vr_declarado"].ToString();
-					}*/
+                    string parametrosJson = "{\"documentoCliente\":\"" + documentoCliente + "\"}";
+                    string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/guiacarga/detalle", parametrosJson);
+                    ApiGuiaCarga apiGuiaCarga = ser.Deserialize<ApiGuiaCarga>(jsonRespuesta);
+                    if (apiGuiaCarga.error == null)
+                    {
+                        TxtRemitente.Text = apiGuiaCarga.remitente;
+                        TxtDocumentoCliente.Text = apiGuiaCarga.documentoCliente;
+                        TxtNumero.Text = apiGuiaCarga.numero;
+                        TxtRelacion.Text = apiGuiaCarga.relacionCliente;
+                        TxtNombreDestinatario.Text = apiGuiaCarga.nombreDestinatario;
+                        TxtDireccionDestinatario.Text = apiGuiaCarga.direccionDestinatario;
+                        TxtTelefonoDestinatario.Text = apiGuiaCarga.telefonoDestinatario;
+                        TxtComentario.Text = apiGuiaCarga.comentario;
+                        TxtDeclarado.Text = apiGuiaCarga.vrDeclara.ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show(this, "Error del servicio ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
             catch (Exception error)

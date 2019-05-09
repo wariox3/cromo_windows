@@ -136,10 +136,12 @@
     <Compile Include="ApiDestinatario.cs" />
     <Compile Include="ApiEmpaque.cs" />
     <Compile Include="ApiGuia.cs" />
+    <Compile Include="ApiGuiaCarga.cs" />
     <Compile Include="ApiGuiaImprimir.cs" />
     <Compile Include="ApiOperador.cs" />
     <Compile Include="ApiPrecioDetalle.cs" />
     <Compile Include="ApiProducto.cs" />
+    <Compile Include="ApiRecibo.cs" />
     <Compile Include="ApiReciboImprimir.cs" />
     <Compile Include="ApiRespuesta.cs" />
     <Compile Include="ApiServicio.cs" />
