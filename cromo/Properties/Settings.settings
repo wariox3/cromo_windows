@@ -9,7 +9,7 @@
       <Value Profile="(Default)">209</Value>
     </Setting>
     <Setting Name="rutaReportes" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\reportes\</Value>
+      <Value Profile="(Default)">C:\Program Files (x86)\Semantica\Cromo\Reportes\</Value>
     </Setting>
     <Setting Name="operador" Type="System.String" Scope="User">
       <Value Profile="(Default)" />

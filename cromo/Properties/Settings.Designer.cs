@@ -49,7 +49,7 @@ namespace cromo.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\reportes\\")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Program Files (x86)\\Semantica\\Cromo\\Reportes\\")]
         public string rutaReportes {
             get {
                 return ((string)(this["rutaReportes"]));

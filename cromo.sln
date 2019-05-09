@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27130.2020
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cromo", "cromo\cromo.csproj", "{B66DCCF4-C6BE-40BD-AAF5-478FE52F4EF3}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "instalador", "instalador\instalador.vdproj", "{F9FC2250-16DF-492A-B3C8-1407C774F6B5}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "instalador", "instalador\instalador.vdproj", "{37BD4A9C-8117-4FF8-89A2-78C8009384E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{B66DCCF4-C6BE-40BD-AAF5-478FE52F4EF3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B66DCCF4-C6BE-40BD-AAF5-478FE52F4EF3}.Release|x86.ActiveCfg = Release|x86
 		{B66DCCF4-C6BE-40BD-AAF5-478FE52F4EF3}.Release|x86.Build.0 = Release|x86
-		{F9FC2250-16DF-492A-B3C8-1407C774F6B5}.Debug|Any CPU.ActiveCfg = Debug
-		{F9FC2250-16DF-492A-B3C8-1407C774F6B5}.Debug|x86.ActiveCfg = Debug
-		{F9FC2250-16DF-492A-B3C8-1407C774F6B5}.Release|Any CPU.ActiveCfg = Release
-		{F9FC2250-16DF-492A-B3C8-1407C774F6B5}.Release|x86.ActiveCfg = Release
+		{37BD4A9C-8117-4FF8-89A2-78C8009384E6}.Debug|Any CPU.ActiveCfg = Debug
+		{37BD4A9C-8117-4FF8-89A2-78C8009384E6}.Debug|x86.ActiveCfg = Debug
+		{37BD4A9C-8117-4FF8-89A2-78C8009384E6}.Release|Any CPU.ActiveCfg = Release
+		{37BD4A9C-8117-4FF8-89A2-78C8009384E6}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
