@@ -994,7 +994,7 @@ namespace cromo
                         TxtDireccionDestinatario.Text = apiGuiaCarga.direccionDestinatario;
                         TxtTelefonoDestinatario.Text = apiGuiaCarga.telefonoDestinatario;
                         TxtComentario.Text = apiGuiaCarga.comentario;
-                        TxtDeclarado.Text = apiGuiaCarga.vrDeclara.ToString();
+                        TxtDeclarado.Text = apiGuiaCarga.vrDeclarado.ToString();
                     }
                     else
                     {

@@ -3944,7 +3944,6 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>8.69246cm</Top>
-            <Left>0cm</Left>
             <Height>8.52018cm</Height>
             <Width>20.03467cm</Width>
             <ZIndex>1</ZIndex>
@@ -5807,39 +5806,10 @@
                   </Border>
                 </Style>
               </Textbox>
-              <Textbox Name="resolucionFactura4">
-                <CanGrow>true</CanGrow>
-                <KeepTogether>true</KeepTogether>
-                <Paragraphs>
-                  <Paragraph>
-                    <TextRuns>
-                      <TextRun>
-                        <Value>=First(Fields!resolucionFactura.Value, "GuiaImprimir")</Value>
-                        <Style>
-                          <FontSize>8pt</FontSize>
-                        </Style>
-                      </TextRun>
-                    </TextRuns>
-                    <Style />
-                  </Paragraph>
-                </Paragraphs>
-                <rd:DefaultName>resolucionFactura</rd:DefaultName>
-                <Top>8.13185cm</Top>
-                <Left>0.04562cm</Left>
-                <Height>0.38833cm</Height>
-                <Width>19.92078cm</Width>
-                <ZIndex>11</ZIndex>
-                <Style>
-                  <Border>
-                    <Style>None</Style>
-                  </Border>
-                </Style>
-              </Textbox>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>17.26496cm</Top>
-            <Left>0cm</Left>
-            <Height>8.52018cm</Height>
+            <Height>8.04393cm</Height>
             <Width>20.03467cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
@@ -5849,7 +5819,7 @@
             </Style>
           </Rectangle>
         </ReportItems>
-        <Height>10.20928in</Height>
+        <Height>10.05303in</Height>
         <Style />
       </Body>
       <Width>7.88767in</Width>

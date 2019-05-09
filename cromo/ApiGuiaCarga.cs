@@ -17,7 +17,7 @@ namespace cromo
         public string nombreDestinatario { get; set; }
         public string direccionDestinatario { get; set; }
         public string telefonoDestinatario { get; set; }        
-        public double vrDeclara { get; set; }
+        public double vrDeclarado { get; set; }
         public string comentario { get; set; }
         public string error { get; set; }
     }
