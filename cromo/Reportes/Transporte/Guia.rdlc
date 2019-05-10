@@ -1001,7 +1001,6 @@
                     </Style>
                   </Textbox>
                   <Textbox Name="documentoCliente2">
-                    <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
@@ -1029,7 +1028,6 @@
                     </Style>
                   </Textbox>
                   <Textbox Name="comentario2">
-                    <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
@@ -1291,7 +1289,6 @@
                     </Style>
                   </Textbox>
                   <Textbox Name="remitente2">
-                    <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
@@ -1350,7 +1347,6 @@
                     </Style>
                   </Textbox>
                   <Textbox Name="nombreDestinatario2">
-                    <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
@@ -1378,7 +1374,6 @@
                     </Style>
                   </Textbox>
                   <Textbox Name="ciudadOrigenNombre2">
-                    <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
@@ -1434,7 +1429,6 @@
                     </Style>
                   </Textbox>
                   <Textbox Name="direccionDestinatario2">
-                    <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
@@ -1462,7 +1456,6 @@
                     </Style>
                   </Textbox>
                   <Textbox Name="clienteDireccion2">
-                    <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
@@ -1509,7 +1502,7 @@
                     <Top>1.37224cm</Top>
                     <Left>16.66558cm</Left>
                     <Height>0.38833cm</Height>
-                    <Width>2.79986cm</Width>
+                    <Width>3.13879cm</Width>
                     <ZIndex>50</ZIndex>
                     <Style>
                       <Border>
@@ -1537,7 +1530,7 @@
                     <Top>2.30504cm</Top>
                     <Left>16.67919cm</Left>
                     <Height>0.38833cm</Height>
-                    <Width>2.5cm</Width>
+                    <Width>3.12518cm</Width>
                     <ZIndex>51</ZIndex>
                     <Style>
                       <Border>
@@ -2892,7 +2885,6 @@
                     </Style>
                   </Textbox>
                   <Textbox Name="documentoCliente3">
-                    <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
@@ -2920,7 +2912,6 @@
                     </Style>
                   </Textbox>
                   <Textbox Name="comentario3">
-                    <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
@@ -3182,7 +3173,6 @@
                     </Style>
                   </Textbox>
                   <Textbox Name="remitente3">
-                    <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
@@ -3241,7 +3231,6 @@
                     </Style>
                   </Textbox>
                   <Textbox Name="nombreDestinatario3">
-                    <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
@@ -3325,7 +3314,6 @@
                     </Style>
                   </Textbox>
                   <Textbox Name="direccionDestinatario3">
-                    <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
@@ -3353,7 +3341,6 @@
                     </Style>
                   </Textbox>
                   <Textbox Name="clienteDireccion3">
-                    <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
@@ -3381,7 +3368,6 @@
                     </Style>
                   </Textbox>
                   <Textbox Name="clienteTelefono3">
-                    <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
@@ -3409,7 +3395,6 @@
                     </Style>
                   </Textbox>
                   <Textbox Name="telefonoDestinatario3">
-                    <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
@@ -3428,7 +3413,7 @@
                     <Top>2.30504cm</Top>
                     <Left>16.67919cm</Left>
                     <Height>0.38833cm</Height>
-                    <Width>2.5cm</Width>
+                    <Width>2.78625cm</Width>
                     <ZIndex>51</ZIndex>
                     <Style>
                       <Border>
@@ -4785,7 +4770,6 @@
                     </Style>
                   </Textbox>
                   <Textbox Name="documentoCliente4">
-                    <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
@@ -4813,7 +4797,6 @@
                     </Style>
                   </Textbox>
                   <Textbox Name="comentario4">
-                    <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
@@ -5075,7 +5058,6 @@
                     </Style>
                   </Textbox>
                   <Textbox Name="remitente4">
-                    <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
@@ -5134,7 +5116,6 @@
                     </Style>
                   </Textbox>
                   <Textbox Name="nombreDestinatario4">
-                    <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
@@ -5218,7 +5199,6 @@
                     </Style>
                   </Textbox>
                   <Textbox Name="direccionDestinatario4">
-                    <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
@@ -5246,7 +5226,6 @@
                     </Style>
                   </Textbox>
                   <Textbox Name="clienteDireccion4">
-                    <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
@@ -5274,7 +5253,6 @@
                     </Style>
                   </Textbox>
                   <Textbox Name="clienteTelefono4">
-                    <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
@@ -5302,7 +5280,6 @@
                     </Style>
                   </Textbox>
                   <Textbox Name="telefonoDestinatario4">
-                    <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
