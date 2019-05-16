@@ -70,7 +70,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.gbCliente = new System.Windows.Forms.GroupBox();
-            this.BtnVerCliente = new System.Windows.Forms.Button();
             this.TxtRelacion = new System.Windows.Forms.TextBox();
             this.label32 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
@@ -211,6 +210,8 @@
             this.ClmPesoTope = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ClmVrAdicional = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ClmMinimo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.BtnVerCliente = new System.Windows.Forms.Button();
+            this.ChkOmitirDescuento = new System.Windows.Forms.CheckBox();
             this.gbDestinatario.SuspendLayout();
             this.gbTotales.SuspendLayout();
             this.gbCliente.SuspendLayout();
@@ -654,16 +655,6 @@
             this.gbCliente.Size = new System.Drawing.Size(528, 130);
             this.gbCliente.TabIndex = 0;
             this.gbCliente.TabStop = false;
-            // 
-            // BtnVerCliente
-            // 
-            this.BtnVerCliente.Location = new System.Drawing.Point(483, 12);
-            this.BtnVerCliente.Name = "BtnVerCliente";
-            this.BtnVerCliente.Size = new System.Drawing.Size(34, 20);
-            this.BtnVerCliente.TabIndex = 27;
-            this.BtnVerCliente.Text = "Ver";
-            this.BtnVerCliente.UseVisualStyleBackColor = true;
-            this.BtnVerCliente.Click += new System.EventHandler(this.BtnVerCliente_Click);
             // 
             // TxtRelacion
             // 
@@ -1678,6 +1669,7 @@
             // 
             // GbPrecioDetalle
             // 
+            this.GbPrecioDetalle.Controls.Add(this.ChkOmitirDescuento);
             this.GbPrecioDetalle.Controls.Add(this.TxtVrAdicional);
             this.GbPrecioDetalle.Controls.Add(this.TxtPesoMinimoPrecio);
             this.GbPrecioDetalle.Controls.Add(this.TxtTope);
@@ -1998,6 +1990,26 @@
             this.ClmMinimo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ClmMinimo.Width = 40;
             // 
+            // BtnVerCliente
+            // 
+            this.BtnVerCliente.Location = new System.Drawing.Point(483, 12);
+            this.BtnVerCliente.Name = "BtnVerCliente";
+            this.BtnVerCliente.Size = new System.Drawing.Size(34, 20);
+            this.BtnVerCliente.TabIndex = 37;
+            this.BtnVerCliente.TabStop = false;
+            this.BtnVerCliente.Text = "Ver";
+            this.BtnVerCliente.UseVisualStyleBackColor = true;
+            // 
+            // ChkOmitirDescuento
+            // 
+            this.ChkOmitirDescuento.AutoSize = true;
+            this.ChkOmitirDescuento.Location = new System.Drawing.Point(51, 80);
+            this.ChkOmitirDescuento.Name = "ChkOmitirDescuento";
+            this.ChkOmitirDescuento.Size = new System.Drawing.Size(105, 17);
+            this.ChkOmitirDescuento.TabIndex = 49;
+            this.ChkOmitirDescuento.Text = "Omitir descuento";
+            this.ChkOmitirDescuento.UseVisualStyleBackColor = true;
+            // 
             // FrmGuia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2233,6 +2245,7 @@
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Button BtnVerCliente;
+        private System.Windows.Forms.CheckBox ChkOmitirDescuento;
     }
 }
 

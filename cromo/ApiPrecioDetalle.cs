@@ -16,6 +16,7 @@ namespace cromo
         public double vrPesoTopeAdicional { get; set; }
         public double pesoTope { get; set; }
         public string productoNombre { get; set; }
+        public bool omitirDescuento { get; set; }
         public string error { get; set; }
     }
 }

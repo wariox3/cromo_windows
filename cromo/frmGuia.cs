@@ -750,15 +750,10 @@ namespace cromo
 
                         }
                         vrFlete = pesoFacturar * precioPeso;
-                        if (descuentoPeso > 0)
+                        if (descuentoPeso > 0 && !ChkOmitirDescuento.Checked)
                         {
                             vrFlete -= vrFlete * descuentoPeso / 100;
                         }
-                        /*double descuentoPesoZona = Convert.ToDouble(TxtDescuentoPesoZona.Text);
-                        if (descuentoPesoZona > 0)
-                        {
-                            vrFlete -= vrFlete * descuentoPesoZona / 100;
-                        }*/
                     }
                     else if (RbUnidad.Checked)
                     {
@@ -1113,10 +1108,34 @@ namespace cromo
                     TxtVrTope.Text = apiPrecioDetalle.vrPesoTope.ToString();
                     TxtVrAdicional.Text = apiPrecioDetalle.vrPesoTopeAdicional.ToString();
                     TxtPesoMinimoPrecio.Text = apiPrecioDetalle.minimo.ToString();
+                    ChkOmitirDescuento.Checked = apiPrecioDetalle.omitirDescuento;
                 }
                 else
                 {
-                    MessageBox.Show(this, "No existe precio para este producto con esta condicion y este destino ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if(ChkListaGeneral.Checked)
+                    {
+                        parametrosJson = "{\"precio\":\"1\", \"origen\":\"" + TxtCodigoCiudadOrigen.Text + "\", \"destino\":\"" + TxtCodigoCiudadDestino.Text + "\", \"producto\":\"" + CboProducto.SelectedValue.ToString() + "\"}";
+                        jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/preciodetalle/detalleproducto", parametrosJson);
+                        ApiPrecioDetalle apiPrecioDetalleGeneral = ser.Deserialize<ApiPrecioDetalle>(jsonRespuesta);
+                        if (apiPrecioDetalleGeneral.error == null)
+                        {
+                            TxtVrPeso.Text = apiPrecioDetalleGeneral.vrPeso.ToString();
+                            TxtVrUnidad.Text = apiPrecioDetalleGeneral.vrUnidad.ToString();
+                            TxtTope.Text = apiPrecioDetalleGeneral.pesoTope.ToString();
+                            TxtVrTope.Text = apiPrecioDetalleGeneral.vrPesoTope.ToString();
+                            TxtVrAdicional.Text = apiPrecioDetalleGeneral.vrPesoTopeAdicional.ToString();
+                            TxtPesoMinimoPrecio.Text = apiPrecioDetalleGeneral.minimo.ToString();
+                            ChkOmitirDescuento.Checked = apiPrecioDetalleGeneral.omitirDescuento;
+                        }
+                        else
+                        {
+                            MessageBox.Show(this, "No se encontro este precio para la lista general, no se podra liquidar la guia automaticamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);                            
+                        }
+                    } else
+                    {
+                        MessageBox.Show(this, "No existe precio para este producto con esta condicion y este destino y la condicion no permite lista precios general", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    
                 }
             }
             else
