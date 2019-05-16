@@ -130,9 +130,9 @@
   <ItemGroup>
     <Compile Include="ApiCiudad.cs" />
     <Compile Include="ApiCondicion.cs" />
+    <Compile Include="ApiCondicionFlete.cs" />
     <Compile Include="ApiConfiguracion.cs" />
     <Compile Include="ApiControlador.cs" />
-    <Compile Include="ApiDescuentoZona.cs" />
     <Compile Include="ApiDestinatario.cs" />
     <Compile Include="ApiEmpaque.cs" />
     <Compile Include="ApiGuia.cs" />
@@ -190,6 +190,12 @@
       <DependentUpon>FrmValidarAdministrador.cs</DependentUpon>
     </Compile>
     <Compile Include="ApiGuiaTipo.cs" />
+    <Compile Include="FrmVerCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVerCliente.Designer.cs">
+      <DependentUpon>FrmVerCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmVisor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -277,6 +283,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmValidarAdministrador.resx">
       <DependentUpon>FrmValidarAdministrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVerCliente.resx">
+      <DependentUpon>FrmVerCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmVisor.resx">
       <DependentUpon>FrmVisor.cs</DependentUpon>

@@ -25,7 +25,6 @@ namespace cromo
             string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/ciudad/buscar", parametrosJson);
             List<ApiCiudad> apiCiudadLista = ser.Deserialize<List<ApiCiudad>>(jsonRespuesta);
             DgCiudades.DataSource = apiCiudadLista;
-
         }
 
         private void FrmBuscarCiudad_Load(object sender, EventArgs e)

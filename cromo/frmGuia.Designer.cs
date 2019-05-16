@@ -30,8 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGuia));
             this.gbDestinatario = new System.Windows.Forms.GroupBox();
-            this.TxtDescuentoPesoZona = new System.Windows.Forms.TextBox();
-            this.label51 = new System.Windows.Forms.Label();
+            this.TxtCodigoDestinatario = new System.Windows.Forms.TextBox();
             this.TxtCodigoZona = new System.Windows.Forms.TextBox();
             this.label50 = new System.Windows.Forms.Label();
             this.label49 = new System.Windows.Forms.Label();
@@ -54,8 +53,6 @@
             this.RbUnidad = new System.Windows.Forms.RadioButton();
             this.RbPeso = new System.Windows.Forms.RadioButton();
             this.RbAdicional = new System.Windows.Forms.RadioButton();
-            this.TxtAbono = new System.Windows.Forms.TextBox();
-            this.label30 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.TxtRecaudo = new System.Windows.Forms.TextBox();
             this.TxtManejo = new System.Windows.Forms.TextBox();
@@ -73,6 +70,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.gbCliente = new System.Windows.Forms.GroupBox();
+            this.BtnVerCliente = new System.Windows.Forms.Button();
             this.TxtRelacion = new System.Windows.Forms.TextBox();
             this.label32 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
@@ -123,6 +121,8 @@
             this.MnuBuscar = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuImprimir = new System.Windows.Forms.ToolStripMenuItem();
             this.gbDatos = new System.Windows.Forms.GroupBox();
+            this.TxtAbono = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
             this.TxtNumeroFactura = new System.Windows.Forms.TextBox();
             this.ChkCortesia = new System.Windows.Forms.CheckBox();
@@ -159,6 +159,12 @@
             this.label29 = new System.Windows.Forms.Label();
             this.TxtComentario = new System.Windows.Forms.TextBox();
             this.GbCondiciones = new System.Windows.Forms.GroupBox();
+            this.TxtManejoMinimoDespacho = new System.Windows.Forms.TextBox();
+            this.TxtManejoMinimoUnidad = new System.Windows.Forms.TextBox();
+            this.TxtPorcentajeManejo = new System.Windows.Forms.TextBox();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
             this.ChkPagoCortesia = new System.Windows.Forms.CheckBox();
             this.ChkPagoRecogida = new System.Windows.Forms.CheckBox();
             this.ChkPagoCredito = new System.Windows.Forms.CheckBox();
@@ -169,7 +175,6 @@
             this.label37 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.ChkListaGeneral = new System.Windows.Forms.CheckBox();
-            this.LblPrecioDetalle = new System.Windows.Forms.Label();
             this.GbPrecioDetalle = new System.Windows.Forms.GroupBox();
             this.TxtVrAdicional = new System.Windows.Forms.TextBox();
             this.TxtPesoMinimoPrecio = new System.Windows.Forms.TextBox();
@@ -183,14 +188,29 @@
             this.label40 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
-            this.GdManejo = new System.Windows.Forms.GroupBox();
-            this.TxtManejoMinimoDespacho = new System.Windows.Forms.TextBox();
-            this.TxtManejoMinimoUnidad = new System.Windows.Forms.TextBox();
-            this.TxtPorcentajeManejo = new System.Windows.Forms.TextBox();
-            this.label36 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.TxtCodigoDestinatario = new System.Windows.Forms.TextBox();
+            this.GbCondicionEspecial = new System.Windows.Forms.GroupBox();
+            this.label57 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label55 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
+            this.TxtFleteFleteMinimo = new System.Windows.Forms.TextBox();
+            this.TxtFleteFleteMinimoGuia = new System.Windows.Forms.TextBox();
+            this.TxtFletePesoMinimoGuia = new System.Windows.Forms.TextBox();
+            this.TxtFletePesoMinimo = new System.Windows.Forms.TextBox();
+            this.TxtFleteDescuentoUnidad = new System.Windows.Forms.TextBox();
+            this.TxtFleteDescuentoPeso = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.LvPrecioDetalle = new System.Windows.Forms.ListView();
+            this.ClmCodigoPrecioDetallePk = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.CmlProducto = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ClmVrPeso = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ClmVrUnidad = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ClmVrPesoTope = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ClmPesoTope = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ClmVrAdicional = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ClmMinimo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.gbDestinatario.SuspendLayout();
             this.gbTotales.SuspendLayout();
             this.gbCliente.SuspendLayout();
@@ -201,14 +221,13 @@
             this.gbComentario.SuspendLayout();
             this.GbCondiciones.SuspendLayout();
             this.GbPrecioDetalle.SuspendLayout();
-            this.GdManejo.SuspendLayout();
+            this.GbCondicionEspecial.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbDestinatario
             // 
             this.gbDestinatario.Controls.Add(this.TxtCodigoDestinatario);
-            this.gbDestinatario.Controls.Add(this.TxtDescuentoPesoZona);
-            this.gbDestinatario.Controls.Add(this.label51);
             this.gbDestinatario.Controls.Add(this.TxtCodigoZona);
             this.gbDestinatario.Controls.Add(this.label50);
             this.gbDestinatario.Controls.Add(this.label49);
@@ -225,34 +244,24 @@
             this.gbDestinatario.Controls.Add(this.label3);
             this.gbDestinatario.Controls.Add(this.label2);
             this.gbDestinatario.Enabled = false;
-            this.gbDestinatario.Location = new System.Drawing.Point(18, 146);
+            this.gbDestinatario.Location = new System.Drawing.Point(18, 148);
             this.gbDestinatario.Name = "gbDestinatario";
             this.gbDestinatario.Size = new System.Drawing.Size(528, 112);
             this.gbDestinatario.TabIndex = 7;
             this.gbDestinatario.TabStop = false;
             // 
-            // TxtDescuentoPesoZona
+            // TxtCodigoDestinatario
             // 
-            this.TxtDescuentoPesoZona.Enabled = false;
-            this.TxtDescuentoPesoZona.Location = new System.Drawing.Point(380, 81);
-            this.TxtDescuentoPesoZona.Name = "TxtDescuentoPesoZona";
-            this.TxtDescuentoPesoZona.Size = new System.Drawing.Size(49, 20);
-            this.TxtDescuentoPesoZona.TabIndex = 27;
-            this.TxtDescuentoPesoZona.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(343, 84);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(33, 13);
-            this.label51.TabIndex = 26;
-            this.label51.Text = "Dcto:";
+            this.TxtCodigoDestinatario.Enabled = false;
+            this.TxtCodigoDestinatario.Location = new System.Drawing.Point(482, 34);
+            this.TxtCodigoDestinatario.Name = "TxtCodigoDestinatario";
+            this.TxtCodigoDestinatario.Size = new System.Drawing.Size(35, 20);
+            this.TxtCodigoDestinatario.TabIndex = 28;
             // 
             // TxtCodigoZona
             // 
             this.TxtCodigoZona.Enabled = false;
-            this.TxtCodigoZona.Location = new System.Drawing.Point(274, 81);
+            this.TxtCodigoZona.Location = new System.Drawing.Point(397, 81);
             this.TxtCodigoZona.Name = "TxtCodigoZona";
             this.TxtCodigoZona.Size = new System.Drawing.Size(49, 20);
             this.TxtCodigoZona.TabIndex = 25;
@@ -269,7 +278,7 @@
             // label49
             // 
             this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(239, 84);
+            this.label49.Location = new System.Drawing.Point(362, 84);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(35, 13);
             this.label49.TabIndex = 23;
@@ -278,7 +287,7 @@
             // label48
             // 
             this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(165, 84);
+            this.label48.Location = new System.Drawing.Point(288, 84);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(33, 13);
             this.label48.TabIndex = 22;
@@ -287,7 +296,7 @@
             // TxtCodigoRuta
             // 
             this.TxtCodigoRuta.Enabled = false;
-            this.TxtCodigoRuta.Location = new System.Drawing.Point(199, 81);
+            this.TxtCodigoRuta.Location = new System.Drawing.Point(322, 81);
             this.TxtCodigoRuta.Name = "TxtCodigoRuta";
             this.TxtCodigoRuta.Size = new System.Drawing.Size(27, 20);
             this.TxtCodigoRuta.TabIndex = 21;
@@ -388,8 +397,6 @@
             this.gbTotales.Controls.Add(this.RbUnidad);
             this.gbTotales.Controls.Add(this.RbPeso);
             this.gbTotales.Controls.Add(this.RbAdicional);
-            this.gbTotales.Controls.Add(this.TxtAbono);
-            this.gbTotales.Controls.Add(this.label30);
             this.gbTotales.Controls.Add(this.label16);
             this.gbTotales.Controls.Add(this.TxtRecaudo);
             this.gbTotales.Controls.Add(this.TxtManejo);
@@ -407,9 +414,9 @@
             this.gbTotales.Controls.Add(this.label7);
             this.gbTotales.Controls.Add(this.label6);
             this.gbTotales.Enabled = false;
-            this.gbTotales.Location = new System.Drawing.Point(338, 258);
+            this.gbTotales.Location = new System.Drawing.Point(338, 259);
             this.gbTotales.Name = "gbTotales";
-            this.gbTotales.Size = new System.Drawing.Size(208, 266);
+            this.gbTotales.Size = new System.Drawing.Size(208, 240);
             this.gbTotales.TabIndex = 17;
             this.gbTotales.TabStop = false;
             // 
@@ -472,23 +479,6 @@
             this.RbAdicional.TabStop = true;
             this.RbAdicional.Text = "Adi";
             this.RbAdicional.UseVisualStyleBackColor = true;
-            // 
-            // TxtAbono
-            // 
-            this.TxtAbono.Location = new System.Drawing.Point(86, 237);
-            this.TxtAbono.Name = "TxtAbono";
-            this.TxtAbono.Size = new System.Drawing.Size(111, 20);
-            this.TxtAbono.TabIndex = 28;
-            this.TxtAbono.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(40, 240);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(41, 13);
-            this.label30.TabIndex = 27;
-            this.label30.Text = "Abono:";
             // 
             // label16
             // 
@@ -642,6 +632,7 @@
             // 
             // gbCliente
             // 
+            this.gbCliente.Controls.Add(this.BtnVerCliente);
             this.gbCliente.Controls.Add(this.TxtRelacion);
             this.gbCliente.Controls.Add(this.label32);
             this.gbCliente.Controls.Add(this.label27);
@@ -660,9 +651,19 @@
             this.gbCliente.Enabled = false;
             this.gbCliente.Location = new System.Drawing.Point(18, 22);
             this.gbCliente.Name = "gbCliente";
-            this.gbCliente.Size = new System.Drawing.Size(528, 129);
+            this.gbCliente.Size = new System.Drawing.Size(528, 130);
             this.gbCliente.TabIndex = 0;
             this.gbCliente.TabStop = false;
+            // 
+            // BtnVerCliente
+            // 
+            this.BtnVerCliente.Location = new System.Drawing.Point(483, 12);
+            this.BtnVerCliente.Name = "BtnVerCliente";
+            this.BtnVerCliente.Size = new System.Drawing.Size(34, 20);
+            this.BtnVerCliente.TabIndex = 27;
+            this.BtnVerCliente.Text = "Ver";
+            this.BtnVerCliente.UseVisualStyleBackColor = true;
+            this.BtnVerCliente.Click += new System.EventHandler(this.BtnVerCliente_Click);
             // 
             // TxtRelacion
             // 
@@ -777,7 +778,7 @@
             this.txtNombreCliente.Location = new System.Drawing.Point(182, 12);
             this.txtNombreCliente.Name = "txtNombreCliente";
             this.txtNombreCliente.ReadOnly = true;
-            this.txtNombreCliente.Size = new System.Drawing.Size(335, 20);
+            this.txtNombreCliente.Size = new System.Drawing.Size(295, 20);
             this.txtNombreCliente.TabIndex = 9;
             // 
             // label1
@@ -785,9 +786,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(24, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 13);
+            this.label1.Size = new System.Drawing.Size(42, 13);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Tercero:";
+            this.label1.Text = "Cliente:";
             // 
             // TxtCodigoCliente
             // 
@@ -817,7 +818,7 @@
             this.TsbRecibo});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1183, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(985, 25);
             this.toolStrip1.TabIndex = 12;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -943,7 +944,7 @@
             this.gbInformacion.Controls.Add(this.CboServicio);
             this.gbInformacion.Controls.Add(this.CboTipo);
             this.gbInformacion.Enabled = false;
-            this.gbInformacion.Location = new System.Drawing.Point(18, 260);
+            this.gbInformacion.Location = new System.Drawing.Point(18, 259);
             this.gbInformacion.Name = "gbInformacion";
             this.gbInformacion.Size = new System.Drawing.Size(289, 139);
             this.gbInformacion.TabIndex = 12;
@@ -1136,6 +1137,8 @@
             // 
             // gbDatos
             // 
+            this.gbDatos.Controls.Add(this.TxtAbono);
+            this.gbDatos.Controls.Add(this.label30);
             this.gbDatos.Controls.Add(this.label47);
             this.gbDatos.Controls.Add(this.TxtNumeroFactura);
             this.gbDatos.Controls.Add(this.ChkCortesia);
@@ -1171,14 +1174,31 @@
             this.gbDatos.Enabled = false;
             this.gbDatos.Location = new System.Drawing.Point(552, 22);
             this.gbDatos.Name = "gbDatos";
-            this.gbDatos.Size = new System.Drawing.Size(209, 326);
+            this.gbDatos.Size = new System.Drawing.Size(361, 236);
             this.gbDatos.TabIndex = 17;
             this.gbDatos.TabStop = false;
+            // 
+            // TxtAbono
+            // 
+            this.TxtAbono.Location = new System.Drawing.Point(239, 124);
+            this.TxtAbono.Name = "TxtAbono";
+            this.TxtAbono.Size = new System.Drawing.Size(116, 20);
+            this.TxtAbono.TabIndex = 56;
+            this.TxtAbono.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(193, 127);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(41, 13);
+            this.label30.TabIndex = 55;
+            this.label30.Text = "Abono:";
             // 
             // label47
             // 
             this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(16, 194);
+            this.label47.Location = new System.Drawing.Point(6, 104);
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(46, 13);
             this.label47.TabIndex = 54;
@@ -1186,7 +1206,7 @@
             // 
             // TxtNumeroFactura
             // 
-            this.TxtNumeroFactura.Location = new System.Drawing.Point(65, 191);
+            this.TxtNumeroFactura.Location = new System.Drawing.Point(55, 101);
             this.TxtNumeroFactura.Name = "TxtNumeroFactura";
             this.TxtNumeroFactura.Size = new System.Drawing.Size(116, 20);
             this.TxtNumeroFactura.TabIndex = 53;
@@ -1194,7 +1214,7 @@
             // ChkCortesia
             // 
             this.ChkCortesia.AutoSize = true;
-            this.ChkCortesia.Location = new System.Drawing.Point(97, 238);
+            this.ChkCortesia.Location = new System.Drawing.Point(87, 141);
             this.ChkCortesia.Name = "ChkCortesia";
             this.ChkCortesia.Size = new System.Drawing.Size(64, 17);
             this.ChkCortesia.TabIndex = 52;
@@ -1204,7 +1224,7 @@
             // label46
             // 
             this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(5, 127);
+            this.label46.Location = new System.Drawing.Point(179, 82);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(59, 13);
             this.label46.TabIndex = 51;
@@ -1212,7 +1232,7 @@
             // 
             // TxtCodigoDespacho
             // 
-            this.TxtCodigoDespacho.Location = new System.Drawing.Point(65, 124);
+            this.TxtCodigoDespacho.Location = new System.Drawing.Point(239, 79);
             this.TxtCodigoDespacho.Name = "TxtCodigoDespacho";
             this.TxtCodigoDespacho.Size = new System.Drawing.Size(116, 20);
             this.TxtCodigoDespacho.TabIndex = 50;
@@ -1220,7 +1240,7 @@
             // ChkEstadoAnulado
             // 
             this.ChkEstadoAnulado.AutoSize = true;
-            this.ChkEstadoAnulado.Location = new System.Drawing.Point(97, 287);
+            this.ChkEstadoAnulado.Location = new System.Drawing.Point(87, 190);
             this.ChkEstadoAnulado.Name = "ChkEstadoAnulado";
             this.ChkEstadoAnulado.Size = new System.Drawing.Size(65, 17);
             this.ChkEstadoAnulado.TabIndex = 49;
@@ -1230,7 +1250,7 @@
             // ChkEstadoFacturado
             // 
             this.ChkEstadoFacturado.AutoSize = true;
-            this.ChkEstadoFacturado.Location = new System.Drawing.Point(97, 304);
+            this.ChkEstadoFacturado.Location = new System.Drawing.Point(87, 207);
             this.ChkEstadoFacturado.Name = "ChkEstadoFacturado";
             this.ChkEstadoFacturado.Size = new System.Drawing.Size(74, 17);
             this.ChkEstadoFacturado.TabIndex = 48;
@@ -1240,7 +1260,7 @@
             // ChkEstadoFacturaGenerada
             // 
             this.ChkEstadoFacturaGenerada.AutoSize = true;
-            this.ChkEstadoFacturaGenerada.Location = new System.Drawing.Point(16, 307);
+            this.ChkEstadoFacturaGenerada.Location = new System.Drawing.Point(6, 210);
             this.ChkEstadoFacturaGenerada.Name = "ChkEstadoFacturaGenerada";
             this.ChkEstadoFacturaGenerada.Size = new System.Drawing.Size(75, 17);
             this.ChkEstadoFacturaGenerada.TabIndex = 47;
@@ -1250,7 +1270,7 @@
             // ChkEstadoCumplido
             // 
             this.ChkEstadoCumplido.AutoSize = true;
-            this.ChkEstadoCumplido.Location = new System.Drawing.Point(16, 290);
+            this.ChkEstadoCumplido.Location = new System.Drawing.Point(6, 193);
             this.ChkEstadoCumplido.Name = "ChkEstadoCumplido";
             this.ChkEstadoCumplido.Size = new System.Drawing.Size(69, 17);
             this.ChkEstadoCumplido.TabIndex = 46;
@@ -1260,7 +1280,7 @@
             // ChkEstadoSoporte
             // 
             this.ChkEstadoSoporte.AutoSize = true;
-            this.ChkEstadoSoporte.Location = new System.Drawing.Point(97, 270);
+            this.ChkEstadoSoporte.Location = new System.Drawing.Point(87, 173);
             this.ChkEstadoSoporte.Name = "ChkEstadoSoporte";
             this.ChkEstadoSoporte.Size = new System.Drawing.Size(63, 17);
             this.ChkEstadoSoporte.TabIndex = 45;
@@ -1270,7 +1290,7 @@
             // ChkEstadoEntregado
             // 
             this.ChkEstadoEntregado.AutoSize = true;
-            this.ChkEstadoEntregado.Location = new System.Drawing.Point(16, 273);
+            this.ChkEstadoEntregado.Location = new System.Drawing.Point(6, 176);
             this.ChkEstadoEntregado.Name = "ChkEstadoEntregado";
             this.ChkEstadoEntregado.Size = new System.Drawing.Size(75, 17);
             this.ChkEstadoEntregado.TabIndex = 44;
@@ -1280,7 +1300,7 @@
             // ChkEstadoDespachado
             // 
             this.ChkEstadoDespachado.AutoSize = true;
-            this.ChkEstadoDespachado.Location = new System.Drawing.Point(97, 254);
+            this.ChkEstadoDespachado.Location = new System.Drawing.Point(87, 157);
             this.ChkEstadoDespachado.Name = "ChkEstadoDespachado";
             this.ChkEstadoDespachado.Size = new System.Drawing.Size(87, 17);
             this.ChkEstadoDespachado.TabIndex = 43;
@@ -1290,7 +1310,7 @@
             // ChkEstadoEmbarcado
             // 
             this.ChkEstadoEmbarcado.AutoSize = true;
-            this.ChkEstadoEmbarcado.Location = new System.Drawing.Point(16, 256);
+            this.ChkEstadoEmbarcado.Location = new System.Drawing.Point(6, 159);
             this.ChkEstadoEmbarcado.Name = "ChkEstadoEmbarcado";
             this.ChkEstadoEmbarcado.Size = new System.Drawing.Size(80, 17);
             this.ChkEstadoEmbarcado.TabIndex = 42;
@@ -1300,7 +1320,7 @@
             // ChkEstadoImpreso
             // 
             this.ChkEstadoImpreso.AutoSize = true;
-            this.ChkEstadoImpreso.Location = new System.Drawing.Point(16, 239);
+            this.ChkEstadoImpreso.Location = new System.Drawing.Point(6, 142);
             this.ChkEstadoImpreso.Name = "ChkEstadoImpreso";
             this.ChkEstadoImpreso.Size = new System.Drawing.Size(63, 17);
             this.ChkEstadoImpreso.TabIndex = 41;
@@ -1310,7 +1330,7 @@
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(18, 172);
+            this.label31.Location = new System.Drawing.Point(192, 104);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(46, 13);
             this.label31.TabIndex = 25;
@@ -1318,7 +1338,7 @@
             // 
             // TxtUsuario
             // 
-            this.TxtUsuario.Location = new System.Drawing.Point(65, 169);
+            this.TxtUsuario.Location = new System.Drawing.Point(239, 101);
             this.TxtUsuario.Name = "TxtUsuario";
             this.TxtUsuario.Size = new System.Drawing.Size(116, 20);
             this.TxtUsuario.TabIndex = 24;
@@ -1327,7 +1347,7 @@
             // 
             this.ChkReexpedicion.AutoSize = true;
             this.ChkReexpedicion.Enabled = false;
-            this.ChkReexpedicion.Location = new System.Drawing.Point(97, 224);
+            this.ChkReexpedicion.Location = new System.Drawing.Point(87, 127);
             this.ChkReexpedicion.Name = "ChkReexpedicion";
             this.ChkReexpedicion.Size = new System.Drawing.Size(91, 17);
             this.ChkReexpedicion.TabIndex = 23;
@@ -1337,7 +1357,7 @@
             // ChkFactura
             // 
             this.ChkFactura.AutoSize = true;
-            this.ChkFactura.Location = new System.Drawing.Point(16, 224);
+            this.ChkFactura.Location = new System.Drawing.Point(6, 127);
             this.ChkFactura.Name = "ChkFactura";
             this.ChkFactura.Size = new System.Drawing.Size(62, 17);
             this.ChkFactura.TabIndex = 21;
@@ -1347,7 +1367,7 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(17, 37);
+            this.label28.Location = new System.Drawing.Point(6, 37);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(47, 13);
             this.label28.TabIndex = 13;
@@ -1355,21 +1375,21 @@
             // 
             // TxtNumero
             // 
-            this.TxtNumero.Location = new System.Drawing.Point(65, 35);
+            this.TxtNumero.Location = new System.Drawing.Point(54, 35);
             this.TxtNumero.Name = "TxtNumero";
             this.TxtNumero.Size = new System.Drawing.Size(116, 20);
             this.TxtNumero.TabIndex = 12;
             // 
             // TxtOperacionIngreso
             // 
-            this.TxtOperacionIngreso.Location = new System.Drawing.Point(65, 147);
+            this.TxtOperacionIngreso.Location = new System.Drawing.Point(55, 57);
             this.TxtOperacionIngreso.Name = "TxtOperacionIngreso";
             this.TxtOperacionIngreso.Size = new System.Drawing.Size(40, 20);
             this.TxtOperacionIngreso.TabIndex = 11;
             // 
             // TxtOperacionCargo
             // 
-            this.TxtOperacionCargo.Location = new System.Drawing.Point(142, 147);
+            this.TxtOperacionCargo.Location = new System.Drawing.Point(132, 57);
             this.TxtOperacionCargo.Name = "TxtOperacionCargo";
             this.TxtOperacionCargo.Size = new System.Drawing.Size(39, 20);
             this.TxtOperacionCargo.TabIndex = 10;
@@ -1377,7 +1397,7 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(115, 150);
+            this.label25.Location = new System.Drawing.Point(105, 60);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(25, 13);
             this.label25.TabIndex = 9;
@@ -1386,7 +1406,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(41, 150);
+            this.label24.Location = new System.Drawing.Point(31, 60);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(21, 13);
             this.label24.TabIndex = 8;
@@ -1394,21 +1414,21 @@
             // 
             // TxtFechaEntrega
             // 
-            this.TxtFechaEntrega.Location = new System.Drawing.Point(65, 102);
+            this.TxtFechaEntrega.Location = new System.Drawing.Point(239, 57);
             this.TxtFechaEntrega.Name = "TxtFechaEntrega";
             this.TxtFechaEntrega.Size = new System.Drawing.Size(116, 20);
             this.TxtFechaEntrega.TabIndex = 7;
             // 
             // TxtFechaDespacho
             // 
-            this.TxtFechaDespacho.Location = new System.Drawing.Point(65, 79);
+            this.TxtFechaDespacho.Location = new System.Drawing.Point(239, 34);
             this.TxtFechaDespacho.Name = "TxtFechaDespacho";
             this.TxtFechaDespacho.Size = new System.Drawing.Size(116, 20);
             this.TxtFechaDespacho.TabIndex = 6;
             // 
             // TxtFechaIngreso
             // 
-            this.TxtFechaIngreso.Location = new System.Drawing.Point(65, 57);
+            this.TxtFechaIngreso.Location = new System.Drawing.Point(239, 12);
             this.TxtFechaIngreso.Name = "TxtFechaIngreso";
             this.TxtFechaIngreso.Size = new System.Drawing.Size(116, 20);
             this.TxtFechaIngreso.TabIndex = 5;
@@ -1416,7 +1436,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(15, 102);
+            this.label23.Location = new System.Drawing.Point(189, 57);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(47, 13);
             this.label23.TabIndex = 4;
@@ -1425,7 +1445,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(15, 81);
+            this.label22.Location = new System.Drawing.Point(189, 36);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(47, 13);
             this.label22.TabIndex = 3;
@@ -1434,7 +1454,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(19, 58);
+            this.label21.Location = new System.Drawing.Point(193, 13);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(45, 13);
             this.label21.TabIndex = 2;
@@ -1442,7 +1462,7 @@
             // 
             // TxtCodigo
             // 
-            this.TxtCodigo.Location = new System.Drawing.Point(65, 13);
+            this.TxtCodigo.Location = new System.Drawing.Point(54, 13);
             this.TxtCodigo.Name = "TxtCodigo";
             this.TxtCodigo.Size = new System.Drawing.Size(116, 20);
             this.TxtCodigo.TabIndex = 1;
@@ -1450,7 +1470,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(31, 16);
+            this.label20.Location = new System.Drawing.Point(20, 16);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(32, 13);
             this.label20.TabIndex = 0;
@@ -1486,6 +1506,12 @@
             // 
             // GbCondiciones
             // 
+            this.GbCondiciones.Controls.Add(this.TxtManejoMinimoDespacho);
+            this.GbCondiciones.Controls.Add(this.TxtManejoMinimoUnidad);
+            this.GbCondiciones.Controls.Add(this.TxtPorcentajeManejo);
+            this.GbCondiciones.Controls.Add(this.label36);
+            this.GbCondiciones.Controls.Add(this.label35);
+            this.GbCondiciones.Controls.Add(this.label34);
             this.GbCondiciones.Controls.Add(this.ChkPagoCortesia);
             this.GbCondiciones.Controls.Add(this.ChkPagoRecogida);
             this.GbCondiciones.Controls.Add(this.ChkPagoCredito);
@@ -1497,61 +1523,112 @@
             this.GbCondiciones.Controls.Add(this.label33);
             this.GbCondiciones.Controls.Add(this.ChkListaGeneral);
             this.GbCondiciones.Enabled = false;
-            this.GbCondiciones.Location = new System.Drawing.Point(552, 351);
+            this.GbCondiciones.Location = new System.Drawing.Point(553, 259);
             this.GbCondiciones.Name = "GbCondiciones";
-            this.GbCondiciones.Size = new System.Drawing.Size(208, 103);
+            this.GbCondiciones.Size = new System.Drawing.Size(360, 103);
             this.GbCondiciones.TabIndex = 28;
             this.GbCondiciones.TabStop = false;
-            this.GbCondiciones.Text = "Condicion";
+            this.GbCondiciones.Text = "Condicion general cliente";
             this.GbCondiciones.Visible = false;
+            // 
+            // TxtManejoMinimoDespacho
+            // 
+            this.TxtManejoMinimoDespacho.Location = new System.Drawing.Point(197, 56);
+            this.TxtManejoMinimoDespacho.Name = "TxtManejoMinimoDespacho";
+            this.TxtManejoMinimoDespacho.Size = new System.Drawing.Size(49, 20);
+            this.TxtManejoMinimoDespacho.TabIndex = 31;
+            this.TxtManejoMinimoDespacho.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // TxtManejoMinimoUnidad
+            // 
+            this.TxtManejoMinimoUnidad.Location = new System.Drawing.Point(197, 34);
+            this.TxtManejoMinimoUnidad.Name = "TxtManejoMinimoUnidad";
+            this.TxtManejoMinimoUnidad.Size = new System.Drawing.Size(49, 20);
+            this.TxtManejoMinimoUnidad.TabIndex = 30;
+            this.TxtManejoMinimoUnidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // TxtPorcentajeManejo
+            // 
+            this.TxtPorcentajeManejo.Location = new System.Drawing.Point(197, 12);
+            this.TxtPorcentajeManejo.Name = "TxtPorcentajeManejo";
+            this.TxtPorcentajeManejo.Size = new System.Drawing.Size(49, 20);
+            this.TxtPorcentajeManejo.TabIndex = 29;
+            this.TxtPorcentajeManejo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(138, 57);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(59, 13);
+            this.label36.TabIndex = 28;
+            this.label36.Text = "Despacho:";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(153, 36);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(43, 13);
+            this.label35.TabIndex = 27;
+            this.label35.Text = "Minimo:";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(148, 15);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(45, 13);
+            this.label34.TabIndex = 26;
+            this.label34.Text = "Manejo:";
             // 
             // ChkPagoCortesia
             // 
             this.ChkPagoCortesia.AutoSize = true;
-            this.ChkPagoCortesia.Location = new System.Drawing.Point(128, 58);
+            this.ChkPagoCortesia.Location = new System.Drawing.Point(283, 60);
             this.ChkPagoCortesia.Name = "ChkPagoCortesia";
             this.ChkPagoCortesia.Size = new System.Drawing.Size(64, 17);
-            this.ChkPagoCortesia.TabIndex = 15;
+            this.ChkPagoCortesia.TabIndex = 25;
             this.ChkPagoCortesia.Text = "Cortesia";
             this.ChkPagoCortesia.UseVisualStyleBackColor = true;
             // 
             // ChkPagoRecogida
             // 
             this.ChkPagoRecogida.AutoSize = true;
-            this.ChkPagoRecogida.Location = new System.Drawing.Point(128, 74);
+            this.ChkPagoRecogida.Location = new System.Drawing.Point(283, 76);
             this.ChkPagoRecogida.Name = "ChkPagoRecogida";
             this.ChkPagoRecogida.Size = new System.Drawing.Size(72, 17);
-            this.ChkPagoRecogida.TabIndex = 14;
+            this.ChkPagoRecogida.TabIndex = 24;
             this.ChkPagoRecogida.Text = "Recogida";
             this.ChkPagoRecogida.UseVisualStyleBackColor = true;
             // 
             // ChkPagoCredito
             // 
             this.ChkPagoCredito.AutoSize = true;
-            this.ChkPagoCredito.Location = new System.Drawing.Point(128, 11);
+            this.ChkPagoCredito.Location = new System.Drawing.Point(283, 13);
             this.ChkPagoCredito.Name = "ChkPagoCredito";
             this.ChkPagoCredito.Size = new System.Drawing.Size(59, 17);
-            this.ChkPagoCredito.TabIndex = 13;
+            this.ChkPagoCredito.TabIndex = 23;
             this.ChkPagoCredito.Text = "Credito";
             this.ChkPagoCredito.UseVisualStyleBackColor = true;
             // 
             // ChkPagoContado
             // 
             this.ChkPagoContado.AutoSize = true;
-            this.ChkPagoContado.Location = new System.Drawing.Point(128, 27);
+            this.ChkPagoContado.Location = new System.Drawing.Point(283, 29);
             this.ChkPagoContado.Name = "ChkPagoContado";
             this.ChkPagoContado.Size = new System.Drawing.Size(66, 17);
-            this.ChkPagoContado.TabIndex = 12;
+            this.ChkPagoContado.TabIndex = 22;
             this.ChkPagoContado.Text = "Contado";
             this.ChkPagoContado.UseVisualStyleBackColor = true;
             // 
             // ChkPagoDestino
             // 
             this.ChkPagoDestino.AutoSize = true;
-            this.ChkPagoDestino.Location = new System.Drawing.Point(128, 43);
+            this.ChkPagoDestino.Location = new System.Drawing.Point(283, 45);
             this.ChkPagoDestino.Name = "ChkPagoDestino";
             this.ChkPagoDestino.Size = new System.Drawing.Size(62, 17);
-            this.ChkPagoDestino.TabIndex = 11;
+            this.ChkPagoDestino.TabIndex = 21;
             this.ChkPagoDestino.Text = "Destino";
             this.ChkPagoDestino.UseVisualStyleBackColor = true;
             // 
@@ -1599,15 +1676,6 @@
             this.ChkListaGeneral.Text = "Precio general";
             this.ChkListaGeneral.UseVisualStyleBackColor = true;
             // 
-            // LblPrecioDetalle
-            // 
-            this.LblPrecioDetalle.AutoSize = true;
-            this.LblPrecioDetalle.Location = new System.Drawing.Point(15, 479);
-            this.LblPrecioDetalle.Name = "LblPrecioDetalle";
-            this.LblPrecioDetalle.Size = new System.Drawing.Size(16, 13);
-            this.LblPrecioDetalle.TabIndex = 29;
-            this.LblPrecioDetalle.Text = "...";
-            // 
             // GbPrecioDetalle
             // 
             this.GbPrecioDetalle.Controls.Add(this.TxtVrAdicional);
@@ -1623,11 +1691,12 @@
             this.GbPrecioDetalle.Controls.Add(this.label39);
             this.GbPrecioDetalle.Controls.Add(this.label38);
             this.GbPrecioDetalle.Enabled = false;
-            this.GbPrecioDetalle.Location = new System.Drawing.Point(552, 456);
+            this.GbPrecioDetalle.Location = new System.Drawing.Point(553, 499);
             this.GbPrecioDetalle.Name = "GbPrecioDetalle";
-            this.GbPrecioDetalle.Size = new System.Drawing.Size(239, 80);
+            this.GbPrecioDetalle.Size = new System.Drawing.Size(239, 117);
             this.GbPrecioDetalle.TabIndex = 30;
             this.GbPrecioDetalle.TabStop = false;
+            this.GbPrecioDetalle.Text = "Lista";
             this.GbPrecioDetalle.Visible = false;
             // 
             // TxtVrAdicional
@@ -1732,91 +1801,212 @@
             this.label38.TabIndex = 0;
             this.label38.Text = "VrAdi:";
             // 
-            // GdManejo
+            // GbCondicionEspecial
             // 
-            this.GdManejo.Controls.Add(this.TxtManejoMinimoDespacho);
-            this.GdManejo.Controls.Add(this.TxtManejoMinimoUnidad);
-            this.GdManejo.Controls.Add(this.TxtPorcentajeManejo);
-            this.GdManejo.Controls.Add(this.label36);
-            this.GdManejo.Controls.Add(this.label35);
-            this.GdManejo.Controls.Add(this.label34);
-            this.GdManejo.Enabled = false;
-            this.GdManejo.Location = new System.Drawing.Point(767, 351);
-            this.GdManejo.Name = "GdManejo";
-            this.GdManejo.Size = new System.Drawing.Size(133, 103);
-            this.GdManejo.TabIndex = 31;
-            this.GdManejo.TabStop = false;
-            this.GdManejo.Text = "Manejo";
-            this.GdManejo.Visible = false;
+            this.GbCondicionEspecial.Controls.Add(this.label57);
+            this.GbCondicionEspecial.Controls.Add(this.label56);
+            this.GbCondicionEspecial.Controls.Add(this.label55);
+            this.GbCondicionEspecial.Controls.Add(this.label54);
+            this.GbCondicionEspecial.Controls.Add(this.label53);
+            this.GbCondicionEspecial.Controls.Add(this.label52);
+            this.GbCondicionEspecial.Controls.Add(this.TxtFleteFleteMinimo);
+            this.GbCondicionEspecial.Controls.Add(this.TxtFleteFleteMinimoGuia);
+            this.GbCondicionEspecial.Controls.Add(this.TxtFletePesoMinimoGuia);
+            this.GbCondicionEspecial.Controls.Add(this.TxtFletePesoMinimo);
+            this.GbCondicionEspecial.Controls.Add(this.TxtFleteDescuentoUnidad);
+            this.GbCondicionEspecial.Controls.Add(this.TxtFleteDescuentoPeso);
+            this.GbCondicionEspecial.Enabled = false;
+            this.GbCondicionEspecial.Location = new System.Drawing.Point(553, 368);
+            this.GbCondicionEspecial.Name = "GbCondicionEspecial";
+            this.GbCondicionEspecial.Size = new System.Drawing.Size(360, 131);
+            this.GbCondicionEspecial.TabIndex = 32;
+            this.GbCondicionEspecial.TabStop = false;
+            this.GbCondicionEspecial.Text = "Condicion especial flete";
+            this.GbCondicionEspecial.Visible = false;
             // 
-            // TxtManejoMinimoDespacho
+            // label57
             // 
-            this.TxtManejoMinimoDespacho.Location = new System.Drawing.Point(69, 58);
-            this.TxtManejoMinimoDespacho.Name = "TxtManejoMinimoDespacho";
-            this.TxtManejoMinimoDespacho.Size = new System.Drawing.Size(49, 20);
-            this.TxtManejoMinimoDespacho.TabIndex = 15;
-            this.TxtManejoMinimoDespacho.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.label57.AutoSize = true;
+            this.label57.Location = new System.Drawing.Point(128, 90);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(81, 13);
+            this.label57.TabIndex = 11;
+            this.label57.Text = "Flete min (guia):";
             // 
-            // TxtManejoMinimoUnidad
+            // label56
             // 
-            this.TxtManejoMinimoUnidad.Location = new System.Drawing.Point(69, 36);
-            this.TxtManejoMinimoUnidad.Name = "TxtManejoMinimoUnidad";
-            this.TxtManejoMinimoUnidad.Size = new System.Drawing.Size(49, 20);
-            this.TxtManejoMinimoUnidad.TabIndex = 14;
-            this.TxtManejoMinimoUnidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(157, 68);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(52, 13);
+            this.label56.TabIndex = 10;
+            this.label56.Text = "Flete min:";
             // 
-            // TxtPorcentajeManejo
+            // label55
             // 
-            this.TxtPorcentajeManejo.Location = new System.Drawing.Point(69, 14);
-            this.TxtPorcentajeManejo.Name = "TxtPorcentajeManejo";
-            this.TxtPorcentajeManejo.Size = new System.Drawing.Size(49, 20);
-            this.TxtPorcentajeManejo.TabIndex = 13;
-            this.TxtPorcentajeManejo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(127, 43);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(82, 13);
+            this.label55.TabIndex = 9;
+            this.label55.Text = "Peso min (guia):";
             // 
-            // label36
+            // label54
             // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(10, 59);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(59, 13);
-            this.label36.TabIndex = 12;
-            this.label36.Text = "Despacho:";
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(140, 20);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(69, 13);
+            this.label54.TabIndex = 8;
+            this.label54.Text = "Peso minimo:";
             // 
-            // label35
+            // label53
             // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(25, 38);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(43, 13);
-            this.label35.TabIndex = 11;
-            this.label35.Text = "Minimo:";
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(4, 41);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(64, 13);
+            this.label53.TabIndex = 7;
+            this.label53.Text = "Des unidad:";
             // 
-            // label34
+            // label52
             // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(8, 17);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(61, 13);
-            this.label34.TabIndex = 10;
-            this.label34.Text = "Porcentaje:";
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(5, 20);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(55, 13);
+            this.label52.TabIndex = 6;
+            this.label52.Text = "Des peso:";
             // 
-            // TxtCodigoDestinatario
+            // TxtFleteFleteMinimo
             // 
-            this.TxtCodigoDestinatario.Enabled = false;
-            this.TxtCodigoDestinatario.Location = new System.Drawing.Point(482, 34);
-            this.TxtCodigoDestinatario.Name = "TxtCodigoDestinatario";
-            this.TxtCodigoDestinatario.Size = new System.Drawing.Size(35, 20);
-            this.TxtCodigoDestinatario.TabIndex = 28;
+            this.TxtFleteFleteMinimo.Location = new System.Drawing.Point(212, 64);
+            this.TxtFleteFleteMinimo.Name = "TxtFleteFleteMinimo";
+            this.TxtFleteFleteMinimo.Size = new System.Drawing.Size(82, 20);
+            this.TxtFleteFleteMinimo.TabIndex = 5;
+            this.TxtFleteFleteMinimo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // TxtFleteFleteMinimoGuia
+            // 
+            this.TxtFleteFleteMinimoGuia.Location = new System.Drawing.Point(212, 87);
+            this.TxtFleteFleteMinimoGuia.Name = "TxtFleteFleteMinimoGuia";
+            this.TxtFleteFleteMinimoGuia.Size = new System.Drawing.Size(82, 20);
+            this.TxtFleteFleteMinimoGuia.TabIndex = 4;
+            this.TxtFleteFleteMinimoGuia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // TxtFletePesoMinimoGuia
+            // 
+            this.TxtFletePesoMinimoGuia.Location = new System.Drawing.Point(212, 41);
+            this.TxtFletePesoMinimoGuia.Name = "TxtFletePesoMinimoGuia";
+            this.TxtFletePesoMinimoGuia.Size = new System.Drawing.Size(82, 20);
+            this.TxtFletePesoMinimoGuia.TabIndex = 3;
+            this.TxtFletePesoMinimoGuia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // TxtFletePesoMinimo
+            // 
+            this.TxtFletePesoMinimo.Location = new System.Drawing.Point(212, 18);
+            this.TxtFletePesoMinimo.Name = "TxtFletePesoMinimo";
+            this.TxtFletePesoMinimo.Size = new System.Drawing.Size(82, 20);
+            this.TxtFletePesoMinimo.TabIndex = 2;
+            this.TxtFletePesoMinimo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // TxtFleteDescuentoUnidad
+            // 
+            this.TxtFleteDescuentoUnidad.Location = new System.Drawing.Point(68, 38);
+            this.TxtFleteDescuentoUnidad.Name = "TxtFleteDescuentoUnidad";
+            this.TxtFleteDescuentoUnidad.Size = new System.Drawing.Size(49, 20);
+            this.TxtFleteDescuentoUnidad.TabIndex = 1;
+            this.TxtFleteDescuentoUnidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // TxtFleteDescuentoPeso
+            // 
+            this.TxtFleteDescuentoPeso.Location = new System.Drawing.Point(68, 16);
+            this.TxtFleteDescuentoPeso.Name = "TxtFleteDescuentoPeso";
+            this.TxtFleteDescuentoPeso.Size = new System.Drawing.Size(50, 20);
+            this.TxtFleteDescuentoPeso.TabIndex = 0;
+            this.TxtFleteDescuentoPeso.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.LvPrecioDetalle);
+            this.groupBox2.Enabled = false;
+            this.groupBox2.Location = new System.Drawing.Point(18, 499);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(528, 117);
+            this.groupBox2.TabIndex = 34;
+            this.groupBox2.TabStop = false;
+            // 
+            // LvPrecioDetalle
+            // 
+            this.LvPrecioDetalle.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ClmCodigoPrecioDetallePk,
+            this.CmlProducto,
+            this.ClmVrPeso,
+            this.ClmVrUnidad,
+            this.ClmVrPesoTope,
+            this.ClmPesoTope,
+            this.ClmVrAdicional,
+            this.ClmMinimo});
+            this.LvPrecioDetalle.Location = new System.Drawing.Point(5, 13);
+            this.LvPrecioDetalle.Name = "LvPrecioDetalle";
+            this.LvPrecioDetalle.Size = new System.Drawing.Size(511, 95);
+            this.LvPrecioDetalle.TabIndex = 34;
+            this.LvPrecioDetalle.UseCompatibleStateImageBehavior = false;
+            this.LvPrecioDetalle.View = System.Windows.Forms.View.Details;
+            // 
+            // ClmCodigoPrecioDetallePk
+            // 
+            this.ClmCodigoPrecioDetallePk.Text = "ID";
+            this.ClmCodigoPrecioDetallePk.Width = 40;
+            // 
+            // CmlProducto
+            // 
+            this.CmlProducto.Text = "Producto";
+            this.CmlProducto.Width = 160;
+            // 
+            // ClmVrPeso
+            // 
+            this.ClmVrPeso.Text = "Peso";
+            this.ClmVrPeso.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ClmVrPeso.Width = 40;
+            // 
+            // ClmVrUnidad
+            // 
+            this.ClmVrUnidad.Text = "Und";
+            this.ClmVrUnidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ClmVrUnidad.Width = 40;
+            // 
+            // ClmVrPesoTope
+            // 
+            this.ClmVrPesoTope.Text = "VrTope";
+            this.ClmVrPesoTope.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // ClmPesoTope
+            // 
+            this.ClmPesoTope.Text = "Tope";
+            this.ClmPesoTope.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ClmPesoTope.Width = 40;
+            // 
+            // ClmVrAdicional
+            // 
+            this.ClmVrAdicional.Text = "VrAd";
+            this.ClmVrAdicional.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // ClmMinimo
+            // 
+            this.ClmMinimo.Text = "Min";
+            this.ClmMinimo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ClmMinimo.Width = 40;
             // 
             // FrmGuia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1183, 713);
+            this.ClientSize = new System.Drawing.Size(985, 696);
             this.ControlBox = false;
-            this.Controls.Add(this.GdManejo);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.GbCondicionEspecial);
             this.Controls.Add(this.GbPrecioDetalle);
-            this.Controls.Add(this.LblPrecioDetalle);
             this.Controls.Add(this.GbCondiciones);
             this.Controls.Add(this.gbComentario);
             this.Controls.Add(this.gbDatos);
@@ -1851,8 +2041,9 @@
             this.GbCondiciones.PerformLayout();
             this.GbPrecioDetalle.ResumeLayout(false);
             this.GbPrecioDetalle.PerformLayout();
-            this.GdManejo.ResumeLayout(false);
-            this.GdManejo.PerformLayout();
+            this.GbCondicionEspecial.ResumeLayout(false);
+            this.GbCondicionEspecial.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1947,7 +2138,6 @@
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
 		private System.Windows.Forms.ToolStripButton TsbRecibo;
 		private System.Windows.Forms.ToolStripButton TsbVistaPrevia;
-		private System.Windows.Forms.Label label30;
 		private System.Windows.Forms.Label label31;
 		private System.Windows.Forms.TextBox TxtUsuario;
 		private System.Windows.Forms.Label label32;
@@ -1972,11 +2162,9 @@
 		private System.Windows.Forms.TextBox TxtDescuentoPeso;
 		private System.Windows.Forms.TextBox TxtPesoMinimo;
 		private System.Windows.Forms.Label label37;
-		private System.Windows.Forms.TextBox TxtAbono;
 		private System.Windows.Forms.RadioButton RbUnidad;
 		private System.Windows.Forms.RadioButton RbPeso;
 		private System.Windows.Forms.RadioButton RbAdicional;
-		private System.Windows.Forms.Label LblPrecioDetalle;
 		private System.Windows.Forms.GroupBox GbPrecioDetalle;
 		private System.Windows.Forms.TextBox TxtVrAdicional;
 		private System.Windows.Forms.TextBox TxtPesoMinimoPrecio;
@@ -2003,25 +2191,48 @@
 		private System.Windows.Forms.CheckBox ChkMercanciaPeligrosa;
 		private System.Windows.Forms.Label label47;
 		private System.Windows.Forms.TextBox TxtNumeroFactura;
-		private System.Windows.Forms.CheckBox ChkPagoCredito;
-		private System.Windows.Forms.CheckBox ChkPagoContado;
-		private System.Windows.Forms.CheckBox ChkPagoDestino;
-		private System.Windows.Forms.GroupBox GdManejo;
-		private System.Windows.Forms.TextBox TxtManejoMinimoDespacho;
-		private System.Windows.Forms.TextBox TxtManejoMinimoUnidad;
-		private System.Windows.Forms.TextBox TxtPorcentajeManejo;
-		private System.Windows.Forms.Label label36;
-		private System.Windows.Forms.Label label35;
-		private System.Windows.Forms.Label label34;
-		private System.Windows.Forms.CheckBox ChkPagoCortesia;
-		private System.Windows.Forms.CheckBox ChkPagoRecogida;
-        private System.Windows.Forms.TextBox TxtDescuentoPesoZona;
-        private System.Windows.Forms.Label label51;
         private System.Windows.Forms.TextBox TxtCodigoZona;
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.TextBox TxtCodigoDestinatario;
+        private System.Windows.Forms.CheckBox ChkPagoCortesia;
+        private System.Windows.Forms.CheckBox ChkPagoRecogida;
+        private System.Windows.Forms.CheckBox ChkPagoCredito;
+        private System.Windows.Forms.CheckBox ChkPagoContado;
+        private System.Windows.Forms.CheckBox ChkPagoDestino;
+        private System.Windows.Forms.GroupBox GbCondicionEspecial;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.TextBox TxtFleteFleteMinimo;
+        private System.Windows.Forms.TextBox TxtFleteFleteMinimoGuia;
+        private System.Windows.Forms.TextBox TxtFletePesoMinimoGuia;
+        private System.Windows.Forms.TextBox TxtFletePesoMinimo;
+        private System.Windows.Forms.TextBox TxtFleteDescuentoUnidad;
+        private System.Windows.Forms.TextBox TxtFleteDescuentoPeso;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.Label label57;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ListView LvPrecioDetalle;
+        private System.Windows.Forms.ColumnHeader ClmCodigoPrecioDetallePk;
+        private System.Windows.Forms.ColumnHeader ClmVrPeso;
+        private System.Windows.Forms.ColumnHeader ClmVrUnidad;
+        private System.Windows.Forms.ColumnHeader ClmVrPesoTope;
+        private System.Windows.Forms.ColumnHeader ClmPesoTope;
+        private System.Windows.Forms.ColumnHeader ClmVrAdicional;
+        private System.Windows.Forms.ColumnHeader ClmMinimo;
+        private System.Windows.Forms.TextBox TxtAbono;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.ColumnHeader CmlProducto;
+        private System.Windows.Forms.TextBox TxtManejoMinimoDespacho;
+        private System.Windows.Forms.TextBox TxtManejoMinimoUnidad;
+        private System.Windows.Forms.TextBox TxtPorcentajeManejo;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Button BtnVerCliente;
     }
 }
 

@@ -25,7 +25,8 @@ namespace cromo
         string ultimoProducto = "";
         string ultimoEmpaque = "";
 
-        int pesoMinimoCondicion = 0;
+        int pesoMinimo = 0;
+        int pesoMinimoGuia = 0;
         double porcentajeManejo = 0;
         double manejoMinimoUnidad = 0;
         double manejoMinimoDespacho = 0;
@@ -429,13 +430,13 @@ namespace cromo
             TxtVrUnidad.Text = "0";
             TxtTope.Text = "0";
             TxtPesoMinimoPrecio.Text = "0";
-            LblPrecioDetalle.Text = "";
+            LvPrecioDetalle.Items.Clear();
             ChkLiquidado.Checked = false;
             RbPeso.Checked = false;
             RbUnidad.Checked = false;
             RbAdicional.Checked = false;
             TxtUsuario.Text = "";
-            TxtDescuentoPesoZona.Text = "0";
+            
         }
 
         public void Desbloquear()
@@ -462,6 +463,7 @@ namespace cromo
             gbComentario.Enabled = true;
             GbPrecioDetalle.Visible = true;
             GbCondiciones.Visible = true;
+            GbCondicionEspecial.Visible = true;
         }
 
         public void Bloquear()
@@ -487,8 +489,8 @@ namespace cromo
             gbInformacion.Enabled = false;
             gbComentario.Enabled = false;
             GbPrecioDetalle.Visible = false;
-            GbCondiciones.Visible = false;
-            LblPrecioDetalle.Text = "";
+            GbCondicionEspecial.Visible = false;
+            LvPrecioDetalle.Items.Clear();
         }
 
         private void TxtCodigoCliente_KeyPress(object sender, KeyPressEventArgs e)
@@ -564,6 +566,7 @@ namespace cromo
                         ChkPagoDestino.Checked = apiCliente.guiaPagoDestino;
                         ChkPagoCortesia.Checked = apiCliente.guiaPagoCortesia;
                         ChkPagoRecogida.Checked = apiCliente.guiaPagoRecogida;
+                                               
                     }
                 }
 
@@ -605,28 +608,45 @@ namespace cromo
                     parametrosJson = "{\"precio\":\"" + codigoPrecio + "\", \"origen\":\"" + TxtCodigoCiudadOrigen.Text + "\", \"destino\":\"" + TxtCodigoCiudadDestino.Text + "\"}";
                     jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/preciodetalle/detalle", parametrosJson);
                     List<ApiPrecioDetalle> apiPrecioDetalleLista = ser.Deserialize<List<ApiPrecioDetalle>>(jsonRespuesta);
-                    string texto = "";
                     foreach (ApiPrecioDetalle apiPrecioDetalle in apiPrecioDetalleLista)
                     {
-                        texto = texto + "Producto: " + apiPrecioDetalle.productoNombre + " Pes:" + apiPrecioDetalle.vrPeso +
-                            " Und:" + apiPrecioDetalle.vrUnidad + " Tope:" + apiPrecioDetalle.pesoTope + " VrTope:" + apiPrecioDetalle.vrPesoTope +
-                            " VrAdc:" + apiPrecioDetalle.vrPesoTopeAdicional + " Min:" + apiPrecioDetalle.minimo + "\r\n";
+                        ListViewItem item = new ListViewItem(apiPrecioDetalle.codigoPrecioDetallePk);
+                        item.SubItems.Add(apiPrecioDetalle.productoNombre);
+                        item.SubItems.Add(apiPrecioDetalle.vrPeso.ToString());
+                        item.SubItems.Add(apiPrecioDetalle.vrUnidad.ToString());
+                        item.SubItems.Add(apiPrecioDetalle.pesoTope.ToString());
+                        item.SubItems.Add(apiPrecioDetalle.vrPesoTope.ToString());
+                        item.SubItems.Add(apiPrecioDetalle.vrPesoTopeAdicional.ToString());
+                        item.SubItems.Add(apiPrecioDetalle.minimo.ToString());
+                        LvPrecioDetalle.Items.Add(item);
                     }
-                    LblPrecioDetalle.Text = texto;
 
-                    if (apiCiudad.codigoZonaFk != "" && TxtCodigoCondicion.Text != "")
+                    if (TxtCodigoCliente.Text != "")
                     {
-                        parametrosJson = "{\"origen\":\"" + TxtCodigoCiudadOrigen.Text + "\", \"codigoZona\":\"" + TxtCodigoZona.Text + "\", \"codigoCondicion\":\"" + TxtCodigoCondicion.Text + "\"}";
-                        jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/descuentozona/detalle", parametrosJson);
-                        ApiDescuentoZona apiDescuentoZona = ser.Deserialize<ApiDescuentoZona>(jsonRespuesta);
-                        if (apiDescuentoZona.error == null)
+                        parametrosJson = "{\"codigoCliente\":\"" + TxtCodigoCliente.Text + "\",\"origen\":\"" + TxtCodigoCiudadOrigen.Text + "\", \"destino\":\"" + TxtCodigoCiudadDestino.Text + "\", \"codigoZona\":\"" + TxtCodigoZona.Text + "\"}";
+                        jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/condicionflete/liquidar", parametrosJson);
+                        ApiCondicionFlete apiCondicionFlete = ser.Deserialize<ApiCondicionFlete>(jsonRespuesta);
+                        if (apiCondicionFlete.error == null)
                         {
-                            TxtDescuentoPesoZona.Text = apiDescuentoZona.descuentoPeso.ToString();
+                            TxtFleteDescuentoPeso.Text = apiCondicionFlete.descuentoPeso.ToString();
+                            TxtFleteDescuentoUnidad.Text = apiCondicionFlete.descuentoUnidad.ToString();
+                            TxtFletePesoMinimo.Text = apiCondicionFlete.pesoMinimo.ToString();
+                            TxtFletePesoMinimoGuia.Text = apiCondicionFlete.pesoMinimoGuia.ToString();
+                            TxtFleteFleteMinimo.Text = apiCondicionFlete.fleteMinimo.ToString();
+                            TxtFleteFleteMinimoGuia.Text = apiCondicionFlete.fleteMinimoGuia.ToString();
+                            pesoMinimo = apiCondicionFlete.pesoMinimo;
+                            pesoMinimoGuia = apiCondicionFlete.pesoMinimoGuia;
+                            descuentoPeso = apiCondicionFlete.descuentoPeso;
                         }
                     }
                     else
                     {
-                        TxtDescuentoPesoZona.Text = "0";
+                        TxtFleteDescuentoPeso.Text = "0";
+                        TxtFleteDescuentoUnidad.Text = "0";
+                        TxtFletePesoMinimo.Text = "0";
+                        TxtFletePesoMinimoGuia.Text = "0";
+                        TxtFleteFleteMinimo.Text = "0";
+                        TxtFleteFleteMinimoGuia.Text = "0";
                     }
                 }
                 else
@@ -734,11 +754,11 @@ namespace cromo
                         {
                             vrFlete -= vrFlete * descuentoPeso / 100;
                         }
-                        double descuentoPesoZona = Convert.ToDouble(TxtDescuentoPesoZona.Text);
+                        /*double descuentoPesoZona = Convert.ToDouble(TxtDescuentoPesoZona.Text);
                         if (descuentoPesoZona > 0)
                         {
                             vrFlete -= vrFlete * descuentoPesoZona / 100;
-                        }
+                        }*/
                     }
                     else if (RbUnidad.Checked)
                     {
@@ -779,12 +799,12 @@ namespace cromo
                     }
                 }
 
-                if (pesoMinimoCondicion > 0)
+                if (pesoMinimo > 0)
                 {
-                    TxtPesoFacturar.Text = (pesoMinimoCondicion * Convert.ToInt32(TxtUnidades.Text)).ToString();
+                    TxtPesoFacturar.Text = (pesoMinimo * Convert.ToInt32(TxtUnidades.Text)).ToString();
                     if (Convert.ToInt32(TxtPeso.Text) <= 0)
                     {
-                        TxtPeso.Text = (pesoMinimoCondicion * Convert.ToInt32(TxtUnidades.Text)).ToString();
+                        TxtPeso.Text = (pesoMinimo * Convert.ToInt32(TxtUnidades.Text)).ToString();
                     }
                 }
             }
@@ -804,14 +824,14 @@ namespace cromo
                 if (apiCondicion.error == null)
                 {
                     txtNombreCondicion.Text = apiCondicion.nombre;
-                    pesoMinimoCondicion = apiCondicion.pesoMinimo;
+                    pesoMinimo = apiCondicion.pesoMinimo;
                     porcentajeManejo = apiCondicion.porcentajeManejo;
                     manejoMinimoUnidad = apiCondicion.manejoMinimoUnidad;
                     manejoMinimoDespacho = apiCondicion.manejoMinimoDespacho;
                     descuentoPeso = apiCondicion.descuentoPeso;
                     codigoPrecio = apiCondicion.codigoPrecioFk;
                     ChkListaGeneral.Checked = apiCondicion.precioGeneral;
-                    TxtPesoMinimo.Text = pesoMinimoCondicion.ToString();
+                    TxtPesoMinimo.Text = pesoMinimo.ToString();
                     TxtPorcentajeManejo.Text = porcentajeManejo.ToString();
                     TxtDescuentoPeso.Text = descuentoPeso.ToString();
                     TxtManejoMinimoUnidad.Text = manejoMinimoUnidad.ToString();
@@ -1218,6 +1238,15 @@ namespace cromo
             ChkEstadoAnulado.Checked = apiGuia.estadoAnulado;
         }
 
+        private void BtnVerCliente_Click(object sender, EventArgs e)
+        {
+            if(TxtCodigoCliente.Text != "")
+            {
+                General.CodigoCliente = TxtCodigoCliente.Text;
+                FrmVerCliente frmVerCliente = new FrmVerCliente();
+                frmVerCliente.ShowDialog();
+            }
+        }
     }
 
 }
