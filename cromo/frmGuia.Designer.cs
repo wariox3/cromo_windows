@@ -70,6 +70,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.gbCliente = new System.Windows.Forms.GroupBox();
+            this.BtnVerCliente = new System.Windows.Forms.Button();
             this.TxtRelacion = new System.Windows.Forms.TextBox();
             this.label32 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
@@ -175,6 +176,7 @@
             this.label33 = new System.Windows.Forms.Label();
             this.ChkListaGeneral = new System.Windows.Forms.CheckBox();
             this.GbPrecioDetalle = new System.Windows.Forms.GroupBox();
+            this.ChkOmitirDescuento = new System.Windows.Forms.CheckBox();
             this.TxtVrAdicional = new System.Windows.Forms.TextBox();
             this.TxtPesoMinimoPrecio = new System.Windows.Forms.TextBox();
             this.TxtTope = new System.Windows.Forms.TextBox();
@@ -210,8 +212,6 @@
             this.ClmPesoTope = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ClmVrAdicional = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ClmMinimo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.BtnVerCliente = new System.Windows.Forms.Button();
-            this.ChkOmitirDescuento = new System.Windows.Forms.CheckBox();
             this.gbDestinatario.SuspendLayout();
             this.gbTotales.SuspendLayout();
             this.gbCliente.SuspendLayout();
@@ -322,17 +322,17 @@
             // TxtNombreCiudadDestino
             // 
             this.TxtNombreCiudadDestino.Enabled = false;
-            this.TxtNombreCiudadDestino.Location = new System.Drawing.Point(161, 57);
+            this.TxtNombreCiudadDestino.Location = new System.Drawing.Point(135, 57);
             this.TxtNombreCiudadDestino.Name = "TxtNombreCiudadDestino";
             this.TxtNombreCiudadDestino.ReadOnly = true;
-            this.TxtNombreCiudadDestino.Size = new System.Drawing.Size(355, 20);
+            this.TxtNombreCiudadDestino.Size = new System.Drawing.Size(381, 20);
             this.TxtNombreCiudadDestino.TabIndex = 18;
             // 
             // TxtCodigoCiudadDestino
             // 
             this.TxtCodigoCiudadDestino.Location = new System.Drawing.Point(76, 57);
             this.TxtCodigoCiudadDestino.Name = "TxtCodigoCiudadDestino";
-            this.TxtCodigoCiudadDestino.Size = new System.Drawing.Size(79, 20);
+            this.TxtCodigoCiudadDestino.Size = new System.Drawing.Size(53, 20);
             this.TxtCodigoCiudadDestino.TabIndex = 11;
             this.TxtCodigoCiudadDestino.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCodigoCiudadDestino_KeyDown);
             this.TxtCodigoCiudadDestino.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
@@ -656,6 +656,16 @@
             this.gbCliente.TabIndex = 0;
             this.gbCliente.TabStop = false;
             // 
+            // BtnVerCliente
+            // 
+            this.BtnVerCliente.Location = new System.Drawing.Point(483, 12);
+            this.BtnVerCliente.Name = "BtnVerCliente";
+            this.BtnVerCliente.Size = new System.Drawing.Size(34, 20);
+            this.BtnVerCliente.TabIndex = 37;
+            this.BtnVerCliente.TabStop = false;
+            this.BtnVerCliente.Text = "Ver";
+            this.BtnVerCliente.UseVisualStyleBackColor = true;
+            // 
             // TxtRelacion
             // 
             this.TxtRelacion.Location = new System.Drawing.Point(344, 80);
@@ -685,17 +695,17 @@
             // txtNombreCondicion
             // 
             this.txtNombreCondicion.Enabled = false;
-            this.txtNombreCondicion.Location = new System.Drawing.Point(182, 35);
+            this.txtNombreCondicion.Location = new System.Drawing.Point(135, 35);
             this.txtNombreCondicion.Name = "txtNombreCondicion";
             this.txtNombreCondicion.ReadOnly = true;
-            this.txtNombreCondicion.Size = new System.Drawing.Size(335, 20);
+            this.txtNombreCondicion.Size = new System.Drawing.Size(382, 20);
             this.txtNombreCondicion.TabIndex = 24;
             // 
             // TxtCodigoCondicion
             // 
             this.TxtCodigoCondicion.Location = new System.Drawing.Point(76, 34);
             this.TxtCodigoCondicion.Name = "TxtCodigoCondicion";
-            this.TxtCodigoCondicion.Size = new System.Drawing.Size(100, 20);
+            this.TxtCodigoCondicion.Size = new System.Drawing.Size(53, 20);
             this.TxtCodigoCondicion.TabIndex = 2;
             this.TxtCodigoCondicion.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCodigoCondicion_KeyDown);
             this.TxtCodigoCondicion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
@@ -713,17 +723,17 @@
             // txtNombreCiudadOrigen
             // 
             this.txtNombreCiudadOrigen.Enabled = false;
-            this.txtNombreCiudadOrigen.Location = new System.Drawing.Point(161, 102);
+            this.txtNombreCiudadOrigen.Location = new System.Drawing.Point(135, 102);
             this.txtNombreCiudadOrigen.Name = "txtNombreCiudadOrigen";
             this.txtNombreCiudadOrigen.ReadOnly = true;
-            this.txtNombreCiudadOrigen.Size = new System.Drawing.Size(356, 20);
+            this.txtNombreCiudadOrigen.Size = new System.Drawing.Size(382, 20);
             this.txtNombreCiudadOrigen.TabIndex = 21;
             // 
             // TxtCodigoCiudadOrigen
             // 
             this.TxtCodigoCiudadOrigen.Location = new System.Drawing.Point(76, 102);
             this.TxtCodigoCiudadOrigen.Name = "TxtCodigoCiudadOrigen";
-            this.TxtCodigoCiudadOrigen.Size = new System.Drawing.Size(79, 20);
+            this.TxtCodigoCiudadOrigen.Size = new System.Drawing.Size(53, 20);
             this.TxtCodigoCiudadOrigen.TabIndex = 6;
             this.TxtCodigoCiudadOrigen.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCodigoCiudadOrigen_KeyDown);
             this.TxtCodigoCiudadOrigen.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
@@ -766,10 +776,10 @@
             // txtNombreCliente
             // 
             this.txtNombreCliente.Enabled = false;
-            this.txtNombreCliente.Location = new System.Drawing.Point(182, 12);
+            this.txtNombreCliente.Location = new System.Drawing.Point(135, 12);
             this.txtNombreCliente.Name = "txtNombreCliente";
             this.txtNombreCliente.ReadOnly = true;
-            this.txtNombreCliente.Size = new System.Drawing.Size(295, 20);
+            this.txtNombreCliente.Size = new System.Drawing.Size(342, 20);
             this.txtNombreCliente.TabIndex = 9;
             // 
             // label1
@@ -785,7 +795,7 @@
             // 
             this.TxtCodigoCliente.Location = new System.Drawing.Point(76, 12);
             this.TxtCodigoCliente.Name = "TxtCodigoCliente";
-            this.TxtCodigoCliente.Size = new System.Drawing.Size(100, 20);
+            this.TxtCodigoCliente.Size = new System.Drawing.Size(53, 20);
             this.TxtCodigoCliente.TabIndex = 1;
             this.TxtCodigoCliente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCodigoCliente_KeyDown);
             this.TxtCodigoCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCodigoCliente_KeyPress);
@@ -1691,6 +1701,16 @@
             this.GbPrecioDetalle.Text = "Lista";
             this.GbPrecioDetalle.Visible = false;
             // 
+            // ChkOmitirDescuento
+            // 
+            this.ChkOmitirDescuento.AutoSize = true;
+            this.ChkOmitirDescuento.Location = new System.Drawing.Point(51, 80);
+            this.ChkOmitirDescuento.Name = "ChkOmitirDescuento";
+            this.ChkOmitirDescuento.Size = new System.Drawing.Size(105, 17);
+            this.ChkOmitirDescuento.TabIndex = 49;
+            this.ChkOmitirDescuento.Text = "Omitir descuento";
+            this.ChkOmitirDescuento.UseVisualStyleBackColor = true;
+            // 
             // TxtVrAdicional
             // 
             this.TxtVrAdicional.Location = new System.Drawing.Point(51, 54);
@@ -1989,26 +2009,6 @@
             this.ClmMinimo.Text = "Min";
             this.ClmMinimo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ClmMinimo.Width = 40;
-            // 
-            // BtnVerCliente
-            // 
-            this.BtnVerCliente.Location = new System.Drawing.Point(483, 12);
-            this.BtnVerCliente.Name = "BtnVerCliente";
-            this.BtnVerCliente.Size = new System.Drawing.Size(34, 20);
-            this.BtnVerCliente.TabIndex = 37;
-            this.BtnVerCliente.TabStop = false;
-            this.BtnVerCliente.Text = "Ver";
-            this.BtnVerCliente.UseVisualStyleBackColor = true;
-            // 
-            // ChkOmitirDescuento
-            // 
-            this.ChkOmitirDescuento.AutoSize = true;
-            this.ChkOmitirDescuento.Location = new System.Drawing.Point(51, 80);
-            this.ChkOmitirDescuento.Name = "ChkOmitirDescuento";
-            this.ChkOmitirDescuento.Size = new System.Drawing.Size(105, 17);
-            this.ChkOmitirDescuento.TabIndex = 49;
-            this.ChkOmitirDescuento.Text = "Omitir descuento";
-            this.ChkOmitirDescuento.UseVisualStyleBackColor = true;
             // 
             // FrmGuia
             // 

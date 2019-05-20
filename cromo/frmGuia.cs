@@ -1097,7 +1097,7 @@ namespace cromo
         {
             if (codigoPrecio != 0 && TxtCodigoCiudadOrigen.Text != "" && TxtCodigoCiudadDestino.Text != "")
             {
-                string parametrosJson = "{\"precio\":\"" + codigoPrecio + "\", \"origen\":\"" + TxtCodigoCiudadOrigen.Text + "\", \"destino\":\"" + TxtCodigoCiudadDestino.Text + "\", \"producto\":\"" + CboProducto.SelectedValue.ToString() + "\"}";
+                string parametrosJson = "{\"precio\":\"" + codigoPrecio + "\", \"origen\":\"" + TxtCodigoCiudadOrigen.Text + "\", \"destino\":\"" + TxtCodigoCiudadDestino.Text + "\", \"zona\":\"" + TxtCodigoZona.Text + "\", \"producto\":\"" + CboProducto.SelectedValue.ToString() + "\"}";
                 string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/preciodetalle/detalleproducto", parametrosJson);
                 ApiPrecioDetalle apiPrecioDetalle = ser.Deserialize<ApiPrecioDetalle>(jsonRespuesta);
                 if (apiPrecioDetalle.error == null)
