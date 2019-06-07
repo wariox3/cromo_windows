@@ -12,33 +12,50 @@ namespace cromo
 {
 	public partial class FrmIngreso : Form
 	{
-		public FrmIngreso()
-		{
-			InitializeComponent();
+        JavaScriptSerializer ser = new JavaScriptSerializer();
+
+        public FrmIngreso()
+		{            
+            InitializeComponent();
 		}
 
 		private void BtnIngresar_Click(object sender, EventArgs e)
 		{
 			try
 			{
-                if(TxtOperador.Text != "")
+                bool servidorManual = cromo.Properties.Settings.Default.servidorManual;
+
+                if (TxtOperador.Text != "" || servidorManual)
                 {
-                    string parametrosJson = "{\"operador\":\"" + TxtOperador.Text + "\"}";
-                    string jsonRespuesta = ApiControlador.ApiPostCesio("/api/windows/transporte/operador/validar", parametrosJson);
-                    JavaScriptSerializer ser = new JavaScriptSerializer();
-                    ApiOperador apiOperador = ser.Deserialize<ApiOperador>(jsonRespuesta);
-                    if(apiOperador.error == null)
+                    string parametrosJson;
+                    string jsonRespuesta;
+                    cromo.Properties.Settings.Default.operador = TxtOperador.Text;
+                    cromo.Properties.Settings.Default.Save();
+                    
+                    if (servidorManual)
                     {
-                        cromo.Properties.Settings.Default.operador = TxtOperador.Text;                        
-                        cromo.Properties.Settings.Default.Save();
-                        General.UrlServicio = apiOperador.urlServicio;
+                        General.UrlServicio = cromo.Properties.Settings.Default.rutaServidorManual;
 
-                        //General.UrlServicio = "http://192.168.15.43/cromo/public/index.php";
-                        //General.UrlServicio = "http://localhost/cromo/public";
+                    } else
+                    {
+                        parametrosJson = "{\"operador\":\"" + TxtOperador.Text + "\"}";
+                        jsonRespuesta = ApiControlador.ApiPostCesio("/api/windows/transporte/operador/validar", parametrosJson);                        
+                        ApiOperador apiOperador = ser.Deserialize<ApiOperador>(jsonRespuesta);
+                        if (apiOperador.error == null)
+                        {
+                            General.UrlServicio = apiOperador.urlServicio;
+                        }
+                        else
+                        {
+                            MessageBox.Show(this, "El operador no existe " + apiOperador.error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);                            
+                        }
+                    }
 
+                    if (General.UrlServicio != "")
+                    {
                         //Validar logo
                         string logo = Directory.GetCurrentDirectory() + @"\logo.jpg";
-                        if(!File.Exists(logo))
+                        if (!File.Exists(logo))
                         {
                             jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/general/configuracion", "");
                             ApiConfiguracion apiConfiguracion = ser.Deserialize<ApiConfiguracion>(jsonRespuesta);
@@ -51,20 +68,21 @@ namespace cromo
                                     image.Save(Directory.GetCurrentDirectory() + @"\logo.jpg", ImageFormat.Jpeg);  // Or Png
                                 }
                             }
-                        }                        
+                        }
 
                         parametrosJson = "{\"usuario\":\"" + TxtUsuario.Text + "\",\"clave\":\"" + TxtContraseña.Text + "\"}";
-                        jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/usuario/validar", parametrosJson);                        
+                        jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/usuario/validar", parametrosJson);
                         ApiUsuario apiUsuario = ser.Deserialize<ApiUsuario>(jsonRespuesta);
                         if (apiUsuario.error == null)
                         {
-                            if(ChkRecordar.Checked)
+                            if (ChkRecordar.Checked)
                             {
                                 cromo.Properties.Settings.Default.usuario = TxtUsuario.Text;
                                 cromo.Properties.Settings.Default.clave = TxtContraseña.Text;
                                 cromo.Properties.Settings.Default.recordarClave = ChkRecordar.Checked;
                                 cromo.Properties.Settings.Default.Save();
-                            } else
+                            }
+                            else
                             {
                                 cromo.Properties.Settings.Default.usuario = null;
                                 cromo.Properties.Settings.Default.clave = null;
@@ -73,7 +91,7 @@ namespace cromo
                             }
                             if (apiUsuario.versionBaseDatos <= 3)
                             {
-                                General.UsuarioActivo = TxtUsuario.Text;                                    
+                                General.UsuarioActivo = TxtUsuario.Text;
                                 General.NumeroUnicoGuia = apiUsuario.numeroUnicoGuia;
                                 General.CodigoPrecioGeneral = apiUsuario.codigoPrecioGeneral;
                                 DialogResult = DialogResult.OK;
@@ -89,19 +107,20 @@ namespace cromo
                                     System.Diagnostics.Process.Start("https://github.com/wariox3/cromo_windows/tree/master/InstaladorCromo/Debug");
                                     Close();
                                 }
-                            }                            
-                        } else
+                            }
+                        }
+                        else
                         {
                             MessageBox.Show(this, "Usuario o contraseña invalidos " + apiUsuario.error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-
                     } else
                     {
-                        MessageBox.Show(this, "El operador no existe " + apiOperador.error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(this, "No se ha especificado una url para el servidor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+
                 } else
                 {
-                    MessageBox.Show(this, "Debe especificar un operador.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(this, "Debe especificar un operador o configurar uno manual.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     TxtOperador.Focus();
                 }							
 			}

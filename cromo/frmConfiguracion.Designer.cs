@@ -39,9 +39,14 @@
             this.tbpRutas = new System.Windows.Forms.TabPage();
             this.txtRutaReportes = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.ChkServidorManual = new System.Windows.Forms.CheckBox();
+            this.TxtRutaServidorManual = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.tabConfiguracion.SuspendLayout();
             this.tbpOperacion.SuspendLayout();
             this.tbpRutas.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnGuardar
@@ -68,6 +73,7 @@
             // 
             this.tabConfiguracion.Controls.Add(this.tbpOperacion);
             this.tabConfiguracion.Controls.Add(this.tbpRutas);
+            this.tabConfiguracion.Controls.Add(this.tabPage1);
             this.tabConfiguracion.Location = new System.Drawing.Point(24, 12);
             this.tabConfiguracion.Name = "tabConfiguracion";
             this.tabConfiguracion.SelectedIndex = 0;
@@ -147,6 +153,45 @@
             this.label9.TabIndex = 0;
             this.label9.Text = "Reportes:";
             // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Controls.Add(this.TxtRutaServidorManual);
+            this.tabPage1.Controls.Add(this.ChkServidorManual);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(340, 234);
+            this.tabPage1.TabIndex = 3;
+            this.tabPage1.Text = "Servidor";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // ChkServidorManual
+            // 
+            this.ChkServidorManual.AutoSize = true;
+            this.ChkServidorManual.Location = new System.Drawing.Point(75, 20);
+            this.ChkServidorManual.Name = "ChkServidorManual";
+            this.ChkServidorManual.Size = new System.Drawing.Size(61, 17);
+            this.ChkServidorManual.TabIndex = 0;
+            this.ChkServidorManual.Text = "Manual";
+            this.ChkServidorManual.UseVisualStyleBackColor = true;
+            // 
+            // TxtRutaServidorManual
+            // 
+            this.TxtRutaServidorManual.Location = new System.Drawing.Point(75, 43);
+            this.TxtRutaServidorManual.Name = "TxtRutaServidorManual";
+            this.TxtRutaServidorManual.Size = new System.Drawing.Size(259, 20);
+            this.TxtRutaServidorManual.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(20, 43);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(49, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Servidor:";
+            // 
             // FrmConfiguracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -166,6 +211,8 @@
             this.tbpOperacion.PerformLayout();
             this.tbpRutas.ResumeLayout(false);
             this.tbpRutas.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -183,5 +230,9 @@
 		private System.Windows.Forms.TabPage tbpRutas;
 		private System.Windows.Forms.Label label9;
 		private System.Windows.Forms.TextBox txtRutaReportes;
-	}
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox TxtRutaServidorManual;
+        private System.Windows.Forms.CheckBox ChkServidorManual;
+    }
 }

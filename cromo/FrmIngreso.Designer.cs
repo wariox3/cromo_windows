@@ -150,7 +150,7 @@
             this.Controls.Add(this.lblUsuario);
             this.Name = "FrmIngreso";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Ingreso al sistema 27.5";
+            this.Text = "Ingreso al sistema";
             this.Load += new System.EventHandler(this.FrmIngreso_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

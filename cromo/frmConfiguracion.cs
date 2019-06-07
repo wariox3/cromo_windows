@@ -22,14 +22,18 @@ namespace cromo
             txtCentroOperacion.Text = cromo.Properties.Settings.Default.centroOperacion;			
 			txtCodigoCiudadOrigen.Text = cromo.Properties.Settings.Default.ciudadOrigen;
 			txtRutaReportes.Text = cromo.Properties.Settings.Default.rutaReportes;
-		}
+            ChkServidorManual.Checked = cromo.Properties.Settings.Default.servidorManual;
+            TxtRutaServidorManual.Text = cromo.Properties.Settings.Default.rutaServidorManual;
+        }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             cromo.Properties.Settings.Default.centroOperacion = txtCentroOperacion.Text;
 			cromo.Properties.Settings.Default.ciudadOrigen = txtCodigoCiudadOrigen.Text;
 			cromo.Properties.Settings.Default.rutaReportes = txtRutaReportes.Text;
-			cromo.Properties.Settings.Default.Save();
+            cromo.Properties.Settings.Default.servidorManual = ChkServidorManual.Checked;
+            cromo.Properties.Settings.Default.rutaServidorManual = TxtRutaServidorManual.Text;
+            cromo.Properties.Settings.Default.Save();
             Close();
         }
 

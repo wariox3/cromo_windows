@@ -106,5 +106,29 @@ namespace cromo.Properties {
                 this["recordarClave"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool servidorManual {
+            get {
+                return ((bool)(this["servidorManual"]));
+            }
+            set {
+                this["servidorManual"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string rutaServidorManual {
+            get {
+                return ((string)(this["rutaServidorManual"]));
+            }
+            set {
+                this["rutaServidorManual"] = value;
+            }
+        }
     }
 }
