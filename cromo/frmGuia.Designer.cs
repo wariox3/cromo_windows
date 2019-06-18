@@ -212,6 +212,8 @@
             this.ClmPesoTope = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ClmVrAdicional = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ClmMinimo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.TxtCodigoPrecio = new System.Windows.Forms.TextBox();
+            this.label51 = new System.Windows.Forms.Label();
             this.gbDestinatario.SuspendLayout();
             this.gbTotales.SuspendLayout();
             this.gbCliente.SuspendLayout();
@@ -633,6 +635,8 @@
             // 
             // gbCliente
             // 
+            this.gbCliente.Controls.Add(this.label51);
+            this.gbCliente.Controls.Add(this.TxtCodigoPrecio);
             this.gbCliente.Controls.Add(this.BtnVerCliente);
             this.gbCliente.Controls.Add(this.TxtRelacion);
             this.gbCliente.Controls.Add(this.label32);
@@ -769,7 +773,7 @@
             // 
             this.TxtRemitente.Location = new System.Drawing.Point(76, 57);
             this.TxtRemitente.Name = "TxtRemitente";
-            this.TxtRemitente.Size = new System.Drawing.Size(441, 20);
+            this.TxtRemitente.Size = new System.Drawing.Size(380, 20);
             this.TxtRemitente.TabIndex = 3;
             this.TxtRemitente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
             // 
@@ -2010,6 +2014,23 @@
             this.ClmMinimo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ClmMinimo.Width = 40;
             // 
+            // TxtCodigoPrecio
+            // 
+            this.TxtCodigoPrecio.Enabled = false;
+            this.TxtCodigoPrecio.Location = new System.Drawing.Point(489, 57);
+            this.TxtCodigoPrecio.Name = "TxtCodigoPrecio";
+            this.TxtCodigoPrecio.Size = new System.Drawing.Size(28, 20);
+            this.TxtCodigoPrecio.TabIndex = 38;
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(462, 60);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(24, 13);
+            this.label51.TabIndex = 39;
+            this.label51.Text = "Lst:";
+            // 
             // FrmGuia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2246,6 +2267,8 @@
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Button BtnVerCliente;
         private System.Windows.Forms.CheckBox ChkOmitirDescuento;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.TextBox TxtCodigoPrecio;
     }
 }
 

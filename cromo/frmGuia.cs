@@ -424,6 +424,7 @@ namespace cromo
             TxtManejoMinimoUnidad.Text = "0";
             TxtManejoMinimoDespacho.Text = "0";
             ChkListaGeneral.Checked = false;
+            TxtCodigoPrecio.Text = "";
             TxtVrPeso.Text = "0";
             TxtVrTope.Text = "0";
             TxtVrAdicional.Text = "0";
@@ -825,6 +826,7 @@ namespace cromo
                     manejoMinimoDespacho = apiCondicion.manejoMinimoDespacho;
                     descuentoPeso = apiCondicion.descuentoPeso;
                     codigoPrecio = apiCondicion.codigoPrecioFk;
+                    TxtCodigoPrecio.Text = apiCondicion.codigoPrecioFk.ToString();
                     ChkListaGeneral.Checked = apiCondicion.precioGeneral;
                     TxtPesoMinimo.Text = pesoMinimo.ToString();
                     TxtPorcentajeManejo.Text = porcentajeManejo.ToString();
