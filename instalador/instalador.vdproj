@@ -142,13 +142,13 @@
         "Entry"
         {
         "MsmKey" = "8:_6502428D20624A69B5779BFC74259F3F"
-        "OwnerKey" = "8:_1AF30EC863C3456E84B29E80656D51A6"
+        "OwnerKey" = "8:_FD16B4755169D1960BCB95067549806F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_6502428D20624A69B5779BFC74259F3F"
-        "OwnerKey" = "8:_FD16B4755169D1960BCB95067549806F"
+        "OwnerKey" = "8:_1AF30EC863C3456E84B29E80656D51A6"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -256,12 +256,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_FD16B4755169D1960BCB95067549806F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_1AF30EC863C3456E84B29E80656D51A6"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -310,12 +304,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_6502428D20624A69B5779BFC74259F3F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_A05EE15536DB04190A8C25601B395480"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -349,6 +337,18 @@
         "OwnerKey" = "8:_AAB8A27A99FB471EB702B567722A733B"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_FD16B4755169D1960BCB95067549806F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_6502428D20624A69B5779BFC74259F3F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -367,6 +367,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -383,6 +399,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -1027,7 +1051,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Cromo"
         "ProductCode" = "8:{2DC41CD8-F77B-484F-AF9F-20B1F905264E}"
-        "PackageCode" = "8:{5AFFD65A-C0B3-42EE-8DB9-D7E13CC0C3E2}"
+        "PackageCode" = "8:{B02A0A1F-1353-4F23-9BDC-4799FAA42205}"
         "UpgradeCode" = "8:{07E5796E-7B9C-47F3-A0C3-173C901D505F}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

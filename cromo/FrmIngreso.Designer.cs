@@ -117,7 +117,7 @@
             // 
             this.TxtOperador.Location = new System.Drawing.Point(85, 12);
             this.TxtOperador.Name = "TxtOperador";
-            this.TxtOperador.Size = new System.Drawing.Size(34, 20);
+            this.TxtOperador.Size = new System.Drawing.Size(53, 20);
             this.TxtOperador.TabIndex = 0;
             // 
             // ChkRecordar

@@ -115,8 +115,9 @@ namespace cromo
 		private void FrmPrincipal_Load(object sender, EventArgs e)
 		{
 			FrmIngreso FrmIngrero = new FrmIngreso();
-			FrmIngrero.ShowDialog();
-			if (FrmIngrero.DialogResult != DialogResult.OK)
+            this.Text = this.Text + " " + Application.ProductVersion;
+            FrmIngrero.ShowDialog();            
+            if (FrmIngrero.DialogResult != DialogResult.OK)
 			{
 				Close();
 			}

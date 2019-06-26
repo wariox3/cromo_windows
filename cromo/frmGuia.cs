@@ -27,6 +27,7 @@ namespace cromo
 
         int pesoMinimo = 0;
         int pesoMinimoGuia = 0;
+        int pesoMinimoLista = 0;
         double porcentajeManejo = 0;
         double manejoMinimoUnidad = 0;
         double manejoMinimoDespacho = 0;
@@ -465,6 +466,7 @@ namespace cromo
             GbPrecioDetalle.Visible = true;
             GbCondiciones.Visible = true;
             GbCondicionEspecial.Visible = true;
+            GbCondicionEspecialManejo.Visible = true;
         }
 
         public void Bloquear()
@@ -491,6 +493,7 @@ namespace cromo
             gbComentario.Enabled = false;
             GbPrecioDetalle.Visible = false;
             GbCondicionEspecial.Visible = false;
+            GbCondicionEspecialManejo.Visible = false;
             LvPrecioDetalle.Items.Clear();
         }
 
@@ -638,6 +641,18 @@ namespace cromo
                             pesoMinimo = apiCondicionFlete.pesoMinimo;
                             pesoMinimoGuia = apiCondicionFlete.pesoMinimoGuia;
                             descuentoPeso = apiCondicionFlete.descuentoPeso;
+                        }
+                        parametrosJson = "{\"codigoCliente\":\"" + TxtCodigoCliente.Text + "\",\"origen\":\"" + TxtCodigoCiudadOrigen.Text + "\", \"destino\":\"" + TxtCodigoCiudadDestino.Text + "\", \"codigoZona\":\"" + TxtCodigoZona.Text + "\"}";
+                        jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/condicionmanejo/liquidar", parametrosJson);
+                        ApiCondicionManejo apiCondicionManejo = ser.Deserialize<ApiCondicionManejo>(jsonRespuesta);
+                        if (apiCondicionManejo.error == null)
+                        {
+                            TxtPorcentajeManejoEspecial.Text = apiCondicionManejo.porcentaje.ToString();
+                            TxtManejoMinimoUnidadEspecial.Text = apiCondicionManejo.minimoUnidad.ToString();
+                            TxtManejoMinimoDespachoEspecial.Text = apiCondicionManejo.minimoDespacho.ToString();
+                            porcentajeManejo = apiCondicionManejo.porcentaje;
+                            manejoMinimoUnidad = apiCondicionManejo.minimoUnidad;
+                            manejoMinimoDespacho = apiCondicionManejo.minimoDespacho;
                         }
                     }
                     else
@@ -794,13 +809,22 @@ namespace cromo
                         }
                     }
                 }
-
-                if (pesoMinimo > 0)
+                int pesoMinimoCalcular = 0;
+                pesoMinimoCalcular = pesoMinimo;
+                if(pesoMinimoLista > 0)
                 {
-                    TxtPesoFacturar.Text = (pesoMinimo * Convert.ToInt32(TxtUnidades.Text)).ToString();
+                    if(pesoMinimoLista > pesoMinimoCalcular)
+                    {
+                        pesoMinimoCalcular = pesoMinimoLista;
+                    }
+                }
+
+                if (pesoMinimoCalcular > 0)
+                {
+                    TxtPesoFacturar.Text = (pesoMinimoCalcular * Convert.ToInt32(TxtUnidades.Text)).ToString();
                     if (Convert.ToInt32(TxtPeso.Text) <= 0)
                     {
-                        TxtPeso.Text = (pesoMinimo * Convert.ToInt32(TxtUnidades.Text)).ToString();
+                        TxtPeso.Text = (pesoMinimoCalcular * Convert.ToInt32(TxtUnidades.Text)).ToString();
                     }
                 }
             }
@@ -1110,6 +1134,7 @@ namespace cromo
                     TxtVrTope.Text = apiPrecioDetalle.vrPesoTope.ToString();
                     TxtVrAdicional.Text = apiPrecioDetalle.vrPesoTopeAdicional.ToString();
                     TxtPesoMinimoPrecio.Text = apiPrecioDetalle.minimo.ToString();
+                    pesoMinimoLista = apiPrecioDetalle.minimo;
                     ChkOmitirDescuento.Checked = apiPrecioDetalle.omitirDescuento;
                 }
                 else
@@ -1127,6 +1152,7 @@ namespace cromo
                             TxtVrTope.Text = apiPrecioDetalleGeneral.vrPesoTope.ToString();
                             TxtVrAdicional.Text = apiPrecioDetalleGeneral.vrPesoTopeAdicional.ToString();
                             TxtPesoMinimoPrecio.Text = apiPrecioDetalleGeneral.minimo.ToString();
+                            pesoMinimoLista = apiPrecioDetalleGeneral.minimo;
                             ChkOmitirDescuento.Checked = apiPrecioDetalleGeneral.omitirDescuento;
                         }
                         else

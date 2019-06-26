@@ -152,6 +152,7 @@ namespace cromo
             TxtUsuario.Text = cromo.Properties.Settings.Default.usuario;
             TxtContraseña.Text = cromo.Properties.Settings.Default.clave;
             ChkRecordar.Checked = cromo.Properties.Settings.Default.recordarClave;
+            this.Text = this.Text + " " + Application.ProductVersion;
         }
     }
 }
