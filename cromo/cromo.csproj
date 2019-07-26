@@ -291,6 +291,7 @@
     <EmbeddedResource Include="FrmVisor.resx">
       <DependentUpon>FrmVisor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Transporte\Guia2.rdlc" />
     <EmbeddedResource Include="Reportes\Transporte\Guia.rdlc" />
     <EmbeddedResource Include="FrmBuscarCiudad.resx">
       <DependentUpon>FrmBuscarCiudad.cs</DependentUpon>

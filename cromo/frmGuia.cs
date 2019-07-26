@@ -942,7 +942,7 @@ namespace cromo
             if (TxtCodigo.Text != "")
             {
                 ImprimirFormato formato = new ImprimirFormato();
-                formato.codigoFormato = "";
+                formato.codigoFormato = "2";
                 formato.codigo = TxtCodigo.Text;
                 formato.tipo = "Guia";
                 General.Formato = formato;
@@ -963,7 +963,7 @@ namespace cromo
             if (TxtCodigo.Text != "")
             {
                 ImprimirFormato formato = new ImprimirFormato();
-                formato.codigoFormato = "";
+                formato.codigoFormato = "2";
                 formato.codigo = TxtCodigo.Text;
                 formato.tipo = "Guia";
                 General.Formato = formato;
@@ -977,7 +977,7 @@ namespace cromo
             if (TxtCodigo.Text != "")
             {
                 ImprimirFormato formato = new ImprimirFormato();
-                formato.codigoFormato = "";
+                formato.codigoFormato = "2";
                 formato.codigo = TxtCodigo.Text;
                 formato.tipo = "Guia";
                 General.Formato = formato;
