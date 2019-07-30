@@ -94,6 +94,7 @@ namespace cromo
                                 General.UsuarioActivo = TxtUsuario.Text;
                                 General.NumeroUnicoGuia = apiUsuario.numeroUnicoGuia;
                                 General.CodigoPrecioGeneral = apiUsuario.codigoPrecioGeneral;
+                                General.CodigoFormatoGuia = apiUsuario.codigoFormatoGuia;                                
                                 DialogResult = DialogResult.OK;
                                 Close();
                             }

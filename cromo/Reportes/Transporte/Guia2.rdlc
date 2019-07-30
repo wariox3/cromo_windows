@@ -29,8 +29,20 @@
           <DataField>clienteDireccion</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="clienteFormaPago">
+          <DataField>clienteFormaPago</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="clienteIdentificacion">
+          <DataField>clienteIdentificacion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="clienteNombre">
           <DataField>clienteNombre</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="clienteNumeroIdentificacion">
+          <DataField>clienteNumeroIdentificacion</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="clienteTelefono">
@@ -41,12 +53,28 @@
           <DataField>codigoBarras</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="codigoDestino">
+          <DataField>codigoDestino</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="codigoEmpaque">
+          <DataField>codigoEmpaque</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="codigoFacturaTipoFk">
           <DataField>codigoFacturaTipoFk</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="codigoGuiaPk">
           <DataField>codigoGuiaPk</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="codigoOrigen">
+          <DataField>codigoOrigen</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="codigoZona">
+          <DataField>codigoZona</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="comentario">
@@ -101,8 +129,16 @@
           <DataField>numeroFactura</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="pesoFacturado">
+          <DataField>pesoFacturado</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
         <Field Name="pesoReal">
           <DataField>pesoReal</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="pesoVolumen">
+          <DataField>pesoVolumen</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
         </Field>
         <Field Name="remitente">
@@ -242,13 +278,13 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>   - </Value>
+                            <Value xml:space="preserve"> </Value>
                             <Style>
                               <FontSize>6pt</FontSize>
                             </Style>
                           </TextRun>
                           <TextRun>
-                            <Value>=Fields!remitente.Value</Value>
+                            <Value>=Fields!clienteNombre.Value</Value>
                             <Style>
                               <FontSize>6pt</FontSize>
                             </Style>
@@ -261,7 +297,7 @@
                     <Top>0.49182cm</Top>
                     <Left>0.15343cm</Left>
                     <Height>0.25604cm</Height>
-                    <Width>5.79764cm</Width>
+                    <Width>7.84848cm</Width>
                     <ZIndex>4</ZIndex>
                     <Style>
                       <Border />
@@ -273,7 +309,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>=First(Fields!remitente.Value, "GuiaImprimir")</Value>
+                            <Value>=Fields!clienteDireccion.Value</Value>
                             <Style>
                               <FontSize>6pt</FontSize>
                             </Style>
@@ -346,40 +382,13 @@
                       </Border>
                     </Style>
                   </Textbox>
-                  <Textbox Name="remitente6">
-                    <KeepTogether>true</KeepTogether>
-                    <Paragraphs>
-                      <Paragraph>
-                        <TextRuns>
-                          <TextRun>
-                            <Value>=First(Fields!remitente.Value, "GuiaImprimir")</Value>
-                            <Style>
-                              <FontSize>7pt</FontSize>
-                            </Style>
-                          </TextRun>
-                        </TextRuns>
-                        <Style>
-                          <TextAlign>Center</TextAlign>
-                        </Style>
-                      </Paragraph>
-                    </Paragraphs>
-                    <rd:DefaultName>remitente</rd:DefaultName>
-                    <Top>0.4371cm</Top>
-                    <Left>18.31062cm</Left>
-                    <Height>0.65292cm</Height>
-                    <Width>1.22035cm</Width>
-                    <ZIndex>9</ZIndex>
-                    <Style>
-                      <Border />
-                    </Style>
-                  </Textbox>
                   <Textbox Name="remitente7">
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>=First(Fields!remitente.Value, "GuiaImprimir")</Value>
+                            <Value>=Fields!clienteTelefono.Value</Value>
                             <Style>
                               <FontSize>6pt</FontSize>
                             </Style>
@@ -393,7 +402,7 @@
                     <Left>4.23333cm</Left>
                     <Height>0.25604cm</Height>
                     <Width>3.78764cm</Width>
-                    <ZIndex>10</ZIndex>
+                    <ZIndex>9</ZIndex>
                     <Style>
                       <Border />
                     </Style>
@@ -402,7 +411,7 @@
                     <Left>11.65223cm</Left>
                     <Height>1.26641cm</Height>
                     <Width>0cm</Width>
-                    <ZIndex>11</ZIndex>
+                    <ZIndex>10</ZIndex>
                     <Style>
                       <Border>
                         <Style>Solid</Style>
@@ -433,36 +442,11 @@
                     <Left>8.23264cm</Left>
                     <Height>0.28015cm</Height>
                     <Width>3.2432cm</Width>
-                    <ZIndex>12</ZIndex>
+                    <ZIndex>11</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
                       </Border>
-                    </Style>
-                  </Textbox>
-                  <Textbox Name="remitente8">
-                    <KeepTogether>true</KeepTogether>
-                    <Paragraphs>
-                      <Paragraph>
-                        <TextRuns>
-                          <TextRun>
-                            <Value>=First(Fields!remitente.Value, "GuiaImprimir")</Value>
-                            <Style>
-                              <FontSize>6pt</FontSize>
-                            </Style>
-                          </TextRun>
-                        </TextRuns>
-                        <Style />
-                      </Paragraph>
-                    </Paragraphs>
-                    <rd:DefaultName>remitente</rd:DefaultName>
-                    <Top>0.46563cm</Top>
-                    <Left>8.23264cm</Left>
-                    <Height>0.25604cm</Height>
-                    <Width>1.32618cm</Width>
-                    <ZIndex>13</ZIndex>
-                    <Style>
-                      <Border />
                     </Style>
                   </Textbox>
                   <Textbox Name="remitente9">
@@ -485,7 +469,7 @@
                     <Left>8.26791cm</Left>
                     <Height>0.25604cm</Height>
                     <Width>3.20793cm</Width>
-                    <ZIndex>14</ZIndex>
+                    <ZIndex>12</ZIndex>
                     <Style>
                       <Border />
                     </Style>
@@ -514,36 +498,11 @@
                     <Left>11.75806cm</Left>
                     <Height>0.28015cm</Height>
                     <Width>3.13737cm</Width>
-                    <ZIndex>15</ZIndex>
+                    <ZIndex>13</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
                       </Border>
-                    </Style>
-                  </Textbox>
-                  <Textbox Name="remitente10">
-                    <KeepTogether>true</KeepTogether>
-                    <Paragraphs>
-                      <Paragraph>
-                        <TextRuns>
-                          <TextRun>
-                            <Value>=First(Fields!remitente.Value, "GuiaImprimir")</Value>
-                            <Style>
-                              <FontSize>6pt</FontSize>
-                            </Style>
-                          </TextRun>
-                        </TextRuns>
-                        <Style />
-                      </Paragraph>
-                    </Paragraphs>
-                    <rd:DefaultName>remitente</rd:DefaultName>
-                    <Top>0.43531cm</Top>
-                    <Left>11.79334cm</Left>
-                    <Height>0.25604cm</Height>
-                    <Width>1.32618cm</Width>
-                    <ZIndex>16</ZIndex>
-                    <Style>
-                      <Border />
                     </Style>
                   </Textbox>
                   <Textbox Name="remitente11">
@@ -566,7 +525,7 @@
                     <Left>11.82862cm</Left>
                     <Height>0.25604cm</Height>
                     <Width>2.96395cm</Width>
-                    <ZIndex>17</ZIndex>
+                    <ZIndex>14</ZIndex>
                     <Style>
                       <Border />
                     </Style>
@@ -593,7 +552,7 @@
                     <Left>0.10996cm</Left>
                     <Height>0.28015cm</Height>
                     <Width>7.89195cm</Width>
-                    <ZIndex>18</ZIndex>
+                    <ZIndex>15</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -626,7 +585,7 @@
                     <Left>0.13437cm</Left>
                     <Height>0.25604cm</Height>
                     <Width>7.86754cm</Width>
-                    <ZIndex>19</ZIndex>
+                    <ZIndex>16</ZIndex>
                     <Style>
                       <Border />
                     </Style>
@@ -650,8 +609,8 @@
                     <Top>2.15718cm</Top>
                     <Left>0.1643cm</Left>
                     <Height>0.25604cm</Height>
-                    <Width>3.89264cm</Width>
-                    <ZIndex>20</ZIndex>
+                    <Width>6.149cm</Width>
+                    <ZIndex>17</ZIndex>
                     <Style>
                       <Border />
                     </Style>
@@ -673,10 +632,10 @@
                     </Paragraphs>
                     <rd:DefaultName>remitente</rd:DefaultName>
                     <Top>2.17275cm</Top>
-                    <Left>4.21427cm</Left>
+                    <Left>6.48969cm</Left>
                     <Height>0.25604cm</Height>
-                    <Width>3.78764cm</Width>
-                    <ZIndex>21</ZIndex>
+                    <Width>1.51222cm</Width>
+                    <ZIndex>18</ZIndex>
                     <Style>
                       <Border />
                     </Style>
@@ -705,7 +664,7 @@
                     <Left>8.2909cm</Left>
                     <Height>0.28015cm</Height>
                     <Width>2.87042cm</Width>
-                    <ZIndex>22</ZIndex>
+                    <ZIndex>19</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -733,7 +692,7 @@
                     <Left>8.2909cm</Left>
                     <Height>0.25604cm</Height>
                     <Width>0.55889cm</Width>
-                    <ZIndex>23</ZIndex>
+                    <ZIndex>20</ZIndex>
                     <Style>
                       <Border />
                     </Style>
@@ -747,7 +706,7 @@
                             <Value>=Fields!fechaIngreso.Value</Value>
                             <Style>
                               <FontSize>6pt</FontSize>
-                              <Format>mm</Format>
+                              <Format>MM</Format>
                             </Style>
                           </TextRun>
                         </TextRuns>
@@ -759,7 +718,7 @@
                     <Left>9.3527cm</Left>
                     <Height>0.25604cm</Height>
                     <Width>0.55889cm</Width>
-                    <ZIndex>24</ZIndex>
+                    <ZIndex>21</ZIndex>
                     <Style>
                       <Border />
                     </Style>
@@ -785,7 +744,7 @@
                     <Left>10.42132cm</Left>
                     <Height>0.25604cm</Height>
                     <Width>0.55889cm</Width>
-                    <ZIndex>25</ZIndex>
+                    <ZIndex>22</ZIndex>
                     <Style>
                       <Border />
                     </Style>
@@ -814,7 +773,7 @@
                     <Left>8.26791cm</Left>
                     <Height>0.28015cm</Height>
                     <Width>0.58187cm</Width>
-                    <ZIndex>26</ZIndex>
+                    <ZIndex>23</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -845,7 +804,7 @@
                     <Left>9.3527cm</Left>
                     <Height>0.28015cm</Height>
                     <Width>0.58187cm</Width>
-                    <ZIndex>27</ZIndex>
+                    <ZIndex>24</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -876,7 +835,7 @@
                     <Left>10.42132cm</Left>
                     <Height>0.28015cm</Height>
                     <Width>0.58187cm</Width>
-                    <ZIndex>28</ZIndex>
+                    <ZIndex>25</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -888,7 +847,7 @@
                     <Left>11.82862cm</Left>
                     <Height>1.24174cm</Height>
                     <Width>0cm</Width>
-                    <ZIndex>29</ZIndex>
+                    <ZIndex>26</ZIndex>
                     <Style>
                       <Border>
                         <Style>Solid</Style>
@@ -900,7 +859,7 @@
                     <Left>15.03654cm</Left>
                     <Height>4.577cm</Height>
                     <Width>0cm</Width>
-                    <ZIndex>30</ZIndex>
+                    <ZIndex>27</ZIndex>
                     <Style>
                       <Border>
                         <Style>Solid</Style>
@@ -931,86 +890,11 @@
                     <Left>11.92215cm</Left>
                     <Height>0.28015cm</Height>
                     <Width>2.87042cm</Width>
-                    <ZIndex>31</ZIndex>
+                    <ZIndex>28</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
                       </Border>
-                    </Style>
-                  </Textbox>
-                  <Textbox Name="remitente18">
-                    <KeepTogether>true</KeepTogether>
-                    <Paragraphs>
-                      <Paragraph>
-                        <TextRuns>
-                          <TextRun>
-                            <Value>=First(Fields!remitente.Value, "GuiaImprimir")</Value>
-                            <Style>
-                              <FontSize>6pt</FontSize>
-                            </Style>
-                          </TextRun>
-                        </TextRuns>
-                        <Style />
-                      </Paragraph>
-                    </Paragraphs>
-                    <rd:DefaultName>remitente</rd:DefaultName>
-                    <Top>1.72295cm</Top>
-                    <Left>11.92215cm</Left>
-                    <Height>0.25604cm</Height>
-                    <Width>0.55889cm</Width>
-                    <ZIndex>32</ZIndex>
-                    <Style>
-                      <Border />
-                    </Style>
-                  </Textbox>
-                  <Textbox Name="remitente19">
-                    <KeepTogether>true</KeepTogether>
-                    <Paragraphs>
-                      <Paragraph>
-                        <TextRuns>
-                          <TextRun>
-                            <Value>=First(Fields!remitente.Value, "GuiaImprimir")</Value>
-                            <Style>
-                              <FontSize>6pt</FontSize>
-                            </Style>
-                          </TextRun>
-                        </TextRuns>
-                        <Style />
-                      </Paragraph>
-                    </Paragraphs>
-                    <rd:DefaultName>remitente</rd:DefaultName>
-                    <Top>1.72294cm</Top>
-                    <Left>12.98396cm</Left>
-                    <Height>0.25604cm</Height>
-                    <Width>0.55889cm</Width>
-                    <ZIndex>33</ZIndex>
-                    <Style>
-                      <Border />
-                    </Style>
-                  </Textbox>
-                  <Textbox Name="remitente20">
-                    <KeepTogether>true</KeepTogether>
-                    <Paragraphs>
-                      <Paragraph>
-                        <TextRuns>
-                          <TextRun>
-                            <Value>=First(Fields!remitente.Value, "GuiaImprimir")</Value>
-                            <Style>
-                              <FontSize>6pt</FontSize>
-                            </Style>
-                          </TextRun>
-                        </TextRuns>
-                        <Style />
-                      </Paragraph>
-                    </Paragraphs>
-                    <rd:DefaultName>remitente</rd:DefaultName>
-                    <Top>1.68767cm</Top>
-                    <Left>14.05258cm</Left>
-                    <Height>0.25604cm</Height>
-                    <Width>0.55889cm</Width>
-                    <ZIndex>34</ZIndex>
-                    <Style>
-                      <Border />
                     </Style>
                   </Textbox>
                   <Textbox Name="Textbox35">
@@ -1037,7 +921,7 @@
                     <Left>11.89917cm</Left>
                     <Height>0.28015cm</Height>
                     <Width>0.58187cm</Width>
-                    <ZIndex>35</ZIndex>
+                    <ZIndex>29</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -1068,7 +952,7 @@
                     <Left>12.98396cm</Left>
                     <Height>0.28015cm</Height>
                     <Width>0.58187cm</Width>
-                    <ZIndex>36</ZIndex>
+                    <ZIndex>30</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -1099,7 +983,7 @@
                     <Left>14.05258cm</Left>
                     <Height>0.28015cm</Height>
                     <Width>0.58187cm</Width>
-                    <ZIndex>37</ZIndex>
+                    <ZIndex>31</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -1111,7 +995,7 @@
                     <Left>17.84798cm</Left>
                     <Height>1.59245cm</Height>
                     <Width>0cm</Width>
-                    <ZIndex>38</ZIndex>
+                    <ZIndex>32</ZIndex>
                     <Style>
                       <Border>
                         <Style>Solid</Style>
@@ -1142,36 +1026,11 @@
                     <Left>15.21293cm</Left>
                     <Height>0.28015cm</Height>
                     <Width>2.32951cm</Width>
-                    <ZIndex>39</ZIndex>
+                    <ZIndex>33</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
                       </Border>
-                    </Style>
-                  </Textbox>
-                  <Textbox Name="remitente21">
-                    <KeepTogether>true</KeepTogether>
-                    <Paragraphs>
-                      <Paragraph>
-                        <TextRuns>
-                          <TextRun>
-                            <Value>=First(Fields!remitente.Value, "GuiaImprimir")</Value>
-                            <Style>
-                              <FontSize>6pt</FontSize>
-                            </Style>
-                          </TextRun>
-                        </TextRuns>
-                        <Style />
-                      </Paragraph>
-                    </Paragraphs>
-                    <rd:DefaultName>remitente</rd:DefaultName>
-                    <Top>0.4371cm</Top>
-                    <Left>15.6352cm</Left>
-                    <Height>0.25604cm</Height>
-                    <Width>1.45847cm</Width>
-                    <ZIndex>40</ZIndex>
-                    <Style>
-                      <Border />
                     </Style>
                   </Textbox>
                   <Textbox Name="Textbox39">
@@ -1198,7 +1057,7 @@
                     <Left>15.1071cm</Left>
                     <Height>0.28015cm</Height>
                     <Width>2.63505cm</Width>
-                    <ZIndex>41</ZIndex>
+                    <ZIndex>34</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -1210,7 +1069,7 @@
                     <Left>8.21601cm</Left>
                     <Height>0cm</Height>
                     <Width>-8.21601cm</Width>
-                    <ZIndex>42</ZIndex>
+                    <ZIndex>35</ZIndex>
                     <Style>
                       <Border>
                         <Style>Solid</Style>
@@ -1239,7 +1098,7 @@
                     <Left>0.64392cm</Left>
                     <Height>0.19196cm</Height>
                     <Width>0.61463cm</Width>
-                    <ZIndex>43</ZIndex>
+                    <ZIndex>36</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -1251,7 +1110,7 @@
                     <Left>2.23194cm</Left>
                     <Height>2.60862cm</Height>
                     <Width>0cm</Width>
-                    <ZIndex>44</ZIndex>
+                    <ZIndex>37</ZIndex>
                     <Style>
                       <Border>
                         <Style>Solid</Style>
@@ -1263,7 +1122,7 @@
                     <Left>5.21678cm</Left>
                     <Height>2.60862cm</Height>
                     <Width>0cm</Width>
-                    <ZIndex>45</ZIndex>
+                    <ZIndex>38</ZIndex>
                     <Style>
                       <Border>
                         <Style>Solid</Style>
@@ -1292,7 +1151,7 @@
                     <Left>1.43493cm</Left>
                     <Height>0.24501cm</Height>
                     <Width>0.76173cm</Width>
-                    <ZIndex>46</ZIndex>
+                    <ZIndex>39</ZIndex>
                     <Style>
                       <Border />
                     </Style>
@@ -1302,7 +1161,7 @@
                     <Left>2.20949cm</Left>
                     <Height>0cm</Height>
                     <Width>-2.20722cm</Width>
-                    <ZIndex>47</ZIndex>
+                    <ZIndex>40</ZIndex>
                     <Style>
                       <Border>
                         <Style>Solid</Style>
@@ -1333,36 +1192,11 @@
                     <Left>0.10996cm</Left>
                     <Height>0.28015cm</Height>
                     <Width>7.89195cm</Width>
-                    <ZIndex>48</ZIndex>
+                    <ZIndex>41</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
                       </Border>
-                    </Style>
-                  </Textbox>
-                  <Textbox Name="remitente25">
-                    <KeepTogether>true</KeepTogether>
-                    <Paragraphs>
-                      <Paragraph>
-                        <TextRuns>
-                          <TextRun>
-                            <Value>=First(Fields!remitente.Value, "GuiaImprimir")</Value>
-                            <Style>
-                              <FontSize>6pt</FontSize>
-                            </Style>
-                          </TextRun>
-                        </TextRuns>
-                        <Style />
-                      </Paragraph>
-                    </Paragraphs>
-                    <rd:DefaultName>remitente</rd:DefaultName>
-                    <Top>2.95589cm</Top>
-                    <Left>0.10996cm</Left>
-                    <Height>0.25604cm</Height>
-                    <Width>3.89264cm</Width>
-                    <ZIndex>49</ZIndex>
-                    <Style>
-                      <Border />
                     </Style>
                   </Textbox>
                   <Textbox Name="Textbox44">
@@ -1389,7 +1223,7 @@
                     <Left>15.14237cm</Left>
                     <Height>0.28015cm</Height>
                     <Width>2.52922cm</Width>
-                    <ZIndex>50</ZIndex>
+                    <ZIndex>42</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -1420,7 +1254,7 @@
                     <Left>18.16468cm</Left>
                     <Height>0.28015cm</Height>
                     <Width>1.70522cm</Width>
-                    <ZIndex>51</ZIndex>
+                    <ZIndex>43</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -1449,7 +1283,7 @@
                     <Left>0.64392cm</Left>
                     <Height>0.19596cm</Height>
                     <Width>0.61463cm</Width>
-                    <ZIndex>52</ZIndex>
+                    <ZIndex>44</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -1465,6 +1299,7 @@
                             <Value>=Fields!vrTotal.Value</Value>
                             <Style>
                               <FontSize>5pt</FontSize>
+                              <Format>#,0;(#,0)</Format>
                             </Style>
                           </TextRun>
                         </TextRuns>
@@ -1478,7 +1313,7 @@
                     <Left>0.64392cm</Left>
                     <Height>0.28029cm</Height>
                     <Width>1.55274cm</Width>
-                    <ZIndex>53</ZIndex>
+                    <ZIndex>45</ZIndex>
                     <Style>
                       <Border />
                     </Style>
@@ -1488,7 +1323,7 @@
                     <Left>2.24477cm</Left>
                     <Height>0cm</Height>
                     <Width>-2.22486cm</Width>
-                    <ZIndex>54</ZIndex>
+                    <ZIndex>46</ZIndex>
                     <Style>
                       <Border>
                         <Style>Solid</Style>
@@ -1500,7 +1335,7 @@
                     <Left>2.20949cm</Left>
                     <Height>0cm</Height>
                     <Width>-2.18958cm</Width>
-                    <ZIndex>55</ZIndex>
+                    <ZIndex>47</ZIndex>
                     <Style>
                       <Border>
                         <Style>Solid</Style>
@@ -1529,7 +1364,7 @@
                     <Left>0.61043cm</Left>
                     <Height>0.19596cm</Height>
                     <Width>0.91123cm</Width>
-                    <ZIndex>56</ZIndex>
+                    <ZIndex>48</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -1545,7 +1380,7 @@
                             <Value>=Fields!vrFlete.Value</Value>
                             <Style>
                               <FontSize>5pt</FontSize>
-                              <Format>0;(0)</Format>
+                              <Format>#,0;(#,0)</Format>
                             </Style>
                           </TextRun>
                         </TextRuns>
@@ -1559,7 +1394,7 @@
                     <Left>0.64392cm</Left>
                     <Height>0.24501cm</Height>
                     <Width>1.55274cm</Width>
-                    <ZIndex>57</ZIndex>
+                    <ZIndex>49</ZIndex>
                     <Style>
                       <Border />
                     </Style>
@@ -1569,7 +1404,7 @@
                     <Left>2.20949cm</Left>
                     <Height>0cm</Height>
                     <Width>-2.20722cm</Width>
-                    <ZIndex>58</ZIndex>
+                    <ZIndex>50</ZIndex>
                     <Style>
                       <Border>
                         <Style>Solid</Style>
@@ -1598,7 +1433,7 @@
                     <Left>0.34732cm</Left>
                     <Height>0.19596cm</Height>
                     <Width>1.29217cm</Width>
-                    <ZIndex>59</ZIndex>
+                    <ZIndex>51</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -1614,7 +1449,7 @@
                             <Value>=Fields!vrManejo.Value</Value>
                             <Style>
                               <FontSize>5pt</FontSize>
-                              <Format>0;(0)</Format>
+                              <Format>#,0;(#,0)</Format>
                             </Style>
                           </TextRun>
                         </TextRuns>
@@ -1628,7 +1463,7 @@
                     <Left>0.64392cm</Left>
                     <Height>0.24501cm</Height>
                     <Width>1.55275cm</Width>
-                    <ZIndex>60</ZIndex>
+                    <ZIndex>52</ZIndex>
                     <Style>
                       <Border />
                     </Style>
@@ -1655,7 +1490,7 @@
                     <Left>0.34732cm</Left>
                     <Height>0.19596cm</Height>
                     <Width>1.58321cm</Width>
-                    <ZIndex>61</ZIndex>
+                    <ZIndex>53</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -1671,7 +1506,7 @@
                             <Value>=Fields!vrDeclara.Value</Value>
                             <Style>
                               <FontSize>5pt</FontSize>
-                              <Format>0;(0)</Format>
+                              <Format>#,0;(#,0)</Format>
                             </Style>
                           </TextRun>
                         </TextRuns>
@@ -1685,7 +1520,7 @@
                     <Left>0.64392cm</Left>
                     <Height>0.24501cm</Height>
                     <Width>1.55274cm</Width>
-                    <ZIndex>62</ZIndex>
+                    <ZIndex>54</ZIndex>
                     <Style>
                       <Border />
                     </Style>
@@ -1695,7 +1530,7 @@
                     <Left>8.18932cm</Left>
                     <Height>0cm</Height>
                     <Width>-5.95738cm</Width>
-                    <ZIndex>63</ZIndex>
+                    <ZIndex>55</ZIndex>
                     <Style>
                       <Border>
                         <Style>Solid</Style>
@@ -1707,7 +1542,7 @@
                     <Left>8.19736cm</Left>
                     <Height>0cm</Height>
                     <Width>-5.95738cm</Width>
-                    <ZIndex>64</ZIndex>
+                    <ZIndex>56</ZIndex>
                     <Style>
                       <Border>
                         <Style>Solid</Style>
@@ -1738,7 +1573,7 @@
                     <Left>2.96901cm</Left>
                     <Height>0.19596cm</Height>
                     <Width>1.58321cm</Width>
-                    <ZIndex>65</ZIndex>
+                    <ZIndex>57</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -1767,7 +1602,7 @@
                     <Left>3.005cm</Left>
                     <Height>0.25095cm</Height>
                     <Width>1.54722cm</Width>
-                    <ZIndex>66</ZIndex>
+                    <ZIndex>58</ZIndex>
                     <Style>
                       <Border />
                     </Style>
@@ -1796,38 +1631,11 @@
                     <Left>2.96901cm</Left>
                     <Height>0.19596cm</Height>
                     <Width>1.58321cm</Width>
-                    <ZIndex>67</ZIndex>
+                    <ZIndex>59</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
                       </Border>
-                    </Style>
-                  </Textbox>
-                  <Textbox Name="remitente29">
-                    <KeepTogether>true</KeepTogether>
-                    <Paragraphs>
-                      <Paragraph>
-                        <TextRuns>
-                          <TextRun>
-                            <Value>=Fields!pesoReal.Value</Value>
-                            <Style>
-                              <FontSize>5pt</FontSize>
-                            </Style>
-                          </TextRun>
-                        </TextRuns>
-                        <Style>
-                          <TextAlign>Center</TextAlign>
-                        </Style>
-                      </Paragraph>
-                    </Paragraphs>
-                    <rd:DefaultName>remitente</rd:DefaultName>
-                    <Top>4.52151cm</Top>
-                    <Left>3.005cm</Left>
-                    <Height>0.25095cm</Height>
-                    <Width>1.54722cm</Width>
-                    <ZIndex>68</ZIndex>
-                    <Style>
-                      <Border />
                     </Style>
                   </Textbox>
                   <Textbox Name="Textbox50">
@@ -1854,7 +1662,7 @@
                     <Left>2.96901cm</Left>
                     <Height>0.19596cm</Height>
                     <Width>1.58321cm</Width>
-                    <ZIndex>69</ZIndex>
+                    <ZIndex>60</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -1867,7 +1675,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>=Fields!pesoReal.Value</Value>
+                            <Value>=Fields!pesoFacturado.Value</Value>
                             <Style>
                               <FontSize>5pt</FontSize>
                             </Style>
@@ -1883,7 +1691,7 @@
                     <Left>3.005cm</Left>
                     <Height>0.25095cm</Height>
                     <Width>1.54722cm</Width>
-                    <ZIndex>70</ZIndex>
+                    <ZIndex>61</ZIndex>
                     <Style>
                       <Border />
                     </Style>
@@ -1912,7 +1720,7 @@
                     <Left>6.06706cm</Left>
                     <Height>0.19596cm</Height>
                     <Width>1.58321cm</Width>
-                    <ZIndex>71</ZIndex>
+                    <ZIndex>62</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -1941,7 +1749,7 @@
                     <Left>6.10305cm</Left>
                     <Height>0.25095cm</Height>
                     <Width>1.54722cm</Width>
-                    <ZIndex>72</ZIndex>
+                    <ZIndex>63</ZIndex>
                     <Style>
                       <Border />
                     </Style>
@@ -1970,38 +1778,11 @@
                     <Left>6.06706cm</Left>
                     <Height>0.19596cm</Height>
                     <Width>1.58321cm</Width>
-                    <ZIndex>73</ZIndex>
+                    <ZIndex>64</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
                       </Border>
-                    </Style>
-                  </Textbox>
-                  <Textbox Name="remitente32">
-                    <KeepTogether>true</KeepTogether>
-                    <Paragraphs>
-                      <Paragraph>
-                        <TextRuns>
-                          <TextRun>
-                            <Value>=First(Fields!remitente.Value, "GuiaImprimir")</Value>
-                            <Style>
-                              <FontSize>5pt</FontSize>
-                            </Style>
-                          </TextRun>
-                        </TextRuns>
-                        <Style>
-                          <TextAlign>Center</TextAlign>
-                        </Style>
-                      </Paragraph>
-                    </Paragraphs>
-                    <rd:DefaultName>remitente</rd:DefaultName>
-                    <Top>4.52151cm</Top>
-                    <Left>6.10305cm</Left>
-                    <Height>0.25095cm</Height>
-                    <Width>1.54722cm</Width>
-                    <ZIndex>74</ZIndex>
-                    <Style>
-                      <Border />
                     </Style>
                   </Textbox>
                   <Textbox Name="Textbox53">
@@ -2028,38 +1809,11 @@
                     <Left>6.06706cm</Left>
                     <Height>0.19596cm</Height>
                     <Width>1.58321cm</Width>
-                    <ZIndex>75</ZIndex>
+                    <ZIndex>65</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
                       </Border>
-                    </Style>
-                  </Textbox>
-                  <Textbox Name="remitente33">
-                    <KeepTogether>true</KeepTogether>
-                    <Paragraphs>
-                      <Paragraph>
-                        <TextRuns>
-                          <TextRun>
-                            <Value>=First(Fields!remitente.Value, "GuiaImprimir")</Value>
-                            <Style>
-                              <FontSize>5pt</FontSize>
-                            </Style>
-                          </TextRun>
-                        </TextRuns>
-                        <Style>
-                          <TextAlign>Center</TextAlign>
-                        </Style>
-                      </Paragraph>
-                    </Paragraphs>
-                    <rd:DefaultName>remitente</rd:DefaultName>
-                    <Top>5.43471cm</Top>
-                    <Left>6.10305cm</Left>
-                    <Height>0.25095cm</Height>
-                    <Width>1.54722cm</Width>
-                    <ZIndex>76</ZIndex>
-                    <Style>
-                      <Border />
                     </Style>
                   </Textbox>
                   <Line Name="Line41">
@@ -2067,7 +1821,7 @@
                     <Left>20.16318cm</Left>
                     <Height>0cm</Height>
                     <Width>-11.99931cm</Width>
-                    <ZIndex>77</ZIndex>
+                    <ZIndex>66</ZIndex>
                     <Style>
                       <Border>
                         <Style>Solid</Style>
@@ -2079,7 +1833,7 @@
                     <Left>20.19846cm</Left>
                     <Height>0cm</Height>
                     <Width>-12.01892cm</Width>
-                    <ZIndex>78</ZIndex>
+                    <ZIndex>67</ZIndex>
                     <Style>
                       <Border>
                         <Style>Solid</Style>
@@ -2110,7 +1864,7 @@
                     <Left>10.29965cm</Left>
                     <Height>0.28015cm</Height>
                     <Width>3.2432cm</Width>
-                    <ZIndex>79</ZIndex>
+                    <ZIndex>68</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -2122,7 +1876,7 @@
                     <Left>17.84798cm</Left>
                     <Height>0cm</Height>
                     <Width>-2.82439cm</Width>
-                    <ZIndex>80</ZIndex>
+                    <ZIndex>69</ZIndex>
                     <Style>
                       <Border>
                         <Style>Solid</Style>
@@ -2134,7 +1888,7 @@
                     <Left>20.18053cm</Left>
                     <Height>0cm</Height>
                     <Width>-5.14389cm</Width>
-                    <ZIndex>81</ZIndex>
+                    <ZIndex>70</ZIndex>
                     <Style>
                       <Border>
                         <Style>Solid</Style>
@@ -2165,7 +1919,7 @@
                     <Left>15.14237cm</Left>
                     <Height>0.22076cm</Height>
                     <Width>2.49394cm</Width>
-                    <ZIndex>82</ZIndex>
+                    <ZIndex>71</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -2192,7 +1946,7 @@
                     <Left>15.17765cm</Left>
                     <Height>0.25604cm</Height>
                     <Width>2.45866cm</Width>
-                    <ZIndex>83</ZIndex>
+                    <ZIndex>72</ZIndex>
                     <Style>
                       <Border />
                     </Style>
@@ -2221,61 +1975,11 @@
                     <Left>18.02437cm</Left>
                     <Height>0.22076cm</Height>
                     <Width>1.65119cm</Width>
-                    <ZIndex>84</ZIndex>
+                    <ZIndex>73</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
                       </Border>
-                    </Style>
-                  </Textbox>
-                  <Textbox Name="remitente35">
-                    <KeepTogether>true</KeepTogether>
-                    <Paragraphs>
-                      <Paragraph>
-                        <TextRuns>
-                          <TextRun>
-                            <Value>=First(Fields!remitente.Value, "GuiaImprimir")</Value>
-                            <Style>
-                              <FontSize>6pt</FontSize>
-                            </Style>
-                          </TextRun>
-                        </TextRuns>
-                        <Style />
-                      </Paragraph>
-                    </Paragraphs>
-                    <rd:DefaultName>remitente</rd:DefaultName>
-                    <Top>1.61711cm</Top>
-                    <Left>15.6352cm</Left>
-                    <Height>0.25604cm</Height>
-                    <Width>1.32618cm</Width>
-                    <ZIndex>85</ZIndex>
-                    <Style>
-                      <Border />
-                    </Style>
-                  </Textbox>
-                  <Textbox Name="remitente36">
-                    <KeepTogether>true</KeepTogether>
-                    <Paragraphs>
-                      <Paragraph>
-                        <TextRuns>
-                          <TextRun>
-                            <Value>=First(Fields!remitente.Value, "GuiaImprimir")</Value>
-                            <Style>
-                              <FontSize>6pt</FontSize>
-                            </Style>
-                          </TextRun>
-                        </TextRuns>
-                        <Style />
-                      </Paragraph>
-                    </Paragraphs>
-                    <rd:DefaultName>remitente</rd:DefaultName>
-                    <Top>1.65239cm</Top>
-                    <Left>18.16468cm</Left>
-                    <Height>0.25604cm</Height>
-                    <Width>1.70522cm</Width>
-                    <ZIndex>86</ZIndex>
-                    <Style>
-                      <Border />
                     </Style>
                   </Textbox>
                   <Textbox Name="Textbox57">
@@ -2302,7 +2006,7 @@
                     <Left>10.29965cm</Left>
                     <Height>0.28015cm</Height>
                     <Width>3.2432cm</Width>
-                    <ZIndex>87</ZIndex>
+                    <ZIndex>74</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -2333,7 +2037,7 @@
                     <Left>9.3527cm</Left>
                     <Height>0.28015cm</Height>
                     <Width>5.25877cm</Width>
-                    <ZIndex>88</ZIndex>
+                    <ZIndex>75</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -2364,7 +2068,7 @@
                     <Left>16.28777cm</Left>
                     <Height>0.28015cm</Height>
                     <Width>2.46268cm</Width>
-                    <ZIndex>89</ZIndex>
+                    <ZIndex>76</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -2376,7 +2080,7 @@
                     <Left>16.74472cm</Left>
                     <Height>-1.04576cm</Height>
                     <Width>0cm</Width>
-                    <ZIndex>90</ZIndex>
+                    <ZIndex>77</ZIndex>
                     <Style>
                       <Border>
                         <Style>Solid</Style>
@@ -2407,7 +2111,7 @@
                     <Left>16.56833cm</Left>
                     <Height>0.28015cm</Height>
                     <Width>2.10864cm</Width>
-                    <ZIndex>91</ZIndex>
+                    <ZIndex>78</ZIndex>
                     <Style>
                       <Border />
                     </Style>
@@ -2434,7 +2138,7 @@
                     <Left>8.26791cm</Left>
                     <Height>0.53331cm</Height>
                     <Width>6.66279cm</Width>
-                    <ZIndex>92</ZIndex>
+                    <ZIndex>79</ZIndex>
                     <Style>
                       <Border />
                     </Style>
@@ -2444,7 +2148,7 @@
                     <Left>20.20221cm</Left>
                     <Height>0cm</Height>
                     <Width>-12.0086cm</Width>
-                    <ZIndex>93</ZIndex>
+                    <ZIndex>80</ZIndex>
                     <Style>
                       <Border>
                         <Style>Solid</Style>
@@ -2456,7 +2160,7 @@
                     <Left>15.04217cm</Left>
                     <Height>0cm</Height>
                     <Width>5.13837cm</Width>
-                    <ZIndex>94</ZIndex>
+                    <ZIndex>81</ZIndex>
                     <Style>
                       <Border>
                         <Style>Solid</Style>
@@ -2487,7 +2191,7 @@
                     <Left>15.09304cm</Left>
                     <Height>0.22076cm</Height>
                     <Width>1.58113cm</Width>
-                    <ZIndex>95</ZIndex>
+                    <ZIndex>82</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -2518,7 +2222,7 @@
                     <Left>16.79624cm</Left>
                     <Height>0.22076cm</Height>
                     <Width>1.58113cm</Width>
-                    <ZIndex>96</ZIndex>
+                    <ZIndex>83</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -2549,7 +2253,7 @@
                     <Left>18.51849cm</Left>
                     <Height>0.22076cm</Height>
                     <Width>1.58113cm</Width>
-                    <ZIndex>97</ZIndex>
+                    <ZIndex>84</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -2561,7 +2265,7 @@
                     <Left>18.44793cm</Left>
                     <Height>-1.02071cm</Height>
                     <Width>0cm</Width>
-                    <ZIndex>98</ZIndex>
+                    <ZIndex>85</ZIndex>
                     <Style>
                       <Border>
                         <Style>Solid</Style>
@@ -2592,7 +2296,7 @@
                     <Left>8.25741cm</Left>
                     <Height>0.22227cm</Height>
                     <Width>2.68931cm</Width>
-                    <ZIndex>99</ZIndex>
+                    <ZIndex>86</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -2623,7 +2327,7 @@
                     <Left>8.23442cm</Left>
                     <Height>0.19967cm</Height>
                     <Width>2.7123cm</Width>
-                    <ZIndex>100</ZIndex>
+                    <ZIndex>87</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -2654,7 +2358,7 @@
                     <Left>8.23442cm</Left>
                     <Height>0.22752cm</Height>
                     <Width>2.7123cm</Width>
-                    <ZIndex>101</ZIndex>
+                    <ZIndex>88</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -2685,7 +2389,7 @@
                     <Left>8.23442cm</Left>
                     <Height>0.22628cm</Height>
                     <Width>2.7123cm</Width>
-                    <ZIndex>102</ZIndex>
+                    <ZIndex>89</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -2697,7 +2401,7 @@
                     <Left>11.12311cm</Left>
                     <Height>1.10823cm</Height>
                     <Width>0cm</Width>
-                    <ZIndex>103</ZIndex>
+                    <ZIndex>90</ZIndex>
                     <Style>
                       <Border>
                         <Style>Solid</Style>
@@ -2709,7 +2413,7 @@
                     <Left>11.99116cm</Left>
                     <Height>1.10823cm</Height>
                     <Width>0cm</Width>
-                    <ZIndex>104</ZIndex>
+                    <ZIndex>91</ZIndex>
                     <Style>
                       <Border>
                         <Style>Solid</Style>
@@ -2721,7 +2425,7 @@
                     <Left>11.99116cm</Left>
                     <Height>0cm</Height>
                     <Width>-0.86805cm</Width>
-                    <ZIndex>105</ZIndex>
+                    <ZIndex>92</ZIndex>
                     <Style>
                       <Border>
                         <Style>Solid</Style>
@@ -2733,7 +2437,7 @@
                     <Left>11.99116cm</Left>
                     <Height>0cm</Height>
                     <Width>-0.86805cm</Width>
-                    <ZIndex>106</ZIndex>
+                    <ZIndex>93</ZIndex>
                     <Style>
                       <Border>
                         <Style>Solid</Style>
@@ -2745,7 +2449,7 @@
                     <Left>11.99116cm</Left>
                     <Height>0cm</Height>
                     <Width>-0.86805cm</Width>
-                    <ZIndex>107</ZIndex>
+                    <ZIndex>94</ZIndex>
                     <Style>
                       <Border>
                         <Style>Solid</Style>
@@ -2776,11 +2480,146 @@
                     <Left>12.02644cm</Left>
                     <Height>0.22628cm</Height>
                     <Width>2.7123cm</Width>
-                    <ZIndex>108</ZIndex>
+                    <ZIndex>95</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
                       </Border>
+                    </Style>
+                  </Textbox>
+                  <Textbox Name="remitente32">
+                    <KeepTogether>true</KeepTogether>
+                    <Paragraphs>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
+                            <Value>=Fields!pesoVolumen.Value</Value>
+                            <Style>
+                              <FontSize>5pt</FontSize>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
+                      </Paragraph>
+                    </Paragraphs>
+                    <rd:DefaultName>remitente</rd:DefaultName>
+                    <Top>4.5215cm</Top>
+                    <Left>6.10305cm</Left>
+                    <Height>0.25095cm</Height>
+                    <Width>1.54722cm</Width>
+                    <ZIndex>96</ZIndex>
+                    <Style>
+                      <Border />
+                    </Style>
+                  </Textbox>
+                  <Textbox Name="remitente35">
+                    <KeepTogether>true</KeepTogether>
+                    <Paragraphs>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
+                            <Value>=Fields!codigoDestino.Value</Value>
+                            <Style>
+                              <FontSize>5pt</FontSize>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
+                      </Paragraph>
+                    </Paragraphs>
+                    <rd:DefaultName>remitente</rd:DefaultName>
+                    <Top>0.47059cm</Top>
+                    <Left>11.79334cm</Left>
+                    <Height>0.25095cm</Height>
+                    <Width>1.54722cm</Width>
+                    <ZIndex>97</ZIndex>
+                    <Style>
+                      <Border />
+                    </Style>
+                  </Textbox>
+                  <Textbox Name="remitente33">
+                    <KeepTogether>true</KeepTogether>
+                    <Paragraphs>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
+                            <Value>=Fields!codigoOrigen.Value</Value>
+                            <Style>
+                              <FontSize>5pt</FontSize>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
+                      </Paragraph>
+                    </Paragraphs>
+                    <rd:DefaultName>remitente</rd:DefaultName>
+                    <Top>0.541cm</Top>
+                    <Left>8.2909cm</Left>
+                    <Height>0.25095cm</Height>
+                    <Width>1.54722cm</Width>
+                    <ZIndex>98</ZIndex>
+                    <Style>
+                      <Border />
+                    </Style>
+                  </Textbox>
+                  <Textbox Name="remitente36">
+                    <KeepTogether>true</KeepTogether>
+                    <Paragraphs>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
+                            <Value>=Fields!codigoZona.Value</Value>
+                            <Style>
+                              <FontSize>5pt</FontSize>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
+                      </Paragraph>
+                    </Paragraphs>
+                    <rd:DefaultName>remitente</rd:DefaultName>
+                    <Top>1.66369cm</Top>
+                    <Left>18.16468cm</Left>
+                    <Height>0.25095cm</Height>
+                    <Width>1.70522cm</Width>
+                    <ZIndex>99</ZIndex>
+                    <Style>
+                      <Border />
+                    </Style>
+                  </Textbox>
+                  <Textbox Name="remitente38">
+                    <KeepTogether>true</KeepTogether>
+                    <Paragraphs>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
+                            <Value>=Fields!clienteFormaPago.Value</Value>
+                            <Style>
+                              <FontSize>5pt</FontSize>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
+                      </Paragraph>
+                    </Paragraphs>
+                    <rd:DefaultName>remitente</rd:DefaultName>
+                    <Top>0.49182cm</Top>
+                    <Left>18.16468cm</Left>
+                    <Height>0.25095cm</Height>
+                    <Width>1.54722cm</Width>
+                    <ZIndex>100</ZIndex>
+                    <Style>
+                      <Border />
                     </Style>
                   </Textbox>
                 </ReportItems>
@@ -2802,7 +2641,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Fields!numero.Value</Value>
+                        <Value>=Fields!codigoGuiaPk.Value</Value>
                         <Style>
                           <FontSize>7pt</FontSize>
                           <FontWeight>Bold</FontWeight>
@@ -3113,15 +2952,15 @@
                   </Border>
                 </Style>
               </Image>
-              <Textbox Name="tituloFactura">
+              <Textbox Name="remitente29">
                 <KeepTogether>true</KeepTogether>
                 <Paragraphs>
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>[tituloFactura]</Value>
+                        <Value>=Fields!guiaTipoNombre.Value</Value>
                         <Style>
-                          <FontSize>7pt</FontSize>
+                          <FontSize>8pt</FontSize>
                           <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
@@ -3131,24 +2970,21 @@
                     </Style>
                   </Paragraph>
                 </Paragraphs>
-                <rd:DefaultName>tituloFactura</rd:DefaultName>
-                <Top>0.06523cm</Top>
+                <rd:DefaultName>remitente</rd:DefaultName>
+                <Top>0.02659cm</Top>
                 <Left>16.60955cm</Left>
-                <Height>0.42119cm</Height>
-                <Width>3.29384cm</Width>
+                <Height>0.25604cm</Height>
+                <Width>3.30157cm</Width>
                 <ZIndex>11</ZIndex>
                 <Style>
-                  <Border>
-                    <Style>None</Style>
-                  </Border>
-                  <VerticalAlign>Top</VerticalAlign>
+                  <Border />
                 </Style>
               </Textbox>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Left>0.0699cm</Left>
             <Height>8.79183cm</Height>
-            <Width>20.2357cm</Width>
+            <Width>20.24315cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>

@@ -13,5 +13,6 @@ namespace cromo
         public int versionBaseDatos { get; set; }
         public bool numeroUnicoGuia { get; set; }
         public int codigoPrecioGeneral { get; set; }
+        public string codigoFormatoGuia { get; set; }
     }
 }
