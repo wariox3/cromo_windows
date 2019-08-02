@@ -330,7 +330,7 @@
                   </Textbox>
                   <Line Name="Line18">
                     <Top>0.02467cm</Top>
-                    <Left>15.03654cm</Left>
+                    <Left>15.67154cm</Left>
                     <Height>1.24174cm</Height>
                     <Width>0cm</Width>
                     <ZIndex>6</ZIndex>
@@ -341,8 +341,8 @@
                     </Style>
                   </Line>
                   <Line Name="Line28">
-                    <Left>17.84798cm</Left>
-                    <Height>2.49935cm</Height>
+                    <Left>18.48298cm</Left>
+                    <Height>1.26641cm</Height>
                     <Width>0cm</Width>
                     <ZIndex>7</ZIndex>
                     <Style>
@@ -372,9 +372,9 @@
                     </Paragraphs>
                     <rd:DefaultName>Textbox1</rd:DefaultName>
                     <Top>0.04933cm</Top>
-                    <Left>18.02437cm</Left>
+                    <Left>18.76543cm</Left>
                     <Height>0.28015cm</Height>
-                    <Width>1.85326cm</Width>
+                    <Width>1.4297cm</Width>
                     <ZIndex>8</ZIndex>
                     <Style>
                       <Border>
@@ -408,7 +408,7 @@
                     </Style>
                   </Textbox>
                   <Line Name="Line29">
-                    <Left>11.65223cm</Left>
+                    <Left>10.69973cm</Left>
                     <Height>1.26641cm</Height>
                     <Width>0cm</Width>
                     <ZIndex>10</ZIndex>
@@ -425,7 +425,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>POBLACION ORIGEN CODIGO</Value>
+                            <Value>POBLACION ORIGEN</Value>
                             <Style>
                               <FontSize>6pt</FontSize>
                               <FontWeight>Bold</FontWeight>
@@ -441,7 +441,7 @@
                     <Top>0.07056cm</Top>
                     <Left>8.23264cm</Left>
                     <Height>0.28015cm</Height>
-                    <Width>3.2432cm</Width>
+                    <Width>2.18487cm</Width>
                     <ZIndex>11</ZIndex>
                     <Style>
                       <Border>
@@ -468,7 +468,7 @@
                     <Top>0.86251cm</Top>
                     <Left>8.26791cm</Left>
                     <Height>0.25604cm</Height>
-                    <Width>3.20793cm</Width>
+                    <Width>2.1496cm</Width>
                     <ZIndex>12</ZIndex>
                     <Style>
                       <Border />
@@ -494,7 +494,7 @@
                     </Paragraphs>
                     <rd:DefaultName>Textbox1</rd:DefaultName>
                     <Top>0.04933cm</Top>
-                    <Left>11.75806cm</Left>
+                    <Left>10.87612cm</Left>
                     <Height>0.28015cm</Height>
                     <Width>3.13737cm</Width>
                     <ZIndex>13</ZIndex>
@@ -512,7 +512,7 @@
                           <TextRun>
                             <Value>=Fields!ciudadDestinoNombre.Value</Value>
                             <Style>
-                              <FontSize>6pt</FontSize>
+                              <FontSize>5pt</FontSize>
                             </Style>
                           </TextRun>
                         </TextRuns>
@@ -521,9 +521,9 @@
                     </Paragraphs>
                     <rd:DefaultName>remitente</rd:DefaultName>
                     <Top>0.83219cm</Top>
-                    <Left>11.82862cm</Left>
+                    <Left>10.87612cm</Left>
                     <Height>0.25604cm</Height>
-                    <Width>2.96395cm</Width>
+                    <Width>4.61903cm</Width>
                     <ZIndex>14</ZIndex>
                     <Style>
                       <Border />
@@ -991,7 +991,7 @@
                   </Textbox>
                   <Line Name="Line32">
                     <Top>1.25761cm</Top>
-                    <Left>17.84798cm</Left>
+                    <Left>18.48298cm</Left>
                     <Height>1.59245cm</Height>
                     <Width>0cm</Width>
                     <ZIndex>32</ZIndex>
@@ -1022,7 +1022,7 @@
                     </Paragraphs>
                     <rd:DefaultName>Textbox1</rd:DefaultName>
                     <Top>0.06174cm</Top>
-                    <Left>15.21293cm</Left>
+                    <Left>15.84793cm</Left>
                     <Height>0.28015cm</Height>
                     <Width>2.32951cm</Width>
                     <ZIndex>33</ZIndex>
@@ -1174,7 +1174,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>NUMERO RELACION</Value>
+                            <Value>RELACION</Value>
                             <Style>
                               <FontSize>5pt</FontSize>
                               <FontWeight>Bold</FontWeight>
@@ -1188,9 +1188,9 @@
                     </Paragraphs>
                     <rd:DefaultName>Textbox1</rd:DefaultName>
                     <Top>1.30169cm</Top>
-                    <Left>15.14237cm</Left>
+                    <Left>16.16543cm</Left>
                     <Height>0.28015cm</Height>
-                    <Width>2.52922cm</Width>
+                    <Width>1.85894cm</Width>
                     <ZIndex>41</ZIndex>
                     <Style>
                       <Border>
@@ -1219,9 +1219,9 @@
                     </Paragraphs>
                     <rd:DefaultName>Textbox1</rd:DefaultName>
                     <Top>1.30169cm</Top>
-                    <Left>18.16468cm</Left>
+                    <Left>18.76543cm</Left>
                     <Height>0.28015cm</Height>
-                    <Width>1.70522cm</Width>
+                    <Width>1.42197cm</Width>
                     <ZIndex>42</ZIndex>
                     <Style>
                       <Border>
@@ -1840,7 +1840,7 @@
                     </Paragraphs>
                     <rd:DefaultName>remitente</rd:DefaultName>
                     <Top>0.41245cm</Top>
-                    <Left>15.21293cm</Left>
+                    <Left>15.84793cm</Left>
                     <Height>0.67758cm</Height>
                     <Width>2.45866cm</Width>
                     <ZIndex>68</ZIndex>
@@ -2399,7 +2399,7 @@
                     </Paragraphs>
                     <rd:DefaultName>remitente</rd:DefaultName>
                     <Top>0.47059cm</Top>
-                    <Left>11.79334cm</Left>
+                    <Left>10.87612cm</Left>
                     <Height>0.25095cm</Height>
                     <Width>1.54722cm</Width>
                     <ZIndex>92</ZIndex>
@@ -2453,9 +2453,9 @@
                     </Paragraphs>
                     <rd:DefaultName>remitente</rd:DefaultName>
                     <Top>1.66369cm</Top>
-                    <Left>18.16468cm</Left>
+                    <Left>18.76543cm</Left>
                     <Height>0.25095cm</Height>
-                    <Width>1.70522cm</Width>
+                    <Width>1.42197cm</Width>
                     <ZIndex>94</ZIndex>
                     <Style>
                       <Border />
@@ -2480,9 +2480,9 @@
                     </Paragraphs>
                     <rd:DefaultName>remitente</rd:DefaultName>
                     <Top>0.49182cm</Top>
-                    <Left>18.16468cm</Left>
+                    <Left>18.76543cm</Left>
                     <Height>0.25095cm</Height>
-                    <Width>1.54722cm</Width>
+                    <Width>1.39597cm</Width>
                     <ZIndex>95</ZIndex>
                     <Style>
                       <Border />
@@ -2509,9 +2509,9 @@
                     </Paragraphs>
                     <rd:DefaultName>Textbox1</rd:DefaultName>
                     <Top>2.11337cm</Top>
-                    <Left>15.21293cm</Left>
+                    <Left>15.84793cm</Left>
                     <Height>0.28015cm</Height>
-                    <Width>2.52922cm</Width>
+                    <Width>1.98533cm</Width>
                     <ZIndex>96</ZIndex>
                     <Style>
                       <Border>
@@ -2538,7 +2538,7 @@
                     </Paragraphs>
                     <rd:DefaultName>remitente</rd:DefaultName>
                     <Top>2.42272cm</Top>
-                    <Left>15.65104cm</Left>
+                    <Left>15.96854cm</Left>
                     <Height>0.25095cm</Height>
                     <Width>1.54722cm</Width>
                     <ZIndex>97</ZIndex>
@@ -2710,15 +2710,15 @@
                       </TextRun>
                     </TextRuns>
                     <Style>
-                      <TextAlign>Center</TextAlign>
+                      <TextAlign>Right</TextAlign>
                     </Style>
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>codigoBarras</rd:DefaultName>
                 <Top>0.74138cm</Top>
-                <Left>16.60955cm</Left>
+                <Left>13.56684cm</Left>
                 <Height>0.79403cm</Height>
-                <Width>3.30157cm</Width>
+                <Width>6.34428cm</Width>
                 <ZIndex>5</ZIndex>
                 <Style>
                   <Border />
@@ -3040,7 +3040,7 @@
                   </Textbox>
                   <Line Name="Line20">
                     <Top>0.02467cm</Top>
-                    <Left>15.03654cm</Left>
+                    <Left>15.67154cm</Left>
                     <Height>1.24174cm</Height>
                     <Width>0cm</Width>
                     <ZIndex>6</ZIndex>
@@ -3051,8 +3051,8 @@
                     </Style>
                   </Line>
                   <Line Name="Line43">
-                    <Left>17.84798cm</Left>
-                    <Height>2.49935cm</Height>
+                    <Left>18.48298cm</Left>
+                    <Height>1.26641cm</Height>
                     <Width>0cm</Width>
                     <ZIndex>7</ZIndex>
                     <Style>
@@ -3082,9 +3082,9 @@
                     </Paragraphs>
                     <rd:DefaultName>Textbox1</rd:DefaultName>
                     <Top>0.04933cm</Top>
-                    <Left>18.02437cm</Left>
+                    <Left>18.76543cm</Left>
                     <Height>0.28015cm</Height>
-                    <Width>1.85326cm</Width>
+                    <Width>1.4297cm</Width>
                     <ZIndex>8</ZIndex>
                     <Style>
                       <Border>
@@ -3118,7 +3118,7 @@
                     </Style>
                   </Textbox>
                   <Line Name="Line44">
-                    <Left>11.65223cm</Left>
+                    <Left>10.69973cm</Left>
                     <Height>1.26641cm</Height>
                     <Width>0cm</Width>
                     <ZIndex>10</ZIndex>
@@ -3135,7 +3135,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>POBLACION ORIGEN CODIGO</Value>
+                            <Value>POBLACION ORIGEN</Value>
                             <Style>
                               <FontSize>6pt</FontSize>
                               <FontWeight>Bold</FontWeight>
@@ -3151,7 +3151,7 @@
                     <Top>0.07056cm</Top>
                     <Left>8.23264cm</Left>
                     <Height>0.28015cm</Height>
-                    <Width>3.2432cm</Width>
+                    <Width>2.18487cm</Width>
                     <ZIndex>11</ZIndex>
                     <Style>
                       <Border>
@@ -3178,7 +3178,7 @@
                     <Top>0.86251cm</Top>
                     <Left>8.26791cm</Left>
                     <Height>0.25604cm</Height>
-                    <Width>3.20793cm</Width>
+                    <Width>2.1496cm</Width>
                     <ZIndex>12</ZIndex>
                     <Style>
                       <Border />
@@ -3204,7 +3204,7 @@
                     </Paragraphs>
                     <rd:DefaultName>Textbox1</rd:DefaultName>
                     <Top>0.04933cm</Top>
-                    <Left>11.75806cm</Left>
+                    <Left>10.87612cm</Left>
                     <Height>0.28015cm</Height>
                     <Width>3.13737cm</Width>
                     <ZIndex>13</ZIndex>
@@ -3222,7 +3222,7 @@
                           <TextRun>
                             <Value>=Fields!ciudadDestinoNombre.Value</Value>
                             <Style>
-                              <FontSize>6pt</FontSize>
+                              <FontSize>5pt</FontSize>
                             </Style>
                           </TextRun>
                         </TextRuns>
@@ -3231,9 +3231,9 @@
                     </Paragraphs>
                     <rd:DefaultName>remitente</rd:DefaultName>
                     <Top>0.83219cm</Top>
-                    <Left>11.82862cm</Left>
+                    <Left>10.87612cm</Left>
                     <Height>0.25604cm</Height>
-                    <Width>2.96395cm</Width>
+                    <Width>4.61903cm</Width>
                     <ZIndex>14</ZIndex>
                     <Style>
                       <Border />
@@ -3701,7 +3701,7 @@
                   </Textbox>
                   <Line Name="Line47">
                     <Top>1.25761cm</Top>
-                    <Left>17.84798cm</Left>
+                    <Left>18.48298cm</Left>
                     <Height>1.59245cm</Height>
                     <Width>0cm</Width>
                     <ZIndex>32</ZIndex>
@@ -3732,7 +3732,7 @@
                     </Paragraphs>
                     <rd:DefaultName>Textbox1</rd:DefaultName>
                     <Top>0.06174cm</Top>
-                    <Left>15.21293cm</Left>
+                    <Left>15.84793cm</Left>
                     <Height>0.28015cm</Height>
                     <Width>2.32951cm</Width>
                     <ZIndex>33</ZIndex>
@@ -3884,7 +3884,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>NUMERO RELACION</Value>
+                            <Value>RELACION</Value>
                             <Style>
                               <FontSize>5pt</FontSize>
                               <FontWeight>Bold</FontWeight>
@@ -3898,9 +3898,9 @@
                     </Paragraphs>
                     <rd:DefaultName>Textbox1</rd:DefaultName>
                     <Top>1.30169cm</Top>
-                    <Left>15.14237cm</Left>
+                    <Left>16.16543cm</Left>
                     <Height>0.28015cm</Height>
-                    <Width>2.52922cm</Width>
+                    <Width>1.85894cm</Width>
                     <ZIndex>41</ZIndex>
                     <Style>
                       <Border>
@@ -3929,9 +3929,9 @@
                     </Paragraphs>
                     <rd:DefaultName>Textbox1</rd:DefaultName>
                     <Top>1.30169cm</Top>
-                    <Left>18.16468cm</Left>
+                    <Left>18.76543cm</Left>
                     <Height>0.28015cm</Height>
-                    <Width>1.70522cm</Width>
+                    <Width>1.42197cm</Width>
                     <ZIndex>42</ZIndex>
                     <Style>
                       <Border>
@@ -4550,7 +4550,7 @@
                     </Paragraphs>
                     <rd:DefaultName>remitente</rd:DefaultName>
                     <Top>0.41245cm</Top>
-                    <Left>15.21293cm</Left>
+                    <Left>15.84793cm</Left>
                     <Height>0.67758cm</Height>
                     <Width>2.45866cm</Width>
                     <ZIndex>68</ZIndex>
@@ -5109,7 +5109,7 @@
                     </Paragraphs>
                     <rd:DefaultName>remitente</rd:DefaultName>
                     <Top>0.47059cm</Top>
-                    <Left>11.79334cm</Left>
+                    <Left>10.87612cm</Left>
                     <Height>0.25095cm</Height>
                     <Width>1.54722cm</Width>
                     <ZIndex>92</ZIndex>
@@ -5163,9 +5163,9 @@
                     </Paragraphs>
                     <rd:DefaultName>remitente</rd:DefaultName>
                     <Top>1.66369cm</Top>
-                    <Left>18.16468cm</Left>
+                    <Left>18.76543cm</Left>
                     <Height>0.25095cm</Height>
-                    <Width>1.70522cm</Width>
+                    <Width>1.42197cm</Width>
                     <ZIndex>94</ZIndex>
                     <Style>
                       <Border />
@@ -5190,9 +5190,9 @@
                     </Paragraphs>
                     <rd:DefaultName>remitente</rd:DefaultName>
                     <Top>0.49182cm</Top>
-                    <Left>18.16468cm</Left>
+                    <Left>18.76543cm</Left>
                     <Height>0.25095cm</Height>
-                    <Width>1.54722cm</Width>
+                    <Width>1.39597cm</Width>
                     <ZIndex>95</ZIndex>
                     <Style>
                       <Border />
@@ -5219,9 +5219,9 @@
                     </Paragraphs>
                     <rd:DefaultName>Textbox1</rd:DefaultName>
                     <Top>2.11337cm</Top>
-                    <Left>15.21293cm</Left>
+                    <Left>15.84793cm</Left>
                     <Height>0.28015cm</Height>
-                    <Width>2.52922cm</Width>
+                    <Width>1.98533cm</Width>
                     <ZIndex>96</ZIndex>
                     <Style>
                       <Border>
@@ -5248,7 +5248,7 @@
                     </Paragraphs>
                     <rd:DefaultName>remitente</rd:DefaultName>
                     <Top>2.42272cm</Top>
-                    <Left>15.65104cm</Left>
+                    <Left>15.96854cm</Left>
                     <Height>0.25095cm</Height>
                     <Width>1.54722cm</Width>
                     <ZIndex>97</ZIndex>
@@ -5420,15 +5420,15 @@
                       </TextRun>
                     </TextRuns>
                     <Style>
-                      <TextAlign>Center</TextAlign>
+                      <TextAlign>Right</TextAlign>
                     </Style>
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>codigoBarras</rd:DefaultName>
                 <Top>0.74138cm</Top>
-                <Left>16.60955cm</Left>
+                <Left>13.56684cm</Left>
                 <Height>0.79403cm</Height>
-                <Width>3.30157cm</Width>
+                <Width>6.34428cm</Width>
                 <ZIndex>5</ZIndex>
                 <Style>
                   <Border />
@@ -5533,7 +5533,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>EMPRESA</Value>
+                        <Value>REMITENTE</Value>
                         <Style>
                           <FontSize>7pt</FontSize>
                         </Style>
@@ -5616,8 +5616,8 @@
               </Image>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
-            <Top>9.02229cm</Top>
-            <Left>0.0699cm</Left>
+            <Top>9.04875cm</Top>
+            <Left>0.06812cm</Left>
             <Height>8.5537cm</Height>
             <Width>20.24315cm</Width>
             <ZIndex>1</ZIndex>
@@ -5752,7 +5752,7 @@
                   </Textbox>
                   <Line Name="Line27">
                     <Top>0.02467cm</Top>
-                    <Left>15.03654cm</Left>
+                    <Left>15.67154cm</Left>
                     <Height>1.24174cm</Height>
                     <Width>0cm</Width>
                     <ZIndex>6</ZIndex>
@@ -5763,8 +5763,8 @@
                     </Style>
                   </Line>
                   <Line Name="Line58">
-                    <Left>17.84798cm</Left>
-                    <Height>2.49935cm</Height>
+                    <Left>18.48298cm</Left>
+                    <Height>1.26641cm</Height>
                     <Width>0cm</Width>
                     <ZIndex>7</ZIndex>
                     <Style>
@@ -5794,9 +5794,9 @@
                     </Paragraphs>
                     <rd:DefaultName>Textbox1</rd:DefaultName>
                     <Top>0.04933cm</Top>
-                    <Left>18.02437cm</Left>
+                    <Left>18.76543cm</Left>
                     <Height>0.28015cm</Height>
-                    <Width>1.85326cm</Width>
+                    <Width>1.4297cm</Width>
                     <ZIndex>8</ZIndex>
                     <Style>
                       <Border>
@@ -5830,7 +5830,7 @@
                     </Style>
                   </Textbox>
                   <Line Name="Line59">
-                    <Left>11.65223cm</Left>
+                    <Left>10.69973cm</Left>
                     <Height>1.26641cm</Height>
                     <Width>0cm</Width>
                     <ZIndex>10</ZIndex>
@@ -5847,7 +5847,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>POBLACION ORIGEN CODIGO</Value>
+                            <Value>POBLACION ORIGEN</Value>
                             <Style>
                               <FontSize>6pt</FontSize>
                               <FontWeight>Bold</FontWeight>
@@ -5863,7 +5863,7 @@
                     <Top>0.07056cm</Top>
                     <Left>8.23264cm</Left>
                     <Height>0.28015cm</Height>
-                    <Width>3.2432cm</Width>
+                    <Width>2.18487cm</Width>
                     <ZIndex>11</ZIndex>
                     <Style>
                       <Border>
@@ -5890,7 +5890,7 @@
                     <Top>0.86251cm</Top>
                     <Left>8.26791cm</Left>
                     <Height>0.25604cm</Height>
-                    <Width>3.20793cm</Width>
+                    <Width>2.1496cm</Width>
                     <ZIndex>12</ZIndex>
                     <Style>
                       <Border />
@@ -5916,7 +5916,7 @@
                     </Paragraphs>
                     <rd:DefaultName>Textbox1</rd:DefaultName>
                     <Top>0.04933cm</Top>
-                    <Left>11.75806cm</Left>
+                    <Left>10.87612cm</Left>
                     <Height>0.28015cm</Height>
                     <Width>3.13737cm</Width>
                     <ZIndex>13</ZIndex>
@@ -5934,7 +5934,7 @@
                           <TextRun>
                             <Value>=Fields!ciudadDestinoNombre.Value</Value>
                             <Style>
-                              <FontSize>6pt</FontSize>
+                              <FontSize>5pt</FontSize>
                             </Style>
                           </TextRun>
                         </TextRuns>
@@ -5943,9 +5943,9 @@
                     </Paragraphs>
                     <rd:DefaultName>remitente</rd:DefaultName>
                     <Top>0.83219cm</Top>
-                    <Left>11.82862cm</Left>
+                    <Left>10.87612cm</Left>
                     <Height>0.25604cm</Height>
-                    <Width>2.96395cm</Width>
+                    <Width>4.61903cm</Width>
                     <ZIndex>14</ZIndex>
                     <Style>
                       <Border />
@@ -6413,7 +6413,7 @@
                   </Textbox>
                   <Line Name="Line62">
                     <Top>1.25761cm</Top>
-                    <Left>17.84798cm</Left>
+                    <Left>18.48298cm</Left>
                     <Height>1.59245cm</Height>
                     <Width>0cm</Width>
                     <ZIndex>32</ZIndex>
@@ -6444,7 +6444,7 @@
                     </Paragraphs>
                     <rd:DefaultName>Textbox1</rd:DefaultName>
                     <Top>0.06174cm</Top>
-                    <Left>15.21293cm</Left>
+                    <Left>15.84793cm</Left>
                     <Height>0.28015cm</Height>
                     <Width>2.32951cm</Width>
                     <ZIndex>33</ZIndex>
@@ -6596,7 +6596,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>NUMERO RELACION</Value>
+                            <Value>RELACION</Value>
                             <Style>
                               <FontSize>5pt</FontSize>
                               <FontWeight>Bold</FontWeight>
@@ -6610,9 +6610,9 @@
                     </Paragraphs>
                     <rd:DefaultName>Textbox1</rd:DefaultName>
                     <Top>1.30169cm</Top>
-                    <Left>15.14237cm</Left>
+                    <Left>16.16543cm</Left>
                     <Height>0.28015cm</Height>
-                    <Width>2.52922cm</Width>
+                    <Width>1.85894cm</Width>
                     <ZIndex>41</ZIndex>
                     <Style>
                       <Border>
@@ -6641,9 +6641,9 @@
                     </Paragraphs>
                     <rd:DefaultName>Textbox1</rd:DefaultName>
                     <Top>1.30169cm</Top>
-                    <Left>18.16468cm</Left>
+                    <Left>18.76543cm</Left>
                     <Height>0.28015cm</Height>
-                    <Width>1.70522cm</Width>
+                    <Width>1.42197cm</Width>
                     <ZIndex>42</ZIndex>
                     <Style>
                       <Border>
@@ -7262,7 +7262,7 @@
                     </Paragraphs>
                     <rd:DefaultName>remitente</rd:DefaultName>
                     <Top>0.41245cm</Top>
-                    <Left>15.21293cm</Left>
+                    <Left>15.84793cm</Left>
                     <Height>0.67758cm</Height>
                     <Width>2.45866cm</Width>
                     <ZIndex>68</ZIndex>
@@ -7821,7 +7821,7 @@
                     </Paragraphs>
                     <rd:DefaultName>remitente</rd:DefaultName>
                     <Top>0.47059cm</Top>
-                    <Left>11.79334cm</Left>
+                    <Left>10.87612cm</Left>
                     <Height>0.25095cm</Height>
                     <Width>1.54722cm</Width>
                     <ZIndex>92</ZIndex>
@@ -7875,9 +7875,9 @@
                     </Paragraphs>
                     <rd:DefaultName>remitente</rd:DefaultName>
                     <Top>1.66369cm</Top>
-                    <Left>18.16468cm</Left>
+                    <Left>18.76543cm</Left>
                     <Height>0.25095cm</Height>
-                    <Width>1.70522cm</Width>
+                    <Width>1.42197cm</Width>
                     <ZIndex>94</ZIndex>
                     <Style>
                       <Border />
@@ -7902,9 +7902,9 @@
                     </Paragraphs>
                     <rd:DefaultName>remitente</rd:DefaultName>
                     <Top>0.49182cm</Top>
-                    <Left>18.16468cm</Left>
+                    <Left>18.76543cm</Left>
                     <Height>0.25095cm</Height>
-                    <Width>1.54722cm</Width>
+                    <Width>1.39597cm</Width>
                     <ZIndex>95</ZIndex>
                     <Style>
                       <Border />
@@ -7931,9 +7931,9 @@
                     </Paragraphs>
                     <rd:DefaultName>Textbox1</rd:DefaultName>
                     <Top>2.11337cm</Top>
-                    <Left>15.21293cm</Left>
+                    <Left>15.84793cm</Left>
                     <Height>0.28015cm</Height>
-                    <Width>2.52922cm</Width>
+                    <Width>1.98533cm</Width>
                     <ZIndex>96</ZIndex>
                     <Style>
                       <Border>
@@ -7960,7 +7960,7 @@
                     </Paragraphs>
                     <rd:DefaultName>remitente</rd:DefaultName>
                     <Top>2.42272cm</Top>
-                    <Left>15.65104cm</Left>
+                    <Left>15.96854cm</Left>
                     <Height>0.25095cm</Height>
                     <Width>1.54722cm</Width>
                     <ZIndex>97</ZIndex>
@@ -8132,15 +8132,15 @@
                       </TextRun>
                     </TextRuns>
                     <Style>
-                      <TextAlign>Center</TextAlign>
+                      <TextAlign>Right</TextAlign>
                     </Style>
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>codigoBarras</rd:DefaultName>
                 <Top>0.74138cm</Top>
-                <Left>16.60955cm</Left>
+                <Left>13.56684cm</Left>
                 <Height>0.79403cm</Height>
-                <Width>3.30157cm</Width>
+                <Width>6.34428cm</Width>
                 <ZIndex>5</ZIndex>
                 <Style>
                   <Border />
@@ -8245,7 +8245,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>DESTINATARIO</Value>
+                        <Value>REMITENTE</Value>
                         <Style>
                           <FontSize>7pt</FontSize>
                         </Style>
@@ -8328,7 +8328,7 @@
               </Image>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
-            <Top>17.98116cm</Top>
+            <Top>17.93875cm</Top>
             <Left>0.06812cm</Left>
             <Height>8.5537cm</Height>
             <Width>20.24315cm</Width>
