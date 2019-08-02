@@ -44,6 +44,8 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.utilidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuImpresionMasiva = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -53,6 +55,7 @@
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileMenu,
             this.editMenu,
+            this.utilidadesToolStripMenuItem,
             this.helpMenu});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
@@ -89,7 +92,7 @@
             this.mnuGuia.ImageTransparentColor = System.Drawing.Color.Black;
             this.mnuGuia.Name = "mnuGuia";
             this.mnuGuia.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
-            this.mnuGuia.Size = new System.Drawing.Size(139, 22);
+            this.mnuGuia.Size = new System.Drawing.Size(180, 22);
             this.mnuGuia.Text = "&Guia";
             this.mnuGuia.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
             // 
@@ -155,6 +158,21 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(42, 17);
             this.toolStripStatusLabel.Text = "Estado";
             // 
+            // utilidadesToolStripMenuItem
+            // 
+            this.utilidadesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuImpresionMasiva});
+            this.utilidadesToolStripMenuItem.Name = "utilidadesToolStripMenuItem";
+            this.utilidadesToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.utilidadesToolStripMenuItem.Text = "Utilidades";
+            // 
+            // mnuImpresionMasiva
+            // 
+            this.mnuImpresionMasiva.Name = "mnuImpresionMasiva";
+            this.mnuImpresionMasiva.Size = new System.Drawing.Size(180, 22);
+            this.mnuImpresionMasiva.Text = "Impresion masiva";
+            this.mnuImpresionMasiva.Click += new System.EventHandler(this.mnuImpresionMasiva_Click);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -193,7 +211,9 @@
         private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.ToolStripMenuItem mnuArchivoConfigurcion;
-	}
+        private System.Windows.Forms.ToolStripMenuItem utilidadesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuImpresionMasiva;
+    }
 }
 
 

@@ -37,6 +37,7 @@ namespace cromo
         public string clienteTelefono { get; set; }
         public string clienteFormaPago { get; set; }
         public string documentoCliente { get; set; }
+        public string relacionCliente { get; set; }
         public double vrDeclara { get; set; }
         public double vrFlete { get; set; }
         public double vrManejo { get; set; }

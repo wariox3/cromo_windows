@@ -943,7 +943,8 @@ namespace cromo
             {
                 ImprimirFormato formato = new ImprimirFormato();
                 formato.codigoFormato = "2";
-                formato.codigo = TxtCodigo.Text;
+                formato.codigoDesde = TxtCodigo.Text;
+                formato.codigoHasta = TxtCodigo.Text;
                 formato.tipo = "Guia";
                 General.Formato = formato;
                 FrmVisor frm = new FrmVisor();
@@ -964,7 +965,8 @@ namespace cromo
             {
                 ImprimirFormato formato = new ImprimirFormato();
                 formato.codigoFormato = General.CodigoFormatoGuia;
-                formato.codigo = TxtCodigo.Text;
+                formato.codigoDesde = TxtCodigo.Text;
+                formato.codigoHasta = TxtCodigo.Text;
                 formato.tipo = "Guia";
                 General.Formato = formato;
                 FrmVisor frm = new FrmVisor();
@@ -978,7 +980,8 @@ namespace cromo
             {
                 ImprimirFormato formato = new ImprimirFormato();
                 formato.codigoFormato = General.CodigoFormatoGuia;
-                formato.codigo = TxtCodigo.Text;
+                formato.codigoDesde = TxtCodigo.Text;
+                formato.codigoHasta = TxtCodigo.Text;
                 formato.tipo = "Guia";
                 General.Formato = formato;
                 FrmVisor frm = new FrmVisor();

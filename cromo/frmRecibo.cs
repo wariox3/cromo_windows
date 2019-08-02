@@ -88,7 +88,8 @@ namespace cromo
 		{
             ImprimirFormato formato = new ImprimirFormato();
             formato.codigoFormato = "";
-            formato.codigo = General.CodigoGuia.ToString();
+            formato.codigoDesde = General.CodigoGuia.ToString();
+            formato.codigoHasta = General.CodigoGuia.ToString();
             formato.tipo = "Recibo";
             General.Formato = formato;
             FrmVisor frm = new FrmVisor();

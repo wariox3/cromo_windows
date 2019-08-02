@@ -10,6 +10,7 @@ namespace cromo
     {
         public string tipo { get; set; }
         public string codigoFormato { get; set; }
-        public string codigo { get; set; }
+        public string codigoDesde { get; set; }
+        public string codigoHasta { get; set; }
     }
 }

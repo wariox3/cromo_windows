@@ -122,5 +122,12 @@ namespace cromo
 				Close();
 			}
 		}
-	}
+
+        private void mnuImpresionMasiva_Click(object sender, EventArgs e)
+        {
+            FrmImpresionMasiva frmImpresionMasiva = new FrmImpresionMasiva();
+            frmImpresionMasiva.ShowDialog();
+            
+        }
+    }
 }

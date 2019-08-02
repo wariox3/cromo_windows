@@ -178,6 +178,12 @@
     <Compile Include="FrmGuiaDetalle.Designer.cs">
       <DependentUpon>FrmGuiaDetalle.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmImpresionMasiva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmImpresionMasiva.Designer.cs">
+      <DependentUpon>FrmImpresionMasiva.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmIngreso.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -279,6 +285,9 @@
     <EmbeddedResource Include="FrmGuiaDetalle.resx">
       <DependentUpon>FrmGuiaDetalle.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmImpresionMasiva.resx">
+      <DependentUpon>FrmImpresionMasiva.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmIngreso.resx">
       <DependentUpon>FrmIngreso.cs</DependentUpon>
     </EmbeddedResource>
@@ -365,6 +374,7 @@
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Recursos\Code39.ttf" />
     <None Include="Resources\24-7.ico" />
   </ItemGroup>
   <ItemGroup>
