@@ -72,7 +72,7 @@
             this.gbCliente = new System.Windows.Forms.GroupBox();
             this.label51 = new System.Windows.Forms.Label();
             this.TxtCodigoPrecio = new System.Windows.Forms.TextBox();
-            this.BtnVerCliente = new System.Windows.Forms.Button();
+            this.BtnCrearCliente = new System.Windows.Forms.Button();
             this.TxtRelacion = new System.Windows.Forms.TextBox();
             this.label32 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
@@ -215,12 +215,12 @@
             this.ClmVrAdicional = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ClmMinimo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.GbCondicionEspecialManejo = new System.Windows.Forms.GroupBox();
-            this.TxtPorcentajeManejoEspecial = new System.Windows.Forms.TextBox();
-            this.TxtManejoMinimoUnidadEspecial = new System.Windows.Forms.TextBox();
-            this.TxtManejoMinimoDespachoEspecial = new System.Windows.Forms.TextBox();
             this.label58 = new System.Windows.Forms.Label();
             this.label59 = new System.Windows.Forms.Label();
             this.label60 = new System.Windows.Forms.Label();
+            this.TxtManejoMinimoDespachoEspecial = new System.Windows.Forms.TextBox();
+            this.TxtManejoMinimoUnidadEspecial = new System.Windows.Forms.TextBox();
+            this.TxtPorcentajeManejoEspecial = new System.Windows.Forms.TextBox();
             this.gbDestinatario.SuspendLayout();
             this.gbTotales.SuspendLayout();
             this.gbCliente.SuspendLayout();
@@ -645,7 +645,7 @@
             // 
             this.gbCliente.Controls.Add(this.label51);
             this.gbCliente.Controls.Add(this.TxtCodigoPrecio);
-            this.gbCliente.Controls.Add(this.BtnVerCliente);
+            this.gbCliente.Controls.Add(this.BtnCrearCliente);
             this.gbCliente.Controls.Add(this.TxtRelacion);
             this.gbCliente.Controls.Add(this.label32);
             this.gbCliente.Controls.Add(this.label27);
@@ -685,15 +685,16 @@
             this.TxtCodigoPrecio.Size = new System.Drawing.Size(28, 20);
             this.TxtCodigoPrecio.TabIndex = 38;
             // 
-            // BtnVerCliente
+            // BtnCrearCliente
             // 
-            this.BtnVerCliente.Location = new System.Drawing.Point(483, 12);
-            this.BtnVerCliente.Name = "BtnVerCliente";
-            this.BtnVerCliente.Size = new System.Drawing.Size(34, 20);
-            this.BtnVerCliente.TabIndex = 37;
-            this.BtnVerCliente.TabStop = false;
-            this.BtnVerCliente.Text = "Ver";
-            this.BtnVerCliente.UseVisualStyleBackColor = true;
+            this.BtnCrearCliente.Location = new System.Drawing.Point(465, 12);
+            this.BtnCrearCliente.Name = "BtnCrearCliente";
+            this.BtnCrearCliente.Size = new System.Drawing.Size(52, 20);
+            this.BtnCrearCliente.TabIndex = 37;
+            this.BtnCrearCliente.TabStop = false;
+            this.BtnCrearCliente.Text = "Crear";
+            this.BtnCrearCliente.UseVisualStyleBackColor = true;
+            this.BtnCrearCliente.Click += new System.EventHandler(this.BtnCrearCliente_Click);
             // 
             // TxtRelacion
             // 
@@ -727,7 +728,7 @@
             this.txtNombreCondicion.Location = new System.Drawing.Point(135, 35);
             this.txtNombreCondicion.Name = "txtNombreCondicion";
             this.txtNombreCondicion.ReadOnly = true;
-            this.txtNombreCondicion.Size = new System.Drawing.Size(382, 20);
+            this.txtNombreCondicion.Size = new System.Drawing.Size(324, 20);
             this.txtNombreCondicion.TabIndex = 24;
             // 
             // TxtCodigoCondicion
@@ -798,7 +799,7 @@
             // 
             this.TxtRemitente.Location = new System.Drawing.Point(76, 57);
             this.TxtRemitente.Name = "TxtRemitente";
-            this.TxtRemitente.Size = new System.Drawing.Size(380, 20);
+            this.TxtRemitente.Size = new System.Drawing.Size(383, 20);
             this.TxtRemitente.TabIndex = 3;
             this.TxtRemitente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
             // 
@@ -808,7 +809,7 @@
             this.txtNombreCliente.Location = new System.Drawing.Point(135, 12);
             this.txtNombreCliente.Name = "txtNombreCliente";
             this.txtNombreCliente.ReadOnly = true;
-            this.txtNombreCliente.Size = new System.Drawing.Size(342, 20);
+            this.txtNombreCliente.Size = new System.Drawing.Size(324, 20);
             this.txtNombreCliente.TabIndex = 9;
             // 
             // label1
@@ -2056,30 +2057,6 @@
             this.GbCondicionEspecialManejo.Text = "Condicion especial manejo";
             this.GbCondicionEspecialManejo.Visible = false;
             // 
-            // TxtPorcentajeManejoEspecial
-            // 
-            this.TxtPorcentajeManejoEspecial.Location = new System.Drawing.Point(74, 18);
-            this.TxtPorcentajeManejoEspecial.Name = "TxtPorcentajeManejoEspecial";
-            this.TxtPorcentajeManejoEspecial.Size = new System.Drawing.Size(77, 20);
-            this.TxtPorcentajeManejoEspecial.TabIndex = 1;
-            this.TxtPorcentajeManejoEspecial.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // TxtManejoMinimoUnidadEspecial
-            // 
-            this.TxtManejoMinimoUnidadEspecial.Location = new System.Drawing.Point(74, 41);
-            this.TxtManejoMinimoUnidadEspecial.Name = "TxtManejoMinimoUnidadEspecial";
-            this.TxtManejoMinimoUnidadEspecial.Size = new System.Drawing.Size(77, 20);
-            this.TxtManejoMinimoUnidadEspecial.TabIndex = 2;
-            this.TxtManejoMinimoUnidadEspecial.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // TxtManejoMinimoDespachoEspecial
-            // 
-            this.TxtManejoMinimoDespachoEspecial.Location = new System.Drawing.Point(74, 64);
-            this.TxtManejoMinimoDespachoEspecial.Name = "TxtManejoMinimoDespachoEspecial";
-            this.TxtManejoMinimoDespachoEspecial.Size = new System.Drawing.Size(77, 20);
-            this.TxtManejoMinimoDespachoEspecial.TabIndex = 3;
-            this.TxtManejoMinimoDespachoEspecial.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // label58
             // 
             this.label58.AutoSize = true;
@@ -2106,6 +2083,30 @@
             this.label60.Size = new System.Drawing.Size(45, 13);
             this.label60.TabIndex = 29;
             this.label60.Text = "Manejo:";
+            // 
+            // TxtManejoMinimoDespachoEspecial
+            // 
+            this.TxtManejoMinimoDespachoEspecial.Location = new System.Drawing.Point(74, 64);
+            this.TxtManejoMinimoDespachoEspecial.Name = "TxtManejoMinimoDespachoEspecial";
+            this.TxtManejoMinimoDespachoEspecial.Size = new System.Drawing.Size(77, 20);
+            this.TxtManejoMinimoDespachoEspecial.TabIndex = 3;
+            this.TxtManejoMinimoDespachoEspecial.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // TxtManejoMinimoUnidadEspecial
+            // 
+            this.TxtManejoMinimoUnidadEspecial.Location = new System.Drawing.Point(74, 41);
+            this.TxtManejoMinimoUnidadEspecial.Name = "TxtManejoMinimoUnidadEspecial";
+            this.TxtManejoMinimoUnidadEspecial.Size = new System.Drawing.Size(77, 20);
+            this.TxtManejoMinimoUnidadEspecial.TabIndex = 2;
+            this.TxtManejoMinimoUnidadEspecial.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // TxtPorcentajeManejoEspecial
+            // 
+            this.TxtPorcentajeManejoEspecial.Location = new System.Drawing.Point(74, 18);
+            this.TxtPorcentajeManejoEspecial.Name = "TxtPorcentajeManejoEspecial";
+            this.TxtPorcentajeManejoEspecial.Size = new System.Drawing.Size(77, 20);
+            this.TxtPorcentajeManejoEspecial.TabIndex = 1;
+            this.TxtPorcentajeManejoEspecial.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // FrmGuia
             // 
@@ -2344,7 +2345,7 @@
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Button BtnVerCliente;
+        private System.Windows.Forms.Button BtnCrearCliente;
         private System.Windows.Forms.CheckBox ChkOmitirDescuento;
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.TextBox TxtCodigoPrecio;

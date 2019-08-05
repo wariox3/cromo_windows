@@ -37,18 +37,6 @@ namespace cromo.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("209")]
-        public string ciudadOrigen {
-            get {
-                return ((string)(this["ciudadOrigen"]));
-            }
-            set {
-                this["ciudadOrigen"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("C:\\Program Files (x86)\\Semantica\\Cromo\\Reportes\\")]
         public string rutaReportes {
             get {

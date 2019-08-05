@@ -139,6 +139,8 @@
     <Compile Include="ApiGuia.cs" />
     <Compile Include="ApiGuiaCarga.cs" />
     <Compile Include="ApiGuiaImprimir.cs" />
+    <Compile Include="ApiIdentificacion.cs" />
+    <Compile Include="ApiOperacion.cs" />
     <Compile Include="ApiOperador.cs" />
     <Compile Include="ApiPrecioDetalle.cs" />
     <Compile Include="ApiProducto.cs" />
@@ -159,6 +161,12 @@
     </Compile>
     <Compile Include="FrmBuscarDestinatario.Designer.cs">
       <DependentUpon>FrmBuscarDestinatario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmClienteNuevo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmClienteNuevo.Designer.cs">
+      <DependentUpon>FrmClienteNuevo.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmDevolverDocumento.cs">
       <SubType>Form</SubType>
@@ -190,19 +198,7 @@
     <Compile Include="FrmIngreso.Designer.cs">
       <DependentUpon>FrmIngreso.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmValidarAdministrador.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmValidarAdministrador.Designer.cs">
-      <DependentUpon>FrmValidarAdministrador.cs</DependentUpon>
-    </Compile>
     <Compile Include="ApiGuiaTipo.cs" />
-    <Compile Include="FrmVerCliente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmVerCliente.Designer.cs">
-      <DependentUpon>FrmVerCliente.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmVisor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -276,6 +272,9 @@
     <EmbeddedResource Include="FrmBuscarDestinatario.resx">
       <DependentUpon>FrmBuscarDestinatario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmClienteNuevo.resx">
+      <DependentUpon>FrmClienteNuevo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmDevolverDocumento.resx">
       <DependentUpon>FrmDevolverDocumento.cs</DependentUpon>
     </EmbeddedResource>
@@ -290,12 +289,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmIngreso.resx">
       <DependentUpon>FrmIngreso.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmValidarAdministrador.resx">
-      <DependentUpon>FrmValidarAdministrador.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmVerCliente.resx">
-      <DependentUpon>FrmVerCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmVisor.resx">
       <DependentUpon>FrmVisor.cs</DependentUpon>
@@ -375,6 +368,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Recursos\Code39.ttf" />
+    <None Include="Reportes\Transporte\Code39.ttf" />
     <None Include="Resources\24-7.ico" />
   </ItemGroup>
   <ItemGroup>

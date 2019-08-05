@@ -91,12 +91,27 @@ namespace cromo
                             }
                             if (apiUsuario.versionBaseDatos <= 3)
                             {
-                                General.UsuarioActivo = TxtUsuario.Text;
-                                General.NumeroUnicoGuia = apiUsuario.numeroUnicoGuia;
-                                General.CodigoPrecioGeneral = apiUsuario.codigoPrecioGeneral;
-                                General.CodigoFormatoGuia = apiUsuario.codigoFormatoGuia;                                
-                                DialogResult = DialogResult.OK;
-                                Close();
+                                parametrosJson = "{\"codigoOperacion\":\"" + cromo.Properties.Settings.Default.centroOperacion + "\"}";
+                                jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/operacion/validar", parametrosJson);
+                                ApiOperacion apiOperacion = ser.Deserialize<ApiOperacion>(jsonRespuesta);
+                                if (apiOperacion.error == null)
+                                {
+                                    General.UsuarioActivo = TxtUsuario.Text;
+                                    General.NumeroUnicoGuia = apiUsuario.numeroUnicoGuia;
+                                    General.CodigoPrecioGeneral = apiUsuario.codigoPrecioGeneral;
+                                    General.CodigoCondicionGeneral = apiUsuario.codigoCondicionGeneral;
+                                    General.CodigoFormatoGuia = apiUsuario.codigoFormatoGuia;
+
+                                    General.CodigoCiudadOrigenParametro = apiOperacion.codigoCiudadFk;
+                                    General.CodigoOperacionIngreso = apiOperacion.codigoOperacionPk;
+                                    General.CodigoOperacionCargo = apiOperacion.codigoOperacionCargoFk;
+
+                                    DialogResult = DialogResult.OK;
+                                    Close();
+                                } else
+                                {
+                                    MessageBox.Show(this, "Inconvenientes con la operacion " + apiOperacion.error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
                             }
                             else
                             {
@@ -133,13 +148,8 @@ namespace cromo
 
 		private void BtnConfigurar_Click(object sender, EventArgs e)
 		{
-			FrmValidarAdministrador frmValidarAdministrador = new FrmValidarAdministrador();
-			frmValidarAdministrador.ShowDialog();
-			if (frmValidarAdministrador.DialogResult == DialogResult.OK)
-			{
-				FrmConfiguracion frmConfiguracion = new FrmConfiguracion();
-				frmConfiguracion.ShowDialog();
-			}
+		    FrmConfiguracion frmConfiguracion = new FrmConfiguracion();
+		    frmConfiguracion.ShowDialog();			
 		}
 
 		private void BtnCancelar_Click(object sender, EventArgs e)

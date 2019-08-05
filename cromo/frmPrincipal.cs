@@ -103,13 +103,8 @@ namespace cromo
 
         private void mnuArchivoConfigurcion_Click(object sender, EventArgs e)
         {
-			FrmValidarAdministrador frmValidarAdministrador = new FrmValidarAdministrador();
-			frmValidarAdministrador.ShowDialog();
-			if (frmValidarAdministrador.DialogResult == DialogResult.OK)
-			{
-				FrmConfiguracion frmConfiguracion = new FrmConfiguracion();
-				frmConfiguracion.ShowDialog();
-			}
+		    FrmConfiguracion frmConfiguracion = new FrmConfiguracion();
+		    frmConfiguracion.ShowDialog();
         }
 
 		private void FrmPrincipal_Load(object sender, EventArgs e)
@@ -128,6 +123,12 @@ namespace cromo
             FrmImpresionMasiva frmImpresionMasiva = new FrmImpresionMasiva();
             frmImpresionMasiva.ShowDialog();
             
+        }
+
+        private void MenuCrearCliente_Click(object sender, EventArgs e)
+        {
+            FrmClienteNuevo frmClienteNuevo = new FrmClienteNuevo();
+            frmClienteNuevo.ShowDialog();
         }
     }
 }

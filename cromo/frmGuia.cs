@@ -76,9 +76,9 @@ namespace cromo
             TxtFechaIngreso.Text = DateTime.Now.ToString("G");
             TxtCodigoCliente.Text = ultimoCliente;
             TxtCodigoCondicion.Text = ultimaCondicion;
-            TxtCodigoCiudadOrigen.Text = cromo.Properties.Settings.Default.ciudadOrigen;
-            TxtOperacionIngreso.Text = cromo.Properties.Settings.Default.centroOperacion;
-            TxtOperacionCargo.Text = cromo.Properties.Settings.Default.centroOperacion;
+            TxtCodigoCiudadOrigen.Text = General.CodigoCiudadOrigenParametro;
+            TxtOperacionIngreso.Text = General.CodigoOperacionIngreso;
+            TxtOperacionCargo.Text = General.CodigoOperacionCargo;
             TxtUsuario.Text = General.UsuarioActivo;
             RbPeso.Enabled = true;
             RbUnidad.Enabled = true;
@@ -1288,13 +1288,14 @@ namespace cromo
             ChkEstadoAnulado.Checked = apiGuia.estadoAnulado;
         }
 
-        private void BtnVerCliente_Click(object sender, EventArgs e)
+        private void BtnCrearCliente_Click(object sender, EventArgs e)
         {
-            if(TxtCodigoCliente.Text != "")
+            FrmClienteNuevo frmClienteNuevo = new FrmClienteNuevo();
+            frmClienteNuevo.ShowDialog();
+            if (frmClienteNuevo.DialogResult == DialogResult.OK)
             {
-                General.CodigoCliente = TxtCodigoCliente.Text;
-                FrmVerCliente frmVerCliente = new FrmVerCliente();
-                frmVerCliente.ShowDialog();
+                TxtCodigoCliente.Text = General.CodigoCliente;
+                TxtCodigoCliente.Focus();
             }
         }
     }

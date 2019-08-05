@@ -5,9 +5,6 @@
     <Setting Name="centroOperacion" Type="System.String" Scope="User">
       <Value Profile="(Default)">MED</Value>
     </Setting>
-    <Setting Name="ciudadOrigen" Type="System.String" Scope="User">
-      <Value Profile="(Default)">209</Value>
-    </Setting>
     <Setting Name="rutaReportes" Type="System.String" Scope="User">
       <Value Profile="(Default)">C:\Program Files (x86)\Semantica\Cromo\Reportes\</Value>
     </Setting>

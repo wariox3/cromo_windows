@@ -35,6 +35,8 @@
             this.mnuArchivoConfigurcion = new System.Windows.Forms.ToolStripMenuItem();
             this.editMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuGuia = new System.Windows.Forms.ToolStripMenuItem();
+            this.utilidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuImpresionMasiva = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.contentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.indexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,8 +46,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.utilidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuImpresionMasiva = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuCrearCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -92,9 +93,25 @@
             this.mnuGuia.ImageTransparentColor = System.Drawing.Color.Black;
             this.mnuGuia.Name = "mnuGuia";
             this.mnuGuia.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
-            this.mnuGuia.Size = new System.Drawing.Size(180, 22);
+            this.mnuGuia.Size = new System.Drawing.Size(139, 22);
             this.mnuGuia.Text = "&Guia";
             this.mnuGuia.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
+            // 
+            // utilidadesToolStripMenuItem
+            // 
+            this.utilidadesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuImpresionMasiva,
+            this.MenuCrearCliente});
+            this.utilidadesToolStripMenuItem.Name = "utilidadesToolStripMenuItem";
+            this.utilidadesToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.utilidadesToolStripMenuItem.Text = "Utilidades";
+            // 
+            // mnuImpresionMasiva
+            // 
+            this.mnuImpresionMasiva.Name = "mnuImpresionMasiva";
+            this.mnuImpresionMasiva.Size = new System.Drawing.Size(180, 22);
+            this.mnuImpresionMasiva.Text = "Impresion masiva";
+            this.mnuImpresionMasiva.Click += new System.EventHandler(this.mnuImpresionMasiva_Click);
             // 
             // helpMenu
             // 
@@ -158,20 +175,12 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(42, 17);
             this.toolStripStatusLabel.Text = "Estado";
             // 
-            // utilidadesToolStripMenuItem
+            // MenuCrearCliente
             // 
-            this.utilidadesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuImpresionMasiva});
-            this.utilidadesToolStripMenuItem.Name = "utilidadesToolStripMenuItem";
-            this.utilidadesToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
-            this.utilidadesToolStripMenuItem.Text = "Utilidades";
-            // 
-            // mnuImpresionMasiva
-            // 
-            this.mnuImpresionMasiva.Name = "mnuImpresionMasiva";
-            this.mnuImpresionMasiva.Size = new System.Drawing.Size(180, 22);
-            this.mnuImpresionMasiva.Text = "Impresion masiva";
-            this.mnuImpresionMasiva.Click += new System.EventHandler(this.mnuImpresionMasiva_Click);
+            this.MenuCrearCliente.Name = "MenuCrearCliente";
+            this.MenuCrearCliente.Size = new System.Drawing.Size(180, 22);
+            this.MenuCrearCliente.Text = "Crear cliente";
+            this.MenuCrearCliente.Click += new System.EventHandler(this.MenuCrearCliente_Click);
             // 
             // FrmPrincipal
             // 
@@ -213,6 +222,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnuArchivoConfigurcion;
         private System.Windows.Forms.ToolStripMenuItem utilidadesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mnuImpresionMasiva;
+        private System.Windows.Forms.ToolStripMenuItem MenuCrearCliente;
     }
 }
 

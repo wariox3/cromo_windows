@@ -30,7 +30,7 @@ namespace cromo
 			set { v_CodigoDestinatario = value; }
 		}
 
-		private static string v_CodigoCiudad = "";
+        private static string v_CodigoCiudad = "";
 		public static string CodigoCiudad
 		{
 			get { return v_CodigoCiudad; }
@@ -149,6 +149,13 @@ namespace cromo
             set { v_CodigoPrecioGeneral = value; }
         }
 
+        private static int v_CodigoCondicionGeneral = 0;
+        public static int CodigoCondicionGeneral
+        {
+            get { return v_CodigoCondicionGeneral; }
+            set { v_CodigoCondicionGeneral = value; }
+        }
+
         private static string v_CodigoFormatoGuia = "";
         public static string CodigoFormatoGuia
         {
@@ -163,6 +170,27 @@ namespace cromo
             set { v_Formato = value; }
         }
 
-	}
+        private static string v_CodigoCiudadOrigenParametro = "";
+        public static string CodigoCiudadOrigenParametro
+        {
+            get { return v_CodigoCiudadOrigenParametro; }
+            set { v_CodigoCiudadOrigenParametro = value; }
+        }
+
+        private static string v_CodigoOperacionIngreso = "";
+        public static string CodigoOperacionIngreso
+        {
+            get { return v_CodigoOperacionIngreso; }
+            set { v_CodigoOperacionIngreso = value; }
+        }
+
+        private static string v_CodigoOperacionCargo = "";
+        public static string CodigoOperacionCargo
+        {
+            get { return v_CodigoOperacionCargo; }
+            set { v_CodigoOperacionCargo = value; }
+        }
+
+    }
 
 }

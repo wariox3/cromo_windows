@@ -32,17 +32,15 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.tabConfiguracion = new System.Windows.Forms.TabControl();
             this.tbpOperacion = new System.Windows.Forms.TabPage();
-            this.txtCodigoCiudadOrigen = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.txtCentroOperacion = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbpRutas = new System.Windows.Forms.TabPage();
             this.txtRutaReportes = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.ChkServidorManual = new System.Windows.Forms.CheckBox();
-            this.TxtRutaServidorManual = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.TxtRutaServidorManual = new System.Windows.Forms.TextBox();
+            this.ChkServidorManual = new System.Windows.Forms.CheckBox();
             this.tabConfiguracion.SuspendLayout();
             this.tbpOperacion.SuspendLayout();
             this.tbpRutas.SuspendLayout();
@@ -82,8 +80,6 @@
             // 
             // tbpOperacion
             // 
-            this.tbpOperacion.Controls.Add(this.txtCodigoCiudadOrigen);
-            this.tbpOperacion.Controls.Add(this.label6);
             this.tbpOperacion.Controls.Add(this.txtCentroOperacion);
             this.tbpOperacion.Controls.Add(this.label1);
             this.tbpOperacion.Location = new System.Drawing.Point(4, 22);
@@ -93,22 +89,6 @@
             this.tbpOperacion.TabIndex = 0;
             this.tbpOperacion.Text = "Operacion";
             this.tbpOperacion.UseVisualStyleBackColor = true;
-            // 
-            // txtCodigoCiudadOrigen
-            // 
-            this.txtCodigoCiudadOrigen.Location = new System.Drawing.Point(147, 41);
-            this.txtCodigoCiudadOrigen.Name = "txtCodigoCiudadOrigen";
-            this.txtCodigoCiudadOrigen.Size = new System.Drawing.Size(145, 20);
-            this.txtCodigoCiudadOrigen.TabIndex = 14;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(64, 44);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 13);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "Ciudad origen:";
             // 
             // txtCentroOperacion
             // 
@@ -120,11 +100,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(39, 18);
+            this.label1.Location = new System.Drawing.Point(80, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(102, 13);
+            this.label1.Size = new System.Drawing.Size(59, 13);
             this.label1.TabIndex = 15;
-            this.label1.Text = "Centro operaciones:";
+            this.label1.Text = "Operacion:";
             // 
             // tbpRutas
             // 
@@ -166,6 +146,22 @@
             this.tabPage1.Text = "Servidor";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(20, 43);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(49, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Servidor:";
+            // 
+            // TxtRutaServidorManual
+            // 
+            this.TxtRutaServidorManual.Location = new System.Drawing.Point(75, 43);
+            this.TxtRutaServidorManual.Name = "TxtRutaServidorManual";
+            this.TxtRutaServidorManual.Size = new System.Drawing.Size(259, 20);
+            this.TxtRutaServidorManual.TabIndex = 1;
+            // 
             // ChkServidorManual
             // 
             this.ChkServidorManual.AutoSize = true;
@@ -175,22 +171,6 @@
             this.ChkServidorManual.TabIndex = 0;
             this.ChkServidorManual.Text = "Manual";
             this.ChkServidorManual.UseVisualStyleBackColor = true;
-            // 
-            // TxtRutaServidorManual
-            // 
-            this.TxtRutaServidorManual.Location = new System.Drawing.Point(75, 43);
-            this.TxtRutaServidorManual.Name = "TxtRutaServidorManual";
-            this.TxtRutaServidorManual.Size = new System.Drawing.Size(259, 20);
-            this.TxtRutaServidorManual.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 43);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Servidor:";
             // 
             // FrmConfiguracion
             // 
@@ -223,8 +203,6 @@
         private System.Windows.Forms.Button btnCancelar;
 		private System.Windows.Forms.TabControl tabConfiguracion;
 		private System.Windows.Forms.TabPage tbpOperacion;
-		private System.Windows.Forms.TextBox txtCodigoCiudadOrigen;
-		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.TextBox txtCentroOperacion;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.TabPage tbpRutas;
