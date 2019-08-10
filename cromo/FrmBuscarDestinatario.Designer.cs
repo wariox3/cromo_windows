@@ -38,6 +38,7 @@
             this.ClmNumeroIdentificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClmNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClmCiudad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgDestinatarios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,7 +73,7 @@
             // BtnCancelar
             // 
             this.BtnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.BtnCancelar.Location = new System.Drawing.Point(16, 345);
+            this.BtnCancelar.Location = new System.Drawing.Point(17, 334);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(106, 23);
             this.BtnCancelar.TabIndex = 11;
@@ -82,7 +83,7 @@
             // 
             // BtnSeleccionar
             // 
-            this.BtnSeleccionar.Location = new System.Drawing.Point(622, 345);
+            this.BtnSeleccionar.Location = new System.Drawing.Point(739, 334);
             this.BtnSeleccionar.Name = "BtnSeleccionar";
             this.BtnSeleccionar.Size = new System.Drawing.Size(106, 23);
             this.BtnSeleccionar.TabIndex = 10;
@@ -99,11 +100,12 @@
             this.ClmCodigoDestinatario,
             this.ClmNumeroIdentificacion,
             this.ClmNombre,
-            this.ClmCiudad});
+            this.ClmCiudad,
+            this.Direccion});
             this.DgDestinatarios.Location = new System.Drawing.Point(17, 49);
             this.DgDestinatarios.Name = "DgDestinatarios";
             this.DgDestinatarios.ReadOnly = true;
-            this.DgDestinatarios.Size = new System.Drawing.Size(693, 279);
+            this.DgDestinatarios.Size = new System.Drawing.Size(828, 279);
             this.DgDestinatarios.TabIndex = 12;
             this.DgDestinatarios.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DgDestinatarios_KeyDown);
             // 
@@ -129,7 +131,7 @@
             this.ClmNombre.HeaderText = "Nombre";
             this.ClmNombre.Name = "ClmNombre";
             this.ClmNombre.ReadOnly = true;
-            this.ClmNombre.Width = 300;
+            this.ClmNombre.Width = 250;
             // 
             // ClmCiudad
             // 
@@ -139,11 +141,19 @@
             this.ClmCiudad.ReadOnly = true;
             this.ClmCiudad.Width = 150;
             // 
+            // Direccion
+            // 
+            this.Direccion.DataPropertyName = "direccion";
+            this.Direccion.HeaderText = "Direccion";
+            this.Direccion.Name = "Direccion";
+            this.Direccion.ReadOnly = true;
+            this.Direccion.Width = 250;
+            // 
             // FrmBuscarDestinatario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(740, 379);
+            this.ClientSize = new System.Drawing.Size(857, 367);
             this.Controls.Add(this.DgDestinatarios);
             this.Controls.Add(this.BtnCancelar);
             this.Controls.Add(this.BtnSeleccionar);
@@ -170,5 +180,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmNumeroIdentificacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmCiudad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Direccion;
     }
 }

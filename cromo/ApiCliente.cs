@@ -8,8 +8,7 @@ namespace cromo
 {
     class ApiCliente
     {        
-        public string codigoClientePk { get; set; }
-        
+        public string codigoClientePk { get; set; }        
         public string numeroIdentificacion { get; set; }
         public string codigoIdentificacionFk { get; set; }
         public string nombreCorto { get; set; }
