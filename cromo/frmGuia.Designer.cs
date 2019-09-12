@@ -221,6 +221,7 @@
             this.TxtManejoMinimoDespachoEspecial = new System.Windows.Forms.TextBox();
             this.TxtManejoMinimoUnidadEspecial = new System.Windows.Forms.TextBox();
             this.TxtPorcentajeManejoEspecial = new System.Windows.Forms.TextBox();
+            this.ChkInvertirCiudad = new System.Windows.Forms.CheckBox();
             this.gbDestinatario.SuspendLayout();
             this.gbTotales.SuspendLayout();
             this.gbCliente.SuspendLayout();
@@ -402,6 +403,7 @@
             // 
             // gbTotales
             // 
+            this.gbTotales.Controls.Add(this.ChkInvertirCiudad);
             this.gbTotales.Controls.Add(this.label45);
             this.gbTotales.Controls.Add(this.TxtCostoReexpedicion);
             this.gbTotales.Controls.Add(this.ChkLiquidado);
@@ -2108,6 +2110,16 @@
             this.TxtPorcentajeManejoEspecial.TabIndex = 1;
             this.TxtPorcentajeManejoEspecial.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // ChkInvertirCiudad
+            // 
+            this.ChkInvertirCiudad.AutoSize = true;
+            this.ChkInvertirCiudad.Location = new System.Drawing.Point(169, 12);
+            this.ChkInvertirCiudad.Name = "ChkInvertirCiudad";
+            this.ChkInvertirCiudad.Size = new System.Drawing.Size(29, 17);
+            this.ChkInvertirCiudad.TabIndex = 35;
+            this.ChkInvertirCiudad.Text = "I";
+            this.ChkInvertirCiudad.UseVisualStyleBackColor = true;
+            // 
             // FrmGuia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2356,6 +2368,7 @@
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.Label label59;
         private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.CheckBox ChkInvertirCiudad;
     }
 }
 

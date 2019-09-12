@@ -596,7 +596,14 @@ namespace cromo
 
         private void TxtCodigoCiudadDestino_Validated(object sender, EventArgs e)
         {
-            string parametrosJson = "{\"codigo\":\"" + TxtCodigoCiudadDestino.Text + "\"}";
+            string codigoOrigen = TxtCodigoCiudadOrigen.Text;
+            string codigoDestino = TxtCodigoCiudadDestino.Text;
+            if (ChkInvertirCiudad.Checked)
+            {
+                codigoOrigen = TxtCodigoCiudadDestino.Text;
+                codigoDestino = TxtCodigoCiudadOrigen.Text;
+            }
+            string parametrosJson = "{\"codigo\":\"" + codigoDestino + "\"}";
             string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/ciudad/detalle", parametrosJson);
             ApiCiudad apiCiudad = ser.Deserialize<ApiCiudad>(jsonRespuesta);
             if (apiCiudad.error == null)
@@ -627,7 +634,7 @@ namespace cromo
 
                     if (TxtCodigoCliente.Text != "")
                     {
-                        parametrosJson = "{\"codigoCliente\":\"" + TxtCodigoCliente.Text + "\",\"origen\":\"" + TxtCodigoCiudadOrigen.Text + "\", \"destino\":\"" + TxtCodigoCiudadDestino.Text + "\", \"codigoZona\":\"" + TxtCodigoZona.Text + "\"}";
+                        parametrosJson = "{\"codigoCliente\":\"" + TxtCodigoCliente.Text + "\",\"origen\":\"" + codigoOrigen + "\", \"destino\":\"" + codigoDestino + "\", \"codigoZona\":\"" + TxtCodigoZona.Text + "\"}";
                         jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/condicionflete/liquidar", parametrosJson);
                         ApiCondicionFlete apiCondicionFlete = ser.Deserialize<ApiCondicionFlete>(jsonRespuesta);
                         if (apiCondicionFlete.error == null)
@@ -642,7 +649,7 @@ namespace cromo
                             pesoMinimoGuia = apiCondicionFlete.pesoMinimoGuia;
                             descuentoPeso = apiCondicionFlete.descuentoPeso;
                         }
-                        parametrosJson = "{\"codigoCliente\":\"" + TxtCodigoCliente.Text + "\",\"origen\":\"" + TxtCodigoCiudadOrigen.Text + "\", \"destino\":\"" + TxtCodigoCiudadDestino.Text + "\", \"codigoZona\":\"" + TxtCodigoZona.Text + "\"}";
+                        parametrosJson = "{\"codigoCliente\":\"" + TxtCodigoCliente.Text + "\",\"origen\":\"" + codigoOrigen + "\", \"destino\":\"" + codigoDestino + "\", \"codigoZona\":\"" + TxtCodigoZona.Text + "\"}";
                         jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/condicionmanejo/liquidar", parametrosJson);
                         ApiCondicionManejo apiCondicionManejo = ser.Deserialize<ApiCondicionManejo>(jsonRespuesta);
                         if (apiCondicionManejo.error == null)
@@ -756,7 +763,14 @@ namespace cromo
                         precioPeso = Convert.ToDouble(TxtVrPeso.Text);
                         if (precioPeso == 0 && ChkListaGeneral.Checked == true && General.CodigoPrecioGeneral != 0)
                         {
-                            string parametrosJson = "{\"precio\":\"" + codigoPrecio + "\", \"origen\":\"" + TxtCodigoCiudadOrigen.Text + "\", \"destino\":\"" + TxtCodigoCiudadDestino.Text + "\", \"producto\":\"" + CboProducto.SelectedValue.ToString() + "\"}";
+                            string codigoOrigen = TxtCodigoCiudadOrigen.Text;
+                            string codigoDestino = TxtCodigoCiudadDestino.Text;
+                            if(ChkInvertirCiudad.Checked)
+                            {
+                                codigoOrigen = TxtCodigoCiudadDestino.Text;
+                                codigoDestino = TxtCodigoCiudadOrigen.Text;
+                            }
+                            string parametrosJson = "{\"precio\":\"" + codigoPrecio + "\", \"origen\":\"" + codigoOrigen + "\", \"destino\":\"" + codigoDestino + "\", \"producto\":\"" + CboProducto.SelectedValue.ToString() + "\"}";
                             string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/preciodetalle/detalleproducto", parametrosJson);
                             ApiPrecioDetalle apiPrecioDetalle = ser.Deserialize<ApiPrecioDetalle>(jsonRespuesta);
                             if (apiPrecioDetalle.error == null)
@@ -1126,7 +1140,14 @@ namespace cromo
         {
             if (codigoPrecio != 0 && TxtCodigoCiudadOrigen.Text != "" && TxtCodigoCiudadDestino.Text != "")
             {
-                string parametrosJson = "{\"precio\":\"" + codigoPrecio + "\", \"origen\":\"" + TxtCodigoCiudadOrigen.Text + "\", \"destino\":\"" + TxtCodigoCiudadDestino.Text + "\", \"zona\":\"" + TxtCodigoZona.Text + "\", \"producto\":\"" + CboProducto.SelectedValue.ToString() + "\"}";
+                string codigoOrigen = TxtCodigoCiudadOrigen.Text;
+                string codigoDestino = TxtCodigoCiudadDestino.Text;
+                if (ChkInvertirCiudad.Checked)
+                {
+                    codigoOrigen = TxtCodigoCiudadDestino.Text;
+                    codigoDestino = TxtCodigoCiudadOrigen.Text;
+                }
+                string parametrosJson = "{\"precio\":\"" + codigoPrecio + "\", \"origen\":\"" + codigoOrigen + "\", \"destino\":\"" + codigoDestino + "\", \"zona\":\"" + TxtCodigoZona.Text + "\", \"producto\":\"" + CboProducto.SelectedValue.ToString() + "\"}";
                 string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/preciodetalle/detalleproducto", parametrosJson);
                 ApiPrecioDetalle apiPrecioDetalle = ser.Deserialize<ApiPrecioDetalle>(jsonRespuesta);
                 if (apiPrecioDetalle.error == null)
