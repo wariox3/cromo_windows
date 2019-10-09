@@ -648,6 +648,14 @@ namespace cromo
                             pesoMinimo = apiCondicionFlete.pesoMinimo;
                             pesoMinimoGuia = apiCondicionFlete.pesoMinimoGuia;
                             descuentoPeso = apiCondicionFlete.descuentoPeso;
+                        } else
+                        {
+                            TxtFleteDescuentoPeso.Text = "0";
+                            TxtFleteDescuentoUnidad.Text = "0";
+                            TxtFletePesoMinimo.Text = "0";
+                            TxtFletePesoMinimoGuia.Text = "0";
+                            TxtFleteFleteMinimo.Text = "0";
+                            TxtFleteFleteMinimoGuia.Text = "0";
                         }
                         parametrosJson = "{\"codigoCliente\":\"" + TxtCodigoCliente.Text + "\",\"origen\":\"" + codigoOrigen + "\", \"destino\":\"" + codigoDestino + "\", \"codigoZona\":\"" + TxtCodigoZona.Text + "\"}";
                         jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/condicionmanejo/liquidar", parametrosJson);
@@ -852,6 +860,11 @@ namespace cromo
                         TxtPeso.Text = (pesoMinimoCalcular * Convert.ToInt32(TxtUnidades.Text)).ToString();
                     }
                 }
+                double pesoFacturar = Convert.ToInt32(TxtPesoFacturar.Text);
+                if (pesoMinimoGuia > pesoFacturar)
+                {
+                    TxtPesoFacturar.Text = pesoMinimoGuia.ToString();
+                }
             }
             else
             {
@@ -936,14 +949,18 @@ namespace cromo
 
         private void LiquidarPesoFacturar()
         {
-            if (Convert.ToInt32(TxtPeso.Text) > Convert.ToInt32(TxtPesoFacturar.Text))
+            double pesoReal = Convert.ToInt32(TxtPeso.Text);
+            double pesoVolumen = Convert.ToInt32(TxtVolumen.Text);
+            double pesoFacturar = Convert.ToInt32(TxtPesoFacturar.Text);
+            if (pesoReal > pesoFacturar)
             {
-                TxtPesoFacturar.Text = TxtPeso.Text;
+                pesoFacturar = pesoReal;
             }
-            if (Convert.ToInt32(TxtVolumen.Text) > Convert.ToInt32(TxtPesoFacturar.Text))
+            if (pesoVolumen > pesoFacturar)
             {
-                TxtPesoFacturar.Text = TxtVolumen.Text;
+                pesoFacturar = pesoVolumen;
             }
+            TxtPesoFacturar.Text = pesoFacturar.ToString();
         }
 
         private void TxtDeclarado_Validated(object sender, EventArgs e)
