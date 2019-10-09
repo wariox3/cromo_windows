@@ -750,6 +750,8 @@ namespace cromo
                 if (Convert.ToDouble(TxtFlete.Text) <= 0)
                 {
                     double vrFlete = 0;
+                    double vrFleteMinimo = Convert.ToDouble(TxtFleteFleteMinimo.Text);
+                    double vrFleteMinimoDespacho = Convert.ToDouble(TxtFleteFleteMinimoGuia.Text);
                     double precioPeso = Convert.ToDouble(TxtVrPeso.Text);
                     double precioTope = Convert.ToDouble(TxtVrTope.Text);
                     double precioUnidad = Convert.ToDouble(TxtVrUnidad.Text);
@@ -797,6 +799,15 @@ namespace cromo
                             int diferencia = pesoFacturar - (tope * unidades);
                             vrFlete += diferencia * precioAdicional;
                         }
+                    }
+
+                    if(vrFleteMinimo > vrFlete / unidades)
+                    {
+                        vrFlete = vrFleteMinimo * unidades;
+                    }
+                    if(vrFleteMinimoDespacho > vrFlete)
+                    {
+                        vrFlete = vrFleteMinimoDespacho;
                     }
                     TxtFlete.Text = vrFlete.ToString();
                 }
