@@ -16,6 +16,7 @@ namespace cromo
         public int numero { get; set; }
         public string codigoBarras { get; set; }
         public string tituloFactura { get; set; }
+        public string tituloFacturaVenta { get; set; }
         public string numeroFactura { get; set; }
         public string codigoFacturaTipoFk { get; set; }
         public string guiaTipoNombre { get; set; }
