@@ -120,6 +120,7 @@ namespace cromo
                                 apiGuia.codigoGuiaTipoFk = CboTipo.SelectedValue.ToString();
                                 apiGuia.numero = numero;
                                 apiGuia.codigoOperacionIngresoFk = TxtOperacionIngreso.Text;
+                                apiGuia.codigoOperacionCargoFk = TxtOperacionCargo.Text;
                                 apiGuia.codigoClienteFk = TxtCodigoCliente.Text;
                                 apiGuia.codigoCondicionFk = TxtCodigoCondicion.Text;
                                 apiGuia.codigoCiudadOrigenFk = TxtCodigoCiudadOrigen.Text;
