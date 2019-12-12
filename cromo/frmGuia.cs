@@ -104,11 +104,6 @@ namespace cromo
                             {
                                 int numero = General.NumeroGuia;
                                 string tipoLiquidacion = this.TipoLiquidacion();
-                                if (apiGuiaTipo.cortesia)
-                                {
-                                    TxtFlete.Text = "0";
-                                    TxtManejo.Text = "0";
-                                }
                                 double cobro = Convert.ToDouble(TxtRecaudo.Text);
                                 if (apiGuiaTipo.generaCobro)
                                 {
