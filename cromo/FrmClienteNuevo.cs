@@ -85,6 +85,7 @@ namespace cromo
                 apiCliente.codigoIdentificacionFk = CboIdentificacion.SelectedValue.ToString();
                 apiCliente.numeroIdentificacion = TxtNumeroIdentificacion.Text;
                 apiCliente.codigoCiudadFk = CboCiudad.SelectedValue.ToString();
+                apiCliente.codigoAsesorFk = CboAsesor.SelectedValue.ToString();
                 apiCliente.nombreCorto = TxtNombreCorto.Text;
                 apiCliente.nombre1 = TxtNombre1.Text;
                 apiCliente.nombre2 = TxtNombre2.Text;
@@ -130,6 +131,12 @@ namespace cromo
             CboCiudad.ValueMember = "codigoCiudadPk";
             CboCiudad.DisplayMember = "nombre";
             CboCiudad.DataSource = apiCiudadLista;
+
+            jsonRespuesta = ApiControlador.ApiPost("/general/api/windows/asesor/lista", null);
+            List<ApiAsesor> apiAsesorLista = ser.Deserialize<List<ApiAsesor>>(jsonRespuesta);
+            CboAsesor.ValueMember = "codigoAsesorPk";
+            CboAsesor.DisplayMember = "nombre";
+            CboAsesor.DataSource = apiAsesorLista;
         }
     }
 }

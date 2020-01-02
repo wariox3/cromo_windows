@@ -19,6 +19,7 @@ namespace cromo
         public string direccion { get; set; }
         public string telefono { get; set; }
         public string codigoCiudadFk { get; set; }
+        public string codigoAsesorFk { get; set; }
         public string correo { get; set; }
         public string codigoCondicionFk { get; set; }
         public string codigoOperacionFk { get; set; }

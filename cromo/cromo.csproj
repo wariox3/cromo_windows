@@ -128,6 +128,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiAsesor.cs" />
     <Compile Include="ApiCiudad.cs" />
     <Compile Include="ApiCondicion.cs" />
     <Compile Include="ApiCondicionFlete.cs" />

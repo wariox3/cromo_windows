@@ -52,6 +52,8 @@
             this.BtnCancelar = new System.Windows.Forms.Button();
             this.BtnGuardar = new System.Windows.Forms.Button();
             this.CboCiudad = new System.Windows.Forms.ComboBox();
+            this.CboAsesor = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -226,7 +228,7 @@
             // 
             // BtnCancelar
             // 
-            this.BtnCancelar.Location = new System.Drawing.Point(468, 240);
+            this.BtnCancelar.Location = new System.Drawing.Point(472, 290);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(75, 23);
             this.BtnCancelar.TabIndex = 12;
@@ -236,7 +238,7 @@
             // 
             // BtnGuardar
             // 
-            this.BtnGuardar.Location = new System.Drawing.Point(549, 240);
+            this.BtnGuardar.Location = new System.Drawing.Point(553, 290);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Size = new System.Drawing.Size(75, 23);
             this.BtnGuardar.TabIndex = 11;
@@ -252,12 +254,31 @@
             this.CboCiudad.Size = new System.Drawing.Size(291, 21);
             this.CboCiudad.TabIndex = 8;
             // 
+            // CboAsesor
+            // 
+            this.CboAsesor.FormattingEnabled = true;
+            this.CboAsesor.Location = new System.Drawing.Point(116, 214);
+            this.CboAsesor.Name = "CboAsesor";
+            this.CboAsesor.Size = new System.Drawing.Size(291, 21);
+            this.CboAsesor.TabIndex = 13;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(69, 218);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(42, 13);
+            this.label12.TabIndex = 14;
+            this.label12.Text = "Asesor:";
+            // 
             // FrmClienteNuevo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(636, 275);
+            this.ClientSize = new System.Drawing.Size(636, 325);
             this.ControlBox = false;
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.CboAsesor);
             this.Controls.Add(this.CboCiudad);
             this.Controls.Add(this.BtnGuardar);
             this.Controls.Add(this.BtnCancelar);
@@ -317,5 +338,7 @@
         private System.Windows.Forms.Button BtnCancelar;
         private System.Windows.Forms.Button BtnGuardar;
         private System.Windows.Forms.ComboBox CboCiudad;
+        private System.Windows.Forms.ComboBox CboAsesor;
+        private System.Windows.Forms.Label label12;
     }
 }
