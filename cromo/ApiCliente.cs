@@ -12,6 +12,7 @@ namespace cromo
         public string numeroIdentificacion { get; set; }
         public string codigoIdentificacionFk { get; set; }
         public string nombreCorto { get; set; }
+        public string nombreExtendido { get; set; }
         public string nombre1 { get; set; }
         public string nombre2 { get; set; }
         public string apellido1 { get; set; }

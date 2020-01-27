@@ -36,16 +36,15 @@ namespace cromo
                 }
                 else
                 {
-                    if (TxtDireccion.Text == "")
+                    if (TxtNombreExtendido.Text == "")
                     {
-                        TxtDireccion.Focus();
+                        TxtNombreExtendido.Focus();
                         return false;
-                    }
-                    else
+                    } else
                     {
-                        if (CboIdentificacion.SelectedIndex < 0)
+                        if (TxtDireccion.Text == "")
                         {
-                            CboIdentificacion.Focus();
+                            TxtDireccion.Focus();
                             return false;
                         }
                         else
@@ -57,14 +56,22 @@ namespace cromo
                             }
                             else
                             {
-                                if (TxtTelefono.Text == "")
+                                if (CboIdentificacion.SelectedIndex < 0)
                                 {
-                                    TxtTelefono.Focus();
+                                    CboIdentificacion.Focus();
                                     return false;
                                 }
                                 else
                                 {
-                                    return true;
+                                    if (TxtTelefono.Text == "")
+                                    {
+                                        TxtTelefono.Focus();
+                                        return false;
+                                    }
+                                    else
+                                    {
+                                        return true;
+                                    }
                                 }
                             }
                         }
@@ -87,6 +94,7 @@ namespace cromo
                 apiCliente.codigoCiudadFk = CboCiudad.SelectedValue.ToString();
                 apiCliente.codigoAsesorFk = CboAsesor.SelectedValue.ToString();
                 apiCliente.nombreCorto = TxtNombreCorto.Text;
+                apiCliente.nombreExtendido = TxtNombreExtendido.Text;
                 apiCliente.nombre1 = TxtNombre1.Text;
                 apiCliente.nombre2 = TxtNombre2.Text;
                 apiCliente.apellido1 = TxtApellido1.Text;
