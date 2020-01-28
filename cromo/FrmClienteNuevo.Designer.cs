@@ -133,11 +133,11 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(36, 59);
+            this.label9.Location = new System.Drawing.Point(17, 59);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(74, 13);
+            this.label9.Size = new System.Drawing.Size(95, 13);
             this.label9.TabIndex = 8;
-            this.label9.Text = "Nombre corto:";
+            this.label9.Text = "Nombre comercial:";
             // 
             // label10
             // 
@@ -283,11 +283,11 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(17, 87);
+            this.label13.Location = new System.Drawing.Point(31, 88);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(95, 13);
+            this.label13.Size = new System.Drawing.Size(79, 13);
             this.label13.TabIndex = 16;
-            this.label13.Text = "Nombre comercial:";
+            this.label13.Text = "Nombre (RUT):";
             // 
             // FrmClienteNuevo
             // 
