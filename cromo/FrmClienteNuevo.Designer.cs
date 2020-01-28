@@ -285,9 +285,9 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(17, 87);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(96, 13);
+            this.label13.Size = new System.Drawing.Size(95, 13);
             this.label13.TabIndex = 16;
-            this.label13.Text = "Nombre extendido:";
+            this.label13.Text = "Nombre comercial:";
             // 
             // FrmClienteNuevo
             // 
