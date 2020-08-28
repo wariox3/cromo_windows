@@ -116,7 +116,7 @@ namespace cromo
                                 apiGuia.numero = numero;
                                 apiGuia.codigoOperacionIngresoFk = TxtOperacionIngreso.Text;
                                 apiGuia.codigoOperacionCargoFk = TxtOperacionCargo.Text;
-                                apiGuia.codigoClienteFk = TxtCodigoCliente.Text;
+                                apiGuia.codigoTerceroFk = TxtCodigoCliente.Text;
                                 apiGuia.codigoCondicionFk = TxtCodigoCondicion.Text;
                                 apiGuia.codigoCiudadOrigenFk = TxtCodigoCiudadOrigen.Text;
                                 apiGuia.codigoCiudadDestinoFk = TxtCodigoCiudadDestino.Text;
@@ -1287,7 +1287,7 @@ namespace cromo
             TxtOperacionIngreso.Text = apiGuia.codigoOperacionIngresoFk;
             TxtOperacionCargo.Text = apiGuia.codigoOperacionCargoFk;
             TxtAbono.Text = apiGuia.vrAbono;
-            TxtCodigoCliente.Text = apiGuia.codigoClienteFk;
+            TxtCodigoCliente.Text = apiGuia.codigoTerceroFk;
             txtNombreCliente.Text = apiGuia.clienteNombreCorto;
             TxtCodigoCondicion.Text = apiGuia.codigoCondicionFk;
             txtNombreCondicion.Text = apiGuia.condicionNombre;
@@ -1343,6 +1343,7 @@ namespace cromo
                 TxtCodigoCliente.Focus();
             }
         }
+
     }
 
 }

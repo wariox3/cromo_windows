@@ -8,7 +8,7 @@ namespace cromo
 {
     class ApiCliente
     {        
-        public string codigoClientePk { get; set; }        
+        public string codigoTerceroPk { get; set; }        
         public string numeroIdentificacion { get; set; }
         public string codigoIdentificacionFk { get; set; }
         public string nombreCorto { get; set; }
@@ -35,7 +35,7 @@ namespace cromo
 
     class ApiClienteRespuesta
     {
-        public string codigoClientePk { get; set; }
+        public string codigoTerceroPk { get; set; }
         public string error { get; set; }
     }
 }

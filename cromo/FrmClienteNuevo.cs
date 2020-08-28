@@ -111,7 +111,7 @@ namespace cromo
                 if (apiClienteRespuesta.error == null)
                 {
                     MessageBox.Show(this, "El cliente se guardo con exito ", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    General.CodigoCliente = apiClienteRespuesta.codigoClientePk;
+                    General.CodigoCliente = apiClienteRespuesta.codigoTerceroPk;
                     DialogResult = DialogResult.OK;
                 }
                 else

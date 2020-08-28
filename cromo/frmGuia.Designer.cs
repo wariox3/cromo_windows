@@ -47,6 +47,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.gbTotales = new System.Windows.Forms.GroupBox();
+            this.ChkInvertirCiudad = new System.Windows.Forms.CheckBox();
             this.label45 = new System.Windows.Forms.Label();
             this.TxtCostoReexpedicion = new System.Windows.Forms.TextBox();
             this.ChkLiquidado = new System.Windows.Forms.CheckBox();
@@ -221,7 +222,6 @@
             this.TxtManejoMinimoDespachoEspecial = new System.Windows.Forms.TextBox();
             this.TxtManejoMinimoUnidadEspecial = new System.Windows.Forms.TextBox();
             this.TxtPorcentajeManejoEspecial = new System.Windows.Forms.TextBox();
-            this.ChkInvertirCiudad = new System.Windows.Forms.CheckBox();
             this.gbDestinatario.SuspendLayout();
             this.gbTotales.SuspendLayout();
             this.gbCliente.SuspendLayout();
@@ -432,6 +432,16 @@
             this.gbTotales.Size = new System.Drawing.Size(208, 240);
             this.gbTotales.TabIndex = 17;
             this.gbTotales.TabStop = false;
+            // 
+            // ChkInvertirCiudad
+            // 
+            this.ChkInvertirCiudad.AutoSize = true;
+            this.ChkInvertirCiudad.Location = new System.Drawing.Point(169, 12);
+            this.ChkInvertirCiudad.Name = "ChkInvertirCiudad";
+            this.ChkInvertirCiudad.Size = new System.Drawing.Size(29, 17);
+            this.ChkInvertirCiudad.TabIndex = 35;
+            this.ChkInvertirCiudad.Text = "I";
+            this.ChkInvertirCiudad.UseVisualStyleBackColor = true;
             // 
             // label45
             // 
@@ -828,7 +838,7 @@
             this.TxtCodigoCliente.Location = new System.Drawing.Point(76, 12);
             this.TxtCodigoCliente.Name = "TxtCodigoCliente";
             this.TxtCodigoCliente.Size = new System.Drawing.Size(53, 20);
-            this.TxtCodigoCliente.TabIndex = 1;
+            this.TxtCodigoCliente.TabIndex = 1;            
             this.TxtCodigoCliente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCodigoCliente_KeyDown);
             this.TxtCodigoCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCodigoCliente_KeyPress);
             this.TxtCodigoCliente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
@@ -1991,6 +2001,7 @@
             this.ClmPesoTope,
             this.ClmVrAdicional,
             this.ClmMinimo});
+            this.LvPrecioDetalle.HideSelection = false;
             this.LvPrecioDetalle.Location = new System.Drawing.Point(5, 13);
             this.LvPrecioDetalle.Name = "LvPrecioDetalle";
             this.LvPrecioDetalle.Size = new System.Drawing.Size(511, 95);
@@ -2109,16 +2120,6 @@
             this.TxtPorcentajeManejoEspecial.Size = new System.Drawing.Size(77, 20);
             this.TxtPorcentajeManejoEspecial.TabIndex = 1;
             this.TxtPorcentajeManejoEspecial.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // ChkInvertirCiudad
-            // 
-            this.ChkInvertirCiudad.AutoSize = true;
-            this.ChkInvertirCiudad.Location = new System.Drawing.Point(169, 12);
-            this.ChkInvertirCiudad.Name = "ChkInvertirCiudad";
-            this.ChkInvertirCiudad.Size = new System.Drawing.Size(29, 17);
-            this.ChkInvertirCiudad.TabIndex = 35;
-            this.ChkInvertirCiudad.Text = "I";
-            this.ChkInvertirCiudad.UseVisualStyleBackColor = true;
             // 
             // FrmGuia
             // 

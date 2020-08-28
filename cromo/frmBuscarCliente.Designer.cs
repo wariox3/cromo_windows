@@ -108,7 +108,7 @@
             // 
             // clmCodigoCliente
             // 
-            this.clmCodigoCliente.DataPropertyName = "codigoClientePk";
+            this.clmCodigoCliente.DataPropertyName = "codigoTerceroPk";
             this.clmCodigoCliente.HeaderText = "ID";
             this.clmCodigoCliente.Name = "clmCodigoCliente";
             this.clmCodigoCliente.ReadOnly = true;

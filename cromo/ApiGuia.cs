@@ -13,7 +13,7 @@ namespace cromo
         public int numero { get; set; }        
         public string codigoOperacionIngresoFk { get; set; }
         public string codigoOperacionCargoFk { get; set; }
-        public string codigoClienteFk { get; set; }
+        public string codigoTerceroFk { get; set; }
         public string codigoCondicionFk { get; set; }
         public string codigoCiudadOrigenFk { get; set; }
         public string codigoCiudadDestinoFk { get; set; }
