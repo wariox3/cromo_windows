@@ -48,7 +48,7 @@ namespace cromo
                 double total = Convert.ToDouble(TxtFlete.Text) + Convert.ToDouble(TxtManejo.Text);
                 ApiRecibo apiRecibo = new ApiRecibo();
                 apiRecibo.codigoGuiaFk = General.CodigoGuia.ToString();
-                apiRecibo.codigoClienteFk = apiGuia.codigoTerceroFk;
+                apiRecibo.codigoTerceroFk = apiGuia.codigoTerceroFk;
                 apiRecibo.codigoOperacionFk = apiGuia.codigoOperacionIngresoFk;
                 apiRecibo.vrFlete = Convert.ToDouble(TxtFlete.Text);
                 apiRecibo.vrManejo = Convert.ToDouble(TxtManejo.Text);

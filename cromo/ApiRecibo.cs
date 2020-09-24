@@ -10,7 +10,7 @@ namespace cromo
     {
         public string codigoReciboPk { get; set; }
         public string codigoOperacionFk { get; set; }
-        public string codigoClienteFk { get; set; }
+        public string codigoTerceroFk { get; set; }
         public string codigoGuiaFk { get; set; }
         public double vrFlete { get; set; }
         public double vrManejo { get; set; }
