@@ -61,7 +61,7 @@
             this.helpMenu});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(947, 24);
+            this.menuStrip.Size = new System.Drawing.Size(1097, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
             // 
@@ -111,21 +111,21 @@
             // mnuImpresionMasiva
             // 
             this.mnuImpresionMasiva.Name = "mnuImpresionMasiva";
-            this.mnuImpresionMasiva.Size = new System.Drawing.Size(180, 22);
+            this.mnuImpresionMasiva.Size = new System.Drawing.Size(167, 22);
             this.mnuImpresionMasiva.Text = "Impresion masiva";
             this.mnuImpresionMasiva.Click += new System.EventHandler(this.mnuImpresionMasiva_Click);
             // 
             // MenuCrearCliente
             // 
             this.MenuCrearCliente.Name = "MenuCrearCliente";
-            this.MenuCrearCliente.Size = new System.Drawing.Size(180, 22);
+            this.MenuCrearCliente.Size = new System.Drawing.Size(167, 22);
             this.MenuCrearCliente.Text = "Crear cliente";
             this.MenuCrearCliente.Click += new System.EventHandler(this.MenuCrearCliente_Click);
             // 
             // MenuCrearDestinatario
             // 
             this.MenuCrearDestinatario.Name = "MenuCrearDestinatario";
-            this.MenuCrearDestinatario.Size = new System.Drawing.Size(180, 22);
+            this.MenuCrearDestinatario.Size = new System.Drawing.Size(167, 22);
             this.MenuCrearDestinatario.Text = "Crear destinatario";
             this.MenuCrearDestinatario.Click += new System.EventHandler(this.MenuCrearDestinatario_Click);
             // 
@@ -179,9 +179,9 @@
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 667);
+            this.statusStrip.Location = new System.Drawing.Point(0, 657);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(947, 22);
+            this.statusStrip.Size = new System.Drawing.Size(1097, 22);
             this.statusStrip.TabIndex = 2;
             this.statusStrip.Text = "StatusStrip";
             // 
@@ -195,7 +195,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(947, 689);
+            this.ClientSize = new System.Drawing.Size(1097, 679);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip);
             this.IsMdiContainer = true;

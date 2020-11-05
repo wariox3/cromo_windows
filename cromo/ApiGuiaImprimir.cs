@@ -28,6 +28,9 @@ namespace cromo
         public string codigoZona { get; set; }
         public string codigoEmpaque { get; set; }
         public string remitente { get; set; }
+        public string nombreRemitente { get; set; }
+        public string direccionRemitente { get; set; }
+        public string telefonoRemitente { get; set; }
         public string nombreDestinatario { get; set; }
         public string telefonoDestinatario { get; set; }
         public string direccionDestinatario { get; set; }

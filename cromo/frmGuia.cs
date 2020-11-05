@@ -126,7 +126,10 @@ namespace cromo
                                 apiGuia.codigoEmpaqueFk = CboEmpaque.SelectedValue.ToString();
                                 apiGuia.documentoCliente = TxtDocumentoCliente.Text;
                                 apiGuia.relacionCliente = TxtRelacion.Text;
-                                apiGuia.remitente = TxtRemitente.Text;
+                                apiGuia.remitente = TxtNombreRemitente.Text;
+                                apiGuia.nombreRemitente = TxtNombreRemitente.Text;
+                                apiGuia.telefonoRemitente = TxtTelefonoRemitente.Text;
+                                apiGuia.direccionRemitente = TxtDireccionRemitente.Text;
                                 apiGuia.nombreDestinatario = TxtNombreDestinatario.Text;
                                 apiGuia.direccionDestinatario = TxtDireccionDestinatario.Text;
                                 apiGuia.telefonoDestinatario = TxtTelefonoDestinatario.Text;
@@ -379,7 +382,9 @@ namespace cromo
             txtNombreCliente.Text = "";
             TxtCodigoCondicion.Text = "";
             txtNombreCondicion.Text = "";
-            TxtRemitente.Text = "";
+            TxtNombreRemitente.Text = "";
+            TxtDireccionRemitente.Text = "";
+            TxtTelefonoRemitente.Text = "";
             TxtDocumentoCliente.Text = "";
             TxtRelacion.Text = "";
             TxtCodigoCiudadOrigen.Text = "";
@@ -455,6 +460,7 @@ namespace cromo
             MnuImprimir.Enabled = false;
 
             gbCliente.Enabled = true;
+            gbRemitente.Enabled = true;
             gbDestinatario.Enabled = true;
             gbTotales.Enabled = true;
             gbInformacion.Enabled = true;
@@ -483,6 +489,7 @@ namespace cromo
             MnuImprimir.Enabled = true;
 
             gbCliente.Enabled = false;
+            gbRemitente.Enabled = false;
             gbDestinatario.Enabled = false;
             gbTotales.Enabled = false;
             gbInformacion.Enabled = false;
@@ -566,13 +573,10 @@ namespace cromo
                         ChkPagoDestino.Checked = apiCliente.guiaPagoDestino;
                         ChkPagoCortesia.Checked = apiCliente.guiaPagoCortesia;
                         ChkPagoRecogida.Checked = apiCliente.guiaPagoRecogida;
-                                               
-                    }
-                }
-
-                if (TxtRemitente.Text == "")
-                {
-                    TxtRemitente.Text = txtNombreCliente.Text;
+                        TxtNombreRemitente.Text = txtNombreCliente.Text;
+                        TxtTelefonoRemitente.Text = apiCliente.telefono;
+                        TxtDireccionRemitente.Text = apiCliente.direccion;
+                    }                    
                 }
             }
 
@@ -1068,7 +1072,7 @@ namespace cromo
                     ApiGuiaCarga apiGuiaCarga = ser.Deserialize<ApiGuiaCarga>(jsonRespuesta);
                     if (apiGuiaCarga.error == null)
                     {
-                        TxtRemitente.Text = apiGuiaCarga.remitente;
+                        TxtNombreRemitente.Text = apiGuiaCarga.remitente;
                         TxtDocumentoCliente.Text = apiGuiaCarga.documentoCliente;
                         TxtNumero.Text = apiGuiaCarga.numero;
                         TxtRelacion.Text = apiGuiaCarga.relacionCliente;
@@ -1291,7 +1295,9 @@ namespace cromo
             txtNombreCliente.Text = apiGuia.clienteNombreCorto;
             TxtCodigoCondicion.Text = apiGuia.codigoCondicionFk;
             txtNombreCondicion.Text = apiGuia.condicionNombre;
-            TxtRemitente.Text = apiGuia.remitente;
+            TxtNombreRemitente.Text = apiGuia.nombreRemitente;
+            TxtTelefonoRemitente.Text = apiGuia.telefonoRemitente;
+            TxtDireccionRemitente.Text = apiGuia.direccionRemitente;
             TxtDocumentoCliente.Text = apiGuia.documentoCliente;
             TxtRelacion.Text = apiGuia.relacionCliente;
             TxtCodigoCiudadOrigen.Text = apiGuia.codigoCiudadOrigenFk;

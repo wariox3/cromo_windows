@@ -25,6 +25,9 @@ namespace cromo
         public string documentoCliente { get; set; }
         public string relacionCliente { get; set; }
         public string remitente { get; set; }
+        public string nombreRemitente { get; set; }
+        public string telefonoRemitente { get; set; }
+        public string direccionRemitente { get; set; }
         public DateTime fechaIngreso { get; set; }
         public DateTime? fechaDespacho { get; set; }
         public DateTime? fechaEntrega { get; set; }
