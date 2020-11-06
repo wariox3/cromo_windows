@@ -121,6 +121,7 @@ namespace cromo
                                 apiGuia.codigoCiudadOrigenFk = TxtCodigoCiudadOrigen.Text;
                                 apiGuia.codigoCiudadDestinoFk = TxtCodigoCiudadDestino.Text;
                                 apiGuia.codigoRutaFk = TxtCodigoRuta.Text;
+                                apiGuia.codigoAsesorFk = TxtCodigoAsesor.Text;
                                 apiGuia.codigoServicioFk = CboServicio.SelectedValue.ToString();
                                 apiGuia.codigoProductoFk = CboProducto.SelectedValue.ToString();
                                 apiGuia.codigoEmpaqueFk = CboEmpaque.SelectedValue.ToString();
@@ -382,6 +383,7 @@ namespace cromo
             txtNombreCliente.Text = "";
             TxtCodigoCondicion.Text = "";
             txtNombreCondicion.Text = "";
+            TxtCodigoAsesor.Text = "";
             TxtNombreRemitente.Text = "";
             TxtDireccionRemitente.Text = "";
             TxtTelefonoRemitente.Text = "";
@@ -1290,6 +1292,7 @@ namespace cromo
             TxtFechaEntrega.Text = apiGuia.fechaEntrega.ToString();
             TxtOperacionIngreso.Text = apiGuia.codigoOperacionIngresoFk;
             TxtOperacionCargo.Text = apiGuia.codigoOperacionCargoFk;
+            TxtCodigoAsesor.Text = apiGuia.codigoAsesorFk;
             TxtAbono.Text = apiGuia.vrAbono;
             TxtCodigoCliente.Text = apiGuia.codigoTerceroFk;
             txtNombreCliente.Text = apiGuia.clienteNombreCorto;
@@ -1350,6 +1353,18 @@ namespace cromo
             }
         }
 
+        private void TxtCodigoAsesor_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.ToString() == "F2")
+            {
+                FrmBuscarAsesor frmBuscarAsesor = new FrmBuscarAsesor();
+                frmBuscarAsesor.ShowDialog();
+                if (frmBuscarAsesor.DialogResult == DialogResult.OK)
+                {
+                    TxtCodigoAsesor.Text = General.CodigoAsesor;
+                }
+            }
+        }
     }
 
 }

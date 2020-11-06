@@ -22,6 +22,7 @@ namespace cromo
         public string codigoServicioFk { get; set; }
         public string codigoProductoFk { get; set; }
         public string codigoEmpaqueFk { get; set; }
+        public string codigoAsesorFk { get; set; }
         public string documentoCliente { get; set; }
         public string relacionCliente { get; set; }
         public string remitente { get; set; }

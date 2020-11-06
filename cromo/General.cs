@@ -23,7 +23,14 @@ namespace cromo
 			set { v_CodigoCliente = value; }
 		}
 
-		private static string v_CodigoDestinatario = "";
+        private static string v_CodigoAsesor = "";
+        public static string CodigoAsesor
+        {
+            get { return v_CodigoAsesor; }
+            set { v_CodigoAsesor = value; }
+        }
+
+        private static string v_CodigoDestinatario = "";
 		public static string CodigoDestinatario
 		{
 			get { return v_CodigoDestinatario; }

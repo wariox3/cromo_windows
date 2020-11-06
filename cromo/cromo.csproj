@@ -151,6 +151,12 @@
     <Compile Include="ApiServicio.cs" />
     <Compile Include="ApiUsuario.cs" />
     <Compile Include="ApiCliente.cs" />
+    <Compile Include="FrmBuscarAsesor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBuscarAsesor.Designer.cs">
+      <DependentUpon>FrmBuscarAsesor.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBuscarCondicion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -273,6 +279,9 @@
     <Compile Include="Settings.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Validar.cs" />
+    <EmbeddedResource Include="FrmBuscarAsesor.resx">
+      <DependentUpon>FrmBuscarAsesor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmBuscarCondicion.resx">
       <DependentUpon>FrmBuscarCondicion.cs</DependentUpon>
     </EmbeddedResource>
