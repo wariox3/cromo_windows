@@ -49,9 +49,9 @@ namespace cromo
                         }
                         else
                         {
-                            if (CboIdentificacion.SelectedIndex < 0)
+                            if (TxtTelefono.Text == "")
                             {
-                                CboIdentificacion.Focus();
+                                TxtTelefono.Focus();
                                 return false;
                             }
                             else
@@ -63,14 +63,22 @@ namespace cromo
                                 }
                                 else
                                 {
-                                    if (TxtTelefono.Text == "")
+                                    if (CboIdentificacion.SelectedIndex < 0)
                                     {
-                                        TxtTelefono.Focus();
+                                        CboIdentificacion.Focus();
                                         return false;
                                     }
                                     else
                                     {
-                                        return true;
+                                        if (TxtTelefono.Text == "")
+                                        {
+                                            TxtTelefono.Focus();
+                                            return false;
+                                        }
+                                        else
+                                        {
+                                            return true;
+                                        }
                                     }
                                 }
                             }
