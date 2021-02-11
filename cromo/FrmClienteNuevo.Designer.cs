@@ -171,6 +171,7 @@
             this.TxtNumeroIdentificacion.Name = "TxtNumeroIdentificacion";
             this.TxtNumeroIdentificacion.Size = new System.Drawing.Size(172, 20);
             this.TxtNumeroIdentificacion.TabIndex = 1;
+            this.TxtNumeroIdentificacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNumeroIdentificacion_KeyPress);
             // 
             // TxtNombreCorto
             // 
@@ -199,6 +200,7 @@
             this.TxtTelefono.Name = "TxtTelefono";
             this.TxtTelefono.Size = new System.Drawing.Size(125, 20);
             this.TxtTelefono.TabIndex = 10;
+            this.TxtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtTelefono_KeyPress);
             // 
             // TxtDireccion
             // 
