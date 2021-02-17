@@ -1246,7 +1246,7 @@
                                     <Paragraph>
                                       <TextRuns>
                                         <TextRun>
-                                          <Value>REACUDO</Value>
+                                          <Value>RECAUDO</Value>
                                           <Style>
                                             <FontSize>4pt</FontSize>
                                             <FontWeight>Bold</FontWeight>
@@ -1260,7 +1260,7 @@
                                   <Top>4.9918cm</Top>
                                   <Left>0.32642cm</Left>
                                   <Height>0.19596cm</Height>
-                                  <Width>0.72045cm</Width>
+                                  <Width>0.87774cm</Width>
                                   <ZIndex>42</ZIndex>
                                   <Style>
                                     <Border>
@@ -3973,7 +3973,7 @@
                                     <Paragraph>
                                       <TextRuns>
                                         <TextRun>
-                                          <Value>OTROS</Value>
+                                          <Value>RECAUDO</Value>
                                           <Style>
                                             <FontSize>4pt</FontSize>
                                             <FontWeight>Bold</FontWeight>
@@ -3987,7 +3987,7 @@
                                   <Top>4.9918cm</Top>
                                   <Left>0.32642cm</Left>
                                   <Height>0.19596cm</Height>
-                                  <Width>0.61463cm</Width>
+                                  <Width>0.87774cm</Width>
                                   <ZIndex>42</ZIndex>
                                   <Style>
                                     <Border>
@@ -6687,7 +6687,7 @@
                                     <Paragraph>
                                       <TextRuns>
                                         <TextRun>
-                                          <Value>OTROS</Value>
+                                          <Value>RECAUDO</Value>
                                           <Style>
                                             <FontSize>4pt</FontSize>
                                             <FontWeight>Bold</FontWeight>
