@@ -93,6 +93,10 @@
           <DataField>documentoCliente</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="empresaCorreo">
+          <DataField>empresaCorreo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="empresaDireccion">
           <DataField>empresaDireccion</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -2860,7 +2864,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>servicioalcliente@energy.com.co</Value>
+                                      <Value>=Fields!empresaCorreo.Value</Value>
                                       <Style>
                                         <FontSize>5pt</FontSize>
                                       </Style>
@@ -2875,7 +2879,7 @@
                               <Top>1.06771cm</Top>
                               <Left>8.37949cm</Left>
                               <Height>0.27354cm</Height>
-                              <Width>3.13032cm</Width>
+                              <Width>3.26964cm</Width>
                               <ZIndex>7</ZIndex>
                               <Style>
                                 <Border>
@@ -5588,7 +5592,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>servicioalcliente@energy.com.co</Value>
+                                      <Value>=Fields!empresaCorreo.Value</Value>
                                       <Style>
                                         <FontSize>5pt</FontSize>
                                       </Style>
@@ -5603,7 +5607,7 @@
                               <Top>10.19143cm</Top>
                               <Left>8.37949cm</Left>
                               <Height>0.27354cm</Height>
-                              <Width>3.13032cm</Width>
+                              <Width>3.26964cm</Width>
                               <ZIndex>19</ZIndex>
                               <Style>
                                 <Border>
@@ -8002,7 +8006,7 @@
                                     <Paragraph>
                                       <TextRuns>
                                         <TextRun>
-                                          <Value>=Fields!vrRecaudo.Value</Value>
+                                          <Value>=Fields!vrCobroEntrega.Value</Value>
                                           <Style>
                                             <FontSize>5pt</FontSize>
                                             <Format>#,0;(#,0)</Format>
@@ -8302,7 +8306,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>servicioalcliente@energy.com.co</Value>
+                                      <Value>=Fields!empresaCorreo.Value</Value>
                                       <Style>
                                         <FontSize>5pt</FontSize>
                                       </Style>
@@ -8317,7 +8321,7 @@
                               <Top>19.41322cm</Top>
                               <Left>8.37949cm</Left>
                               <Height>0.27354cm</Height>
-                              <Width>3.13032cm</Width>
+                              <Width>3.26964cm</Width>
                               <ZIndex>30</ZIndex>
                               <Style>
                                 <Border>
@@ -8624,6 +8628,105 @@
                                 </Border>
                               </Style>
                             </Image>
+                            <Textbox Name="empresaTelefono">
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>TEL </Value>
+                                      <Style>
+                                        <FontSize>5pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                    <TextRun>
+                                      <Value>=Fields!empresaTelefono.Value</Value>
+                                      <Style>
+                                        <FontSize>5pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>empresaTelefono</rd:DefaultName>
+                              <Top>19.43954cm</Top>
+                              <Left>11.71969cm</Left>
+                              <Height>0.24722cm</Height>
+                              <Width>2.38239cm</Width>
+                              <ZIndex>42</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="empresaTelefono5">
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>TEL </Value>
+                                      <Style>
+                                        <FontSize>5pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                    <TextRun>
+                                      <Value>=Fields!empresaTelefono.Value</Value>
+                                      <Style>
+                                        <FontSize>5pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>empresaTelefono</rd:DefaultName>
+                              <Top>10.21775cm</Top>
+                              <Left>11.71969cm</Left>
+                              <Height>0.24722cm</Height>
+                              <Width>2.38239cm</Width>
+                              <ZIndex>43</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="empresaTelefono6">
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>TEL </Value>
+                                      <Style>
+                                        <FontSize>5pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                    <TextRun>
+                                      <Value>=Fields!empresaTelefono.Value</Value>
+                                      <Style>
+                                        <FontSize>5pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>empresaTelefono</rd:DefaultName>
+                              <Top>1.06771cm</Top>
+                              <Left>11.71969cm</Left>
+                              <Height>0.24722cm</Height>
+                              <Width>2.38239cm</Width>
+                              <ZIndex>44</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                              </Style>
+                            </Textbox>
                           </ReportItems>
                           <KeepTogether>true</KeepTogether>
                           <Style>
