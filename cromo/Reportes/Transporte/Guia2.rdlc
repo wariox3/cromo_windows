@@ -8403,201 +8403,6 @@
                                 <Border />
                               </Style>
                             </Textbox>
-                            <Textbox Name="resolucionFactura">
-                              <CanGrow>true</CanGrow>
-                              <KeepTogether>true</KeepTogether>
-                              <Paragraphs>
-                                <Paragraph>
-                                  <TextRuns>
-                                    <TextRun>
-                                      <Value>=Fields!resolucionFactura.Value</Value>
-                                      <Style>
-                                        <FontSize>5pt</FontSize>
-                                      </Style>
-                                    </TextRun>
-                                  </TextRuns>
-                                  <Style />
-                                </Paragraph>
-                              </Paragraphs>
-                              <rd:DefaultName>resolucionFactura</rd:DefaultName>
-                              <Top>7.68738cm</Top>
-                              <Left>0.08859cm</Left>
-                              <Height>0.6cm</Height>
-                              <Width>7.70347cm</Width>
-                              <ZIndex>34</ZIndex>
-                              <Style>
-                                <Border>
-                                  <Style>None</Style>
-                                </Border>
-                                <PaddingLeft>2pt</PaddingLeft>
-                                <PaddingRight>2pt</PaddingRight>
-                                <PaddingTop>2pt</PaddingTop>
-                                <PaddingBottom>2pt</PaddingBottom>
-                              </Style>
-                            </Textbox>
-                            <Textbox Name="resolucionFactura8">
-                              <CanGrow>true</CanGrow>
-                              <KeepTogether>true</KeepTogether>
-                              <Paragraphs>
-                                <Paragraph>
-                                  <TextRuns>
-                                    <TextRun>
-                                      <Value>=Fields!resolucionFactura.Value</Value>
-                                      <Style>
-                                        <FontSize>5pt</FontSize>
-                                      </Style>
-                                    </TextRun>
-                                  </TextRuns>
-                                  <Style />
-                                </Paragraph>
-                              </Paragraphs>
-                              <rd:DefaultName>resolucionFactura</rd:DefaultName>
-                              <Top>16.77582cm</Top>
-                              <Left>0.09086cm</Left>
-                              <Height>0.6cm</Height>
-                              <Width>7.70347cm</Width>
-                              <ZIndex>35</ZIndex>
-                              <Style>
-                                <Border>
-                                  <Style>None</Style>
-                                </Border>
-                                <PaddingLeft>2pt</PaddingLeft>
-                                <PaddingRight>2pt</PaddingRight>
-                                <PaddingTop>2pt</PaddingTop>
-                                <PaddingBottom>2pt</PaddingBottom>
-                              </Style>
-                            </Textbox>
-                            <Textbox Name="resolucionFactura9">
-                              <CanGrow>true</CanGrow>
-                              <KeepTogether>true</KeepTogether>
-                              <Paragraphs>
-                                <Paragraph>
-                                  <TextRuns>
-                                    <TextRun>
-                                      <Value>=Fields!resolucionFactura.Value</Value>
-                                      <Style>
-                                        <FontSize>5pt</FontSize>
-                                      </Style>
-                                    </TextRun>
-                                  </TextRuns>
-                                  <Style />
-                                </Paragraph>
-                              </Paragraphs>
-                              <rd:DefaultName>resolucionFactura</rd:DefaultName>
-                              <Top>25.97998cm</Top>
-                              <Left>0.08859cm</Left>
-                              <Height>0.6cm</Height>
-                              <Width>7.70347cm</Width>
-                              <ZIndex>36</ZIndex>
-                              <Style>
-                                <Border>
-                                  <Style>None</Style>
-                                </Border>
-                                <PaddingLeft>2pt</PaddingLeft>
-                                <PaddingRight>2pt</PaddingRight>
-                                <PaddingTop>2pt</PaddingTop>
-                                <PaddingBottom>2pt</PaddingBottom>
-                              </Style>
-                            </Textbox>
-                            <Textbox Name="tituloFactura">
-                              <CanGrow>true</CanGrow>
-                              <KeepTogether>true</KeepTogether>
-                              <Paragraphs>
-                                <Paragraph>
-                                  <TextRuns>
-                                    <TextRun>
-                                      <Value>=Fields!tituloFactura.Value</Value>
-                                      <Style>
-                                        <FontSize>12pt</FontSize>
-                                        <FontWeight>Bold</FontWeight>
-                                      </Style>
-                                    </TextRun>
-                                  </TextRuns>
-                                  <Style />
-                                </Paragraph>
-                              </Paragraphs>
-                              <rd:DefaultName>tituloFactura</rd:DefaultName>
-                              <Top>0.11479cm</Top>
-                              <Left>11.71969cm</Left>
-                              <Height>0.52931cm</Height>
-                              <Width>4.04044cm</Width>
-                              <ZIndex>37</ZIndex>
-                              <Style>
-                                <Border>
-                                  <Style>None</Style>
-                                </Border>
-                                <PaddingLeft>2pt</PaddingLeft>
-                                <PaddingRight>2pt</PaddingRight>
-                                <PaddingTop>2pt</PaddingTop>
-                                <PaddingBottom>2pt</PaddingBottom>
-                              </Style>
-                            </Textbox>
-                            <Textbox Name="tituloFactura2">
-                              <CanGrow>true</CanGrow>
-                              <KeepTogether>true</KeepTogether>
-                              <Paragraphs>
-                                <Paragraph>
-                                  <TextRuns>
-                                    <TextRun>
-                                      <Value>=Fields!tituloFactura.Value</Value>
-                                      <Style>
-                                        <FontSize>12pt</FontSize>
-                                        <FontWeight>Bold</FontWeight>
-                                      </Style>
-                                    </TextRun>
-                                  </TextRuns>
-                                  <Style />
-                                </Paragraph>
-                              </Paragraphs>
-                              <rd:DefaultName>tituloFactura</rd:DefaultName>
-                              <Top>9.27392cm</Top>
-                              <Left>11.71969cm</Left>
-                              <Height>0.52931cm</Height>
-                              <Width>4.04044cm</Width>
-                              <ZIndex>38</ZIndex>
-                              <Style>
-                                <Border>
-                                  <Style>None</Style>
-                                </Border>
-                                <PaddingLeft>2pt</PaddingLeft>
-                                <PaddingRight>2pt</PaddingRight>
-                                <PaddingTop>2pt</PaddingTop>
-                                <PaddingBottom>2pt</PaddingBottom>
-                              </Style>
-                            </Textbox>
-                            <Textbox Name="tituloFactura3">
-                              <CanGrow>true</CanGrow>
-                              <KeepTogether>true</KeepTogether>
-                              <Paragraphs>
-                                <Paragraph>
-                                  <TextRuns>
-                                    <TextRun>
-                                      <Value>=Fields!tituloFactura.Value</Value>
-                                      <Style>
-                                        <FontSize>12pt</FontSize>
-                                        <FontWeight>Bold</FontWeight>
-                                      </Style>
-                                    </TextRun>
-                                  </TextRuns>
-                                  <Style />
-                                </Paragraph>
-                              </Paragraphs>
-                              <rd:DefaultName>tituloFactura</rd:DefaultName>
-                              <Top>18.46043cm</Top>
-                              <Left>11.71969cm</Left>
-                              <Height>0.52931cm</Height>
-                              <Width>4.04044cm</Width>
-                              <ZIndex>39</ZIndex>
-                              <Style>
-                                <Border>
-                                  <Style>None</Style>
-                                </Border>
-                                <PaddingLeft>2pt</PaddingLeft>
-                                <PaddingRight>2pt</PaddingRight>
-                                <PaddingTop>2pt</PaddingTop>
-                                <PaddingBottom>2pt</PaddingBottom>
-                              </Style>
-                            </Textbox>
                             <Image Name="supertransporte2">
                               <Source>Embedded</Source>
                               <Value>logosuperv2</Value>
@@ -8606,7 +8411,7 @@
                               <Left>4.28664cm</Left>
                               <Height>1.30261cm</Height>
                               <Width>3.76858cm</Width>
-                              <ZIndex>40</ZIndex>
+                              <ZIndex>34</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -8621,7 +8426,7 @@
                               <Left>4.32192cm</Left>
                               <Height>1.30261cm</Height>
                               <Width>3.76858cm</Width>
-                              <ZIndex>41</ZIndex>
+                              <ZIndex>35</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -8654,7 +8459,7 @@
                               <Left>11.71969cm</Left>
                               <Height>0.24722cm</Height>
                               <Width>2.38239cm</Width>
-                              <ZIndex>42</ZIndex>
+                              <ZIndex>36</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -8687,7 +8492,7 @@
                               <Left>11.71969cm</Left>
                               <Height>0.24722cm</Height>
                               <Width>2.38239cm</Width>
-                              <ZIndex>43</ZIndex>
+                              <ZIndex>37</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -8720,7 +8525,7 @@
                               <Left>11.71969cm</Left>
                               <Height>0.24722cm</Height>
                               <Width>2.38239cm</Width>
-                              <ZIndex>44</ZIndex>
+                              <ZIndex>38</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
