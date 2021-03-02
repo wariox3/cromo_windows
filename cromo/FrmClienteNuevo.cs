@@ -77,7 +77,15 @@ namespace cromo
                                         }
                                         else
                                         {
-                                            return true;
+                                            if (TxtCorreo.Text == "")
+                                            {
+                                                TxtCorreo.Focus();
+                                                return false;
+                                            }
+                                            else
+                                            {
+                                                return true;
+                                            }
                                         }
                                     }
                                 }
