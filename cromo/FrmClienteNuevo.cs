@@ -84,7 +84,15 @@ namespace cromo
                                             }
                                             else
                                             {
-                                                return true;
+                                                if (TxtCodigoPostal.Text == "")
+                                                {
+                                                    TxtCodigoPostal.Focus();
+                                                    return false;
+                                                }
+                                                else
+                                                {
+                                                    return true;
+                                                }
                                             }
                                         }
                                     }
@@ -119,7 +127,10 @@ namespace cromo
                 apiCliente.telefono = TxtTelefono.Text;
                 apiCliente.correo = TxtCorreo.Text;
                 apiCliente.codigoCondicionFk = General.CodigoCondicionGeneral.ToString();
-                apiCliente.codigoOperacionFk = cromo.Properties.Settings.Default.centroOperacion;
+                apiCliente.codigoOperacionFk = cromo.Properties.Settings.Default.centroOperacion;         
+                apiCliente.codigoTipoPersonaFk = CboTipoPersona.SelectedValue.ToString();
+                apiCliente.codigoRegimenFk = CboRegimen.SelectedValue.ToString();
+                apiCliente.codigoPostal = TxtCodigoPostal.Text;
 
                 string parametrosJson = ser.Serialize(apiCliente);
                 string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/cliente/nuevo", parametrosJson);
@@ -138,7 +149,7 @@ namespace cromo
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)
-        {
+        {        
             Close();
         }
 
@@ -161,6 +172,23 @@ namespace cromo
             CboAsesor.ValueMember = "codigoAsesorPk";
             CboAsesor.DisplayMember = "nombre";
             CboAsesor.DataSource = apiAsesorLista;
+
+            List<TipoPersona> listaTipoPersona = new List<TipoPersona>();
+            listaTipoPersona.Add(new TipoPersona() { codigoTipoPersonaPk = "J", nombre = "JURIDICA" });
+            listaTipoPersona.Add(new TipoPersona() { codigoTipoPersonaPk = "N", nombre = "NATURAL" });
+            CboTipoPersona.DataSource = listaTipoPersona;
+            CboTipoPersona.ValueMember = "codigoTipoPersonaPk";
+            CboTipoPersona.DisplayMember = "nombre";
+            CboTipoPersona.SelectedIndex = 0;
+
+            List<Regimen> listaRegimen = new List<Regimen>();
+            listaRegimen.Add(new Regimen() { codigoRegimenPk = "O", nombre = "ORDINARIO COMUN" });
+            listaRegimen.Add(new Regimen() { codigoRegimenPk = "S", nombre = "SIMPLE" });
+            CboRegimen.DataSource = listaRegimen;
+            CboRegimen.ValueMember = "codigoRegimenPk";
+            CboRegimen.DisplayMember = "nombre";
+            CboRegimen.SelectedIndex = 0;
+
         }
 
         private void TxtNumeroIdentificacion_KeyPress(object sender, KeyPressEventArgs e)
@@ -174,6 +202,16 @@ namespace cromo
         }
 
         private void TxtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void TxtCodigoPostal_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {

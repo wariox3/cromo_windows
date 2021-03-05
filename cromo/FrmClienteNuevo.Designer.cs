@@ -56,6 +56,12 @@
             this.label12 = new System.Windows.Forms.Label();
             this.TxtNombreExtendido = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.CboTipoPersona = new System.Windows.Forms.ComboBox();
+            this.CboRegimen = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.TxtCodigoPostal = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -232,20 +238,20 @@
             // 
             // BtnCancelar
             // 
-            this.BtnCancelar.Location = new System.Drawing.Point(472, 290);
+            this.BtnCancelar.Location = new System.Drawing.Point(468, 329);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.BtnCancelar.TabIndex = 12;
+            this.BtnCancelar.TabIndex = 16;
             this.BtnCancelar.Text = "Cancelar";
             this.BtnCancelar.UseVisualStyleBackColor = true;
             this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // BtnGuardar
             // 
-            this.BtnGuardar.Location = new System.Drawing.Point(553, 290);
+            this.BtnGuardar.Location = new System.Drawing.Point(549, 329);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.BtnGuardar.TabIndex = 13;
+            this.BtnGuardar.TabIndex = 16;
             this.BtnGuardar.Text = "Guardar";
             this.BtnGuardar.UseVisualStyleBackColor = true;
             this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
@@ -264,7 +270,7 @@
             this.CboAsesor.Location = new System.Drawing.Point(116, 240);
             this.CboAsesor.Name = "CboAsesor";
             this.CboAsesor.Size = new System.Drawing.Size(291, 21);
-            this.CboAsesor.TabIndex = 12;
+            this.CboAsesor.TabIndex = 13;
             // 
             // label12
             // 
@@ -291,12 +297,69 @@
             this.label13.TabIndex = 16;
             this.label13.Text = "Nombre (RUT):";
             // 
+            // CboTipoPersona
+            // 
+            this.CboTipoPersona.FormattingEnabled = true;
+            this.CboTipoPersona.Location = new System.Drawing.Point(115, 267);
+            this.CboTipoPersona.Name = "CboTipoPersona";
+            this.CboTipoPersona.Size = new System.Drawing.Size(290, 21);
+            this.CboTipoPersona.TabIndex = 14;
+            // 
+            // CboRegimen
+            // 
+            this.CboRegimen.FormattingEnabled = true;
+            this.CboRegimen.Location = new System.Drawing.Point(115, 294);
+            this.CboRegimen.Name = "CboRegimen";
+            this.CboRegimen.Size = new System.Drawing.Size(290, 21);
+            this.CboRegimen.TabIndex = 15;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(40, 267);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(72, 13);
+            this.label14.TabIndex = 19;
+            this.label14.Text = "Tipo persona:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(60, 294);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(52, 13);
+            this.label15.TabIndex = 20;
+            this.label15.Text = "Regimen:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(420, 214);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(74, 13);
+            this.label16.TabIndex = 21;
+            this.label16.Text = "Codigo postal:";
+            // 
+            // TxtCodigoPostal
+            // 
+            this.TxtCodigoPostal.Location = new System.Drawing.Point(499, 211);
+            this.TxtCodigoPostal.Name = "TxtCodigoPostal";
+            this.TxtCodigoPostal.Size = new System.Drawing.Size(125, 20);
+            this.TxtCodigoPostal.TabIndex = 12;
+            this.TxtCodigoPostal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCodigoPostal_KeyPress);
+            // 
             // FrmClienteNuevo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(636, 325);
+            this.ClientSize = new System.Drawing.Size(636, 358);
             this.ControlBox = false;
+            this.Controls.Add(this.TxtCodigoPostal);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.CboRegimen);
+            this.Controls.Add(this.CboTipoPersona);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.TxtNombreExtendido);
             this.Controls.Add(this.label12);
@@ -364,5 +427,11 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox TxtNombreExtendido;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox CboTipoPersona;
+        private System.Windows.Forms.ComboBox CboRegimen;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox TxtCodigoPostal;
     }
 }

@@ -24,6 +24,9 @@ namespace cromo
         public string correo { get; set; }
         public string codigoCondicionFk { get; set; }
         public string codigoOperacionFk { get; set; }
+        public string codigoTipoPersonaFk { get; set; }
+        public string codigoRegimenFk { get; set; }
+        public string codigoPostal { get; set; }
         public bool estadoInactivo { get; set; }
         public bool guiaPagoContado { get; set; }
         public bool guiaPagoCortesia { get; set; }
