@@ -13,6 +13,7 @@ namespace cromo
         public string codigoOperacionFk { get; set; }
         public int numero { get; set; }
         public DateTime? fechaSalida { get; set; }
+        public DateTime? fechaEntrega { get; set; }
         public string ciudadOrigen { get; set; }
         public string ciudadDestino { get; set; }
         public string conductorNombre { get; set; }

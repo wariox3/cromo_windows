@@ -38,6 +38,7 @@
             this.clmDestino = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmConductor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtnEnviar = new System.Windows.Forms.Button();
+            this.BtnDescartar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgDespachos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -126,19 +127,30 @@
             // 
             // BtnEnviar
             // 
-            this.BtnEnviar.Location = new System.Drawing.Point(817, 440);
+            this.BtnEnviar.Location = new System.Drawing.Point(809, 440);
             this.BtnEnviar.Name = "BtnEnviar";
-            this.BtnEnviar.Size = new System.Drawing.Size(106, 23);
+            this.BtnEnviar.Size = new System.Drawing.Size(114, 23);
             this.BtnEnviar.TabIndex = 3;
             this.BtnEnviar.Text = "Enviar";
             this.BtnEnviar.UseVisualStyleBackColor = true;
             this.BtnEnviar.Click += new System.EventHandler(this.BtnEnviar_Click);
+            // 
+            // BtnDescartar
+            // 
+            this.BtnDescartar.Location = new System.Drawing.Point(12, 437);
+            this.BtnDescartar.Name = "BtnDescartar";
+            this.BtnDescartar.Size = new System.Drawing.Size(114, 23);
+            this.BtnDescartar.TabIndex = 4;
+            this.BtnDescartar.Text = "Descartar";
+            this.BtnDescartar.UseVisualStyleBackColor = true;
+            this.BtnDescartar.Click += new System.EventHandler(this.BtnDescartar_Click);
             // 
             // FrmEnviarRndc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(941, 472);
+            this.Controls.Add(this.BtnDescartar);
             this.Controls.Add(this.BtnEnviar);
             this.Controls.Add(this.DgDespachos);
             this.MaximizeBox = false;
@@ -164,5 +176,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDestino;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmConductor;
         private System.Windows.Forms.Button BtnEnviar;
+        private System.Windows.Forms.Button BtnDescartar;
     }
 }

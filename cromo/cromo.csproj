@@ -183,6 +183,12 @@
     <Compile Include="FrmClienteNuevo.Designer.cs">
       <DependentUpon>FrmClienteNuevo.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCumplirRndc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCumplirRndc.Designer.cs">
+      <DependentUpon>FrmCumplirRndc.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmDestinatarioNuevo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -307,6 +313,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmClienteNuevo.resx">
       <DependentUpon>FrmClienteNuevo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCumplirRndc.resx">
+      <DependentUpon>FrmCumplirRndc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDestinatarioNuevo.resx">
       <DependentUpon>FrmDestinatarioNuevo.cs</DependentUpon>

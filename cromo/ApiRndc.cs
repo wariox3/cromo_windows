@@ -28,6 +28,7 @@ namespace cromo
     {
         public string codigoDespachoPk { get; set; }
         public string fechaSalida { get; set; }
+        public string fechaEntrega { get; set; }
         public string codigoConductorFk { get; set; }
         public string codigoPoseedorFk { get; set; }
         public string codigoPropietarioFk { get; set; }
@@ -44,7 +45,19 @@ namespace cromo
         public string poseedorTipoIdentificacion { get; set; }
         public string poseedorNumeroIdentificacion { get; set; }
         public string conductorTipoIdentificacion { get; set; }
-        public string conductorNumeroIdentificacion { get; set; }
+        public string conductorNumeroIdentificacion { get; set; }   
+        public string fechaLlegadaCargue { get; set; }
+        public string horaLlegadaCargue { get; set; }
+        public string fechaEntradaCargue { get; set; }
+        public string horaEntradaCargue { get; set; }
+        public string fechaSalidaCargue { get; set; }
+        public string horaSalidaCargue { get; set; }
+        public string fechaLlegadaDescargue { get; set; }
+        public string horaLlegadaDescargue { get; set; }
+        public string fechaEntradaDescargue { get; set; }
+        public string horaEntradaDescargue { get; set; }
+        public string fechaSalidaDescargue { get; set; }
+        public string horaSalidaDescargue { get; set; }
     }
 
     class ApiVehiculoRndc

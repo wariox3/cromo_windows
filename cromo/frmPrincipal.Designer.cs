@@ -49,6 +49,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.MenuCumplirRndc = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -105,7 +106,8 @@
             this.mnuImpresionMasiva,
             this.MenuCrearCliente,
             this.MenuCrearDestinatario,
-            this.MenuEnviarRndc});
+            this.MenuEnviarRndc,
+            this.MenuCumplirRndc});
             this.utilidadesToolStripMenuItem.Name = "utilidadesToolStripMenuItem";
             this.utilidadesToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.utilidadesToolStripMenuItem.Text = "Utilidades";
@@ -200,6 +202,13 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(42, 17);
             this.toolStripStatusLabel.Text = "Estado";
             // 
+            // MenuCumplirRndc
+            // 
+            this.MenuCumplirRndc.Name = "MenuCumplirRndc";
+            this.MenuCumplirRndc.Size = new System.Drawing.Size(180, 22);
+            this.MenuCumplirRndc.Text = "Cumplir rndc";
+            this.MenuCumplirRndc.Click += new System.EventHandler(this.MenuCumplirRndc_Click);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -243,6 +252,7 @@
         private System.Windows.Forms.ToolStripMenuItem MenuCrearCliente;
         private System.Windows.Forms.ToolStripMenuItem MenuCrearDestinatario;
         private System.Windows.Forms.ToolStripMenuItem MenuEnviarRndc;
+        private System.Windows.Forms.ToolStripMenuItem MenuCumplirRndc;
     }
 }
 
