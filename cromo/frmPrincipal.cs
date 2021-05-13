@@ -136,5 +136,11 @@ namespace cromo
             FrmDestinatarioNuevo frmDestinatarioNuevo = new FrmDestinatarioNuevo();
             frmDestinatarioNuevo.ShowDialog();
         }
+
+        private void MenuEnviarRndc_Click(object sender, EventArgs e)
+        {
+            FrmEnviarRndc frmEnviarRndc = new FrmEnviarRndc();
+            frmEnviarRndc.ShowDialog();
+        }
     }
 }

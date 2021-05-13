@@ -39,6 +39,7 @@
             this.mnuImpresionMasiva = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuCrearCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuCrearDestinatario = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuEnviarRndc = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.contentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.indexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -103,7 +104,8 @@
             this.utilidadesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuImpresionMasiva,
             this.MenuCrearCliente,
-            this.MenuCrearDestinatario});
+            this.MenuCrearDestinatario,
+            this.MenuEnviarRndc});
             this.utilidadesToolStripMenuItem.Name = "utilidadesToolStripMenuItem";
             this.utilidadesToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.utilidadesToolStripMenuItem.Text = "Utilidades";
@@ -111,23 +113,30 @@
             // mnuImpresionMasiva
             // 
             this.mnuImpresionMasiva.Name = "mnuImpresionMasiva";
-            this.mnuImpresionMasiva.Size = new System.Drawing.Size(167, 22);
+            this.mnuImpresionMasiva.Size = new System.Drawing.Size(180, 22);
             this.mnuImpresionMasiva.Text = "Impresion masiva";
             this.mnuImpresionMasiva.Click += new System.EventHandler(this.mnuImpresionMasiva_Click);
             // 
             // MenuCrearCliente
             // 
             this.MenuCrearCliente.Name = "MenuCrearCliente";
-            this.MenuCrearCliente.Size = new System.Drawing.Size(167, 22);
+            this.MenuCrearCliente.Size = new System.Drawing.Size(180, 22);
             this.MenuCrearCliente.Text = "Crear cliente";
             this.MenuCrearCliente.Click += new System.EventHandler(this.MenuCrearCliente_Click);
             // 
             // MenuCrearDestinatario
             // 
             this.MenuCrearDestinatario.Name = "MenuCrearDestinatario";
-            this.MenuCrearDestinatario.Size = new System.Drawing.Size(167, 22);
+            this.MenuCrearDestinatario.Size = new System.Drawing.Size(180, 22);
             this.MenuCrearDestinatario.Text = "Crear destinatario";
             this.MenuCrearDestinatario.Click += new System.EventHandler(this.MenuCrearDestinatario_Click);
+            // 
+            // MenuEnviarRndc
+            // 
+            this.MenuEnviarRndc.Name = "MenuEnviarRndc";
+            this.MenuEnviarRndc.Size = new System.Drawing.Size(180, 22);
+            this.MenuEnviarRndc.Text = "Enviar rndc";
+            this.MenuEnviarRndc.Click += new System.EventHandler(this.MenuEnviarRndc_Click);
             // 
             // helpMenu
             // 
@@ -233,6 +242,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnuImpresionMasiva;
         private System.Windows.Forms.ToolStripMenuItem MenuCrearCliente;
         private System.Windows.Forms.ToolStripMenuItem MenuCrearDestinatario;
+        private System.Windows.Forms.ToolStripMenuItem MenuEnviarRndc;
     }
 }
 

@@ -114,6 +114,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Net" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Services" />
@@ -135,6 +136,7 @@
     <Compile Include="ApiCondicionManejo.cs" />
     <Compile Include="ApiConfiguracion.cs" />
     <Compile Include="ApiControlador.cs" />
+    <Compile Include="ApiDespacho.cs" />
     <Compile Include="ApiDestinatario.cs" />
     <Compile Include="ApiEmpaque.cs" />
     <Compile Include="ApiGuia.cs" />
@@ -148,9 +150,15 @@
     <Compile Include="ApiRecibo.cs" />
     <Compile Include="ApiReciboImprimir.cs" />
     <Compile Include="ApiRespuesta.cs" />
+    <Compile Include="ApiRndc.cs" />
     <Compile Include="ApiServicio.cs" />
     <Compile Include="ApiUsuario.cs" />
     <Compile Include="ApiCliente.cs" />
+    <Compile Include="Connected Services\WsRndc\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="FrmBuscarAsesor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,6 +200,12 @@
     </Compile>
     <Compile Include="FrmDevolverGuiaCodigo.Designer.cs">
       <DependentUpon>FrmDevolverGuiaCodigo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEnviarRndc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEnviarRndc.Designer.cs">
+      <DependentUpon>FrmEnviarRndc.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmGuiaDetalle.cs">
       <SubType>Form</SubType>
@@ -277,6 +291,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Regimen.cs" />
+    <Compile Include="RespuestaRndc.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="TipoPersona.cs" />
@@ -301,6 +316,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDevolverGuiaCodigo.resx">
       <DependentUpon>FrmDevolverGuiaCodigo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEnviarRndc.resx">
+      <DependentUpon>FrmEnviarRndc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGuiaDetalle.resx">
       <DependentUpon>FrmGuiaDetalle.cs</DependentUpon>
@@ -354,6 +372,13 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Reportes\Transporte\Recibo.rdlc" />
+    <None Include="Connected Services\WsRndc\cromo.WsRndc.AtenderMensajeBPMResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WsRndc\cromo.WsRndc.AtenderMensajeRNDCResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WsRndc\IBPMServicesservice.wsdl" />
     <None Include="cromo_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\ApiGuia.datasource" />
@@ -840,6 +865,12 @@
     <None Include="Resources\truck_23929.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\WsRndc\configuration91.svcinfo" />
+    <None Include="Connected Services\WsRndc\configuration.svcinfo" />
+    <None Include="Connected Services\WsRndc\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -853,6 +884,12 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\WsRndc\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
