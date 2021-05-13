@@ -310,6 +310,8 @@ namespace cromo
                                 }
                             } else {                                
                                 ApiControlador.ApiPost("/transporte/api/windows/despacho/rndcasignar", "{\"codigoDespacho\":\"" + apiElementosRndc.despacho.codigoDespachoPk + "\",\"id\":\"" + retorno.ingresoid + "\"}");
+                                MessageBox.Show(this, "Se transmitio correctamente el manifiesto", "Envio correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                LlenarDatosApi();
                             }
                         }
                     }

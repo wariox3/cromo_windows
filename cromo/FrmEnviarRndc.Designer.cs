@@ -29,16 +29,17 @@
         private void InitializeComponent()
         {
             this.DgDespachos = new System.Windows.Forms.DataGridView();
+            this.BtnEnviar = new System.Windows.Forms.Button();
+            this.BtnDescartar = new System.Windows.Forms.Button();
             this.clmCodigoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmOperacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmCodigoVehiculoPk = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmOrigen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDestino = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmConductor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BtnEnviar = new System.Windows.Forms.Button();
-            this.BtnDescartar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgDespachos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,6 +54,7 @@
             this.clmOperacion,
             this.clmNumero,
             this.clmFecha,
+            this.clmCodigoVehiculoPk,
             this.clmOrigen,
             this.clmDestino,
             this.clmConductor});
@@ -65,6 +67,26 @@
             this.DgDespachos.StandardTab = true;
             this.DgDespachos.TabIndex = 2;
             this.DgDespachos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgDespachos_CellContentClick);
+            // 
+            // BtnEnviar
+            // 
+            this.BtnEnviar.Location = new System.Drawing.Point(809, 440);
+            this.BtnEnviar.Name = "BtnEnviar";
+            this.BtnEnviar.Size = new System.Drawing.Size(114, 23);
+            this.BtnEnviar.TabIndex = 3;
+            this.BtnEnviar.Text = "Enviar";
+            this.BtnEnviar.UseVisualStyleBackColor = true;
+            this.BtnEnviar.Click += new System.EventHandler(this.BtnEnviar_Click);
+            // 
+            // BtnDescartar
+            // 
+            this.BtnDescartar.Location = new System.Drawing.Point(12, 437);
+            this.BtnDescartar.Name = "BtnDescartar";
+            this.BtnDescartar.Size = new System.Drawing.Size(114, 23);
+            this.BtnDescartar.TabIndex = 4;
+            this.BtnDescartar.Text = "Descartar";
+            this.BtnDescartar.UseVisualStyleBackColor = true;
+            this.BtnDescartar.Click += new System.EventHandler(this.BtnDescartar_Click);
             // 
             // clmCodigoCliente
             // 
@@ -95,6 +117,7 @@
             this.clmNumero.HeaderText = "Numero";
             this.clmNumero.Name = "clmNumero";
             this.clmNumero.ReadOnly = true;
+            this.clmNumero.Width = 70;
             // 
             // clmFecha
             // 
@@ -102,6 +125,13 @@
             this.clmFecha.HeaderText = "Fecha";
             this.clmFecha.Name = "clmFecha";
             this.clmFecha.ReadOnly = true;
+            // 
+            // clmCodigoVehiculoPk
+            // 
+            this.clmCodigoVehiculoPk.HeaderText = "Placa";
+            this.clmCodigoVehiculoPk.Name = "clmCodigoVehiculoPk";
+            this.clmCodigoVehiculoPk.ReadOnly = true;
+            this.clmCodigoVehiculoPk.Width = 50;
             // 
             // clmOrigen
             // 
@@ -125,26 +155,6 @@
             this.clmConductor.ReadOnly = true;
             this.clmConductor.Width = 200;
             // 
-            // BtnEnviar
-            // 
-            this.BtnEnviar.Location = new System.Drawing.Point(809, 440);
-            this.BtnEnviar.Name = "BtnEnviar";
-            this.BtnEnviar.Size = new System.Drawing.Size(114, 23);
-            this.BtnEnviar.TabIndex = 3;
-            this.BtnEnviar.Text = "Enviar";
-            this.BtnEnviar.UseVisualStyleBackColor = true;
-            this.BtnEnviar.Click += new System.EventHandler(this.BtnEnviar_Click);
-            // 
-            // BtnDescartar
-            // 
-            this.BtnDescartar.Location = new System.Drawing.Point(12, 437);
-            this.BtnDescartar.Name = "BtnDescartar";
-            this.BtnDescartar.Size = new System.Drawing.Size(114, 23);
-            this.BtnDescartar.TabIndex = 4;
-            this.BtnDescartar.Text = "Descartar";
-            this.BtnDescartar.UseVisualStyleBackColor = true;
-            this.BtnDescartar.Click += new System.EventHandler(this.BtnDescartar_Click);
-            // 
             // FrmEnviarRndc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -157,7 +167,7 @@
             this.MinimizeBox = false;
             this.Name = "FrmEnviarRndc";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmEnviarRndc";
+            this.Text = "Enviar RNDC";
             this.Load += new System.EventHandler(this.FrmEnviarRndc_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgDespachos)).EndInit();
             this.ResumeLayout(false);
@@ -167,15 +177,16 @@
         #endregion
 
         public System.Windows.Forms.DataGridView DgDespachos;
+        private System.Windows.Forms.Button BtnEnviar;
+        private System.Windows.Forms.Button BtnDescartar;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmCodigoCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmTipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmOperacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmNumero;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmFecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmCodigoVehiculoPk;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmOrigen;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDestino;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmConductor;
-        private System.Windows.Forms.Button BtnEnviar;
-        private System.Windows.Forms.Button BtnDescartar;
     }
 }
