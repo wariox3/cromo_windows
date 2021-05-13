@@ -46,7 +46,11 @@ namespace cromo
 
         private void BtnEnviar_Click(object sender, EventArgs e)
         {
-            string codigo = DgDespachos.Rows[DgDespachos.CurrentRow.Index].Cells[0].Value.ToString();     
+            //string codigo = DgDespachos.Rows[DgDespachos.CurrentRow.Index].Cells[0].Value.ToString();     
+            string codigo = "24995";
+            bool validacion = true;
+            RespuestaRndc retorno = new RespuestaRndc();
+            BPMServicesClient client = new BPMServicesClient();
             //Buscamos los terceros de ese despacho para transmitirlos
             string parametrosJson = "{\"codigoDespacho\":\"" + codigo + "\"}";
             string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/despacho/rndc", parametrosJson);
@@ -54,11 +58,10 @@ namespace cromo
             List<ApiTerceroRndc> apiTerceroLista = ser.Deserialize<List<ApiTerceroRndc>>(jsonRespuesta);
             foreach (ApiTerceroRndc apiTercero in apiElementosRndc.terceros)
             {
-                //MessageBox.Show(this, apiTercero.identificacion, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                string entrada = "";
+                string xmlTercero = "";
                 if (apiTercero.conductor == "0")
                 {
-                        entrada = @"<?xml version='1.0' encoding='ISO-8859-1' ?>
+                    xmlTercero = @"<?xml version='1.0' encoding='ISO-8859-1' ?>
                             <root>
                                 <acceso>
                                     <username>" + apiElementosRndc.configuracion.usuarioRndc + @"</username>
@@ -73,6 +76,8 @@ namespace cromo
                                     <CODTIPOIDTERCERO>" + apiTercero.identificacionTipo + @"</CODTIPOIDTERCERO>
                                     <NUMIDTERCERO>" + apiTercero.identificacion + @"</NUMIDTERCERO>
                                     <NOMIDTERCERO>" + apiTercero.nombre1 + @"</NOMIDTERCERO>
+                                    <PRIMERAPELLIDOIDTERCERO>" + apiTercero.apellido1 + @"</PRIMERAPELLIDOIDTERCERO>    
+                                    <SEGUNDOAPELLIDOIDTERCERO> " + apiTercero.apellido2 + @"</SEGUNDOAPELLIDOIDTERCERO>
                                     <CODSEDETERCERO>" + apiTercero.codigoSede + @"</CODSEDETERCERO>
                                     <NOMSEDETERCERO>" + apiTercero.nombreSede + @"</NOMSEDETERCERO>
                                     <NUMTELEFONOCONTACTO>" + apiTercero.telefono + @"</NUMTELEFONOCONTACTO>
@@ -84,7 +89,7 @@ namespace cromo
 
                 if (apiTercero.conductor == "1")
                 {
-                    entrada = @"<?xml version='1.0' encoding='ISO-8859-1' ?>
+                    xmlTercero = @"<?xml version='1.0' encoding='ISO-8859-1' ?>
                             <root>
                                 <acceso>
                                     <username>" + apiElementosRndc.configuracion.usuarioRndc + @"</username>
@@ -99,39 +104,211 @@ namespace cromo
                                     <CODTIPOIDTERCERO>" + apiTercero.identificacionTipo + @"</CODTIPOIDTERCERO>
                                     <NUMIDTERCERO>" + apiTercero.identificacion + @"</NUMIDTERCERO>
                                     <NOMIDTERCERO>" + apiTercero.nombre1 + @"</NOMIDTERCERO>
+                                    <PRIMERAPELLIDOIDTERCERO>" + apiTercero.apellido1 + @"</PRIMERAPELLIDOIDTERCERO>    
+                                    <SEGUNDOAPELLIDOIDTERCERO> " + apiTercero.apellido2 + @"</SEGUNDOAPELLIDOIDTERCERO>
                                     <CODSEDETERCERO>" + apiTercero.codigoSede + @"</CODSEDETERCERO>
                                     <NOMSEDETERCERO>" + apiTercero.nombreSede + @"</NOMSEDETERCERO>
                                     <NUMTELEFONOCONTACTO>" + apiTercero.telefono + @"</NUMTELEFONOCONTACTO>
                                     <NOMENCLATURADIRECCION>" + apiTercero.direccion + @"</NOMENCLATURADIRECCION>
                                     <CODMUNICIPIORNDC>" + apiTercero.codigoCiudad + @"</CODMUNICIPIORNDC>
+                                    <CODCATEGORIALICENCIACONDUCCION>" + apiTercero.categoriaLicencia + @"</CODCATEGORIALICENCIACONDUCCION>
+                                    <NUMLICENCIACONDUCCION>" + apiTercero.numeroLicencia + @"</NUMLICENCIACONDUCCION>
+                                    <FECHAVENCIMIENTOLICENCIA>" + apiTercero.fechaVenceLicencia + @"</FECHAVENCIMIENTOLICENCIA>
                                  </variables>
                               </root>";
                 }
-
-
-                RespuestaRndc retorno = new RespuestaRndc();
-                BPMServicesClient client = new BPMServicesClient();
-                AtenderMensajeRNDCRequest solicitud = new AtenderMensajeRNDCRequest(entrada);
-                
-                var respuesta = client.AtenderMensajeRNDC(solicitud);
-                var textXml = respuesta.@return;
-                XmlSerializer serializer = new XmlSerializer(typeof(RespuestaRndc));
-                using (TextReader reader = new StringReader(textXml))
+             
+                AtenderMensajeRNDCRequest solicitudTercero = new AtenderMensajeRNDCRequest(xmlTercero);               
+                var respuestaTercero = client.AtenderMensajeRNDC(solicitudTercero);
+                var textXmlTercero = respuestaTercero.@return;
+                XmlSerializer serializerTercero = new XmlSerializer(typeof(RespuestaRndc));
+                using (TextReader reader = new StringReader(textXmlTercero))
                 {
                     //de esta manera se deserializa
-                    retorno = (RespuestaRndc)serializer.Deserialize(reader);
-                }
-                
-                //Respuesta.Text = retorno.ingresoid;
-                //Salida.Text = textXml;
-
-
+                    retorno = (RespuestaRndc)serializerTercero.Deserialize(reader);
+                    if(retorno.ErrorMSG != null) {
+                        string mensajeError = retorno.ErrorMSG.Substring(0, 9);
+                        if(mensajeError != "DUPLICADO") {
+                            MessageBox.Show(this, "Tercero " + apiTercero.identificacion + " " + retorno.ErrorMSG, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            validacion = false;
+                        }
+                    }
+                }                       
             }
-            
-            //DgClientes.DataSource = apiTerceroLista;
 
-            //MessageBox.Show(this, codigo, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //DialogResult = DialogResult.OK;
+            string xmlVehiculo = @"<?xml version='1.0' encoding='ISO-8859-1' ?>
+                        <root>
+                            <acceso>
+                                <username>" + apiElementosRndc.configuracion.usuarioRndc + @"</username>
+                                <password>" + apiElementosRndc.configuracion.claveRndc + @"</password>
+                            </acceso>
+                            <solicitud>
+                                <tipo>1</tipo>
+                                <procesoid>12</procesoid>
+                            </solicitud>
+                            <variables>
+                                <NUMNITEMPRESATRANSPORTE>" + apiElementosRndc.configuracion.empresaRndc + @"</NUMNITEMPRESATRANSPORTE>
+                                <NUMPLACA>" + apiElementosRndc.vehiculo.codigoVehiculoPk + @"</NUMPLACA>
+                                <CODCONFIGURACIONUNIDADCARGA>" + apiElementosRndc.vehiculo.configuracion + @"</CODCONFIGURACIONUNIDADCARGA>
+                                <NUMEJES>" + apiElementosRndc.vehiculo.numeroEjes + @"</NUMEJES>
+                                <CODMARCAVEHICULOCARGA>" + apiElementosRndc.vehiculo.codigoMarca + @"</CODMARCAVEHICULOCARGA>
+                                <CODLINEAVEHICULOCARGA>" + apiElementosRndc.vehiculo.codigoLinea + @"</CODLINEAVEHICULOCARGA>
+                                <ANOFABRICACIONVEHICULOCARGA>" + apiElementosRndc.vehiculo.modelo + @"</ANOFABRICACIONVEHICULOCARGA>
+                                <CODTIPOCOMBUSTIBLE>" + apiElementosRndc.vehiculo.tipoCombustible + @"</CODTIPOCOMBUSTIBLE>
+                                <PESOVEHICULOVACIO>" + apiElementosRndc.vehiculo.pesoVacio + @"</PESOVEHICULOVACIO>
+                                <CODCOLORVEHICULOCARGA>" + apiElementosRndc.vehiculo.codigoColor + @"</CODCOLORVEHICULOCARGA>
+                                <CODTIPOCARROCERIA>" + apiElementosRndc.vehiculo.tipoCarroceria + @"</CODTIPOCARROCERIA>
+                                <CODTIPOIDPROPIETARIO>" + apiElementosRndc.vehiculo.tipoIdentificacionPropietario + @"</CODTIPOIDPROPIETARIO>
+                                <NUMIDPROPIETARIO>" + apiElementosRndc.vehiculo.numeroIdentificacionPropietario + @"</NUMIDPROPIETARIO>
+                                <CODTIPOIDTENEDOR>" + apiElementosRndc.vehiculo.tipoIdentificacionPoseedor + @"</CODTIPOIDTENEDOR>
+                                <NUMIDTENEDOR>" + apiElementosRndc.vehiculo.numeroIdentificacionPoseedor + @"</NUMIDTENEDOR>
+                                <NUMSEGUROSOAT>" + apiElementosRndc.vehiculo.numeroPoliza + @"</NUMSEGUROSOAT>
+                                <FECHAVENCIMIENTOSOAT>" + apiElementosRndc.vehiculo.fechaVencePoliza + @"</FECHAVENCIMIENTOSOAT>
+                                <NUMNITASEGURADORASOAT>" + apiElementosRndc.vehiculo.numeroIdentificacionAseguradora + @"</NUMNITASEGURADORASOAT>
+                                <CAPACIDADUNIDADCARGA>" + apiElementosRndc.vehiculo.capacidad + @"</CAPACIDADUNIDADCARGA>
+                                <UNIDADMEDIDACAPACIDAD>1</UNIDADMEDIDACAPACIDAD>
+                            </variables>
+                        </root>";
+
+            AtenderMensajeRNDCRequest solicitudVehiculo = new AtenderMensajeRNDCRequest(xmlVehiculo);
+            var respuestaVehiculo = client.AtenderMensajeRNDC(solicitudVehiculo);
+            var textXmlVehiculo = respuestaVehiculo.@return;
+            XmlSerializer serializerVehiculo = new XmlSerializer(typeof(RespuestaRndc));
+            using (TextReader reader = new StringReader(textXmlVehiculo))
+            {
+                //de esta manera se deserializa
+                retorno = (RespuestaRndc)serializerVehiculo.Deserialize(reader);
+                if (retorno.ErrorMSG != null)
+                {
+                    string mensajeError = retorno.ErrorMSG.Substring(0, 9);
+                    if (mensajeError != "DUPLICADO")
+                    {
+                        MessageBox.Show(this, "Vehiculo " + apiElementosRndc.vehiculo.codigoVehiculoPk + " " + retorno.ErrorMSG, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        validacion = false;
+                    }
+                }
+            }
+
+
+            //Transmitir guia
+            string xmlGuia = @"<?xml version='1.0' encoding='ISO-8859-1' ?>
+                        <root>
+                            <acceso>
+                                <username>" + apiElementosRndc.configuracion.usuarioRndc + @"</username>
+                                <password>" + apiElementosRndc.configuracion.claveRndc + @"</password>
+                            </acceso>
+                            <solicitud>
+                                <tipo>1</tipo>
+                                <procesoid>3</procesoid>
+                            </solicitud>
+                            <variables>
+                                <NUMNITEMPRESATRANSPORTE>" + apiElementosRndc.configuracion.empresaRndc + @"</NUMNITEMPRESATRANSPORTE>
+                                <CONSECUTIVOREMESA>" + apiElementosRndc.despacho.numero + @"</CONSECUTIVOREMESA>
+                                <CODOPERACIONTRANSPORTE>P</CODOPERACIONTRANSPORTE>
+                                <CODTIPOEMPAQUE>0</CODTIPOEMPAQUE>
+                                <CODNATURALEZACARGA>1</CODNATURALEZACARGA>                                                  
+                                <DESCRIPCIONCORTAPRODUCTO>PAQUETES VARIOS</DESCRIPCIONCORTAPRODUCTO>
+                                <MERCANCIAREMESA>009880</MERCANCIAREMESA>
+                                <CANTIDADCARGADA>" + apiElementosRndc.despacho.pesoReal + @"</CANTIDADCARGADA>
+                                <UNIDADMEDIDACAPACIDAD>1</UNIDADMEDIDACAPACIDAD>
+                                <CODTIPOIDREMITENTE>C</CODTIPOIDREMITENTE>
+                                <NUMIDREMITENTE>222222222</NUMIDREMITENTE>
+                                <CODSEDEREMITENTE>" + apiElementosRndc.despacho.codigoCiudadOrigenFk + @"</CODSEDEREMITENTE>
+                                <CODTIPOIDDESTINATARIO>C</CODTIPOIDDESTINATARIO>
+                                <NUMIDDESTINATARIO>333333333</NUMIDDESTINATARIO>
+                                <CODSEDEDESTINATARIO>" + apiElementosRndc.despacho.codigoCiudadDestinoFk + @"</CODSEDEDESTINATARIO>
+                                <CODTIPOIDPROPIETARIO>C</CODTIPOIDPROPIETARIO>
+                                <NUMIDPROPIETARIO>222222222</NUMIDPROPIETARIO>
+                                <CODSEDEPROPIETARIO>" + apiElementosRndc.despacho.codigoCiudadOrigenFk + @"</CODSEDEPROPIETARIO>
+                                <DUENOPOLIZA>E</DUENOPOLIZA>
+                                <NUMPOLIZATRANSPORTE>" + apiElementosRndc.configuracion.numeroPoliza + @"</NUMPOLIZATRANSPORTE>
+                                <FECHAVENCIMIENTOPOLIZACARGA>" + apiElementosRndc.configuracion.fechaVencePoliza + @"</FECHAVENCIMIENTOPOLIZACARGA>
+                                <COMPANIASEGURO>" + apiElementosRndc.configuracion.numeroIdentificacionAseguradora + @"</COMPANIASEGURO>
+                                <HORASPACTOCARGA>24</HORASPACTOCARGA>
+                                <MINUTOSPACTOCARGA>00</MINUTOSPACTOCARGA>
+                                <FECHACITAPACTADACARGUE>" + apiElementosRndc.despacho.fechaSalida + @"</FECHACITAPACTADACARGUE>
+                                <HORACITAPACTADACARGUE>22:00</HORACITAPACTADACARGUE>
+                                <HORASPACTODESCARGUE>72</HORASPACTODESCARGUE>
+                                <MINUTOSPACTODESCARGUE>00</MINUTOSPACTODESCARGUE>
+                                <FECHACITAPACTADADESCARGUE>" + apiElementosRndc.despacho.fechaSalida + @"</FECHACITAPACTADADESCARGUE>
+                                <HORACITAPACTADADESCARGUEREMESA>08:00</HORACITAPACTADADESCARGUEREMESA>
+                            </variables>
+                        </root>";
+
+            AtenderMensajeRNDCRequest solicitudGuia = new AtenderMensajeRNDCRequest(xmlGuia);
+            var respuestaGuia = client.AtenderMensajeRNDC(solicitudGuia);
+            var textXmlGuia = respuestaGuia.@return;
+            XmlSerializer serializerGuia = new XmlSerializer(typeof(RespuestaRndc));
+            using (TextReader reader = new StringReader(textXmlGuia))
+            {
+                //de esta manera se deserializa
+                retorno = (RespuestaRndc)serializerGuia.Deserialize(reader);
+                if (retorno.ErrorMSG != null)
+                {
+                    string mensajeError = retorno.ErrorMSG.Substring(0, 9);
+                    if (mensajeError != "DUPLICADO")
+                    {
+                        MessageBox.Show(this, "Guia " + apiElementosRndc.despacho.codigoDespachoPk + " " + retorno.ErrorMSG, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        validacion = false;
+                    }
+                }
+            }
+             
+            //Transmitir manifiesto
+            string xmlManifiesto = @"<?xml version='1.0' encoding='ISO-8859-1' ?>
+                <root>
+                        <acceso>
+                                <username>" + apiElementosRndc.configuracion.usuarioRndc + @"</username>
+                                <password>" + apiElementosRndc.configuracion.claveRndc + @"</password>
+                        </acceso>
+                        <solicitud>
+                            <tipo>1</tipo>
+                            <procesoid>4</procesoid>
+                        </solicitud>
+                        <variables>
+                            <NUMNITEMPRESATRANSPORTE>" + apiElementosRndc.configuracion.empresaRndc + @"</NUMNITEMPRESATRANSPORTE>
+                            <NUMMANIFIESTOCARGA>" + apiElementosRndc.despacho.numero + @"</NUMMANIFIESTOCARGA>
+                            <CODOPERACIONTRANSPORTE>P</CODOPERACIONTRANSPORTE>
+                            <FECHAEXPEDICIONMANIFIESTO>" + apiElementosRndc.despacho.fechaSalida + @"</FECHAEXPEDICIONMANIFIESTO>
+                            <CODMUNICIPIOORIGENMANIFIESTO>" + apiElementosRndc.despacho.codigoCiudadOrigen + @"</CODMUNICIPIOORIGENMANIFIESTO>
+                            <CODMUNICIPIODESTINOMANIFIESTO>" + apiElementosRndc.despacho.codigoCiudadDestino + @"</CODMUNICIPIODESTINOMANIFIESTO>
+                            <CODIDTITULARMANIFIESTO>" + apiElementosRndc.despacho.poseedorTipoIdentificacion + @"</CODIDTITULARMANIFIESTO>
+                            <NUMIDTITULARMANIFIESTO>" + apiElementosRndc.despacho.poseedorNumeroIdentificacion + @"</NUMIDTITULARMANIFIESTO>
+                            <NUMPLACA>" + apiElementosRndc.despacho.codigoVehiculoFk + @"</NUMPLACA>
+                            <CODIDCONDUCTOR>" + apiElementosRndc.despacho.conductorTipoIdentificacion + @"</CODIDCONDUCTOR>
+                            <NUMIDCONDUCTOR>" + apiElementosRndc.despacho.conductorNumeroIdentificacion + @"</NUMIDCONDUCTOR>
+                            <VALORFLETEPACTADOVIAJE>" + apiElementosRndc.despacho.vrFletePago + @"</VALORFLETEPACTADOVIAJE>
+                            <RETENCIONFUENTEMANIFIESTO>" + apiElementosRndc.despacho.vrRetencionFuente + @"</RETENCIONFUENTEMANIFIESTO>
+                            <RETENCIONICAMANIFIESTOCARGA>0</RETENCIONICAMANIFIESTOCARGA>
+                            <VALORANTICIPOMANIFIESTO>" + apiElementosRndc.despacho.vrAnticipo + @"</VALORANTICIPOMANIFIESTO>
+                            <FECHAPAGOSALDOMANIFIESTO>" + apiElementosRndc.despacho.fechaSalida + @"</FECHAPAGOSALDOMANIFIESTO>                                                
+                            <CODRESPONSABLEPAGOCARGUE>E</CODRESPONSABLEPAGOCARGUE>
+                            <CODRESPONSABLEPAGODESCARGUE>E</CODRESPONSABLEPAGODESCARGUE>
+                            <OBSERVACIONES>NADA</OBSERVACIONES>
+                            <CODMUNICIPIOPAGOSALDO>05001000</CODMUNICIPIOPAGOSALDO>
+                            <REMESASMAN procesoid='43'><REMESA><CONSECUTIVOREMESA>" + apiElementosRndc.despacho.numero + @"</CONSECUTIVOREMESA></REMESA></REMESASMAN>
+                        </variables>
+                    </root>";
+
+            AtenderMensajeRNDCRequest solicitudManifiesto = new AtenderMensajeRNDCRequest(xmlManifiesto);
+            var respuestaManifiesto = client.AtenderMensajeRNDC(solicitudManifiesto);
+            var textXmlManifiesto = respuestaManifiesto.@return;
+            XmlSerializer serializerManifiesto = new XmlSerializer(typeof(RespuestaRndc));
+            using (TextReader reader = new StringReader(textXmlManifiesto))
+            {
+                //de esta manera se deserializa
+                retorno = (RespuestaRndc)serializerManifiesto.Deserialize(reader);
+                if (retorno.ErrorMSG != null)
+                {
+                    string mensajeError = retorno.ErrorMSG.Substring(0, 9);
+                    if (mensajeError != "DUPLICADO")
+                    {
+                        MessageBox.Show(this, "Manifiesto " + apiElementosRndc.despacho.codigoDespachoPk + " " + retorno.ErrorMSG, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        validacion = false;
+                    }
+                }
+            }
+
         }
     }
 }

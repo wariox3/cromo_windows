@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 namespace cromo
 {
     [XmlRoot("root")]
-    class RespuestaRndc
+    public class RespuestaRndc
     {
         [XmlElement("ingresoid")]
         public string ingresoid { get; set; }
