@@ -36,7 +36,7 @@
             this.clmOperacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmCodigoVehiculoPk = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmCodigoVehiculoFk = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmOrigen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDestino = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmConductor = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,7 +54,7 @@
             this.clmOperacion,
             this.clmNumero,
             this.clmFecha,
-            this.clmCodigoVehiculoPk,
+            this.clmCodigoVehiculoFk,
             this.clmOrigen,
             this.clmDestino,
             this.clmConductor});
@@ -126,12 +126,13 @@
             this.clmFecha.Name = "clmFecha";
             this.clmFecha.ReadOnly = true;
             // 
-            // clmCodigoVehiculoPk
+            // clmCodigoVehiculoFk
             // 
-            this.clmCodigoVehiculoPk.HeaderText = "Placa";
-            this.clmCodigoVehiculoPk.Name = "clmCodigoVehiculoPk";
-            this.clmCodigoVehiculoPk.ReadOnly = true;
-            this.clmCodigoVehiculoPk.Width = 50;
+            this.clmCodigoVehiculoFk.DataPropertyName = "codigoVehiculoFk";
+            this.clmCodigoVehiculoFk.HeaderText = "Placa";
+            this.clmCodigoVehiculoFk.Name = "clmCodigoVehiculoFk";
+            this.clmCodigoVehiculoFk.ReadOnly = true;
+            this.clmCodigoVehiculoFk.Width = 50;
             // 
             // clmOrigen
             // 
@@ -184,7 +185,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmOperacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmNumero;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmFecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmCodigoVehiculoPk;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmCodigoVehiculoFk;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmOrigen;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDestino;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmConductor;
