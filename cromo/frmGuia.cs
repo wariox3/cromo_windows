@@ -618,6 +618,7 @@ namespace cromo
 
                 if (codigoPrecio != 0 && TxtCodigoCiudadOrigen.Text != "" && TxtCodigoCiudadDestino.Text != "")
                 {
+                    LvPrecioDetalle.Items.Clear();
                     parametrosJson = "{\"precio\":\"" + codigoPrecio + "\", \"origen\":\"" + TxtCodigoCiudadOrigen.Text + "\", \"destino\":\"" + TxtCodigoCiudadDestino.Text + "\"}";
                     jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/preciodetalle/detalle", parametrosJson);
                     List<ApiPrecioDetalle> apiPrecioDetalleLista = ser.Deserialize<List<ApiPrecioDetalle>>(jsonRespuesta);
@@ -625,6 +626,7 @@ namespace cromo
                     {
                         ListViewItem item = new ListViewItem(apiPrecioDetalle.codigoPrecioDetallePk);
                         item.SubItems.Add(apiPrecioDetalle.productoNombre);
+                        item.SubItems.Add(apiPrecioDetalle.codigoCoberturaFk);
                         item.SubItems.Add(apiPrecioDetalle.vrPeso.ToString());
                         item.SubItems.Add(apiPrecioDetalle.vrUnidad.ToString());
                         item.SubItems.Add(apiPrecioDetalle.pesoTope.ToString());
@@ -632,11 +634,12 @@ namespace cromo
                         item.SubItems.Add(apiPrecioDetalle.vrPesoTopeAdicional.ToString());
                         item.SubItems.Add(apiPrecioDetalle.minimo.ToString());
                         LvPrecioDetalle.Items.Add(item);
+                        TxtCodigoCobertura.Text = apiPrecioDetalle.codigoCoberturaFk;
                     }
 
                     if (TxtCodigoCliente.Text != "")
                     {
-                        parametrosJson = "{\"codigoCliente\":\"" + TxtCodigoCliente.Text + "\",\"origen\":\"" + codigoOrigen + "\", \"destino\":\"" + codigoDestino + "\", \"codigoZona\":\"" + TxtCodigoZona.Text + "\"}";
+                        parametrosJson = "{\"codigoCliente\":\"" + TxtCodigoCliente.Text + "\",\"origen\":\"" + codigoOrigen + "\", \"destino\":\"" + codigoDestino + "\", \"codigoZona\":\"" + TxtCodigoZona.Text + "\", \"codigoCobertura\":\"" + TxtCodigoCobertura.Text + "\"}";
                         jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/condicionflete/liquidar", parametrosJson);
                         ApiCondicionFlete apiCondicionFlete = ser.Deserialize<ApiCondicionFlete>(jsonRespuesta);
                         if (apiCondicionFlete.error == null)
@@ -1190,6 +1193,7 @@ namespace cromo
                     TxtPesoMinimoPrecio.Text = apiPrecioDetalle.minimo.ToString();
                     pesoMinimoLista = apiPrecioDetalle.minimo;
                     ChkOmitirDescuento.Checked = apiPrecioDetalle.omitirDescuento;
+                    TxtCodigoCobertura.Text = apiPrecioDetalle.codigoCoberturaFk;
                 }
                 else
                 {
@@ -1362,6 +1366,35 @@ namespace cromo
                 if (frmBuscarAsesor.DialogResult == DialogResult.OK)
                 {
                     TxtCodigoAsesor.Text = General.CodigoAsesor;
+                }
+            }
+        }
+
+        private void TxtNombreRemitente_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.ToString() == "F2")
+            {
+                FrmBuscarRemitente frmBuscarRemitente = new FrmBuscarRemitente();
+                frmBuscarRemitente.ShowDialog();
+                if (frmBuscarRemitente.DialogResult == DialogResult.OK)
+                {
+                    string parametrosJson = "{\"codigo\":\"" + General.CodigoRemitente + "\"}";
+                    string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/remitente/detalle", parametrosJson);
+                    ApiRemitente apiRemitente = ser.Deserialize<ApiRemitente>(jsonRespuesta);
+                    if (apiRemitente.error == null)
+                    {
+                        TxtCodigoRemitente.Text = apiRemitente.codigoRemitentePk;
+                        TxtNombreRemitente.Text = apiRemitente.nombreCorto;
+                        TxtDireccionRemitente.Text = apiRemitente.direccion;
+                        TxtTelefonoRemitente.Text = apiRemitente.telefono;
+                        TxtCodigoCiudadOrigen.Text = apiRemitente.codigoCiudadFk;
+                        TxtCodigoAsesor.Text = apiRemitente.codigoAsesorFk;
+                    }
+                    else
+                    {
+                        MessageBox.Show("No existe el remitente");
+                    }
+
                 }
             }
         }

@@ -9,6 +9,7 @@ namespace cromo
     class ApiPrecioDetalle
     {
         public string codigoPrecioDetallePk { get; set; }
+        public string codigoCoberturaFk { get; set; }
         public int minimo { get; set; }
         public double vrPeso { get; set; }
         public double vrUnidad { get; set; }

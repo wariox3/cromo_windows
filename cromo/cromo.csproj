@@ -149,6 +149,7 @@
     <Compile Include="ApiProducto.cs" />
     <Compile Include="ApiRecibo.cs" />
     <Compile Include="ApiReciboImprimir.cs" />
+    <Compile Include="ApiRemitente.cs" />
     <Compile Include="ApiRespuesta.cs" />
     <Compile Include="ApiRndc.cs" />
     <Compile Include="ApiServicio.cs" />
@@ -176,6 +177,12 @@
     </Compile>
     <Compile Include="FrmBuscarDestinatario.Designer.cs">
       <DependentUpon>FrmBuscarDestinatario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBuscarRemitente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBuscarRemitente.Designer.cs">
+      <DependentUpon>FrmBuscarRemitente.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmClienteNuevo.cs">
       <SubType>Form</SubType>
@@ -310,6 +317,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBuscarDestinatario.resx">
       <DependentUpon>FrmBuscarDestinatario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBuscarRemitente.resx">
+      <DependentUpon>FrmBuscarRemitente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmClienteNuevo.resx">
       <DependentUpon>FrmClienteNuevo.cs</DependentUpon>

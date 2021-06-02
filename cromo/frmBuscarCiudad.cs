@@ -40,17 +40,24 @@ namespace cromo
 
         private void BtnSeleccionar_Click_1(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.OK;
-            Close();
+            if(DgCiudades.Rows.Count > 0)
+            {
+                General.CodigoCiudad = DgCiudades.Rows[DgCiudades.CurrentRow.Index].Cells[0].Value.ToString();
+                DialogResult = DialogResult.OK;
+                Close();
+            }
         }
 
 		private void DgCiudades_KeyDown(object sender, KeyEventArgs e)
 		{
 			if (e.KeyCode == Keys.Enter)
 			{
-				General.CodigoCiudad = DgCiudades.Rows[DgCiudades.CurrentRow.Index].Cells[0].Value.ToString();
-				DialogResult = DialogResult.OK;
-				Close();
+                if (DgCiudades.Rows.Count > 0)
+                {
+                    General.CodigoCiudad = DgCiudades.Rows[DgCiudades.CurrentRow.Index].Cells[0].Value.ToString();
+                    DialogResult = DialogResult.OK;
+                    Close();
+                }
 			}
 		}
 
@@ -75,5 +82,5 @@ namespace cromo
 			}
 		}
 
-	}
+    }
 }

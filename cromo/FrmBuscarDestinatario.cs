@@ -41,18 +41,24 @@ namespace cromo
 
 		private void BtnSeleccionar_Click(object sender, EventArgs e)
 		{
-			General. CodigoDestinatario = DgDestinatarios.Rows[DgDestinatarios.CurrentRow.Index].Cells[0].Value.ToString();
-			DialogResult = DialogResult.OK;
-			Close();
+            if(DgDestinatarios.Rows.Count > 0)
+            {
+                General.CodigoDestinatario = DgDestinatarios.Rows[DgDestinatarios.CurrentRow.Index].Cells[0].Value.ToString();
+                DialogResult = DialogResult.OK;
+                Close();
+            }        
 		}
 
 		private void DgDestinatarios_KeyDown(object sender, KeyEventArgs e)
 		{
 			if (e.KeyCode == Keys.Enter)
 			{
-				General.CodigoDestinatario = DgDestinatarios.Rows[DgDestinatarios.CurrentRow.Index].Cells[0].Value.ToString();
-				DialogResult = DialogResult.OK;
-				Close();
+                if (DgDestinatarios.Rows.Count > 0)
+                {
+                    General.CodigoDestinatario = DgDestinatarios.Rows[DgDestinatarios.CurrentRow.Index].Cells[0].Value.ToString();
+                    DialogResult = DialogResult.OK;
+                    Close();
+                }
 			}
 		}
 

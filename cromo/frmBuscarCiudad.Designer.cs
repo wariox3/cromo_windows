@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.DgCiudades = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Departamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtnSeleccionar = new System.Windows.Forms.Button();
             this.BtnCancelar = new System.Windows.Forms.Button();
             this.TxtNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.BtnFiltrar = new System.Windows.Forms.Button();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Departamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgCiudades)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,8 +56,31 @@
             this.DgCiudades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgCiudades.Size = new System.Drawing.Size(712, 325);
             this.DgCiudades.StandardTab = true;
-            this.DgCiudades.TabIndex = 1;
+            this.DgCiudades.TabIndex = 1;           
             this.DgCiudades.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DgCiudades_KeyDown);
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "codigoCiudadPk";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // Nombre
+            // 
+            this.Nombre.DataPropertyName = "nombre";
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            this.Nombre.Width = 250;
+            // 
+            // Departamento
+            // 
+            this.Departamento.DataPropertyName = "departamentoNombre";
+            this.Departamento.HeaderText = "Departamento";
+            this.Departamento.Name = "Departamento";
+            this.Departamento.ReadOnly = true;
+            this.Departamento.Width = 250;
             // 
             // BtnSeleccionar
             // 
@@ -107,29 +130,6 @@
             this.BtnFiltrar.Text = "Filtrar";
             this.BtnFiltrar.UseVisualStyleBackColor = true;
             this.BtnFiltrar.Click += new System.EventHandler(this.BtnFiltrar_Click);
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "codigoCiudadPk";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            // 
-            // Nombre
-            // 
-            this.Nombre.DataPropertyName = "nombre";
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            this.Nombre.Width = 250;
-            // 
-            // Departamento
-            // 
-            this.Departamento.DataPropertyName = "departamentoNombre";
-            this.Departamento.HeaderText = "Departamento";
-            this.Departamento.Name = "Departamento";
-            this.Departamento.ReadOnly = true;
-            this.Departamento.Width = 250;
             // 
             // FrmBuscarCiudad
             // 

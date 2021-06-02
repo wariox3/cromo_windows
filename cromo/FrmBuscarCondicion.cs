@@ -26,9 +26,12 @@ namespace cromo
 
 		private void BtnSeleccionar_Click(object sender, EventArgs e)
 		{
-			General.CodigoCondicion = DgCondiciones.Rows[DgCondiciones.CurrentRow.Index].Cells[0].Value.ToString();
-			DialogResult = DialogResult.OK;
-			Close();
+            if(DgCondiciones.Rows.Count > 0)
+            {
+                General.CodigoCondicion = DgCondiciones.Rows[DgCondiciones.CurrentRow.Index].Cells[0].Value.ToString();
+                DialogResult = DialogResult.OK;
+                Close();
+            }
 		}
 
 		private void FrmBuscarCondicion_Load(object sender, EventArgs e)
@@ -51,9 +54,12 @@ namespace cromo
 		{
 			if (e.KeyCode == Keys.Enter)
 			{
-				General.CodigoCondicion = DgCondiciones.Rows[DgCondiciones.CurrentRow.Index].Cells[0].Value.ToString();
-				DialogResult = DialogResult.OK;
-				Close();
+                if (DgCondiciones.Rows.Count > 0)
+                {
+                    General.CodigoCondicion = DgCondiciones.Rows[DgCondiciones.CurrentRow.Index].Cells[0].Value.ToString();
+                    DialogResult = DialogResult.OK;
+                    Close();
+                }
 			}
 		}
 

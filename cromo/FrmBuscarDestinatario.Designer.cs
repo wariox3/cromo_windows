@@ -47,7 +47,7 @@
             this.BtnFiltrar.Location = new System.Drawing.Point(373, 12);
             this.BtnFiltrar.Name = "BtnFiltrar";
             this.BtnFiltrar.Size = new System.Drawing.Size(84, 20);
-            this.BtnFiltrar.TabIndex = 9;
+            this.BtnFiltrar.TabIndex = 4;
             this.BtnFiltrar.Text = "Filtrar";
             this.BtnFiltrar.UseVisualStyleBackColor = true;
             this.BtnFiltrar.Click += new System.EventHandler(this.BtnFiltrar_Click);
@@ -57,7 +57,7 @@
             this.TxtNombre.Location = new System.Drawing.Point(67, 12);
             this.TxtNombre.Name = "TxtNombre";
             this.TxtNombre.Size = new System.Drawing.Size(294, 20);
-            this.TxtNombre.TabIndex = 7;
+            this.TxtNombre.TabIndex = 0;
             this.TxtNombre.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtNombre_KeyDown);
             this.TxtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNombre_KeyPress);
             // 
@@ -76,7 +76,7 @@
             this.BtnCancelar.Location = new System.Drawing.Point(17, 334);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(106, 23);
-            this.BtnCancelar.TabIndex = 11;
+            this.BtnCancelar.TabIndex = 3;
             this.BtnCancelar.Text = "Cancelar";
             this.BtnCancelar.UseVisualStyleBackColor = true;
             this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
@@ -86,7 +86,7 @@
             this.BtnSeleccionar.Location = new System.Drawing.Point(739, 334);
             this.BtnSeleccionar.Name = "BtnSeleccionar";
             this.BtnSeleccionar.Size = new System.Drawing.Size(106, 23);
-            this.BtnSeleccionar.TabIndex = 10;
+            this.BtnSeleccionar.TabIndex = 2;
             this.BtnSeleccionar.Text = "Seleccionar";
             this.BtnSeleccionar.UseVisualStyleBackColor = true;
             this.BtnSeleccionar.Click += new System.EventHandler(this.BtnSeleccionar_Click);
@@ -106,7 +106,7 @@
             this.DgDestinatarios.Name = "DgDestinatarios";
             this.DgDestinatarios.ReadOnly = true;
             this.DgDestinatarios.Size = new System.Drawing.Size(828, 279);
-            this.DgDestinatarios.TabIndex = 12;
+            this.DgDestinatarios.TabIndex = 1;
             this.DgDestinatarios.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DgDestinatarios_KeyDown);
             // 
             // ClmCodigoDestinatario
@@ -154,6 +154,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(857, 367);
+            this.ControlBox = false;
             this.Controls.Add(this.DgDestinatarios);
             this.Controls.Add(this.BtnCancelar);
             this.Controls.Add(this.BtnSeleccionar);
@@ -161,6 +162,7 @@
             this.Controls.Add(this.TxtNombre);
             this.Controls.Add(this.label1);
             this.Name = "FrmBuscarDestinatario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Buscar destinatario";
             this.Load += new System.EventHandler(this.FrmBuscarDestinatario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgDestinatarios)).EndInit();
