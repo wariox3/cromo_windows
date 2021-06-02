@@ -662,7 +662,7 @@ namespace cromo
                             TxtFleteFleteMinimo.Text = "0";
                             TxtFleteFleteMinimoGuia.Text = "0";
                         }
-                        parametrosJson = "{\"codigoCliente\":\"" + TxtCodigoCliente.Text + "\",\"origen\":\"" + codigoOrigen + "\", \"destino\":\"" + codigoDestino + "\", \"codigoZona\":\"" + TxtCodigoZona.Text + "\"}";
+                        parametrosJson = "{\"codigoCliente\":\"" + TxtCodigoCliente.Text + "\",\"origen\":\"" + codigoOrigen + "\", \"destino\":\"" + codigoDestino + "\", \"codigoZona\":\"" + TxtCodigoZona.Text + "\", \"codigoCobertura\":\"" + TxtCodigoCobertura.Text + "\"}";
                         jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/condicionmanejo/liquidar", parametrosJson);
                         ApiCondicionManejo apiCondicionManejo = ser.Deserialize<ApiCondicionManejo>(jsonRespuesta);
                         if (apiCondicionManejo.error == null)
@@ -1398,6 +1398,8 @@ namespace cromo
                 }
             }
         }
+
+
     }
 
 }

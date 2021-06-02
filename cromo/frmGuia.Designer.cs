@@ -1731,7 +1731,7 @@
             this.GbCondicionEspecial.Controls.Add(this.TxtFleteDescuentoUnidad);
             this.GbCondicionEspecial.Controls.Add(this.TxtFleteDescuentoPeso);
             this.GbCondicionEspecial.Enabled = false;
-            this.GbCondicionEspecial.Location = new System.Drawing.Point(923, 298);
+            this.GbCondicionEspecial.Location = new System.Drawing.Point(919, 293);
             this.GbCondicionEspecial.Name = "GbCondicionEspecial";
             this.GbCondicionEspecial.Size = new System.Drawing.Size(177, 156);
             this.GbCondicionEspecial.TabIndex = 32;
@@ -1929,9 +1929,9 @@
             this.GbCondicionEspecialManejo.Controls.Add(this.TxtManejoMinimoUnidadEspecial);
             this.GbCondicionEspecialManejo.Controls.Add(this.TxtPorcentajeManejoEspecial);
             this.GbCondicionEspecialManejo.Enabled = false;
-            this.GbCondicionEspecialManejo.Location = new System.Drawing.Point(923, 176);
+            this.GbCondicionEspecialManejo.Location = new System.Drawing.Point(919, 176);
             this.GbCondicionEspecialManejo.Name = "GbCondicionEspecialManejo";
-            this.GbCondicionEspecialManejo.Size = new System.Drawing.Size(177, 96);
+            this.GbCondicionEspecialManejo.Size = new System.Drawing.Size(181, 96);
             this.GbCondicionEspecialManejo.TabIndex = 35;
             this.GbCondicionEspecialManejo.TabStop = false;
             this.GbCondicionEspecialManejo.Text = "Condicion especial manejo";
@@ -2110,6 +2110,7 @@
             this.gbEstados.Controls.Add(this.ChkEstadoImpreso);
             this.gbEstados.Controls.Add(this.ChkReexpedicion);
             this.gbEstados.Controls.Add(this.ChkFactura);
+            this.gbEstados.Enabled = false;
             this.gbEstados.Location = new System.Drawing.Point(750, 27);
             this.gbEstados.Name = "gbEstados";
             this.gbEstados.Size = new System.Drawing.Size(163, 245);
@@ -2119,7 +2120,7 @@
             // ChkCortesia
             // 
             this.ChkCortesia.AutoSize = true;
-            this.ChkCortesia.Location = new System.Drawing.Point(6, 125);
+            this.ChkCortesia.Location = new System.Drawing.Point(22, 127);
             this.ChkCortesia.Name = "ChkCortesia";
             this.ChkCortesia.Size = new System.Drawing.Size(64, 17);
             this.ChkCortesia.TabIndex = 76;
@@ -2129,7 +2130,7 @@
             // ChkEstadoAnulado
             // 
             this.ChkEstadoAnulado.AutoSize = true;
-            this.ChkEstadoAnulado.Location = new System.Drawing.Point(6, 174);
+            this.ChkEstadoAnulado.Location = new System.Drawing.Point(22, 176);
             this.ChkEstadoAnulado.Name = "ChkEstadoAnulado";
             this.ChkEstadoAnulado.Size = new System.Drawing.Size(65, 17);
             this.ChkEstadoAnulado.TabIndex = 75;
@@ -2139,7 +2140,7 @@
             // ChkEstadoFacturado
             // 
             this.ChkEstadoFacturado.AutoSize = true;
-            this.ChkEstadoFacturado.Location = new System.Drawing.Point(6, 191);
+            this.ChkEstadoFacturado.Location = new System.Drawing.Point(22, 193);
             this.ChkEstadoFacturado.Name = "ChkEstadoFacturado";
             this.ChkEstadoFacturado.Size = new System.Drawing.Size(74, 17);
             this.ChkEstadoFacturado.TabIndex = 74;
@@ -2149,7 +2150,7 @@
             // ChkEstadoFacturaGenerada
             // 
             this.ChkEstadoFacturaGenerada.AutoSize = true;
-            this.ChkEstadoFacturaGenerada.Location = new System.Drawing.Point(6, 95);
+            this.ChkEstadoFacturaGenerada.Location = new System.Drawing.Point(22, 97);
             this.ChkEstadoFacturaGenerada.Name = "ChkEstadoFacturaGenerada";
             this.ChkEstadoFacturaGenerada.Size = new System.Drawing.Size(75, 17);
             this.ChkEstadoFacturaGenerada.TabIndex = 73;
@@ -2159,7 +2160,7 @@
             // ChkEstadoCumplido
             // 
             this.ChkEstadoCumplido.AutoSize = true;
-            this.ChkEstadoCumplido.Location = new System.Drawing.Point(6, 78);
+            this.ChkEstadoCumplido.Location = new System.Drawing.Point(22, 80);
             this.ChkEstadoCumplido.Name = "ChkEstadoCumplido";
             this.ChkEstadoCumplido.Size = new System.Drawing.Size(69, 17);
             this.ChkEstadoCumplido.TabIndex = 72;
@@ -2169,7 +2170,7 @@
             // ChkEstadoSoporte
             // 
             this.ChkEstadoSoporte.AutoSize = true;
-            this.ChkEstadoSoporte.Location = new System.Drawing.Point(6, 157);
+            this.ChkEstadoSoporte.Location = new System.Drawing.Point(22, 159);
             this.ChkEstadoSoporte.Name = "ChkEstadoSoporte";
             this.ChkEstadoSoporte.Size = new System.Drawing.Size(63, 17);
             this.ChkEstadoSoporte.TabIndex = 71;
@@ -2179,7 +2180,7 @@
             // ChkEstadoEntregado
             // 
             this.ChkEstadoEntregado.AutoSize = true;
-            this.ChkEstadoEntregado.Location = new System.Drawing.Point(6, 61);
+            this.ChkEstadoEntregado.Location = new System.Drawing.Point(22, 63);
             this.ChkEstadoEntregado.Name = "ChkEstadoEntregado";
             this.ChkEstadoEntregado.Size = new System.Drawing.Size(75, 17);
             this.ChkEstadoEntregado.TabIndex = 70;
@@ -2189,7 +2190,7 @@
             // ChkEstadoDespachado
             // 
             this.ChkEstadoDespachado.AutoSize = true;
-            this.ChkEstadoDespachado.Location = new System.Drawing.Point(6, 141);
+            this.ChkEstadoDespachado.Location = new System.Drawing.Point(22, 143);
             this.ChkEstadoDespachado.Name = "ChkEstadoDespachado";
             this.ChkEstadoDespachado.Size = new System.Drawing.Size(87, 17);
             this.ChkEstadoDespachado.TabIndex = 69;
@@ -2199,7 +2200,7 @@
             // ChkEstadoEmbarcado
             // 
             this.ChkEstadoEmbarcado.AutoSize = true;
-            this.ChkEstadoEmbarcado.Location = new System.Drawing.Point(6, 44);
+            this.ChkEstadoEmbarcado.Location = new System.Drawing.Point(22, 46);
             this.ChkEstadoEmbarcado.Name = "ChkEstadoEmbarcado";
             this.ChkEstadoEmbarcado.Size = new System.Drawing.Size(80, 17);
             this.ChkEstadoEmbarcado.TabIndex = 68;
@@ -2209,7 +2210,7 @@
             // ChkEstadoImpreso
             // 
             this.ChkEstadoImpreso.AutoSize = true;
-            this.ChkEstadoImpreso.Location = new System.Drawing.Point(6, 27);
+            this.ChkEstadoImpreso.Location = new System.Drawing.Point(22, 29);
             this.ChkEstadoImpreso.Name = "ChkEstadoImpreso";
             this.ChkEstadoImpreso.Size = new System.Drawing.Size(63, 17);
             this.ChkEstadoImpreso.TabIndex = 67;
@@ -2220,7 +2221,7 @@
             // 
             this.ChkReexpedicion.AutoSize = true;
             this.ChkReexpedicion.Enabled = false;
-            this.ChkReexpedicion.Location = new System.Drawing.Point(6, 111);
+            this.ChkReexpedicion.Location = new System.Drawing.Point(22, 113);
             this.ChkReexpedicion.Name = "ChkReexpedicion";
             this.ChkReexpedicion.Size = new System.Drawing.Size(91, 17);
             this.ChkReexpedicion.TabIndex = 66;
@@ -2230,7 +2231,7 @@
             // ChkFactura
             // 
             this.ChkFactura.AutoSize = true;
-            this.ChkFactura.Location = new System.Drawing.Point(6, 12);
+            this.ChkFactura.Location = new System.Drawing.Point(22, 14);
             this.ChkFactura.Name = "ChkFactura";
             this.ChkFactura.Size = new System.Drawing.Size(62, 17);
             this.ChkFactura.TabIndex = 65;
