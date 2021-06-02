@@ -131,11 +131,11 @@ namespace cromo
                         if (mensajeError != "DUPLICADO")
                         {
                             MessageBox.Show(this, "Manifiesto cumplido " + apiElementosRndc.despacho.codigoDespachoPk + " " + retorno.ErrorMSG, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            validacion = false;
                         }
                     } else
                     {
                         ApiControlador.ApiPost("/transporte/api/windows/despacho/rndcasignarcumplido", "{\"codigoDespacho\":\"" + apiElementosRndc.despacho.codigoDespachoPk + "\"}");
+                        LlenarDatosApi();
                     }
                 }
             }

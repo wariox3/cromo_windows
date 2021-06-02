@@ -305,8 +305,12 @@ namespace cromo
                                 string mensajeError = retorno.ErrorMSG.Substring(0, 9);
                                 if (mensajeError != "DUPLICADO")
                                 {
-                                    MessageBox.Show(this, "Manifiesto " + apiElementosRndc.despacho.codigoDespachoPk + " " + retorno.ErrorMSG, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    validacion = false;
+                                    MessageBox.Show(this, "Manifiesto " + apiElementosRndc.despacho.codigoDespachoPk + " " + retorno.ErrorMSG, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);                                    
+                                } else
+                                {
+                                    ApiControlador.ApiPost("/transporte/api/windows/despacho/rndcasignar", "{\"codigoDespacho\":\"" + apiElementosRndc.despacho.codigoDespachoPk + "\",\"id\":\"" + apiElementosRndc.despacho.codigoDespachoPk + "\"}");
+                                    MessageBox.Show(this, "Se transmitio correctamente el manifiesto", "Envio correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    LlenarDatosApi();
                                 }
                             } else {                                
                                 ApiControlador.ApiPost("/transporte/api/windows/despacho/rndcasignar", "{\"codigoDespacho\":\"" + apiElementosRndc.despacho.codigoDespachoPk + "\",\"id\":\"" + retorno.ingresoid + "\"}");
