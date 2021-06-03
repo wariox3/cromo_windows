@@ -233,6 +233,8 @@
             this.ChkEstadoImpreso = new System.Windows.Forms.CheckBox();
             this.ChkReexpedicion = new System.Windows.Forms.CheckBox();
             this.ChkFactura = new System.Windows.Forms.CheckBox();
+            this.TxtTotal = new System.Windows.Forms.TextBox();
+            this.label64 = new System.Windows.Forms.Label();
             this.gbDestinatario.SuspendLayout();
             this.gbTotales.SuspendLayout();
             this.gbCliente.SuspendLayout();
@@ -417,6 +419,8 @@
             // 
             // gbTotales
             // 
+            this.gbTotales.Controls.Add(this.label64);
+            this.gbTotales.Controls.Add(this.TxtTotal);
             this.gbTotales.Controls.Add(this.ChkInvertirCiudad);
             this.gbTotales.Controls.Add(this.label45);
             this.gbTotales.Controls.Add(this.TxtCostoReexpedicion);
@@ -443,7 +447,7 @@
             this.gbTotales.Enabled = false;
             this.gbTotales.Location = new System.Drawing.Point(338, 324);
             this.gbTotales.Name = "gbTotales";
-            this.gbTotales.Size = new System.Drawing.Size(208, 240);
+            this.gbTotales.Size = new System.Drawing.Size(208, 269);
             this.gbTotales.TabIndex = 17;
             this.gbTotales.TabStop = false;
             // 
@@ -2238,6 +2242,23 @@
             this.ChkFactura.Text = "Factura";
             this.ChkFactura.UseVisualStyleBackColor = true;
             // 
+            // TxtTotal
+            // 
+            this.TxtTotal.Location = new System.Drawing.Point(86, 237);
+            this.TxtTotal.Name = "TxtTotal";
+            this.TxtTotal.Size = new System.Drawing.Size(111, 20);
+            this.TxtTotal.TabIndex = 37;
+            this.TxtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Location = new System.Drawing.Point(36, 240);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(34, 13);
+            this.label64.TabIndex = 38;
+            this.label64.Text = "Total:";
+            // 
             // FrmGuia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2504,6 +2525,8 @@
         private System.Windows.Forms.CheckBox ChkEstadoImpreso;
         private System.Windows.Forms.CheckBox ChkReexpedicion;
         private System.Windows.Forms.CheckBox ChkFactura;
+        private System.Windows.Forms.Label label64;
+        private System.Windows.Forms.TextBox TxtTotal;
     }
 }
 

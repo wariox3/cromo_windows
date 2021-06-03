@@ -403,6 +403,7 @@ namespace cromo
             TxtDeclarado.Text = "0";
             TxtFlete.Text = "0";
             TxtManejo.Text = "0";
+            TxtTotal.Text = "0";
             TxtRecaudo.Text = "0";
             TxtNumero.Text = "";
             TxtNumeroFactura.Text = "";
@@ -763,6 +764,7 @@ namespace cromo
                 if (Convert.ToDouble(TxtFlete.Text) <= 0)
                 {
                     double vrFlete = 0;
+                    double vrManejo = 0;
                     double vrFleteMinimo = Convert.ToDouble(TxtFleteFleteMinimo.Text);
                     double vrFleteMinimoDespacho = Convert.ToDouble(TxtFleteFleteMinimoGuia.Text);
                     double precioPeso = Convert.ToDouble(TxtVrPeso.Text);
@@ -823,6 +825,8 @@ namespace cromo
                         vrFlete = vrFleteMinimoDespacho;
                     }
                     TxtFlete.Text = vrFlete.ToString();
+                    vrManejo = Convert.ToDouble(TxtManejo.Text);
+                    TxtTotal.Text = (vrFlete + vrManejo).ToString();
                 }
             }
         }
@@ -981,6 +985,7 @@ namespace cromo
                 {
                     TxtManejo.Text = (manejoMinimoUnidad * Convert.ToInt32(TxtUnidades.Text)).ToString();
                 }
+                TxtTotal.Text = (Convert.ToDouble(TxtFlete.Text) + Convert.ToDouble(TxtManejo.Text)).ToString();
             }
         }
 
@@ -1321,6 +1326,7 @@ namespace cromo
             TxtDeclarado.Text = apiGuia.vrDeclara;
             TxtFlete.Text = apiGuia.vrFlete;
             TxtManejo.Text = apiGuia.vrManejo;
+            TxtTotal.Text = (Convert.ToDouble(apiGuia.vrFlete) + Convert.ToDouble(apiGuia.vrManejo)).ToString();
             TxtRecaudo.Text = apiGuia.vrRecaudo;
             TxtCostoReexpedicion.Text = apiGuia.vrCostoReexpedicion;
             TxtReferenciaEmpaque.Text = apiGuia.empaqueReferencia;
