@@ -118,5 +118,29 @@ namespace cromo.Properties {
                 this["rutaServidorManual"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool bloquearFlete {
+            get {
+                return ((bool)(this["bloquearFlete"]));
+            }
+            set {
+                this["bloquearFlete"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool bloquearManejo {
+            get {
+                return ((bool)(this["bloquearManejo"]));
+            }
+            set {
+                this["bloquearManejo"] = value;
+            }
+        }
     }
 }

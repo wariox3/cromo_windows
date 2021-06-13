@@ -47,6 +47,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.gbTotales = new System.Windows.Forms.GroupBox();
+            this.label64 = new System.Windows.Forms.Label();
+            this.TxtTotal = new System.Windows.Forms.TextBox();
             this.ChkInvertirCiudad = new System.Windows.Forms.CheckBox();
             this.label45 = new System.Windows.Forms.Label();
             this.TxtCostoReexpedicion = new System.Windows.Forms.TextBox();
@@ -233,8 +235,7 @@
             this.ChkEstadoImpreso = new System.Windows.Forms.CheckBox();
             this.ChkReexpedicion = new System.Windows.Forms.CheckBox();
             this.ChkFactura = new System.Windows.Forms.CheckBox();
-            this.TxtTotal = new System.Windows.Forms.TextBox();
-            this.label64 = new System.Windows.Forms.Label();
+            this.BtnDescuento = new System.Windows.Forms.Button();
             this.gbDestinatario.SuspendLayout();
             this.gbTotales.SuspendLayout();
             this.gbCliente.SuspendLayout();
@@ -450,6 +451,23 @@
             this.gbTotales.Size = new System.Drawing.Size(208, 269);
             this.gbTotales.TabIndex = 17;
             this.gbTotales.TabStop = false;
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Location = new System.Drawing.Point(36, 240);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(34, 13);
+            this.label64.TabIndex = 38;
+            this.label64.Text = "Total:";
+            // 
+            // TxtTotal
+            // 
+            this.TxtTotal.Location = new System.Drawing.Point(86, 237);
+            this.TxtTotal.Name = "TxtTotal";
+            this.TxtTotal.Size = new System.Drawing.Size(111, 20);
+            this.TxtTotal.TabIndex = 37;
+            this.TxtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // ChkInvertirCiudad
             // 
@@ -2242,22 +2260,15 @@
             this.ChkFactura.Text = "Factura";
             this.ChkFactura.UseVisualStyleBackColor = true;
             // 
-            // TxtTotal
+            // BtnDescuento
             // 
-            this.TxtTotal.Location = new System.Drawing.Point(86, 237);
-            this.TxtTotal.Name = "TxtTotal";
-            this.TxtTotal.Size = new System.Drawing.Size(111, 20);
-            this.TxtTotal.TabIndex = 37;
-            this.TxtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label64
-            // 
-            this.label64.AutoSize = true;
-            this.label64.Location = new System.Drawing.Point(36, 240);
-            this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(34, 13);
-            this.label64.TabIndex = 38;
-            this.label64.Text = "Total:";
+            this.BtnDescuento.Location = new System.Drawing.Point(797, 406);
+            this.BtnDescuento.Name = "BtnDescuento";
+            this.BtnDescuento.Size = new System.Drawing.Size(115, 24);
+            this.BtnDescuento.TabIndex = 66;
+            this.BtnDescuento.Text = "Descuento";
+            this.BtnDescuento.UseVisualStyleBackColor = true;
+            this.BtnDescuento.Click += new System.EventHandler(this.BtnDescuento_Click);
             // 
             // FrmGuia
             // 
@@ -2265,6 +2276,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1103, 625);
             this.ControlBox = false;
+            this.Controls.Add(this.BtnDescuento);
             this.Controls.Add(this.gbEstados);
             this.Controls.Add(this.gbRemitente);
             this.Controls.Add(this.GbCondicionEspecialManejo);
@@ -2527,6 +2539,7 @@
         private System.Windows.Forms.CheckBox ChkFactura;
         private System.Windows.Forms.Label label64;
         private System.Windows.Forms.TextBox TxtTotal;
+        private System.Windows.Forms.Button BtnDescuento;
     }
 }
 

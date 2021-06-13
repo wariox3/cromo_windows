@@ -35,7 +35,9 @@
             this.TxtNombre = new System.Windows.Forms.TextBox();
             this.BtnFiltrar = new System.Windows.Forms.Button();
             this.clmCodigoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClmNumeroIdentificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClmCondicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,13 +48,15 @@
             this.DgClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmCodigoCliente,
-            this.clmNombre});
+            this.ClmNumeroIdentificacion,
+            this.clmNombre,
+            this.ClmCondicion});
             this.DgClientes.Location = new System.Drawing.Point(12, 36);
             this.DgClientes.MultiSelect = false;
             this.DgClientes.Name = "DgClientes";
             this.DgClientes.ReadOnly = true;
             this.DgClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgClientes.Size = new System.Drawing.Size(712, 301);
+            this.DgClientes.Size = new System.Drawing.Size(770, 301);
             this.DgClientes.StandardTab = true;
             this.DgClientes.TabIndex = 1;
             this.DgClientes.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DgClientes_KeyDown);
@@ -70,7 +74,7 @@
             // 
             // BtnSeleccionar
             // 
-            this.BtnSeleccionar.Location = new System.Drawing.Point(618, 343);
+            this.BtnSeleccionar.Location = new System.Drawing.Point(676, 343);
             this.BtnSeleccionar.Name = "BtnSeleccionar";
             this.BtnSeleccionar.Size = new System.Drawing.Size(106, 23);
             this.BtnSeleccionar.TabIndex = 2;
@@ -114,6 +118,14 @@
             this.clmCodigoCliente.ReadOnly = true;
             this.clmCodigoCliente.Width = 50;
             // 
+            // ClmNumeroIdentificacion
+            // 
+            this.ClmNumeroIdentificacion.DataPropertyName = "numeroIdentificacion";
+            this.ClmNumeroIdentificacion.HeaderText = "Nit";
+            this.ClmNumeroIdentificacion.Name = "ClmNumeroIdentificacion";
+            this.ClmNumeroIdentificacion.ReadOnly = true;
+            this.ClmNumeroIdentificacion.Width = 80;
+            // 
             // clmNombre
             // 
             this.clmNombre.DataPropertyName = "nombreCorto";
@@ -122,9 +134,17 @@
             this.clmNombre.ReadOnly = true;
             this.clmNombre.Width = 400;
             // 
+            // ClmCondicion
+            // 
+            this.ClmCondicion.DataPropertyName = "condicionNombre";
+            this.ClmCondicion.HeaderText = "Condicion";
+            this.ClmCondicion.Name = "ClmCondicion";
+            this.ClmCondicion.ReadOnly = true;
+            this.ClmCondicion.Width = 180;
+            // 
             // FrmBuscarCliente
             // 
-            this.ClientSize = new System.Drawing.Size(736, 383);
+            this.ClientSize = new System.Drawing.Size(794, 383);
             this.Controls.Add(this.BtnFiltrar);
             this.Controls.Add(this.TxtNombre);
             this.Controls.Add(this.label1);
@@ -151,6 +171,8 @@
 		private System.Windows.Forms.TextBox TxtNombre;
 		private System.Windows.Forms.Button BtnFiltrar;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmCodigoCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClmNumeroIdentificacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClmCondicion;
     }
 }

@@ -23,6 +23,8 @@ namespace cromo
 			txtRutaReportes.Text = cromo.Properties.Settings.Default.rutaReportes;
             ChkServidorManual.Checked = cromo.Properties.Settings.Default.servidorManual;
             TxtRutaServidorManual.Text = cromo.Properties.Settings.Default.rutaServidorManual;
+            ChkBloquearFlete.Checked = cromo.Properties.Settings.Default.bloquearFlete;
+            ChkBloquearManejo.Checked = cromo.Properties.Settings.Default.bloquearManejo;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -31,6 +33,8 @@ namespace cromo
 			cromo.Properties.Settings.Default.rutaReportes = txtRutaReportes.Text;
             cromo.Properties.Settings.Default.servidorManual = ChkServidorManual.Checked;
             cromo.Properties.Settings.Default.rutaServidorManual = TxtRutaServidorManual.Text;
+            cromo.Properties.Settings.Default.bloquearFlete = ChkBloquearFlete.Checked;
+            cromo.Properties.Settings.Default.bloquearManejo = ChkBloquearManejo.Checked;
             cromo.Properties.Settings.Default.Save();
             Close();
         }

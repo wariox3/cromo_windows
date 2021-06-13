@@ -33,6 +33,8 @@ namespace cromo
         double manejoMinimoDespacho = 0;
         double descuentoPeso = 0;
         int codigoPrecio = 0;
+        bool bloquearFlete = false;
+        bool bloquearManejo = false;
 
         public FrmGuia()
         {
@@ -41,6 +43,8 @@ namespace cromo
 
         private void Guia_Load(object sender, EventArgs e)
         {
+            bloquearFlete = cromo.Properties.Settings.Default.bloquearFlete;
+            bloquearManejo = cromo.Properties.Settings.Default.bloquearManejo;
             CargarTipo();
             CargarServicio();
             CargarEmpaque();
@@ -472,6 +476,16 @@ namespace cromo
             GbCondiciones.Visible = true;
             GbCondicionEspecial.Visible = true;
             GbCondicionEspecialManejo.Visible = true;
+
+            if(bloquearFlete)
+            {
+                TxtFlete.Enabled = false;
+            }
+
+            if (bloquearManejo)
+            {
+                TxtManejo.Enabled = false;
+            }
         }
 
         public void Bloquear()
@@ -761,73 +775,72 @@ namespace cromo
         {
             if (ChkLiquidado.Checked == false)
             {
-                if (Convert.ToDouble(TxtFlete.Text) <= 0)
+                double vrFlete = 0;
+                double vrManejo = 0;
+                double vrFleteMinimo = Convert.ToDouble(TxtFleteFleteMinimo.Text);
+                double vrFleteMinimoDespacho = Convert.ToDouble(TxtFleteFleteMinimoGuia.Text);
+                double precioPeso = Convert.ToDouble(TxtVrPeso.Text);
+                double precioTope = Convert.ToDouble(TxtVrTope.Text);
+                double precioUnidad = Convert.ToDouble(TxtVrUnidad.Text);
+                double precioAdicional = Convert.ToDouble(TxtVrAdicional.Text);
+                int tope = Convert.ToInt32(TxtTope.Text);
+                int pesoFacturar = Convert.ToInt32(TxtPesoFacturar.Text);
+                int unidades = Convert.ToInt32(TxtUnidades.Text);
+
+                if (RbPeso.Checked)
                 {
-                    double vrFlete = 0;
-                    double vrManejo = 0;
-                    double vrFleteMinimo = Convert.ToDouble(TxtFleteFleteMinimo.Text);
-                    double vrFleteMinimoDespacho = Convert.ToDouble(TxtFleteFleteMinimoGuia.Text);
-                    double precioPeso = Convert.ToDouble(TxtVrPeso.Text);
-                    double precioTope = Convert.ToDouble(TxtVrTope.Text);
-                    double precioUnidad = Convert.ToDouble(TxtVrUnidad.Text);
-                    double precioAdicional = Convert.ToDouble(TxtVrAdicional.Text);
-                    int tope = Convert.ToInt32(TxtTope.Text);
-                    int pesoFacturar = Convert.ToInt32(TxtPesoFacturar.Text);
-                    int unidades = Convert.ToInt32(TxtUnidades.Text);
-
-                    if (RbPeso.Checked)
+                    precioPeso = Convert.ToDouble(TxtVrPeso.Text);
+                    if (precioPeso == 0 && ChkListaGeneral.Checked == true && General.CodigoPrecioGeneral != 0)
                     {
-                        precioPeso = Convert.ToDouble(TxtVrPeso.Text);
-                        if (precioPeso == 0 && ChkListaGeneral.Checked == true && General.CodigoPrecioGeneral != 0)
+                        string codigoOrigen = TxtCodigoCiudadOrigen.Text;
+                        string codigoDestino = TxtCodigoCiudadDestino.Text;
+                        if(ChkInvertirCiudad.Checked)
                         {
-                            string codigoOrigen = TxtCodigoCiudadOrigen.Text;
-                            string codigoDestino = TxtCodigoCiudadDestino.Text;
-                            if(ChkInvertirCiudad.Checked)
-                            {
-                                codigoOrigen = TxtCodigoCiudadDestino.Text;
-                                codigoDestino = TxtCodigoCiudadOrigen.Text;
-                            }
-                            string parametrosJson = "{\"precio\":\"" + codigoPrecio + "\", \"origen\":\"" + codigoOrigen + "\", \"destino\":\"" + codigoDestino + "\", \"producto\":\"" + CboProducto.SelectedValue.ToString() + "\"}";
-                            string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/preciodetalle/detalleproducto", parametrosJson);
-                            ApiPrecioDetalle apiPrecioDetalle = ser.Deserialize<ApiPrecioDetalle>(jsonRespuesta);
-                            if (apiPrecioDetalle.error == null)
-                            {
-                                precioPeso = apiPrecioDetalle.vrPeso;
-                            }
-
+                            codigoOrigen = TxtCodigoCiudadDestino.Text;
+                            codigoDestino = TxtCodigoCiudadOrigen.Text;
                         }
-                        vrFlete = pesoFacturar * precioPeso;
-                        if (descuentoPeso > 0 && !ChkOmitirDescuento.Checked)
+                        string parametrosJson = "{\"precio\":\"" + codigoPrecio + "\", \"origen\":\"" + codigoOrigen + "\", \"destino\":\"" + codigoDestino + "\", \"producto\":\"" + CboProducto.SelectedValue.ToString() + "\"}";
+                        string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/preciodetalle/detalleproducto", parametrosJson);
+                        ApiPrecioDetalle apiPrecioDetalle = ser.Deserialize<ApiPrecioDetalle>(jsonRespuesta);
+                        if (apiPrecioDetalle.error == null)
                         {
-                            vrFlete -= vrFlete * descuentoPeso / 100;
+                            precioPeso = apiPrecioDetalle.vrPeso;
                         }
-                    }
-                    else if (RbUnidad.Checked)
-                    {
-                        vrFlete = unidades * precioUnidad;
-                    }
-                    else if (RbAdicional.Checked)
-                    {
-                        vrFlete = precioTope * unidades;
-                        if (pesoFacturar > (tope * unidades))
-                        {
-                            int diferencia = pesoFacturar - (tope * unidades);
-                            vrFlete += diferencia * precioAdicional;
-                        }
-                    }
 
-                    if(vrFleteMinimo > vrFlete / unidades)
-                    {
-                        vrFlete = vrFleteMinimo * unidades;
                     }
-                    if(vrFleteMinimoDespacho > vrFlete)
+                    vrFlete = pesoFacturar * precioPeso;
+                    if (descuentoPeso > 0 && !ChkOmitirDescuento.Checked)
                     {
-                        vrFlete = vrFleteMinimoDespacho;
+                        vrFlete -= vrFlete * descuentoPeso / 100;
                     }
-                    TxtFlete.Text = vrFlete.ToString();
-                    vrManejo = Convert.ToDouble(TxtManejo.Text);
-                    TxtTotal.Text = (vrFlete + vrManejo).ToString();
                 }
+                else if (RbUnidad.Checked)
+                {
+                    vrFlete = unidades * precioUnidad;
+                }
+                else if (RbAdicional.Checked)
+                {
+                    vrFlete = precioTope * unidades;
+                    if (pesoFacturar > (tope * unidades))
+                    {
+                        int diferencia = pesoFacturar - (tope * unidades);
+                        vrFlete += diferencia * precioAdicional;
+                    }
+                }
+
+                if(vrFleteMinimo > vrFlete / unidades)
+                {
+                    vrFlete = vrFleteMinimo * unidades;
+                }
+                if(vrFleteMinimoDespacho > vrFlete)
+                {
+                    vrFlete = vrFleteMinimoDespacho;
+                }
+                vrFlete = Math.Round(vrFlete);
+                TxtFlete.Text = vrFlete.ToString();
+                vrManejo = Convert.ToDouble(TxtManejo.Text);
+                TxtTotal.Text = (vrFlete + vrManejo).ToString();
+                
             }
         }
 
@@ -1405,7 +1418,18 @@ namespace cromo
             }
         }
 
-
+        private void BtnDescuento_Click(object sender, EventArgs e)
+        {
+            General.Descuento = Convert.ToDouble(TxtDescuentoPeso.Text);
+            FrmDescuento frmDescuento = new FrmDescuento();
+            frmDescuento.ShowDialog();
+            if (frmDescuento.DialogResult == DialogResult.OK)
+            {
+                TxtDescuentoPeso.Text = General.Descuento.ToString();
+                descuentoPeso = General.Descuento;
+                TxtPesoFacturar.Focus();
+            }
+        }
     }
 
 }

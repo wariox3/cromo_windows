@@ -33,6 +33,7 @@ namespace cromo
         public bool guiaPagoCredito { get; set; }
         public bool guiaPagoDestino { get; set; }
         public bool guiaPagoRecogida { get; set; }
+        public string condicionNombre { get; set; }
         public string error { get; set; }
     }
 

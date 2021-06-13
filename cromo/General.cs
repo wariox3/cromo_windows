@@ -205,6 +205,13 @@ namespace cromo
             set { v_CodigoOperacionCargo = value; }
         }
 
+        private static double v_Descuento = 0;
+        public static double Descuento
+        {
+            get { return v_Descuento; }
+            set { v_Descuento = value; }
+        }
+
     }
 
 }

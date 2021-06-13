@@ -41,6 +41,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.TxtRutaServidorManual = new System.Windows.Forms.TextBox();
             this.ChkServidorManual = new System.Windows.Forms.CheckBox();
+            this.ChkBloquearFlete = new System.Windows.Forms.CheckBox();
+            this.ChkBloquearManejo = new System.Windows.Forms.CheckBox();
             this.tabConfiguracion.SuspendLayout();
             this.tbpOperacion.SuspendLayout();
             this.tbpRutas.SuspendLayout();
@@ -80,6 +82,8 @@
             // 
             // tbpOperacion
             // 
+            this.tbpOperacion.Controls.Add(this.ChkBloquearManejo);
+            this.tbpOperacion.Controls.Add(this.ChkBloquearFlete);
             this.tbpOperacion.Controls.Add(this.txtCentroOperacion);
             this.tbpOperacion.Controls.Add(this.label1);
             this.tbpOperacion.Location = new System.Drawing.Point(4, 22);
@@ -172,6 +176,26 @@
             this.ChkServidorManual.Text = "Manual";
             this.ChkServidorManual.UseVisualStyleBackColor = true;
             // 
+            // ChkBloquearFlete
+            // 
+            this.ChkBloquearFlete.AutoSize = true;
+            this.ChkBloquearFlete.Location = new System.Drawing.Point(147, 41);
+            this.ChkBloquearFlete.Name = "ChkBloquearFlete";
+            this.ChkBloquearFlete.Size = new System.Drawing.Size(91, 17);
+            this.ChkBloquearFlete.TabIndex = 16;
+            this.ChkBloquearFlete.Text = "Bloquear flete";
+            this.ChkBloquearFlete.UseVisualStyleBackColor = true;
+            // 
+            // ChkBloquearManejo
+            // 
+            this.ChkBloquearManejo.AutoSize = true;
+            this.ChkBloquearManejo.Location = new System.Drawing.Point(147, 64);
+            this.ChkBloquearManejo.Name = "ChkBloquearManejo";
+            this.ChkBloquearManejo.Size = new System.Drawing.Size(105, 17);
+            this.ChkBloquearManejo.TabIndex = 17;
+            this.ChkBloquearManejo.Text = "Bloquear manejo";
+            this.ChkBloquearManejo.UseVisualStyleBackColor = true;
+            // 
             // FrmConfiguracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -212,5 +236,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox TxtRutaServidorManual;
         private System.Windows.Forms.CheckBox ChkServidorManual;
+        private System.Windows.Forms.CheckBox ChkBloquearManejo;
+        private System.Windows.Forms.CheckBox ChkBloquearFlete;
     }
 }
