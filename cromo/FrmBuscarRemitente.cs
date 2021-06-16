@@ -61,7 +61,7 @@ namespace cromo
         {
             if (DgRemitentes.Rows.Count > 0)
             {
-                General.CodigoDestinatario = DgRemitentes.Rows[DgRemitentes.CurrentRow.Index].Cells[0].Value.ToString();
+                General.CodigoRemitente = DgRemitentes.Rows[DgRemitentes.CurrentRow.Index].Cells[0].Value.ToString();
                 DialogResult = DialogResult.OK;
                 Close();
             }
