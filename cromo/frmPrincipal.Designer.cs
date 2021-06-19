@@ -35,6 +35,7 @@
             this.mnuArchivoConfigurcion = new System.Windows.Forms.ToolStripMenuItem();
             this.editMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuGuia = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuGuiaOperador = new System.Windows.Forms.ToolStripMenuItem();
             this.utilidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuImpresionMasiva = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuCrearCliente = new System.Windows.Forms.ToolStripMenuItem();
@@ -86,7 +87,8 @@
             // editMenu
             // 
             this.editMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuGuia});
+            this.mnuGuia,
+            this.MnuGuiaOperador});
             this.editMenu.Name = "editMenu";
             this.editMenu.Size = new System.Drawing.Size(84, 20);
             this.editMenu.Text = "&Movimiento";
@@ -96,9 +98,16 @@
             this.mnuGuia.ImageTransparentColor = System.Drawing.Color.Black;
             this.mnuGuia.Name = "mnuGuia";
             this.mnuGuia.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
-            this.mnuGuia.Size = new System.Drawing.Size(139, 22);
+            this.mnuGuia.Size = new System.Drawing.Size(180, 22);
             this.mnuGuia.Text = "&Guia";
             this.mnuGuia.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
+            // 
+            // MnuGuiaOperador
+            // 
+            this.MnuGuiaOperador.Name = "MnuGuiaOperador";
+            this.MnuGuiaOperador.Size = new System.Drawing.Size(180, 22);
+            this.MnuGuiaOperador.Text = "Guia operador";
+            this.MnuGuiaOperador.Click += new System.EventHandler(this.MnuGuiaOperador_Click);
             // 
             // utilidadesToolStripMenuItem
             // 
@@ -253,6 +262,7 @@
         private System.Windows.Forms.ToolStripMenuItem MenuCrearDestinatario;
         private System.Windows.Forms.ToolStripMenuItem MenuEnviarRndc;
         private System.Windows.Forms.ToolStripMenuItem MenuCumplirRndc;
+        private System.Windows.Forms.ToolStripMenuItem MnuGuiaOperador;
     }
 }
 

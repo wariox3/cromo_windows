@@ -13,6 +13,7 @@ namespace cromo
     public partial class FrmPrincipal : Form
     {
         private int childFormNumber = 0;
+        bool operadoLogistico = cromo.Properties.Settings.Default.operadorLogistico;
 
         public FrmPrincipal()
         {
@@ -116,6 +117,11 @@ namespace cromo
 			{
 				Close();
 			}
+            if(operadoLogistico)
+            {
+                mnuGuia.Enabled = false;
+                utilidadesToolStripMenuItem.Enabled = false;
+            }
 		}
 
         private void mnuImpresionMasiva_Click(object sender, EventArgs e)
@@ -147,6 +153,13 @@ namespace cromo
         {
             FrmCumplirRndc frmCumplirRndc = new FrmCumplirRndc();
             frmCumplirRndc.ShowDialog();
+        }
+
+        private void MnuGuiaOperador_Click(object sender, EventArgs e)
+        {
+            FrmGuiaOperador frmGuiaOperador = new FrmGuiaOperador();
+            frmGuiaOperador.MdiParent = this;
+            frmGuiaOperador.Show();
         }
     }
 }

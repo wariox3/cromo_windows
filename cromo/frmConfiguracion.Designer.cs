@@ -32,6 +32,8 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.tabConfiguracion = new System.Windows.Forms.TabControl();
             this.tbpOperacion = new System.Windows.Forms.TabPage();
+            this.ChkBloquearManejo = new System.Windows.Forms.CheckBox();
+            this.ChkBloquearFlete = new System.Windows.Forms.CheckBox();
             this.txtCentroOperacion = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbpRutas = new System.Windows.Forms.TabPage();
@@ -41,12 +43,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.TxtRutaServidorManual = new System.Windows.Forms.TextBox();
             this.ChkServidorManual = new System.Windows.Forms.CheckBox();
-            this.ChkBloquearFlete = new System.Windows.Forms.CheckBox();
-            this.ChkBloquearManejo = new System.Windows.Forms.CheckBox();
+            this.tabOperador = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
+            this.TxtCodigoCliente = new System.Windows.Forms.TextBox();
+            this.ChkOperadorLogistico = new System.Windows.Forms.CheckBox();
             this.tabConfiguracion.SuspendLayout();
             this.tbpOperacion.SuspendLayout();
             this.tbpRutas.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabOperador.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnGuardar
@@ -74,6 +79,7 @@
             this.tabConfiguracion.Controls.Add(this.tbpOperacion);
             this.tabConfiguracion.Controls.Add(this.tbpRutas);
             this.tabConfiguracion.Controls.Add(this.tabPage1);
+            this.tabConfiguracion.Controls.Add(this.tabOperador);
             this.tabConfiguracion.Location = new System.Drawing.Point(24, 12);
             this.tabConfiguracion.Name = "tabConfiguracion";
             this.tabConfiguracion.SelectedIndex = 0;
@@ -93,6 +99,26 @@
             this.tbpOperacion.TabIndex = 0;
             this.tbpOperacion.Text = "Operacion";
             this.tbpOperacion.UseVisualStyleBackColor = true;
+            // 
+            // ChkBloquearManejo
+            // 
+            this.ChkBloquearManejo.AutoSize = true;
+            this.ChkBloquearManejo.Location = new System.Drawing.Point(147, 64);
+            this.ChkBloquearManejo.Name = "ChkBloquearManejo";
+            this.ChkBloquearManejo.Size = new System.Drawing.Size(105, 17);
+            this.ChkBloquearManejo.TabIndex = 17;
+            this.ChkBloquearManejo.Text = "Bloquear manejo";
+            this.ChkBloquearManejo.UseVisualStyleBackColor = true;
+            // 
+            // ChkBloquearFlete
+            // 
+            this.ChkBloquearFlete.AutoSize = true;
+            this.ChkBloquearFlete.Location = new System.Drawing.Point(147, 41);
+            this.ChkBloquearFlete.Name = "ChkBloquearFlete";
+            this.ChkBloquearFlete.Size = new System.Drawing.Size(91, 17);
+            this.ChkBloquearFlete.TabIndex = 16;
+            this.ChkBloquearFlete.Text = "Bloquear flete";
+            this.ChkBloquearFlete.UseVisualStyleBackColor = true;
             // 
             // txtCentroOperacion
             // 
@@ -176,25 +202,44 @@
             this.ChkServidorManual.Text = "Manual";
             this.ChkServidorManual.UseVisualStyleBackColor = true;
             // 
-            // ChkBloquearFlete
+            // tabOperador
             // 
-            this.ChkBloquearFlete.AutoSize = true;
-            this.ChkBloquearFlete.Location = new System.Drawing.Point(147, 41);
-            this.ChkBloquearFlete.Name = "ChkBloquearFlete";
-            this.ChkBloquearFlete.Size = new System.Drawing.Size(91, 17);
-            this.ChkBloquearFlete.TabIndex = 16;
-            this.ChkBloquearFlete.Text = "Bloquear flete";
-            this.ChkBloquearFlete.UseVisualStyleBackColor = true;
+            this.tabOperador.Controls.Add(this.ChkOperadorLogistico);
+            this.tabOperador.Controls.Add(this.label3);
+            this.tabOperador.Controls.Add(this.TxtCodigoCliente);
+            this.tabOperador.Location = new System.Drawing.Point(4, 22);
+            this.tabOperador.Name = "tabOperador";
+            this.tabOperador.Padding = new System.Windows.Forms.Padding(3);
+            this.tabOperador.Size = new System.Drawing.Size(340, 234);
+            this.tabOperador.TabIndex = 4;
+            this.tabOperador.Text = "Operador";
+            this.tabOperador.UseVisualStyleBackColor = true;
             // 
-            // ChkBloquearManejo
+            // label3
             // 
-            this.ChkBloquearManejo.AutoSize = true;
-            this.ChkBloquearManejo.Location = new System.Drawing.Point(147, 64);
-            this.ChkBloquearManejo.Name = "ChkBloquearManejo";
-            this.ChkBloquearManejo.Size = new System.Drawing.Size(105, 17);
-            this.ChkBloquearManejo.TabIndex = 17;
-            this.ChkBloquearManejo.Text = "Bloquear manejo";
-            this.ChkBloquearManejo.UseVisualStyleBackColor = true;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(20, 24);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(77, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Codigo cliente:";
+            // 
+            // TxtCodigoCliente
+            // 
+            this.TxtCodigoCliente.Location = new System.Drawing.Point(103, 21);
+            this.TxtCodigoCliente.Name = "TxtCodigoCliente";
+            this.TxtCodigoCliente.Size = new System.Drawing.Size(103, 20);
+            this.TxtCodigoCliente.TabIndex = 0;
+            // 
+            // ChkOperadorLogistico
+            // 
+            this.ChkOperadorLogistico.AutoSize = true;
+            this.ChkOperadorLogistico.Location = new System.Drawing.Point(103, 47);
+            this.ChkOperadorLogistico.Name = "ChkOperadorLogistico";
+            this.ChkOperadorLogistico.Size = new System.Drawing.Size(111, 17);
+            this.ChkOperadorLogistico.TabIndex = 17;
+            this.ChkOperadorLogistico.Text = "Operador logistico";
+            this.ChkOperadorLogistico.UseVisualStyleBackColor = true;
             // 
             // FrmConfiguracion
             // 
@@ -217,6 +262,8 @@
             this.tbpRutas.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.tabOperador.ResumeLayout(false);
+            this.tabOperador.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -238,5 +285,9 @@
         private System.Windows.Forms.CheckBox ChkServidorManual;
         private System.Windows.Forms.CheckBox ChkBloquearManejo;
         private System.Windows.Forms.CheckBox ChkBloquearFlete;
+        private System.Windows.Forms.TabPage tabOperador;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox TxtCodigoCliente;
+        private System.Windows.Forms.CheckBox ChkOperadorLogistico;
     }
 }

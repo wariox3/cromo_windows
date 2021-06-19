@@ -363,7 +363,7 @@
             this.TxtCodigoCiudadDestino.Size = new System.Drawing.Size(53, 20);
             this.TxtCodigoCiudadDestino.TabIndex = 15;
             this.TxtCodigoCiudadDestino.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCodigoCiudadDestino_KeyDown);
-            this.TxtCodigoCiudadDestino.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            this.TxtCodigoCiudadDestino.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             this.TxtCodigoCiudadDestino.Validated += new System.EventHandler(this.TxtCodigoCiudadDestino_Validated);
             // 
             // TxtDireccionDestinatario
@@ -372,7 +372,7 @@
             this.TxtDireccionDestinatario.Name = "TxtDireccionDestinatario";
             this.TxtDireccionDestinatario.Size = new System.Drawing.Size(400, 20);
             this.TxtDireccionDestinatario.TabIndex = 14;
-            this.TxtDireccionDestinatario.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            this.TxtDireccionDestinatario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             // 
             // TxtTelefonoDestinatario
             // 
@@ -380,7 +380,7 @@
             this.TxtTelefonoDestinatario.Name = "TxtTelefonoDestinatario";
             this.TxtTelefonoDestinatario.Size = new System.Drawing.Size(89, 20);
             this.TxtTelefonoDestinatario.TabIndex = 13;
-            this.TxtTelefonoDestinatario.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            this.TxtTelefonoDestinatario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             // 
             // TxtNombreDestinatario
             // 
@@ -389,7 +389,7 @@
             this.TxtNombreDestinatario.Size = new System.Drawing.Size(298, 20);
             this.TxtNombreDestinatario.TabIndex = 12;
             this.TxtNombreDestinatario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtNombreDestinatario_KeyDown);
-            this.TxtNombreDestinatario.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            this.TxtNombreDestinatario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             // 
             // label4
             // 
@@ -555,7 +555,7 @@
             this.TxtRecaudo.Size = new System.Drawing.Size(111, 20);
             this.TxtRecaudo.TabIndex = 30;
             this.TxtRecaudo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TxtRecaudo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            this.TxtRecaudo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             // 
             // TxtManejo
             // 
@@ -564,7 +564,7 @@
             this.TxtManejo.Size = new System.Drawing.Size(111, 20);
             this.TxtManejo.TabIndex = 29;
             this.TxtManejo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TxtManejo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            this.TxtManejo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             // 
             // TxtFlete
             // 
@@ -573,7 +573,7 @@
             this.TxtFlete.Size = new System.Drawing.Size(111, 20);
             this.TxtFlete.TabIndex = 28;
             this.TxtFlete.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TxtFlete.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            this.TxtFlete.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             // 
             // TxtDeclarado
             // 
@@ -582,7 +582,7 @@
             this.TxtDeclarado.Size = new System.Drawing.Size(111, 20);
             this.TxtDeclarado.TabIndex = 27;
             this.TxtDeclarado.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TxtDeclarado.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            this.TxtDeclarado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             this.TxtDeclarado.Validated += new System.EventHandler(this.TxtDeclarado_Validated);
             // 
             // TxtPesoFacturar
@@ -592,7 +592,7 @@
             this.TxtPesoFacturar.Size = new System.Drawing.Size(111, 20);
             this.TxtPesoFacturar.TabIndex = 26;
             this.TxtPesoFacturar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TxtPesoFacturar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            this.TxtPesoFacturar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             this.TxtPesoFacturar.Validated += new System.EventHandler(this.TxtPesoFacturar_Validated);
             // 
             // TxtVolumen
@@ -602,7 +602,7 @@
             this.TxtVolumen.Size = new System.Drawing.Size(111, 20);
             this.TxtVolumen.TabIndex = 25;
             this.TxtVolumen.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TxtVolumen.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            this.TxtVolumen.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             this.TxtVolumen.Validated += new System.EventHandler(this.TxtVolumen_Validated);
             // 
             // TxtPeso
@@ -612,7 +612,7 @@
             this.TxtPeso.Size = new System.Drawing.Size(111, 20);
             this.TxtPeso.TabIndex = 24;
             this.TxtPeso.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TxtPeso.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            this.TxtPeso.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             this.TxtPeso.Validated += new System.EventHandler(this.TxtPeso_Validated);
             // 
             // TxtUnidades
@@ -623,7 +623,7 @@
             this.TxtUnidades.TabIndex = 23;
             this.TxtUnidades.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.TxtUnidades.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtUnidades_KeyDown);
-            this.TxtUnidades.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            this.TxtUnidades.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             this.TxtUnidades.Validated += new System.EventHandler(this.TxtUnidades_Validated);
             // 
             // label12
@@ -730,7 +730,7 @@
             this.TxtCodigoAsesor.Size = new System.Drawing.Size(28, 20);
             this.TxtCodigoAsesor.TabIndex = 5;
             this.TxtCodigoAsesor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCodigoAsesor_KeyDown);
-            this.TxtCodigoAsesor.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            this.TxtCodigoAsesor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             // 
             // label51
             // 
@@ -766,7 +766,7 @@
             this.TxtRelacion.Name = "TxtRelacion";
             this.TxtRelacion.Size = new System.Drawing.Size(115, 20);
             this.TxtRelacion.TabIndex = 4;
-            this.TxtRelacion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            this.TxtRelacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             // 
             // label32
             // 
@@ -802,7 +802,7 @@
             this.TxtCodigoCondicion.Size = new System.Drawing.Size(53, 20);
             this.TxtCodigoCondicion.TabIndex = 2;
             this.TxtCodigoCondicion.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCodigoCondicion_KeyDown);
-            this.TxtCodigoCondicion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            this.TxtCodigoCondicion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             this.TxtCodigoCondicion.Validated += new System.EventHandler(this.TxtCodigoCondicion_Validated);
             // 
             // label13
@@ -820,7 +820,7 @@
             this.TxtDocumentoCliente.Name = "TxtDocumentoCliente";
             this.TxtDocumentoCliente.Size = new System.Drawing.Size(208, 20);
             this.TxtDocumentoCliente.TabIndex = 3;
-            this.TxtDocumentoCliente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            this.TxtDocumentoCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             // 
             // txtNombreCliente
             // 
@@ -846,9 +846,9 @@
             this.TxtCodigoCliente.Name = "TxtCodigoCliente";
             this.TxtCodigoCliente.Size = new System.Drawing.Size(53, 20);
             this.TxtCodigoCliente.TabIndex = 1;
+            this.TxtCodigoCliente.Tag = "N";
             this.TxtCodigoCliente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCodigoCliente_KeyDown);
-            this.TxtCodigoCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCodigoCliente_KeyPress);
-            this.TxtCodigoCliente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            this.TxtCodigoCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             this.TxtCodigoCliente.Validated += new System.EventHandler(this.TxtCodigoCliente_Validated);
             // 
             // toolStrip1
@@ -1009,7 +1009,7 @@
             this.ChkMercanciaPeligrosa.TabIndex = 22;
             this.ChkMercanciaPeligrosa.Text = "Mcia peligrosa";
             this.ChkMercanciaPeligrosa.UseVisualStyleBackColor = true;
-            this.ChkMercanciaPeligrosa.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            this.ChkMercanciaPeligrosa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             // 
             // label44
             // 
@@ -1026,7 +1026,7 @@
             this.TxtReferenciaEmpaque.Name = "TxtReferenciaEmpaque";
             this.TxtReferenciaEmpaque.Size = new System.Drawing.Size(103, 20);
             this.TxtReferenciaEmpaque.TabIndex = 21;
-            this.TxtReferenciaEmpaque.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            this.TxtReferenciaEmpaque.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             // 
             // label26
             // 
@@ -1044,7 +1044,7 @@
             this.CboProducto.Name = "CboProducto";
             this.CboProducto.Size = new System.Drawing.Size(201, 21);
             this.CboProducto.TabIndex = 19;
-            this.CboProducto.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            this.CboProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             this.CboProducto.Validated += new System.EventHandler(this.CboProducto_Validated);
             // 
             // label19
@@ -1081,7 +1081,7 @@
             this.CboEmpaque.Name = "CboEmpaque";
             this.CboEmpaque.Size = new System.Drawing.Size(201, 21);
             this.CboEmpaque.TabIndex = 20;
-            this.CboEmpaque.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            this.CboEmpaque.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             // 
             // CboServicio
             // 
@@ -1090,7 +1090,7 @@
             this.CboServicio.Name = "CboServicio";
             this.CboServicio.Size = new System.Drawing.Size(201, 21);
             this.CboServicio.TabIndex = 18;
-            this.CboServicio.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            this.CboServicio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             // 
             // CboTipo
             // 
@@ -1099,7 +1099,7 @@
             this.CboTipo.Name = "CboTipo";
             this.CboTipo.Size = new System.Drawing.Size(201, 21);
             this.CboTipo.TabIndex = 17;
-            this.CboTipo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            this.CboTipo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             // 
             // menuStrip1
             // 
@@ -1107,7 +1107,7 @@
             this.accionesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1123, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1103, 24);
             this.menuStrip1.TabIndex = 15;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.Visible = false;
@@ -2055,7 +2055,7 @@
             this.TxtCodigoCiudadOrigen.Size = new System.Drawing.Size(53, 20);
             this.TxtCodigoCiudadOrigen.TabIndex = 10;
             this.TxtCodigoCiudadOrigen.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCodigoCiudadOrigen_KeyDown);
-            this.TxtCodigoCiudadOrigen.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            this.TxtCodigoCiudadOrigen.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             this.TxtCodigoCiudadOrigen.Validated += new System.EventHandler(this.TxtCodigoCiudadOrigen_Validated);
             // 
             // TxtCodigoRemitente
@@ -2072,7 +2072,7 @@
             this.TxtDireccionRemitente.Name = "TxtDireccionRemitente";
             this.TxtDireccionRemitente.Size = new System.Drawing.Size(400, 20);
             this.TxtDireccionRemitente.TabIndex = 9;
-            this.TxtDireccionRemitente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            this.TxtDireccionRemitente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             // 
             // TxtTelefonoRemitente
             // 
@@ -2080,7 +2080,7 @@
             this.TxtTelefonoRemitente.Name = "TxtTelefonoRemitente";
             this.TxtTelefonoRemitente.Size = new System.Drawing.Size(89, 20);
             this.TxtTelefonoRemitente.TabIndex = 8;
-            this.TxtTelefonoRemitente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            this.TxtTelefonoRemitente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             // 
             // TxtNombreRemitente
             // 
@@ -2089,7 +2089,7 @@
             this.TxtNombreRemitente.Size = new System.Drawing.Size(298, 20);
             this.TxtNombreRemitente.TabIndex = 7;
             this.TxtNombreRemitente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtNombreRemitente_KeyDown);
-            this.TxtNombreRemitente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TabularEnter);
+            this.TxtNombreRemitente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             // 
             // label61
             // 

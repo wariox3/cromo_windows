@@ -517,11 +517,6 @@ namespace cromo
             LvPrecioDetalle.Items.Clear();
         }
 
-        private void TxtCodigoCliente_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Validar.SoloNumero(e);
-        }
-
         private void TxtCodigoCiudadOrigen_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode.ToString() == "F2")
@@ -839,8 +834,7 @@ namespace cromo
                 vrFlete = Math.Round(vrFlete);
                 TxtFlete.Text = vrFlete.ToString();
                 vrManejo = Convert.ToDouble(TxtManejo.Text);
-                TxtTotal.Text = (vrFlete + vrManejo).ToString();
-                
+                TxtTotal.Text = (vrFlete + vrManejo).ToString();                
             }
         }
 
@@ -1054,11 +1048,29 @@ namespace cromo
             }
         }
 
-        private void TabularEnter(object sender, KeyEventArgs e)
+
+        private void TabularEnterV2(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyChar == (char)13)
             {
-                this.SelectNextControl((Control)sender, true, true, true, true);
+                e.Handled = true; //Interceptamos la pulsación
+                SendKeys.Send("{TAB}"); //Pulsamos la tecla Tabulador por código
+            }
+            if(sender is TextBox)
+            {
+                TextBox txt = sender as TextBox;
+                if (txt.Tag != null)
+                {
+                    if (txt.Tag.ToString() == "N")
+                    {
+                        if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && e.KeyChar != (char)13)
+                        {
+                            MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            e.Handled = true;
+                            return;
+                        }
+                    }
+                }
             }
         }
 

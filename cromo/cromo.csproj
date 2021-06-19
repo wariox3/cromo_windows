@@ -232,6 +232,12 @@
     <Compile Include="FrmGuiaDetalle.Designer.cs">
       <DependentUpon>FrmGuiaDetalle.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmGuiaOperador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGuiaOperador.Designer.cs">
+      <DependentUpon>FrmGuiaOperador.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmImpresionMasiva.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -350,6 +356,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGuiaDetalle.resx">
       <DependentUpon>FrmGuiaDetalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGuiaOperador.resx">
+      <DependentUpon>FrmGuiaOperador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmImpresionMasiva.resx">
       <DependentUpon>FrmImpresionMasiva.cs</DependentUpon>

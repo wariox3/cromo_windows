@@ -142,5 +142,29 @@ namespace cromo.Properties {
                 this["bloquearManejo"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string codigoCliente {
+            get {
+                return ((string)(this["codigoCliente"]));
+            }
+            set {
+                this["codigoCliente"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool operadorLogistico {
+            get {
+                return ((bool)(this["operadorLogistico"]));
+            }
+            set {
+                this["operadorLogistico"] = value;
+            }
+        }
     }
 }
