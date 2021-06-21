@@ -212,6 +212,27 @@ namespace cromo
             set { v_Descuento = value; }
         }
 
+        private static double v_Manejo = 0;
+        public static double Manejo
+        {
+            get { return v_Manejo; }
+            set { v_Manejo = value; }
+        }
+
+        private static double v_PorcentajeManejoMinimo = 0;
+        public static double PorcentajeManejoMinimo
+        {
+            get { return v_PorcentajeManejoMinimo; }
+            set { v_PorcentajeManejoMinimo = value; }
+        }
+
+        private static double v_DescuentoPesoMaximo = 0;
+        public static double DescuentoPesoMaximo
+        {
+            get { return v_DescuentoPesoMaximo; }
+            set { v_DescuentoPesoMaximo = value; }
+        }
+
     }
 
 }

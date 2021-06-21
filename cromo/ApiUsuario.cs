@@ -15,5 +15,7 @@ namespace cromo
         public int codigoPrecioGeneral { get; set; }
         public int codigoCondicionGeneral { get; set; }
         public string codigoFormatoGuia { get; set; }
+        public double porcentajeManejoMinimo { get; set; }
+        public double descuentoPesoMaximo { get; set; }
     }
 }

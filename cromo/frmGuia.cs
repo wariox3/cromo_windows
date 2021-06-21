@@ -477,7 +477,10 @@ namespace cromo
             GbCondicionEspecial.Visible = true;
             GbCondicionEspecialManejo.Visible = true;
 
-            if(bloquearFlete)
+            BtnDescuento.Enabled = true;
+            BtnManejo.Enabled = true;
+
+            if (bloquearFlete)
             {
                 TxtFlete.Enabled = false;
             }
@@ -515,6 +518,9 @@ namespace cromo
             GbCondicionEspecial.Visible = false;
             GbCondicionEspecialManejo.Visible = false;
             LvPrecioDetalle.Items.Clear();
+
+            BtnDescuento.Enabled = false;
+            BtnManejo.Enabled = false;
         }
 
         private void TxtCodigoCiudadOrigen_KeyDown(object sender, KeyEventArgs e)
@@ -981,7 +987,7 @@ namespace cromo
 
         private void TxtDeclarado_Validated(object sender, EventArgs e)
         {
-            if (Convert.ToDouble(TxtManejo.Text) == 0 && Convert.ToDouble(TxtDeclarado.Text) > 0)
+            if (Convert.ToDouble(TxtDeclarado.Text) > 0)
             {
                 TxtManejo.Text = (Convert.ToDouble(TxtDeclarado.Text) * porcentajeManejo / 100).ToString();
                 if (manejoMinimoDespacho > Convert.ToDouble(TxtManejo.Text))
@@ -1440,6 +1446,19 @@ namespace cromo
                 TxtDescuentoPeso.Text = General.Descuento.ToString();
                 descuentoPeso = General.Descuento;
                 TxtPesoFacturar.Focus();
+            }
+        }
+
+        private void BtnManejo_Click(object sender, EventArgs e)
+        {
+            General.Manejo = Convert.ToDouble(TxtPorcentajeManejo.Text);
+            FrmManejo frmManejo = new FrmManejo();
+            frmManejo.ShowDialog();
+            if (frmManejo.DialogResult == DialogResult.OK)
+            {
+                TxtPorcentajeManejo.Text = General.Manejo.ToString();
+                porcentajeManejo = General.Manejo;
+                TxtDeclarado.Focus();
             }
         }
     }

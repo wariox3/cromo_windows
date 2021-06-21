@@ -101,6 +101,8 @@ namespace cromo
                                     General.CodigoPrecioGeneral = apiUsuario.codigoPrecioGeneral;
                                     General.CodigoCondicionGeneral = apiUsuario.codigoCondicionGeneral;
                                     General.CodigoFormatoGuia = apiUsuario.codigoFormatoGuia;
+                                    General.PorcentajeManejoMinimo = apiUsuario.porcentajeManejoMinimo;
+                                    General.DescuentoPesoMaximo = apiUsuario.descuentoPesoMaximo;
 
                                     General.CodigoCiudadOrigenParametro = apiOperacion.codigoCiudadFk;
                                     General.CodigoOperacionIngreso = apiOperacion.codigoOperacionPk;

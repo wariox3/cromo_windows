@@ -236,6 +236,7 @@
             this.ChkReexpedicion = new System.Windows.Forms.CheckBox();
             this.ChkFactura = new System.Windows.Forms.CheckBox();
             this.BtnDescuento = new System.Windows.Forms.Button();
+            this.BtnManejo = new System.Windows.Forms.Button();
             this.gbDestinatario.SuspendLayout();
             this.gbTotales.SuspendLayout();
             this.gbCliente.SuspendLayout();
@@ -2262,6 +2263,7 @@
             // 
             // BtnDescuento
             // 
+            this.BtnDescuento.Enabled = false;
             this.BtnDescuento.Location = new System.Drawing.Point(797, 406);
             this.BtnDescuento.Name = "BtnDescuento";
             this.BtnDescuento.Size = new System.Drawing.Size(115, 24);
@@ -2270,12 +2272,24 @@
             this.BtnDescuento.UseVisualStyleBackColor = true;
             this.BtnDescuento.Click += new System.EventHandler(this.BtnDescuento_Click);
             // 
+            // BtnManejo
+            // 
+            this.BtnManejo.Enabled = false;
+            this.BtnManejo.Location = new System.Drawing.Point(798, 434);
+            this.BtnManejo.Name = "BtnManejo";
+            this.BtnManejo.Size = new System.Drawing.Size(114, 24);
+            this.BtnManejo.TabIndex = 67;
+            this.BtnManejo.Text = "Manejo";
+            this.BtnManejo.UseVisualStyleBackColor = true;
+            this.BtnManejo.Click += new System.EventHandler(this.BtnManejo_Click);
+            // 
             // FrmGuia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1103, 625);
             this.ControlBox = false;
+            this.Controls.Add(this.BtnManejo);
             this.Controls.Add(this.BtnDescuento);
             this.Controls.Add(this.gbEstados);
             this.Controls.Add(this.gbRemitente);
@@ -2540,6 +2554,7 @@
         private System.Windows.Forms.Label label64;
         private System.Windows.Forms.TextBox TxtTotal;
         private System.Windows.Forms.Button BtnDescuento;
+        private System.Windows.Forms.Button BtnManejo;
     }
 }
 
