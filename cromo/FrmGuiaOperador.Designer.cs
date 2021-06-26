@@ -103,6 +103,10 @@
             this.MnuGuardar = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuCancelar = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuBuscarGuia = new System.Windows.Forms.ToolStripMenuItem();
+            this.gbCondicionFlete = new System.Windows.Forms.GroupBox();
+            this.label52 = new System.Windows.Forms.Label();
+            this.TxtDescuentoPeso = new System.Windows.Forms.TextBox();
+            this.BtnDescuento = new System.Windows.Forms.Button();
             this.gbRemitente.SuspendLayout();
             this.gbComentario.SuspendLayout();
             this.gbInformacion.SuspendLayout();
@@ -112,6 +116,7 @@
             this.toolStrip1.SuspendLayout();
             this.gbDatos.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.gbCondicionFlete.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbRemitente
@@ -127,7 +132,7 @@
             this.gbRemitente.Controls.Add(this.label62);
             this.gbRemitente.Controls.Add(this.label63);
             this.gbRemitente.Enabled = false;
-            this.gbRemitente.Location = new System.Drawing.Point(12, 131);
+            this.gbRemitente.Location = new System.Drawing.Point(13, 117);
             this.gbRemitente.Name = "gbRemitente";
             this.gbRemitente.Size = new System.Drawing.Size(528, 94);
             this.gbRemitente.TabIndex = 29;
@@ -226,7 +231,7 @@
             this.gbComentario.Controls.Add(this.label29);
             this.gbComentario.Controls.Add(this.TxtComentario);
             this.gbComentario.Enabled = false;
-            this.gbComentario.Location = new System.Drawing.Point(13, 399);
+            this.gbComentario.Location = new System.Drawing.Point(13, 394);
             this.gbComentario.Name = "gbComentario";
             this.gbComentario.Size = new System.Drawing.Size(291, 72);
             this.gbComentario.TabIndex = 33;
@@ -256,7 +261,7 @@
             this.gbInformacion.Controls.Add(this.label17);
             this.gbInformacion.Controls.Add(this.CboTipo);
             this.gbInformacion.Enabled = false;
-            this.gbInformacion.Location = new System.Drawing.Point(13, 315);
+            this.gbInformacion.Location = new System.Drawing.Point(13, 310);
             this.gbInformacion.Name = "gbInformacion";
             this.gbInformacion.Size = new System.Drawing.Size(289, 78);
             this.gbInformacion.TabIndex = 31;
@@ -378,7 +383,7 @@
             this.gbTotales.Controls.Add(this.label7);
             this.gbTotales.Controls.Add(this.label6);
             this.gbTotales.Enabled = false;
-            this.gbTotales.Location = new System.Drawing.Point(332, 315);
+            this.gbTotales.Location = new System.Drawing.Point(332, 310);
             this.gbTotales.Name = "gbTotales";
             this.gbTotales.Size = new System.Drawing.Size(208, 197);
             this.gbTotales.TabIndex = 32;
@@ -545,7 +550,7 @@
             this.gbDestinatario.Controls.Add(this.label3);
             this.gbDestinatario.Controls.Add(this.label2);
             this.gbDestinatario.Enabled = false;
-            this.gbDestinatario.Location = new System.Drawing.Point(13, 226);
+            this.gbDestinatario.Location = new System.Drawing.Point(13, 217);
             this.gbDestinatario.Name = "gbDestinatario";
             this.gbDestinatario.Size = new System.Drawing.Size(528, 87);
             this.gbDestinatario.TabIndex = 30;
@@ -806,7 +811,7 @@
             // 
             this.MnuNuevo.Name = "MnuNuevo";
             this.MnuNuevo.ShortcutKeys = System.Windows.Forms.Keys.F5;
-            this.MnuNuevo.Size = new System.Drawing.Size(180, 22);
+            this.MnuNuevo.Size = new System.Drawing.Size(154, 22);
             this.MnuNuevo.Text = "Nuevo";
             this.MnuNuevo.Click += new System.EventHandler(this.MnuNuevo_Click);
             // 
@@ -815,7 +820,7 @@
             this.MnuGuardar.Enabled = false;
             this.MnuGuardar.Name = "MnuGuardar";
             this.MnuGuardar.ShortcutKeys = System.Windows.Forms.Keys.F6;
-            this.MnuGuardar.Size = new System.Drawing.Size(180, 22);
+            this.MnuGuardar.Size = new System.Drawing.Size(154, 22);
             this.MnuGuardar.Text = "Guardar";
             this.MnuGuardar.Click += new System.EventHandler(this.MnuGuardar_Click);
             // 
@@ -824,7 +829,7 @@
             this.MnuCancelar.Enabled = false;
             this.MnuCancelar.Name = "MnuCancelar";
             this.MnuCancelar.ShortcutKeys = System.Windows.Forms.Keys.F7;
-            this.MnuCancelar.Size = new System.Drawing.Size(180, 22);
+            this.MnuCancelar.Size = new System.Drawing.Size(154, 22);
             this.MnuCancelar.Text = "Cancelar";
             this.MnuCancelar.Click += new System.EventHandler(this.MnuCancelar_Click);
             // 
@@ -832,8 +837,48 @@
             // 
             this.MnuBuscarGuia.Name = "MnuBuscarGuia";
             this.MnuBuscarGuia.ShortcutKeys = System.Windows.Forms.Keys.F9;
-            this.MnuBuscarGuia.Size = new System.Drawing.Size(161, 22);
+            this.MnuBuscarGuia.Size = new System.Drawing.Size(154, 22);
             this.MnuBuscarGuia.Text = "Buscar guia";
+            // 
+            // gbCondicionFlete
+            // 
+            this.gbCondicionFlete.Controls.Add(this.label52);
+            this.gbCondicionFlete.Controls.Add(this.TxtDescuentoPeso);
+            this.gbCondicionFlete.Enabled = false;
+            this.gbCondicionFlete.Location = new System.Drawing.Point(547, 138);
+            this.gbCondicionFlete.Name = "gbCondicionFlete";
+            this.gbCondicionFlete.Size = new System.Drawing.Size(194, 73);
+            this.gbCondicionFlete.TabIndex = 37;
+            this.gbCondicionFlete.TabStop = false;
+            this.gbCondicionFlete.Text = "Condicion flete";
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(29, 20);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(55, 13);
+            this.label52.TabIndex = 6;
+            this.label52.Text = "Dsc peso:";
+            // 
+            // TxtDescuentoPeso
+            // 
+            this.TxtDescuentoPeso.Location = new System.Drawing.Point(86, 15);
+            this.TxtDescuentoPeso.Name = "TxtDescuentoPeso";
+            this.TxtDescuentoPeso.Size = new System.Drawing.Size(101, 20);
+            this.TxtDescuentoPeso.TabIndex = 0;
+            this.TxtDescuentoPeso.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // BtnDescuento
+            // 
+            this.BtnDescuento.Enabled = false;
+            this.BtnDescuento.Location = new System.Drawing.Point(547, 224);
+            this.BtnDescuento.Name = "BtnDescuento";
+            this.BtnDescuento.Size = new System.Drawing.Size(194, 24);
+            this.BtnDescuento.TabIndex = 67;
+            this.BtnDescuento.Text = "Descuento";
+            this.BtnDescuento.UseVisualStyleBackColor = true;
+            this.BtnDescuento.Click += new System.EventHandler(this.BtnDescuento_Click);
             // 
             // FrmGuiaOperador
             // 
@@ -841,6 +886,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1121, 632);
             this.ControlBox = false;
+            this.Controls.Add(this.BtnDescuento);
+            this.Controls.Add(this.gbCondicionFlete);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.gbDatos);
             this.Controls.Add(this.toolStrip1);
@@ -873,6 +920,8 @@
             this.gbDatos.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.gbCondicionFlete.ResumeLayout(false);
+            this.gbCondicionFlete.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -954,5 +1003,9 @@
         private System.Windows.Forms.ToolStripMenuItem MnuGuardar;
         private System.Windows.Forms.ToolStripMenuItem MnuCancelar;
         private System.Windows.Forms.ToolStripMenuItem MnuBuscarGuia;
+        private System.Windows.Forms.GroupBox gbCondicionFlete;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.TextBox TxtDescuentoPeso;
+        private System.Windows.Forms.Button BtnDescuento;
     }
 }

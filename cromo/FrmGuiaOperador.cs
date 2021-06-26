@@ -95,6 +95,7 @@ namespace cromo
             TxtFlete.Text = "0";
             TxtManejo.Text = "0";
             TxtTotal.Text = "0";
+            TxtDescuentoPeso.Text = "0";
             TxtComentario.Text = "";
 
         }
@@ -114,7 +115,7 @@ namespace cromo
             gbTotales.Enabled = true;
             gbInformacion.Enabled = true;
             gbComentario.Enabled = true;
-
+            BtnDescuento.Enabled = true;
             if (bloquearFlete)
             {
                 TxtFlete.Enabled = false;
@@ -130,7 +131,8 @@ namespace cromo
         {
             TsbNuevo.Enabled = true;
             TsbGuardar.Enabled = false;
-            TsbCancelar.Enabled = false;        
+            TsbCancelar.Enabled = false;    
+            
             MnuNuevo.Enabled = true;
             MnuBuscarGuia.Enabled = true;
             MnuGuardar.Enabled = false;
@@ -141,7 +143,8 @@ namespace cromo
             gbDestinatario.Enabled = false;
             gbTotales.Enabled = false;
             gbInformacion.Enabled = false;
-            gbComentario.Enabled = false;
+            gbComentario.Enabled = false;            
+            BtnDescuento.Enabled = false;
         }
 
         public void Guardar()
@@ -469,6 +472,7 @@ namespace cromo
                     manejoMinimoUnidad = apiCondicion.manejoMinimoUnidad;
                     manejoMinimoDespacho = apiCondicion.manejoMinimoDespacho;
                     descuentoPeso = apiCondicion.descuentoPeso;
+                    TxtDescuentoPeso.Text = apiCondicion.descuentoPeso.ToString();
                     codigoPrecio = apiCondicion.codigoPrecioFk;
                 }
             }
@@ -514,6 +518,7 @@ namespace cromo
                             descuentoPeso = apiCondicionFlete.descuentoPeso;
                             pesoMinimo = apiCondicionFlete.pesoMinimo;
                             pesoMinimoGuia = apiCondicionFlete.pesoMinimoGuia;
+                            TxtDescuentoPeso.Text = apiCondicionFlete.descuentoPeso.ToString();
                         }
 
                         parametrosJson = "{\"codigoCliente\":\"" + codigoCliente + "\",\"origen\":\"" + TxtCodigoCiudadOrigen.Text + "\", \"destino\":\"" + TxtCodigoCiudadDestino.Text + "\", \"codigoZona\":\"" + "\", \"codigoCobertura\":\"" + codigoCobertura + "\"}";
@@ -654,6 +659,19 @@ namespace cromo
         private void MnuCancelar_Click(object sender, EventArgs e)
         {
             Bloquear();
+        }
+
+        private void BtnDescuento_Click(object sender, EventArgs e)
+        {
+            General.Descuento = Convert.ToDouble(TxtDescuentoPeso.Text);
+            FrmDescuento frmDescuento = new FrmDescuento();
+            frmDescuento.ShowDialog();
+            if (frmDescuento.DialogResult == DialogResult.OK)
+            {
+                TxtDescuentoPeso.Text = General.Descuento.ToString();
+                descuentoPeso = General.Descuento;
+                TxtPesoFacturar.Focus();
+            }
         }
     }
 }
