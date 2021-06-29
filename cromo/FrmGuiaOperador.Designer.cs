@@ -107,6 +107,14 @@
             this.label52 = new System.Windows.Forms.Label();
             this.TxtDescuentoPeso = new System.Windows.Forms.TextBox();
             this.BtnDescuento = new System.Windows.Forms.Button();
+            this.BtnManejo = new System.Windows.Forms.Button();
+            this.gbCondicionManejo = new System.Windows.Forms.GroupBox();
+            this.label58 = new System.Windows.Forms.Label();
+            this.label59 = new System.Windows.Forms.Label();
+            this.label60 = new System.Windows.Forms.Label();
+            this.TxtManejoMinimoDespacho = new System.Windows.Forms.TextBox();
+            this.TxtManejoMinimoUnidad = new System.Windows.Forms.TextBox();
+            this.TxtPorcentajeManejo = new System.Windows.Forms.TextBox();
             this.gbRemitente.SuspendLayout();
             this.gbComentario.SuspendLayout();
             this.gbInformacion.SuspendLayout();
@@ -117,6 +125,7 @@
             this.gbDatos.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.gbCondicionFlete.SuspendLayout();
+            this.gbCondicionManejo.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbRemitente
@@ -872,7 +881,7 @@
             // BtnDescuento
             // 
             this.BtnDescuento.Enabled = false;
-            this.BtnDescuento.Location = new System.Drawing.Point(547, 224);
+            this.BtnDescuento.Location = new System.Drawing.Point(547, 217);
             this.BtnDescuento.Name = "BtnDescuento";
             this.BtnDescuento.Size = new System.Drawing.Size(194, 24);
             this.BtnDescuento.TabIndex = 67;
@@ -880,12 +889,92 @@
             this.BtnDescuento.UseVisualStyleBackColor = true;
             this.BtnDescuento.Click += new System.EventHandler(this.BtnDescuento_Click);
             // 
+            // BtnManejo
+            // 
+            this.BtnManejo.Enabled = false;
+            this.BtnManejo.Location = new System.Drawing.Point(547, 351);
+            this.BtnManejo.Name = "BtnManejo";
+            this.BtnManejo.Size = new System.Drawing.Size(194, 24);
+            this.BtnManejo.TabIndex = 68;
+            this.BtnManejo.Text = "Manejo";
+            this.BtnManejo.UseVisualStyleBackColor = true;
+            this.BtnManejo.Click += new System.EventHandler(this.BtnManejo_Click);
+            // 
+            // gbCondicionManejo
+            // 
+            this.gbCondicionManejo.Controls.Add(this.label58);
+            this.gbCondicionManejo.Controls.Add(this.label59);
+            this.gbCondicionManejo.Controls.Add(this.label60);
+            this.gbCondicionManejo.Controls.Add(this.TxtManejoMinimoDespacho);
+            this.gbCondicionManejo.Controls.Add(this.TxtManejoMinimoUnidad);
+            this.gbCondicionManejo.Controls.Add(this.TxtPorcentajeManejo);
+            this.gbCondicionManejo.Enabled = false;
+            this.gbCondicionManejo.Location = new System.Drawing.Point(547, 247);
+            this.gbCondicionManejo.Name = "gbCondicionManejo";
+            this.gbCondicionManejo.Size = new System.Drawing.Size(194, 96);
+            this.gbCondicionManejo.TabIndex = 69;
+            this.gbCondicionManejo.TabStop = false;
+            this.gbCondicionManejo.Text = "Condicion manejo";
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Location = new System.Drawing.Point(29, 64);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(55, 13);
+            this.label58.TabIndex = 31;
+            this.label58.Text = "Min (Des):";
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Location = new System.Drawing.Point(28, 43);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(56, 13);
+            this.label59.TabIndex = 30;
+            this.label59.Text = "Min (Und):";
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Location = new System.Drawing.Point(39, 22);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(45, 13);
+            this.label60.TabIndex = 29;
+            this.label60.Text = "Manejo:";
+            // 
+            // TxtManejoMinimoDespacho
+            // 
+            this.TxtManejoMinimoDespacho.Location = new System.Drawing.Point(86, 65);
+            this.TxtManejoMinimoDespacho.Name = "TxtManejoMinimoDespacho";
+            this.TxtManejoMinimoDespacho.Size = new System.Drawing.Size(81, 20);
+            this.TxtManejoMinimoDespacho.TabIndex = 3;
+            this.TxtManejoMinimoDespacho.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // TxtManejoMinimoUnidad
+            // 
+            this.TxtManejoMinimoUnidad.Location = new System.Drawing.Point(86, 42);
+            this.TxtManejoMinimoUnidad.Name = "TxtManejoMinimoUnidad";
+            this.TxtManejoMinimoUnidad.Size = new System.Drawing.Size(81, 20);
+            this.TxtManejoMinimoUnidad.TabIndex = 2;
+            this.TxtManejoMinimoUnidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // TxtPorcentajeManejo
+            // 
+            this.TxtPorcentajeManejo.Location = new System.Drawing.Point(86, 19);
+            this.TxtPorcentajeManejo.Name = "TxtPorcentajeManejo";
+            this.TxtPorcentajeManejo.Size = new System.Drawing.Size(81, 20);
+            this.TxtPorcentajeManejo.TabIndex = 1;
+            this.TxtPorcentajeManejo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // FrmGuiaOperador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1121, 632);
             this.ControlBox = false;
+            this.Controls.Add(this.gbCondicionManejo);
+            this.Controls.Add(this.BtnManejo);
             this.Controls.Add(this.BtnDescuento);
             this.Controls.Add(this.gbCondicionFlete);
             this.Controls.Add(this.menuStrip1);
@@ -922,6 +1011,8 @@
             this.menuStrip1.PerformLayout();
             this.gbCondicionFlete.ResumeLayout(false);
             this.gbCondicionFlete.PerformLayout();
+            this.gbCondicionManejo.ResumeLayout(false);
+            this.gbCondicionManejo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1007,5 +1098,13 @@
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.TextBox TxtDescuentoPeso;
         private System.Windows.Forms.Button BtnDescuento;
+        private System.Windows.Forms.Button BtnManejo;
+        private System.Windows.Forms.GroupBox gbCondicionManejo;
+        private System.Windows.Forms.Label label58;
+        private System.Windows.Forms.Label label59;
+        private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.TextBox TxtManejoMinimoDespacho;
+        private System.Windows.Forms.TextBox TxtManejoMinimoUnidad;
+        private System.Windows.Forms.TextBox TxtPorcentajeManejo;
     }
 }

@@ -219,6 +219,20 @@ namespace cromo
             set { v_Manejo = value; }
         }
 
+        private static double v_ManejoMinimoDespacho = 0;
+        public static double ManejoMinimoDespacho
+        {
+            get { return v_ManejoMinimoDespacho; }
+            set { v_ManejoMinimoDespacho = value; }
+        }
+
+        private static double v_ManejoMinimoUnidad = 0;
+        public static double ManejoMinimoUnidad
+        {
+            get { return v_ManejoMinimoUnidad; }
+            set { v_ManejoMinimoUnidad = value; }
+        }
+
         private static double v_PorcentajeManejoMinimo = 0;
         public static double PorcentajeManejoMinimo
         {

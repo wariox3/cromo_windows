@@ -96,6 +96,9 @@ namespace cromo
             TxtManejo.Text = "0";
             TxtTotal.Text = "0";
             TxtDescuentoPeso.Text = "0";
+            TxtPorcentajeManejo.Text = "0";
+            TxtManejoMinimoUnidad.Text = "0";
+            TxtManejoMinimoDespacho.Text = "0";
             TxtComentario.Text = "";
 
         }
@@ -116,6 +119,7 @@ namespace cromo
             gbInformacion.Enabled = true;
             gbComentario.Enabled = true;
             BtnDescuento.Enabled = true;
+            BtnManejo.Enabled = true;
             if (bloquearFlete)
             {
                 TxtFlete.Enabled = false;
@@ -145,6 +149,7 @@ namespace cromo
             gbInformacion.Enabled = false;
             gbComentario.Enabled = false;            
             BtnDescuento.Enabled = false;
+            BtnManejo.Enabled = false;
         }
 
         public void Guardar()
@@ -473,6 +478,9 @@ namespace cromo
                     manejoMinimoDespacho = apiCondicion.manejoMinimoDespacho;
                     descuentoPeso = apiCondicion.descuentoPeso;
                     TxtDescuentoPeso.Text = apiCondicion.descuentoPeso.ToString();
+                    TxtPorcentajeManejo.Text = apiCondicion.porcentajeManejo.ToString();
+                    TxtManejoMinimoUnidad.Text = apiCondicion.manejoMinimoUnidad.ToString();
+                    TxtManejoMinimoDespacho.Text = apiCondicion.manejoMinimoDespacho.ToString();
                     codigoPrecio = apiCondicion.codigoPrecioFk;
                 }
             }
@@ -529,6 +537,10 @@ namespace cromo
                             porcentajeManejo = apiCondicionManejo.porcentaje;
                             manejoMinimoUnidad = apiCondicionManejo.minimoUnidad;
                             manejoMinimoDespacho = apiCondicionManejo.minimoDespacho;
+                            TxtPorcentajeManejo.Text = apiCondicionManejo.porcentaje.ToString();
+                            TxtManejoMinimoUnidad.Text = apiCondicionManejo.minimoUnidad.ToString();
+                            TxtManejoMinimoDespacho.Text = apiCondicionManejo.minimoDespacho.ToString();
+                               
                         }
                     }
                     else
@@ -671,6 +683,25 @@ namespace cromo
                 TxtDescuentoPeso.Text = General.Descuento.ToString();
                 descuentoPeso = General.Descuento;
                 TxtPesoFacturar.Focus();
+            }
+        }
+
+        private void BtnManejo_Click(object sender, EventArgs e)
+        {
+            General.Manejo = Convert.ToDouble(TxtPorcentajeManejo.Text);
+            General.ManejoMinimoUnidad = Convert.ToDouble(TxtManejoMinimoUnidad.Text);
+            General.ManejoMinimoDespacho = Convert.ToDouble(TxtManejoMinimoDespacho.Text);
+            FrmManejo frmManejo = new FrmManejo();
+            frmManejo.ShowDialog();
+            if (frmManejo.DialogResult == DialogResult.OK)
+            {
+                TxtPorcentajeManejo.Text = General.Manejo.ToString();
+                TxtManejoMinimoUnidad.Text = General.ManejoMinimoUnidad.ToString();
+                TxtManejoMinimoDespacho.Text = General.ManejoMinimoDespacho.ToString();
+                porcentajeManejo = General.Manejo;
+                manejoMinimoUnidad = General.ManejoMinimoUnidad;
+                manejoMinimoDespacho = General.ManejoMinimoDespacho;
+                TxtDeclarado.Focus();
             }
         }
     }
