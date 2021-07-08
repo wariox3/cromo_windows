@@ -272,7 +272,20 @@ namespace cromo
                             }
                             else
                             {
-                                return true;                                
+                                double pesoMinimoValidar = 0;
+                                double unidades = Convert.ToInt32(TxtUnidades.Text);
+                                double pesoFacturarValidar = Convert.ToInt32(TxtPesoFacturar.Text);
+                                pesoMinimoValidar = pesoMinimo * unidades;
+                                if (pesoFacturarValidar < pesoMinimoValidar)
+                                {
+                                    MessageBox.Show(this, "El peso minimo a facturar es " + pesoMinimoValidar.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    TxtPesoFacturar.Focus();
+                                    return false;
+                                }
+                                else
+                                {
+                                    return true;
+                                }
                             }
                             
                         }

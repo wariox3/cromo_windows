@@ -247,7 +247,19 @@ namespace cromo
                                         }
                                         else
                                         {
-                                            return true;
+                                            double pesoMinimoValidar = 0;
+                                            double unidades = Convert.ToInt32(TxtUnidades.Text);
+                                            double pesoFacturarValidar = Convert.ToInt32(TxtPesoFacturar.Text);
+                                            pesoMinimoValidar = pesoMinimo * unidades;
+                                            if(pesoFacturarValidar < pesoMinimoValidar)
+                                            {
+                                                MessageBox.Show(this, "El peso minimo a facturar es " + pesoMinimoValidar.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                TxtPesoFacturar.Focus();
+                                                return false;
+                                            } else
+                                            {
+                                                return true;
+                                            }                                            
                                         }
                                     }
                                 }
@@ -787,7 +799,7 @@ namespace cromo
                 int tope = Convert.ToInt32(TxtTope.Text);
                 int pesoFacturar = Convert.ToInt32(TxtPesoFacturar.Text);
                 int unidades = Convert.ToInt32(TxtUnidades.Text);
-
+                
                 if (RbPeso.Checked)
                 {
                     precioPeso = Convert.ToDouble(TxtVrPeso.Text);
@@ -982,6 +994,7 @@ namespace cromo
             {
                 pesoFacturar = pesoVolumen;
             }
+
             TxtPesoFacturar.Text = pesoFacturar.ToString();
         }
 
