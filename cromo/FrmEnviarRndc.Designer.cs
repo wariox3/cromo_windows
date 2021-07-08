@@ -37,6 +37,7 @@
             this.clmNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmCodigoVehiculoFk = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmRemolque = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmOrigen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDestino = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmConductor = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,6 +56,7 @@
             this.clmNumero,
             this.clmFecha,
             this.clmCodigoVehiculoFk,
+            this.clmRemolque,
             this.clmOrigen,
             this.clmDestino,
             this.clmConductor});
@@ -125,6 +127,7 @@
             this.clmFecha.HeaderText = "Fecha";
             this.clmFecha.Name = "clmFecha";
             this.clmFecha.ReadOnly = true;
+            this.clmFecha.Width = 80;
             // 
             // clmCodigoVehiculoFk
             // 
@@ -133,6 +136,14 @@
             this.clmCodigoVehiculoFk.Name = "clmCodigoVehiculoFk";
             this.clmCodigoVehiculoFk.ReadOnly = true;
             this.clmCodigoVehiculoFk.Width = 50;
+            // 
+            // clmRemolque
+            // 
+            this.clmRemolque.DataPropertyName = "codigoVehiculoRemolqueFk";
+            this.clmRemolque.HeaderText = "Rem";
+            this.clmRemolque.Name = "clmRemolque";
+            this.clmRemolque.ReadOnly = true;
+            this.clmRemolque.Width = 50;
             // 
             // clmOrigen
             // 
@@ -186,6 +197,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmNumero;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmFecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmCodigoVehiculoFk;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmRemolque;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmOrigen;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDestino;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmConductor;

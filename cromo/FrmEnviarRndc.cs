@@ -190,7 +190,59 @@ namespace cromo
                     }
                 }
 
-                if(validacion == true) {
+
+                if (validacion == true) {
+                    if(apiElementosRndc.remolque != null)
+                    {
+                        string xmlRemolque = @"<?xml version='1.0' encoding='ISO-8859-1' ?>
+                        <root>
+                            <acceso>
+                                <username>" + apiElementosRndc.configuracion.usuarioRndc + @"</username>
+                                <password>" + apiElementosRndc.configuracion.claveRndc + @"</password>
+                            </acceso>
+                            <solicitud>
+                                <tipo>1</tipo>
+                                <procesoid>12</procesoid>
+                            </solicitud>
+                            <variables>
+                                <NUMNITEMPRESATRANSPORTE>" + apiElementosRndc.configuracion.empresaRndc + @"</NUMNITEMPRESATRANSPORTE>
+                                <NUMPLACA>" + apiElementosRndc.remolque.codigoVehiculoPk + @"</NUMPLACA>
+                                <CODCONFIGURACIONUNIDADCARGA>" + apiElementosRndc.remolque.configuracion + @"</CODCONFIGURACIONUNIDADCARGA>                                
+                                <CODMARCAVEHICULOCARGA>" + apiElementosRndc.remolque.codigoMarca + @"</CODMARCAVEHICULOCARGA>                                
+                                <ANOFABRICACIONVEHICULOCARGA>" + apiElementosRndc.remolque.modelo + @"</ANOFABRICACIONVEHICULOCARGA>                                
+                                <PESOVEHICULOVACIO>" + apiElementosRndc.remolque.pesoVacio + @"</PESOVEHICULOVACIO>
+                                <CAPACIDADUNIDADCARGA>" + apiElementosRndc.remolque.capacidad + @"</CAPACIDADUNIDADCARGA>
+                                <CODCOLORVEHICULOCARGA>" + apiElementosRndc.remolque.codigoColor + @"</CODCOLORVEHICULOCARGA>
+                                <CODTIPOCARROCERIA>" + apiElementosRndc.remolque.tipoCarroceria + @"</CODTIPOCARROCERIA>
+                                <CODTIPOIDPROPIETARIO>" + apiElementosRndc.remolque.tipoIdentificacionPropietario + @"</CODTIPOIDPROPIETARIO>
+                                <NUMIDPROPIETARIO>" + apiElementosRndc.remolque.numeroIdentificacionPropietario + @"</NUMIDPROPIETARIO>
+                                <CODTIPOIDTENEDOR>" + apiElementosRndc.remolque.tipoIdentificacionPoseedor + @"</CODTIPOIDTENEDOR>
+                                <NUMIDTENEDOR>" + apiElementosRndc.remolque.numeroIdentificacionPoseedor + @"</NUMIDTENEDOR>                                                                                              
+                            </variables>
+                        </root>";
+
+                        AtenderMensajeRNDCRequest solicitudRemolque = new AtenderMensajeRNDCRequest(xmlRemolque);
+                        var respuestaRemolque = client.AtenderMensajeRNDC(solicitudRemolque);
+                        var textXmlRemolque = respuestaRemolque.@return;
+                        XmlSerializer serializerRemolque = new XmlSerializer(typeof(RespuestaRndc));
+                        using (TextReader reader = new StringReader(textXmlRemolque))
+                        {
+                            //de esta manera se deserializa
+                            retorno = (RespuestaRndc)serializerRemolque.Deserialize(reader);
+                            if (retorno.ErrorMSG != null)
+                            {
+                                string mensajeError = retorno.ErrorMSG.Substring(0, 9);
+                                if (mensajeError != "DUPLICADO")
+                                {
+                                    MessageBox.Show(this, "Remolque " + apiElementosRndc.remolque.codigoVehiculoPk + " " + retorno.ErrorMSG, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    validacion = false;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if (validacion == true) {
                     //Transmitir guia
                     string xmlGuia = @"<?xml version='1.0' encoding='ISO-8859-1' ?>
                         <root>
@@ -254,7 +306,7 @@ namespace cromo
                             }
                         }
                     }
-
+                    validacion = false;
                     if(validacion == true) {
                         //Transmitir manifiesto
                         string xmlManifiesto = @"<?xml version='1.0' encoding='ISO-8859-1' ?>

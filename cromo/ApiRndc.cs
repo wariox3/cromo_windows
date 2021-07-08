@@ -11,6 +11,7 @@ namespace cromo
         public ApiConfiguracionRndc configuracion { get; set; }
         public ApiDespachoRndc despacho { get; set; }
         public ApiVehiculoRndc vehiculo { get; set; }
+        public ApiVehiculoRndc remolque { get; set; }
         public List<ApiTerceroRndc> terceros { get; set; }
     }
 

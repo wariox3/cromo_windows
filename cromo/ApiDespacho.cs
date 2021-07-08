@@ -12,6 +12,7 @@ namespace cromo
         public string despachoTipo { get; set; }
         public string codigoOperacionFk { get; set; }
         public string codigoVehiculoFk { get; set; }
+        public string codigoVehiculoRemolqueFk { get; set; }
         public int numero { get; set; }
         public DateTime? fechaSalida { get; set; }
         public DateTime? fechaEntrega { get; set; }
