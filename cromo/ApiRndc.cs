@@ -34,6 +34,7 @@ namespace cromo
         public string codigoPoseedorFk { get; set; }
         public string codigoPropietarioFk { get; set; }
         public string codigoVehiculoFk { get; set; }
+        public string codigoVehiculoRemolqueFk { get; set; }
         public string pesoReal { get; set; }
         public string numero { get; set; }
         public string vrFletePago { get; set; }

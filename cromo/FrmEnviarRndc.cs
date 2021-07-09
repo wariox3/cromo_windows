@@ -306,7 +306,6 @@ namespace cromo
                             }
                         }
                     }
-                    validacion = false;
                     if(validacion == true) {
                         //Transmitir manifiesto
                         string xmlManifiesto = @"<?xml version='1.0' encoding='ISO-8859-1' ?>
@@ -329,6 +328,7 @@ namespace cromo
                                     <CODIDTITULARMANIFIESTO>" + apiElementosRndc.despacho.poseedorTipoIdentificacion + @"</CODIDTITULARMANIFIESTO>
                                     <NUMIDTITULARMANIFIESTO>" + apiElementosRndc.despacho.poseedorNumeroIdentificacion + @"</NUMIDTITULARMANIFIESTO>
                                     <NUMPLACA>" + apiElementosRndc.despacho.codigoVehiculoFk + @"</NUMPLACA>
+                                    <NUMPLACAREMOLQUE>" + apiElementosRndc.despacho.codigoVehiculoRemolqueFk + @"</NUMPLACAREMOLQUE>
                                     <CODIDCONDUCTOR>" + apiElementosRndc.despacho.conductorTipoIdentificacion + @"</CODIDCONDUCTOR>
                                     <NUMIDCONDUCTOR>" + apiElementosRndc.despacho.conductorNumeroIdentificacion + @"</NUMIDCONDUCTOR>
                                     <VALORFLETEPACTADOVIAJE>" + apiElementosRndc.despacho.vrFletePago + @"</VALORFLETEPACTADOVIAJE>
