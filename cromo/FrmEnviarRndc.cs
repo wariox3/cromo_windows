@@ -127,7 +127,7 @@ namespace cromo
                     retorno = (RespuestaRndc)serializerTercero.Deserialize(reader);
                     if(retorno.ErrorMSG != null) {
                         string mensajeError = retorno.ErrorMSG.Substring(0, 9);
-                        if(mensajeError != "DUPLICADO") {
+                        if(mensajeError != "DUPLICADO" && mensajeError != "Access vi") {
                             MessageBox.Show(this, "Tercero " + apiTercero.identificacion + " " + retorno.ErrorMSG, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             validacion = false;
                         }
