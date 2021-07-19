@@ -65,6 +65,7 @@ namespace cromo
             TxtCodigoCiudadOrigen.Text = General.CodigoCiudadOrigenParametro;
             TxtOperacionIngreso.Text = General.CodigoOperacionIngreso;
             TxtOperacionCargo.Text = General.CodigoOperacionCargo;
+            ChkContenidoVerificado.Checked = false;
             TxtCodigoCondicion.Focus();
         }
 
@@ -209,6 +210,7 @@ namespace cromo
                             apiGuia.tipoLiquidacion = "K";
                             apiGuia.comentario = TxtComentario.Text;
                             //apiGuia.mercanciaPeligrosa = ChkMercanciaPeligrosa.Checked;
+                            apiGuia.contenidoVerificado = ChkContenidoVerificado.Checked;
                             //apiGuia.ordenRuta = TxtOrdenRuta.Text;
                             //apiGuia.codigoZonaFk = TxtCodigoZona.Text;
                             apiGuia.codigoDestinatarioFk = TxtCodigoDestinatario.Text;
@@ -715,6 +717,35 @@ namespace cromo
                 manejoMinimoUnidad = General.ManejoMinimoUnidad;
                 manejoMinimoDespacho = General.ManejoMinimoDespacho;
                 TxtDeclarado.Focus();
+            }
+        }
+
+        private void TxtNombreDestinatario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.ToString() == "F2")
+            {
+                General.CodigoCliente = codigoCliente;
+                FrmBuscarDestinatario frmBuscarDestinatario = new FrmBuscarDestinatario();
+                frmBuscarDestinatario.ShowDialog();
+                if (frmBuscarDestinatario.DialogResult == DialogResult.OK)
+                {
+                    string parametrosJson = "{\"codigo\":\"" + General.CodigoDestinatario + "\"}";
+                    string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/destinatario/detalle", parametrosJson);
+                    ApiDestinatario apiDestinatario = ser.Deserialize<ApiDestinatario>(jsonRespuesta);
+                    if (apiDestinatario.error == null)
+                    {
+                        TxtCodigoDestinatario.Text = apiDestinatario.codigoDestinatarioPk;
+                        TxtNombreDestinatario.Text = apiDestinatario.nombreCorto;
+                        TxtDireccionDestinatario.Text = apiDestinatario.direccion;
+                        TxtTelefonoDestinatario.Text = apiDestinatario.telefono;
+                        TxtCodigoCiudadDestino.Text = apiDestinatario.codigoCiudadFk;
+                    }
+                    else
+                    {
+                        MessageBox.Show("No existe el destinatario");
+                    }
+
+                }
             }
         }
     }

@@ -237,6 +237,7 @@
             this.ChkFactura = new System.Windows.Forms.CheckBox();
             this.BtnDescuento = new System.Windows.Forms.Button();
             this.BtnManejo = new System.Windows.Forms.Button();
+            this.ChkContenidoVerificado = new System.Windows.Forms.CheckBox();
             this.gbDestinatario.SuspendLayout();
             this.gbTotales.SuspendLayout();
             this.gbCliente.SuspendLayout();
@@ -467,7 +468,7 @@
             this.TxtTotal.Location = new System.Drawing.Point(86, 237);
             this.TxtTotal.Name = "TxtTotal";
             this.TxtTotal.Size = new System.Drawing.Size(111, 20);
-            this.TxtTotal.TabIndex = 37;
+            this.TxtTotal.TabIndex = 33;
             this.TxtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // ChkInvertirCiudad
@@ -494,7 +495,7 @@
             this.TxtCostoReexpedicion.Location = new System.Drawing.Point(86, 214);
             this.TxtCostoReexpedicion.Name = "TxtCostoReexpedicion";
             this.TxtCostoReexpedicion.Size = new System.Drawing.Size(111, 20);
-            this.TxtCostoReexpedicion.TabIndex = 31;
+            this.TxtCostoReexpedicion.TabIndex = 32;
             this.TxtCostoReexpedicion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // ChkLiquidado
@@ -554,7 +555,7 @@
             this.TxtRecaudo.Location = new System.Drawing.Point(86, 191);
             this.TxtRecaudo.Name = "TxtRecaudo";
             this.TxtRecaudo.Size = new System.Drawing.Size(111, 20);
-            this.TxtRecaudo.TabIndex = 30;
+            this.TxtRecaudo.TabIndex = 31;
             this.TxtRecaudo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.TxtRecaudo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             // 
@@ -563,7 +564,7 @@
             this.TxtManejo.Location = new System.Drawing.Point(86, 168);
             this.TxtManejo.Name = "TxtManejo";
             this.TxtManejo.Size = new System.Drawing.Size(111, 20);
-            this.TxtManejo.TabIndex = 29;
+            this.TxtManejo.TabIndex = 30;
             this.TxtManejo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.TxtManejo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             // 
@@ -572,7 +573,7 @@
             this.TxtFlete.Location = new System.Drawing.Point(86, 146);
             this.TxtFlete.Name = "TxtFlete";
             this.TxtFlete.Size = new System.Drawing.Size(111, 20);
-            this.TxtFlete.TabIndex = 28;
+            this.TxtFlete.TabIndex = 29;
             this.TxtFlete.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.TxtFlete.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             // 
@@ -581,7 +582,7 @@
             this.TxtDeclarado.Location = new System.Drawing.Point(86, 124);
             this.TxtDeclarado.Name = "TxtDeclarado";
             this.TxtDeclarado.Size = new System.Drawing.Size(111, 20);
-            this.TxtDeclarado.TabIndex = 27;
+            this.TxtDeclarado.TabIndex = 28;
             this.TxtDeclarado.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.TxtDeclarado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             this.TxtDeclarado.Validated += new System.EventHandler(this.TxtDeclarado_Validated);
@@ -591,7 +592,7 @@
             this.TxtPesoFacturar.Location = new System.Drawing.Point(86, 102);
             this.TxtPesoFacturar.Name = "TxtPesoFacturar";
             this.TxtPesoFacturar.Size = new System.Drawing.Size(111, 20);
-            this.TxtPesoFacturar.TabIndex = 26;
+            this.TxtPesoFacturar.TabIndex = 27;
             this.TxtPesoFacturar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.TxtPesoFacturar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             this.TxtPesoFacturar.Validated += new System.EventHandler(this.TxtPesoFacturar_Validated);
@@ -601,7 +602,7 @@
             this.TxtVolumen.Location = new System.Drawing.Point(86, 80);
             this.TxtVolumen.Name = "TxtVolumen";
             this.TxtVolumen.Size = new System.Drawing.Size(111, 20);
-            this.TxtVolumen.TabIndex = 25;
+            this.TxtVolumen.TabIndex = 26;
             this.TxtVolumen.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.TxtVolumen.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             this.TxtVolumen.Validated += new System.EventHandler(this.TxtVolumen_Validated);
@@ -611,7 +612,7 @@
             this.TxtPeso.Location = new System.Drawing.Point(86, 58);
             this.TxtPeso.Name = "TxtPeso";
             this.TxtPeso.Size = new System.Drawing.Size(111, 20);
-            this.TxtPeso.TabIndex = 24;
+            this.TxtPeso.TabIndex = 25;
             this.TxtPeso.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.TxtPeso.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             this.TxtPeso.Validated += new System.EventHandler(this.TxtPeso_Validated);
@@ -621,7 +622,7 @@
             this.TxtUnidades.Location = new System.Drawing.Point(86, 35);
             this.TxtUnidades.Name = "TxtUnidades";
             this.TxtUnidades.Size = new System.Drawing.Size(111, 20);
-            this.TxtUnidades.TabIndex = 23;
+            this.TxtUnidades.TabIndex = 24;
             this.TxtUnidades.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.TxtUnidades.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtUnidades_KeyDown);
             this.TxtUnidades.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
@@ -983,6 +984,7 @@
             // 
             // gbInformacion
             // 
+            this.gbInformacion.Controls.Add(this.ChkContenidoVerificado);
             this.gbInformacion.Controls.Add(this.ChkMercanciaPeligrosa);
             this.gbInformacion.Controls.Add(this.label44);
             this.gbInformacion.Controls.Add(this.TxtReferenciaEmpaque);
@@ -997,18 +999,18 @@
             this.gbInformacion.Enabled = false;
             this.gbInformacion.Location = new System.Drawing.Point(19, 324);
             this.gbInformacion.Name = "gbInformacion";
-            this.gbInformacion.Size = new System.Drawing.Size(289, 139);
+            this.gbInformacion.Size = new System.Drawing.Size(289, 172);
             this.gbInformacion.TabIndex = 16;
             this.gbInformacion.TabStop = false;
             // 
             // ChkMercanciaPeligrosa
             // 
             this.ChkMercanciaPeligrosa.AutoSize = true;
-            this.ChkMercanciaPeligrosa.Location = new System.Drawing.Point(182, 109);
+            this.ChkMercanciaPeligrosa.Location = new System.Drawing.Point(73, 132);
             this.ChkMercanciaPeligrosa.Name = "ChkMercanciaPeligrosa";
-            this.ChkMercanciaPeligrosa.Size = new System.Drawing.Size(94, 17);
+            this.ChkMercanciaPeligrosa.Size = new System.Drawing.Size(121, 17);
             this.ChkMercanciaPeligrosa.TabIndex = 22;
-            this.ChkMercanciaPeligrosa.Text = "Mcia peligrosa";
+            this.ChkMercanciaPeligrosa.Text = "Mercancia peligrosa";
             this.ChkMercanciaPeligrosa.UseVisualStyleBackColor = true;
             this.ChkMercanciaPeligrosa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             // 
@@ -1399,7 +1401,7 @@
             this.gbComentario.Controls.Add(this.label29);
             this.gbComentario.Controls.Add(this.TxtComentario);
             this.gbComentario.Enabled = false;
-            this.gbComentario.Location = new System.Drawing.Point(18, 464);
+            this.gbComentario.Location = new System.Drawing.Point(17, 495);
             this.gbComentario.Name = "gbComentario";
             this.gbComentario.Size = new System.Drawing.Size(291, 72);
             this.gbComentario.TabIndex = 27;
@@ -2283,6 +2285,17 @@
             this.BtnManejo.UseVisualStyleBackColor = true;
             this.BtnManejo.Click += new System.EventHandler(this.BtnManejo_Click);
             // 
+            // ChkContenidoVerificado
+            // 
+            this.ChkContenidoVerificado.AutoSize = true;
+            this.ChkContenidoVerificado.Location = new System.Drawing.Point(73, 148);
+            this.ChkContenidoVerificado.Name = "ChkContenidoVerificado";
+            this.ChkContenidoVerificado.Size = new System.Drawing.Size(123, 17);
+            this.ChkContenidoVerificado.TabIndex = 23;
+            this.ChkContenidoVerificado.Text = "Contenido verificado";
+            this.ChkContenidoVerificado.UseVisualStyleBackColor = true;
+            this.ChkContenidoVerificado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
+            // 
             // FrmGuia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2555,6 +2568,7 @@
         private System.Windows.Forms.TextBox TxtTotal;
         private System.Windows.Forms.Button BtnDescuento;
         private System.Windows.Forms.Button BtnManejo;
+        private System.Windows.Forms.CheckBox ChkContenidoVerificado;
     }
 }
 

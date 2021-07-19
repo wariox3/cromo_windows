@@ -20,7 +20,8 @@ namespace cromo
         public string nombre2 { get; set; }
         public string apellido1 { get; set; }
         public string apellido2 { get; set; }
-        public string correo { get; set; }        
+        public string correo { get; set; }
+        public string codigoTerceroFk { get; set; }
         public string error { get; set; }
     }
 

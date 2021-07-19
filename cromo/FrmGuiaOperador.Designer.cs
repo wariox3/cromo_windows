@@ -115,6 +115,7 @@
             this.TxtManejoMinimoDespacho = new System.Windows.Forms.TextBox();
             this.TxtManejoMinimoUnidad = new System.Windows.Forms.TextBox();
             this.TxtPorcentajeManejo = new System.Windows.Forms.TextBox();
+            this.ChkContenidoVerificado = new System.Windows.Forms.CheckBox();
             this.gbRemitente.SuspendLayout();
             this.gbComentario.SuspendLayout();
             this.gbInformacion.SuspendLayout();
@@ -240,7 +241,7 @@
             this.gbComentario.Controls.Add(this.label29);
             this.gbComentario.Controls.Add(this.TxtComentario);
             this.gbComentario.Enabled = false;
-            this.gbComentario.Location = new System.Drawing.Point(13, 394);
+            this.gbComentario.Location = new System.Drawing.Point(13, 415);
             this.gbComentario.Name = "gbComentario";
             this.gbComentario.Size = new System.Drawing.Size(291, 72);
             this.gbComentario.TabIndex = 33;
@@ -265,6 +266,7 @@
             // 
             // gbInformacion
             // 
+            this.gbInformacion.Controls.Add(this.ChkContenidoVerificado);
             this.gbInformacion.Controls.Add(this.label26);
             this.gbInformacion.Controls.Add(this.CboProducto);
             this.gbInformacion.Controls.Add(this.label17);
@@ -272,7 +274,7 @@
             this.gbInformacion.Enabled = false;
             this.gbInformacion.Location = new System.Drawing.Point(13, 310);
             this.gbInformacion.Name = "gbInformacion";
-            this.gbInformacion.Size = new System.Drawing.Size(289, 78);
+            this.gbInformacion.Size = new System.Drawing.Size(289, 100);
             this.gbInformacion.TabIndex = 31;
             this.gbInformacion.TabStop = false;
             // 
@@ -624,6 +626,7 @@
             this.TxtNombreDestinatario.Name = "TxtNombreDestinatario";
             this.TxtNombreDestinatario.Size = new System.Drawing.Size(298, 20);
             this.TxtNombreDestinatario.TabIndex = 12;
+            this.TxtNombreDestinatario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtNombreDestinatario_KeyDown);
             this.TxtNombreDestinatario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnter);
             // 
             // label4
@@ -967,6 +970,17 @@
             this.TxtPorcentajeManejo.TabIndex = 1;
             this.TxtPorcentajeManejo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // ChkContenidoVerificado
+            // 
+            this.ChkContenidoVerificado.AutoSize = true;
+            this.ChkContenidoVerificado.Location = new System.Drawing.Point(72, 71);
+            this.ChkContenidoVerificado.Name = "ChkContenidoVerificado";
+            this.ChkContenidoVerificado.Size = new System.Drawing.Size(123, 17);
+            this.ChkContenidoVerificado.TabIndex = 20;
+            this.ChkContenidoVerificado.Text = "Contenido verificado";
+            this.ChkContenidoVerificado.UseVisualStyleBackColor = true;
+            this.ChkContenidoVerificado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnter);
+            // 
             // FrmGuiaOperador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1106,5 +1120,6 @@
         private System.Windows.Forms.TextBox TxtManejoMinimoDespacho;
         private System.Windows.Forms.TextBox TxtManejoMinimoUnidad;
         private System.Windows.Forms.TextBox TxtPorcentajeManejo;
+        private System.Windows.Forms.CheckBox ChkContenidoVerificado;
     }
 }

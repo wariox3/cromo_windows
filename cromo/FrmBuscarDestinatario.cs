@@ -27,7 +27,7 @@ namespace cromo
 
         public void LlenarDatosApi()
         {
-            string parametrosJson = "{\"nombre\":\"" + TxtNombre.Text + "\"}";
+            string parametrosJson = "{\"nombre\":\"" + TxtNombre.Text + "\",\"cliente\":\"" + General.CodigoCliente + "\"}";          
             string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/destinatario/buscar", parametrosJson);
             List<ApiDestinatario> apiDestinatarioLista = ser.Deserialize<List<ApiDestinatario>>(jsonRespuesta);
             DgDestinatarios.DataSource = apiDestinatarioLista;
@@ -46,8 +46,8 @@ namespace cromo
                 General.CodigoDestinatario = DgDestinatarios.Rows[DgDestinatarios.CurrentRow.Index].Cells[0].Value.ToString();
                 DialogResult = DialogResult.OK;
                 Close();
-            }        
-		}
+            }
+        }
 
 		private void DgDestinatarios_KeyDown(object sender, KeyEventArgs e)
 		{
@@ -83,5 +83,15 @@ namespace cromo
             }
 		}
 
+        private void BtnNuevo_Click(object sender, EventArgs e)
+        {
+            FrmDestinatarioNuevo frmDestinatarioNuevo = new FrmDestinatarioNuevo();
+            frmDestinatarioNuevo.ShowDialog();
+            if (frmDestinatarioNuevo.DialogResult == DialogResult.OK)
+            {
+                TxtNombre.Text = General.NombreDestinatario;
+                LlenarDatosApi();
+            }
+        }
     }
 }

@@ -37,6 +37,13 @@ namespace cromo
 			set { v_CodigoDestinatario = value; }
 		}
 
+        private static string v_NombreDestinatario = "";
+        public static string NombreDestinatario
+        {
+            get { return v_NombreDestinatario; }
+            set { v_NombreDestinatario = value; }
+        }
+
         private static string v_CodigoRemitente = "";
         public static string CodigoRemitente
         {

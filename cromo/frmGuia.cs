@@ -153,6 +153,7 @@ namespace cromo
                                 apiGuia.tipoLiquidacion = tipoLiquidacion;
                                 apiGuia.comentario = TxtComentario.Text;
                                 apiGuia.mercanciaPeligrosa = ChkMercanciaPeligrosa.Checked;
+                                apiGuia.contenidoVerificado = ChkContenidoVerificado.Checked;
                                 apiGuia.ordenRuta = TxtOrdenRuta.Text;
                                 apiGuia.codigoZonaFk = TxtCodigoZona.Text;
                                 apiGuia.codigoDestinatarioFk = TxtCodigoDestinatario.Text;
@@ -458,7 +459,8 @@ namespace cromo
             RbUnidad.Checked = false;
             RbAdicional.Checked = false;
             TxtUsuario.Text = "";
-            
+            ChkMercanciaPeligrosa.Checked = false;
+            ChkContenidoVerificado.Checked = false;            
         }
 
         public void Desbloquear()
@@ -666,8 +668,8 @@ namespace cromo
                     }
 
                     if (TxtCodigoCliente.Text != "")
-                    {
-                        parametrosJson = "{\"codigoCliente\":\"" + TxtCodigoCliente.Text + "\",\"origen\":\"" + codigoOrigen + "\", \"destino\":\"" + codigoDestino + "\", \"codigoZona\":\"" + TxtCodigoZona.Text + "\", \"codigoCobertura\":\"" + TxtCodigoCobertura.Text + "\"}";
+                    {                        
+                        parametrosJson = "{\"codigoCliente\":\"" + TxtCodigoCliente.Text + "\",\"origen\":\"" + codigoOrigen + "\", \"destino\":\"" + codigoDestino + "\", \"codigoZona\":\"" + TxtCodigoZona.Text + "\", \"codigoCobertura\":\"" + TxtCodigoCobertura.Text + "\", \"guiaTipo\":\"" + CboTipo.SelectedValue.ToString() + "\"}";
                         jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/condicionflete/liquidar", parametrosJson);
                         ApiCondicionFlete apiCondicionFlete = ser.Deserialize<ApiCondicionFlete>(jsonRespuesta);
                         if (apiCondicionFlete.error == null)
@@ -690,7 +692,7 @@ namespace cromo
                             TxtFleteFleteMinimo.Text = "0";
                             TxtFleteFleteMinimoGuia.Text = "0";
                         }
-                        parametrosJson = "{\"codigoCliente\":\"" + TxtCodigoCliente.Text + "\",\"origen\":\"" + codigoOrigen + "\", \"destino\":\"" + codigoDestino + "\", \"codigoZona\":\"" + TxtCodigoZona.Text + "\", \"codigoCobertura\":\"" + TxtCodigoCobertura.Text + "\"}";
+                        parametrosJson = "{\"codigoCliente\":\"" + TxtCodigoCliente.Text + "\",\"origen\":\"" + codigoOrigen + "\", \"destino\":\"" + codigoDestino + "\", \"codigoZona\":\"" + TxtCodigoZona.Text + "\", \"codigoCobertura\":\"" + TxtCodigoCobertura.Text + "\", \"guiaTipo\":\"" + CboTipo.SelectedValue.ToString() + "\"}";
                         jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/condicionmanejo/liquidar", parametrosJson);
                         ApiCondicionManejo apiCondicionManejo = ser.Deserialize<ApiCondicionManejo>(jsonRespuesta);
                         if (apiCondicionManejo.error == null)
@@ -1310,6 +1312,7 @@ namespace cromo
         {
             if (e.KeyCode.ToString() == "F2")
             {
+                General.CodigoCliente = TxtCodigoCliente.Text;
                 FrmBuscarDestinatario frmBuscarDestinatario = new FrmBuscarDestinatario();
                 frmBuscarDestinatario.ShowDialog();
                 if (frmBuscarDestinatario.DialogResult == DialogResult.OK)

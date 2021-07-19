@@ -106,6 +106,10 @@ namespace cromo
                 apiDestinatario.direccion = TxtDireccion.Text;
                 apiDestinatario.telefono = TxtTelefono.Text;
                 apiDestinatario.correo = TxtCorreo.Text;
+                if(General.CodigoCliente != "")
+                {
+                    apiDestinatario.codigoTerceroFk = General.CodigoCliente;
+                }
 
                 string parametrosJson = ser.Serialize(apiDestinatario);
                 string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/destinatario/nuevo", parametrosJson);
@@ -114,6 +118,7 @@ namespace cromo
                 {
                     MessageBox.Show(this, "El destinatario se guardo con exito ", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     General.CodigoDestinatario = apiDestinatarioRespuesta.codigoDestinatarioPk;
+                    General.NombreDestinatario = TxtNombreCorto.Text;
                     DialogResult = DialogResult.OK;
                 }
                 else

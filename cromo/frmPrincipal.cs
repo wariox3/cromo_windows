@@ -139,6 +139,7 @@ namespace cromo
 
         private void MenuCrearDestinatario_Click(object sender, EventArgs e)
         {
+            General.CodigoCliente = "";
             FrmDestinatarioNuevo frmDestinatarioNuevo = new FrmDestinatarioNuevo();
             frmDestinatarioNuevo.ShowDialog();
         }
