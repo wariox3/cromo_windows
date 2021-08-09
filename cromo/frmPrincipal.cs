@@ -97,9 +97,15 @@ namespace cromo
 
         private void undoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmGuia frmGuia = new FrmGuia();
-            frmGuia.MdiParent = this;
-            frmGuia.Show();
+            if(General.RestringirGuiaNueva == false)
+            {
+                FrmGuia frmGuia = new FrmGuia();
+                frmGuia.MdiParent = this;
+                frmGuia.Show();
+            } else
+            {
+                MessageBox.Show(this, "No tiene permisos para crear guias", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void mnuArchivoConfigurcion_Click(object sender, EventArgs e)
@@ -158,9 +164,16 @@ namespace cromo
 
         private void MnuGuiaOperador_Click(object sender, EventArgs e)
         {
-            FrmGuiaOperador frmGuiaOperador = new FrmGuiaOperador();
-            frmGuiaOperador.MdiParent = this;
-            frmGuiaOperador.Show();
+            if (General.RestringirGuiaNueva == false)
+            {
+                FrmGuiaOperador frmGuiaOperador = new FrmGuiaOperador();
+                frmGuiaOperador.MdiParent = this;
+                frmGuiaOperador.Show();
+            }
+            else
+            {
+                MessageBox.Show(this, "No tiene permisos para crear guias", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

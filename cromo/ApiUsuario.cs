@@ -12,6 +12,7 @@ namespace cromo
         public string nombreCorto { get; set; }
         public int versionBaseDatos { get; set; }
         public bool numeroUnicoGuia { get; set; }
+        public bool restringirGuiaNueva { get; set; }
         public int codigoPrecioGeneral { get; set; }
         public int codigoCondicionGeneral { get; set; }
         public string codigoFormatoGuia { get; set; }

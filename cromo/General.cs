@@ -163,6 +163,13 @@ namespace cromo
 			set { v_NumeroUnicoGuia = value; }
 		}
 
+        private static bool v_RestringirGuiaNueva = false;
+        public static bool RestringirGuiaNueva
+        {
+            get { return v_RestringirGuiaNueva; }
+            set { v_RestringirGuiaNueva = value; }
+        }
+
         private static int v_CodigoPrecioGeneral = 0;
         public static int CodigoPrecioGeneral
         {
@@ -183,7 +190,7 @@ namespace cromo
             get { return v_CodigoFormatoGuia; }
             set { v_CodigoFormatoGuia = value; }
         }
-
+   
         private static ImprimirFormato v_Formato;
         public static ImprimirFormato Formato
         {

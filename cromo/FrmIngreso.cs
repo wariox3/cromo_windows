@@ -106,6 +106,8 @@ namespace cromo
                                     General.CodigoOperacionIngreso = apiOperacion.codigoOperacionPk;
                                     General.CodigoOperacionCargo = apiOperacion.codigoOperacionCargoFk;
 
+                                    General.RestringirGuiaNueva = apiUsuario.restringirGuiaNueva;
+
                                     DialogResult = DialogResult.OK;
                                     Close();
                                 } else

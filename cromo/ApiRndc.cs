@@ -40,6 +40,8 @@ namespace cromo
         public string vrFletePago { get; set; }
         public string vrAnticipo { get; set; }
         public string vrRetencionFuente { get; set; }
+        public string vrIndustriaComercio { get; set; }
+        public string porcentajeIndustriaComercio { get; set; }
         public string codigoCiudadOrigenFk { get; set; }
         public string codigoCiudadDestinoFk { get; set; }
         public string codigoCiudadOrigen { get; set; }
