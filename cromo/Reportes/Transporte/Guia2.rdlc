@@ -319,13 +319,7 @@
                                     <Paragraph>
                                       <TextRuns>
                                         <TextRun>
-                                          <Value xml:space="preserve"> </Value>
-                                          <Style>
-                                            <FontSize>6pt</FontSize>
-                                          </Style>
-                                        </TextRun>
-                                        <TextRun>
-                                          <Value>=Fields!clienteNombre.Value</Value>
+                                          <Value>=Fields!nombreRemitente.Value</Value>
                                           <Style>
                                             <FontSize>6pt</FontSize>
                                           </Style>
@@ -350,7 +344,7 @@
                                     <Paragraph>
                                       <TextRuns>
                                         <TextRun>
-                                          <Value>=Fields!clienteDireccion.Value</Value>
+                                          <Value>=Fields!direccionRemitente.Value</Value>
                                           <Style>
                                             <FontSize>6pt</FontSize>
                                           </Style>
@@ -429,7 +423,7 @@
                                     <Paragraph>
                                       <TextRuns>
                                         <TextRun>
-                                          <Value>=Fields!clienteTelefono.Value</Value>
+                                          <Value>=Fields!telefonoRemitente.Value</Value>
                                           <Style>
                                             <FontSize>6pt</FontSize>
                                           </Style>
@@ -3046,13 +3040,7 @@
                                     <Paragraph>
                                       <TextRuns>
                                         <TextRun>
-                                          <Value xml:space="preserve"> </Value>
-                                          <Style>
-                                            <FontSize>6pt</FontSize>
-                                          </Style>
-                                        </TextRun>
-                                        <TextRun>
-                                          <Value>=Fields!clienteNombre.Value</Value>
+                                          <Value>=Fields!nombreRemitente.Value</Value>
                                           <Style>
                                             <FontSize>6pt</FontSize>
                                           </Style>
@@ -3077,7 +3065,7 @@
                                     <Paragraph>
                                       <TextRuns>
                                         <TextRun>
-                                          <Value>=Fields!clienteDireccion.Value</Value>
+                                          <Value>=Fields!direccionRemitente.Value</Value>
                                           <Style>
                                             <FontSize>6pt</FontSize>
                                           </Style>
@@ -3156,7 +3144,7 @@
                                     <Paragraph>
                                       <TextRuns>
                                         <TextRun>
-                                          <Value>=Fields!clienteTelefono.Value</Value>
+                                          <Value>=Fields!telefonoRemitente.Value</Value>
                                           <Style>
                                             <FontSize>6pt</FontSize>
                                           </Style>
@@ -5760,13 +5748,7 @@
                                     <Paragraph>
                                       <TextRuns>
                                         <TextRun>
-                                          <Value xml:space="preserve"> </Value>
-                                          <Style>
-                                            <FontSize>6pt</FontSize>
-                                          </Style>
-                                        </TextRun>
-                                        <TextRun>
-                                          <Value>=Fields!clienteNombre.Value</Value>
+                                          <Value>=Fields!nombreRemitente.Value</Value>
                                           <Style>
                                             <FontSize>6pt</FontSize>
                                           </Style>
@@ -5791,7 +5773,7 @@
                                     <Paragraph>
                                       <TextRuns>
                                         <TextRun>
-                                          <Value>=Fields!clienteDireccion.Value</Value>
+                                          <Value>=Fields!direccionRemitente.Value</Value>
                                           <Style>
                                             <FontSize>6pt</FontSize>
                                           </Style>
@@ -5870,7 +5852,7 @@
                                     <Paragraph>
                                       <TextRuns>
                                         <TextRun>
-                                          <Value>=Fields!clienteTelefono.Value</Value>
+                                          <Value>=Fields!telefonoRemitente.Value</Value>
                                           <Style>
                                             <FontSize>6pt</FontSize>
                                           </Style>
@@ -8540,7 +8522,6 @@
                             </Border>
                           </Style>
                         </Rectangle>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
