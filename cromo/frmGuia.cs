@@ -49,6 +49,7 @@ namespace cromo
             CargarServicio();
             CargarEmpaque();
             CargarProducto();
+            CargarIdentificacionDestinatario();
         }
 
         void TxtCodigoCliente_KeyDown(object sender, KeyEventArgs e)
@@ -135,6 +136,8 @@ namespace cromo
                                 apiGuia.nombreRemitente = TxtNombreRemitente.Text;
                                 apiGuia.telefonoRemitente = TxtTelefonoRemitente.Text;
                                 apiGuia.direccionRemitente = TxtDireccionRemitente.Text;
+                                apiGuia.codigoIdentificacionDestinatarioFk = CboIdentificacionDestinatario.SelectedValue.ToString();
+                                apiGuia.numeroIdentificacionDestinatario = TxtNumeroIdentificacionDestinatario.Text;
                                 apiGuia.nombreDestinatario = TxtNombreDestinatario.Text;
                                 apiGuia.direccionDestinatario = TxtDireccionDestinatario.Text;
                                 apiGuia.telefonoDestinatario = TxtTelefonoDestinatario.Text;
@@ -408,6 +411,7 @@ namespace cromo
             TxtRelacion.Text = "";
             TxtCodigoCiudadOrigen.Text = "";
             txtNombreCiudadOrigen.Text = "";
+            TxtNumeroIdentificacionDestinatario.Text = "";
             TxtNombreDestinatario.Text = "";
             TxtTelefonoDestinatario.Text = "";
             TxtDireccionDestinatario.Text = "";
@@ -722,6 +726,7 @@ namespace cromo
             }
         }
 
+
         private void CargarTipo()
         {
             string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/guiatipo/lista", null);
@@ -757,6 +762,15 @@ namespace cromo
             CboEmpaque.ValueMember = "codigoEmpaquePk";
             CboEmpaque.DisplayMember = "nombre";
             CboEmpaque.DataSource = apiEmpaqueLista;
+        }
+
+        private void CargarIdentificacionDestinatario()
+        {
+            string jsonRespuesta = ApiControlador.ApiPost("/general/api/windows/identificacion/lista", null);
+            List<ApiIdentificacion> apiIdentificacion = ser.Deserialize<List<ApiIdentificacion>>(jsonRespuesta);
+            CboIdentificacionDestinatario.ValueMember = "codigoIdentificacionPk";
+            CboIdentificacionDestinatario.DisplayMember = "nombre";
+            CboIdentificacionDestinatario.DataSource = apiIdentificacion;
         }
 
         private void MnuNuevo_Click(object sender, EventArgs e)
@@ -1327,6 +1341,8 @@ namespace cromo
                         TxtDireccionDestinatario.Text = apiDestinatario.direccion;
                         TxtTelefonoDestinatario.Text = apiDestinatario.telefono;
                         TxtCodigoCiudadDestino.Text = apiDestinatario.codigoCiudadFk;
+                        TxtNumeroIdentificacionDestinatario.Text = apiDestinatario.numeroIdentificacion;
+                        CboIdentificacionDestinatario.SelectedValue = apiDestinatario.codigoIdentificacionFk;
                     }
                     else
                     {
@@ -1477,6 +1493,7 @@ namespace cromo
                 TxtDeclarado.Focus();
             }
         }
+
     }
 
 }

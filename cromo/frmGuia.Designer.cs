@@ -32,7 +32,6 @@
             this.gbDestinatario = new System.Windows.Forms.GroupBox();
             this.TxtCodigoDestinatario = new System.Windows.Forms.TextBox();
             this.TxtCodigoZona = new System.Windows.Forms.TextBox();
-            this.label50 = new System.Windows.Forms.Label();
             this.label49 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
             this.TxtCodigoRuta = new System.Windows.Forms.TextBox();
@@ -102,6 +101,7 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.TsbRecibo = new System.Windows.Forms.ToolStripButton();
             this.gbInformacion = new System.Windows.Forms.GroupBox();
+            this.ChkContenidoVerificado = new System.Windows.Forms.CheckBox();
             this.ChkMercanciaPeligrosa = new System.Windows.Forms.CheckBox();
             this.label44 = new System.Windows.Forms.Label();
             this.TxtReferenciaEmpaque = new System.Windows.Forms.TextBox();
@@ -237,7 +237,10 @@
             this.ChkFactura = new System.Windows.Forms.CheckBox();
             this.BtnDescuento = new System.Windows.Forms.Button();
             this.BtnManejo = new System.Windows.Forms.Button();
-            this.ChkContenidoVerificado = new System.Windows.Forms.CheckBox();
+            this.TxtNumeroIdentificacionDestinatario = new System.Windows.Forms.TextBox();
+            this.label50 = new System.Windows.Forms.Label();
+            this.label65 = new System.Windows.Forms.Label();
+            this.CboIdentificacionDestinatario = new System.Windows.Forms.ComboBox();
             this.gbDestinatario.SuspendLayout();
             this.gbTotales.SuspendLayout();
             this.gbCliente.SuspendLayout();
@@ -257,9 +260,12 @@
             // 
             // gbDestinatario
             // 
+            this.gbDestinatario.Controls.Add(this.CboIdentificacionDestinatario);
+            this.gbDestinatario.Controls.Add(this.label65);
+            this.gbDestinatario.Controls.Add(this.label50);
+            this.gbDestinatario.Controls.Add(this.TxtNumeroIdentificacionDestinatario);
             this.gbDestinatario.Controls.Add(this.TxtCodigoDestinatario);
             this.gbDestinatario.Controls.Add(this.TxtCodigoZona);
-            this.gbDestinatario.Controls.Add(this.label50);
             this.gbDestinatario.Controls.Add(this.label49);
             this.gbDestinatario.Controls.Add(this.label48);
             this.gbDestinatario.Controls.Add(this.TxtCodigoRuta);
@@ -284,7 +290,7 @@
             // TxtCodigoDestinatario
             // 
             this.TxtCodigoDestinatario.Enabled = false;
-            this.TxtCodigoDestinatario.Location = new System.Drawing.Point(482, 34);
+            this.TxtCodigoDestinatario.Location = new System.Drawing.Point(482, 62);
             this.TxtCodigoDestinatario.Name = "TxtCodigoDestinatario";
             this.TxtCodigoDestinatario.Size = new System.Drawing.Size(35, 20);
             this.TxtCodigoDestinatario.TabIndex = 28;
@@ -292,24 +298,15 @@
             // TxtCodigoZona
             // 
             this.TxtCodigoZona.Enabled = false;
-            this.TxtCodigoZona.Location = new System.Drawing.Point(397, 81);
+            this.TxtCodigoZona.Location = new System.Drawing.Point(481, 85);
             this.TxtCodigoZona.Name = "TxtCodigoZona";
-            this.TxtCodigoZona.Size = new System.Drawing.Size(49, 20);
+            this.TxtCodigoZona.Size = new System.Drawing.Size(36, 20);
             this.TxtCodigoZona.TabIndex = 25;
-            // 
-            // label50
-            // 
-            this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(450, 84);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(39, 13);
-            this.label50.TabIndex = 24;
-            this.label50.Text = "Orden:";
             // 
             // label49
             // 
             this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(362, 84);
+            this.label49.Location = new System.Drawing.Point(440, 88);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(35, 13);
             this.label49.TabIndex = 23;
@@ -318,7 +315,7 @@
             // label48
             // 
             this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(288, 84);
+            this.label48.Location = new System.Drawing.Point(356, 88);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(33, 13);
             this.label48.TabIndex = 22;
@@ -327,7 +324,7 @@
             // TxtCodigoRuta
             // 
             this.TxtCodigoRuta.Enabled = false;
-            this.TxtCodigoRuta.Location = new System.Drawing.Point(322, 81);
+            this.TxtCodigoRuta.Location = new System.Drawing.Point(393, 85);
             this.TxtCodigoRuta.Name = "TxtCodigoRuta";
             this.TxtCodigoRuta.Size = new System.Drawing.Size(27, 20);
             this.TxtCodigoRuta.TabIndex = 21;
@@ -335,15 +332,15 @@
             // TxtOrdenRuta
             // 
             this.TxtOrdenRuta.Enabled = false;
-            this.TxtOrdenRuta.Location = new System.Drawing.Point(491, 81);
+            this.TxtOrdenRuta.Location = new System.Drawing.Point(426, 85);
             this.TxtOrdenRuta.Name = "TxtOrdenRuta";
-            this.TxtOrdenRuta.Size = new System.Drawing.Size(25, 20);
+            this.TxtOrdenRuta.Size = new System.Drawing.Size(14, 20);
             this.TxtOrdenRuta.TabIndex = 20;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(25, 60);
+            this.label5.Location = new System.Drawing.Point(25, 88);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(46, 13);
             this.label5.TabIndex = 19;
@@ -352,51 +349,52 @@
             // TxtNombreCiudadDestino
             // 
             this.TxtNombreCiudadDestino.Enabled = false;
-            this.TxtNombreCiudadDestino.Location = new System.Drawing.Point(135, 57);
+            this.TxtNombreCiudadDestino.Location = new System.Drawing.Point(121, 85);
             this.TxtNombreCiudadDestino.Name = "TxtNombreCiudadDestino";
             this.TxtNombreCiudadDestino.ReadOnly = true;
-            this.TxtNombreCiudadDestino.Size = new System.Drawing.Size(381, 20);
+            this.TxtNombreCiudadDestino.Size = new System.Drawing.Size(229, 20);
             this.TxtNombreCiudadDestino.TabIndex = 18;
             // 
             // TxtCodigoCiudadDestino
             // 
-            this.TxtCodigoCiudadDestino.Location = new System.Drawing.Point(76, 57);
+            this.TxtCodigoCiudadDestino.Location = new System.Drawing.Point(76, 85);
             this.TxtCodigoCiudadDestino.Name = "TxtCodigoCiudadDestino";
-            this.TxtCodigoCiudadDestino.Size = new System.Drawing.Size(53, 20);
-            this.TxtCodigoCiudadDestino.TabIndex = 15;
+            this.TxtCodigoCiudadDestino.Size = new System.Drawing.Size(39, 20);
+            this.TxtCodigoCiudadDestino.TabIndex = 16;
             this.TxtCodigoCiudadDestino.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCodigoCiudadDestino_KeyDown);
             this.TxtCodigoCiudadDestino.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             this.TxtCodigoCiudadDestino.Validated += new System.EventHandler(this.TxtCodigoCiudadDestino_Validated);
             // 
             // TxtDireccionDestinatario
             // 
-            this.TxtDireccionDestinatario.Location = new System.Drawing.Point(76, 34);
+            this.TxtDireccionDestinatario.Location = new System.Drawing.Point(76, 62);
             this.TxtDireccionDestinatario.Name = "TxtDireccionDestinatario";
             this.TxtDireccionDestinatario.Size = new System.Drawing.Size(400, 20);
-            this.TxtDireccionDestinatario.TabIndex = 14;
+            this.TxtDireccionDestinatario.TabIndex = 15;
             this.TxtDireccionDestinatario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             // 
             // TxtTelefonoDestinatario
             // 
-            this.TxtTelefonoDestinatario.Location = new System.Drawing.Point(428, 11);
+            this.TxtTelefonoDestinatario.Location = new System.Drawing.Point(428, 39);
             this.TxtTelefonoDestinatario.Name = "TxtTelefonoDestinatario";
             this.TxtTelefonoDestinatario.Size = new System.Drawing.Size(89, 20);
-            this.TxtTelefonoDestinatario.TabIndex = 13;
+            this.TxtTelefonoDestinatario.TabIndex = 14;
+            this.TxtTelefonoDestinatario.Tag = "N";
             this.TxtTelefonoDestinatario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             // 
             // TxtNombreDestinatario
             // 
-            this.TxtNombreDestinatario.Location = new System.Drawing.Point(76, 11);
+            this.TxtNombreDestinatario.Location = new System.Drawing.Point(76, 39);
             this.TxtNombreDestinatario.Name = "TxtNombreDestinatario";
             this.TxtNombreDestinatario.Size = new System.Drawing.Size(298, 20);
-            this.TxtNombreDestinatario.TabIndex = 12;
+            this.TxtNombreDestinatario.TabIndex = 13;           
             this.TxtNombreDestinatario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtNombreDestinatario_KeyDown);
             this.TxtNombreDestinatario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(380, 13);
+            this.label4.Location = new System.Drawing.Point(380, 41);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 13);
             this.label4.TabIndex = 12;
@@ -405,7 +403,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 37);
+            this.label3.Location = new System.Drawing.Point(15, 65);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 13);
             this.label3.TabIndex = 11;
@@ -414,7 +412,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(22, 15);
+            this.label2.Location = new System.Drawing.Point(22, 43);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 13);
             this.label2.TabIndex = 10;
@@ -1003,6 +1001,17 @@
             this.gbInformacion.TabIndex = 16;
             this.gbInformacion.TabStop = false;
             // 
+            // ChkContenidoVerificado
+            // 
+            this.ChkContenidoVerificado.AutoSize = true;
+            this.ChkContenidoVerificado.Location = new System.Drawing.Point(73, 148);
+            this.ChkContenidoVerificado.Name = "ChkContenidoVerificado";
+            this.ChkContenidoVerificado.Size = new System.Drawing.Size(123, 17);
+            this.ChkContenidoVerificado.TabIndex = 23;
+            this.ChkContenidoVerificado.Text = "Contenido verificado";
+            this.ChkContenidoVerificado.UseVisualStyleBackColor = true;
+            this.ChkContenidoVerificado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
+            // 
             // ChkMercanciaPeligrosa
             // 
             this.ChkMercanciaPeligrosa.AutoSize = true;
@@ -1027,7 +1036,7 @@
             // 
             this.TxtReferenciaEmpaque.Location = new System.Drawing.Point(73, 110);
             this.TxtReferenciaEmpaque.Name = "TxtReferenciaEmpaque";
-            this.TxtReferenciaEmpaque.Size = new System.Drawing.Size(103, 20);
+            this.TxtReferenciaEmpaque.Size = new System.Drawing.Size(201, 20);
             this.TxtReferenciaEmpaque.TabIndex = 21;
             this.TxtReferenciaEmpaque.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             // 
@@ -2045,17 +2054,17 @@
             // txtNombreCiudadOrigen
             // 
             this.txtNombreCiudadOrigen.Enabled = false;
-            this.txtNombreCiudadOrigen.Location = new System.Drawing.Point(135, 61);
+            this.txtNombreCiudadOrigen.Location = new System.Drawing.Point(120, 61);
             this.txtNombreCiudadOrigen.Name = "txtNombreCiudadOrigen";
             this.txtNombreCiudadOrigen.ReadOnly = true;
-            this.txtNombreCiudadOrigen.Size = new System.Drawing.Size(382, 20);
+            this.txtNombreCiudadOrigen.Size = new System.Drawing.Size(396, 20);
             this.txtNombreCiudadOrigen.TabIndex = 37;
             // 
             // TxtCodigoCiudadOrigen
             // 
             this.TxtCodigoCiudadOrigen.Location = new System.Drawing.Point(76, 61);
             this.TxtCodigoCiudadOrigen.Name = "TxtCodigoCiudadOrigen";
-            this.TxtCodigoCiudadOrigen.Size = new System.Drawing.Size(53, 20);
+            this.TxtCodigoCiudadOrigen.Size = new System.Drawing.Size(40, 20);
             this.TxtCodigoCiudadOrigen.TabIndex = 10;
             this.TxtCodigoCiudadOrigen.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCodigoCiudadOrigen_KeyDown);
             this.TxtCodigoCiudadOrigen.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
@@ -2285,16 +2294,41 @@
             this.BtnManejo.UseVisualStyleBackColor = true;
             this.BtnManejo.Click += new System.EventHandler(this.BtnManejo_Click);
             // 
-            // ChkContenidoVerificado
+            // TxtNumeroIdentificacionDestinatario
             // 
-            this.ChkContenidoVerificado.AutoSize = true;
-            this.ChkContenidoVerificado.Location = new System.Drawing.Point(73, 148);
-            this.ChkContenidoVerificado.Name = "ChkContenidoVerificado";
-            this.ChkContenidoVerificado.Size = new System.Drawing.Size(123, 17);
-            this.ChkContenidoVerificado.TabIndex = 23;
-            this.ChkContenidoVerificado.Text = "Contenido verificado";
-            this.ChkContenidoVerificado.UseVisualStyleBackColor = true;
-            this.ChkContenidoVerificado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
+            this.TxtNumeroIdentificacionDestinatario.Location = new System.Drawing.Point(351, 16);
+            this.TxtNumeroIdentificacionDestinatario.Name = "TxtNumeroIdentificacionDestinatario";
+            this.TxtNumeroIdentificacionDestinatario.Size = new System.Drawing.Size(166, 20);
+            this.TxtNumeroIdentificacionDestinatario.TabIndex = 12;
+            this.TxtNumeroIdentificacionDestinatario.Tag = "N";
+            this.TxtNumeroIdentificacionDestinatario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(46, 19);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(24, 13);
+            this.label50.TabIndex = 30;
+            this.label50.Text = "TP:";
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Location = new System.Drawing.Point(277, 19);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(73, 13);
+            this.label65.TabIndex = 31;
+            this.label65.Text = "Identificacion:";
+            // 
+            // CboIdentificacionDestinatario
+            // 
+            this.CboIdentificacionDestinatario.FormattingEnabled = true;
+            this.CboIdentificacionDestinatario.Location = new System.Drawing.Point(76, 15);
+            this.CboIdentificacionDestinatario.Name = "CboIdentificacionDestinatario";
+            this.CboIdentificacionDestinatario.Size = new System.Drawing.Size(196, 21);
+            this.CboIdentificacionDestinatario.TabIndex = 11;
+            this.CboIdentificacionDestinatario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             // 
             // FrmGuia
             // 
@@ -2484,7 +2518,6 @@
 		private System.Windows.Forms.Label label47;
 		private System.Windows.Forms.TextBox TxtNumeroFactura;
         private System.Windows.Forms.TextBox TxtCodigoZona;
-        private System.Windows.Forms.Label label50;
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.TextBox TxtCodigoDestinatario;
@@ -2569,6 +2602,10 @@
         private System.Windows.Forms.Button BtnDescuento;
         private System.Windows.Forms.Button BtnManejo;
         private System.Windows.Forms.CheckBox ChkContenidoVerificado;
+        private System.Windows.Forms.ComboBox CboIdentificacionDestinatario;
+        private System.Windows.Forms.Label label65;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.TextBox TxtNumeroIdentificacionDestinatario;
     }
 }
 

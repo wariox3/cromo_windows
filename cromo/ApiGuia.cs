@@ -32,6 +32,8 @@ namespace cromo
         public DateTime fechaIngreso { get; set; }
         public DateTime? fechaDespacho { get; set; }
         public DateTime? fechaEntrega { get; set; }
+        public string codigoIdentificacionDestinatarioFk { get; set; }
+        public string numeroIdentificacionDestinatario { get; set; }
         public string nombreDestinatario { get; set; }
         public string direccionDestinatario { get; set; }
         public string telefonoDestinatario { get; set; }
