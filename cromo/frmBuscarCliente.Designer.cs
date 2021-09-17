@@ -38,6 +38,7 @@
             this.ClmNumeroIdentificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClmCondicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClmInactivo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,7 +51,8 @@
             this.clmCodigoCliente,
             this.ClmNumeroIdentificacion,
             this.clmNombre,
-            this.ClmCondicion});
+            this.ClmCondicion,
+            this.ClmInactivo});
             this.DgClientes.Location = new System.Drawing.Point(12, 36);
             this.DgClientes.MultiSelect = false;
             this.DgClientes.Name = "DgClientes";
@@ -132,7 +134,7 @@
             this.clmNombre.HeaderText = "Nombre";
             this.clmNombre.Name = "clmNombre";
             this.clmNombre.ReadOnly = true;
-            this.clmNombre.Width = 400;
+            this.clmNombre.Width = 350;
             // 
             // ClmCondicion
             // 
@@ -140,7 +142,17 @@
             this.ClmCondicion.HeaderText = "Condicion";
             this.ClmCondicion.Name = "ClmCondicion";
             this.ClmCondicion.ReadOnly = true;
-            this.ClmCondicion.Width = 180;
+            this.ClmCondicion.Width = 160;
+            // 
+            // ClmInactivo
+            // 
+            this.ClmInactivo.DataPropertyName = "estadoInactivo";
+            this.ClmInactivo.HeaderText = "INA";
+            this.ClmInactivo.Name = "ClmInactivo";
+            this.ClmInactivo.ReadOnly = true;
+            this.ClmInactivo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ClmInactivo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ClmInactivo.Width = 50;
             // 
             // FrmBuscarCliente
             // 
@@ -174,5 +186,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmNumeroIdentificacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmCondicion;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn ClmInactivo;
     }
 }

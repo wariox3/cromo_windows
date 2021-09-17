@@ -22,12 +22,13 @@ namespace cromo
 		private void FrmBuscarDestinatario_Load(object sender, EventArgs e)
 		{
             DgDestinatarios.AutoGenerateColumns = false;
+            ChkTodosClientes.Checked = cromo.Properties.Settings.Default.destinatarioTodosClientes;
             LlenarDatosApi();
         }
 
         public void LlenarDatosApi()
         {
-            string parametrosJson = "{\"nombre\":\"" + TxtNombre.Text + "\",\"cliente\":\"" + General.CodigoCliente + "\"}";          
+            string parametrosJson = "{\"nombre\":\"" + TxtNombre.Text + "\",\"cliente\":\"" + General.CodigoCliente + "\",\"todos\":\"" + ChkTodosClientes.Checked + "\"}";          
             string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/destinatario/buscar", parametrosJson);
             List<ApiDestinatario> apiDestinatarioLista = ser.Deserialize<List<ApiDestinatario>>(jsonRespuesta);
             DgDestinatarios.DataSource = apiDestinatarioLista;
@@ -42,7 +43,7 @@ namespace cromo
 		private void BtnSeleccionar_Click(object sender, EventArgs e)
 		{
             if(DgDestinatarios.Rows.Count > 0)
-            {
+            {                
                 General.CodigoDestinatario = DgDestinatarios.Rows[DgDestinatarios.CurrentRow.Index].Cells[0].Value.ToString();
                 DialogResult = DialogResult.OK;
                 Close();
@@ -92,6 +93,12 @@ namespace cromo
                 TxtNombre.Text = General.NombreDestinatario;
                 LlenarDatosApi();
             }
+        }
+
+        private void ChkTodosClientes_CheckedChanged(object sender, EventArgs e)
+        {
+            cromo.Properties.Settings.Default.destinatarioTodosClientes = ChkTodosClientes.Checked;
+            cromo.Properties.Settings.Default.Save();
         }
     }
 }

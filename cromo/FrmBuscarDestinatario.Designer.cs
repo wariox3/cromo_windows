@@ -40,6 +40,7 @@
             this.ClmCiudad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtnNuevo = new System.Windows.Forms.Button();
+            this.ChkTodosClientes = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.DgDestinatarios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -160,12 +161,24 @@
             this.BtnNuevo.UseVisualStyleBackColor = true;
             this.BtnNuevo.Click += new System.EventHandler(this.BtnNuevo_Click);
             // 
+            // ChkTodosClientes
+            // 
+            this.ChkTodosClientes.AutoSize = true;
+            this.ChkTodosClientes.Location = new System.Drawing.Point(734, 12);
+            this.ChkTodosClientes.Name = "ChkTodosClientes";
+            this.ChkTodosClientes.Size = new System.Drawing.Size(111, 17);
+            this.ChkTodosClientes.TabIndex = 10;
+            this.ChkTodosClientes.Text = "Todos los clientes";
+            this.ChkTodosClientes.UseVisualStyleBackColor = true;
+            this.ChkTodosClientes.CheckedChanged += new System.EventHandler(this.ChkTodosClientes_CheckedChanged);
+            // 
             // FrmBuscarDestinatario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(857, 486);
             this.ControlBox = false;
+            this.Controls.Add(this.ChkTodosClientes);
             this.Controls.Add(this.BtnNuevo);
             this.Controls.Add(this.DgDestinatarios);
             this.Controls.Add(this.BtnCancelar);
@@ -196,5 +209,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmCiudad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Direccion;
         private System.Windows.Forms.Button BtnNuevo;
+        private System.Windows.Forms.CheckBox ChkTodosClientes;
     }
 }

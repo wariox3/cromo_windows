@@ -166,5 +166,17 @@ namespace cromo.Properties {
                 this["operadorLogistico"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool destinatarioTodosClientes {
+            get {
+                return ((bool)(this["destinatarioTodosClientes"]));
+            }
+            set {
+                this["destinatarioTodosClientes"] = value;
+            }
+        }
     }
 }
