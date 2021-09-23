@@ -333,7 +333,7 @@ namespace cromo
                                     <NUMIDCONDUCTOR>" + apiElementosRndc.despacho.conductorNumeroIdentificacion + @"</NUMIDCONDUCTOR>
                                     <VALORFLETEPACTADOVIAJE>" + apiElementosRndc.despacho.vrFletePago + @"</VALORFLETEPACTADOVIAJE>
                                     <RETENCIONFUENTEMANIFIESTO>" + apiElementosRndc.despacho.vrRetencionFuente + @"</RETENCIONFUENTEMANIFIESTO>
-                                    <RETENCIONICAMANIFIESTOCARGA>0</RETENCIONICAMANIFIESTOCARGA>
+                                    <RETENCIONICAMANIFIESTOCARGA>" + apiElementosRndc.despacho.porcentajeIndustriaComercio + @"</RETENCIONICAMANIFIESTOCARGA>
                                     <VALORANTICIPOMANIFIESTO>" + apiElementosRndc.despacho.vrAnticipo + @"</VALORANTICIPOMANIFIESTO>
                                     <FECHAPAGOSALDOMANIFIESTO>" + apiElementosRndc.despacho.fechaSalida + @"</FECHAPAGOSALDOMANIFIESTO>                                                
                                     <CODRESPONSABLEPAGOCARGUE>E</CODRESPONSABLEPAGOCARGUE>
