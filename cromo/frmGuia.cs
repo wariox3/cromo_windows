@@ -202,68 +202,90 @@ namespace cromo
             }
             else
             {
-                if (TxtCodigoCondicion.Text == "")
+                if(TxtNombreRemitente.Text == "")
                 {
-                    TxtCodigoCondicion.Focus();
+                    TxtNombreRemitente.Focus();
                     return false;
-                }
-                else
+                } else
                 {
-                    if (TxtCodigoCiudadOrigen.Text == "")
+                    if(TxtDireccionRemitente.Text == "")
                     {
-                        TxtCodigoCiudadOrigen.Focus();
+                        TxtDireccionRemitente.Focus();
                         return false;
-                    }
-                    else
+                    } else
                     {
-                        if (TxtCodigoCiudadDestino.Text == "")
+                        if (TxtTelefonoRemitente.Text == "")
                         {
-                            TxtCodigoCiudadDestino.Focus();
+                            TxtTelefonoRemitente.Focus();
                             return false;
-                        }
-                        else
+                        } else
                         {
-                            if (CboTipo.SelectedIndex < 0)
+                            if (TxtCodigoCondicion.Text == "")
                             {
-                                CboTipo.Focus();
+                                TxtCodigoCondicion.Focus();
                                 return false;
                             }
                             else
                             {
-                                if (CboServicio.SelectedIndex < 0)
+                                if (TxtCodigoCiudadOrigen.Text == "")
                                 {
-                                    CboServicio.Focus();
+                                    TxtCodigoCiudadOrigen.Focus();
                                     return false;
                                 }
                                 else
                                 {
-                                    if (CboProducto.SelectedIndex < 0)
+                                    if (TxtCodigoCiudadDestino.Text == "")
                                     {
-                                        CboProducto.Focus();
+                                        TxtCodigoCiudadDestino.Focus();
                                         return false;
                                     }
                                     else
                                     {
-                                        if (CboEmpaque.SelectedIndex < 0)
+                                        if (CboTipo.SelectedIndex < 0)
                                         {
-                                            CboEmpaque.Focus();
+                                            CboTipo.Focus();
                                             return false;
                                         }
                                         else
                                         {
-                                            double pesoMinimoValidar = 0;
-                                            double unidades = Convert.ToInt32(TxtUnidades.Text);
-                                            double pesoFacturarValidar = Convert.ToInt32(TxtPesoFacturar.Text);
-                                            pesoMinimoValidar = pesoMinimo * unidades;
-                                            if(pesoFacturarValidar < pesoMinimoValidar)
+                                            if (CboServicio.SelectedIndex < 0)
                                             {
-                                                MessageBox.Show(this, "El peso minimo a facturar es " + pesoMinimoValidar.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                                TxtPesoFacturar.Focus();
+                                                CboServicio.Focus();
                                                 return false;
-                                            } else
+                                            }
+                                            else
                                             {
-                                                return true;
-                                            }                                            
+                                                if (CboProducto.SelectedIndex < 0)
+                                                {
+                                                    CboProducto.Focus();
+                                                    return false;
+                                                }
+                                                else
+                                                {
+                                                    if (CboEmpaque.SelectedIndex < 0)
+                                                    {
+                                                        CboEmpaque.Focus();
+                                                        return false;
+                                                    }
+                                                    else
+                                                    {
+                                                        double pesoMinimoValidar = 0;
+                                                        double unidades = Convert.ToInt32(TxtUnidades.Text);
+                                                        double pesoFacturarValidar = Convert.ToInt32(TxtPesoFacturar.Text);
+                                                        pesoMinimoValidar = pesoMinimo * unidades;
+                                                        if (pesoFacturarValidar < pesoMinimoValidar)
+                                                        {
+                                                            MessageBox.Show(this, "El peso minimo a facturar es " + pesoMinimoValidar.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                            TxtPesoFacturar.Focus();
+                                                            return false;
+                                                        }
+                                                        else
+                                                        {
+                                                            return true;
+                                                        }
+                                                    }
+                                                }
+                                            }
                                         }
                                     }
                                 }
