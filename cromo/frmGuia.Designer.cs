@@ -30,6 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGuia));
             this.gbDestinatario = new System.Windows.Forms.GroupBox();
+            this.CboIdentificacionDestinatario = new System.Windows.Forms.ComboBox();
+            this.label65 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
+            this.TxtNumeroIdentificacionDestinatario = new System.Windows.Forms.TextBox();
             this.TxtCodigoDestinatario = new System.Windows.Forms.TextBox();
             this.TxtCodigoZona = new System.Windows.Forms.TextBox();
             this.label49 = new System.Windows.Forms.Label();
@@ -237,10 +241,6 @@
             this.ChkFactura = new System.Windows.Forms.CheckBox();
             this.BtnDescuento = new System.Windows.Forms.Button();
             this.BtnManejo = new System.Windows.Forms.Button();
-            this.TxtNumeroIdentificacionDestinatario = new System.Windows.Forms.TextBox();
-            this.label50 = new System.Windows.Forms.Label();
-            this.label65 = new System.Windows.Forms.Label();
-            this.CboIdentificacionDestinatario = new System.Windows.Forms.ComboBox();
             this.gbDestinatario.SuspendLayout();
             this.gbTotales.SuspendLayout();
             this.gbCliente.SuspendLayout();
@@ -286,6 +286,42 @@
             this.gbDestinatario.TabIndex = 11;
             this.gbDestinatario.TabStop = false;
             this.gbDestinatario.Text = "Destinatario";
+            // 
+            // CboIdentificacionDestinatario
+            // 
+            this.CboIdentificacionDestinatario.FormattingEnabled = true;
+            this.CboIdentificacionDestinatario.Location = new System.Drawing.Point(76, 15);
+            this.CboIdentificacionDestinatario.Name = "CboIdentificacionDestinatario";
+            this.CboIdentificacionDestinatario.Size = new System.Drawing.Size(196, 21);
+            this.CboIdentificacionDestinatario.TabIndex = 11;
+            this.CboIdentificacionDestinatario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Location = new System.Drawing.Point(277, 19);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(73, 13);
+            this.label65.TabIndex = 31;
+            this.label65.Text = "Identificacion:";
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(46, 19);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(24, 13);
+            this.label50.TabIndex = 30;
+            this.label50.Text = "TP:";
+            // 
+            // TxtNumeroIdentificacionDestinatario
+            // 
+            this.TxtNumeroIdentificacionDestinatario.Location = new System.Drawing.Point(351, 16);
+            this.TxtNumeroIdentificacionDestinatario.Name = "TxtNumeroIdentificacionDestinatario";
+            this.TxtNumeroIdentificacionDestinatario.Size = new System.Drawing.Size(166, 20);
+            this.TxtNumeroIdentificacionDestinatario.TabIndex = 12;
+            this.TxtNumeroIdentificacionDestinatario.Tag = "N";
+            this.TxtNumeroIdentificacionDestinatario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             // 
             // TxtCodigoDestinatario
             // 
@@ -387,7 +423,7 @@
             this.TxtNombreDestinatario.Location = new System.Drawing.Point(76, 39);
             this.TxtNombreDestinatario.Name = "TxtNombreDestinatario";
             this.TxtNombreDestinatario.Size = new System.Drawing.Size(298, 20);
-            this.TxtNombreDestinatario.TabIndex = 13;           
+            this.TxtNombreDestinatario.TabIndex = 13;
             this.TxtNombreDestinatario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtNombreDestinatario_KeyDown);
             this.TxtNombreDestinatario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             // 
@@ -1112,6 +1148,7 @@
             this.CboTipo.Size = new System.Drawing.Size(201, 21);
             this.CboTipo.TabIndex = 17;
             this.CboTipo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
+            this.CboTipo.Validated += new System.EventHandler(this.CboTipo_Validated);
             // 
             // menuStrip1
             // 
@@ -2293,42 +2330,6 @@
             this.BtnManejo.Text = "Manejo";
             this.BtnManejo.UseVisualStyleBackColor = true;
             this.BtnManejo.Click += new System.EventHandler(this.BtnManejo_Click);
-            // 
-            // TxtNumeroIdentificacionDestinatario
-            // 
-            this.TxtNumeroIdentificacionDestinatario.Location = new System.Drawing.Point(351, 16);
-            this.TxtNumeroIdentificacionDestinatario.Name = "TxtNumeroIdentificacionDestinatario";
-            this.TxtNumeroIdentificacionDestinatario.Size = new System.Drawing.Size(166, 20);
-            this.TxtNumeroIdentificacionDestinatario.TabIndex = 12;
-            this.TxtNumeroIdentificacionDestinatario.Tag = "N";
-            this.TxtNumeroIdentificacionDestinatario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
-            // 
-            // label50
-            // 
-            this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(46, 19);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(24, 13);
-            this.label50.TabIndex = 30;
-            this.label50.Text = "TP:";
-            // 
-            // label65
-            // 
-            this.label65.AutoSize = true;
-            this.label65.Location = new System.Drawing.Point(277, 19);
-            this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(73, 13);
-            this.label65.TabIndex = 31;
-            this.label65.Text = "Identificacion:";
-            // 
-            // CboIdentificacionDestinatario
-            // 
-            this.CboIdentificacionDestinatario.FormattingEnabled = true;
-            this.CboIdentificacionDestinatario.Location = new System.Drawing.Point(76, 15);
-            this.CboIdentificacionDestinatario.Name = "CboIdentificacionDestinatario";
-            this.CboIdentificacionDestinatario.Size = new System.Drawing.Size(196, 21);
-            this.CboIdentificacionDestinatario.TabIndex = 11;
-            this.CboIdentificacionDestinatario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             // 
             // FrmGuia
             // 

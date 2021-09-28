@@ -17,6 +17,7 @@ namespace cromo
         public bool cortesia { get; set; }
         public bool generaCobro { get; set; }
         public string codigoFormaPago { get; set; }
+        public string codigoPagoFk { get; set; }
     }
 
 }

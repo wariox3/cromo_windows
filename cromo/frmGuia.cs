@@ -24,6 +24,7 @@ namespace cromo
         string ultimoServicio = "";
         string ultimoProducto = "";
         string ultimoEmpaque = "";
+        string pago = "";
 
         int pesoMinimo = 0;
         int pesoMinimoGuia = 0;
@@ -888,8 +889,14 @@ namespace cromo
                     vrFlete = vrFleteMinimoDespacho;
                 }
                 vrFlete = Math.Round(vrFlete);
-                TxtFlete.Text = vrFlete.ToString();
                 vrManejo = Convert.ToDouble(TxtManejo.Text);
+                if (pago == "DES" || pago == "CON")
+                {                    
+                    vrFlete = Math.Round(vrFlete / 100) * 100;
+                    vrManejo = Math.Round(vrManejo / 100) * 100;
+                }
+                TxtFlete.Text = vrFlete.ToString();
+                TxtManejo.Text = vrManejo.ToString();
                 TxtTotal.Text = (vrFlete + vrManejo).ToString();                
             }
         }
@@ -1049,7 +1056,14 @@ namespace cromo
                 {
                     TxtManejo.Text = (manejoMinimoUnidad * Convert.ToInt32(TxtUnidades.Text)).ToString();
                 }
-                TxtTotal.Text = (Convert.ToDouble(TxtFlete.Text) + Convert.ToDouble(TxtManejo.Text)).ToString();
+                double vrManejo = Math.Round(Convert.ToDouble(TxtManejo.Text));
+                double vrFlete = Convert.ToDouble(TxtFlete.Text);
+                if (pago == "DES" || pago == "CON")
+                {                   
+                    vrManejo = Math.Round(vrManejo / 100) * 100;
+                }
+                TxtManejo.Text = vrManejo.ToString();
+                TxtTotal.Text = (vrFlete + vrManejo).ToString();
             }
         }
 
@@ -1516,6 +1530,17 @@ namespace cromo
             }
         }
 
+        private void CboTipo_Validated(object sender, EventArgs e)
+        {
+            JavaScriptSerializer ser = new JavaScriptSerializer();
+            string parametrosJson = "{\"guiaTipo\":\"" + CboTipo.SelectedValue.ToString() + "\"}";
+            string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/guiatipo/detalle", parametrosJson);
+            ApiGuiaTipo apiGuiaTipo = ser.Deserialize<ApiGuiaTipo>(jsonRespuesta);
+            if (apiGuiaTipo.error == null)
+            {
+                pago = apiGuiaTipo.codigoPagoFk;
+            }
+        }
     }
 
 }
