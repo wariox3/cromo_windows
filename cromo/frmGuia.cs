@@ -282,7 +282,16 @@ namespace cromo
                                                         }
                                                         else
                                                         {
-                                                            return true;
+                                                            double pesoVolumen = Convert.ToInt32(TxtVolumen.Text);
+                                                            if(pesoFacturarValidar < pesoVolumen)
+                                                            {
+                                                                MessageBox.Show(this, "El peso volumen es " + pesoVolumen.ToString() + " y no puede ser menor al peso a facturar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                                TxtPesoFacturar.Focus();
+                                                                return false;
+                                                            } else
+                                                            {
+                                                                return true;
+                                                            }                                                            
                                                         }
                                                     }
                                                 }
