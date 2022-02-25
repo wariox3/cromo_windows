@@ -59,5 +59,6 @@ namespace cromo
         public string comentario { get; set; }
         public string resolucionFactura { get; set; }        
         public string error { get; set; }
+        public string etiquetaAnulado { get; set; }
     }
 }
