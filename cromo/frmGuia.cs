@@ -1550,6 +1550,20 @@ namespace cromo
                 pago = apiGuiaTipo.codigoPagoFk;
             }
         }
+
+        private void TxtFlete_Validated(object sender, EventArgs e)
+        {
+            double flete = Convert.ToDouble(TxtFlete.Text);
+            double manejo = Convert.ToDouble(TxtManejo.Text);
+            TxtTotal.Text = (flete + manejo).ToString();
+        }
+
+        private void TxtManejo_Validated(object sender, EventArgs e)
+        {
+            double flete = Convert.ToDouble(TxtFlete.Text);
+            double manejo = Convert.ToDouble(TxtManejo.Text);
+            TxtTotal.Text = (flete + manejo).ToString();
+        }
     }
 
 }

@@ -602,6 +602,7 @@
             this.TxtManejo.TabIndex = 30;
             this.TxtManejo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.TxtManejo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
+            this.TxtManejo.Validated += new System.EventHandler(this.TxtManejo_Validated);
             // 
             // TxtFlete
             // 
@@ -611,6 +612,7 @@
             this.TxtFlete.TabIndex = 29;
             this.TxtFlete.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.TxtFlete.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
+            this.TxtFlete.Validated += new System.EventHandler(this.TxtFlete_Validated);
             // 
             // TxtDeclarado
             // 
