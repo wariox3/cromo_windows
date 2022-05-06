@@ -41,12 +41,14 @@
             this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtnNuevo = new System.Windows.Forms.Button();
             this.ChkTodosClientes = new System.Windows.Forms.CheckBox();
+            this.TxtNumeroIdentificacion = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgDestinatarios)).BeginInit();
             this.SuspendLayout();
             // 
             // BtnFiltrar
             // 
-            this.BtnFiltrar.Location = new System.Drawing.Point(373, 12);
+            this.BtnFiltrar.Location = new System.Drawing.Point(407, 12);
             this.BtnFiltrar.Name = "BtnFiltrar";
             this.BtnFiltrar.Size = new System.Drawing.Size(84, 20);
             this.BtnFiltrar.TabIndex = 4;
@@ -56,9 +58,9 @@
             // 
             // TxtNombre
             // 
-            this.TxtNombre.Location = new System.Drawing.Point(67, 12);
+            this.TxtNombre.Location = new System.Drawing.Point(132, 12);
             this.TxtNombre.Name = "TxtNombre";
-            this.TxtNombre.Size = new System.Drawing.Size(294, 20);
+            this.TxtNombre.Size = new System.Drawing.Size(269, 20);
             this.TxtNombre.TabIndex = 0;
             this.TxtNombre.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtNombre_KeyDown);
             this.TxtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNombre_KeyPress);
@@ -104,10 +106,10 @@
             this.ClmNombre,
             this.ClmCiudad,
             this.Direccion});
-            this.DgDestinatarios.Location = new System.Drawing.Point(17, 49);
+            this.DgDestinatarios.Location = new System.Drawing.Point(17, 68);
             this.DgDestinatarios.Name = "DgDestinatarios";
             this.DgDestinatarios.ReadOnly = true;
-            this.DgDestinatarios.Size = new System.Drawing.Size(828, 396);
+            this.DgDestinatarios.Size = new System.Drawing.Size(828, 377);
             this.DgDestinatarios.TabIndex = 1;
             this.DgDestinatarios.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DgDestinatarios_KeyDown);
             // 
@@ -172,12 +174,32 @@
             this.ChkTodosClientes.UseVisualStyleBackColor = true;
             this.ChkTodosClientes.CheckedChanged += new System.EventHandler(this.ChkTodosClientes_CheckedChanged);
             // 
+            // TxtNumeroIdentificacion
+            // 
+            this.TxtNumeroIdentificacion.Location = new System.Drawing.Point(132, 38);
+            this.TxtNumeroIdentificacion.Name = "TxtNumeroIdentificacion";
+            this.TxtNumeroIdentificacion.Size = new System.Drawing.Size(269, 20);
+            this.TxtNumeroIdentificacion.TabIndex = 11;
+            this.TxtNumeroIdentificacion.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtNumeroIdentificacion_KeyDown);
+            this.TxtNumeroIdentificacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNumeroIdentificacion_KeyPress);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(14, 38);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(112, 13);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Numero identificacion:";
+            // 
             // FrmBuscarDestinatario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(857, 486);
             this.ControlBox = false;
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.TxtNumeroIdentificacion);
             this.Controls.Add(this.ChkTodosClientes);
             this.Controls.Add(this.BtnNuevo);
             this.Controls.Add(this.DgDestinatarios);
@@ -210,5 +232,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Direccion;
         private System.Windows.Forms.Button BtnNuevo;
         private System.Windows.Forms.CheckBox ChkTodosClientes;
+        private System.Windows.Forms.TextBox TxtNumeroIdentificacion;
+        private System.Windows.Forms.Label label2;
     }
 }

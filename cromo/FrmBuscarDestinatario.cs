@@ -28,7 +28,7 @@ namespace cromo
 
         public void LlenarDatosApi()
         {
-            string parametrosJson = "{\"nombre\":\"" + TxtNombre.Text + "\",\"cliente\":\"" + General.CodigoCliente + "\",\"todos\":\"" + ChkTodosClientes.Checked + "\"}";          
+            string parametrosJson = "{\"nombre\":\"" + TxtNombre.Text + "\",\"cliente\":\"" + General.CodigoCliente + "\",\"todos\":\"" + ChkTodosClientes.Checked + "\",\"numeroIdentificacion\":\"" + TxtNumeroIdentificacion.Text + "\"}";          
             string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/destinatario/buscar", parametrosJson);
             List<ApiDestinatario> apiDestinatarioLista = ser.Deserialize<List<ApiDestinatario>>(jsonRespuesta);
             DgDestinatarios.DataSource = apiDestinatarioLista;
@@ -99,6 +99,22 @@ namespace cromo
         {
             cromo.Properties.Settings.Default.destinatarioTodosClientes = ChkTodosClientes.Checked;
             cromo.Properties.Settings.Default.Save();
+        }
+
+        private void TxtNumeroIdentificacion_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Down)
+            {
+                DgDestinatarios.Focus();
+            }
+        }
+
+        private void TxtNumeroIdentificacion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                LlenarDatosApi();
+            }
         }
     }
 }
