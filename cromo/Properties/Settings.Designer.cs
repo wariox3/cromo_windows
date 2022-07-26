@@ -178,5 +178,17 @@ namespace cromo.Properties {
                 this["destinatarioTodosClientes"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string tokenServidorManual {
+            get {
+                return ((string)(this["tokenServidorManual"]));
+            }
+            set {
+                this["tokenServidorManual"] = value;
+            }
+        }
     }
 }

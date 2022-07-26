@@ -8,9 +8,11 @@ namespace cromo
 {
     class ApiOperador
     {
-        public string error { get; set; }
+        public bool error { get; set; }
+        public string errorMensaje { get; set; }
         public string codigoOperadorPk { get; set; }
         public string nombre { get; set; }
-        public string urlServicio { get; set; }
+        public string puntoServicio { get; set; }
+        public string puntoServicioToken { get; set; }
     }
 }

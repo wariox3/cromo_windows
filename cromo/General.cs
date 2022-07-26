@@ -16,6 +16,13 @@ namespace cromo
             set { v_UrlServicio = value; }
         }
 
+        private static string v_TokenServicio = "";
+        public static string TokenServicio
+        {
+            get { return v_TokenServicio; }
+            set { v_TokenServicio = value; }
+        }
+
         private static string v_CodigoCliente = "";
 		public static string CodigoCliente
 		{

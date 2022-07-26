@@ -35,19 +35,21 @@ namespace cromo
                     if (servidorManual)
                     {
                         General.UrlServicio = cromo.Properties.Settings.Default.rutaServidorManual;
+                        General.TokenServicio = cromo.Properties.Settings.Default.tokenServidorManual;
 
                     } else
                     {
-                        parametrosJson = "{\"operador\":\"" + TxtOperador.Text + "\"}";
-                        jsonRespuesta = ApiControlador.ApiPostCesio("/api/windows/transporte/operador/validar", parametrosJson);                        
+                        parametrosJson = "{\"codigoOperador\":\"" + TxtOperador.Text + "\"}";
+                        jsonRespuesta = ApiControlador.ApiPostRubidio("/api/cliente/servicio", parametrosJson);                        
                         ApiOperador apiOperador = ser.Deserialize<ApiOperador>(jsonRespuesta);
-                        if (apiOperador.error == null)
+                        if (apiOperador.error == false)
                         {
-                            General.UrlServicio = apiOperador.urlServicio;
+                            General.UrlServicio = apiOperador.puntoServicio;
+                            General.TokenServicio = apiOperador.puntoServicioToken;
                         }
                         else
                         {
-                            MessageBox.Show(this, "El operador no existe " + apiOperador.error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);                            
+                            MessageBox.Show(this, apiOperador.errorMensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);                            
                         }
                     }
 

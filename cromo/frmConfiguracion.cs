@@ -23,6 +23,7 @@ namespace cromo
 			txtRutaReportes.Text = cromo.Properties.Settings.Default.rutaReportes;
             ChkServidorManual.Checked = cromo.Properties.Settings.Default.servidorManual;
             TxtRutaServidorManual.Text = cromo.Properties.Settings.Default.rutaServidorManual;
+            TxtTokenServidorManual.Text = cromo.Properties.Settings.Default.tokenServidorManual;
             TxtCodigoCliente.Text = cromo.Properties.Settings.Default.codigoCliente;
             ChkBloquearFlete.Checked = cromo.Properties.Settings.Default.bloquearFlete;
             ChkBloquearManejo.Checked = cromo.Properties.Settings.Default.bloquearManejo;
@@ -35,6 +36,7 @@ namespace cromo
 			cromo.Properties.Settings.Default.rutaReportes = txtRutaReportes.Text;
             cromo.Properties.Settings.Default.servidorManual = ChkServidorManual.Checked;
             cromo.Properties.Settings.Default.rutaServidorManual = TxtRutaServidorManual.Text;
+            cromo.Properties.Settings.Default.tokenServidorManual = TxtTokenServidorManual.Text;
             cromo.Properties.Settings.Default.codigoCliente = TxtCodigoCliente.Text;
             cromo.Properties.Settings.Default.bloquearFlete = ChkBloquearFlete.Checked;
             cromo.Properties.Settings.Default.bloquearManejo = ChkBloquearManejo.Checked;

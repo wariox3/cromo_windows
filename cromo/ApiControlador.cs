@@ -11,11 +11,13 @@ namespace cromo
     {
         public static String ApiPost(string ruta, string jsonParametros)
         {
-            string url = General.UrlServicio+ruta;            
+            string url = General.UrlServicio+ruta;
+            string token = General.TokenServicio;
             string jsonRespuesta = "";
             using (WebClient wc = new WebClient() { Encoding = Encoding.UTF8 })
             {
                 wc.Headers[HttpRequestHeader.ContentType] = "application/raw";
+                wc.Headers.Add("X-AUTH-TOKEN", token);
                 if (jsonParametros != null)
                 {                    
                     jsonRespuesta = wc.UploadString(url, jsonParametros);
@@ -29,9 +31,9 @@ namespace cromo
             return jsonRespuesta;
         }
 
-        public static String ApiPostCesio(string ruta, string jsonParametros)
+        public static String ApiPostRubidio(string ruta, string jsonParametros)
         {
-            string url = "http://142.93.149.5/cesio/public/index.php" + ruta;
+            string url = "http://142.93.149.5/rubidio/public/index.php" + ruta;
 
             string jsonRespuesta = "";
             using (WebClient wc = new WebClient() { Encoding = Encoding.UTF8 })

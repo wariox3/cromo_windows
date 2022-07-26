@@ -44,9 +44,11 @@
             this.TxtRutaServidorManual = new System.Windows.Forms.TextBox();
             this.ChkServidorManual = new System.Windows.Forms.CheckBox();
             this.tabOperador = new System.Windows.Forms.TabPage();
+            this.ChkOperadorLogistico = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.TxtCodigoCliente = new System.Windows.Forms.TextBox();
-            this.ChkOperadorLogistico = new System.Windows.Forms.CheckBox();
+            this.TxtTokenServidorManual = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.tabConfiguracion.SuspendLayout();
             this.tbpOperacion.SuspendLayout();
             this.tbpRutas.SuspendLayout();
@@ -165,6 +167,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label4);
+            this.tabPage1.Controls.Add(this.TxtTokenServidorManual);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.TxtRutaServidorManual);
             this.tabPage1.Controls.Add(this.ChkServidorManual);
@@ -215,6 +219,16 @@
             this.tabOperador.Text = "Operador";
             this.tabOperador.UseVisualStyleBackColor = true;
             // 
+            // ChkOperadorLogistico
+            // 
+            this.ChkOperadorLogistico.AutoSize = true;
+            this.ChkOperadorLogistico.Location = new System.Drawing.Point(103, 47);
+            this.ChkOperadorLogistico.Name = "ChkOperadorLogistico";
+            this.ChkOperadorLogistico.Size = new System.Drawing.Size(111, 17);
+            this.ChkOperadorLogistico.TabIndex = 17;
+            this.ChkOperadorLogistico.Text = "Operador logistico";
+            this.ChkOperadorLogistico.UseVisualStyleBackColor = true;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -231,15 +245,21 @@
             this.TxtCodigoCliente.Size = new System.Drawing.Size(103, 20);
             this.TxtCodigoCliente.TabIndex = 0;
             // 
-            // ChkOperadorLogistico
+            // TxtTokenServidorManual
             // 
-            this.ChkOperadorLogistico.AutoSize = true;
-            this.ChkOperadorLogistico.Location = new System.Drawing.Point(103, 47);
-            this.ChkOperadorLogistico.Name = "ChkOperadorLogistico";
-            this.ChkOperadorLogistico.Size = new System.Drawing.Size(111, 17);
-            this.ChkOperadorLogistico.TabIndex = 17;
-            this.ChkOperadorLogistico.Text = "Operador logistico";
-            this.ChkOperadorLogistico.UseVisualStyleBackColor = true;
+            this.TxtTokenServidorManual.Location = new System.Drawing.Point(75, 69);
+            this.TxtTokenServidorManual.Name = "TxtTokenServidorManual";
+            this.TxtTokenServidorManual.Size = new System.Drawing.Size(259, 20);
+            this.TxtTokenServidorManual.TabIndex = 3;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(28, 72);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 13);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Token:";
             // 
             // FrmConfiguracion
             // 
@@ -289,5 +309,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox TxtCodigoCliente;
         private System.Windows.Forms.CheckBox ChkOperadorLogistico;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox TxtTokenServidorManual;
     }
 }
