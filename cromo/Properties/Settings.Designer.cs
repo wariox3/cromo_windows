@@ -190,5 +190,17 @@ namespace cromo.Properties {
                 this["tokenServidorManual"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool validarProductoCliente {
+            get {
+                return ((bool)(this["validarProductoCliente"]));
+            }
+            set {
+                this["validarProductoCliente"] = value;
+            }
+        }
     }
 }

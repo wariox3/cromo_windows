@@ -40,6 +40,8 @@
             this.txtRutaReportes = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label4 = new System.Windows.Forms.Label();
+            this.TxtTokenServidorManual = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.TxtRutaServidorManual = new System.Windows.Forms.TextBox();
             this.ChkServidorManual = new System.Windows.Forms.CheckBox();
@@ -47,8 +49,7 @@
             this.ChkOperadorLogistico = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.TxtCodigoCliente = new System.Windows.Forms.TextBox();
-            this.TxtTokenServidorManual = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.ChkValidarProductoCliente = new System.Windows.Forms.CheckBox();
             this.tabConfiguracion.SuspendLayout();
             this.tbpOperacion.SuspendLayout();
             this.tbpRutas.SuspendLayout();
@@ -90,6 +91,7 @@
             // 
             // tbpOperacion
             // 
+            this.tbpOperacion.Controls.Add(this.ChkValidarProductoCliente);
             this.tbpOperacion.Controls.Add(this.ChkBloquearManejo);
             this.tbpOperacion.Controls.Add(this.ChkBloquearFlete);
             this.tbpOperacion.Controls.Add(this.txtCentroOperacion);
@@ -180,6 +182,22 @@
             this.tabPage1.Text = "Servidor";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(28, 72);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 13);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Token:";
+            // 
+            // TxtTokenServidorManual
+            // 
+            this.TxtTokenServidorManual.Location = new System.Drawing.Point(75, 69);
+            this.TxtTokenServidorManual.Name = "TxtTokenServidorManual";
+            this.TxtTokenServidorManual.Size = new System.Drawing.Size(259, 20);
+            this.TxtTokenServidorManual.TabIndex = 3;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -245,21 +263,15 @@
             this.TxtCodigoCliente.Size = new System.Drawing.Size(103, 20);
             this.TxtCodigoCliente.TabIndex = 0;
             // 
-            // TxtTokenServidorManual
+            // ChkValidarProductoCliente
             // 
-            this.TxtTokenServidorManual.Location = new System.Drawing.Point(75, 69);
-            this.TxtTokenServidorManual.Name = "TxtTokenServidorManual";
-            this.TxtTokenServidorManual.Size = new System.Drawing.Size(259, 20);
-            this.TxtTokenServidorManual.TabIndex = 3;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(28, 72);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 13);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Token:";
+            this.ChkValidarProductoCliente.AutoSize = true;
+            this.ChkValidarProductoCliente.Location = new System.Drawing.Point(147, 87);
+            this.ChkValidarProductoCliente.Name = "ChkValidarProductoCliente";
+            this.ChkValidarProductoCliente.Size = new System.Drawing.Size(137, 17);
+            this.ChkValidarProductoCliente.TabIndex = 18;
+            this.ChkValidarProductoCliente.Text = "Validar producto cliente";
+            this.ChkValidarProductoCliente.UseVisualStyleBackColor = true;
             // 
             // FrmConfiguracion
             // 
@@ -311,5 +323,6 @@
         private System.Windows.Forms.CheckBox ChkOperadorLogistico;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox TxtTokenServidorManual;
+        private System.Windows.Forms.CheckBox ChkValidarProductoCliente;
     }
 }

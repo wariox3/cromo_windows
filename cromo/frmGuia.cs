@@ -643,7 +643,10 @@ namespace cromo
                         ChkPagoRecogida.Checked = apiCliente.guiaPagoRecogida;
                         TxtNombreRemitente.Text = txtNombreCliente.Text;
                         TxtTelefonoRemitente.Text = apiCliente.telefono;
-                        TxtDireccionRemitente.Text = apiCliente.direccion;
+                        TxtDireccionRemitente.Text = apiCliente.direccion;                       
+                        if (cromo.Properties.Settings.Default.validarProductoCliente) {
+                            CargarProductoCliente(Convert.ToInt32(TxtCodigoCliente.Text));
+                        }
                     }                    
                 }
             }
@@ -779,9 +782,20 @@ namespace cromo
         }
 
         private void CargarProducto()
-        {
+        {           
             string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/producto/lista", null);
             List<ApiProducto> apiProductoLista = ser.Deserialize<List<ApiProducto>>(jsonRespuesta);
+            CboProducto.ValueMember = "codigoProductoPk";
+            CboProducto.DisplayMember = "nombre";
+            CboProducto.DataSource = apiProductoLista;
+        }
+
+        private void CargarProductoCliente(int codigoCliente)
+        {
+            string parametrosJson = "{\"codigoTercero\":\"" + codigoCliente.ToString() + "\"}";
+            string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/producto/cliente", parametrosJson);
+            List<ApiProducto> apiProductoLista = ser.Deserialize<List<ApiProducto>>(jsonRespuesta);
+            CboProducto.Text = "";
             CboProducto.ValueMember = "codigoProductoPk";
             CboProducto.DisplayMember = "nombre";
             CboProducto.DataSource = apiProductoLista;
@@ -1281,7 +1295,7 @@ namespace cromo
 
         private void CboProducto_Validated(object sender, EventArgs e)
         {
-            if (codigoPrecio != 0 && TxtCodigoCiudadOrigen.Text != "" && TxtCodigoCiudadDestino.Text != "")
+            if (codigoPrecio != 0 && TxtCodigoCiudadOrigen.Text != "" && TxtCodigoCiudadDestino.Text != "" && CboProducto.Text != "")
             {
                 string codigoOrigen = TxtCodigoCiudadOrigen.Text;
                 string codigoDestino = TxtCodigoCiudadDestino.Text;
@@ -1336,7 +1350,7 @@ namespace cromo
             }
             else
             {
-                MessageBox.Show("Debe seleccionar una condicion comercial, origen y destino del servicio");
+                MessageBox.Show("Debe seleccionar una condicion comercial, origen, destino y producto para liquidar el envio");
             }
         }
 

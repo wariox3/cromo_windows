@@ -28,6 +28,7 @@ namespace cromo
             ChkBloquearFlete.Checked = cromo.Properties.Settings.Default.bloquearFlete;
             ChkBloquearManejo.Checked = cromo.Properties.Settings.Default.bloquearManejo;
             ChkOperadorLogistico.Checked = cromo.Properties.Settings.Default.operadorLogistico;
+            ChkValidarProductoCliente.Checked = cromo.Properties.Settings.Default.validarProductoCliente;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -41,6 +42,7 @@ namespace cromo
             cromo.Properties.Settings.Default.bloquearFlete = ChkBloquearFlete.Checked;
             cromo.Properties.Settings.Default.bloquearManejo = ChkBloquearManejo.Checked;
             cromo.Properties.Settings.Default.operadorLogistico = ChkOperadorLogistico.Checked;
+            cromo.Properties.Settings.Default.validarProductoCliente = ChkValidarProductoCliente.Checked;
             cromo.Properties.Settings.Default.Save();
             Close();
         }
