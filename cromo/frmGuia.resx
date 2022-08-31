@@ -196,20 +196,20 @@
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAG0SURBVDhPlU+/SwJxHL0TWmpqaWjrP2hqClyag2iJaAgi
-        E08iFQ4XcRAFQSXwR4siog6Cm0sSpWiCg4ObLUEtNbbklHq99+2+dqZEPXj3vp8f7/E5heh2uxehUGjy
+        E08iFQ4XEQQFQSXwR4siog6Cm0sSpWiCg4ObLUEtNbbklHq99+2+dqZEPXj3vp8f7/E5heh2uxehUGjy
         F/b7/RVhkjAMQ22320av11vm+xfasDdqtVp39Xr9O4TDRqMBMVSztRDm3ggcg7fTEA5QiABqMBicSKIe
         iyUT1hkpmjTWajURsIhiyQLZZ4CY81OtVg1zvhCVSmVDGiVnAsrlMk+3ydOsLBaLe6VS6bJQKDxCX1Ff
         Y38H71ORzoBcLgeZPzefz29ms9kB5mNrKOoP8Gh6QTqdFhfwTZVMpVJXsVhsmMlkDrEzoBm952Qy2UH9
         hv6qCEgkEpCv/5KEcTcajb5AK7wGOzr4BHpYo38fj8f3RQANVA6oZo9XvLMXDoc1aiQSaVIl0D+higAq
         C1NlwIwB9UMgEOiY7xG4xbfq9/tFANVKXdcPoCO73T629lljdkOPCPB6vXMXSHo8nnPMhzRJom76fL41
-        LhOq2+2eOByOJb5/kr+iado6do6hmsvl2uYuPZgLqE6nc/JPGmeAoijKJ0HwyX4fko0eAAAAAElFTkSu
+        LhOq2+2eOByOJb5/kr+iado6do6hmsvl2uYuPZgLqE6nc/JPGmeAoijKJ8tJyWCoLkpWAAAAAElFTkSu
         QmCC
 </value>
   </data>
   <data name="TsbBuscarGuia.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHjSURBVDhPlZK9a1phGMVvOwTSTIUMKV06ZQvtUJpRLFk6
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHjSURBVDhPlZK9a1phGMVvOwTSTIUMKV06ZQvtUJpRKVk6
         ZUpXN79QEIUYDVEU8VuxKqLQ+tHBaAY1ggriB1a96dz+A4VOpRRcSinhveY84fVqqyHJgR/vveec57mv
         oLCofr+/ORwOj8bjcRP0R6PRB7y/mU6nD3jlZvV6PQUW/ADsfwaDwZkoiuu8uqxGo7Hd7XYngHU6na9Y
         psfzWzy/q1arf8hvt9vvV96EzGaz+bHVajEwKJfL67MinfD2crncJeX40M710KKoVKvVfgEGdrkti/JK
@@ -217,7 +217,7 @@
         qVSq5XQ613h0ncXj8VfJZPJvOp1m4CWP/lUikdgJh8O/Y7EYi0ajw0gkchAKhV7j+QTeBEsleN99Pt9j
         PrKsYDC4HwgEJoD5/X4ZGp7h9XovsHiDjywLX3jm8XgCKH8GX1wu17nb7Y7glBc5HI5TnA/5yGrRb1/E
         brefAslms0lKpZJZrVYHarf/vWeyWCwbZrNZxCkRKpXq0mQy7fP4bsLAE6PR+A1IhMFgEGHf/RYkDD3X
-        arU/FQoFU6vVn2DdbwFJr9dv6XS6A41G81QQBOEKBMFKWW9PIJcAAAAASUVORK5CYII=
+        arU/FQoFU6vVn2DdbwFJr9dv6XS6A41G81QQBOEKAYhKVqrRWTwAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="TsbBuscar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

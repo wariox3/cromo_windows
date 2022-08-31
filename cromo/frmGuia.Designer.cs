@@ -241,6 +241,8 @@
             this.ChkFactura = new System.Windows.Forms.CheckBox();
             this.BtnDescuento = new System.Windows.Forms.Button();
             this.BtnManejo = new System.Windows.Forms.Button();
+            this.label66 = new System.Windows.Forms.Label();
+            this.CboTerceroOperacion = new System.Windows.Forms.ComboBox();
             this.gbDestinatario.SuspendLayout();
             this.gbTotales.SuspendLayout();
             this.gbCliente.SuspendLayout();
@@ -280,7 +282,7 @@
             this.gbDestinatario.Controls.Add(this.label3);
             this.gbDestinatario.Controls.Add(this.label2);
             this.gbDestinatario.Enabled = false;
-            this.gbDestinatario.Location = new System.Drawing.Point(19, 213);
+            this.gbDestinatario.Location = new System.Drawing.Point(19, 239);
             this.gbDestinatario.Name = "gbDestinatario";
             this.gbDestinatario.Size = new System.Drawing.Size(528, 112);
             this.gbDestinatario.TabIndex = 11;
@@ -482,7 +484,7 @@
             this.gbTotales.Controls.Add(this.label7);
             this.gbTotales.Controls.Add(this.label6);
             this.gbTotales.Enabled = false;
-            this.gbTotales.Location = new System.Drawing.Point(338, 324);
+            this.gbTotales.Location = new System.Drawing.Point(338, 350);
             this.gbTotales.Name = "gbTotales";
             this.gbTotales.Size = new System.Drawing.Size(208, 269);
             this.gbTotales.TabIndex = 17;
@@ -730,6 +732,8 @@
             // 
             // gbCliente
             // 
+            this.gbCliente.Controls.Add(this.CboTerceroOperacion);
+            this.gbCliente.Controls.Add(this.label66);
             this.gbCliente.Controls.Add(this.label14);
             this.gbCliente.Controls.Add(this.TxtCodigoAsesor);
             this.gbCliente.Controls.Add(this.label51);
@@ -748,7 +752,7 @@
             this.gbCliente.Enabled = false;
             this.gbCliente.Location = new System.Drawing.Point(18, 27);
             this.gbCliente.Name = "gbCliente";
-            this.gbCliente.Size = new System.Drawing.Size(528, 90);
+            this.gbCliente.Size = new System.Drawing.Size(528, 110);
             this.gbCliente.TabIndex = 0;
             this.gbCliente.TabStop = false;
             this.gbCliente.Text = "Cliente";
@@ -1034,7 +1038,7 @@
             this.gbInformacion.Controls.Add(this.CboServicio);
             this.gbInformacion.Controls.Add(this.CboTipo);
             this.gbInformacion.Enabled = false;
-            this.gbInformacion.Location = new System.Drawing.Point(19, 324);
+            this.gbInformacion.Location = new System.Drawing.Point(19, 353);
             this.gbInformacion.Name = "gbInformacion";
             this.gbInformacion.Size = new System.Drawing.Size(289, 172);
             this.gbInformacion.TabIndex = 16;
@@ -1450,7 +1454,7 @@
             this.gbComentario.Controls.Add(this.label29);
             this.gbComentario.Controls.Add(this.TxtComentario);
             this.gbComentario.Enabled = false;
-            this.gbComentario.Location = new System.Drawing.Point(17, 495);
+            this.gbComentario.Location = new System.Drawing.Point(17, 532);
             this.gbComentario.Name = "gbComentario";
             this.gbComentario.Size = new System.Drawing.Size(291, 72);
             this.gbComentario.TabIndex = 27;
@@ -2075,7 +2079,7 @@
             this.gbRemitente.Controls.Add(this.label62);
             this.gbRemitente.Controls.Add(this.label63);
             this.gbRemitente.Enabled = false;
-            this.gbRemitente.Location = new System.Drawing.Point(18, 118);
+            this.gbRemitente.Location = new System.Drawing.Point(18, 143);
             this.gbRemitente.Name = "gbRemitente";
             this.gbRemitente.Size = new System.Drawing.Size(528, 94);
             this.gbRemitente.TabIndex = 6;
@@ -2333,6 +2337,24 @@
             this.BtnManejo.Text = "Manejo";
             this.BtnManejo.UseVisualStyleBackColor = true;
             this.BtnManejo.Click += new System.EventHandler(this.BtnManejo_Click);
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Location = new System.Drawing.Point(7, 88);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(59, 13);
+            this.label66.TabIndex = 42;
+            this.label66.Text = "Operacion:";
+            // 
+            // CboTerceroOperacion
+            // 
+            this.CboTerceroOperacion.FormattingEnabled = true;
+            this.CboTerceroOperacion.Location = new System.Drawing.Point(76, 84);
+            this.CboTerceroOperacion.Name = "CboTerceroOperacion";
+            this.CboTerceroOperacion.Size = new System.Drawing.Size(383, 21);
+            this.CboTerceroOperacion.TabIndex = 43;
+            this.CboTerceroOperacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             // 
             // FrmGuia
             // 
@@ -2610,6 +2632,8 @@
         private System.Windows.Forms.Label label65;
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.TextBox TxtNumeroIdentificacionDestinatario;
+        private System.Windows.Forms.ComboBox CboTerceroOperacion;
+        private System.Windows.Forms.Label label66;
     }
 }
 

@@ -161,6 +161,7 @@ namespace cromo
                                 apiGuia.ordenRuta = TxtOrdenRuta.Text;
                                 apiGuia.codigoZonaFk = TxtCodigoZona.Text;
                                 apiGuia.codigoDestinatarioFk = TxtCodigoDestinatario.Text;
+                                apiGuia.codigoTerceroOperacionFk = CboTerceroOperacion.SelectedValue.ToString();
                                 parametrosJson = ser.Serialize(apiGuia);
                                 jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/guia/nuevo", parametrosJson);
                                 ApiGuiaRespuesta apiGuiaRespuesta = ser.Deserialize<ApiGuiaRespuesta>(jsonRespuesta);
@@ -647,6 +648,10 @@ namespace cromo
                         if (cromo.Properties.Settings.Default.validarProductoCliente) {
                             CargarProductoCliente(Convert.ToInt32(TxtCodigoCliente.Text));
                         }
+                        CboTerceroOperacion.Text = "";
+                        CboTerceroOperacion.ValueMember = "codigoTerceroOperacionPk";
+                        CboTerceroOperacion.DisplayMember = "nombre";
+                        CboTerceroOperacion.DataSource = apiCliente.operaciones;
                     }                    
                 }
             }

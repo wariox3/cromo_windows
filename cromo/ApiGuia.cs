@@ -75,6 +75,7 @@ namespace cromo
         public string condicionNombre { get; set; }
         public string codigoZonaFk { get; set; }
         public string codigoDestinatarioFk { get; set; }
+        public string codigoTerceroOperacionFk { get; set; }
         public string error { get; set; }
     }
 

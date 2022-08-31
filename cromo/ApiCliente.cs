@@ -34,12 +34,21 @@ namespace cromo
         public bool guiaPagoDestino { get; set; }
         public bool guiaPagoRecogida { get; set; }
         public string condicionNombre { get; set; }
+        public List<ApiTerceroOperacion> operaciones { get; set; }
         public string error { get; set; }
     }
 
     class ApiClienteRespuesta
     {
         public string codigoTerceroPk { get; set; }
+        public string error { get; set; }
+    }
+
+    class ApiTerceroOperacion
+    {
+        public string codigoTerceroOperacionPk { get; set; }
+        public string codigo { get; set; }
+        public string nombre { get; set; }
         public string error { get; set; }
     }
 }
