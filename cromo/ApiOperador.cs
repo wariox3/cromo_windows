@@ -14,5 +14,7 @@ namespace cromo
         public string nombre { get; set; }
         public string puntoServicio { get; set; }
         public string puntoServicioToken { get; set; }
+        public string puntoServicioUsuario { get; set; }
+        public string puntoServicioClave { get; set; }
     }
 }

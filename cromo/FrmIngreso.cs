@@ -36,7 +36,8 @@ namespace cromo
                     {
                         General.UrlServicio = cromo.Properties.Settings.Default.rutaServidorManual;
                         General.TokenServicio = cromo.Properties.Settings.Default.tokenServidorManual;
-
+                        General.UsuarioServicio = cromo.Properties.Settings.Default.usuarioServidorManual;
+                        General.ClaveServicio = cromo.Properties.Settings.Default.claveServidorManual;
                     } else
                     {
                         parametrosJson = "{\"codigoOperador\":\"" + TxtOperador.Text + "\"}";
@@ -46,6 +47,8 @@ namespace cromo
                         {
                             General.UrlServicio = apiOperador.puntoServicio;
                             General.TokenServicio = apiOperador.puntoServicioToken;
+                            General.UsuarioServicio = apiOperador.puntoServicioUsuario;
+                            General.ClaveServicio = apiOperador.puntoServicioClave;
                         }
                         else
                         {

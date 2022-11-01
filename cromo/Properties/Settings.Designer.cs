@@ -202,5 +202,29 @@ namespace cromo.Properties {
                 this["validarProductoCliente"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string usuarioServidorManual {
+            get {
+                return ((string)(this["usuarioServidorManual"]));
+            }
+            set {
+                this["usuarioServidorManual"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string claveServidorManual {
+            get {
+                return ((string)(this["claveServidorManual"]));
+            }
+            set {
+                this["claveServidorManual"] = value;
+            }
+        }
     }
 }

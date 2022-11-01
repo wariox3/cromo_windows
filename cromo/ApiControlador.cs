@@ -13,11 +13,16 @@ namespace cromo
         {
             string url = General.UrlServicio+ruta;
             string token = General.TokenServicio;
+            string usuario = General.UsuarioServicio;
+            string clave = General.ClaveServicio;
             string jsonRespuesta = "";
             using (WebClient wc = new WebClient() { Encoding = Encoding.UTF8 })
             {
                 wc.Headers[HttpRequestHeader.ContentType] = "application/raw";
-                wc.Headers.Add("X-AUTH-TOKEN", token);
+                //wc.Headers.Add("X-AUTH-TOKEN", token);
+                string credentials = Convert.ToBase64String(Encoding.ASCII.GetBytes(usuario + ":" + clave));
+                wc.Headers[HttpRequestHeader.Authorization] = "Basic " + credentials;
+
                 if (jsonParametros != null)
                 {                    
                     jsonRespuesta = wc.UploadString(url, jsonParametros);

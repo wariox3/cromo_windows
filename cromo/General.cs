@@ -23,6 +23,20 @@ namespace cromo
             set { v_TokenServicio = value; }
         }
 
+        private static string v_UsuarioServicio = "";
+        public static string UsuarioServicio
+        {
+            get { return v_UsuarioServicio; }
+            set { v_UsuarioServicio = value; }
+        }
+
+        private static string v_ClaveServicio = "";
+        public static string ClaveServicio
+        {
+            get { return v_ClaveServicio; }
+            set { v_ClaveServicio = value; }
+        }
+
         private static string v_CodigoCliente = "";
 		public static string CodigoCliente
 		{

@@ -43,7 +43,6 @@ namespace cromo
             bool validacion = true;
             RespuestaRndc retorno = new RespuestaRndc();
             BPMServicesClient client = new BPMServicesClient();
-            //Buscamos los terceros de ese despacho para transmitirlos
             string parametrosJson = "{\"codigoDespacho\":\"" + codigo + "\"}";
             string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/despacho/rndccumplir", parametrosJson);
             ApiElementosRndc apiElementosRndc = ser.Deserialize<ApiElementosRndc>(jsonRespuesta);           
