@@ -32,6 +32,7 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.tabConfiguracion = new System.Windows.Forms.TabControl();
             this.tbpOperacion = new System.Windows.Forms.TabPage();
+            this.ChkValidarProductoCliente = new System.Windows.Forms.CheckBox();
             this.ChkBloquearManejo = new System.Windows.Forms.CheckBox();
             this.ChkBloquearFlete = new System.Windows.Forms.CheckBox();
             this.txtCentroOperacion = new System.Windows.Forms.TextBox();
@@ -49,7 +50,10 @@
             this.ChkOperadorLogistico = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.TxtCodigoCliente = new System.Windows.Forms.TextBox();
-            this.ChkValidarProductoCliente = new System.Windows.Forms.CheckBox();
+            this.TxtUsuarioServidorManual = new System.Windows.Forms.TextBox();
+            this.TxtClaveServidorManual = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.tabConfiguracion.SuspendLayout();
             this.tbpOperacion.SuspendLayout();
             this.tbpRutas.SuspendLayout();
@@ -103,6 +107,16 @@
             this.tbpOperacion.TabIndex = 0;
             this.tbpOperacion.Text = "Operacion";
             this.tbpOperacion.UseVisualStyleBackColor = true;
+            // 
+            // ChkValidarProductoCliente
+            // 
+            this.ChkValidarProductoCliente.AutoSize = true;
+            this.ChkValidarProductoCliente.Location = new System.Drawing.Point(147, 87);
+            this.ChkValidarProductoCliente.Name = "ChkValidarProductoCliente";
+            this.ChkValidarProductoCliente.Size = new System.Drawing.Size(137, 17);
+            this.ChkValidarProductoCliente.TabIndex = 18;
+            this.ChkValidarProductoCliente.Text = "Validar producto cliente";
+            this.ChkValidarProductoCliente.UseVisualStyleBackColor = true;
             // 
             // ChkBloquearManejo
             // 
@@ -169,6 +183,10 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label6);
+            this.tabPage1.Controls.Add(this.label5);
+            this.tabPage1.Controls.Add(this.TxtClaveServidorManual);
+            this.tabPage1.Controls.Add(this.TxtUsuarioServidorManual);
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.TxtTokenServidorManual);
             this.tabPage1.Controls.Add(this.label2);
@@ -263,15 +281,37 @@
             this.TxtCodigoCliente.Size = new System.Drawing.Size(103, 20);
             this.TxtCodigoCliente.TabIndex = 0;
             // 
-            // ChkValidarProductoCliente
+            // TxtUsuarioServidorManual
             // 
-            this.ChkValidarProductoCliente.AutoSize = true;
-            this.ChkValidarProductoCliente.Location = new System.Drawing.Point(147, 87);
-            this.ChkValidarProductoCliente.Name = "ChkValidarProductoCliente";
-            this.ChkValidarProductoCliente.Size = new System.Drawing.Size(137, 17);
-            this.ChkValidarProductoCliente.TabIndex = 18;
-            this.ChkValidarProductoCliente.Text = "Validar producto cliente";
-            this.ChkValidarProductoCliente.UseVisualStyleBackColor = true;
+            this.TxtUsuarioServidorManual.Location = new System.Drawing.Point(75, 95);
+            this.TxtUsuarioServidorManual.Name = "TxtUsuarioServidorManual";
+            this.TxtUsuarioServidorManual.Size = new System.Drawing.Size(259, 20);
+            this.TxtUsuarioServidorManual.TabIndex = 5;
+            // 
+            // TxtClaveServidorManual
+            // 
+            this.TxtClaveServidorManual.Location = new System.Drawing.Point(75, 121);
+            this.TxtClaveServidorManual.Name = "TxtClaveServidorManual";
+            this.TxtClaveServidorManual.Size = new System.Drawing.Size(259, 20);
+            this.TxtClaveServidorManual.TabIndex = 6;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(28, 95);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(46, 13);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Usuario:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(33, 124);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(37, 13);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Clave:";
             // 
             // FrmConfiguracion
             // 
@@ -324,5 +364,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox TxtTokenServidorManual;
         private System.Windows.Forms.CheckBox ChkValidarProductoCliente;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox TxtClaveServidorManual;
+        private System.Windows.Forms.TextBox TxtUsuarioServidorManual;
     }
 }
