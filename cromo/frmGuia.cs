@@ -36,6 +36,7 @@ namespace cromo
         int codigoPrecio = 0;
         bool bloquearFlete = false;
         bool bloquearManejo = false;
+        bool limitarDescuentoReexpedicion = false;
 
         public FrmGuia()
         {
@@ -678,6 +679,13 @@ namespace cromo
         {
             string codigoOrigen = TxtCodigoCiudadOrigen.Text;
             string codigoDestino = TxtCodigoCiudadDestino.Text;
+            TxtUnidades.Text = "0";
+            TxtPeso.Text = "0";
+            TxtVolumen.Text = "0";
+            TxtPesoFacturar.Text = "0";
+            TxtDeclarado.Text = "0";            
+            TxtFlete.Text = "0";
+            TxtManejo.Text = "0";
             if (ChkInvertirCiudad.Checked)
             {
                 codigoOrigen = TxtCodigoCiudadDestino.Text;
@@ -895,7 +903,10 @@ namespace cromo
                     vrFlete = pesoFacturar * precioPeso;
                     if (descuentoPeso > 0 && !ChkOmitirDescuento.Checked)
                     {
-                        vrFlete -= vrFlete * descuentoPeso / 100;
+                        if(limitarDescuentoReexpedicion == false || !ChkReexpedicion.Checked)
+                        {
+                            vrFlete -= vrFlete * descuentoPeso / 100;
+                        }                                          
                     }
                 }
                 else if (RbUnidad.Checked)
@@ -999,6 +1010,7 @@ namespace cromo
                     manejoMinimoDespacho = apiCondicion.manejoMinimoDespacho;
                     descuentoPeso = apiCondicion.descuentoPeso;
                     codigoPrecio = apiCondicion.codigoPrecioFk;
+                    limitarDescuentoReexpedicion = apiCondicion.limitarDescuentoReexpedicion;
                     TxtCodigoPrecio.Text = apiCondicion.codigoPrecioFk.ToString();
                     ChkListaGeneral.Checked = apiCondicion.precioGeneral;
                     TxtPesoMinimo.Text = pesoMinimo.ToString();
@@ -1010,6 +1022,7 @@ namespace cromo
                     bool precioPeso = apiCondicion.precioPeso;
                     bool precioUnidad = apiCondicion.precioUnidad;
                     bool precioAdicional = apiCondicion.precioAdicional;
+                    
                     if (precioPeso)
                     {
                         RbPeso.Checked = true;

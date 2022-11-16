@@ -21,6 +21,7 @@ namespace cromo
         public bool precioPeso { get; set; }
         public bool precioUnidad { get; set; }
         public bool precioAdicional { get; set; }
+        public bool limitarDescuentoReexpedicion { get; set; }
         public string error { get; set; }
     }
 }
