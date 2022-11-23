@@ -175,5 +175,11 @@ namespace cromo
                 MessageBox.Show(this, "No tiene permisos para crear guias", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void conexionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmConexion frmConexion = new FrmConexion();
+            frmConexion.ShowDialog();
+        }
     }
 }
