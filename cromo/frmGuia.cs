@@ -682,8 +682,7 @@ namespace cromo
             TxtUnidades.Text = "0";
             TxtPeso.Text = "0";
             TxtVolumen.Text = "0";
-            TxtPesoFacturar.Text = "0";
-            TxtDeclarado.Text = "0";            
+            TxtPesoFacturar.Text = "0";            
             TxtFlete.Text = "0";
             TxtManejo.Text = "0";
             if (ChkInvertirCiudad.Checked)
