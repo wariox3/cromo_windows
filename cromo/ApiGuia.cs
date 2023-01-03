@@ -86,4 +86,31 @@ namespace cromo
         public string numeroFactura { get; set; }
         public string error { get; set; }
     }
+
+    public class ApiGuiaRndc
+    {
+        public string codigoGuiaPk { get; set; }
+        public string fechaIngreso { get; set; }
+        public string productoNombre { get; set; }
+        public string productoCodigoTransporte { get; set; }
+        public string terceroTipoIdentificacion { get; set; }
+        public string terceroNumeroIdentificacion { get; set; }
+        public string terceroNombreCorto { get; set; }
+        public string pesoReal { get; set; }
+        public string codigoCiudadOrigenFk { get; set; }
+        public string codigoCiudadDestinoFk { get; set; }
+        public string codigoCiudadOrigen { get; set; }
+        public string codigoCiudadDestino { get; set; }
+        public string ciudadOrigen { get; set; }
+        public string ciudadDestino { get; set; }
+        public string codigoDespachoFk { get; set; }
+        public string claveRndc { get; set; }
+        public string usuarioRndc { get; set; }
+        public string empresaRndc { get; set; }
+        public string numeroPoliza { get; set; }
+        public string fechaVencePoliza { get; set; }
+        public string numeroIdentificacionAseguradora { get; set; }
+        public List<ApiTerceroRndc> terceros { get; set; }
+        public string error { get; set; }
+    }
 }

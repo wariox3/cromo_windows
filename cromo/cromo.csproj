@@ -226,6 +226,12 @@
     <Compile Include="FrmDevolverGuiaCodigo.Designer.cs">
       <DependentUpon>FrmDevolverGuiaCodigo.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmEnviarRemesaRndc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEnviarRemesaRndc.Designer.cs">
+      <DependentUpon>FrmEnviarRemesaRndc.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmEnviarRndc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -365,6 +371,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDevolverGuiaCodigo.resx">
       <DependentUpon>FrmDevolverGuiaCodigo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEnviarRemesaRndc.resx">
+      <DependentUpon>FrmEnviarRemesaRndc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEnviarRndc.resx">
       <DependentUpon>FrmEnviarRndc.cs</DependentUpon>

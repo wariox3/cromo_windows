@@ -13,6 +13,7 @@ namespace cromo
         public ApiVehiculoRndc vehiculo { get; set; }
         public ApiVehiculoRndc remolque { get; set; }
         public List<ApiTerceroRndc> terceros { get; set; }
+        public List<ApiGuiaRndc> guias { get; set; }
     }
 
     class ApiConfiguracionRndc
@@ -23,6 +24,7 @@ namespace cromo
         public string numeroPoliza { get; set; }
         public string fechaVencePoliza { get; set; }
         public string numeroIdentificacionAseguradora { get; set; }
+        public bool remesasRndc { get; set; }
     }
 
     class ApiDespachoRndc
@@ -87,7 +89,7 @@ namespace cromo
 
     }
 
-    class ApiTerceroRndc
+    public class ApiTerceroRndc
     {
         public string codigoTerceroPk { get; set; }
         public string identificacionTipo { get; set; }

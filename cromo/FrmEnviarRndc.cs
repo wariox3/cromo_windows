@@ -243,8 +243,10 @@ namespace cromo
                 }
 
                 if (validacion == true) {
-                    //Transmitir guia
-                    string xmlGuia = @"<?xml version='1.0' encoding='ISO-8859-1' ?>
+                    if(apiElementosRndc.configuracion.remesasRndc == false)
+                    {
+                        //Transmitir guia
+                        string xmlGuia = @"<?xml version='1.0' encoding='ISO-8859-1' ?>
                         <root>
                             <acceso>
                                 <username>" + apiElementosRndc.configuracion.usuarioRndc + @"</username>
@@ -288,26 +290,40 @@ namespace cromo
                             </variables>
                         </root>";
 
-                    AtenderMensajeRNDCRequest solicitudGuia = new AtenderMensajeRNDCRequest(xmlGuia);
-                    var respuestaGuia = client.AtenderMensajeRNDC(solicitudGuia);
-                    var textXmlGuia = respuestaGuia.@return;
-                    XmlSerializer serializerGuia = new XmlSerializer(typeof(RespuestaRndc));
-                    using (TextReader reader = new StringReader(textXmlGuia))
-                    {
-                        //de esta manera se deserializa
-                        retorno = (RespuestaRndc)serializerGuia.Deserialize(reader);
-                        if (retorno.ErrorMSG != null)
+                        AtenderMensajeRNDCRequest solicitudGuia = new AtenderMensajeRNDCRequest(xmlGuia);
+                        var respuestaGuia = client.AtenderMensajeRNDC(solicitudGuia);
+                        var textXmlGuia = respuestaGuia.@return;
+                        XmlSerializer serializerGuia = new XmlSerializer(typeof(RespuestaRndc));
+                        using (TextReader reader = new StringReader(textXmlGuia))
                         {
-                            string mensajeError = retorno.ErrorMSG.Substring(0, 9);
-                            if (mensajeError != "DUPLICADO")
+                            //de esta manera se deserializa
+                            retorno = (RespuestaRndc)serializerGuia.Deserialize(reader);
+                            if (retorno.ErrorMSG != null)
                             {
-                                MessageBox.Show(this, "Guia " + apiElementosRndc.despacho.codigoDespachoPk + " " + retorno.ErrorMSG, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                validacion = false;
+                                string mensajeError = retorno.ErrorMSG.Substring(0, 9);
+                                if (mensajeError != "DUPLICADO")
+                                {
+                                    MessageBox.Show(this, "Guia " + apiElementosRndc.despacho.codigoDespachoPk + " " + retorno.ErrorMSG, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    validacion = false;
+                                }
                             }
                         }
                     }
+                    
+
                     if(validacion == true) {
                         //Transmitir manifiesto
+                        string remesas = "<REMESASMAN procesoid='43'><REMESA><CONSECUTIVOREMESA>" + apiElementosRndc.despacho.numero + @"</CONSECUTIVOREMESA></REMESA></REMESASMAN>";
+                        if (apiElementosRndc.configuracion.remesasRndc == true)
+                        {
+                            remesas = "<REMESASMAN procesoid='43'>";
+                            List<ApiGuiaRndc> apiGuiaLista = ser.Deserialize<List<ApiGuiaRndc>>(jsonRespuesta);
+                            foreach (ApiGuiaRndc apiGuia in apiElementosRndc.guias)
+                            {
+                                remesas = remesas + "<REMESA><CONSECUTIVOREMESA>" + apiGuia.codigoGuiaPk + @"</CONSECUTIVOREMESA></REMESA>";                            
+                            }
+                            remesas = remesas + "</REMESASMAN>";
+                        }
                         string xmlManifiesto = @"<?xml version='1.0' encoding='ISO-8859-1' ?>
                             <root>
                                 <acceso>
@@ -340,9 +356,9 @@ namespace cromo
                                     <CODRESPONSABLEPAGODESCARGUE>E</CODRESPONSABLEPAGODESCARGUE>
                                     <OBSERVACIONES>NADA</OBSERVACIONES>
                                     <CODMUNICIPIOPAGOSALDO>05001000</CODMUNICIPIOPAGOSALDO>
-                                    <REMESASMAN procesoid='43'><REMESA><CONSECUTIVOREMESA>" + apiElementosRndc.despacho.numero + @"</CONSECUTIVOREMESA></REMESA></REMESASMAN>
+                                    " + remesas + @"
                                 </variables>
-                            </root>";
+                            </root>";                        
 
                         AtenderMensajeRNDCRequest solicitudManifiesto = new AtenderMensajeRNDCRequest(xmlManifiesto);
                         var respuestaManifiesto = client.AtenderMensajeRNDC(solicitudManifiesto);

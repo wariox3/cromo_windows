@@ -181,5 +181,11 @@ namespace cromo
             FrmConexion frmConexion = new FrmConexion();
             frmConexion.ShowDialog();
         }
+
+        private void MenuEnviarRemesaRndc_Click(object sender, EventArgs e)
+        {
+            FrmEnviarRemesaRndc frmEnviarRemesaRndc = new FrmEnviarRemesaRndc();
+            frmEnviarRemesaRndc.ShowDialog();
+        }
     }
 }
