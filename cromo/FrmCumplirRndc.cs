@@ -45,8 +45,10 @@ namespace cromo
             BPMServicesClient client = new BPMServicesClient();
             string parametrosJson = "{\"codigoDespacho\":\"" + codigo + "\"}";
             string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/despacho/rndccumplir", parametrosJson);
-            ApiElementosRndc apiElementosRndc = ser.Deserialize<ApiElementosRndc>(jsonRespuesta);           
-            string xmlGuia = @"<?xml version='1.0' encoding='ISO-8859-1' ?>
+            ApiElementosRndc apiElementosRndc = ser.Deserialize<ApiElementosRndc>(jsonRespuesta);
+            if (apiElementosRndc.configuracion.remesasRndc == false)
+            {
+                string xmlGuia = @"<?xml version='1.0' encoding='ISO-8859-1' ?>
                 <root>
                     <acceso>
                             <username>" + apiElementosRndc.configuracion.usuarioRndc + @"</username>
@@ -77,21 +79,78 @@ namespace cromo
                         <CANTIDADENTREGADA>" + apiElementosRndc.despacho.pesoReal + @"</CANTIDADENTREGADA></variables>
                     </root>";
 
-            AtenderMensajeRNDCRequest solicitudGuia = new AtenderMensajeRNDCRequest(xmlGuia);
-            var respuestaGuia = client.AtenderMensajeRNDC(solicitudGuia);
-            var textXmlGuia = respuestaGuia.@return;
-            XmlSerializer serializerGuia = new XmlSerializer(typeof(RespuestaRndc));
-            using (TextReader reader = new StringReader(textXmlGuia))
-            {
-                //de esta manera se deserializa
-                retorno = (RespuestaRndc)serializerGuia.Deserialize(reader);
-                if (retorno.ErrorMSG != null)
+                AtenderMensajeRNDCRequest solicitudGuia = new AtenderMensajeRNDCRequest(xmlGuia);
+                var respuestaGuia = client.AtenderMensajeRNDC(solicitudGuia);
+                var textXmlGuia = respuestaGuia.@return;
+                XmlSerializer serializerGuia = new XmlSerializer(typeof(RespuestaRndc));
+                using (TextReader reader = new StringReader(textXmlGuia))
                 {
-                    string mensajeError = retorno.ErrorMSG.Substring(0, 9);
-                    if (mensajeError != "DUPLICADO")
+                    //de esta manera se deserializa
+                    retorno = (RespuestaRndc)serializerGuia.Deserialize(reader);
+                    if (retorno.ErrorMSG != null)
                     {
-                        MessageBox.Show(this, "Guia " + apiElementosRndc.despacho.codigoDespachoPk + " " + retorno.ErrorMSG, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        validacion = false;
+                        string mensajeError = retorno.ErrorMSG.Substring(0, 9);
+                        if (mensajeError != "DUPLICADO")
+                        {
+                            MessageBox.Show(this, "Guia " + apiElementosRndc.despacho.codigoDespachoPk + " " + retorno.ErrorMSG, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            validacion = false;
+                        }
+                    }
+                }
+            } else
+            {
+                List<ApiGuiaRndc> apiGuiaLista = ser.Deserialize<List<ApiGuiaRndc>>(jsonRespuesta);
+                foreach (ApiGuiaRndc apiGuia in apiElementosRndc.guias)
+                {
+                    string xmlGuia = @"<?xml version='1.0' encoding='ISO-8859-1' ?>
+                    <root>
+                    <acceso>
+                            <username>" + apiElementosRndc.configuracion.usuarioRndc + @"</username>
+                            <password>" + apiElementosRndc.configuracion.claveRndc + @"</password>
+                    </acceso>
+                    <solicitud>
+                        <tipo>1</tipo>
+                        <procesoid>5</procesoid>
+                    </solicitud>
+                    <variables>
+                        <NUMNITEMPRESATRANSPORTE>" + apiElementosRndc.configuracion.empresaRndc + @"</NUMNITEMPRESATRANSPORTE>
+                        <CONSECUTIVOREMESA>" + apiGuia.codigoGuiaPk + @"</CONSECUTIVOREMESA>
+                        <NUMMANIFIESTOCARGA>" + apiElementosRndc.despacho.numero + @"</NUMMANIFIESTOCARGA>
+                        <TIPOCUMPLIDOREMESA>C</TIPOCUMPLIDOREMESA>
+                        <FECHALLEGADACARGUE>" + apiElementosRndc.despacho.fechaLlegadaCargue + @"</FECHALLEGADACARGUE>
+                        <HORALLEGADACARGUEREMESA>" + apiElementosRndc.despacho.horaLlegadaCargue + @"</HORALLEGADACARGUEREMESA>
+                        <FECHAENTRADACARGUE>" + apiElementosRndc.despacho.fechaEntradaCargue + @"</FECHAENTRADACARGUE>
+                        <HORAENTRADACARGUEREMESA>" + apiElementosRndc.despacho.horaEntradaCargue + @"</HORAENTRADACARGUEREMESA>
+                        <FECHASALIDACARGUE>" + apiElementosRndc.despacho.fechaSalidaCargue + @"</FECHASALIDACARGUE>
+                        <HORASALIDACARGUEREMESA>" + apiElementosRndc.despacho.horaSalidaCargue + @"</HORASALIDACARGUEREMESA>
+                                                                       
+                        <FECHALLEGADADESCARGUE>" + apiElementosRndc.despacho.fechaLlegadaDescargue + @"</FECHALLEGADADESCARGUE>
+                        <HORALLEGADADESCARGUECUMPLIDO>" + apiElementosRndc.despacho.horaLlegadaDescargue + @"</HORALLEGADADESCARGUECUMPLIDO>
+                        <FECHAENTRADADESCARGUE>" + apiElementosRndc.despacho.fechaEntradaDescargue + @"</FECHAENTRADADESCARGUE>
+                        <HORAENTRADADESCARGUECUMPLIDO>" + apiElementosRndc.despacho.horaEntradaDescargue + @"</HORAENTRADADESCARGUECUMPLIDO>
+                        <FECHASALIDADESCARGUE>" + apiElementosRndc.despacho.fechaSalidaDescargue + @"</FECHASALIDADESCARGUE>
+                        <HORASALIDADESCARGUECUMPLIDO>" + apiElementosRndc.despacho.horaSalidaDescargue + @"</HORASALIDADESCARGUECUMPLIDO>                                    
+                        <CANTIDADENTREGADA>" + apiGuia.pesoReal + @"</CANTIDADENTREGADA>
+                    </variables>
+                    </root>";
+
+                    AtenderMensajeRNDCRequest solicitudGuia = new AtenderMensajeRNDCRequest(xmlGuia);
+                    var respuestaGuia = client.AtenderMensajeRNDC(solicitudGuia);
+                    var textXmlGuia = respuestaGuia.@return;
+                    XmlSerializer serializerGuia = new XmlSerializer(typeof(RespuestaRndc));
+                    using (TextReader reader = new StringReader(textXmlGuia))
+                    {
+                        //de esta manera se deserializa
+                        retorno = (RespuestaRndc)serializerGuia.Deserialize(reader);
+                        if (retorno.ErrorMSG != null)
+                        {
+                            string mensajeError = retorno.ErrorMSG.Substring(0, 9);
+                            if (mensajeError != "DUPLICADO")
+                            {
+                                MessageBox.Show(this, "Guia " + apiGuia.codigoGuiaPk + " " + retorno.ErrorMSG, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                validacion = false;
+                            }
+                        }
                     }
                 }
             }
