@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.DgGuias = new System.Windows.Forms.DataGridView();
-            this.BtnEnviar = new System.Windows.Forms.Button();
             this.clmCodigoGuia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmFechaIngreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClmTerceroNombreCorto = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,6 +39,8 @@
             this.ClmCodigoProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmProductoNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClmCodigoDespachoFk = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BtnEnviar = new System.Windows.Forms.Button();
+            this.BtnDescartar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgGuias)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,16 +68,6 @@
             this.DgGuias.Size = new System.Drawing.Size(911, 422);
             this.DgGuias.StandardTab = true;
             this.DgGuias.TabIndex = 3;
-            // 
-            // BtnEnviar
-            // 
-            this.BtnEnviar.Location = new System.Drawing.Point(809, 440);
-            this.BtnEnviar.Name = "BtnEnviar";
-            this.BtnEnviar.Size = new System.Drawing.Size(114, 23);
-            this.BtnEnviar.TabIndex = 4;
-            this.BtnEnviar.Text = "Enviar";
-            this.BtnEnviar.UseVisualStyleBackColor = true;
-            this.BtnEnviar.Click += new System.EventHandler(this.BtnEnviar_Click);
             // 
             // clmCodigoGuia
             // 
@@ -156,11 +147,32 @@
             this.ClmCodigoDespachoFk.ReadOnly = true;
             this.ClmCodigoDespachoFk.Width = 50;
             // 
+            // BtnEnviar
+            // 
+            this.BtnEnviar.Location = new System.Drawing.Point(809, 440);
+            this.BtnEnviar.Name = "BtnEnviar";
+            this.BtnEnviar.Size = new System.Drawing.Size(114, 23);
+            this.BtnEnviar.TabIndex = 4;
+            this.BtnEnviar.Text = "Enviar";
+            this.BtnEnviar.UseVisualStyleBackColor = true;
+            this.BtnEnviar.Click += new System.EventHandler(this.BtnEnviar_Click);
+            // 
+            // BtnDescartar
+            // 
+            this.BtnDescartar.Location = new System.Drawing.Point(12, 440);
+            this.BtnDescartar.Name = "BtnDescartar";
+            this.BtnDescartar.Size = new System.Drawing.Size(114, 23);
+            this.BtnDescartar.TabIndex = 5;
+            this.BtnDescartar.Text = "Descartar";
+            this.BtnDescartar.UseVisualStyleBackColor = true;
+            this.BtnDescartar.Click += new System.EventHandler(this.BtnDescartar_Click);
+            // 
             // FrmEnviarRemesaRndc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(943, 473);
+            this.Controls.Add(this.BtnDescartar);
             this.Controls.Add(this.BtnEnviar);
             this.Controls.Add(this.DgGuias);
             this.MaximizeBox = false;
@@ -188,5 +200,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmCodigoProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmProductoNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmCodigoDespachoFk;
+        private System.Windows.Forms.Button BtnDescartar;
     }
 }

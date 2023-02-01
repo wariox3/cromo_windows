@@ -172,5 +172,14 @@ namespace cromo
                 LlenarDatosApi();
             }             
         }
+
+        private void BtnDescartar_Click(object sender, EventArgs e)
+        {
+            string codigo = DgGuias.Rows[DgGuias.CurrentRow.Index].Cells[0].Value.ToString();
+            RespuestaRndc retorno = new RespuestaRndc();
+            BPMServicesClient client = new BPMServicesClient();
+            ApiControlador.ApiPost("/transporte/api/windows/guia/rndcdescartar", "{\"codigoGuia\":\"" + codigo + "\"}");
+            LlenarDatosApi();
+        }
     }
 }
