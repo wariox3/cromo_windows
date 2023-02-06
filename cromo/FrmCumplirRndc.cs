@@ -213,5 +213,10 @@ namespace cromo
             ApiControlador.ApiPost("/transporte/api/windows/despacho/rndcdescartarcumplido", "{\"codigoDespacho\":\"" + codigo + "\"}");
             LlenarDatosApi();
         }
+
+        private void DgDespachos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

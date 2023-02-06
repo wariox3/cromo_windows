@@ -66,6 +66,7 @@
             this.DgDespachos.Size = new System.Drawing.Size(911, 422);
             this.DgDespachos.StandardTab = true;
             this.DgDespachos.TabIndex = 3;
+            this.DgDespachos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgDespachos_CellContentClick);
             // 
             // BtnCumplir
             // 

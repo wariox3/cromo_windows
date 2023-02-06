@@ -282,6 +282,13 @@ namespace cromo
             set { v_DescuentoPesoMaximo = value; }
         }
 
+        private static string v_CodigoMotivo = "";
+        public static string CodigoMotivo
+        {
+            get { return v_CodigoMotivo; }
+            set { v_CodigoMotivo = value; }
+        }
+
     }
 
 }

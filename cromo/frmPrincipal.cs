@@ -187,5 +187,11 @@ namespace cromo
             FrmEnviarRemesaRndc frmEnviarRemesaRndc = new FrmEnviarRemesaRndc();
             frmEnviarRemesaRndc.ShowDialog();
         }
+
+        private void MenuAnularDespachoRndc_Click(object sender, EventArgs e)
+        {
+            FrmAnularManifiestoRndc frmAnularManifiestoRndc = new FrmAnularManifiestoRndc();
+            frmAnularManifiestoRndc.ShowDialog();
+        }
     }
 }

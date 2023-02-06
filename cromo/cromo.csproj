@@ -160,6 +160,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="FrmAnularManifiestoMotivo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAnularManifiestoMotivo.Designer.cs">
+      <DependentUpon>FrmAnularManifiestoMotivo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAnularManifiestoRndc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAnularManifiestoRndc.Designer.cs">
+      <DependentUpon>FrmAnularManifiestoRndc.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBuscarAsesor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -339,6 +351,12 @@
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="TipoPersona.cs" />
     <Compile Include="Validar.cs" />
+    <EmbeddedResource Include="FrmAnularManifiestoMotivo.resx">
+      <DependentUpon>FrmAnularManifiestoMotivo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAnularManifiestoRndc.resx">
+      <DependentUpon>FrmAnularManifiestoRndc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmBuscarAsesor.resx">
       <DependentUpon>FrmBuscarAsesor.cs</DependentUpon>
     </EmbeddedResource>
@@ -448,6 +466,7 @@
     <None Include="Properties\DataSources\ApiGuia.datasource" />
     <None Include="Properties\DataSources\ApiGuiaImprimir.datasource" />
     <None Include="Properties\DataSources\ApiReciboImprimir.datasource" />
+    <None Include="Properties\DataSources\ApiUsuario.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

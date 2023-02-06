@@ -40,6 +40,7 @@
             this.mnuImpresionMasiva = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuCrearCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuCrearDestinatario = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuEnviarRemesaRndc = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuEnviarRndc = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuCumplirRndc = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,7 +53,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.MenuEnviarRemesaRndc = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuAnularDespachoRndc = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -119,7 +120,8 @@
             this.MenuCrearDestinatario,
             this.MenuEnviarRemesaRndc,
             this.MenuEnviarRndc,
-            this.MenuCumplirRndc});
+            this.MenuCumplirRndc,
+            this.MenuAnularDespachoRndc});
             this.utilidadesToolStripMenuItem.Name = "utilidadesToolStripMenuItem";
             this.utilidadesToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.utilidadesToolStripMenuItem.Text = "Utilidades";
@@ -127,35 +129,42 @@
             // mnuImpresionMasiva
             // 
             this.mnuImpresionMasiva.Name = "mnuImpresionMasiva";
-            this.mnuImpresionMasiva.Size = new System.Drawing.Size(192, 22);
+            this.mnuImpresionMasiva.Size = new System.Drawing.Size(195, 22);
             this.mnuImpresionMasiva.Text = "Impresion masiva";
             this.mnuImpresionMasiva.Click += new System.EventHandler(this.mnuImpresionMasiva_Click);
             // 
             // MenuCrearCliente
             // 
             this.MenuCrearCliente.Name = "MenuCrearCliente";
-            this.MenuCrearCliente.Size = new System.Drawing.Size(192, 22);
+            this.MenuCrearCliente.Size = new System.Drawing.Size(195, 22);
             this.MenuCrearCliente.Text = "Crear cliente";
             this.MenuCrearCliente.Click += new System.EventHandler(this.MenuCrearCliente_Click);
             // 
             // MenuCrearDestinatario
             // 
             this.MenuCrearDestinatario.Name = "MenuCrearDestinatario";
-            this.MenuCrearDestinatario.Size = new System.Drawing.Size(192, 22);
+            this.MenuCrearDestinatario.Size = new System.Drawing.Size(195, 22);
             this.MenuCrearDestinatario.Text = "Crear destinatario";
             this.MenuCrearDestinatario.Click += new System.EventHandler(this.MenuCrearDestinatario_Click);
+            // 
+            // MenuEnviarRemesaRndc
+            // 
+            this.MenuEnviarRemesaRndc.Name = "MenuEnviarRemesaRndc";
+            this.MenuEnviarRemesaRndc.Size = new System.Drawing.Size(195, 22);
+            this.MenuEnviarRemesaRndc.Text = "Enviar remesa rndc";
+            this.MenuEnviarRemesaRndc.Click += new System.EventHandler(this.MenuEnviarRemesaRndc_Click);
             // 
             // MenuEnviarRndc
             // 
             this.MenuEnviarRndc.Name = "MenuEnviarRndc";
-            this.MenuEnviarRndc.Size = new System.Drawing.Size(192, 22);
+            this.MenuEnviarRndc.Size = new System.Drawing.Size(195, 22);
             this.MenuEnviarRndc.Text = "Enviar manifiesto rndc";
             this.MenuEnviarRndc.Click += new System.EventHandler(this.MenuEnviarRndc_Click);
             // 
             // MenuCumplirRndc
             // 
             this.MenuCumplirRndc.Name = "MenuCumplirRndc";
-            this.MenuCumplirRndc.Size = new System.Drawing.Size(192, 22);
+            this.MenuCumplirRndc.Size = new System.Drawing.Size(195, 22);
             this.MenuCumplirRndc.Text = "Cumplir rndc";
             this.MenuCumplirRndc.Click += new System.EventHandler(this.MenuCumplirRndc_Click);
             // 
@@ -229,12 +238,12 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(42, 17);
             this.toolStripStatusLabel.Text = "Estado";
             // 
-            // MenuEnviarRemesaRndc
+            // MenuAnularDespachoRndc
             // 
-            this.MenuEnviarRemesaRndc.Name = "MenuEnviarRemesaRndc";
-            this.MenuEnviarRemesaRndc.Size = new System.Drawing.Size(192, 22);
-            this.MenuEnviarRemesaRndc.Text = "Enviar remesa rndc";
-            this.MenuEnviarRemesaRndc.Click += new System.EventHandler(this.MenuEnviarRemesaRndc_Click);
+            this.MenuAnularDespachoRndc.Name = "MenuAnularDespachoRndc";
+            this.MenuAnularDespachoRndc.Size = new System.Drawing.Size(195, 22);
+            this.MenuAnularDespachoRndc.Text = "Anular manifiesto rndc";
+            this.MenuAnularDespachoRndc.Click += new System.EventHandler(this.MenuAnularDespachoRndc_Click);
             // 
             // FrmPrincipal
             // 
@@ -283,6 +292,7 @@
         private System.Windows.Forms.ToolStripMenuItem MnuGuiaOperador;
         private System.Windows.Forms.ToolStripMenuItem conexionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem MenuEnviarRemesaRndc;
+        private System.Windows.Forms.ToolStripMenuItem MenuAnularDespachoRndc;
     }
 }
 
