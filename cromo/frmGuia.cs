@@ -37,6 +37,8 @@ namespace cromo
         bool bloquearFlete = false;
         bool bloquearManejo = false;
         bool limitarDescuentoReexpedicion = false;
+        bool estadoIngreso = true;
+        bool estadoRecogido = true;
 
         public FrmGuia()
         {
@@ -47,6 +49,8 @@ namespace cromo
         {
             bloquearFlete = cromo.Properties.Settings.Default.bloquearFlete;
             bloquearManejo = cromo.Properties.Settings.Default.bloquearManejo;
+            estadoIngreso = cromo.Properties.Settings.Default.guiaIngreso;
+            estadoRecogido = cromo.Properties.Settings.Default.guiaRecogida;
             CargarTipo();
             CargarServicio();
             CargarEmpaque();
@@ -165,7 +169,8 @@ namespace cromo
                                 if (CboTerceroOperacion.Items.Count > 0) {
                                     apiGuia.codigoTerceroOperacionFk = CboTerceroOperacion.SelectedValue.ToString();
                                 }
-                               
+                                apiGuia.estadoIngreso = estadoIngreso;
+                                apiGuia.estadoRecogido = estadoRecogido;
                                 
                                 parametrosJson = ser.Serialize(apiGuia);
                                 jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/guia/nuevo", parametrosJson);

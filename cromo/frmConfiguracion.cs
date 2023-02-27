@@ -31,6 +31,8 @@ namespace cromo
             ChkValidarProductoCliente.Checked = cromo.Properties.Settings.Default.validarProductoCliente;
             TxtUsuarioServidorManual.Text = cromo.Properties.Settings.Default.usuarioServidorManual;
             TxtClaveServidorManual.Text = cromo.Properties.Settings.Default.claveServidorManual;
+            ChkGuiaIngreso.Checked = cromo.Properties.Settings.Default.guiaIngreso;
+            ChkGuiaRecogida.Checked = cromo.Properties.Settings.Default.guiaRecogida;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -47,6 +49,8 @@ namespace cromo
             cromo.Properties.Settings.Default.validarProductoCliente = ChkValidarProductoCliente.Checked;
             cromo.Properties.Settings.Default.usuarioServidorManual = TxtUsuarioServidorManual.Text;
             cromo.Properties.Settings.Default.claveServidorManual = TxtClaveServidorManual.Text;
+            cromo.Properties.Settings.Default.guiaIngreso = ChkGuiaIngreso.Checked;
+            cromo.Properties.Settings.Default.guiaRecogida = ChkGuiaRecogida.Checked;
             cromo.Properties.Settings.Default.Save();
             Close();
         }

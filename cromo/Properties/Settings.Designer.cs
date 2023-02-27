@@ -226,5 +226,29 @@ namespace cromo.Properties {
                 this["claveServidorManual"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool guiaIngreso {
+            get {
+                return ((bool)(this["guiaIngreso"]));
+            }
+            set {
+                this["guiaIngreso"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool guiaRecogida {
+            get {
+                return ((bool)(this["guiaRecogida"]));
+            }
+            set {
+                this["guiaRecogida"] = value;
+            }
+        }
     }
 }

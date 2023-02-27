@@ -31,6 +31,9 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.tabConfiguracion = new System.Windows.Forms.TabControl();
+            this.tbpGeneral = new System.Windows.Forms.TabPage();
+            this.ChkGuiaRecogida = new System.Windows.Forms.CheckBox();
+            this.ChkGuiaIngreso = new System.Windows.Forms.CheckBox();
             this.tbpOperacion = new System.Windows.Forms.TabPage();
             this.ChkValidarProductoCliente = new System.Windows.Forms.CheckBox();
             this.ChkBloquearManejo = new System.Windows.Forms.CheckBox();
@@ -41,6 +44,10 @@
             this.txtRutaReportes = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.TxtClaveServidorManual = new System.Windows.Forms.TextBox();
+            this.TxtUsuarioServidorManual = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.TxtTokenServidorManual = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -50,11 +57,8 @@
             this.ChkOperadorLogistico = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.TxtCodigoCliente = new System.Windows.Forms.TextBox();
-            this.TxtUsuarioServidorManual = new System.Windows.Forms.TextBox();
-            this.TxtClaveServidorManual = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.tabConfiguracion.SuspendLayout();
+            this.tbpGeneral.SuspendLayout();
             this.tbpOperacion.SuspendLayout();
             this.tbpRutas.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -83,6 +87,7 @@
             // 
             // tabConfiguracion
             // 
+            this.tabConfiguracion.Controls.Add(this.tbpGeneral);
             this.tabConfiguracion.Controls.Add(this.tbpOperacion);
             this.tabConfiguracion.Controls.Add(this.tbpRutas);
             this.tabConfiguracion.Controls.Add(this.tabPage1);
@@ -92,6 +97,38 @@
             this.tabConfiguracion.SelectedIndex = 0;
             this.tabConfiguracion.Size = new System.Drawing.Size(348, 260);
             this.tabConfiguracion.TabIndex = 18;
+            // 
+            // tbpGeneral
+            // 
+            this.tbpGeneral.Controls.Add(this.ChkGuiaRecogida);
+            this.tbpGeneral.Controls.Add(this.ChkGuiaIngreso);
+            this.tbpGeneral.Location = new System.Drawing.Point(4, 22);
+            this.tbpGeneral.Name = "tbpGeneral";
+            this.tbpGeneral.Padding = new System.Windows.Forms.Padding(3);
+            this.tbpGeneral.Size = new System.Drawing.Size(340, 234);
+            this.tbpGeneral.TabIndex = 5;
+            this.tbpGeneral.Text = "General";
+            this.tbpGeneral.UseVisualStyleBackColor = true;
+            // 
+            // ChkGuiaRecogida
+            // 
+            this.ChkGuiaRecogida.AutoSize = true;
+            this.ChkGuiaRecogida.Location = new System.Drawing.Point(117, 45);
+            this.ChkGuiaRecogida.Name = "ChkGuiaRecogida";
+            this.ChkGuiaRecogida.Size = new System.Drawing.Size(92, 17);
+            this.ChkGuiaRecogida.TabIndex = 18;
+            this.ChkGuiaRecogida.Text = "Guia recogida";
+            this.ChkGuiaRecogida.UseVisualStyleBackColor = true;
+            // 
+            // ChkGuiaIngreso
+            // 
+            this.ChkGuiaIngreso.AutoSize = true;
+            this.ChkGuiaIngreso.Location = new System.Drawing.Point(117, 22);
+            this.ChkGuiaIngreso.Name = "ChkGuiaIngreso";
+            this.ChkGuiaIngreso.Size = new System.Drawing.Size(85, 17);
+            this.ChkGuiaIngreso.TabIndex = 17;
+            this.ChkGuiaIngreso.Text = "Guia ingreso";
+            this.ChkGuiaIngreso.UseVisualStyleBackColor = true;
             // 
             // tbpOperacion
             // 
@@ -200,6 +237,38 @@
             this.tabPage1.Text = "Servidor";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(33, 124);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(37, 13);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Clave:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(28, 95);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(46, 13);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Usuario:";
+            // 
+            // TxtClaveServidorManual
+            // 
+            this.TxtClaveServidorManual.Location = new System.Drawing.Point(75, 121);
+            this.TxtClaveServidorManual.Name = "TxtClaveServidorManual";
+            this.TxtClaveServidorManual.Size = new System.Drawing.Size(259, 20);
+            this.TxtClaveServidorManual.TabIndex = 6;
+            // 
+            // TxtUsuarioServidorManual
+            // 
+            this.TxtUsuarioServidorManual.Location = new System.Drawing.Point(75, 95);
+            this.TxtUsuarioServidorManual.Name = "TxtUsuarioServidorManual";
+            this.TxtUsuarioServidorManual.Size = new System.Drawing.Size(259, 20);
+            this.TxtUsuarioServidorManual.TabIndex = 5;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -281,38 +350,6 @@
             this.TxtCodigoCliente.Size = new System.Drawing.Size(103, 20);
             this.TxtCodigoCliente.TabIndex = 0;
             // 
-            // TxtUsuarioServidorManual
-            // 
-            this.TxtUsuarioServidorManual.Location = new System.Drawing.Point(75, 95);
-            this.TxtUsuarioServidorManual.Name = "TxtUsuarioServidorManual";
-            this.TxtUsuarioServidorManual.Size = new System.Drawing.Size(259, 20);
-            this.TxtUsuarioServidorManual.TabIndex = 5;
-            // 
-            // TxtClaveServidorManual
-            // 
-            this.TxtClaveServidorManual.Location = new System.Drawing.Point(75, 121);
-            this.TxtClaveServidorManual.Name = "TxtClaveServidorManual";
-            this.TxtClaveServidorManual.Size = new System.Drawing.Size(259, 20);
-            this.TxtClaveServidorManual.TabIndex = 6;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(28, 95);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 13);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "Usuario:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(33, 124);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(37, 13);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Clave:";
-            // 
             // FrmConfiguracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -328,6 +365,8 @@
             this.Text = "Configuracion";
             this.Load += new System.EventHandler(this.frmConfiguracion_Load);
             this.tabConfiguracion.ResumeLayout(false);
+            this.tbpGeneral.ResumeLayout(false);
+            this.tbpGeneral.PerformLayout();
             this.tbpOperacion.ResumeLayout(false);
             this.tbpOperacion.PerformLayout();
             this.tbpRutas.ResumeLayout(false);
@@ -368,5 +407,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox TxtClaveServidorManual;
         private System.Windows.Forms.TextBox TxtUsuarioServidorManual;
+        private System.Windows.Forms.TabPage tbpGeneral;
+        private System.Windows.Forms.CheckBox ChkGuiaRecogida;
+        private System.Windows.Forms.CheckBox ChkGuiaIngreso;
     }
 }

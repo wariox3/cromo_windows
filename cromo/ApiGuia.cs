@@ -69,6 +69,8 @@ namespace cromo
         public bool estadoFacturado { get; set; }
         public bool estadoFacturaGenerada { get; set; }
         public bool estadoAnulado { get; set; }
+        public bool estadoRecogido { get; set; }
+        public bool estadoIngreso { get; set; }
         public string clienteNombreCorto { get; set; }
         public string ciudadOrigenNombre { get; set; }
         public string ciudadDestinoNombre { get; set; }
