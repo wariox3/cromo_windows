@@ -25,6 +25,7 @@ namespace cromo
 
         public void LlenarDatosApi()
         {
+            string parametrosJson = "{\"codigoDespacho\":\"" + TxtCodigoDespacho.Text + "\"}";
             string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/despacho/rndcpendienteanular", null);
             List<ApiDespacho> apiDespachoLista = ser.Deserialize<List<ApiDespacho>>(jsonRespuesta);
             DgDespachos.DataSource = apiDespachoLista;
@@ -94,6 +95,11 @@ namespace cromo
                 }
 
             }
+        }
+
+        private void BtnFiltrar_Click(object sender, EventArgs e)
+        {
+            LlenarDatosApi();
         }
     }
 }
