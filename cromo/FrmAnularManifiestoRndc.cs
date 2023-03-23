@@ -25,8 +25,8 @@ namespace cromo
 
         public void LlenarDatosApi()
         {
-            string parametrosJson = "{\"codigoDespacho\":\"" + TxtCodigoDespacho.Text + "\"}";
-            string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/despacho/rndcpendienteanular", null);
+            string parametrosJson = "{\"codigoDespacho\":\"" + TxtCodigoDespacho.Text + "\"}";           
+            string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/despacho/rndcpendienteanular", parametrosJson);
             List<ApiDespacho> apiDespachoLista = ser.Deserialize<List<ApiDespacho>>(jsonRespuesta);
             DgDespachos.DataSource = apiDespachoLista;
         }
