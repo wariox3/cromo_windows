@@ -34,6 +34,7 @@ namespace cromo
         public bool guiaPagoDestino { get; set; }
         public bool guiaPagoRecogida { get; set; }
         public string condicionNombre { get; set; }
+        public string usuario { get; set; }
         public List<ApiTerceroOperacion> operaciones { get; set; }
         public string error { get; set; }
     }

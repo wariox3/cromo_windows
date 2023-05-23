@@ -131,6 +131,7 @@ namespace cromo
                 apiCliente.codigoTipoPersonaFk = CboTipoPersona.SelectedValue.ToString();
                 apiCliente.codigoRegimenFk = CboRegimen.SelectedValue.ToString();
                 apiCliente.codigoPostal = TxtCodigoPostal.Text;
+                apiCliente.usuario = General.UsuarioActivo;
 
                 string parametrosJson = ser.Serialize(apiCliente);
                 string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/cliente/nuevo", parametrosJson);
