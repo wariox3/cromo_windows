@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 using System.Windows.Forms;
+using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace cromo
 {
@@ -91,7 +93,26 @@ namespace cromo
                                                 }
                                                 else
                                                 {
-                                                    return true;
+                                                    if (TxtCodigoPostal.TextLength < 6)
+                                                    {
+                                                        MessageBox.Show(this, "La longitud minima del codigo postal es de 6 digitos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                        TxtCodigoPostal.Focus();
+
+                                                        return false;
+                                                    }
+                                                    else
+                                                    {
+                                                        if (!IsValidEmail(TxtCorreo.Text))
+                                                        {
+                                                            MessageBox.Show(this, "Debe digitar un correo electronico valido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                            TxtCorreo.Focus();
+                                                            return false;
+                                                        }
+                                                        else
+                                                        {
+                                                            return true;
+                                                        }
+                                                    }
                                                 }
                                             }
                                         }
@@ -103,8 +124,6 @@ namespace cromo
                 }
             }
         }
-
-
 
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
@@ -219,6 +238,50 @@ namespace cromo
                 MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
+            }
+        }
+
+        public static bool IsValidEmail(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+                return false;
+
+            try
+            {
+                // Normalize the domain
+                email = Regex.Replace(email, @"(@)(.+)$", DomainMapper,
+                                      RegexOptions.None, TimeSpan.FromMilliseconds(200));
+
+                // Examines the domain part of the email and normalizes it.
+                string DomainMapper(Match match)
+                {
+                    // Use IdnMapping class to convert Unicode domain names.
+                    var idn = new IdnMapping();
+
+                    // Pull out and process domain name (throws ArgumentException on invalid)
+                    string domainName = idn.GetAscii(match.Groups[2].Value);
+
+                    return match.Groups[1].Value + domainName;
+                }
+            }
+            catch (RegexMatchTimeoutException e)
+            {
+                return false;
+            }
+            catch (ArgumentException e)
+            {
+                return false;
+            }
+
+            try
+            {
+                return Regex.IsMatch(email,
+                    @"^[^@\s]+@[^@\s]+\.[^@\s]+$",
+                    RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250));
+            }
+            catch (RegexMatchTimeoutException)
+            {
+                return false;
             }
         }
     }
