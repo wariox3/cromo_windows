@@ -266,15 +266,15 @@ namespace cromo
                                 <MERCANCIAREMESA>009880</MERCANCIAREMESA>
                                 <CANTIDADCARGADA>" + apiElementosRndc.despacho.pesoReal + @"</CANTIDADCARGADA>
                                 <UNIDADMEDIDACAPACIDAD>1</UNIDADMEDIDACAPACIDAD>
-                                <CODTIPOIDREMITENTE>C</CODTIPOIDREMITENTE>
-                                <NUMIDREMITENTE>222222222</NUMIDREMITENTE>
-                                <CODSEDEREMITENTE>" + apiElementosRndc.despacho.codigoCiudadOrigenFk + @"</CODSEDEREMITENTE>
+                                <CODTIPOIDREMITENTE>N</CODTIPOIDREMITENTE>
+                                <NUMIDREMITENTE>" + apiElementosRndc.configuracion.empresaRndc + @"</NUMIDREMITENTE>
+                                <CODSEDEREMITENTE>1</CODSEDEREMITENTE>
                                 <CODTIPOIDDESTINATARIO>C</CODTIPOIDDESTINATARIO>
                                 <NUMIDDESTINATARIO>333333333</NUMIDDESTINATARIO>
                                 <CODSEDEDESTINATARIO>" + apiElementosRndc.despacho.codigoCiudadDestinoFk + @"</CODSEDEDESTINATARIO>
-                                <CODTIPOIDPROPIETARIO>C</CODTIPOIDPROPIETARIO>
-                                <NUMIDPROPIETARIO>222222222</NUMIDPROPIETARIO>
-                                <CODSEDEPROPIETARIO>" + apiElementosRndc.despacho.codigoCiudadOrigenFk + @"</CODSEDEPROPIETARIO>
+                                <CODTIPOIDPROPIETARIO>N</CODTIPOIDPROPIETARIO>
+                                <NUMIDPROPIETARIO>" + apiElementosRndc.configuracion.empresaRndc + @"</NUMIDPROPIETARIO>
+                                <CODSEDEPROPIETARIO>1</CODSEDEPROPIETARIO>
                                 <DUENOPOLIZA>E</DUENOPOLIZA>
                                 <NUMPOLIZATRANSPORTE>" + apiElementosRndc.configuracion.numeroPoliza + @"</NUMPOLIZATRANSPORTE>
                                 <FECHAVENCIMIENTOPOLIZACARGA>" + apiElementosRndc.configuracion.fechaVencePoliza + @"</FECHAVENCIMIENTOPOLIZACARGA>
