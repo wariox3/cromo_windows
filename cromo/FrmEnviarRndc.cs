@@ -268,13 +268,13 @@ namespace cromo
                                 <UNIDADMEDIDACAPACIDAD>1</UNIDADMEDIDACAPACIDAD>
                                 <CODTIPOIDREMITENTE>N</CODTIPOIDREMITENTE>
                                 <NUMIDREMITENTE>" + apiElementosRndc.configuracion.empresaRndc + @"</NUMIDREMITENTE>
-                                <CODSEDEREMITENTE>1</CODSEDEREMITENTE>
+                                <CODSEDEREMITENTE>" + apiElementosRndc.despacho.codigoCiudadOrigenFk + @"</CODSEDEREMITENTE>
                                 <CODTIPOIDDESTINATARIO>C</CODTIPOIDDESTINATARIO>
                                 <NUMIDDESTINATARIO>333333333</NUMIDDESTINATARIO>
                                 <CODSEDEDESTINATARIO>" + apiElementosRndc.despacho.codigoCiudadDestinoFk + @"</CODSEDEDESTINATARIO>
                                 <CODTIPOIDPROPIETARIO>N</CODTIPOIDPROPIETARIO>
                                 <NUMIDPROPIETARIO>" + apiElementosRndc.configuracion.empresaRndc + @"</NUMIDPROPIETARIO>
-                                <CODSEDEPROPIETARIO>1</CODSEDEPROPIETARIO>
+                                <CODSEDEPROPIETARIO>" + apiElementosRndc.despacho.codigoCiudadOrigenFk + @"</CODSEDEPROPIETARIO>
                                 <DUENOPOLIZA>E</DUENOPOLIZA>
                                 <NUMPOLIZATRANSPORTE>" + apiElementosRndc.configuracion.numeroPoliza + @"</NUMPOLIZATRANSPORTE>
                                 <FECHAVENCIMIENTOPOLIZACARGA>" + apiElementosRndc.configuracion.fechaVencePoliza + @"</FECHAVENCIMIENTOPOLIZACARGA>

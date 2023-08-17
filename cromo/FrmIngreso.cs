@@ -94,7 +94,7 @@ namespace cromo
                                 cromo.Properties.Settings.Default.recordarClave = false;
                                 cromo.Properties.Settings.Default.Save();
                             }
-                            if (apiUsuario.versionBaseDatos <= 3)
+                            if (apiUsuario.versionBaseDatos <= 4)
                             {
                                 parametrosJson = "{\"codigoOperacion\":\"" + cromo.Properties.Settings.Default.centroOperacion + "\"}";
                                 jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/operacion/validar", parametrosJson);
