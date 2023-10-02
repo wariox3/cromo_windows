@@ -121,7 +121,7 @@ namespace cromo
 
         public static String ApiPostRubidio(string ruta, string jsonParametros)
         {
-            string url = "http://142.93.149.5/rubidio/public/index.php" + ruta;
+            string url = "http://semantica.com.co/rubidio/public/index.php" + ruta;
 
             string jsonRespuesta = "";
             using (WebClient wc = new WebClient() { Encoding = Encoding.UTF8 })
