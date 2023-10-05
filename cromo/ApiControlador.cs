@@ -121,8 +121,9 @@ namespace cromo
 
         public static String ApiPostRubidio(string ruta, string jsonParametros)
         {
-            string url = "http://semantica.com.co/rubidio/public/index.php" + ruta;
-
+            string url = "https://semantica.com.co" + ruta;
+            //ServicePointManager.ServerCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
             string jsonRespuesta = "";
             using (WebClient wc = new WebClient() { Encoding = Encoding.UTF8 })
             {
