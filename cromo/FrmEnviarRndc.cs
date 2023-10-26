@@ -376,8 +376,14 @@ namespace cromo
                                     MessageBox.Show(this, "Manifiesto " + apiElementosRndc.despacho.codigoDespachoPk + " " + retorno.ErrorMSG, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);                                    
                                 } else
                                 {
-                                    ApiControlador.ApiPost("/transporte/api/windows/despacho/rndcasignar", "{\"codigoDespacho\":\"" + apiElementosRndc.despacho.codigoDespachoPk + "\",\"id\":\"" + apiElementosRndc.despacho.codigoDespachoPk + "\"}");
-                                    MessageBox.Show(this, "Se transmitio correctamente el manifiesto", "Envio correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    if(retorno.ingresoid != "")
+                                    {
+                                        ApiControlador.ApiPost("/transporte/api/windows/despacho/rndcasignar", "{\"codigoDespacho\":\"" + apiElementosRndc.despacho.codigoDespachoPk + "\",\"id\":\"" + retorno.ingresoid + "\"}");
+                                        MessageBox.Show(this, "Se transmitio correctamente el manifiesto", "Envio correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    } else
+                                    {
+                                        MessageBox.Show(this, "Manifiesto " + apiElementosRndc.despacho.codigoDespachoPk + " " + retorno.ErrorMSG, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    }
                                     LlenarDatosApi();
                                 }
                             } else {                                

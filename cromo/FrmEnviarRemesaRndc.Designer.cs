@@ -159,6 +159,7 @@
             // 
             // BtnDescartar
             // 
+            this.BtnDescartar.Enabled = false;
             this.BtnDescartar.Location = new System.Drawing.Point(12, 440);
             this.BtnDescartar.Name = "BtnDescartar";
             this.BtnDescartar.Size = new System.Drawing.Size(114, 23);
