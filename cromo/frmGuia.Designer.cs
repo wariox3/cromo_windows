@@ -76,13 +76,16 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.gbCliente = new System.Windows.Forms.GroupBox();
+            this.txtNombreAdquiriente = new System.Windows.Forms.TextBox();
+            this.label67 = new System.Windows.Forms.Label();
+            this.TxtCodigoAdquiriente = new System.Windows.Forms.TextBox();
+            this.CboTerceroOperacion = new System.Windows.Forms.ComboBox();
+            this.label66 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.TxtCodigoAsesor = new System.Windows.Forms.TextBox();
             this.label51 = new System.Windows.Forms.Label();
             this.TxtCodigoPrecio = new System.Windows.Forms.TextBox();
             this.BtnCrearCliente = new System.Windows.Forms.Button();
-            this.TxtRelacion = new System.Windows.Forms.TextBox();
-            this.label32 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.txtNombreCondicion = new System.Windows.Forms.TextBox();
             this.TxtCodigoCondicion = new System.Windows.Forms.TextBox();
@@ -91,6 +94,8 @@
             this.txtNombreCliente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.TxtCodigoCliente = new System.Windows.Forms.TextBox();
+            this.TxtRelacion = new System.Windows.Forms.TextBox();
+            this.label32 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.TsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.TsbGuardar = new System.Windows.Forms.ToolStripButton();
@@ -241,8 +246,6 @@
             this.ChkFactura = new System.Windows.Forms.CheckBox();
             this.BtnDescuento = new System.Windows.Forms.Button();
             this.BtnManejo = new System.Windows.Forms.Button();
-            this.label66 = new System.Windows.Forms.Label();
-            this.CboTerceroOperacion = new System.Windows.Forms.ComboBox();
             this.gbDestinatario.SuspendLayout();
             this.gbTotales.SuspendLayout();
             this.gbCliente.SuspendLayout();
@@ -732,6 +735,9 @@
             // 
             // gbCliente
             // 
+            this.gbCliente.Controls.Add(this.txtNombreAdquiriente);
+            this.gbCliente.Controls.Add(this.label67);
+            this.gbCliente.Controls.Add(this.TxtCodigoAdquiriente);
             this.gbCliente.Controls.Add(this.CboTerceroOperacion);
             this.gbCliente.Controls.Add(this.label66);
             this.gbCliente.Controls.Add(this.label14);
@@ -739,8 +745,6 @@
             this.gbCliente.Controls.Add(this.label51);
             this.gbCliente.Controls.Add(this.TxtCodigoPrecio);
             this.gbCliente.Controls.Add(this.BtnCrearCliente);
-            this.gbCliente.Controls.Add(this.TxtRelacion);
-            this.gbCliente.Controls.Add(this.label32);
             this.gbCliente.Controls.Add(this.label27);
             this.gbCliente.Controls.Add(this.txtNombreCondicion);
             this.gbCliente.Controls.Add(this.TxtCodigoCondicion);
@@ -757,6 +761,53 @@
             this.gbCliente.TabStop = false;
             this.gbCliente.Text = "Cliente";
             // 
+            // txtNombreAdquiriente
+            // 
+            this.txtNombreAdquiriente.Enabled = false;
+            this.txtNombreAdquiriente.Location = new System.Drawing.Point(135, 59);
+            this.txtNombreAdquiriente.Name = "txtNombreAdquiriente";
+            this.txtNombreAdquiriente.ReadOnly = true;
+            this.txtNombreAdquiriente.Size = new System.Drawing.Size(324, 20);
+            this.txtNombreAdquiriente.TabIndex = 46;
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Location = new System.Drawing.Point(7, 63);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(63, 13);
+            this.label67.TabIndex = 45;
+            this.label67.Text = "Adquiriente:";
+            // 
+            // TxtCodigoAdquiriente
+            // 
+            this.TxtCodigoAdquiriente.Location = new System.Drawing.Point(76, 59);
+            this.TxtCodigoAdquiriente.Name = "TxtCodigoAdquiriente";
+            this.TxtCodigoAdquiriente.Size = new System.Drawing.Size(53, 20);
+            this.TxtCodigoAdquiriente.TabIndex = 3;
+            this.TxtCodigoAdquiriente.Tag = "N";
+            this.TxtCodigoAdquiriente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCodigoAdquiriente_KeyDown);
+            this.TxtCodigoAdquiriente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
+            this.TxtCodigoAdquiriente.Validated += new System.EventHandler(this.TxtCodigoAdquiriente_Validated);
+            // 
+            // CboTerceroOperacion
+            // 
+            this.CboTerceroOperacion.FormattingEnabled = true;
+            this.CboTerceroOperacion.Location = new System.Drawing.Point(344, 85);
+            this.CboTerceroOperacion.Name = "CboTerceroOperacion";
+            this.CboTerceroOperacion.Size = new System.Drawing.Size(172, 21);
+            this.CboTerceroOperacion.TabIndex = 6;
+            this.CboTerceroOperacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Location = new System.Drawing.Point(278, 88);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(59, 13);
+            this.label66.TabIndex = 42;
+            this.label66.Text = "Operacion:";
+            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -771,7 +822,7 @@
             this.TxtCodigoAsesor.Location = new System.Drawing.Point(488, 60);
             this.TxtCodigoAsesor.Name = "TxtCodigoAsesor";
             this.TxtCodigoAsesor.Size = new System.Drawing.Size(28, 20);
-            this.TxtCodigoAsesor.TabIndex = 5;
+            this.TxtCodigoAsesor.TabIndex = 4;
             this.TxtCodigoAsesor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCodigoAsesor_KeyDown);
             this.TxtCodigoAsesor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             // 
@@ -802,23 +853,6 @@
             this.BtnCrearCliente.Text = "Crear";
             this.BtnCrearCliente.UseVisualStyleBackColor = true;
             this.BtnCrearCliente.Click += new System.EventHandler(this.BtnCrearCliente_Click);
-            // 
-            // TxtRelacion
-            // 
-            this.TxtRelacion.Location = new System.Drawing.Point(344, 61);
-            this.TxtRelacion.Name = "TxtRelacion";
-            this.TxtRelacion.Size = new System.Drawing.Size(115, 20);
-            this.TxtRelacion.TabIndex = 4;
-            this.TxtRelacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(290, 64);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(52, 13);
-            this.label32.TabIndex = 26;
-            this.label32.Text = "Relacion:";
             // 
             // label27
             // 
@@ -851,7 +885,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(6, 63);
+            this.label13.Location = new System.Drawing.Point(6, 85);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(65, 13);
             this.label13.TabIndex = 12;
@@ -859,10 +893,10 @@
             // 
             // TxtDocumentoCliente
             // 
-            this.TxtDocumentoCliente.Location = new System.Drawing.Point(76, 60);
+            this.TxtDocumentoCliente.Location = new System.Drawing.Point(76, 85);
             this.TxtDocumentoCliente.Name = "TxtDocumentoCliente";
-            this.TxtDocumentoCliente.Size = new System.Drawing.Size(208, 20);
-            this.TxtDocumentoCliente.TabIndex = 3;
+            this.TxtDocumentoCliente.Size = new System.Drawing.Size(199, 20);
+            this.TxtDocumentoCliente.TabIndex = 5;
             this.TxtDocumentoCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             // 
             // txtNombreCliente
@@ -893,6 +927,23 @@
             this.TxtCodigoCliente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCodigoCliente_KeyDown);
             this.TxtCodigoCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             this.TxtCodigoCliente.Validated += new System.EventHandler(this.TxtCodigoCliente_Validated);
+            // 
+            // TxtRelacion
+            // 
+            this.TxtRelacion.Location = new System.Drawing.Point(444, 61);
+            this.TxtRelacion.Name = "TxtRelacion";
+            this.TxtRelacion.Size = new System.Drawing.Size(72, 20);
+            this.TxtRelacion.TabIndex = 60;
+            this.TxtRelacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(386, 61);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(52, 13);
+            this.label32.TabIndex = 26;
+            this.label32.Text = "Relacion:";
             // 
             // toolStrip1
             // 
@@ -2075,6 +2126,8 @@
             this.gbRemitente.Controls.Add(this.TxtDireccionRemitente);
             this.gbRemitente.Controls.Add(this.TxtTelefonoRemitente);
             this.gbRemitente.Controls.Add(this.TxtNombreRemitente);
+            this.gbRemitente.Controls.Add(this.label32);
+            this.gbRemitente.Controls.Add(this.TxtRelacion);
             this.gbRemitente.Controls.Add(this.label61);
             this.gbRemitente.Controls.Add(this.label62);
             this.gbRemitente.Controls.Add(this.label63);
@@ -2101,7 +2154,7 @@
             this.txtNombreCiudadOrigen.Location = new System.Drawing.Point(120, 61);
             this.txtNombreCiudadOrigen.Name = "txtNombreCiudadOrigen";
             this.txtNombreCiudadOrigen.ReadOnly = true;
-            this.txtNombreCiudadOrigen.Size = new System.Drawing.Size(396, 20);
+            this.txtNombreCiudadOrigen.Size = new System.Drawing.Size(254, 20);
             this.txtNombreCiudadOrigen.TabIndex = 37;
             // 
             // TxtCodigoCiudadOrigen
@@ -2337,24 +2390,6 @@
             this.BtnManejo.Text = "Manejo";
             this.BtnManejo.UseVisualStyleBackColor = true;
             this.BtnManejo.Click += new System.EventHandler(this.BtnManejo_Click);
-            // 
-            // label66
-            // 
-            this.label66.AutoSize = true;
-            this.label66.Location = new System.Drawing.Point(7, 88);
-            this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(59, 13);
-            this.label66.TabIndex = 42;
-            this.label66.Text = "Operacion:";
-            // 
-            // CboTerceroOperacion
-            // 
-            this.CboTerceroOperacion.FormattingEnabled = true;
-            this.CboTerceroOperacion.Location = new System.Drawing.Point(76, 84);
-            this.CboTerceroOperacion.Name = "CboTerceroOperacion";
-            this.CboTerceroOperacion.Size = new System.Drawing.Size(383, 21);
-            this.CboTerceroOperacion.TabIndex = 43;
-            this.CboTerceroOperacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             // 
             // FrmGuia
             // 
@@ -2634,6 +2669,9 @@
         private System.Windows.Forms.TextBox TxtNumeroIdentificacionDestinatario;
         private System.Windows.Forms.ComboBox CboTerceroOperacion;
         private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.TextBox txtNombreAdquiriente;
+        private System.Windows.Forms.Label label67;
+        private System.Windows.Forms.TextBox TxtCodigoAdquiriente;
     }
 }
 

@@ -87,6 +87,7 @@ namespace cromo
             TxtFechaIngreso.Text = DateTime.Now.ToString("G");
             TxtCodigoCliente.Text = ultimoCliente;
             TxtCodigoCondicion.Text = ultimaCondicion;
+            TxtCodigoAdquiriente.Text = ultimoCliente;
             TxtCodigoCiudadOrigen.Text = General.CodigoCiudadOrigenParametro;
             TxtOperacionIngreso.Text = General.CodigoOperacionIngreso;
             TxtOperacionCargo.Text = General.CodigoOperacionCargo;
@@ -128,6 +129,7 @@ namespace cromo
                                 apiGuia.codigoOperacionIngresoFk = TxtOperacionIngreso.Text;
                                 apiGuia.codigoOperacionCargoFk = TxtOperacionCargo.Text;
                                 apiGuia.codigoTerceroFk = TxtCodigoCliente.Text;
+                                apiGuia.codigoAdquirienteFk = TxtCodigoAdquiriente.Text;
                                 apiGuia.codigoCondicionFk = TxtCodigoCondicion.Text;
                                 apiGuia.codigoCiudadOrigenFk = TxtCodigoCiudadOrigen.Text;
                                 apiGuia.codigoCiudadDestinoFk = TxtCodigoCiudadDestino.Text;
@@ -444,6 +446,8 @@ namespace cromo
             TxtOperacionCargo.Text = "";
             TxtCodigoCliente.Text = "";
             txtNombreCliente.Text = "";
+            TxtCodigoAdquiriente.Text = "";
+            txtNombreAdquiriente.Text = "";
             TxtCodigoCondicion.Text = "";
             txtNombreCondicion.Text = "";
             TxtCodigoAsesor.Text = "";
@@ -645,6 +649,7 @@ namespace cromo
                         if (ultimoCliente != TxtCodigoCliente.Text)
                         {
                             TxtCodigoCondicion.Text = apiCliente.codigoCondicionFk;
+                            TxtCodigoAdquiriente.Text = TxtCodigoCliente.Text;
                         }
                         txtNombreCliente.Text = apiCliente.nombreCorto;
                         ChkPagoCredito.Checked = apiCliente.guiaPagoCredito;
@@ -1453,6 +1458,8 @@ namespace cromo
             TxtAbono.Text = apiGuia.vrAbono;
             TxtCodigoCliente.Text = apiGuia.codigoTerceroFk;
             txtNombreCliente.Text = apiGuia.clienteNombreCorto;
+            TxtCodigoAdquiriente.Text = apiGuia.codigoAdquirienteFk;
+            txtNombreAdquiriente.Text = apiGuia.adquirienteNombreCorto;
             TxtCodigoCondicion.Text = apiGuia.codigoCondicionFk;
             txtNombreCondicion.Text = apiGuia.condicionNombre;
             TxtNombreRemitente.Text = apiGuia.nombreRemitente;
@@ -1603,6 +1610,33 @@ namespace cromo
             double flete = Convert.ToDouble(TxtFlete.Text);
             double manejo = Convert.ToDouble(TxtManejo.Text);
             TxtTotal.Text = (flete + manejo).ToString();
+        }
+
+        private void TxtCodigoAdquiriente_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.ToString() == "F2")
+            {
+                FrmBuscarCliente frmBuscarCliente = new FrmBuscarCliente();
+                frmBuscarCliente.ShowDialog();
+                if (frmBuscarCliente.DialogResult == DialogResult.OK)
+                {
+                    TxtCodigoAdquiriente.Text = General.CodigoCliente;
+                }
+            }
+        }
+
+        private void TxtCodigoAdquiriente_Validated(object sender, EventArgs e)
+        {
+            if (TxtCodigoAdquiriente.Text != "")
+            {
+                string parametrosJson = "{\"codigo\":\"" + TxtCodigoAdquiriente.Text + "\"}";
+                string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/cliente/detalle", parametrosJson);
+                ApiCliente apiCliente = ser.Deserialize<ApiCliente>(jsonRespuesta);
+                if (apiCliente.error == null)
+                {
+                    txtNombreAdquiriente.Text = apiCliente.nombreCorto;                                                         
+                }
+            }
         }
     }
 

@@ -14,6 +14,7 @@ namespace cromo
         public string codigoOperacionIngresoFk { get; set; }
         public string codigoOperacionCargoFk { get; set; }
         public string codigoTerceroFk { get; set; }
+        public string codigoAdquirienteFk { get; set; }
         public string codigoCondicionFk { get; set; }
         public string codigoCiudadOrigenFk { get; set; }
         public string codigoCiudadDestinoFk { get; set; }
@@ -72,6 +73,7 @@ namespace cromo
         public bool estadoRecogido { get; set; }
         public bool estadoIngreso { get; set; }
         public string clienteNombreCorto { get; set; }
+        public string adquirienteNombreCorto { get; set; }
         public string ciudadOrigenNombre { get; set; }
         public string ciudadDestinoNombre { get; set; }
         public string condicionNombre { get; set; }
