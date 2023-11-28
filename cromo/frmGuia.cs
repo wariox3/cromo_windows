@@ -165,6 +165,7 @@ namespace cromo
                                 apiGuia.comentario = TxtComentario.Text;
                                 apiGuia.mercanciaPeligrosa = ChkMercanciaPeligrosa.Checked;
                                 apiGuia.contenidoVerificado = ChkContenidoVerificado.Checked;
+                                apiGuia.devolverDocumentoCliente = ChkDevolverDocumento.Checked;
                                 apiGuia.ordenRuta = TxtOrdenRuta.Text;
                                 apiGuia.codigoZonaFk = TxtCodigoZona.Text;
                                 apiGuia.codigoDestinatarioFk = TxtCodigoDestinatario.Text;
@@ -511,7 +512,8 @@ namespace cromo
             RbAdicional.Checked = false;
             TxtUsuario.Text = "";
             ChkMercanciaPeligrosa.Checked = false;
-            ChkContenidoVerificado.Checked = false;            
+            ChkContenidoVerificado.Checked = false;
+            ChkDevolverDocumento.Checked = false;
         }
 
         public void Desbloquear()

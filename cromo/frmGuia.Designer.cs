@@ -246,6 +246,7 @@
             this.ChkFactura = new System.Windows.Forms.CheckBox();
             this.BtnDescuento = new System.Windows.Forms.Button();
             this.BtnManejo = new System.Windows.Forms.Button();
+            this.ChkDevolverDocumento = new System.Windows.Forms.CheckBox();
             this.gbDestinatario.SuspendLayout();
             this.gbTotales.SuspendLayout();
             this.gbCliente.SuspendLayout();
@@ -1076,6 +1077,7 @@
             // 
             // gbInformacion
             // 
+            this.gbInformacion.Controls.Add(this.ChkDevolverDocumento);
             this.gbInformacion.Controls.Add(this.ChkContenidoVerificado);
             this.gbInformacion.Controls.Add(this.ChkMercanciaPeligrosa);
             this.gbInformacion.Controls.Add(this.label44);
@@ -1098,7 +1100,7 @@
             // ChkContenidoVerificado
             // 
             this.ChkContenidoVerificado.AutoSize = true;
-            this.ChkContenidoVerificado.Location = new System.Drawing.Point(73, 148);
+            this.ChkContenidoVerificado.Location = new System.Drawing.Point(19, 150);
             this.ChkContenidoVerificado.Name = "ChkContenidoVerificado";
             this.ChkContenidoVerificado.Size = new System.Drawing.Size(123, 17);
             this.ChkContenidoVerificado.TabIndex = 23;
@@ -1109,7 +1111,7 @@
             // ChkMercanciaPeligrosa
             // 
             this.ChkMercanciaPeligrosa.AutoSize = true;
-            this.ChkMercanciaPeligrosa.Location = new System.Drawing.Point(73, 132);
+            this.ChkMercanciaPeligrosa.Location = new System.Drawing.Point(19, 132);
             this.ChkMercanciaPeligrosa.Name = "ChkMercanciaPeligrosa";
             this.ChkMercanciaPeligrosa.Size = new System.Drawing.Size(121, 17);
             this.ChkMercanciaPeligrosa.TabIndex = 22;
@@ -2391,6 +2393,17 @@
             this.BtnManejo.UseVisualStyleBackColor = true;
             this.BtnManejo.Click += new System.EventHandler(this.BtnManejo_Click);
             // 
+            // ChkDevolverDocumento
+            // 
+            this.ChkDevolverDocumento.AutoSize = true;
+            this.ChkDevolverDocumento.Location = new System.Drawing.Point(151, 147);
+            this.ChkDevolverDocumento.Name = "ChkDevolverDocumento";
+            this.ChkDevolverDocumento.Size = new System.Drawing.Size(125, 17);
+            this.ChkDevolverDocumento.TabIndex = 24;
+            this.ChkDevolverDocumento.Text = "Devolver documento";
+            this.ChkDevolverDocumento.UseVisualStyleBackColor = true;
+            this.ChkDevolverDocumento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
+            // 
             // FrmGuia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2672,6 +2685,7 @@
         private System.Windows.Forms.TextBox txtNombreAdquiriente;
         private System.Windows.Forms.Label label67;
         private System.Windows.Forms.TextBox TxtCodigoAdquiriente;
+        private System.Windows.Forms.CheckBox ChkDevolverDocumento;
     }
 }
 

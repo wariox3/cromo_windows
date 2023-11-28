@@ -58,6 +58,7 @@ namespace cromo
         public bool cortesia  { get; set; }
         public bool mercanciaPeligrosa { get; set; }
         public bool contenidoVerificado { get; set; }
+        public bool devolverDocumentoCliente { get; set; }
         public string ordenRuta { get; set; }
         public string numeroFactura { get; set; }
         public string codigoDespachoFk { get; set; }
