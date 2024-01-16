@@ -401,11 +401,19 @@ namespace cromo
 
         private void BtnDescartar_Click(object sender, EventArgs e)
         {
+            JavaScriptSerializer ser = new JavaScriptSerializer();
             string codigo = DgDespachos.Rows[DgDespachos.CurrentRow.Index].Cells[0].Value.ToString();                        
             RespuestaRndc retorno = new RespuestaRndc();
             BPMServicesClient client = new BPMServicesClient();
-            ApiControlador.ApiPost("/transporte/api/windows/despacho/rndcdescartar", "{\"codigoDespacho\":\"" + codigo + "\"}");
-            LlenarDatosApi();
+            string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/despacho/rndcdescartar", "{\"codigoDespacho\":\"" + codigo + "\",\"usuario\":\"" + General.UsuarioActivo + "\"}");
+            ApiRespuesta apiRespuesta = ser.Deserialize<ApiRespuesta>(jsonRespuesta);          
+            if (apiRespuesta.error == null)
+            {
+                LlenarDatosApi();                
+            } else
+            {
+                MessageBox.Show(this, "Ocurrio un error: " + apiRespuesta.errorMensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

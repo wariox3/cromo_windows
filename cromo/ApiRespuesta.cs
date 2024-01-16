@@ -10,5 +10,6 @@ namespace cromo
     {
         public string error { get; set; }
         public string mensaje { get; set; }
+        public string errorMensaje { get; set; }
     }
 }
