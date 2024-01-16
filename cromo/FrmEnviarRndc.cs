@@ -407,7 +407,7 @@ namespace cromo
             BPMServicesClient client = new BPMServicesClient();
             string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/despacho/rndcdescartar", "{\"codigoDespacho\":\"" + codigo + "\",\"usuario\":\"" + General.UsuarioActivo + "\"}");
             ApiRespuesta apiRespuesta = ser.Deserialize<ApiRespuesta>(jsonRespuesta);          
-            if (apiRespuesta.error == null)
+            if (apiRespuesta.error == null || apiRespuesta.error == "False")
             {
                 LlenarDatosApi();                
             } else
