@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Web.Script.Serialization;
+using Newtonsoft.Json;
 namespace cromo
 {
     public partial class FrmBuscarCliente : Form
@@ -21,7 +22,13 @@ namespace cromo
 
         public void LlenarDatosApi()
         {
-            string parametrosJson = "{\"nombre\":\"" + TxtNombre.Text + "\"}";
+            var parametros = new
+            {
+                nombre = TxtNombre.Text,
+                nit = TxtNit.Text
+            };
+            //string parametrosJson = "{\"nombre\":\"" + TxtNombre.Text + "\"}";
+            string parametrosJson = JsonConvert.SerializeObject(parametros);
             string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/cliente/buscar", parametrosJson);
             List<ApiCliente> apiClienteLista = ser.Deserialize<List<ApiCliente>>(jsonRespuesta);
             DgClientes.DataSource = apiClienteLista;
