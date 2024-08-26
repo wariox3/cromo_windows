@@ -86,34 +86,16 @@ namespace cromo
                                             }
                                             else
                                             {
-                                                if (TxtCodigoPostal.Text == "")
+                                                if (!IsValidEmail(TxtCorreo.Text))
                                                 {
-                                                    TxtCodigoPostal.Focus();
+                                                    MessageBox.Show(this, "Debe digitar un correo electronico valido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                    TxtCorreo.Focus();
                                                     return false;
                                                 }
                                                 else
                                                 {
-                                                    if (TxtCodigoPostal.TextLength < 6)
-                                                    {
-                                                        MessageBox.Show(this, "La longitud minima del codigo postal es de 6 digitos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                                        TxtCodigoPostal.Focus();
-
-                                                        return false;
-                                                    }
-                                                    else
-                                                    {
-                                                        if (!IsValidEmail(TxtCorreo.Text))
-                                                        {
-                                                            MessageBox.Show(this, "Debe digitar un correo electronico valido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                                            TxtCorreo.Focus();
-                                                            return false;
-                                                        }
-                                                        else
-                                                        {
-                                                            return true;
-                                                        }
-                                                    }
-                                                }
+                                                    return true;
+                                                }                                                                                                
                                             }
                                         }
                                     }

@@ -110,6 +110,7 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.TsbRecibo = new System.Windows.Forms.ToolStripButton();
             this.gbInformacion = new System.Windows.Forms.GroupBox();
+            this.ChkDevolverDocumento = new System.Windows.Forms.CheckBox();
             this.ChkContenidoVerificado = new System.Windows.Forms.CheckBox();
             this.ChkMercanciaPeligrosa = new System.Windows.Forms.CheckBox();
             this.label44 = new System.Windows.Forms.Label();
@@ -246,7 +247,6 @@
             this.ChkFactura = new System.Windows.Forms.CheckBox();
             this.BtnDescuento = new System.Windows.Forms.Button();
             this.BtnManejo = new System.Windows.Forms.Button();
-            this.ChkDevolverDocumento = new System.Windows.Forms.CheckBox();
             this.gbDestinatario.SuspendLayout();
             this.gbTotales.SuspendLayout();
             this.gbCliente.SuspendLayout();
@@ -1096,6 +1096,17 @@
             this.gbInformacion.Size = new System.Drawing.Size(289, 172);
             this.gbInformacion.TabIndex = 16;
             this.gbInformacion.TabStop = false;
+            // 
+            // ChkDevolverDocumento
+            // 
+            this.ChkDevolverDocumento.AutoSize = true;
+            this.ChkDevolverDocumento.Location = new System.Drawing.Point(151, 147);
+            this.ChkDevolverDocumento.Name = "ChkDevolverDocumento";
+            this.ChkDevolverDocumento.Size = new System.Drawing.Size(125, 17);
+            this.ChkDevolverDocumento.TabIndex = 24;
+            this.ChkDevolverDocumento.Text = "Devolver documento";
+            this.ChkDevolverDocumento.UseVisualStyleBackColor = true;
+            this.ChkDevolverDocumento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             // 
             // ChkContenidoVerificado
             // 
@@ -2392,17 +2403,6 @@
             this.BtnManejo.Text = "Manejo";
             this.BtnManejo.UseVisualStyleBackColor = true;
             this.BtnManejo.Click += new System.EventHandler(this.BtnManejo_Click);
-            // 
-            // ChkDevolverDocumento
-            // 
-            this.ChkDevolverDocumento.AutoSize = true;
-            this.ChkDevolverDocumento.Location = new System.Drawing.Point(151, 147);
-            this.ChkDevolverDocumento.Name = "ChkDevolverDocumento";
-            this.ChkDevolverDocumento.Size = new System.Drawing.Size(125, 17);
-            this.ChkDevolverDocumento.TabIndex = 24;
-            this.ChkDevolverDocumento.Text = "Devolver documento";
-            this.ChkDevolverDocumento.UseVisualStyleBackColor = true;
-            this.ChkDevolverDocumento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             // 
             // FrmGuia
             // 
