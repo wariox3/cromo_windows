@@ -250,5 +250,17 @@ namespace cromo.Properties {
                 this["guiaRecogida"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool validarProductoLista {
+            get {
+                return ((bool)(this["validarProductoLista"]));
+            }
+            set {
+                this["validarProductoLista"] = value;
+            }
+        }
     }
 }

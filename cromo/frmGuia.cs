@@ -829,6 +829,17 @@ namespace cromo
             CboProducto.DataSource = apiProductoLista;
         }
 
+        private void CargarProductoLista(int codigoLista)
+        {
+            string parametrosJson = "{\"codigoPrecio\":\"" + codigoLista.ToString() + "\"}";
+            string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/producto/clientelista", parametrosJson);
+            List<ApiProducto> apiProductoLista = ser.Deserialize<List<ApiProducto>>(jsonRespuesta);
+            CboProducto.Text = "";
+            CboProducto.ValueMember = "codigoProductoPk";
+            CboProducto.DisplayMember = "nombre";
+            CboProducto.DataSource = apiProductoLista;
+        }
+
         private void CargarEmpaque()
         {
             string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/empaque/lista", null);
@@ -1028,7 +1039,11 @@ namespace cromo
                     TxtPorcentajeManejo.Text = porcentajeManejo.ToString();
                     TxtDescuentoPeso.Text = descuentoPeso.ToString();
                     TxtManejoMinimoUnidad.Text = manejoMinimoUnidad.ToString();
-                    TxtManejoMinimoDespacho.Text = manejoMinimoDespacho.ToString();
+                    TxtManejoMinimoDespacho.Text = manejoMinimoDespacho.ToString();                
+                    if (cromo.Properties.Settings.Default.validarProductoLista)
+                    {
+                        CargarProductoLista(Convert.ToInt32(TxtCodigoPrecio.Text));
+                    }
 
                     bool precioPeso = apiCondicion.precioPeso;
                     bool precioUnidad = apiCondicion.precioUnidad;

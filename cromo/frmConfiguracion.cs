@@ -29,6 +29,7 @@ namespace cromo
             ChkBloquearManejo.Checked = cromo.Properties.Settings.Default.bloquearManejo;
             ChkOperadorLogistico.Checked = cromo.Properties.Settings.Default.operadorLogistico;
             ChkValidarProductoCliente.Checked = cromo.Properties.Settings.Default.validarProductoCliente;
+            ChkValidarProductoLista.Checked = cromo.Properties.Settings.Default.validarProductoLista;
             TxtUsuarioServidorManual.Text = cromo.Properties.Settings.Default.usuarioServidorManual;
             TxtClaveServidorManual.Text = cromo.Properties.Settings.Default.claveServidorManual;
             ChkGuiaIngreso.Checked = cromo.Properties.Settings.Default.guiaIngreso;
@@ -47,6 +48,7 @@ namespace cromo
             cromo.Properties.Settings.Default.bloquearManejo = ChkBloquearManejo.Checked;
             cromo.Properties.Settings.Default.operadorLogistico = ChkOperadorLogistico.Checked;
             cromo.Properties.Settings.Default.validarProductoCliente = ChkValidarProductoCliente.Checked;
+            cromo.Properties.Settings.Default.validarProductoLista = ChkValidarProductoLista.Checked;
             cromo.Properties.Settings.Default.usuarioServidorManual = TxtUsuarioServidorManual.Text;
             cromo.Properties.Settings.Default.claveServidorManual = TxtClaveServidorManual.Text;
             cromo.Properties.Settings.Default.guiaIngreso = ChkGuiaIngreso.Checked;

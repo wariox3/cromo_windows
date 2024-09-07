@@ -57,6 +57,7 @@
             this.ChkOperadorLogistico = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.TxtCodigoCliente = new System.Windows.Forms.TextBox();
+            this.ChkValidarProductoLista = new System.Windows.Forms.CheckBox();
             this.tabConfiguracion.SuspendLayout();
             this.tbpGeneral.SuspendLayout();
             this.tbpOperacion.SuspendLayout();
@@ -132,6 +133,7 @@
             // 
             // tbpOperacion
             // 
+            this.tbpOperacion.Controls.Add(this.ChkValidarProductoLista);
             this.tbpOperacion.Controls.Add(this.ChkValidarProductoCliente);
             this.tbpOperacion.Controls.Add(this.ChkBloquearManejo);
             this.tbpOperacion.Controls.Add(this.ChkBloquearFlete);
@@ -350,6 +352,16 @@
             this.TxtCodigoCliente.Size = new System.Drawing.Size(103, 20);
             this.TxtCodigoCliente.TabIndex = 0;
             // 
+            // ChkValidarProductoLista
+            // 
+            this.ChkValidarProductoLista.AutoSize = true;
+            this.ChkValidarProductoLista.Location = new System.Drawing.Point(147, 110);
+            this.ChkValidarProductoLista.Name = "ChkValidarProductoLista";
+            this.ChkValidarProductoLista.Size = new System.Drawing.Size(124, 17);
+            this.ChkValidarProductoLista.TabIndex = 19;
+            this.ChkValidarProductoLista.Text = "Validar producto lista";
+            this.ChkValidarProductoLista.UseVisualStyleBackColor = true;
+            // 
             // FrmConfiguracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -410,5 +422,6 @@
         private System.Windows.Forms.TabPage tbpGeneral;
         private System.Windows.Forms.CheckBox ChkGuiaRecogida;
         private System.Windows.Forms.CheckBox ChkGuiaIngreso;
+        private System.Windows.Forms.CheckBox ChkValidarProductoLista;
     }
 }
