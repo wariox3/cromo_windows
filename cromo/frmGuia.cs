@@ -174,7 +174,7 @@ namespace cromo
                                 }
                                 apiGuia.estadoIngreso = estadoIngreso;
                                 apiGuia.estadoRecogido = estadoRecogido;
-                                
+                                apiGuia.detalles = General.GuiaDetalle;
                                 parametrosJson = ser.Serialize(apiGuia);
                                 jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/guia/nuevo", parametrosJson);
                                 ApiGuiaRespuesta apiGuiaRespuesta = ser.Deserialize<ApiGuiaRespuesta>(jsonRespuesta);
@@ -1294,13 +1294,30 @@ namespace cromo
             {
 
                 ChkLiquidado.Checked = true;
-                if (codigoPrecio != 0 && TxtCodigoCiudadDestino.Text != "" && TxtCodigoCiudadOrigen.Text != "" && TxtCodigoCondicion.Text != "")
+                if (TxtCodigoPrecio.Text != "" && TxtCodigoCiudadDestino.Text != "" && TxtCodigoCiudadOrigen.Text != "" && TxtCodigoCondicion.Text != "")
                 {
-                    General.CodigoPrecio = codigoPrecio;
+                    General.CodigoPrecio = Convert.ToInt32(TxtCodigoPrecio.Text);
                     General.CodigoCiudad = TxtCodigoCiudadOrigen.Text;
                     General.CodigoCiudadDestino = TxtCodigoCiudadDestino.Text;
                     General.CodigoCondicion = TxtCodigoCondicion.Text;
-                    FrmGuiaDetalle frm = new FrmGuiaDetalle();
+                    General.PesoMinimo = pesoMinimo;
+                    General.PesoMinimoGuia = pesoMinimoGuia;
+                    General.CodigoCliente = TxtCodigoCliente.Text;
+                    General.CodigoZona = TxtCodigoZona.Text;
+                    General.VrFleteMinimo = Convert.ToDouble(TxtFleteFleteMinimo.Text);
+                    General.VrFleteMinimoGuia = Convert.ToDouble(TxtFleteFleteMinimoGuia.Text);
+                    FrmGuiaDetalle frm = new FrmGuiaDetalle(this);
+                    frm.RbPesoEnabled = this.RbPeso.Enabled;
+                    frm.RbPesoChecked = this.RbPeso.Checked;
+                    frm.RbUnidadEnabled = this.RbUnidad.Enabled;
+                    frm.RbUnidadChecked = this.RbUnidad.Checked;
+                    frm.RbAdicionalEnabled = this.RbAdicional.Enabled;
+                    frm.RbAdicionalChecked = this.RbAdicional.Checked;
+                    frm.TxtUnidadesText = this.TxtUnidades.Text;
+                    frm.TxtPesoText = this.TxtPeso.Text;
+                    frm.TxtVolumenText = this.TxtVolumen.Text;
+                    frm.TxtPesoFacturarText = this.TxtPesoFacturar.Text;
+                    frm.TxtFleteText = this.TxtFlete.Text;
                     frm.ShowDialog();
                     if (frm.DialogResult == DialogResult.OK)
                     {
@@ -1316,29 +1333,6 @@ namespace cromo
                     MessageBox.Show("Verifique si tiene seleccionada una condicion comercial, ciudad de origen y ciudad de destino");
                 }
             }
-        }
-
-        private void GuardarDetalle(string codigoGuia)
-        {
-            /*if (General.guiaDetallePublica.Length > 0)
-			{
-				string sql = "";
-				for (int i = 0; i < General.guiaDetallePublica.Length; i++)
-				{
-					sql = "INSERT INTO tte_guia_detalle (" +
-						"codigo_guia_fk, codigo_producto_fk, unidades, peso_real, peso_volumen, peso_facturado, vr_flete) VALUES (" +
-						codigoGuia + "," + General.guiaDetallePublica[i].codigoProducto.ToString() + "" +
-						"," + General.guiaDetallePublica[i].unidades + "" +
-						"," + General.guiaDetallePublica[i].pesoReal + "" +
-						"," + General.guiaDetallePublica[i].pesoVolumen + "" +
-						"," + General.guiaDetallePublica[i].pesoFacturar + "" +
-						"," + General.guiaDetallePublica[i].vrFlete + ") ";
-					MySqlCommand cmd = new MySqlCommand(sql,
-					BdCromo.ObtenerConexion());
-					cmd.ExecuteNonQuery();
-				}
-				General.guiaDetallePublica = new GuiaDetalle[0];
-			}*/
         }
 
         private void CboProducto_Validated(object sender, EventArgs e)

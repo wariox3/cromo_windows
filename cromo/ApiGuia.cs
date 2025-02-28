@@ -82,6 +82,8 @@ namespace cromo
         public string codigoDestinatarioFk { get; set; }
         public string codigoTerceroOperacionFk { get; set; }
         public string error { get; set; }
+
+        public List<GuiaDetalle> detalles { get; set; }
     }
 
     class ApiGuiaRespuesta

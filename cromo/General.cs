@@ -9,6 +9,8 @@ namespace cromo
 {
 	class General
 	{
+        public static List<GuiaDetalle> GuiaDetalle { get; set; } = new List<GuiaDetalle>();
+
         private static string v_UrlServicio = "";
         public static string UrlServicio
         {
@@ -287,6 +289,41 @@ namespace cromo
         {
             get { return v_CodigoMotivo; }
             set { v_CodigoMotivo = value; }
+        }
+
+        private static int v_PesoMinimo = 0;
+        public static int PesoMinimo
+        {
+            get { return v_PesoMinimo; }
+            set { v_PesoMinimo = value; }
+        }
+
+        private static int v_PesoMinimoGuia = 0;
+        public static int PesoMinimoGuia
+        {
+            get { return v_PesoMinimoGuia; }
+            set { v_PesoMinimoGuia = value; }
+        }
+
+        private static string v_CodigoZona = "";
+        public static string CodigoZona
+        {
+            get { return v_CodigoZona; }
+            set { v_CodigoZona = value; }
+        }
+
+        private static double v_VrFleteMinimo = 0;
+        public static double VrFleteMinimo
+        {
+            get { return v_VrFleteMinimo; }
+            set { v_VrFleteMinimo = value; }
+        }
+
+        private static double v_VrFleteMinimoGuia = 0;
+        public static double VrFleteMinimoGuia
+        {
+            get { return v_VrFleteMinimoGuia; }
+            set { v_VrFleteMinimoGuia = value; }
         }
 
     }

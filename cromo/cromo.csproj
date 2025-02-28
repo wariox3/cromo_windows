@@ -142,6 +142,7 @@
     <Compile Include="ApiDespacho.cs" />
     <Compile Include="ApiDestinatario.cs" />
     <Compile Include="ApiEmpaque.cs" />
+    <Compile Include="GuiaDetalle.cs" />
     <Compile Include="ApiGuia.cs" />
     <Compile Include="ApiGuiaCarga.cs" />
     <Compile Include="ApiGuiaImprimir.cs" />
