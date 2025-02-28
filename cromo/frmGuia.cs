@@ -195,6 +195,7 @@ namespace cromo
                                     RbUnidad.Checked = false;
                                     RbAdicional.Checked = false;
                                     Bloquear();
+                                    General.GuiaDetalle.Clear();
                                 }
                                 else
                                 {
