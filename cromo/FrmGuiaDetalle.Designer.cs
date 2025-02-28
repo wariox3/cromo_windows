@@ -359,7 +359,7 @@
             // TxtPesoMinimo
             // 
             this.TxtPesoMinimo.Enabled = false;
-            this.TxtPesoMinimo.Location = new System.Drawing.Point(211, 68);
+            this.TxtPesoMinimo.Location = new System.Drawing.Point(211, 94);
             this.TxtPesoMinimo.Name = "TxtPesoMinimo";
             this.TxtPesoMinimo.Size = new System.Drawing.Size(35, 20);
             this.TxtPesoMinimo.TabIndex = 51;
@@ -367,7 +367,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(162, 71);
+            this.label7.Location = new System.Drawing.Point(162, 97);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(43, 13);
             this.label7.TabIndex = 52;

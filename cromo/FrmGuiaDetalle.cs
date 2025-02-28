@@ -103,7 +103,7 @@ namespace cromo
                 if (codigoPrecio != "" && codigoOrigen != "" && codigoDestino != "")
                 {
                     LvPrecioDetalle.Items.Clear();
-                    parametrosJson = "{\"precio\":\"" + codigoPrecio + "\", \"origen\":\"" + codigoOrigen + "\", \"destino\":\"" + codigoDestino + "\"}";
+                    parametrosJson = "{\"precio\":\"" + codigoPrecio + "\", \"origen\":\"" + codigoOrigen + "\", \"destino\":\"" + codigoDestino + "\", \"zona\":\"" + codigoZona + "\"}";
                     jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/preciodetalle/detalle", parametrosJson);
                     List<ApiPrecioDetalle> apiPrecioDetalleLista = ser.Deserialize<List<ApiPrecioDetalle>>(jsonRespuesta);
                     foreach (ApiPrecioDetalle apiPrecioDetalle in apiPrecioDetalleLista)
@@ -119,69 +119,24 @@ namespace cromo
                         item.SubItems.Add(apiPrecioDetalle.minimo.ToString());
                         LvPrecioDetalle.Items.Add(item);
                         //TxtCodigoCobertura.Text = apiPrecioDetalle.codigoCoberturaFk;
-                    }
-
-                    /*if (TxtCodigoCliente.Text != "")
-                    {
-                        parametrosJson = "{\"codigoCliente\":\"" + TxtCodigoCliente.Text + "\",\"origen\":\"" + codigoOrigen + "\", \"destino\":\"" + codigoDestino + "\", \"codigoZona\":\"" + TxtCodigoZona.Text + "\", \"codigoCobertura\":\"" + TxtCodigoCobertura.Text + "\", \"guiaTipo\":\"" + CboTipo.SelectedValue.ToString() + "\"}";
-                        jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/condicionflete/liquidar", parametrosJson);
-                        ApiCondicionFlete apiCondicionFlete = ser.Deserialize<ApiCondicionFlete>(jsonRespuesta);
-                        if (apiCondicionFlete.error == null)
-                        {
-                            TxtFleteDescuentoPeso.Text = apiCondicionFlete.descuentoPeso.ToString();
-                            TxtFleteDescuentoUnidad.Text = apiCondicionFlete.descuentoUnidad.ToString();
-                            TxtFletePesoMinimo.Text = apiCondicionFlete.pesoMinimo.ToString();
-                            TxtFletePesoMinimoGuia.Text = apiCondicionFlete.pesoMinimoGuia.ToString();
-                            TxtFleteFleteMinimo.Text = apiCondicionFlete.fleteMinimo.ToString();
-                            TxtFleteFleteMinimoGuia.Text = apiCondicionFlete.fleteMinimoGuia.ToString();
-                            pesoMinimo = apiCondicionFlete.pesoMinimo;
-                            pesoMinimoGuia = apiCondicionFlete.pesoMinimoGuia;
-                            descuentoPeso = apiCondicionFlete.descuentoPeso;
-                        }
-                        else
-                        {
-                            TxtFleteDescuentoPeso.Text = "0";
-                            TxtFleteDescuentoUnidad.Text = "0";
-                            TxtFletePesoMinimo.Text = "0";
-                            TxtFletePesoMinimoGuia.Text = "0";
-                            TxtFleteFleteMinimo.Text = "0";
-                            TxtFleteFleteMinimoGuia.Text = "0";
-                        }
-                        parametrosJson = "{\"codigoCliente\":\"" + TxtCodigoCliente.Text + "\",\"origen\":\"" + codigoOrigen + "\", \"destino\":\"" + codigoDestino + "\", \"codigoZona\":\"" + TxtCodigoZona.Text + "\", \"codigoCobertura\":\"" + TxtCodigoCobertura.Text + "\", \"guiaTipo\":\"" + CboTipo.SelectedValue.ToString() + "\"}";
-                        jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/condicionmanejo/liquidar", parametrosJson);
-                        ApiCondicionManejo apiCondicionManejo = ser.Deserialize<ApiCondicionManejo>(jsonRespuesta);
-                        if (apiCondicionManejo.error == null)
-                        {
-                            TxtPorcentajeManejoEspecial.Text = apiCondicionManejo.porcentaje.ToString();
-                            TxtManejoMinimoUnidadEspecial.Text = apiCondicionManejo.minimoUnidad.ToString();
-                            TxtManejoMinimoDespachoEspecial.Text = apiCondicionManejo.minimoDespacho.ToString();
-                            porcentajeManejo = apiCondicionManejo.porcentaje;
-                            manejoMinimoUnidad = apiCondicionManejo.minimoUnidad;
-                            manejoMinimoDespacho = apiCondicionManejo.minimoDespacho;
-                        }
-                    }
-                    else
-                    {
-                        TxtFleteDescuentoPeso.Text = "0";
-                        TxtFleteDescuentoUnidad.Text = "0";
-                        TxtFletePesoMinimo.Text = "0";
-                        TxtFletePesoMinimoGuia.Text = "0";
-                        TxtFleteFleteMinimo.Text = "0";
-                        TxtFleteFleteMinimoGuia.Text = "0";
-                    }*/
+                    }              
                 }
                 else
                 {
                     MessageBox.Show("Debe seleccionar una condicion comercial, origen y destino del servicio");
                 }
             }
+
+            CargarProducto();
             if (cromo.Properties.Settings.Default.validarProductoCliente)
             {
                 CargarProductoCliente(codigoCliente);
-            } else
-			{
-				CargarProducto();
             }
+            if (cromo.Properties.Settings.Default.validarProductoLista)
+            {
+                CargarProductoLista(Convert.ToInt32(TxtCodigoPrecio.Text));
+            }
+
             LlenarDatos();
             this.RbPeso.Enabled = this.RbPesoEnabled;
             this.RbPeso.Checked = this.RbPesoChecked;
@@ -408,6 +363,17 @@ namespace cromo
         {
             string parametrosJson = "{\"codigoTercero\":\"" + codigoCliente + "\"}";
             string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/producto/cliente", parametrosJson);
+            List<ApiProducto> apiProductoLista = ser.Deserialize<List<ApiProducto>>(jsonRespuesta);
+            CboProducto.Text = "";
+            CboProducto.ValueMember = "codigoProductoPk";
+            CboProducto.DisplayMember = "nombre";
+            CboProducto.DataSource = apiProductoLista;
+        }
+
+        private void CargarProductoLista(int codigoLista)
+        {
+            string parametrosJson = "{\"codigoPrecio\":\"" + codigoLista.ToString() + "\"}";
+            string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/producto/clientelista", parametrosJson);
             List<ApiProducto> apiProductoLista = ser.Deserialize<List<ApiProducto>>(jsonRespuesta);
             CboProducto.Text = "";
             CboProducto.ValueMember = "codigoProductoPk";
