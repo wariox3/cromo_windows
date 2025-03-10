@@ -506,6 +506,7 @@ namespace cromo
             TxtVrUnidad.Text = "0";
             TxtTope.Text = "0";
             TxtPesoMinimoPrecio.Text = "0";
+            TxtComentarioCondicion.Text = "";
             LvPrecioDetalle.Items.Clear();
             ChkLiquidado.Checked = false;
             RbPeso.Checked = false;
@@ -1040,7 +1041,8 @@ namespace cromo
                     TxtPorcentajeManejo.Text = porcentajeManejo.ToString();
                     TxtDescuentoPeso.Text = descuentoPeso.ToString();
                     TxtManejoMinimoUnidad.Text = manejoMinimoUnidad.ToString();
-                    TxtManejoMinimoDespacho.Text = manejoMinimoDespacho.ToString();                
+                    TxtManejoMinimoDespacho.Text = manejoMinimoDespacho.ToString();
+                    TxtComentarioCondicion.Text = apiCondicion.comentario;
                     if (cromo.Properties.Settings.Default.validarProductoLista)
                     {
                         CargarProductoLista(Convert.ToInt32(TxtCodigoPrecio.Text));
@@ -1651,6 +1653,7 @@ namespace cromo
                 }
             }
         }
+
     }
 
 }

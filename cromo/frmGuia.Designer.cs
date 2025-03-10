@@ -159,6 +159,7 @@
             this.label29 = new System.Windows.Forms.Label();
             this.TxtComentario = new System.Windows.Forms.TextBox();
             this.GbCondiciones = new System.Windows.Forms.GroupBox();
+            this.label68 = new System.Windows.Forms.Label();
             this.TxtManejoMinimoDespacho = new System.Windows.Forms.TextBox();
             this.TxtManejoMinimoUnidad = new System.Windows.Forms.TextBox();
             this.TxtPorcentajeManejo = new System.Windows.Forms.TextBox();
@@ -247,6 +248,7 @@
             this.ChkFactura = new System.Windows.Forms.CheckBox();
             this.BtnDescuento = new System.Windows.Forms.Button();
             this.BtnManejo = new System.Windows.Forms.Button();
+            this.TxtComentarioCondicion = new System.Windows.Forms.TextBox();
             this.gbDestinatario.SuspendLayout();
             this.gbTotales.SuspendLayout();
             this.gbCliente.SuspendLayout();
@@ -830,7 +832,7 @@
             // label51
             // 
             this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(461, 39);
+            this.label51.Location = new System.Drawing.Point(462, 37);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(24, 13);
             this.label51.TabIndex = 39;
@@ -839,7 +841,7 @@
             // TxtCodigoPrecio
             // 
             this.TxtCodigoPrecio.Enabled = false;
-            this.TxtCodigoPrecio.Location = new System.Drawing.Point(488, 36);
+            this.TxtCodigoPrecio.Location = new System.Drawing.Point(489, 36);
             this.TxtCodigoPrecio.Name = "TxtCodigoPrecio";
             this.TxtCodigoPrecio.Size = new System.Drawing.Size(28, 20);
             this.TxtCodigoPrecio.TabIndex = 38;
@@ -870,7 +872,7 @@
             this.txtNombreCondicion.Location = new System.Drawing.Point(135, 35);
             this.txtNombreCondicion.Name = "txtNombreCondicion";
             this.txtNombreCondicion.ReadOnly = true;
-            this.txtNombreCondicion.Size = new System.Drawing.Size(324, 20);
+            this.txtNombreCondicion.Size = new System.Drawing.Size(321, 20);
             this.txtNombreCondicion.TabIndex = 24;
             // 
             // TxtCodigoCondicion
@@ -963,7 +965,7 @@
             this.TsbRecibo});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1103, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1111, 25);
             this.toolStrip1.TabIndex = 12;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -1332,7 +1334,7 @@
             this.gbDatos.Enabled = false;
             this.gbDatos.Location = new System.Drawing.Point(552, 27);
             this.gbDatos.Name = "gbDatos";
-            this.gbDatos.Size = new System.Drawing.Size(194, 245);
+            this.gbDatos.Size = new System.Drawing.Size(194, 257);
             this.gbDatos.TabIndex = 17;
             this.gbDatos.TabStop = false;
             // 
@@ -1543,6 +1545,8 @@
             // 
             // GbCondiciones
             // 
+            this.GbCondiciones.Controls.Add(this.TxtComentarioCondicion);
+            this.GbCondiciones.Controls.Add(this.label68);
             this.GbCondiciones.Controls.Add(this.TxtManejoMinimoDespacho);
             this.GbCondiciones.Controls.Add(this.TxtManejoMinimoUnidad);
             this.GbCondiciones.Controls.Add(this.TxtPorcentajeManejo);
@@ -1562,11 +1566,20 @@
             this.GbCondiciones.Enabled = false;
             this.GbCondiciones.Location = new System.Drawing.Point(553, 293);
             this.GbCondiciones.Name = "GbCondiciones";
-            this.GbCondiciones.Size = new System.Drawing.Size(360, 103);
+            this.GbCondiciones.Size = new System.Drawing.Size(328, 209);
             this.GbCondiciones.TabIndex = 28;
             this.GbCondiciones.TabStop = false;
             this.GbCondiciones.Text = "Condicion general cliente";
             this.GbCondiciones.Visible = false;
+            // 
+            // label68
+            // 
+            this.label68.AutoSize = true;
+            this.label68.Location = new System.Drawing.Point(15, 94);
+            this.label68.Name = "label68";
+            this.label68.Size = new System.Drawing.Size(63, 13);
+            this.label68.TabIndex = 32;
+            this.label68.Text = "Comentario:";
             // 
             // TxtManejoMinimoDespacho
             // 
@@ -1622,7 +1635,7 @@
             // ChkPagoCortesia
             // 
             this.ChkPagoCortesia.AutoSize = true;
-            this.ChkPagoCortesia.Location = new System.Drawing.Point(283, 60);
+            this.ChkPagoCortesia.Location = new System.Drawing.Point(255, 72);
             this.ChkPagoCortesia.Name = "ChkPagoCortesia";
             this.ChkPagoCortesia.Size = new System.Drawing.Size(64, 17);
             this.ChkPagoCortesia.TabIndex = 25;
@@ -1632,7 +1645,7 @@
             // ChkPagoRecogida
             // 
             this.ChkPagoRecogida.AutoSize = true;
-            this.ChkPagoRecogida.Location = new System.Drawing.Point(283, 76);
+            this.ChkPagoRecogida.Location = new System.Drawing.Point(255, 91);
             this.ChkPagoRecogida.Name = "ChkPagoRecogida";
             this.ChkPagoRecogida.Size = new System.Drawing.Size(72, 17);
             this.ChkPagoRecogida.TabIndex = 24;
@@ -1642,7 +1655,7 @@
             // ChkPagoCredito
             // 
             this.ChkPagoCredito.AutoSize = true;
-            this.ChkPagoCredito.Location = new System.Drawing.Point(283, 13);
+            this.ChkPagoCredito.Location = new System.Drawing.Point(255, 13);
             this.ChkPagoCredito.Name = "ChkPagoCredito";
             this.ChkPagoCredito.Size = new System.Drawing.Size(59, 17);
             this.ChkPagoCredito.TabIndex = 23;
@@ -1652,7 +1665,7 @@
             // ChkPagoContado
             // 
             this.ChkPagoContado.AutoSize = true;
-            this.ChkPagoContado.Location = new System.Drawing.Point(283, 29);
+            this.ChkPagoContado.Location = new System.Drawing.Point(255, 30);
             this.ChkPagoContado.Name = "ChkPagoContado";
             this.ChkPagoContado.Size = new System.Drawing.Size(66, 17);
             this.ChkPagoContado.TabIndex = 22;
@@ -1662,7 +1675,7 @@
             // ChkPagoDestino
             // 
             this.ChkPagoDestino.AutoSize = true;
-            this.ChkPagoDestino.Location = new System.Drawing.Point(283, 45);
+            this.ChkPagoDestino.Location = new System.Drawing.Point(255, 53);
             this.ChkPagoDestino.Name = "ChkPagoDestino";
             this.ChkPagoDestino.Size = new System.Drawing.Size(62, 17);
             this.ChkPagoDestino.TabIndex = 21;
@@ -1730,9 +1743,9 @@
             this.GbPrecioDetalle.Controls.Add(this.label39);
             this.GbPrecioDetalle.Controls.Add(this.label38);
             this.GbPrecioDetalle.Enabled = false;
-            this.GbPrecioDetalle.Location = new System.Drawing.Point(553, 400);
+            this.GbPrecioDetalle.Location = new System.Drawing.Point(886, 293);
             this.GbPrecioDetalle.Name = "GbPrecioDetalle";
-            this.GbPrecioDetalle.Size = new System.Drawing.Size(239, 102);
+            this.GbPrecioDetalle.Size = new System.Drawing.Size(220, 102);
             this.GbPrecioDetalle.TabIndex = 30;
             this.GbPrecioDetalle.TabStop = false;
             this.GbPrecioDetalle.Text = "Lista";
@@ -1740,16 +1753,16 @@
             // 
             // TxtCodigoCobertura
             // 
-            this.TxtCodigoCobertura.Location = new System.Drawing.Point(159, 76);
+            this.TxtCodigoCobertura.Location = new System.Drawing.Point(159, 78);
             this.TxtCodigoCobertura.Name = "TxtCodigoCobertura";
-            this.TxtCodigoCobertura.Size = new System.Drawing.Size(69, 20);
+            this.TxtCodigoCobertura.Size = new System.Drawing.Size(55, 20);
             this.TxtCodigoCobertura.TabIndex = 50;
             this.TxtCodigoCobertura.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // ChkOmitirDescuento
             // 
             this.ChkOmitirDescuento.AutoSize = true;
-            this.ChkOmitirDescuento.Location = new System.Drawing.Point(51, 80);
+            this.ChkOmitirDescuento.Location = new System.Drawing.Point(14, 81);
             this.ChkOmitirDescuento.Name = "ChkOmitirDescuento";
             this.ChkOmitirDescuento.Size = new System.Drawing.Size(105, 17);
             this.ChkOmitirDescuento.TabIndex = 49;
@@ -1768,7 +1781,7 @@
             // 
             this.TxtPesoMinimoPrecio.Location = new System.Drawing.Point(159, 54);
             this.TxtPesoMinimoPrecio.Name = "TxtPesoMinimoPrecio";
-            this.TxtPesoMinimoPrecio.Size = new System.Drawing.Size(69, 20);
+            this.TxtPesoMinimoPrecio.Size = new System.Drawing.Size(55, 20);
             this.TxtPesoMinimoPrecio.TabIndex = 10;
             this.TxtPesoMinimoPrecio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -1776,7 +1789,7 @@
             // 
             this.TxtTope.Location = new System.Drawing.Point(159, 33);
             this.TxtTope.Name = "TxtTope";
-            this.TxtTope.Size = new System.Drawing.Size(69, 20);
+            this.TxtTope.Size = new System.Drawing.Size(55, 20);
             this.TxtTope.TabIndex = 9;
             this.TxtTope.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -1784,7 +1797,7 @@
             // 
             this.TxtVrUnidad.Location = new System.Drawing.Point(159, 12);
             this.TxtVrUnidad.Name = "TxtVrUnidad";
-            this.TxtVrUnidad.Size = new System.Drawing.Size(69, 20);
+            this.TxtVrUnidad.Size = new System.Drawing.Size(55, 20);
             this.TxtVrUnidad.TabIndex = 8;
             this.TxtVrUnidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -1792,7 +1805,7 @@
             // 
             this.TxtVrPeso.Location = new System.Drawing.Point(51, 12);
             this.TxtVrPeso.Name = "TxtVrPeso";
-            this.TxtVrPeso.Size = new System.Drawing.Size(69, 20);
+            this.TxtVrPeso.Size = new System.Drawing.Size(68, 20);
             this.TxtVrPeso.TabIndex = 7;
             this.TxtVrPeso.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -1873,9 +1886,9 @@
             this.GbCondicionEspecial.Controls.Add(this.TxtFleteDescuentoUnidad);
             this.GbCondicionEspecial.Controls.Add(this.TxtFleteDescuentoPeso);
             this.GbCondicionEspecial.Enabled = false;
-            this.GbCondicionEspecial.Location = new System.Drawing.Point(919, 293);
+            this.GbCondicionEspecial.Location = new System.Drawing.Point(886, 128);
             this.GbCondicionEspecial.Name = "GbCondicionEspecial";
-            this.GbCondicionEspecial.Size = new System.Drawing.Size(177, 156);
+            this.GbCondicionEspecial.Size = new System.Drawing.Size(220, 156);
             this.GbCondicionEspecial.TabIndex = 32;
             this.GbCondicionEspecial.TabStop = false;
             this.GbCondicionEspecial.Text = "Condicion especial flete";
@@ -2071,9 +2084,9 @@
             this.GbCondicionEspecialManejo.Controls.Add(this.TxtManejoMinimoUnidadEspecial);
             this.GbCondicionEspecialManejo.Controls.Add(this.TxtPorcentajeManejoEspecial);
             this.GbCondicionEspecialManejo.Enabled = false;
-            this.GbCondicionEspecialManejo.Location = new System.Drawing.Point(919, 176);
+            this.GbCondicionEspecialManejo.Location = new System.Drawing.Point(886, 27);
             this.GbCondicionEspecialManejo.Name = "GbCondicionEspecialManejo";
-            this.GbCondicionEspecialManejo.Size = new System.Drawing.Size(181, 96);
+            this.GbCondicionEspecialManejo.Size = new System.Drawing.Size(220, 96);
             this.GbCondicionEspecialManejo.TabIndex = 35;
             this.GbCondicionEspecialManejo.TabStop = false;
             this.GbCondicionEspecialManejo.Text = "Condicion especial manejo";
@@ -2257,7 +2270,7 @@
             this.gbEstados.Enabled = false;
             this.gbEstados.Location = new System.Drawing.Point(750, 27);
             this.gbEstados.Name = "gbEstados";
-            this.gbEstados.Size = new System.Drawing.Size(163, 245);
+            this.gbEstados.Size = new System.Drawing.Size(130, 257);
             this.gbEstados.TabIndex = 65;
             this.gbEstados.TabStop = false;
             // 
@@ -2385,7 +2398,7 @@
             // BtnDescuento
             // 
             this.BtnDescuento.Enabled = false;
-            this.BtnDescuento.Location = new System.Drawing.Point(797, 406);
+            this.BtnDescuento.Location = new System.Drawing.Point(991, 426);
             this.BtnDescuento.Name = "BtnDescuento";
             this.BtnDescuento.Size = new System.Drawing.Size(115, 24);
             this.BtnDescuento.TabIndex = 66;
@@ -2396,7 +2409,7 @@
             // BtnManejo
             // 
             this.BtnManejo.Enabled = false;
-            this.BtnManejo.Location = new System.Drawing.Point(798, 434);
+            this.BtnManejo.Location = new System.Drawing.Point(992, 401);
             this.BtnManejo.Name = "BtnManejo";
             this.BtnManejo.Size = new System.Drawing.Size(114, 24);
             this.BtnManejo.TabIndex = 67;
@@ -2404,11 +2417,19 @@
             this.BtnManejo.UseVisualStyleBackColor = true;
             this.BtnManejo.Click += new System.EventHandler(this.BtnManejo_Click);
             // 
+            // TxtComentarioCondicion
+            // 
+            this.TxtComentarioCondicion.Location = new System.Drawing.Point(18, 115);
+            this.TxtComentarioCondicion.Multiline = true;
+            this.TxtComentarioCondicion.Name = "TxtComentarioCondicion";
+            this.TxtComentarioCondicion.Size = new System.Drawing.Size(299, 82);
+            this.TxtComentarioCondicion.TabIndex = 33;
+            // 
             // FrmGuia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1103, 625);
+            this.ClientSize = new System.Drawing.Size(1111, 625);
             this.ControlBox = false;
             this.Controls.Add(this.BtnManejo);
             this.Controls.Add(this.BtnDescuento);
@@ -2686,6 +2707,8 @@
         private System.Windows.Forms.Label label67;
         private System.Windows.Forms.TextBox TxtCodigoAdquiriente;
         private System.Windows.Forms.CheckBox ChkDevolverDocumento;
+        private System.Windows.Forms.Label label68;
+        private System.Windows.Forms.TextBox TxtComentarioCondicion;
     }
 }
 
