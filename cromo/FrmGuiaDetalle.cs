@@ -48,6 +48,8 @@ namespace cromo
 		{
 
             General.GuiaDetalle.Clear();
+            string comentario = "";
+            int contador = 0;
             foreach (ListViewItem item in LvGuiaDetalles.Items)
             {
                 GuiaDetalle guiaDetalle = new GuiaDetalle
@@ -60,7 +62,15 @@ namespace cromo
                     pesoFacturado = Convert.ToInt32(item.SubItems[5].Text),
                     vrFlete = Convert.ToDouble(item.SubItems[6].Text)
                 };
-
+                if(contador==0)
+                {
+                    comentario = item.SubItems[1].Text;
+                } else
+                {
+                    comentario = comentario + "," + item.SubItems[1].Text;
+                }
+                
+                contador++;
                 General.GuiaDetalle.Add(guiaDetalle);
             }
 
@@ -69,6 +79,7 @@ namespace cromo
 			General.Volumen = Convert.ToInt32(TxtVolumenTotal.Text);
 			General.PesoFacturar = Convert.ToInt32(TxtPesoFacturarTotal.Text);
 			General.Unidades = Convert.ToInt32(TxtUnidadesTotal.Text);
+            General.Comentario = comentario;
 			DialogResult = DialogResult.OK;
 			Close();
 		}

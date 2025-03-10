@@ -326,6 +326,13 @@ namespace cromo
             set { v_VrFleteMinimoGuia = value; }
         }
 
+        private static string v_Comentario = "";
+        public static string Comentario
+        {
+            get { return v_Comentario; }
+            set { v_Comentario = value; }
+        }
+
     }
 
 }

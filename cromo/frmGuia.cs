@@ -1306,7 +1306,7 @@ namespace cromo
                     General.CodigoCliente = TxtCodigoCliente.Text;
                     General.CodigoZona = TxtCodigoZona.Text;
                     General.VrFleteMinimo = Convert.ToDouble(TxtFleteFleteMinimo.Text);
-                    General.VrFleteMinimoGuia = Convert.ToDouble(TxtFleteFleteMinimoGuia.Text);
+                    General.VrFleteMinimoGuia = Convert.ToDouble(TxtFleteFleteMinimoGuia.Text);                    
                     FrmGuiaDetalle frm = new FrmGuiaDetalle(this);
                     frm.RbPesoEnabled = this.RbPeso.Enabled;
                     frm.RbPesoChecked = this.RbPeso.Checked;
@@ -1327,6 +1327,7 @@ namespace cromo
                         TxtPeso.Text = General.Peso.ToString();
                         TxtVolumen.Text = General.Volumen.ToString();
                         TxtPesoFacturar.Text = General.PesoFacturar.ToString();
+                        TxtComentario.Text = General.Comentario;
                     }
                 }
                 else
