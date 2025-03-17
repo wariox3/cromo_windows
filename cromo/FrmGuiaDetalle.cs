@@ -218,7 +218,7 @@ namespace cromo
 		private void TxtUnidades_Validated(object sender, EventArgs e)
 		{
 
-            if (codigoPrecio != "" && codigoOrigen != "" && codigoDestino != "")
+            if (codigoPrecio != "" && codigoOrigen != "" && codigoDestino != "" && CboProducto.SelectedIndex >= 0)
             {
                 string parametrosJson = "{\"precio\":\"" + codigoPrecio + "\", \"origen\":\"" + codigoOrigen + "\", \"destino\":\"" + codigoDestino + "\", \"producto\":\"" + CboProducto.SelectedValue.ToString() + "\"}";
                 string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/preciodetalle/detalleproducto", parametrosJson);
@@ -394,7 +394,7 @@ namespace cromo
 
         private void CboProducto_Validated(object sender, EventArgs e)
         {
-            if (codigoPrecio != "" && codigoOrigen != "" && codigoDestino != "" && CboProducto.Text != "")
+            if (codigoPrecio != "" && codigoOrigen != "" && codigoDestino != "" && CboProducto.SelectedIndex >= 0)
             {
                 string parametrosJson = "{\"precio\":\"" + codigoPrecio + "\", \"origen\":\"" + codigoOrigen + "\", \"destino\":\"" + codigoDestino + "\", \"zona\":\"" + codigoZona + "\", \"producto\":\"" + CboProducto.SelectedValue.ToString() + "\"}";
                 string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/preciodetalle/detalleproducto", parametrosJson);
