@@ -64,10 +64,10 @@ namespace cromo
                 };
                 if(contador==0)
                 {
-                    comentario = item.SubItems[1].Text;
+                    comentario = item.SubItems[2].Text+"-"+item.SubItems[1].Text;
                 } else
                 {
-                    comentario = comentario + "," + item.SubItems[1].Text;
+                    comentario = comentario + ", " + item.SubItems[2].Text + "-" + item.SubItems[1].Text;
                 }
                 
                 contador++;
