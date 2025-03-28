@@ -494,6 +494,7 @@ namespace cromo
             ChkEstadoAnulado.Checked = false;
             ChkEstadoFacturado.Checked = false;
             TxtPesoMinimo.Text = "0";
+            TxtPesoMinimoDespacho.Text = "0";
             TxtDescuentoPeso.Text = "0";
             TxtPorcentajeManejo.Text = "0";
             TxtManejoMinimoUnidad.Text = "0";
@@ -1029,6 +1030,7 @@ namespace cromo
                 {
                     txtNombreCondicion.Text = apiCondicion.nombre;
                     pesoMinimo = apiCondicion.pesoMinimo;
+                    pesoMinimoGuia = apiCondicion.pesoMinimoGuia;
                     porcentajeManejo = apiCondicion.porcentajeManejo;
                     manejoMinimoUnidad = apiCondicion.manejoMinimoUnidad;
                     manejoMinimoDespacho = apiCondicion.manejoMinimoDespacho;
@@ -1038,6 +1040,7 @@ namespace cromo
                     TxtCodigoPrecio.Text = apiCondicion.codigoPrecioFk.ToString();
                     ChkListaGeneral.Checked = apiCondicion.precioGeneral;
                     TxtPesoMinimo.Text = pesoMinimo.ToString();
+                    TxtPesoMinimoDespacho.Text = pesoMinimoGuia.ToString();
                     TxtPorcentajeManejo.Text = porcentajeManejo.ToString();
                     TxtDescuentoPeso.Text = descuentoPeso.ToString();
                     TxtManejoMinimoUnidad.Text = manejoMinimoUnidad.ToString();

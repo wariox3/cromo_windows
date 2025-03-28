@@ -15,6 +15,7 @@ namespace cromo
         public double manejoMinimoUnidad { get; set; }
         public double manejoMinimoDespacho { get; set; }
         public int pesoMinimo { get; set; }
+        public int pesoMinimoGuia { get; set; }
         public double descuentoPeso { get; set; }
         public int codigoPrecioFk { get; set; }
         public bool precioGeneral { get; set; }

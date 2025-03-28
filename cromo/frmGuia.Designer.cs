@@ -159,6 +159,7 @@
             this.label29 = new System.Windows.Forms.Label();
             this.TxtComentario = new System.Windows.Forms.TextBox();
             this.GbCondiciones = new System.Windows.Forms.GroupBox();
+            this.TxtComentarioCondicion = new System.Windows.Forms.TextBox();
             this.label68 = new System.Windows.Forms.Label();
             this.TxtManejoMinimoDespacho = new System.Windows.Forms.TextBox();
             this.TxtManejoMinimoUnidad = new System.Windows.Forms.TextBox();
@@ -248,7 +249,8 @@
             this.ChkFactura = new System.Windows.Forms.CheckBox();
             this.BtnDescuento = new System.Windows.Forms.Button();
             this.BtnManejo = new System.Windows.Forms.Button();
-            this.TxtComentarioCondicion = new System.Windows.Forms.TextBox();
+            this.TxtPesoMinimoDespacho = new System.Windows.Forms.TextBox();
+            this.label69 = new System.Windows.Forms.Label();
             this.gbDestinatario.SuspendLayout();
             this.gbTotales.SuspendLayout();
             this.gbCliente.SuspendLayout();
@@ -1545,6 +1547,8 @@
             // 
             // GbCondiciones
             // 
+            this.GbCondiciones.Controls.Add(this.TxtPesoMinimoDespacho);
+            this.GbCondiciones.Controls.Add(this.label69);
             this.GbCondiciones.Controls.Add(this.TxtComentarioCondicion);
             this.GbCondiciones.Controls.Add(this.label68);
             this.GbCondiciones.Controls.Add(this.TxtManejoMinimoDespacho);
@@ -1571,6 +1575,14 @@
             this.GbCondiciones.TabStop = false;
             this.GbCondiciones.Text = "Condicion general cliente";
             this.GbCondiciones.Visible = false;
+            // 
+            // TxtComentarioCondicion
+            // 
+            this.TxtComentarioCondicion.Location = new System.Drawing.Point(18, 115);
+            this.TxtComentarioCondicion.Multiline = true;
+            this.TxtComentarioCondicion.Name = "TxtComentarioCondicion";
+            this.TxtComentarioCondicion.Size = new System.Drawing.Size(299, 82);
+            this.TxtComentarioCondicion.TabIndex = 33;
             // 
             // label68
             // 
@@ -1684,7 +1696,7 @@
             // 
             // TxtDescuentoPeso
             // 
-            this.TxtDescuentoPeso.Location = new System.Drawing.Point(81, 37);
+            this.TxtDescuentoPeso.Location = new System.Drawing.Point(81, 57);
             this.TxtDescuentoPeso.Name = "TxtDescuentoPeso";
             this.TxtDescuentoPeso.Size = new System.Drawing.Size(39, 20);
             this.TxtDescuentoPeso.TabIndex = 10;
@@ -1701,7 +1713,7 @@
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(12, 37);
+            this.label37.Location = new System.Drawing.Point(12, 57);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(62, 13);
             this.label37.TabIndex = 5;
@@ -1719,7 +1731,7 @@
             // ChkListaGeneral
             // 
             this.ChkListaGeneral.AutoSize = true;
-            this.ChkListaGeneral.Location = new System.Drawing.Point(18, 61);
+            this.ChkListaGeneral.Location = new System.Drawing.Point(140, 85);
             this.ChkListaGeneral.Name = "ChkListaGeneral";
             this.ChkListaGeneral.Size = new System.Drawing.Size(94, 17);
             this.ChkListaGeneral.TabIndex = 0;
@@ -2417,13 +2429,22 @@
             this.BtnManejo.UseVisualStyleBackColor = true;
             this.BtnManejo.Click += new System.EventHandler(this.BtnManejo_Click);
             // 
-            // TxtComentarioCondicion
+            // TxtPesoMinimoDespacho
             // 
-            this.TxtComentarioCondicion.Location = new System.Drawing.Point(18, 115);
-            this.TxtComentarioCondicion.Multiline = true;
-            this.TxtComentarioCondicion.Name = "TxtComentarioCondicion";
-            this.TxtComentarioCondicion.Size = new System.Drawing.Size(299, 82);
-            this.TxtComentarioCondicion.TabIndex = 33;
+            this.TxtPesoMinimoDespacho.Location = new System.Drawing.Point(81, 35);
+            this.TxtPesoMinimoDespacho.Name = "TxtPesoMinimoDespacho";
+            this.TxtPesoMinimoDespacho.Size = new System.Drawing.Size(39, 20);
+            this.TxtPesoMinimoDespacho.TabIndex = 35;
+            this.TxtPesoMinimoDespacho.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label69
+            // 
+            this.label69.AutoSize = true;
+            this.label69.Location = new System.Drawing.Point(6, 38);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(78, 13);
+            this.label69.TabIndex = 34;
+            this.label69.Text = "Peso min(Des):";
             // 
             // FrmGuia
             // 
@@ -2709,6 +2730,8 @@
         private System.Windows.Forms.CheckBox ChkDevolverDocumento;
         private System.Windows.Forms.Label label68;
         private System.Windows.Forms.TextBox TxtComentarioCondicion;
+        private System.Windows.Forms.TextBox TxtPesoMinimoDespacho;
+        private System.Windows.Forms.Label label69;
     }
 }
 
