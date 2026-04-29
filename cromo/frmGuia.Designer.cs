@@ -541,6 +541,7 @@
             this.TxtCostoReexpedicion.Size = new System.Drawing.Size(111, 20);
             this.TxtCostoReexpedicion.TabIndex = 32;
             this.TxtCostoReexpedicion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TxtCostoReexpedicion.Validated += new System.EventHandler(this.TxtCostoReexpedicion_Validated);
             // 
             // ChkLiquidado
             // 

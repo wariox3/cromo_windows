@@ -1135,12 +1135,13 @@ namespace cromo
                 }
                 double vrManejo = Math.Round(Convert.ToDouble(TxtManejo.Text));
                 double vrFlete = Convert.ToDouble(TxtFlete.Text);
+                double vrReexpedicion = Convert.ToDouble(TxtCostoReexpedicion.Text);
                 if (pago == "DES" || pago == "CON")
                 {                   
                     vrManejo = Math.Round(vrManejo / 100) * 100;
                 }
                 TxtManejo.Text = vrManejo.ToString();
-                TxtTotal.Text = (vrFlete + vrManejo).ToString();
+                TxtTotal.Text = (vrFlete + vrManejo + vrReexpedicion).ToString();
             }
         }
 
@@ -1620,14 +1621,16 @@ namespace cromo
         {
             double flete = Convert.ToDouble(TxtFlete.Text);
             double manejo = Convert.ToDouble(TxtManejo.Text);
-            TxtTotal.Text = (flete + manejo).ToString();
+            double reexpedicion = Convert.ToDouble(TxtCostoReexpedicion.Text);
+            TxtTotal.Text = (flete + manejo + reexpedicion).ToString();
         }
 
         private void TxtManejo_Validated(object sender, EventArgs e)
         {
             double flete = Convert.ToDouble(TxtFlete.Text);
             double manejo = Convert.ToDouble(TxtManejo.Text);
-            TxtTotal.Text = (flete + manejo).ToString();
+            double reexpedicion = Convert.ToDouble(TxtCostoReexpedicion.Text);
+            TxtTotal.Text = (flete + manejo + reexpedicion).ToString();
         }
 
         private void TxtCodigoAdquiriente_KeyDown(object sender, KeyEventArgs e)
@@ -1657,6 +1660,13 @@ namespace cromo
             }
         }
 
+        private void TxtCostoReexpedicion_Validated(object sender, EventArgs e)
+        {
+            double flete = Convert.ToDouble(TxtFlete.Text);
+            double manejo = Convert.ToDouble(TxtManejo.Text);
+            double reexpedicion = Convert.ToDouble(TxtCostoReexpedicion.Text);
+            TxtTotal.Text = (flete + manejo + reexpedicion).ToString();
+        }
     }
 
 }
