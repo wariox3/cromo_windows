@@ -52,6 +52,7 @@ namespace cromo
         public double vrTotalFactura { get; set; }
         public double vrCobroEntrega { get; set; }
         public double vrRecaudo { get; set; }
+        public double vrCostoReexpedicion { get; set; }
         public double pesoReal { get; set; }
         public double pesoVolumen { get; set; }
         public double pesoFacturado { get; set; }
