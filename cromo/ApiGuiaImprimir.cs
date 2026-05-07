@@ -32,6 +32,7 @@ namespace cromo
         public string nombreRemitente { get; set; }
         public string direccionRemitente { get; set; }
         public string telefonoRemitente { get; set; }
+        public string numeroIdentificacionDestinatario { get; set; }
         public string nombreDestinatario { get; set; }
         public string telefonoDestinatario { get; set; }
         public string direccionDestinatario { get; set; }

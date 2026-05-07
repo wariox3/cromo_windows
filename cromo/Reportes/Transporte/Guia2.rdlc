@@ -145,6 +145,10 @@
           <DataField>numeroFactura</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="numeroIdentificacionDestinatario">
+          <DataField>numeroIdentificacionDestinatario</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="pesoFacturado">
           <DataField>pesoFacturado</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
@@ -233,7 +237,7 @@
       <rd:DataSetInfo>
         <rd:DataSetName>cromo</rd:DataSetName>
         <rd:TableName>ApiGuiaImprimir</rd:TableName>
-        <rd:ObjectDataSourceType>cromo.ApiGuiaImprimir, cromo, Version=1.21.1.28, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+        <rd:ObjectDataSourceType>cromo.ApiGuiaImprimir, cromo, Version=1.21.1.29, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -340,7 +344,7 @@
                                   <Top>0.49182cm</Top>
                                   <Left>0.15343cm</Left>
                                   <Height>0.25604cm</Height>
-                                  <Width>7.84848cm</Width>
+                                  <Width>5.82331cm</Width>
                                   <ZIndex>4</ZIndex>
                                   <Style>
                                     <Border />
@@ -626,7 +630,7 @@
                                   <Top>1.76003cm</Top>
                                   <Left>0.13437cm</Left>
                                   <Height>0.25604cm</Height>
-                                  <Width>7.86754cm</Width>
+                                  <Width>5.83179cm</Width>
                                   <ZIndex>16</ZIndex>
                                   <Style>
                                     <Border />
@@ -2655,6 +2659,128 @@
                                     <PaddingBottom>2pt</PaddingBottom>
                                   </Style>
                                 </Textbox>
+                                <Textbox Name="Textbox153">
+                                  <CanGrow>true</CanGrow>
+                                  <KeepTogether>true</KeepTogether>
+                                  <Paragraphs>
+                                    <Paragraph>
+                                      <TextRuns>
+                                        <TextRun>
+                                          <Value>NIT/CC</Value>
+                                          <Style>
+                                            <FontSize>6pt</FontSize>
+                                            <FontWeight>Bold</FontWeight>
+                                          </Style>
+                                        </TextRun>
+                                      </TextRuns>
+                                      <Style />
+                                    </Paragraph>
+                                  </Paragraphs>
+                                  <rd:DefaultName>Textbox1</rd:DefaultName>
+                                  <Top>0.47624cm</Top>
+                                  <Left>6.0473cm</Left>
+                                  <Height>0.28015cm</Height>
+                                  <Width>0.76584cm</Width>
+                                  <ZIndex>100</ZIndex>
+                                  <Style>
+                                    <Border>
+                                      <Style>None</Style>
+                                    </Border>
+                                  </Style>
+                                </Textbox>
+                                <Textbox Name="clienteNumeroIdentificacion3">
+                                  <CanGrow>true</CanGrow>
+                                  <KeepTogether>true</KeepTogether>
+                                  <Paragraphs>
+                                    <Paragraph>
+                                      <TextRuns>
+                                        <TextRun>
+                                          <Value>=Fields!clienteNumeroIdentificacion.Value</Value>
+                                          <Style>
+                                            <FontSize>6pt</FontSize>
+                                          </Style>
+                                        </TextRun>
+                                      </TextRuns>
+                                      <Style />
+                                    </Paragraph>
+                                  </Paragraphs>
+                                  <rd:DefaultName>clienteNumeroIdentificacion</rd:DefaultName>
+                                  <Top>0.44097cm</Top>
+                                  <Left>6.76728cm</Left>
+                                  <Height>0.33541cm</Height>
+                                  <Width>1.18706cm</Width>
+                                  <ZIndex>101</ZIndex>
+                                  <Style>
+                                    <Border>
+                                      <Style>None</Style>
+                                    </Border>
+                                    <PaddingLeft>2pt</PaddingLeft>
+                                    <PaddingRight>2pt</PaddingRight>
+                                    <PaddingTop>2pt</PaddingTop>
+                                    <PaddingBottom>2pt</PaddingBottom>
+                                  </Style>
+                                </Textbox>
+                                <Textbox Name="Textbox154">
+                                  <CanGrow>true</CanGrow>
+                                  <KeepTogether>true</KeepTogether>
+                                  <Paragraphs>
+                                    <Paragraph>
+                                      <TextRuns>
+                                        <TextRun>
+                                          <Value>NIT/CC</Value>
+                                          <Style>
+                                            <FontSize>6pt</FontSize>
+                                            <FontWeight>Bold</FontWeight>
+                                          </Style>
+                                        </TextRun>
+                                      </TextRuns>
+                                      <Style />
+                                    </Paragraph>
+                                  </Paragraphs>
+                                  <rd:DefaultName>Textbox1</rd:DefaultName>
+                                  <Top>1.77973cm</Top>
+                                  <Left>6.00144cm</Left>
+                                  <Height>0.28015cm</Height>
+                                  <Width>0.76584cm</Width>
+                                  <ZIndex>102</ZIndex>
+                                  <Style>
+                                    <Border>
+                                      <Style>None</Style>
+                                    </Border>
+                                  </Style>
+                                </Textbox>
+                                <Textbox Name="numeroIdentificacionDestinatario3">
+                                  <CanGrow>true</CanGrow>
+                                  <KeepTogether>true</KeepTogether>
+                                  <Paragraphs>
+                                    <Paragraph>
+                                      <TextRuns>
+                                        <TextRun>
+                                          <Value>=Fields!numeroIdentificacionDestinatario.Value</Value>
+                                          <Style>
+                                            <FontSize>6pt</FontSize>
+                                          </Style>
+                                        </TextRun>
+                                      </TextRuns>
+                                      <Style />
+                                    </Paragraph>
+                                  </Paragraphs>
+                                  <rd:DefaultName>numeroIdentificacionDestinatario</rd:DefaultName>
+                                  <Top>1.74265cm</Top>
+                                  <Left>6.76728cm</Left>
+                                  <Height>0.29312cm</Height>
+                                  <Width>1.23463cm</Width>
+                                  <ZIndex>103</ZIndex>
+                                  <Style>
+                                    <Border>
+                                      <Style>None</Style>
+                                    </Border>
+                                    <PaddingLeft>2pt</PaddingLeft>
+                                    <PaddingRight>2pt</PaddingRight>
+                                    <PaddingTop>2pt</PaddingTop>
+                                    <PaddingBottom>2pt</PaddingBottom>
+                                  </Style>
+                                </Textbox>
                               </ReportItems>
                               <KeepTogether>true</KeepTogether>
                               <Top>19.96898cm</Top>
@@ -2751,7 +2877,7 @@
                                   <Top>0.49182cm</Top>
                                   <Left>0.15343cm</Left>
                                   <Height>0.25604cm</Height>
-                                  <Width>7.84848cm</Width>
+                                  <Width>5.91293cm</Width>
                                   <ZIndex>4</ZIndex>
                                   <Style>
                                     <Border />
@@ -3037,7 +3163,7 @@
                                   <Top>1.76003cm</Top>
                                   <Left>0.13437cm</Left>
                                   <Height>0.25604cm</Height>
-                                  <Width>7.86754cm</Width>
+                                  <Width>5.93199cm</Width>
                                   <ZIndex>16</ZIndex>
                                   <Style>
                                     <Border />
@@ -5066,6 +5192,128 @@
                                     </Border>
                                   </Style>
                                 </Textbox>
+                                <Textbox Name="Textbox129">
+                                  <CanGrow>true</CanGrow>
+                                  <KeepTogether>true</KeepTogether>
+                                  <Paragraphs>
+                                    <Paragraph>
+                                      <TextRuns>
+                                        <TextRun>
+                                          <Value>NIT/CC</Value>
+                                          <Style>
+                                            <FontSize>6pt</FontSize>
+                                            <FontWeight>Bold</FontWeight>
+                                          </Style>
+                                        </TextRun>
+                                      </TextRuns>
+                                      <Style />
+                                    </Paragraph>
+                                  </Paragraphs>
+                                  <rd:DefaultName>Textbox1</rd:DefaultName>
+                                  <Top>0.45654cm</Top>
+                                  <Left>6.20747cm</Left>
+                                  <Height>0.28015cm</Height>
+                                  <Width>0.76584cm</Width>
+                                  <ZIndex>100</ZIndex>
+                                  <Style>
+                                    <Border>
+                                      <Style>None</Style>
+                                    </Border>
+                                  </Style>
+                                </Textbox>
+                                <Textbox Name="clienteNumeroIdentificacion">
+                                  <CanGrow>true</CanGrow>
+                                  <KeepTogether>true</KeepTogether>
+                                  <Paragraphs>
+                                    <Paragraph>
+                                      <TextRuns>
+                                        <TextRun>
+                                          <Value>=Fields!clienteNumeroIdentificacion.Value</Value>
+                                          <Style>
+                                            <FontSize>6pt</FontSize>
+                                          </Style>
+                                        </TextRun>
+                                      </TextRuns>
+                                      <Style />
+                                    </Paragraph>
+                                  </Paragraphs>
+                                  <rd:DefaultName>clienteNumeroIdentificacion</rd:DefaultName>
+                                  <Top>0.42127cm</Top>
+                                  <Left>6.92745cm</Left>
+                                  <Height>0.33541cm</Height>
+                                  <Width>1.18706cm</Width>
+                                  <ZIndex>101</ZIndex>
+                                  <Style>
+                                    <Border>
+                                      <Style>None</Style>
+                                    </Border>
+                                    <PaddingLeft>2pt</PaddingLeft>
+                                    <PaddingRight>2pt</PaddingRight>
+                                    <PaddingTop>2pt</PaddingTop>
+                                    <PaddingBottom>2pt</PaddingBottom>
+                                  </Style>
+                                </Textbox>
+                                <Textbox Name="Textbox150">
+                                  <CanGrow>true</CanGrow>
+                                  <KeepTogether>true</KeepTogether>
+                                  <Paragraphs>
+                                    <Paragraph>
+                                      <TextRuns>
+                                        <TextRun>
+                                          <Value>NIT/CC</Value>
+                                          <Style>
+                                            <FontSize>6pt</FontSize>
+                                            <FontWeight>Bold</FontWeight>
+                                          </Style>
+                                        </TextRun>
+                                      </TextRuns>
+                                      <Style />
+                                    </Paragraph>
+                                  </Paragraphs>
+                                  <rd:DefaultName>Textbox1</rd:DefaultName>
+                                  <Top>1.76003cm</Top>
+                                  <Left>6.16161cm</Left>
+                                  <Height>0.28015cm</Height>
+                                  <Width>0.76584cm</Width>
+                                  <ZIndex>102</ZIndex>
+                                  <Style>
+                                    <Border>
+                                      <Style>None</Style>
+                                    </Border>
+                                  </Style>
+                                </Textbox>
+                                <Textbox Name="numeroIdentificacionDestinatario">
+                                  <CanGrow>true</CanGrow>
+                                  <KeepTogether>true</KeepTogether>
+                                  <Paragraphs>
+                                    <Paragraph>
+                                      <TextRuns>
+                                        <TextRun>
+                                          <Value>=Fields!numeroIdentificacionDestinatario.Value</Value>
+                                          <Style>
+                                            <FontSize>6pt</FontSize>
+                                          </Style>
+                                        </TextRun>
+                                      </TextRuns>
+                                      <Style />
+                                    </Paragraph>
+                                  </Paragraphs>
+                                  <rd:DefaultName>numeroIdentificacionDestinatario</rd:DefaultName>
+                                  <Top>1.72295cm</Top>
+                                  <Left>6.92745cm</Left>
+                                  <Height>0.29312cm</Height>
+                                  <Width>1.23463cm</Width>
+                                  <ZIndex>103</ZIndex>
+                                  <Style>
+                                    <Border>
+                                      <Style>None</Style>
+                                    </Border>
+                                    <PaddingLeft>2pt</PaddingLeft>
+                                    <PaddingRight>2pt</PaddingRight>
+                                    <PaddingTop>2pt</PaddingTop>
+                                    <PaddingBottom>2pt</PaddingBottom>
+                                  </Style>
+                                </Textbox>
                               </ReportItems>
                               <KeepTogether>true</KeepTogether>
                               <Top>1.62347cm</Top>
@@ -5493,7 +5741,7 @@
                                   <Top>0.49182cm</Top>
                                   <Left>0.15343cm</Left>
                                   <Height>0.25604cm</Height>
-                                  <Width>7.84848cm</Width>
+                                  <Width>5.87765cm</Width>
                                   <ZIndex>4</ZIndex>
                                   <Style>
                                     <Border />
@@ -5779,7 +6027,7 @@
                                   <Top>1.76003cm</Top>
                                   <Left>0.13437cm</Left>
                                   <Height>0.25604cm</Height>
-                                  <Width>7.86754cm</Width>
+                                  <Width>5.7803cm</Width>
                                   <ZIndex>16</ZIndex>
                                   <Style>
                                     <Border />
@@ -7808,6 +8056,128 @@
                                     <PaddingBottom>2pt</PaddingBottom>
                                   </Style>
                                 </Textbox>
+                                <Textbox Name="Textbox151">
+                                  <CanGrow>true</CanGrow>
+                                  <KeepTogether>true</KeepTogether>
+                                  <Paragraphs>
+                                    <Paragraph>
+                                      <TextRuns>
+                                        <TextRun>
+                                          <Value>NIT/CC</Value>
+                                          <Style>
+                                            <FontSize>6pt</FontSize>
+                                            <FontWeight>Bold</FontWeight>
+                                          </Style>
+                                        </TextRun>
+                                      </TextRuns>
+                                      <Style />
+                                    </Paragraph>
+                                  </Paragraphs>
+                                  <rd:DefaultName>Textbox1</rd:DefaultName>
+                                  <Top>0.49181cm</Top>
+                                  <Left>6.13692cm</Left>
+                                  <Height>0.28015cm</Height>
+                                  <Width>0.76584cm</Width>
+                                  <ZIndex>100</ZIndex>
+                                  <Style>
+                                    <Border>
+                                      <Style>None</Style>
+                                    </Border>
+                                  </Style>
+                                </Textbox>
+                                <Textbox Name="clienteNumeroIdentificacion2">
+                                  <CanGrow>true</CanGrow>
+                                  <KeepTogether>true</KeepTogether>
+                                  <Paragraphs>
+                                    <Paragraph>
+                                      <TextRuns>
+                                        <TextRun>
+                                          <Value>=Fields!clienteNumeroIdentificacion.Value</Value>
+                                          <Style>
+                                            <FontSize>6pt</FontSize>
+                                          </Style>
+                                        </TextRun>
+                                      </TextRuns>
+                                      <Style />
+                                    </Paragraph>
+                                  </Paragraphs>
+                                  <rd:DefaultName>clienteNumeroIdentificacion</rd:DefaultName>
+                                  <Top>0.45654cm</Top>
+                                  <Left>6.8569cm</Left>
+                                  <Height>0.33541cm</Height>
+                                  <Width>1.18706cm</Width>
+                                  <ZIndex>101</ZIndex>
+                                  <Style>
+                                    <Border>
+                                      <Style>None</Style>
+                                    </Border>
+                                    <PaddingLeft>2pt</PaddingLeft>
+                                    <PaddingRight>2pt</PaddingRight>
+                                    <PaddingTop>2pt</PaddingTop>
+                                    <PaddingBottom>2pt</PaddingBottom>
+                                  </Style>
+                                </Textbox>
+                                <Textbox Name="Textbox152">
+                                  <CanGrow>true</CanGrow>
+                                  <KeepTogether>true</KeepTogether>
+                                  <Paragraphs>
+                                    <Paragraph>
+                                      <TextRuns>
+                                        <TextRun>
+                                          <Value>NIT/CC</Value>
+                                          <Style>
+                                            <FontSize>6pt</FontSize>
+                                            <FontWeight>Bold</FontWeight>
+                                          </Style>
+                                        </TextRun>
+                                      </TextRuns>
+                                      <Style />
+                                    </Paragraph>
+                                  </Paragraphs>
+                                  <rd:DefaultName>Textbox1</rd:DefaultName>
+                                  <Top>1.7953cm</Top>
+                                  <Left>6.09106cm</Left>
+                                  <Height>0.28015cm</Height>
+                                  <Width>0.76584cm</Width>
+                                  <ZIndex>102</ZIndex>
+                                  <Style>
+                                    <Border>
+                                      <Style>None</Style>
+                                    </Border>
+                                  </Style>
+                                </Textbox>
+                                <Textbox Name="numeroIdentificacionDestinatario2">
+                                  <CanGrow>true</CanGrow>
+                                  <KeepTogether>true</KeepTogether>
+                                  <Paragraphs>
+                                    <Paragraph>
+                                      <TextRuns>
+                                        <TextRun>
+                                          <Value>=Fields!numeroIdentificacionDestinatario.Value</Value>
+                                          <Style>
+                                            <FontSize>6pt</FontSize>
+                                          </Style>
+                                        </TextRun>
+                                      </TextRuns>
+                                      <Style />
+                                    </Paragraph>
+                                  </Paragraphs>
+                                  <rd:DefaultName>numeroIdentificacionDestinatario</rd:DefaultName>
+                                  <Top>1.75822cm</Top>
+                                  <Left>6.8569cm</Left>
+                                  <Height>0.29312cm</Height>
+                                  <Width>1.23463cm</Width>
+                                  <ZIndex>103</ZIndex>
+                                  <Style>
+                                    <Border>
+                                      <Style>None</Style>
+                                    </Border>
+                                    <PaddingLeft>2pt</PaddingLeft>
+                                    <PaddingRight>2pt</PaddingRight>
+                                    <PaddingTop>2pt</PaddingTop>
+                                    <PaddingBottom>2pt</PaddingBottom>
+                                  </Style>
+                                </Textbox>
                               </ReportItems>
                               <KeepTogether>true</KeepTogether>
                               <Top>10.74719cm</Top>
@@ -8734,6 +9104,7 @@
                             </Border>
                           </Style>
                         </Rectangle>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
