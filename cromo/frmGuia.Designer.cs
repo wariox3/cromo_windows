@@ -141,8 +141,6 @@
             this.TxtCodigoDespacho = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
             this.TxtUsuario = new System.Windows.Forms.TextBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.TxtNumero = new System.Windows.Forms.TextBox();
             this.TxtOperacionIngreso = new System.Windows.Forms.TextBox();
             this.TxtOperacionCargo = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
@@ -1319,8 +1317,6 @@
             this.gbDatos.Controls.Add(this.TxtCodigoDespacho);
             this.gbDatos.Controls.Add(this.label31);
             this.gbDatos.Controls.Add(this.TxtUsuario);
-            this.gbDatos.Controls.Add(this.label28);
-            this.gbDatos.Controls.Add(this.TxtNumero);
             this.gbDatos.Controls.Add(this.TxtOperacionIngreso);
             this.gbDatos.Controls.Add(this.TxtOperacionCargo);
             this.gbDatos.Controls.Add(this.label25);
@@ -1404,22 +1400,6 @@
             this.TxtUsuario.Name = "TxtUsuario";
             this.TxtUsuario.Size = new System.Drawing.Size(116, 20);
             this.TxtUsuario.TabIndex = 24;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(24, 36);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(47, 13);
-            this.label28.TabIndex = 13;
-            this.label28.Text = "Numero:";
-            // 
-            // TxtNumero
-            // 
-            this.TxtNumero.Location = new System.Drawing.Point(72, 34);
-            this.TxtNumero.Name = "TxtNumero";
-            this.TxtNumero.Size = new System.Drawing.Size(116, 20);
-            this.TxtNumero.TabIndex = 12;
             // 
             // TxtOperacionIngreso
             // 
@@ -2573,8 +2553,6 @@
 		private System.Windows.Forms.Label label27;
 		private System.Windows.Forms.TextBox txtNombreCondicion;
 		private System.Windows.Forms.TextBox TxtCodigoCondicion;
-		private System.Windows.Forms.Label label28;
-		private System.Windows.Forms.TextBox TxtNumero;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
 		private System.Windows.Forms.ToolStripButton TsbImprimir;
 		private System.Windows.Forms.ToolStripMenuItem MnuImprimir;

@@ -14,7 +14,6 @@ namespace cromo
         public string empresaDireccion { get; set; }
         public string empresaTelefono { get; set; }
         public string empresaCorreo { get; set; }
-        public int numero { get; set; }
         public string codigoBarras { get; set; }
         public string tituloFactura { get; set; }
         public string tituloFacturaVenta { get; set; }

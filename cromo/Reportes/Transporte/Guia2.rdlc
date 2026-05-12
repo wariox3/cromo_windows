@@ -1846,7 +1846,7 @@
                                     <Paragraph>
                                       <TextRuns>
                                         <TextRun>
-                                          <Value>NOMBRE Y CEDULA DESTINATARIO</Value>
+                                          <Value>NOMBRE Y CEDULA REMITENTE/DESTINATARIO</Value>
                                           <Style>
                                             <FontSize>5pt</FontSize>
                                             <FontWeight>Bold</FontWeight>
@@ -1877,7 +1877,7 @@
                                     <Paragraph>
                                       <TextRuns>
                                         <TextRun>
-                                          <Value>RECIBE SATISFACCION</Value>
+                                          <Value>FIRMA Y CEDULA RECIBE</Value>
                                           <Style>
                                             <FontSize>5pt</FontSize>
                                             <FontWeight>Bold</FontWeight>
@@ -1890,8 +1890,8 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>Textbox1</rd:DefaultName>
-                                  <Top>5.53681cm</Top>
-                                  <Left>16.28777cm</Left>
+                                  <Top>5.06056cm</Top>
+                                  <Left>16.63702cm</Left>
                                   <Height>0.28015cm</Height>
                                   <Width>2.46268cm</Width>
                                   <ZIndex>68</ZIndex>
@@ -4379,7 +4379,7 @@
                                     <Paragraph>
                                       <TextRuns>
                                         <TextRun>
-                                          <Value>NOMBRE Y CEDULA DESTINATARIO</Value>
+                                          <Value>NOMBRE Y CEDULA REMITENTE/DESTINATARIO</Value>
                                           <Style>
                                             <FontSize>5pt</FontSize>
                                             <FontWeight>Bold</FontWeight>
@@ -4410,7 +4410,7 @@
                                     <Paragraph>
                                       <TextRuns>
                                         <TextRun>
-                                          <Value>RECIBE SATISFACCION</Value>
+                                          <Value>FIRMA Y CEDULA RECIBE</Value>
                                           <Style>
                                             <FontSize>5pt</FontSize>
                                             <FontWeight>Bold</FontWeight>
@@ -4423,10 +4423,10 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>Textbox1</rd:DefaultName>
-                                  <Top>5.53681cm</Top>
-                                  <Left>16.28777cm</Left>
+                                  <Top>5.06056cm</Top>
+                                  <Left>16.47827cm</Left>
                                   <Height>0.28015cm</Height>
-                                  <Width>2.46268cm</Width>
+                                  <Width>2.56851cm</Width>
                                   <ZIndex>68</ZIndex>
                                   <Style>
                                     <Border>
@@ -7215,7 +7215,7 @@
                                     <Paragraph>
                                       <TextRuns>
                                         <TextRun>
-                                          <Value>NOMBRE Y CEDULA DESTINATARIO</Value>
+                                          <Value>NOMBRE Y CEDULA REMITENTE/DESTINATARIO</Value>
                                           <Style>
                                             <FontSize>5pt</FontSize>
                                             <FontWeight>Bold</FontWeight>
@@ -7246,7 +7246,7 @@
                                     <Paragraph>
                                       <TextRuns>
                                         <TextRun>
-                                          <Value>RECIBE SATISFACCION</Value>
+                                          <Value>FIRMA Y CEDULA RECIBE</Value>
                                           <Style>
                                             <FontSize>5pt</FontSize>
                                             <FontWeight>Bold</FontWeight>
@@ -7259,10 +7259,10 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>Textbox1</rd:DefaultName>
-                                  <Top>5.53681cm</Top>
-                                  <Left>16.28777cm</Left>
+                                  <Top>5.06056cm</Top>
+                                  <Left>16.35127cm</Left>
                                   <Height>0.28015cm</Height>
-                                  <Width>2.46268cm</Width>
+                                  <Width>2.75901cm</Width>
                                   <ZIndex>67</ZIndex>
                                   <Style>
                                     <Border>
@@ -9104,7 +9104,6 @@
                             </Border>
                           </Style>
                         </Rectangle>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>

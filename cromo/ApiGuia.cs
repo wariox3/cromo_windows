@@ -9,8 +9,7 @@ namespace cromo
     public class ApiGuia
     {
         public bool numeroUnicoGuia { get; set; }
-        public string codigoGuiaPk { get; set; }
-        public int numero { get; set; }        
+        public string codigoGuiaPk { get; set; }                
         public string codigoOperacionIngresoFk { get; set; }
         public string codigoOperacionCargoFk { get; set; }
         public string codigoTerceroFk { get; set; }

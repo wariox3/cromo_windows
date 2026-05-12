@@ -124,8 +124,7 @@ namespace cromo
 
                                 ApiGuia apiGuia = new ApiGuia();
                                 apiGuia.numeroUnicoGuia = General.NumeroUnicoGuia;
-                                apiGuia.codigoGuiaTipoFk = CboTipo.SelectedValue.ToString();
-                                apiGuia.numero = numero;
+                                apiGuia.codigoGuiaTipoFk = CboTipo.SelectedValue.ToString();                                
                                 apiGuia.codigoOperacionIngresoFk = TxtOperacionIngreso.Text;
                                 apiGuia.codigoOperacionCargoFk = TxtOperacionCargo.Text;
                                 apiGuia.codigoTerceroFk = TxtCodigoCliente.Text;
@@ -180,8 +179,7 @@ namespace cromo
                                 ApiGuiaRespuesta apiGuiaRespuesta = ser.Deserialize<ApiGuiaRespuesta>(jsonRespuesta);
                                 if (apiGuiaRespuesta.error == null)
                                 {
-                                    MessageBox.Show(this, "La guia se guardo con exito ", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    TxtNumero.Text = apiGuiaRespuesta.numero;
+                                    MessageBox.Show(this, "La guia se guardo con exito ", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);                                    
                                     TxtNumeroFactura.Text = apiGuiaRespuesta.numeroFactura;
                                     TxtCodigo.Text = apiGuiaRespuesta.codigoGuiaPk;
                                     ultimoCliente = TxtCodigoCliente.Text;
@@ -475,7 +473,6 @@ namespace cromo
             TxtManejo.Text = "0";
             TxtTotal.Text = "0";
             TxtRecaudo.Text = "0";
-            TxtNumero.Text = "";
             TxtNumeroFactura.Text = "";
             TxtAbono.Text = "0";
             TxtComentario.Text = "";
@@ -1258,7 +1255,6 @@ namespace cromo
                     {
                         TxtNombreRemitente.Text = apiGuiaCarga.remitente;
                         TxtDocumentoCliente.Text = apiGuiaCarga.documentoCliente;
-                        TxtNumero.Text = apiGuiaCarga.numero;
                         TxtRelacion.Text = apiGuiaCarga.relacionCliente;
                         TxtNombreDestinatario.Text = apiGuiaCarga.nombreDestinatario;
                         TxtDireccionDestinatario.Text = apiGuiaCarga.direccionDestinatario;
@@ -1465,7 +1461,6 @@ namespace cromo
         private void TraerGuia(ApiGuia apiGuia)
         {
             TxtCodigo.Text = apiGuia.codigoGuiaPk;
-            TxtNumero.Text = apiGuia.numero.ToString();
             TxtNumeroFactura.Text = apiGuia.numeroFactura;
             TxtCodigoDespacho.Text = apiGuia.codigoDespachoFk;
             TxtFechaIngreso.Text = apiGuia.fechaIngreso.ToString();
