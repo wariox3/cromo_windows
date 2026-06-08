@@ -50,11 +50,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.gbTotales = new System.Windows.Forms.GroupBox();
+            this.TxtOtros = new System.Windows.Forms.TextBox();
             this.label64 = new System.Windows.Forms.Label();
             this.TxtTotal = new System.Windows.Forms.TextBox();
             this.ChkInvertirCiudad = new System.Windows.Forms.CheckBox();
             this.label45 = new System.Windows.Forms.Label();
-            this.TxtCostoReexpedicion = new System.Windows.Forms.TextBox();
             this.ChkLiquidado = new System.Windows.Forms.CheckBox();
             this.RbUnidad = new System.Windows.Forms.RadioButton();
             this.RbPeso = new System.Windows.Forms.RadioButton();
@@ -463,11 +463,11 @@
             // 
             // gbTotales
             // 
+            this.gbTotales.Controls.Add(this.TxtOtros);
             this.gbTotales.Controls.Add(this.label64);
             this.gbTotales.Controls.Add(this.TxtTotal);
             this.gbTotales.Controls.Add(this.ChkInvertirCiudad);
             this.gbTotales.Controls.Add(this.label45);
-            this.gbTotales.Controls.Add(this.TxtCostoReexpedicion);
             this.gbTotales.Controls.Add(this.ChkLiquidado);
             this.gbTotales.Controls.Add(this.RbUnidad);
             this.gbTotales.Controls.Add(this.RbPeso);
@@ -494,6 +494,16 @@
             this.gbTotales.Size = new System.Drawing.Size(208, 269);
             this.gbTotales.TabIndex = 17;
             this.gbTotales.TabStop = false;
+            // 
+            // TxtOtros
+            // 
+            this.TxtOtros.Location = new System.Drawing.Point(87, 215);
+            this.TxtOtros.Name = "TxtOtros";
+            this.TxtOtros.Size = new System.Drawing.Size(109, 20);
+            this.TxtOtros.TabIndex = 32;
+            this.TxtOtros.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TxtOtros.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
+            this.TxtOtros.Validated += new System.EventHandler(this.TxtOtros_Validated);
             // 
             // label64
             // 
@@ -526,20 +536,11 @@
             // label45
             // 
             this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(32, 217);
+            this.label45.Location = new System.Drawing.Point(36, 217);
             this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(48, 13);
+            this.label45.Size = new System.Drawing.Size(35, 13);
             this.label45.TabIndex = 34;
-            this.label45.Text = "C_Reex:";
-            // 
-            // TxtCostoReexpedicion
-            // 
-            this.TxtCostoReexpedicion.Location = new System.Drawing.Point(86, 214);
-            this.TxtCostoReexpedicion.Name = "TxtCostoReexpedicion";
-            this.TxtCostoReexpedicion.Size = new System.Drawing.Size(111, 20);
-            this.TxtCostoReexpedicion.TabIndex = 32;
-            this.TxtCostoReexpedicion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TxtCostoReexpedicion.Validated += new System.EventHandler(this.TxtCostoReexpedicion_Validated);
+            this.label45.Text = "Otros:";
             // 
             // ChkLiquidado
             // 
@@ -601,6 +602,7 @@
             this.TxtRecaudo.TabIndex = 31;
             this.TxtRecaudo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.TxtRecaudo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
+            this.TxtRecaudo.Validated += new System.EventHandler(this.TxtRecaudo_Validated);
             // 
             // TxtManejo
             // 
@@ -2590,7 +2592,6 @@
 		private System.Windows.Forms.Label label44;
 		private System.Windows.Forms.TextBox TxtReferenciaEmpaque;
 		private System.Windows.Forms.Label label45;
-		private System.Windows.Forms.TextBox TxtCostoReexpedicion;
 		private System.Windows.Forms.Label label46;
 		private System.Windows.Forms.TextBox TxtCodigoDespacho;
 		private System.Windows.Forms.CheckBox ChkMercanciaPeligrosa;
@@ -2700,6 +2701,7 @@
         private System.Windows.Forms.TextBox TxtPesoMinimoDespacho;
         private System.Windows.Forms.GroupBox GbCondiciones;
         private System.Windows.Forms.TextBox TxtComentarioCondicion;
+        private System.Windows.Forms.TextBox TxtOtros;
     }
 }
 

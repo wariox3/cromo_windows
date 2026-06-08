@@ -46,6 +46,7 @@ namespace cromo
         public string vrFlete { get; set; }
         public string vrManejo { get; set; }
         public string vrCostoReexpedicion { get; set; }
+        public string vrOtros { get; set; }
         public string vrCobroEntrega { get; set; }
         public string vrAbono { get; set; }
         public string usuario { get; set; }

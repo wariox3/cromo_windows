@@ -47,6 +47,7 @@ namespace cromo
         public double vrFlete { get; set; }
         public double vrManejo { get; set; }
         public double vrTotal { get; set; }
+        public double vrOtros { get; set; }
         public double vrFleteFactura { get; set; }
         public double vrManejoFactura { get; set; }
         public double vrTotalFactura { get; set; }

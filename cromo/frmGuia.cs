@@ -156,7 +156,7 @@ namespace cromo
                                 apiGuia.vrDeclara = TxtDeclarado.Text;
                                 apiGuia.vrFlete = TxtFlete.Text;
                                 apiGuia.vrManejo = TxtManejo.Text;
-                                apiGuia.vrCostoReexpedicion = TxtCostoReexpedicion.Text;
+                                apiGuia.vrOtros = TxtOtros.Text;
                                 apiGuia.vrCobroEntrega = cobro.ToString();
                                 apiGuia.usuario = General.UsuarioActivo;
                                 apiGuia.empaqueReferencia = TxtReferenciaEmpaque.Text;
@@ -477,7 +477,7 @@ namespace cromo
             TxtAbono.Text = "0";
             TxtComentario.Text = "";
             TxtReferenciaEmpaque.Text = "";
-            TxtCostoReexpedicion.Text = "0";
+            TxtOtros.Text = "0";
             TxtCodigoDespacho.Text = "";
             ChkFactura.Checked = false;
             ChkReexpedicion.Checked = false;
@@ -1132,13 +1132,13 @@ namespace cromo
                 }
                 double vrManejo = Math.Round(Convert.ToDouble(TxtManejo.Text));
                 double vrFlete = Convert.ToDouble(TxtFlete.Text);
-                double vrReexpedicion = Convert.ToDouble(TxtCostoReexpedicion.Text);
+                double vrOtros = Convert.ToDouble(TxtOtros.Text);
                 if (pago == "DES" || pago == "CON")
                 {                   
                     vrManejo = Math.Round(vrManejo / 100) * 100;
                 }
                 TxtManejo.Text = vrManejo.ToString();
-                TxtTotal.Text = (vrFlete + vrManejo + vrReexpedicion).ToString();
+                TxtTotal.Text = (vrFlete + vrManejo + vrOtros).ToString();
             }
         }
 
@@ -1495,9 +1495,9 @@ namespace cromo
             TxtDeclarado.Text = apiGuia.vrDeclara;
             TxtFlete.Text = apiGuia.vrFlete;
             TxtManejo.Text = apiGuia.vrManejo;
-            TxtTotal.Text = (Convert.ToDouble(apiGuia.vrFlete) + Convert.ToDouble(apiGuia.vrManejo)).ToString();
+            TxtTotal.Text = (Convert.ToDouble(apiGuia.vrFlete) + Convert.ToDouble(apiGuia.vrManejo) + Convert.ToDouble(apiGuia.vrOtros)).ToString();
             TxtRecaudo.Text = apiGuia.vrRecaudo;
-            TxtCostoReexpedicion.Text = apiGuia.vrCostoReexpedicion;
+            TxtOtros.Text = apiGuia.vrOtros;
             TxtReferenciaEmpaque.Text = apiGuia.empaqueReferencia;
             TxtComentario.Text = apiGuia.comentario;
             TxtUsuario.Text = apiGuia.usuario;
@@ -1616,16 +1616,16 @@ namespace cromo
         {
             double flete = Convert.ToDouble(TxtFlete.Text);
             double manejo = Convert.ToDouble(TxtManejo.Text);
-            double reexpedicion = Convert.ToDouble(TxtCostoReexpedicion.Text);
-            TxtTotal.Text = (flete + manejo + reexpedicion).ToString();
+            double otros = Convert.ToDouble(TxtOtros.Text);
+            TxtTotal.Text = (flete + manejo + otros).ToString();
         }
 
         private void TxtManejo_Validated(object sender, EventArgs e)
         {
             double flete = Convert.ToDouble(TxtFlete.Text);
             double manejo = Convert.ToDouble(TxtManejo.Text);
-            double reexpedicion = Convert.ToDouble(TxtCostoReexpedicion.Text);
-            TxtTotal.Text = (flete + manejo + reexpedicion).ToString();
+            double otros = Convert.ToDouble(TxtOtros.Text);
+            TxtTotal.Text = (flete + manejo + otros).ToString();
         }
 
         private void TxtCodigoAdquiriente_KeyDown(object sender, KeyEventArgs e)
@@ -1655,12 +1655,20 @@ namespace cromo
             }
         }
 
-        private void TxtCostoReexpedicion_Validated(object sender, EventArgs e)
+        private void TxtRecaudo_Validated(object sender, EventArgs e)
         {
             double flete = Convert.ToDouble(TxtFlete.Text);
             double manejo = Convert.ToDouble(TxtManejo.Text);
-            double reexpedicion = Convert.ToDouble(TxtCostoReexpedicion.Text);
-            TxtTotal.Text = (flete + manejo + reexpedicion).ToString();
+            double otros = Convert.ToDouble(TxtOtros.Text);
+            TxtTotal.Text = (flete + manejo + otros).ToString();
+        }
+
+        private void TxtOtros_Validated(object sender, EventArgs e)
+        {
+            double flete = Convert.ToDouble(TxtFlete.Text);
+            double manejo = Convert.ToDouble(TxtManejo.Text);
+            double otros = Convert.ToDouble(TxtOtros.Text);
+            TxtTotal.Text = (flete + manejo + otros).ToString();
         }
     }
 

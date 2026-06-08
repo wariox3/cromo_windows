@@ -137,10 +137,6 @@
           <DataField>nombreRemitente</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="numero">
-          <DataField>numero</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
         <Field Name="numeroFactura">
           <DataField>numeroFactura</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -221,6 +217,10 @@
           <DataField>vrManejoFactura</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
         </Field>
+        <Field Name="vrOtros">
+          <DataField>vrOtros</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
         <Field Name="vrRecaudo">
           <DataField>vrRecaudo</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
@@ -237,7 +237,7 @@
       <rd:DataSetInfo>
         <rd:DataSetName>cromo</rd:DataSetName>
         <rd:TableName>ApiGuiaImprimir</rd:TableName>
-        <rd:ObjectDataSourceType>cromo.ApiGuiaImprimir, cromo, Version=1.21.1.29, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+        <rd:ObjectDataSourceType>cromo.ApiGuiaImprimir, cromo, Version=1.21.1.31, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -1109,8 +1109,8 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>Textbox1</rd:DefaultName>
-                                  <Top>4.9918cm</Top>
-                                  <Left>0.29293cm</Left>
+                                  <Top>5.44849cm</Top>
+                                  <Left>0.27498cm</Left>
                                   <Height>0.19196cm</Height>
                                   <Width>0.61463cm</Width>
                                   <ZIndex>35</ZIndex>
@@ -1268,8 +1268,8 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>remitente</rd:DefaultName>
-                                  <Top>5.06236cm</Top>
-                                  <Left>0.55604cm</Left>
+                                  <Top>5.51905cm</Top>
+                                  <Left>0.53809cm</Left>
                                   <Height>0.28029cm</Height>
                                   <Width>1.55274cm</Width>
                                   <ZIndex>42</ZIndex>
@@ -2553,8 +2553,8 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>vrRecaudo</rd:DefaultName>
-                                  <Top>5.62752cm</Top>
-                                  <Left>0.65675cm</Left>
+                                  <Top>4.60568cm</Top>
+                                  <Left>2.96901cm</Left>
                                   <Height>0.20709cm</Height>
                                   <Width>1.55274cm</Width>
                                   <ZIndex>96</ZIndex>
@@ -2571,7 +2571,7 @@
                                     <Paragraph>
                                       <TextRuns>
                                         <TextRun>
-                                          <Value>RECAUDO</Value>
+                                          <Value>OTROS</Value>
                                           <Style>
                                             <FontSize>4pt</FontSize>
                                             <FontWeight>Bold</FontWeight>
@@ -2582,7 +2582,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>Textbox1</rd:DefaultName>
-                                  <Top>5.46999cm</Top>
+                                  <Top>4.99181cm</Top>
                                   <Left>0.29293cm</Left>
                                   <Height>0.19596cm</Height>
                                   <Width>1.08345cm</Width>
@@ -2600,7 +2600,7 @@
                                     <Paragraph>
                                       <TextRuns>
                                         <TextRun>
-                                          <Value>C_REEXPEDICION</Value>
+                                          <Value>RECAUDO</Value>
                                           <Style>
                                             <FontSize>4pt</FontSize>
                                             <FontWeight>Bold</FontWeight>
@@ -2622,41 +2622,6 @@
                                     <Border>
                                       <Style>None</Style>
                                     </Border>
-                                  </Style>
-                                </Textbox>
-                                <Textbox Name="vrCostoReexpedicion3">
-                                  <CanGrow>true</CanGrow>
-                                  <KeepTogether>true</KeepTogether>
-                                  <Paragraphs>
-                                    <Paragraph>
-                                      <TextRuns>
-                                        <TextRun>
-                                          <Value>=Fields!vrCostoReexpedicion.Value</Value>
-                                          <Style>
-                                            <FontSize>5pt</FontSize>
-                                            <Format>#,0;(#,0)</Format>
-                                          </Style>
-                                        </TextRun>
-                                      </TextRuns>
-                                      <Style>
-                                        <TextAlign>Right</TextAlign>
-                                      </Style>
-                                    </Paragraph>
-                                  </Paragraphs>
-                                  <rd:DefaultName>vrCostoReexpedicion</rd:DefaultName>
-                                  <Top>4.51126cm</Top>
-                                  <Left>2.54039cm</Left>
-                                  <Height>0.37471cm</Height>
-                                  <Width>2.5cm</Width>
-                                  <ZIndex>99</ZIndex>
-                                  <Style>
-                                    <Border>
-                                      <Style>None</Style>
-                                    </Border>
-                                    <PaddingLeft>2pt</PaddingLeft>
-                                    <PaddingRight>2pt</PaddingRight>
-                                    <PaddingTop>2pt</PaddingTop>
-                                    <PaddingBottom>2pt</PaddingBottom>
                                   </Style>
                                 </Textbox>
                                 <Textbox Name="Textbox153">
@@ -2681,7 +2646,7 @@
                                   <Left>6.0473cm</Left>
                                   <Height>0.28015cm</Height>
                                   <Width>0.76584cm</Width>
-                                  <ZIndex>100</ZIndex>
+                                  <ZIndex>99</ZIndex>
                                   <Style>
                                     <Border>
                                       <Style>None</Style>
@@ -2709,7 +2674,7 @@
                                   <Left>6.76728cm</Left>
                                   <Height>0.33541cm</Height>
                                   <Width>1.18706cm</Width>
-                                  <ZIndex>101</ZIndex>
+                                  <ZIndex>100</ZIndex>
                                   <Style>
                                     <Border>
                                       <Style>None</Style>
@@ -2742,7 +2707,7 @@
                                   <Left>6.00144cm</Left>
                                   <Height>0.28015cm</Height>
                                   <Width>0.76584cm</Width>
-                                  <ZIndex>102</ZIndex>
+                                  <ZIndex>101</ZIndex>
                                   <Style>
                                     <Border>
                                       <Style>None</Style>
@@ -2770,7 +2735,7 @@
                                   <Left>6.76728cm</Left>
                                   <Height>0.29312cm</Height>
                                   <Width>1.23463cm</Width>
-                                  <ZIndex>103</ZIndex>
+                                  <ZIndex>102</ZIndex>
                                   <Style>
                                     <Border>
                                       <Style>None</Style>
@@ -2779,6 +2744,36 @@
                                     <PaddingRight>2pt</PaddingRight>
                                     <PaddingTop>2pt</PaddingTop>
                                     <PaddingBottom>2pt</PaddingBottom>
+                                  </Style>
+                                </Textbox>
+                                <Textbox Name="vrOtros3">
+                                  <KeepTogether>true</KeepTogether>
+                                  <Paragraphs>
+                                    <Paragraph>
+                                      <TextRuns>
+                                        <TextRun>
+                                          <Value>=Fields!vrOtros.Value</Value>
+                                          <Style>
+                                            <FontSize>5pt</FontSize>
+                                            <Format>#,0;(#,0)</Format>
+                                          </Style>
+                                        </TextRun>
+                                      </TextRuns>
+                                      <Style>
+                                        <TextAlign>Right</TextAlign>
+                                      </Style>
+                                    </Paragraph>
+                                  </Paragraphs>
+                                  <rd:DefaultName>vrOtros</rd:DefaultName>
+                                  <Top>5.04872cm</Top>
+                                  <Left>0.57186cm</Left>
+                                  <Height>0.23849cm</Height>
+                                  <Width>1.51897cm</Width>
+                                  <ZIndex>103</ZIndex>
+                                  <Style>
+                                    <Border>
+                                      <Style>None</Style>
+                                    </Border>
                                   </Style>
                                 </Textbox>
                               </ReportItems>
@@ -3642,8 +3637,8 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>Textbox1</rd:DefaultName>
-                                  <Top>4.95653cm</Top>
-                                  <Left>0.32642cm</Left>
+                                  <Top>5.37793cm</Top>
+                                  <Left>0.22059cm</Left>
                                   <Height>0.19196cm</Height>
                                   <Width>0.61463cm</Width>
                                   <ZIndex>35</ZIndex>
@@ -3801,8 +3796,8 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>remitente</rd:DefaultName>
-                                  <Top>5.09764cm</Top>
-                                  <Left>0.64392cm</Left>
+                                  <Top>5.51904cm</Top>
+                                  <Left>0.53809cm</Left>
                                   <Height>0.28029cm</Height>
                                   <Width>1.55274cm</Width>
                                   <ZIndex>42</ZIndex>
@@ -5073,7 +5068,7 @@
                                     <Paragraph>
                                       <TextRuns>
                                         <TextRun>
-                                          <Value>RECAUDO</Value>
+                                          <Value>OTROS</Value>
                                           <Style>
                                             <FontSize>4pt</FontSize>
                                             <FontWeight>Bold</FontWeight>
@@ -5084,8 +5079,8 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>Textbox1</rd:DefaultName>
-                                  <Top>5.46999cm</Top>
-                                  <Left>0.29293cm</Left>
+                                  <Top>4.99181cm</Top>
+                                  <Left>0.23117cm</Left>
                                   <Height>0.19596cm</Height>
                                   <Width>0.87774cm</Width>
                                   <ZIndex>96</ZIndex>
@@ -5115,8 +5110,8 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>vrCobroEntrega</rd:DefaultName>
-                                  <Top>5.62752cm</Top>
-                                  <Left>0.64392cm</Left>
+                                  <Top>4.53512cm</Top>
+                                  <Left>2.96901cm</Left>
                                   <Height>0.20709cm</Height>
                                   <Width>1.55274cm</Width>
                                   <ZIndex>97</ZIndex>
@@ -5126,41 +5121,6 @@
                                     </Border>
                                   </Style>
                                 </Textbox>
-                                <Textbox Name="vrCostoReexpedicion">
-                                  <CanGrow>true</CanGrow>
-                                  <KeepTogether>true</KeepTogether>
-                                  <Paragraphs>
-                                    <Paragraph>
-                                      <TextRuns>
-                                        <TextRun>
-                                          <Value>=Fields!vrCostoReexpedicion.Value</Value>
-                                          <Style>
-                                            <FontSize>5pt</FontSize>
-                                            <Format>#,0;(#,0)</Format>
-                                          </Style>
-                                        </TextRun>
-                                      </TextRuns>
-                                      <Style>
-                                        <TextAlign>Right</TextAlign>
-                                      </Style>
-                                    </Paragraph>
-                                  </Paragraphs>
-                                  <rd:DefaultName>vrCostoReexpedicion</rd:DefaultName>
-                                  <Top>4.51126cm</Top>
-                                  <Left>2.54039cm</Left>
-                                  <Height>0.33943cm</Height>
-                                  <Width>2.5cm</Width>
-                                  <ZIndex>98</ZIndex>
-                                  <Style>
-                                    <Border>
-                                      <Style>None</Style>
-                                    </Border>
-                                    <PaddingLeft>2pt</PaddingLeft>
-                                    <PaddingRight>2pt</PaddingRight>
-                                    <PaddingTop>2pt</PaddingTop>
-                                    <PaddingBottom>2pt</PaddingBottom>
-                                  </Style>
-                                </Textbox>
                                 <Textbox Name="Textbox49">
                                   <CanGrow>true</CanGrow>
                                   <KeepTogether>true</KeepTogether>
@@ -5168,7 +5128,7 @@
                                     <Paragraph>
                                       <TextRuns>
                                         <TextRun>
-                                          <Value>C_REEXPEDICION</Value>
+                                          <Value>RECAUDO</Value>
                                           <Style>
                                             <FontSize>4pt</FontSize>
                                             <FontWeight>Bold</FontWeight>
@@ -5185,7 +5145,7 @@
                                   <Left>2.96901cm</Left>
                                   <Height>0.19596cm</Height>
                                   <Width>1.58321cm</Width>
-                                  <ZIndex>99</ZIndex>
+                                  <ZIndex>98</ZIndex>
                                   <Style>
                                     <Border>
                                       <Style>None</Style>
@@ -5214,7 +5174,7 @@
                                   <Left>6.20747cm</Left>
                                   <Height>0.28015cm</Height>
                                   <Width>0.76584cm</Width>
-                                  <ZIndex>100</ZIndex>
+                                  <ZIndex>99</ZIndex>
                                   <Style>
                                     <Border>
                                       <Style>None</Style>
@@ -5242,7 +5202,7 @@
                                   <Left>6.92745cm</Left>
                                   <Height>0.33541cm</Height>
                                   <Width>1.18706cm</Width>
-                                  <ZIndex>101</ZIndex>
+                                  <ZIndex>100</ZIndex>
                                   <Style>
                                     <Border>
                                       <Style>None</Style>
@@ -5275,7 +5235,7 @@
                                   <Left>6.16161cm</Left>
                                   <Height>0.28015cm</Height>
                                   <Width>0.76584cm</Width>
-                                  <ZIndex>102</ZIndex>
+                                  <ZIndex>101</ZIndex>
                                   <Style>
                                     <Border>
                                       <Style>None</Style>
@@ -5303,7 +5263,7 @@
                                   <Left>6.92745cm</Left>
                                   <Height>0.29312cm</Height>
                                   <Width>1.23463cm</Width>
-                                  <ZIndex>103</ZIndex>
+                                  <ZIndex>102</ZIndex>
                                   <Style>
                                     <Border>
                                       <Style>None</Style>
@@ -5312,6 +5272,36 @@
                                     <PaddingRight>2pt</PaddingRight>
                                     <PaddingTop>2pt</PaddingTop>
                                     <PaddingBottom>2pt</PaddingBottom>
+                                  </Style>
+                                </Textbox>
+                                <Textbox Name="vrOtros">
+                                  <KeepTogether>true</KeepTogether>
+                                  <Paragraphs>
+                                    <Paragraph>
+                                      <TextRuns>
+                                        <TextRun>
+                                          <Value>=Fields!vrOtros.Value</Value>
+                                          <Style>
+                                            <FontSize>5pt</FontSize>
+                                            <Format>#,0;(#,0)</Format>
+                                          </Style>
+                                        </TextRun>
+                                      </TextRuns>
+                                      <Style>
+                                        <TextAlign>Right</TextAlign>
+                                      </Style>
+                                    </Paragraph>
+                                  </Paragraphs>
+                                  <rd:DefaultName>vrOtros</rd:DefaultName>
+                                  <Top>4.99833cm</Top>
+                                  <Left>0.57186cm</Left>
+                                  <Height>0.23849cm</Height>
+                                  <Width>1.51897cm</Width>
+                                  <ZIndex>103</ZIndex>
+                                  <Style>
+                                    <Border>
+                                      <Style>None</Style>
+                                    </Border>
                                   </Style>
                                 </Textbox>
                               </ReportItems>
@@ -6624,7 +6614,7 @@
                                     <Paragraph>
                                       <TextRuns>
                                         <TextRun>
-                                          <Value>RECAUDO</Value>
+                                          <Value>OTROS</Value>
                                           <Style>
                                             <FontSize>4pt</FontSize>
                                             <FontWeight>Bold</FontWeight>
@@ -6635,8 +6625,8 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>Textbox1</rd:DefaultName>
-                                  <Top>5.48376cm</Top>
-                                  <Left>0.32642cm</Left>
+                                  <Top>4.92125cm</Top>
+                                  <Left>0.1643cm</Left>
                                   <Height>0.19596cm</Height>
                                   <Width>0.87774cm</Width>
                                   <ZIndex>41</ZIndex>
@@ -7922,8 +7912,8 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>vrRecaudo</rd:DefaultName>
-                                  <Top>5.60987cm</Top>
-                                  <Left>0.65675cm</Left>
+                                  <Top>4.55677cm</Top>
+                                  <Left>2.96901cm</Left>
                                   <Height>0.20709cm</Height>
                                   <Width>1.55274cm</Width>
                                   <ZIndex>95</ZIndex>
@@ -7951,8 +7941,8 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>Textbox1</rd:DefaultName>
-                                  <Top>5.02708cm</Top>
-                                  <Left>0.29293cm</Left>
+                                  <Top>5.43085cm</Top>
+                                  <Left>0.25765cm</Left>
                                   <Height>0.19196cm</Height>
                                   <Width>0.61463cm</Width>
                                   <ZIndex>96</ZIndex>
@@ -7981,8 +7971,8 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>remitente</rd:DefaultName>
-                                  <Top>5.09763cm</Top>
-                                  <Left>0.64392cm</Left>
+                                  <Top>5.5014cm</Top>
+                                  <Left>0.60864cm</Left>
                                   <Height>0.28029cm</Height>
                                   <Width>1.55274cm</Width>
                                   <ZIndex>97</ZIndex>
@@ -7997,7 +7987,7 @@
                                     <Paragraph>
                                       <TextRuns>
                                         <TextRun>
-                                          <Value>C_REEXPEDICION</Value>
+                                          <Value>RECAUDO</Value>
                                           <Style>
                                             <FontSize>4pt</FontSize>
                                             <FontWeight>Bold</FontWeight>
@@ -8019,41 +8009,6 @@
                                     <Border>
                                       <Style>None</Style>
                                     </Border>
-                                  </Style>
-                                </Textbox>
-                                <Textbox Name="vrCostoReexpedicion2">
-                                  <CanGrow>true</CanGrow>
-                                  <KeepTogether>true</KeepTogether>
-                                  <Paragraphs>
-                                    <Paragraph>
-                                      <TextRuns>
-                                        <TextRun>
-                                          <Value>=Fields!vrCostoReexpedicion.Value</Value>
-                                          <Style>
-                                            <FontSize>5pt</FontSize>
-                                            <Format>#,0;(#,0)</Format>
-                                          </Style>
-                                        </TextRun>
-                                      </TextRuns>
-                                      <Style>
-                                        <TextAlign>Right</TextAlign>
-                                      </Style>
-                                    </Paragraph>
-                                  </Paragraphs>
-                                  <rd:DefaultName>vrCostoReexpedicion</rd:DefaultName>
-                                  <Top>4.53291cm</Top>
-                                  <Left>2.57638cm</Left>
-                                  <Height>0.35306cm</Height>
-                                  <Width>2.5cm</Width>
-                                  <ZIndex>99</ZIndex>
-                                  <Style>
-                                    <Border>
-                                      <Style>None</Style>
-                                    </Border>
-                                    <PaddingLeft>2pt</PaddingLeft>
-                                    <PaddingRight>2pt</PaddingRight>
-                                    <PaddingTop>2pt</PaddingTop>
-                                    <PaddingBottom>2pt</PaddingBottom>
                                   </Style>
                                 </Textbox>
                                 <Textbox Name="Textbox151">
@@ -8078,7 +8033,7 @@
                                   <Left>6.13692cm</Left>
                                   <Height>0.28015cm</Height>
                                   <Width>0.76584cm</Width>
-                                  <ZIndex>100</ZIndex>
+                                  <ZIndex>99</ZIndex>
                                   <Style>
                                     <Border>
                                       <Style>None</Style>
@@ -8106,7 +8061,7 @@
                                   <Left>6.8569cm</Left>
                                   <Height>0.33541cm</Height>
                                   <Width>1.18706cm</Width>
-                                  <ZIndex>101</ZIndex>
+                                  <ZIndex>100</ZIndex>
                                   <Style>
                                     <Border>
                                       <Style>None</Style>
@@ -8139,7 +8094,7 @@
                                   <Left>6.09106cm</Left>
                                   <Height>0.28015cm</Height>
                                   <Width>0.76584cm</Width>
-                                  <ZIndex>102</ZIndex>
+                                  <ZIndex>101</ZIndex>
                                   <Style>
                                     <Border>
                                       <Style>None</Style>
@@ -8167,7 +8122,7 @@
                                   <Left>6.8569cm</Left>
                                   <Height>0.29312cm</Height>
                                   <Width>1.23463cm</Width>
-                                  <ZIndex>103</ZIndex>
+                                  <ZIndex>102</ZIndex>
                                   <Style>
                                     <Border>
                                       <Style>None</Style>
@@ -8176,6 +8131,36 @@
                                     <PaddingRight>2pt</PaddingRight>
                                     <PaddingTop>2pt</PaddingTop>
                                     <PaddingBottom>2pt</PaddingBottom>
+                                  </Style>
+                                </Textbox>
+                                <Textbox Name="vrOtros2">
+                                  <KeepTogether>true</KeepTogether>
+                                  <Paragraphs>
+                                    <Paragraph>
+                                      <TextRuns>
+                                        <TextRun>
+                                          <Value>=Fields!vrOtros.Value</Value>
+                                          <Style>
+                                            <FontSize>5pt</FontSize>
+                                            <Format>#,0;(#,0)</Format>
+                                          </Style>
+                                        </TextRun>
+                                      </TextRuns>
+                                      <Style>
+                                        <TextAlign>Right</TextAlign>
+                                      </Style>
+                                    </Paragraph>
+                                  </Paragraphs>
+                                  <rd:DefaultName>vrOtros</rd:DefaultName>
+                                  <Top>5.01597cm</Top>
+                                  <Left>0.57186cm</Left>
+                                  <Height>0.23849cm</Height>
+                                  <Width>1.51897cm</Width>
+                                  <ZIndex>103</ZIndex>
+                                  <Style>
+                                    <Border>
+                                      <Style>None</Style>
+                                    </Border>
                                   </Style>
                                 </Textbox>
                               </ReportItems>
