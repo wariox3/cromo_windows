@@ -23,44 +23,50 @@ namespace cromo
 		{
 			try
 			{
-                bool servidorManual = cromo.Properties.Settings.Default.servidorManual;
-
-                if (TxtOperador.Text != "" || servidorManual)
+                // Validación 1: Campos no pueden estar vacíos
+                if (string.IsNullOrWhiteSpace(TxtUsuario.Text) || string.IsNullOrWhiteSpace(TxtContraseña.Text))
                 {
-                    string parametrosJson;
-                    string jsonRespuesta;
-                    cromo.Properties.Settings.Default.operador = TxtOperador.Text;
-                    cromo.Properties.Settings.Default.Save();
-                    
-                    if (servidorManual)
+                    MessageBox.Show(this, "Email y contraseña son requeridos", "Validación",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Feedback 2: Mostrar que está cargando
+                BtnIngresar.Enabled = false;
+                BtnIngresar.Text = "Ingresando...";
+                BtnCancelar.Enabled = false;
+                BtnConfigurar.Enabled = false;
+
+                string parametrosJson;
+                string jsonRespuesta;
+                // === NUEVO: Login con Fluor usando JWT ===
+                if (Fluor.Login(TxtUsuario.Text, TxtContraseña.Text))
+                {
+                    // Login exitoso - Fluor administra el token internamente
+
+                    // Guardar email si "Recordar" está marcado (NO contraseña)
+                    if (ChkRecordar.Checked)
                     {
-                        General.UrlServicio = cromo.Properties.Settings.Default.rutaServidorManual;
-                        General.TokenServicio = cromo.Properties.Settings.Default.tokenServidorManual;
-                        General.UsuarioServicio = cromo.Properties.Settings.Default.usuarioServidorManual;
-                        General.ClaveServicio = cromo.Properties.Settings.Default.claveServidorManual;
-                    } else
+                        cromo.Properties.Settings.Default.usuario = TxtUsuario.Text;
+                        // NO guardar contraseña
+                        cromo.Properties.Settings.Default.recordarClave = ChkRecordar.Checked;
+                        cromo.Properties.Settings.Default.Save();
+                    }
+                    else
                     {
-                        parametrosJson = "{\"codigoOperador\":\"" + TxtOperador.Text + "\"}";
-                        jsonRespuesta = ApiControlador.ApiPostRubidio("/api/cliente/servicio", parametrosJson);                        
-                        ApiOperador apiOperador = ser.Deserialize<ApiOperador>(jsonRespuesta);
-                        if (apiOperador.error == false)
-                        {
-                            General.UrlServicio = apiOperador.puntoServicio;
-                            General.TokenServicio = apiOperador.puntoServicioToken;
-                            General.UsuarioServicio = apiOperador.puntoServicioUsuario;
-                            General.ClaveServicio = apiOperador.puntoServicioClave;
-                        }
-                        else
-                        {
-                            MessageBox.Show(this, apiOperador.errorMensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);                            
-                        }
+                        cromo.Properties.Settings.Default.usuario = null;
+                        cromo.Properties.Settings.Default.recordarClave = false;
+                        cromo.Properties.Settings.Default.Save();
                     }
 
-                    if (General.UrlServicio != "")
+                    // Limpiar 4: Borrar contraseña de memoria por seguridad
+                    TxtContraseña.Text = "";
+
+                    // Validar logo (opcional)
+                    string logo = Directory.GetCurrentDirectory() + @"\logo.jpg";
+                    if (!File.Exists(logo))
                     {
-                        //Validar logo
-                        string logo = Directory.GetCurrentDirectory() + @"\logo.jpg";
-                        if (!File.Exists(logo))
+                        try
                         {
                             jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/general/configuracion", "");
                             ApiConfiguracion apiConfiguracion = ser.Deserialize<ApiConfiguracion>(jsonRespuesta);
@@ -70,86 +76,79 @@ namespace cromo
                                 byte[] bytes = Convert.FromBase64String(base64);
                                 using (Image image = Image.FromStream(new MemoryStream(bytes)))
                                 {
-                                    image.Save(Directory.GetCurrentDirectory() + @"\logo.jpg", ImageFormat.Jpeg);  // Or Png
+                                    image.Save(Directory.GetCurrentDirectory() + @"\logo.jpg", ImageFormat.Jpeg);
                                 }
                             }
                         }
+                        catch { /* Ignorar error al descargar logo */ }
+                    }
 
-                        parametrosJson = "{\"usuario\":\"" + TxtUsuario.Text + "\",\"clave\":\"" + TxtContraseña.Text + "\"}";
-                        jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/usuario/validar", parametrosJson);
-                        ApiUsuario apiUsuario = ser.Deserialize<ApiUsuario>(jsonRespuesta);
-                        if (apiUsuario.error == null)
+                    // Validar operación (si es necesario)
+                    parametrosJson = "{\"codigoOperacion\":\"" + cromo.Properties.Settings.Default.centroOperacion + "\"}";
+                    try
+                    {
+                        jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/operacion/validar", parametrosJson);
+                        ApiOperacion apiOperacion = ser.Deserialize<ApiOperacion>(jsonRespuesta);
+                        if (apiOperacion.error == null)
                         {
-                            if (ChkRecordar.Checked)
-                            {
-                                cromo.Properties.Settings.Default.usuario = TxtUsuario.Text;
-                                cromo.Properties.Settings.Default.clave = TxtContraseña.Text;
-                                cromo.Properties.Settings.Default.recordarClave = ChkRecordar.Checked;
-                                cromo.Properties.Settings.Default.Save();
-                            }
-                            else
-                            {
-                                cromo.Properties.Settings.Default.usuario = null;
-                                cromo.Properties.Settings.Default.clave = null;
-                                cromo.Properties.Settings.Default.recordarClave = false;
-                                cromo.Properties.Settings.Default.Save();
-                            }
-                            if (apiUsuario.versionBaseDatos <= 6)
-                            {
-                                parametrosJson = "{\"codigoOperacion\":\"" + cromo.Properties.Settings.Default.centroOperacion + "\"}";
-                                jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/operacion/validar", parametrosJson);
-                                ApiOperacion apiOperacion = ser.Deserialize<ApiOperacion>(jsonRespuesta);
-                                if (apiOperacion.error == null)
-                                {
-                                    General.UsuarioActivo = TxtUsuario.Text;
-                                    General.NumeroUnicoGuia = apiUsuario.numeroUnicoGuia;
-                                    General.CodigoPrecioGeneral = apiUsuario.codigoPrecioGeneral;
-                                    General.CodigoCondicionGeneral = apiUsuario.codigoCondicionGeneral;
-                                    General.CodigoFormatoGuia = apiUsuario.codigoFormatoGuia;
+                            // Cargar configuración
+                            General.UsuarioActivo = TxtUsuario.Text;
+                            General.CodigoCiudadOrigenParametro = apiOperacion.codigoCiudadFk;
+                            General.CodigoOperacionIngreso = apiOperacion.codigoOperacionPk;
+                            General.CodigoOperacionCargo = apiOperacion.codigoOperacionCargoFk;
 
-                                    General.CodigoCiudadOrigenParametro = apiOperacion.codigoCiudadFk;
-                                    General.CodigoOperacionIngreso = apiOperacion.codigoOperacionPk;
-                                    General.CodigoOperacionCargo = apiOperacion.codigoOperacionCargoFk;
-
-                                    General.RestringirGuiaNueva = apiUsuario.restringirGuiaNueva;
-
-                                    DialogResult = DialogResult.OK;
-                                    Close();
-                                } else
-                                {
-                                    MessageBox.Show(this, "Inconvenientes con la operacion " + apiOperacion.error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                }
-                            }
-                            else
-                            {
-                                DialogResult resultado = MessageBox.Show(this, "La base de datos conectada require de una actualizacion de la aplicacion de escritorio desea descargar la actualizacion?",
-                                                                    "Actualizacion requerida", MessageBoxButtons.YesNo,
-                                                                    MessageBoxIcon.Question);
-                                if (resultado == DialogResult.Yes)
-                                {
-                                    System.Diagnostics.Process.Start("https://github.com/wariox3/cromo_windows/tree/master/InstaladorCromo/Debug");
-                                    Close();
-                                }
-                            }
+                            DialogResult = DialogResult.OK;
+                            Close();
                         }
                         else
                         {
-                            MessageBox.Show(this, "Usuario o contraseña invalidos " + apiUsuario.error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(this, "Inconvenientes con la operacion " + apiOperacion.error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-                    } else
-                    {
-                        MessageBox.Show(this, "No se ha especificado una url para el servidor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-
-                } else
+                    catch
+                    {
+                        // Si validación de operación falla, permitir continuar
+                        General.UsuarioActivo = TxtUsuario.Text;
+                        DialogResult = DialogResult.OK;
+                        Close();
+                    }
+                }
+                else
                 {
-                    MessageBox.Show(this, "Debe especificar un operador o configurar uno manual.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    TxtOperador.Focus();
-                }							
-			}
+                    // Error 3: Mensaje específico para credenciales inválidas
+                    MessageBox.Show(this, "Email o contraseña inválidos. Verifique e intente nuevamente.",
+                        "Error de Autenticación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    // Re-habilitar botones para reintentar
+                    BtnIngresar.Enabled = true;
+                    BtnIngresar.Text = "Ingresar";
+                    BtnCancelar.Enabled = true;
+                    BtnConfigurar.Enabled = true;
+                    TxtContraseña.Focus();
+                }
+            }
 			catch (Exception error)
 			{
-				MessageBox.Show("Se produjo un error (" + error.Message + ")");
+				// Error 3: Manejo de excepciones específicas
+				string mensaje = "Se produjo un error durante el login";
+
+				if (error is TimeoutException || error.Message.Contains("timeout"))
+					mensaje = "Tiempo de espera agotado. Verifique su conexión e intente de nuevo.";
+				else if (error is System.Net.WebException)
+					mensaje = "Error de conexión. Verifique que el servidor esté disponible.";
+				else if (error.Message.Contains("401") || error.Message.Contains("Unauthorized"))
+					mensaje = "Email o contraseña inválidos.";
+				else
+					mensaje = "Error: " + error.Message;
+
+				MessageBox.Show(this, mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+				// Re-habilitar botones para reintentar
+				BtnIngresar.Enabled = true;
+				BtnIngresar.Text = "Ingresar";
+				BtnCancelar.Enabled = true;
+				BtnConfigurar.Enabled = true;
+				TxtContraseña.Focus();
 			}
 		}
 
@@ -166,9 +165,8 @@ namespace cromo
 
         private void FrmIngreso_Load(object sender, EventArgs e)
         {
-            TxtOperador.Text = cromo.Properties.Settings.Default.operador;
             TxtUsuario.Text = cromo.Properties.Settings.Default.usuario;
-            TxtContraseña.Text = cromo.Properties.Settings.Default.clave;
+            // NO cargar contraseña (ya no la guardamos por seguridad)
             ChkRecordar.Checked = cromo.Properties.Settings.Default.recordarClave;
             this.Text = this.Text + " " + Application.ProductVersion;
         }

@@ -43,16 +43,6 @@
             this.tbpRutas = new System.Windows.Forms.TabPage();
             this.txtRutaReportes = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.TxtClaveServidorManual = new System.Windows.Forms.TextBox();
-            this.TxtUsuarioServidorManual = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.TxtTokenServidorManual = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.TxtRutaServidorManual = new System.Windows.Forms.TextBox();
-            this.ChkServidorManual = new System.Windows.Forms.CheckBox();
             this.tabOperador = new System.Windows.Forms.TabPage();
             this.ChkOperadorLogistico = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -62,7 +52,6 @@
             this.tbpGeneral.SuspendLayout();
             this.tbpOperacion.SuspendLayout();
             this.tbpRutas.SuspendLayout();
-            this.tabPage1.SuspendLayout();
             this.tabOperador.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -91,7 +80,6 @@
             this.tabConfiguracion.Controls.Add(this.tbpGeneral);
             this.tabConfiguracion.Controls.Add(this.tbpOperacion);
             this.tabConfiguracion.Controls.Add(this.tbpRutas);
-            this.tabConfiguracion.Controls.Add(this.tabPage1);
             this.tabConfiguracion.Controls.Add(this.tabOperador);
             this.tabConfiguracion.Location = new System.Drawing.Point(24, 12);
             this.tabConfiguracion.Name = "tabConfiguracion";
@@ -219,100 +207,7 @@
             this.label9.Size = new System.Drawing.Size(53, 13);
             this.label9.TabIndex = 0;
             this.label9.Text = "Reportes:";
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.label6);
-            this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.TxtClaveServidorManual);
-            this.tabPage1.Controls.Add(this.TxtUsuarioServidorManual);
-            this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.TxtTokenServidorManual);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.TxtRutaServidorManual);
-            this.tabPage1.Controls.Add(this.ChkServidorManual);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(340, 234);
-            this.tabPage1.TabIndex = 3;
-            this.tabPage1.Text = "Servidor";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(33, 124);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(37, 13);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Clave:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(28, 95);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 13);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "Usuario:";
-            // 
-            // TxtClaveServidorManual
-            // 
-            this.TxtClaveServidorManual.Location = new System.Drawing.Point(75, 121);
-            this.TxtClaveServidorManual.Name = "TxtClaveServidorManual";
-            this.TxtClaveServidorManual.Size = new System.Drawing.Size(259, 20);
-            this.TxtClaveServidorManual.TabIndex = 6;
-            // 
-            // TxtUsuarioServidorManual
-            // 
-            this.TxtUsuarioServidorManual.Location = new System.Drawing.Point(75, 95);
-            this.TxtUsuarioServidorManual.Name = "TxtUsuarioServidorManual";
-            this.TxtUsuarioServidorManual.Size = new System.Drawing.Size(259, 20);
-            this.TxtUsuarioServidorManual.TabIndex = 5;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(28, 72);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 13);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Token:";
-            // 
-            // TxtTokenServidorManual
-            // 
-            this.TxtTokenServidorManual.Location = new System.Drawing.Point(75, 69);
-            this.TxtTokenServidorManual.Name = "TxtTokenServidorManual";
-            this.TxtTokenServidorManual.Size = new System.Drawing.Size(259, 20);
-            this.TxtTokenServidorManual.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 43);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Servidor:";
-            // 
-            // TxtRutaServidorManual
-            // 
-            this.TxtRutaServidorManual.Location = new System.Drawing.Point(75, 43);
-            this.TxtRutaServidorManual.Name = "TxtRutaServidorManual";
-            this.TxtRutaServidorManual.Size = new System.Drawing.Size(259, 20);
-            this.TxtRutaServidorManual.TabIndex = 1;
-            // 
-            // ChkServidorManual
-            // 
-            this.ChkServidorManual.AutoSize = true;
-            this.ChkServidorManual.Location = new System.Drawing.Point(75, 20);
-            this.ChkServidorManual.Name = "ChkServidorManual";
-            this.ChkServidorManual.Size = new System.Drawing.Size(61, 17);
-            this.ChkServidorManual.TabIndex = 0;
-            this.ChkServidorManual.Text = "Manual";
-            this.ChkServidorManual.UseVisualStyleBackColor = true;
-            // 
+            //
             // tabOperador
             // 
             this.tabOperador.Controls.Add(this.ChkOperadorLogistico);
@@ -383,8 +278,6 @@
             this.tbpOperacion.PerformLayout();
             this.tbpRutas.ResumeLayout(false);
             this.tbpRutas.PerformLayout();
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
             this.tabOperador.ResumeLayout(false);
             this.tabOperador.PerformLayout();
             this.ResumeLayout(false);
@@ -402,23 +295,13 @@
 		private System.Windows.Forms.TabPage tbpRutas;
 		private System.Windows.Forms.Label label9;
 		private System.Windows.Forms.TextBox txtRutaReportes;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox TxtRutaServidorManual;
-        private System.Windows.Forms.CheckBox ChkServidorManual;
         private System.Windows.Forms.CheckBox ChkBloquearManejo;
         private System.Windows.Forms.CheckBox ChkBloquearFlete;
         private System.Windows.Forms.TabPage tabOperador;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox TxtCodigoCliente;
         private System.Windows.Forms.CheckBox ChkOperadorLogistico;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox TxtTokenServidorManual;
         private System.Windows.Forms.CheckBox ChkValidarProductoCliente;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox TxtClaveServidorManual;
-        private System.Windows.Forms.TextBox TxtUsuarioServidorManual;
         private System.Windows.Forms.TabPage tbpGeneral;
         private System.Windows.Forms.CheckBox ChkGuiaRecogida;
         private System.Windows.Forms.CheckBox ChkGuiaIngreso;

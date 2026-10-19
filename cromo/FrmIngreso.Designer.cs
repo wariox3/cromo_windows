@@ -35,8 +35,6 @@
             this.BtnIngresar = new System.Windows.Forms.Button();
             this.BtnCancelar = new System.Windows.Forms.Button();
             this.BtnConfigurar = new System.Windows.Forms.Button();
-            this.lblOperador = new System.Windows.Forms.Label();
-            this.TxtOperador = new System.Windows.Forms.TextBox();
             this.ChkRecordar = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
@@ -104,22 +102,6 @@
             this.BtnConfigurar.UseVisualStyleBackColor = true;
             this.BtnConfigurar.Click += new System.EventHandler(this.BtnConfigurar_Click);
             // 
-            // lblOperador
-            // 
-            this.lblOperador.AutoSize = true;
-            this.lblOperador.Location = new System.Drawing.Point(25, 12);
-            this.lblOperador.Name = "lblOperador";
-            this.lblOperador.Size = new System.Drawing.Size(54, 13);
-            this.lblOperador.TabIndex = 5;
-            this.lblOperador.Text = "Operador:";
-            // 
-            // TxtOperador
-            // 
-            this.TxtOperador.Location = new System.Drawing.Point(85, 12);
-            this.TxtOperador.Name = "TxtOperador";
-            this.TxtOperador.Size = new System.Drawing.Size(53, 20);
-            this.TxtOperador.TabIndex = 0;
-            // 
             // ChkRecordar
             // 
             this.ChkRecordar.AutoSize = true;
@@ -136,11 +118,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.BtnCancelar;
-            this.ClientSize = new System.Drawing.Size(280, 153);
+            this.ClientSize = new System.Drawing.Size(287, 153);
             this.ControlBox = false;
             this.Controls.Add(this.ChkRecordar);
-            this.Controls.Add(this.TxtOperador);
-            this.Controls.Add(this.lblOperador);
             this.Controls.Add(this.BtnConfigurar);
             this.Controls.Add(this.BtnCancelar);
             this.Controls.Add(this.BtnIngresar);
@@ -166,8 +146,6 @@
 		private System.Windows.Forms.Button BtnIngresar;
 		private System.Windows.Forms.Button BtnCancelar;
 		private System.Windows.Forms.Button BtnConfigurar;
-        private System.Windows.Forms.Label lblOperador;
-        private System.Windows.Forms.TextBox TxtOperador;
         private System.Windows.Forms.CheckBox ChkRecordar;
     }
 }

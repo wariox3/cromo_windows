@@ -29,4 +29,27 @@ namespace cromo
         public double manejoMinimoUnidad { get; set; }
         public double manejoMinimoDespacho { get; set; }
     }
+
+    /// <summary>
+    /// Respuesta del login en Fluor con JWT
+    /// </summary>
+    class ApiLoginResponse
+    {
+        public string access_token { get; set; }
+        public string token_type { get; set; }
+        public ApiUserInfo user { get; set; }
+    }
+
+    /// <summary>
+    /// Información del usuario autenticado en Fluor
+    /// </summary>
+    class ApiUserInfo
+    {
+        public int id { get; set; }
+        public string email { get; set; }
+        public int tenant_id { get; set; }
+        public string tenant_nombre { get; set; }
+        public string role { get; set; }
+        public int empleado_id { get; set; }
+    }
 }

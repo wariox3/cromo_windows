@@ -159,6 +159,7 @@
     <Compile Include="ApiServicio.cs" />
     <Compile Include="ApiUsuario.cs" />
     <Compile Include="ApiCliente.cs" />
+    <Compile Include="Fluor.cs" />
     <Compile Include="Connected Services\WsRndc\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
