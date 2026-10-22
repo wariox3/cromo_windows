@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Web.Script.Serialization;
 
@@ -14,8 +15,11 @@ namespace cromo
         private static string _refreshToken = "";
         private static DateTime _tokenExpireTime = DateTime.MinValue;
 
+        public static DateTime TokenExpireTime => _tokenExpireTime;
+
         private static readonly JavaScriptSerializer _serializer = new JavaScriptSerializer();
-        private const string FLUOR_AUTH_URL = "https://api.semanticaapi.com.co/auth/seguridad";
+        private const string FLUOR_API_URL = "https://api.semanticaapi.com.co";
+        private const string FLUOR_AUTH_URL = FLUOR_API_URL + "/auth/seguridad";
 
         // ============ AUTENTICACIÓN ============
 
@@ -54,6 +58,8 @@ namespace cromo
                     {
                         _refreshToken = loginResp["refresh_token"].ToString();
                     }
+
+                    CodigoUsuario = LeerCodigoUsuario(loginResp);
 
                     return true;
                 }
@@ -97,6 +103,8 @@ namespace cromo
                 {
                     _accessToken = refreshResp["access_token"].ToString();
                     _tokenExpireTime = DateTime.Now.AddMinutes(60);
+
+
                     return true;
                 }
 
@@ -126,51 +134,208 @@ namespace cromo
         /// <summary>
         /// Cierra la sesión y limpia tokens
         /// </summary>
+        public static string CodigoUsuario { get; private set; } = "";
+
+        // codigo_usuario_fk puede venir en la raíz de la respuesta del login o dentro de "user"
+        private static string LeerCodigoUsuario(IDictionary<string, object> respuesta)
+        {
+            if (respuesta.TryGetValue("codigo_usuario_fk", out object codigo) && codigo != null)
+                return codigo.ToString();
+            if (respuesta.TryGetValue("user", out object usuario) && usuario is IDictionary<string, object> datos
+                && datos.TryGetValue("codigo_usuario_fk", out codigo) && codigo != null)
+                return codigo.ToString();
+            return "";
+        }
+
         public static void Logout()
         {
+            CodigoUsuario = "";
             _accessToken = "";
             _refreshToken = "";
             _tokenExpireTime = DateTime.MinValue;
         }
 
-        /// <summary>
-        /// Verifica si hay un token válido
-        /// </summary>
-        public static bool IsAuthenticated()
+        // ============ OPERACIONES ============
+
+        public static string Get(string ruta)
         {
-            return !string.IsNullOrWhiteSpace(_accessToken) &&
-                   DateTime.Now < _tokenExpireTime;
+            return ApiControlador.ApiGetWithToken(FLUOR_API_URL + ruta, GetAccessToken());
         }
 
-        /// <summary>
-        /// Obtiene información del usuario autenticado
-        /// </summary>
-        public static dynamic GetCurrentUser()
+        public static byte[] GetBytes(string ruta)
         {
+            return ApiControlador.ApiGetBytesWithToken(FLUOR_API_URL + ruta, GetAccessToken());
+        }
+
+        // Consulta un /lista o /buscar paginado de Fluor; omite los filtros vacíos y devuelve los "items"
+        public static List<Dictionary<string, object>> GetLista(string ruta, IDictionary<string, object> filtros)
+        {
+            var query = new List<string>();
+            foreach (var filtro in filtros)
+            {
+                string valor = filtro.Value?.ToString();
+                if (!string.IsNullOrWhiteSpace(valor))
+                    query.Add(filtro.Key + "=" + Uri.EscapeDataString(valor.Trim()));
+            }
+
+            string json = Get(ruta + (query.Count > 0 ? "?" + string.Join("&", query) : ""));
+            object raiz = _serializer.DeserializeObject(json);
+            if (raiz is IDictionary<string, object> pagina && pagina.ContainsKey("items"))
+                raiz = pagina["items"];
+
+            var lista = new List<Dictionary<string, object>>();
+            if (raiz is System.Collections.IList registros)
+                foreach (var registro in registros)
+                    if (registro is Dictionary<string, object> r)
+                        lista.Add(r);
+            return lista;
+        }
+
+        public static Dictionary<string, object> GetDetalle(string ruta)
+        {
+            return _serializer.Deserialize<Dictionary<string, object>>(Get(ruta));
+        }
+
+        internal static ApiGuia DetalleGuia(int codigoGuia)
+        {
+            var g = GetDetalle("/tte/guia/detalle/" + codigoGuia);
+            return new ApiGuia
+            {
+                codigoGuiaPk = Texto(g, "codigo_guia_pk"),
+                codigoGuiaTipoFk = Texto(g, "codigo_guia_tipo_fk"),
+                codigoOperacionIngresoFk = Texto(g, "codigo_operacion_ingreso_fk"),
+                codigoOperacionCargoFk = Texto(g, "codigo_operacion_cargo_fk"),
+                codigoTerceroFk = Texto(g, "codigo_tercero_fk"),
+                clienteNombreCorto = Texto(g, "tercero_nombre"),
+                codigoAdquirienteFk = Texto(g, "codigo_adquiriente_fk"),
+                adquirienteNombreCorto = Texto(g, "adquiriente_nombre"),
+                codigoAsesorFk = Texto(g, "codigo_asesor_fk"),
+                codigoCondicionFk = Texto(g, "codigo_condicion_fk"),
+                condicionNombre = Texto(g, "condicion_nombre"),
+                factura = Booleano(g, "factura"),
+                codigoCiudadOrigenFk = Texto(g, "codigo_ciudad_origen_fk"),
+                ciudadOrigenNombre = Texto(g, "ciudad_origen_nombre"),
+                codigoCiudadDestinoFk = Texto(g, "codigo_ciudad_destino_fk"),
+                ciudadDestinoNombre = Texto(g, "ciudad_destino_nombre"),
+                codigoServicioFk = Texto(g, "codigo_servicio_fk"),
+                codigoProductoFk = Texto(g, "codigo_producto_fk"),
+                codigoEmpaqueFk = Texto(g, "codigo_empaque_fk"),
+                empaqueReferencia = Texto(g, "empaque_referencia"),
+                codigoRutaFk = Texto(g, "codigo_ruta_fk"),
+                codigoZonaFk = Texto(g, "codigo_zona_fk"),
+                ordenRuta = Texto(g, "orden_ruta"),
+                codigoDespachoFk = Texto(g, "codigo_despacho_fk"),
+                documentoCliente = Texto(g, "documento_cliente"),
+                relacionCliente = Texto(g, "relacion_cliente"),
+                remitente = Texto(g, "remitente"),
+                nombreRemitente = Texto(g, "remitente"),
+                direccionRemitente = Texto(g, "direccion_remitente"),
+                telefonoRemitente = Texto(g, "telefono_remitente"),
+                codigoDestinatarioFk = Texto(g, "codigo_destinatario_fk"),
+                nombreDestinatario = Texto(g, "nombre_destinatario"),
+                direccionDestinatario = Texto(g, "direccion_destinatario"),
+                telefonoDestinatario = Texto(g, "telefono_destinatario"),
+                fechaIngreso = Fecha(g, "fecha_ingreso") ?? DateTime.MinValue,
+                fechaDespacho = Fecha(g, "fecha_despacho"),
+                fechaEntrega = Fecha(g, "fecha_entrega"),
+                unidades = Numero(g, "unidades").ToString(),
+                pesoReal = Numero(g, "peso_real").ToString(),
+                pesoVolumen = Numero(g, "peso_volumen").ToString(),
+                pesoFacturado = Numero(g, "peso_facturado").ToString(),
+                vrDeclara = Numero(g, "vr_declara").ToString(),
+                vrFlete = Numero(g, "vr_flete").ToString(),
+                vrManejo = Numero(g, "vr_manejo").ToString(),
+                vrRecaudo = Numero(g, "vr_recaudo").ToString(),
+                vrAbono = Numero(g, "vr_abono").ToString(),
+                vrOtros = Numero(g, "vr_otros").ToString(),
+                usuario = Texto(g, "usuario"),
+                comentario = Texto(g, "comentario"),
+                reexpedicion = Booleano(g, "reexpedicion"),
+                cortesia = Booleano(g, "cortesia"),
+                estadoImpreso = Booleano(g, "estado_impreso"),
+                estadoEmbarcado = Booleano(g, "estado_embarcado"),
+                estadoDespachado = Booleano(g, "estado_despachado"),
+                estadoEntregado = Booleano(g, "estado_entregado"),
+                estadoSoporte = Booleano(g, "estado_soporte"),
+                estadoCumplido = Booleano(g, "estado_cumplido"),
+                estadoFacturado = Booleano(g, "estado_facturado"),
+                estadoFacturaGenerada = Booleano(g, "estado_factura_generada"),
+                estadoAnulado = Booleano(g, "estado_anulado")
+            };
+        }
+
+        private static DateTime? Fecha(IDictionary<string, object> registro, string campo)
+        {
+            string texto = Texto(registro, campo);
+            return DateTime.TryParse(texto, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.RoundtripKind, out DateTime fecha)
+                ? (DateTime?)fecha : null;
+        }
+
+        public static string Texto(IDictionary<string, object> registro, string campo)
+        {
+            return registro.TryGetValue(campo, out object valor) ? valor?.ToString() : null;
+        }
+
+        public static bool Booleano(IDictionary<string, object> registro, string campo)
+        {
+            return registro.TryGetValue(campo, out object valor) && valor is bool b && b;
+        }
+
+        public static double Numero(IDictionary<string, object> registro, string campo)
+        {
+            return registro.TryGetValue(campo, out object valor) && valor != null
+                ? Convert.ToDouble(valor, System.Globalization.CultureInfo.InvariantCulture) : 0;
+        }
+
+        public static int Entero(IDictionary<string, object> registro, string campo)
+        {
+            return (int)Numero(registro, campo);
+        }
+
+        public static string Post(string ruta, string json)
+        {
+            return ApiControlador.ApiPostWithToken(FLUOR_API_URL + ruta, json, GetAccessToken());
+        }
+
+        public static string MensajeError(Exception ex)
+        {
+            var webEx = ex as WebException;
+            if (webEx?.Response == null)
+                return ex.Message;
+
+            string cuerpo;
+            using (var reader = new System.IO.StreamReader(webEx.Response.GetResponseStream()))
+                cuerpo = reader.ReadToEnd();
+
             try
             {
-                var request = (HttpWebRequest)WebRequest.Create(
-                    FLUOR_AUTH_URL + "/me"
-                );
-                request.Method = "GET";
-                request.ContentType = "application/json";
-                request.Headers.Add("Authorization", "Bearer " + GetAccessToken());
+                var json = _serializer.Deserialize<System.Collections.Generic.Dictionary<string, object>>(cuerpo);
 
-                using (var response = (HttpWebResponse)request.GetResponse())
+                // Formato Fluor: { "success": false, "error": { "code", "message" } }
+                if (json.TryGetValue("error", out object error) && error is System.Collections.Generic.IDictionary<string, object> err
+                    && err.TryGetValue("message", out object mensaje))
+                    return mensaje.ToString();
+
+                // Validación (422): { "detail": [ { "loc": [...], "msg": "..." } ] } o { "detail": "..." }
+                if (json.TryGetValue("detail", out object detail))
                 {
-                    using (var reader = new System.IO.StreamReader(
-                        response.GetResponseStream()))
+                    if (detail is System.Collections.ArrayList lista)
                     {
-                        string json = reader.ReadToEnd();
-                        return _serializer.Deserialize<dynamic>(json);
+                        var mensajes = new System.Collections.Generic.List<string>();
+                        foreach (System.Collections.Generic.IDictionary<string, object> d in lista)
+                        {
+                            string campo = d.ContainsKey("loc") && d["loc"] is System.Collections.ArrayList loc && loc.Count > 0
+                                ? loc[loc.Count - 1].ToString() + ": " : "";
+                            mensajes.Add(campo + d["msg"]);
+                        }
+                        return string.Join("\n", mensajes);
                     }
+                    return detail.ToString();
                 }
             }
-            catch (Exception ex)
-            {
-                LogError("GetCurrentUser failed", ex);
-                return null;
-            }
+            catch { }
+
+            return ex.Message + (string.IsNullOrWhiteSpace(cuerpo) ? "" : "\n" + cuerpo);
         }
 
         // ============ HELPERS ============

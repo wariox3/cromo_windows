@@ -8,7 +8,6 @@ namespace cromo
 {
     class ApiCondicion
     {
-        public string codigoClienteCondicionPk { get; set; }
         public string codigoCondicionFk { get; set; }
         public string nombre { get; set; }
         public double porcentajeManejo { get; set; }
@@ -24,6 +23,5 @@ namespace cromo
         public bool precioAdicional { get; set; }
         public bool limitarDescuentoReexpedicion { get; set; }
         public string comentario { get; set; }
-        public string error { get; set; }
     }
 }

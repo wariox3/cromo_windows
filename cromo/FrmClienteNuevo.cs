@@ -15,8 +15,6 @@ namespace cromo
 {
     public partial class FrmClienteNuevo : Form
     {
-        JavaScriptSerializer ser = new JavaScriptSerializer();
-
         public FrmClienteNuevo()
         {
             InitializeComponent();
@@ -111,43 +109,59 @@ namespace cromo
         {
             if (ValidarGuardar())
             {
-                JavaScriptSerializer ser = new JavaScriptSerializer();
-
-                ApiCliente apiCliente = new ApiCliente();
-                apiCliente.codigoIdentificacionFk = CboIdentificacion.SelectedValue.ToString();
-                apiCliente.numeroIdentificacion = TxtNumeroIdentificacion.Text;
-                apiCliente.codigoCiudadFk = CboCiudad.SelectedValue.ToString();
-                apiCliente.codigoAsesorFk = CboAsesor.SelectedValue.ToString();
-                apiCliente.nombreCorto = TxtNombreCorto.Text;
-                apiCliente.nombreExtendido = TxtNombreExtendido.Text;
-                apiCliente.nombre1 = TxtNombre1.Text;
-                apiCliente.nombre2 = TxtNombre2.Text;
-                apiCliente.apellido1 = TxtApellido1.Text;
-                apiCliente.apellido2 = TxtApellido2.Text;
-                apiCliente.direccion = TxtDireccion.Text;
-                apiCliente.telefono = TxtTelefono.Text;
-                apiCliente.correo = TxtCorreo.Text;
-                apiCliente.codigoCondicionFk = General.CodigoCondicionGeneral.ToString();
-                apiCliente.codigoOperacionFk = cromo.Properties.Settings.Default.centroOperacion;         
-                apiCliente.codigoTipoPersonaFk = CboTipoPersona.SelectedValue.ToString();
-                apiCliente.codigoRegimenFk = CboRegimen.SelectedValue.ToString();
-                apiCliente.codigoPostal = TxtCodigoPostal.Text;
-                apiCliente.usuario = General.UsuarioActivo;
-
-                string parametrosJson = ser.Serialize(apiCliente);
-                string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/cliente/nuevo", parametrosJson);
-                ApiClienteRespuesta apiClienteRespuesta = ser.Deserialize<ApiClienteRespuesta>(jsonRespuesta);
-                if (apiClienteRespuesta.error == null)
+                if (!int.TryParse(CboCiudad.SelectedValue?.ToString(), out int codigoCiudad))
                 {
+                    MessageBox.Show(this, "Debe seleccionar una ciudad valida", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    CboCiudad.Focus();
+                    return;
+                }
+
+                var tercero = new Dictionary<string, object>
+                {
+                    { "codigo_identificacion_fk", CboIdentificacion.SelectedValue.ToString() },
+                    { "numero_identificacion", TxtNumeroIdentificacion.Text.Trim() },
+                    { "codigo_ciudad_fk", codigoCiudad },
+                    { "codigo_asesor_fk", int.TryParse(CboAsesor.SelectedValue?.ToString(), out int asesor) ? (int?)asesor : null },
+                    { "nombre_corto", Valor(TxtNombreCorto) },
+                    { "nombre_extendido", Valor(TxtNombreExtendido) },
+                    { "codigo_tipo_persona_fk", CboTipoPersona.SelectedValue?.ToString() },
+                    { "codigo_regimen_fk", CboRegimen.SelectedValue?.ToString() },
+                    { "codigo_postal", Valor(TxtCodigoPostal) },
+                    { "nombre1", Valor(TxtNombre1) },
+                    { "nombre2", Valor(TxtNombre2) },
+                    { "apellido1", Valor(TxtApellido1) },
+                    { "apellido2", Valor(TxtApellido2) },
+                    { "direccion", Valor(TxtDireccion) },
+                    { "telefono", Valor(TxtTelefono) },
+                    { "correo", Valor(TxtCorreo) },
+                    { "codigo_condicion_fk", General.CodigoCondicionGeneral != 0 ? (int?)General.CodigoCondicionGeneral : null },
+                    { "codigo_operacion_fk", string.IsNullOrWhiteSpace(cromo.Properties.Settings.Default.centroOperacion) ? null : cromo.Properties.Settings.Default.centroOperacion.Trim() },
+                    { "cliente", true },
+                    { "guia_pago_credito", false },
+                    { "guia_pago_contado", false },
+                    { "guia_pago_destino", false },
+                    { "guia_pago_cortesia", false },
+                    { "guia_pago_recogida", false }
+                };
+
+                try
+                {
+                    var respuesta = new JavaScriptSerializer().Deserialize<Dictionary<string, object>>(
+                        Fluor.Post("/gen/tercero/nuevo", new JavaScriptSerializer().Serialize(tercero)));
                     MessageBox.Show(this, "El cliente se guardo con exito ", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    General.CodigoCliente = apiClienteRespuesta.codigoTerceroPk;
+                    General.CodigoCliente = Fluor.Texto(respuesta, "codigo_tercero_pk");
                     DialogResult = DialogResult.OK;
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show(this, "Ocurrio un error al guardar el cliente: " + apiClienteRespuesta.error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }                                                                                        
+                    MessageBox.Show(this, "Ocurrio un error al guardar el cliente: " + Fluor.MensajeError(ex), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
+        }
+
+        private static string Valor(TextBox caja)
+        {
+            return string.IsNullOrWhiteSpace(caja.Text) ? null : caja.Text.Trim();
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)
@@ -157,39 +171,25 @@ namespace cromo
 
         private void FrmClienteNuevo_Load(object sender, EventArgs e)
         {
-            string jsonRespuesta = ApiControlador.ApiPost("/general/api/windows/identificacion/lista", null);
-            List<ApiIdentificacion> apiIdentificacionLista = ser.Deserialize<List<ApiIdentificacion>>(jsonRespuesta);
             CboIdentificacion.ValueMember = "codigoIdentificacionPk";
             CboIdentificacion.DisplayMember = "nombre";
-            CboIdentificacion.DataSource = apiIdentificacionLista;
+            CboIdentificacion.DataSource = CatalogoManager.Identificaciones;
 
-            jsonRespuesta = ApiControlador.ApiPost("/general/api/windows/ciudad/lista", null);
-            List<ApiCiudad> apiCiudadLista = ser.Deserialize<List<ApiCiudad>>(jsonRespuesta);
             CboCiudad.ValueMember = "codigoCiudadPk";
             CboCiudad.DisplayMember = "nombre";
-            CboCiudad.DataSource = apiCiudadLista;
+            CboCiudad.DataSource = CatalogoManager.CiudadesGenerales;
 
-            jsonRespuesta = ApiControlador.ApiPost("/general/api/windows/asesor/lista", null);
-            List<ApiAsesor> apiAsesorLista = ser.Deserialize<List<ApiAsesor>>(jsonRespuesta);
             CboAsesor.ValueMember = "codigoAsesorPk";
             CboAsesor.DisplayMember = "nombre";
-            CboAsesor.DataSource = apiAsesorLista;
+            CboAsesor.DataSource = CatalogoManager.Asesores;
 
-            List<TipoPersona> listaTipoPersona = new List<TipoPersona>();
-            listaTipoPersona.Add(new TipoPersona() { codigoTipoPersonaPk = "J", nombre = "JURIDICA" });
-            listaTipoPersona.Add(new TipoPersona() { codigoTipoPersonaPk = "N", nombre = "NATURAL" });
-            CboTipoPersona.DataSource = listaTipoPersona;
             CboTipoPersona.ValueMember = "codigoTipoPersonaPk";
             CboTipoPersona.DisplayMember = "nombre";
-            CboTipoPersona.SelectedIndex = 0;
+            CboTipoPersona.DataSource = CatalogoManager.TiposPersona;
 
-            List<Regimen> listaRegimen = new List<Regimen>();
-            listaRegimen.Add(new Regimen() { codigoRegimenPk = "O", nombre = "ORDINARIO COMUN" });
-            listaRegimen.Add(new Regimen() { codigoRegimenPk = "S", nombre = "SIMPLE" });
-            CboRegimen.DataSource = listaRegimen;
             CboRegimen.ValueMember = "codigoRegimenPk";
             CboRegimen.DisplayMember = "nombre";
-            CboRegimen.SelectedIndex = 0;
+            CboRegimen.DataSource = CatalogoManager.Regimenes;
 
         }
 
@@ -246,11 +246,11 @@ namespace cromo
                     return match.Groups[1].Value + domainName;
                 }
             }
-            catch (RegexMatchTimeoutException e)
+            catch (RegexMatchTimeoutException)
             {
                 return false;
             }
-            catch (ArgumentException e)
+            catch (ArgumentException)
             {
                 return false;
             }

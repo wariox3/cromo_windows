@@ -1,25 +1,20 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Web.Script.Serialization;
 using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
-using System.Drawing.Imaging;
 using System.Reflection;
-using System.Deployment.Application;
+using System.Threading.Tasks;
 
 namespace cromo
 {
 	public partial class FrmIngreso : Form
 	{
-        JavaScriptSerializer ser = new JavaScriptSerializer();
-
         public FrmIngreso()
 		{            
             InitializeComponent();
+            PrgCarga.Maximum = CatalogoManager.Pasos + 1;
 		}
 
-		private void BtnIngresar_Click(object sender, EventArgs e)
+		private async void BtnIngresar_Click(object sender, EventArgs e)
 		{
 			try
 			{
@@ -31,18 +26,24 @@ namespace cromo
                     return;
                 }
 
-                // Feedback 2: Mostrar que está cargando
-                BtnIngresar.Enabled = false;
-                BtnIngresar.Text = "Ingresando...";
-                BtnCancelar.Enabled = false;
-                BtnConfigurar.Enabled = false;
+                HabilitarControles(false);
+                MostrarProgreso(0, "Iniciando sesión...");
 
-                string parametrosJson;
-                string jsonRespuesta;
-                // === NUEVO: Login con Fluor usando JWT ===
-                if (Fluor.Login(TxtUsuario.Text, TxtContraseña.Text))
+                string usuario = TxtUsuario.Text;
+                string clave = TxtContraseña.Text;
+
+                if (await Task.Run(() => Fluor.Login(usuario, clave)))
                 {
-                    // Login exitoso - Fluor administra el token internamente
+                    var progreso = new Progress<KeyValuePair<int, string>>(p => MostrarProgreso(p.Key, p.Value));
+                    if (!await Task.Run(() => CatalogoManager.CargarCatalogos(progreso)))
+                    {
+                        Fluor.Logout();
+                        HabilitarControles(true);
+                        MessageBox.Show(this, "No se pudieron cargar los catálogos, no es posible continuar.\n\n" + CatalogoManager.UltimoError,
+                            "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    MostrarProgreso(PrgCarga.Maximum, "Finalizando...");
 
                     // Guardar email si "Recordar" está marcado (NO contraseña)
                     if (ChkRecordar.Checked)
@@ -62,68 +63,15 @@ namespace cromo
                     // Limpiar 4: Borrar contraseña de memoria por seguridad
                     TxtContraseña.Text = "";
 
-                    // Validar logo (opcional)
-                    string logo = Directory.GetCurrentDirectory() + @"\logo.jpg";
-                    if (!File.Exists(logo))
-                    {
-                        try
-                        {
-                            jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/general/configuracion", "");
-                            ApiConfiguracion apiConfiguracion = ser.Deserialize<ApiConfiguracion>(jsonRespuesta);
-                            if (apiConfiguracion.error == null)
-                            {
-                                string base64 = apiConfiguracion.logo;
-                                byte[] bytes = Convert.FromBase64String(base64);
-                                using (Image image = Image.FromStream(new MemoryStream(bytes)))
-                                {
-                                    image.Save(Directory.GetCurrentDirectory() + @"\logo.jpg", ImageFormat.Jpeg);
-                                }
-                            }
-                        }
-                        catch { /* Ignorar error al descargar logo */ }
-                    }
-
-                    // Validar operación (si es necesario)
-                    parametrosJson = "{\"codigoOperacion\":\"" + cromo.Properties.Settings.Default.centroOperacion + "\"}";
-                    try
-                    {
-                        jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/operacion/validar", parametrosJson);
-                        ApiOperacion apiOperacion = ser.Deserialize<ApiOperacion>(jsonRespuesta);
-                        if (apiOperacion.error == null)
-                        {
-                            // Cargar configuración
-                            General.UsuarioActivo = TxtUsuario.Text;
-                            General.CodigoCiudadOrigenParametro = apiOperacion.codigoCiudadFk;
-                            General.CodigoOperacionIngreso = apiOperacion.codigoOperacionPk;
-                            General.CodigoOperacionCargo = apiOperacion.codigoOperacionCargoFk;
-
-                            DialogResult = DialogResult.OK;
-                            Close();
-                        }
-                        else
-                        {
-                            MessageBox.Show(this, "Inconvenientes con la operacion " + apiOperacion.error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                    catch
-                    {
-                        // Si validación de operación falla, permitir continuar
-                        General.UsuarioActivo = TxtUsuario.Text;
-                        DialogResult = DialogResult.OK;
-                        Close();
-                    }
+                    General.UsuarioActivo = TxtUsuario.Text;
+                    DialogResult = DialogResult.OK;
+                    Close();
                 }
                 else
                 {
-                    // Error 3: Mensaje específico para credenciales inválidas
+                    HabilitarControles(true);
                     MessageBox.Show(this, "Email o contraseña inválidos. Verifique e intente nuevamente.",
                         "Error de Autenticación", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                    // Re-habilitar botones para reintentar
-                    BtnIngresar.Enabled = true;
-                    BtnIngresar.Text = "Ingresar";
-                    BtnCancelar.Enabled = true;
-                    BtnConfigurar.Enabled = true;
                     TxtContraseña.Focus();
                 }
             }
@@ -141,22 +89,30 @@ namespace cromo
 				else
 					mensaje = "Error: " + error.Message;
 
+				HabilitarControles(true);
 				MessageBox.Show(this, mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-				// Re-habilitar botones para reintentar
-				BtnIngresar.Enabled = true;
-				BtnIngresar.Text = "Ingresar";
-				BtnCancelar.Enabled = true;
-				BtnConfigurar.Enabled = true;
 				TxtContraseña.Focus();
 			}
 		}
 
-		private void BtnConfigurar_Click(object sender, EventArgs e)
-		{
-		    FrmConfiguracion frmConfiguracion = new FrmConfiguracion();
-		    frmConfiguracion.ShowDialog();			
-		}
+        private void HabilitarControles(bool habilitar)
+        {
+            BtnIngresar.Enabled = habilitar;
+            BtnIngresar.Text = habilitar ? "Ingresar" : "Ingresando...";
+            BtnCancelar.Enabled = habilitar;
+            TxtUsuario.Enabled = habilitar;
+            TxtContraseña.Enabled = habilitar;
+            ChkRecordar.Enabled = habilitar;
+            LblEstado.Visible = !habilitar;
+            PrgCarga.Visible = !habilitar;
+        }
+
+        private void MostrarProgreso(int paso, string texto)
+        {
+            PrgCarga.Value = Math.Min(paso, PrgCarga.Maximum);
+            LblEstado.Text = texto;
+        }
+
 
 		private void BtnCancelar_Click(object sender, EventArgs e)
 		{

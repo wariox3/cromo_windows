@@ -33,7 +33,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.txtNombreCiudadOrigen = new System.Windows.Forms.TextBox();
             this.TxtCodigoCiudadOrigen = new System.Windows.Forms.TextBox();
-            this.TxtCodigoRemitente = new System.Windows.Forms.TextBox();
             this.TxtDireccionRemitente = new System.Windows.Forms.TextBox();
             this.TxtTelefonoRemitente = new System.Windows.Forms.TextBox();
             this.TxtNombreRemitente = new System.Windows.Forms.TextBox();
@@ -134,7 +133,6 @@
             this.gbRemitente.Controls.Add(this.label15);
             this.gbRemitente.Controls.Add(this.txtNombreCiudadOrigen);
             this.gbRemitente.Controls.Add(this.TxtCodigoCiudadOrigen);
-            this.gbRemitente.Controls.Add(this.TxtCodigoRemitente);
             this.gbRemitente.Controls.Add(this.TxtDireccionRemitente);
             this.gbRemitente.Controls.Add(this.TxtTelefonoRemitente);
             this.gbRemitente.Controls.Add(this.TxtNombreRemitente);
@@ -176,14 +174,6 @@
             this.TxtCodigoCiudadOrigen.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCodigoCiudadOrigen_KeyDown);
             this.TxtCodigoCiudadOrigen.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnter);
             this.TxtCodigoCiudadOrigen.Validated += new System.EventHandler(this.TxtCodigoCiudadOrigen_Validated);
-            // 
-            // TxtCodigoRemitente
-            // 
-            this.TxtCodigoRemitente.Enabled = false;
-            this.TxtCodigoRemitente.Location = new System.Drawing.Point(482, 35);
-            this.TxtCodigoRemitente.Name = "TxtCodigoRemitente";
-            this.TxtCodigoRemitente.Size = new System.Drawing.Size(35, 20);
-            this.TxtCodigoRemitente.TabIndex = 35;
             // 
             // TxtDireccionRemitente
             // 
@@ -1038,7 +1028,6 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txtNombreCiudadOrigen;
         private System.Windows.Forms.TextBox TxtCodigoCiudadOrigen;
-        private System.Windows.Forms.TextBox TxtCodigoRemitente;
         private System.Windows.Forms.TextBox TxtDireccionRemitente;
         private System.Windows.Forms.TextBox TxtTelefonoRemitente;
         private System.Windows.Forms.TextBox TxtNombreRemitente;

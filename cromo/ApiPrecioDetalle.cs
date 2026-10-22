@@ -18,6 +18,5 @@ namespace cromo
         public double pesoTope { get; set; }
         public string productoNombre { get; set; }
         public bool omitirDescuento { get; set; }
-        public string error { get; set; }
     }
 }

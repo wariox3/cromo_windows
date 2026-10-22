@@ -7,13 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Web.Script.Serialization;
-using Newtonsoft.Json;
 namespace cromo
 {
     public partial class FrmBuscarCliente : Form
     {
-        JavaScriptSerializer ser = new JavaScriptSerializer();
 
         public FrmBuscarCliente()
         {
@@ -22,17 +19,34 @@ namespace cromo
 
         public void LlenarDatosApi()
         {
-            var parametros = new
+            var filtros = new Dictionary<string, object>
             {
-                nombre = TxtNombre.Text,
-                nit = TxtNit.Text
+                { "nombre_corto", TxtNombre.Text },
+                { "numero_identificacion", TxtNit.Text }
             };
-            //string parametrosJson = "{\"nombre\":\"" + TxtNombre.Text + "\"}";
-            string parametrosJson = JsonConvert.SerializeObject(parametros);
-            string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/cliente/buscar", parametrosJson);
-            List<ApiCliente> apiClienteLista = ser.Deserialize<List<ApiCliente>>(jsonRespuesta);
-            DgClientes.DataSource = apiClienteLista;
-            
+
+            try
+            {
+                DgClientes.DataSource = Fluor.GetLista("/gen/tercero/buscar", filtros)
+                    .Select(t => new ApiCliente
+                    {
+                        codigoTerceroPk = Fluor.Texto(t, "codigo_tercero_pk"),
+                        numeroIdentificacion = Fluor.Texto(t, "numero_identificacion"),
+                        nombreCorto = Fluor.Texto(t, "nombre_corto"),
+                        condicionNombre = Fluor.Texto(t, "condicion_nombre"),
+                        estadoInactivo = Booleano(t, "estado_inactivo")
+                    })
+                    .ToList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, "No se pudieron consultar los clientes: " + Fluor.MensajeError(ex), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private static bool Booleano(IDictionary<string, object> registro, string campo)
+        {
+            return registro.TryGetValue(campo, out object valor) && valor is bool b && b;
         }
 
         private void FrmBuscarCliente_Load(object sender, EventArgs e)

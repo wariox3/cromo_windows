@@ -40,9 +40,6 @@
             this.ChkBloquearFlete = new System.Windows.Forms.CheckBox();
             this.txtCentroOperacion = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.tbpRutas = new System.Windows.Forms.TabPage();
-            this.txtRutaReportes = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.tabOperador = new System.Windows.Forms.TabPage();
             this.ChkOperadorLogistico = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -51,7 +48,6 @@
             this.tabConfiguracion.SuspendLayout();
             this.tbpGeneral.SuspendLayout();
             this.tbpOperacion.SuspendLayout();
-            this.tbpRutas.SuspendLayout();
             this.tabOperador.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,7 +75,6 @@
             // 
             this.tabConfiguracion.Controls.Add(this.tbpGeneral);
             this.tabConfiguracion.Controls.Add(this.tbpOperacion);
-            this.tabConfiguracion.Controls.Add(this.tbpRutas);
             this.tabConfiguracion.Controls.Add(this.tabOperador);
             this.tabConfiguracion.Location = new System.Drawing.Point(24, 12);
             this.tabConfiguracion.Name = "tabConfiguracion";
@@ -180,33 +175,6 @@
             this.label1.Size = new System.Drawing.Size(59, 13);
             this.label1.TabIndex = 15;
             this.label1.Text = "Operacion:";
-            // 
-            // tbpRutas
-            // 
-            this.tbpRutas.Controls.Add(this.txtRutaReportes);
-            this.tbpRutas.Controls.Add(this.label9);
-            this.tbpRutas.Location = new System.Drawing.Point(4, 22);
-            this.tbpRutas.Name = "tbpRutas";
-            this.tbpRutas.Size = new System.Drawing.Size(340, 234);
-            this.tbpRutas.TabIndex = 2;
-            this.tbpRutas.Text = "Rutas";
-            this.tbpRutas.UseVisualStyleBackColor = true;
-            // 
-            // txtRutaReportes
-            // 
-            this.txtRutaReportes.Location = new System.Drawing.Point(74, 18);
-            this.txtRutaReportes.Name = "txtRutaReportes";
-            this.txtRutaReportes.Size = new System.Drawing.Size(249, 20);
-            this.txtRutaReportes.TabIndex = 1;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(17, 17);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(53, 13);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Reportes:";
             //
             // tabOperador
             // 
@@ -276,8 +244,6 @@
             this.tbpGeneral.PerformLayout();
             this.tbpOperacion.ResumeLayout(false);
             this.tbpOperacion.PerformLayout();
-            this.tbpRutas.ResumeLayout(false);
-            this.tbpRutas.PerformLayout();
             this.tabOperador.ResumeLayout(false);
             this.tabOperador.PerformLayout();
             this.ResumeLayout(false);
@@ -292,9 +258,6 @@
 		private System.Windows.Forms.TabPage tbpOperacion;
 		private System.Windows.Forms.TextBox txtCentroOperacion;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.TabPage tbpRutas;
-		private System.Windows.Forms.Label label9;
-		private System.Windows.Forms.TextBox txtRutaReportes;
         private System.Windows.Forms.CheckBox ChkBloquearManejo;
         private System.Windows.Forms.CheckBox ChkBloquearFlete;
         private System.Windows.Forms.TabPage tabOperador;

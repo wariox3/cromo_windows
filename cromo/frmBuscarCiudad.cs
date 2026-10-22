@@ -7,12 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Web.Script.Serialization;
 namespace cromo
 {
     public partial class FrmBuscarCiudad : Form
     {
-        JavaScriptSerializer ser = new JavaScriptSerializer();
 
         public FrmBuscarCiudad()
         {
@@ -21,10 +19,9 @@ namespace cromo
 
         public void LlenarDatosApi()
         {
-            string parametrosJson = "{\"nombre\":\"" + TxtNombre.Text + "\"}";
-            string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/ciudad/buscar", parametrosJson);
-            List<ApiCiudad> apiCiudadLista = ser.Deserialize<List<ApiCiudad>>(jsonRespuesta);
-            DgCiudades.DataSource = apiCiudadLista;
+            DgCiudades.DataSource = CatalogoManager.Ciudades
+                .Where(c => CatalogoManager.Contiene(c.nombre, TxtNombre.Text))
+                .ToList();
         }
 
         private void FrmBuscarCiudad_Load(object sender, EventArgs e)

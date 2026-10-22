@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="..\packages\PdfiumViewer.Native.x86.v8-xfa.2018.4.8.256\Build\PdfiumViewer.Native.x86.v8-xfa.props" Condition="Exists('..\packages\PdfiumViewer.Native.x86.v8-xfa.2018.4.8.256\Build\PdfiumViewer.Native.x86.v8-xfa.props')" />
+  <Import Project="..\packages\PdfiumViewer.Native.x86_64.v8-xfa.2018.4.8.256\Build\PdfiumViewer.Native.x86_64.v8-xfa.props" Condition="Exists('..\packages\PdfiumViewer.Native.x86_64.v8-xfa.2018.4.8.256\Build\PdfiumViewer.Native.x86_64.v8-xfa.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -11,25 +13,7 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile />
-    <PublishUrl>C:\Users\desarrollo\source\repos\cromo_windows\instalador\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <WebPage>publish.htm</WebPage>
-    <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>19</ApplicationRevision>
-    <ApplicationVersion>1.21.0.%2a</ApplicationVersion>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <PublishWizardCompleted>true</PublishWizardCompleted>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -79,45 +63,19 @@
     <StartupObject>
     </StartupObject>
   </PropertyGroup>
-  <PropertyGroup>
-    <SignManifests>false</SignManifests>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ManifestCertificateThumbprint>F2D957E68B613B2D68F7FF9122CFA51C68204A9A</ManifestCertificateThumbprint>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ManifestKeyFile>cromo_TemporaryKey.pfx</ManifestKeyFile>
-  </PropertyGroup>
-  <PropertyGroup>
-    <GenerateManifests>true</GenerateManifests>
-  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    <Reference Include="PdfiumViewer, Version=2.13.0.0, Culture=neutral, PublicKeyToken=91e4789cfb0609e0, processorArchitecture=MSIL">
+      <HintPath>..\packages\PdfiumViewer.2.13.0\lib\net20\PdfiumViewer.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.13.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Velopack, Version=1.2.0.0, Culture=neutral, PublicKeyToken=5a523ff9c49fd93d, processorArchitecture=MSIL">
+      <HintPath>..\packages\Velopack.1.2.161\lib\net472\Velopack.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Services" />
@@ -125,58 +83,29 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actualizacion.cs" />
     <Compile Include="ApiAsesor.cs" />
     <Compile Include="ApiCiudad.cs" />
     <Compile Include="ApiCondicion.cs" />
-    <Compile Include="ApiCondicionFlete.cs" />
-    <Compile Include="ApiCondicionManejo.cs" />
-    <Compile Include="ApiConfiguracion.cs" />
     <Compile Include="ApiControlador.cs" />
-    <Compile Include="ApiDespacho.cs" />
     <Compile Include="ApiDestinatario.cs" />
     <Compile Include="ApiEmpaque.cs" />
-    <Compile Include="GuiaDetalle.cs" />
     <Compile Include="ApiGuia.cs" />
-    <Compile Include="ApiGuiaCarga.cs" />
-    <Compile Include="ApiGuiaImprimir.cs" />
     <Compile Include="ApiIdentificacion.cs" />
-    <Compile Include="ApiOperacion.cs" />
-    <Compile Include="ApiOperador.cs" />
     <Compile Include="ApiPrecioDetalle.cs" />
     <Compile Include="ApiProducto.cs" />
-    <Compile Include="ApiRecibo.cs" />
-    <Compile Include="ApiReciboImprimir.cs" />
-    <Compile Include="ApiRemitente.cs" />
-    <Compile Include="ApiRespuesta.cs" />
-    <Compile Include="ApiRndc.cs" />
     <Compile Include="ApiServicio.cs" />
     <Compile Include="ApiUsuario.cs" />
     <Compile Include="ApiCliente.cs" />
     <Compile Include="Fluor.cs" />
-    <Compile Include="Connected Services\WsRndc\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="FrmAnularManifiestoMotivo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmAnularManifiestoMotivo.Designer.cs">
-      <DependentUpon>FrmAnularManifiestoMotivo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmAnularManifiestoRndc.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmAnularManifiestoRndc.Designer.cs">
-      <DependentUpon>FrmAnularManifiestoRndc.cs</DependentUpon>
-    </Compile>
+    <Compile Include="CatalogoManager.cs" />
+    <Compile Include="ConsultasGuia.cs" />
     <Compile Include="FrmBuscarAsesor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -195,29 +124,11 @@
     <Compile Include="FrmBuscarDestinatario.Designer.cs">
       <DependentUpon>FrmBuscarDestinatario.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmBuscarRemitente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmBuscarRemitente.Designer.cs">
-      <DependentUpon>FrmBuscarRemitente.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmClienteNuevo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmClienteNuevo.Designer.cs">
       <DependentUpon>FrmClienteNuevo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmConexion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmConexion.Designer.cs">
-      <DependentUpon>FrmConexion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmCumplirRndc.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmCumplirRndc.Designer.cs">
-      <DependentUpon>FrmCumplirRndc.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmDescuento.cs">
       <SubType>Form</SubType>
@@ -231,35 +142,11 @@
     <Compile Include="FrmDestinatarioNuevo.Designer.cs">
       <DependentUpon>FrmDestinatarioNuevo.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmDevolverDocumento.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmDevolverDocumento.Designer.cs">
-      <DependentUpon>FrmDevolverDocumento.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmDevolverGuiaCodigo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmDevolverGuiaCodigo.Designer.cs">
       <DependentUpon>FrmDevolverGuiaCodigo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmEnviarRemesaRndc.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmEnviarRemesaRndc.Designer.cs">
-      <DependentUpon>FrmEnviarRemesaRndc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmEnviarRndc.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmEnviarRndc.Designer.cs">
-      <DependentUpon>FrmEnviarRndc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmGuiaDetalle.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmGuiaDetalle.Designer.cs">
-      <DependentUpon>FrmGuiaDetalle.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmGuiaOperador.cs">
       <SubType>Form</SubType>
@@ -286,13 +173,6 @@
     <Compile Include="FrmManejo.Designer.cs">
       <DependentUpon>FrmManejo.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmVisor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmVisor.Designer.cs">
-      <DependentUpon>FrmVisor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ImprimirFormato.cs" />
     <Compile Include="FrmBuscarCiudad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -323,12 +203,6 @@
     <Compile Include="FrmDevolverGuia.Designer.cs">
       <DependentUpon>FrmDevolverGuia.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmDevolverNumero.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmDevolverNumero.Designer.cs">
-      <DependentUpon>FrmDevolverNumero.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmGuia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -341,26 +215,14 @@
     <Compile Include="FrmPrincipal.Designer.cs">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmRecibo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmRecibo.Designer.cs">
-      <DependentUpon>FrmRecibo.cs</DependentUpon>
-    </Compile>
     <Compile Include="General.cs" />
+    <Compile Include="ImpresionGuia.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Regimen.cs" />
-    <Compile Include="RespuestaRndc.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="TipoPersona.cs" />
     <Compile Include="Validar.cs" />
-    <EmbeddedResource Include="FrmAnularManifiestoMotivo.resx">
-      <DependentUpon>FrmAnularManifiestoMotivo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmAnularManifiestoRndc.resx">
-      <DependentUpon>FrmAnularManifiestoRndc.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmBuscarAsesor.resx">
       <DependentUpon>FrmBuscarAsesor.cs</DependentUpon>
     </EmbeddedResource>
@@ -370,17 +232,8 @@
     <EmbeddedResource Include="FrmBuscarDestinatario.resx">
       <DependentUpon>FrmBuscarDestinatario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmBuscarRemitente.resx">
-      <DependentUpon>FrmBuscarRemitente.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmClienteNuevo.resx">
       <DependentUpon>FrmClienteNuevo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmConexion.resx">
-      <DependentUpon>FrmConexion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmCumplirRndc.resx">
-      <DependentUpon>FrmCumplirRndc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDescuento.resx">
       <DependentUpon>FrmDescuento.cs</DependentUpon>
@@ -388,20 +241,8 @@
     <EmbeddedResource Include="FrmDestinatarioNuevo.resx">
       <DependentUpon>FrmDestinatarioNuevo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmDevolverDocumento.resx">
-      <DependentUpon>FrmDevolverDocumento.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmDevolverGuiaCodigo.resx">
       <DependentUpon>FrmDevolverGuiaCodigo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmEnviarRemesaRndc.resx">
-      <DependentUpon>FrmEnviarRemesaRndc.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmEnviarRndc.resx">
-      <DependentUpon>FrmEnviarRndc.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmGuiaDetalle.resx">
-      <DependentUpon>FrmGuiaDetalle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGuiaOperador.resx">
       <DependentUpon>FrmGuiaOperador.cs</DependentUpon>
@@ -415,11 +256,6 @@
     <EmbeddedResource Include="FrmManejo.resx">
       <DependentUpon>FrmManejo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmVisor.resx">
-      <DependentUpon>FrmVisor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\Transporte\Guia2.rdlc" />
-    <EmbeddedResource Include="Reportes\Transporte\Guia.rdlc" />
     <EmbeddedResource Include="FrmBuscarCiudad.resx">
       <DependentUpon>FrmBuscarCiudad.cs</DependentUpon>
     </EmbeddedResource>
@@ -435,17 +271,11 @@
     <EmbeddedResource Include="FrmDevolverGuia.resx">
       <DependentUpon>FrmDevolverGuia.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmDevolverNumero.resx">
-      <DependentUpon>FrmDevolverNumero.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmGuia.resx">
       <DependentUpon>FrmGuia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmRecibo.resx">
-      <DependentUpon>FrmRecibo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -457,20 +287,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Reportes\Transporte\Recibo.rdlc" />
-    <None Include="Connected Services\WsRndc\cromo.WsRndc.AtenderMensajeBPMResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WsRndc\cromo.WsRndc.AtenderMensajeRNDCResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WsRndc\IBPMServicesservice.wsdl" />
-    <None Include="cromo_TemporaryKey.pfx" />
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\ApiGuia.datasource" />
-    <None Include="Properties\DataSources\ApiGuiaImprimir.datasource" />
-    <None Include="Properties\DataSources\ApiReciboImprimir.datasource" />
-    <None Include="Properties\DataSources\ApiUsuario.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -485,485 +302,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
-      <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 y x64%29</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Recursos\Code39.ttf" />
-    <None Include="Reportes\Transporte\Code39.ttf" />
-    <None Include="Resources\24-7.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\abacus.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Accept.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Add.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Add_fav.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Add_user.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Addressbook.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Add-ticket.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Alarm.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Alert.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\apple.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Audio-file.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\award-1.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\award-2.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\award-3.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Back.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\basket.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\basketball.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\bell.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Billboard.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\budget.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\buy-now.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Calculator.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Calendar.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Cancel.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Chart.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Chat.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\check-list.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Close.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Communicate.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\compasses.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Computer.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Copy.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\coupon.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\course.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\course-assignments.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\course-catalog.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\customer-service.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Cut48.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Data.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Delete.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Delete_user.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Disc.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Down.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Edit.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Email.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Euro.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\evaluations.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Export.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\external-web-link.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Faq.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Fav.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\fax-machine.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\File.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\File_add.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\File_delete.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\File_edit.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\File_info.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Flag.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Folder.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Folder_add.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Folder_alert.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Folder_delete.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Folder_fav.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Folder_info.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\football.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Forward.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\gift.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\globe.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\glue.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Help-desk.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Highlightmarker.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Home.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\hot.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Hourglass.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Import.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Info.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Key.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\letters.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\library.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\link.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Lock.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Login_in.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Login_out.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\mathmatics.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\my-profile.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\new.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\numbers.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\open.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Paperclip48.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\paper-currency.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\paper-plane.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Paste.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\payments.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Percent.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Perscent.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\piggy-bank.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Pools.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Pound.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\presentation.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\price.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Print.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\professor.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Prohibit.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\qualification.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Refresh.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Remove_fav.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Remove-ticket.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Ruler.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Save.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Scale.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\school.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\schoolbag-boy.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\schoolbag-girl.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scissors.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Search.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\semicircleruler.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\shop.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Shoppingbag.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Shoppingcart.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\soccer.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Star_empty.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Star_full.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Star_half_full.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\student-boy.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\student-girl.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\student-id.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\teacher-female.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\teacher-male.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Telephone.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\test-paper.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Ticket.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Tools.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\trencher-cap.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\triangle-ruler.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Unlock.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Up.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Us-dollar.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\User.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Users.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Video-file.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\wallet.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Wheel.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Wheels.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Wrench.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Yuan.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Zoom_in.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Zoom_out.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Transport-Truck-icon.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\truck_23929.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\WsRndc\configuration91.svcinfo" />
-    <None Include="Connected Services\WsRndc\configuration.svcinfo" />
-    <None Include="Connected Services\WsRndc\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\WsRndc\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

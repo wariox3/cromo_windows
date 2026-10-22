@@ -100,7 +100,6 @@
             this.TsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.TsbGuardar = new System.Windows.Forms.ToolStripButton();
             this.TsbCancelar = new System.Windows.Forms.ToolStripButton();
-            this.TsbPrecargar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.TsbBuscarGuia = new System.Windows.Forms.ToolStripButton();
             this.TsbBuscar = new System.Windows.Forms.ToolStripButton();
@@ -108,7 +107,6 @@
             this.TsbImprimir = new System.Windows.Forms.ToolStripButton();
             this.TsbVistaPrevia = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.TsbRecibo = new System.Windows.Forms.ToolStripButton();
             this.gbInformacion = new System.Windows.Forms.GroupBox();
             this.ChkDevolverDocumento = new System.Windows.Forms.CheckBox();
             this.ChkContenidoVerificado = new System.Windows.Forms.CheckBox();
@@ -128,15 +126,12 @@
             this.MnuNuevo = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuGuardar = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuCancelar = new System.Windows.Forms.ToolStripMenuItem();
-            this.MnuPrecargar = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuBuscarGuia = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuBuscar = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuImprimir = new System.Windows.Forms.ToolStripMenuItem();
             this.gbDatos = new System.Windows.Forms.GroupBox();
             this.TxtAbono = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
-            this.label47 = new System.Windows.Forms.Label();
-            this.TxtNumeroFactura = new System.Windows.Forms.TextBox();
             this.label46 = new System.Windows.Forms.Label();
             this.TxtCodigoDespacho = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
@@ -206,7 +201,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.txtNombreCiudadOrigen = new System.Windows.Forms.TextBox();
             this.TxtCodigoCiudadOrigen = new System.Windows.Forms.TextBox();
-            this.TxtCodigoRemitente = new System.Windows.Forms.TextBox();
             this.TxtDireccionRemitente = new System.Windows.Forms.TextBox();
             this.TxtTelefonoRemitente = new System.Windows.Forms.TextBox();
             this.TxtNombreRemitente = new System.Windows.Forms.TextBox();
@@ -671,7 +665,6 @@
             this.TxtUnidades.Size = new System.Drawing.Size(111, 20);
             this.TxtUnidades.TabIndex = 24;
             this.TxtUnidades.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TxtUnidades.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtUnidades_KeyDown);
             this.TxtUnidades.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             this.TxtUnidades.Validated += new System.EventHandler(this.TxtUnidades_Validated);
             // 
@@ -956,15 +949,13 @@
             this.TsbNuevo,
             this.TsbGuardar,
             this.TsbCancelar,
-            this.TsbPrecargar,
             this.toolStripSeparator1,
             this.TsbBuscarGuia,
             this.TsbBuscar,
             this.toolStripSeparator2,
             this.TsbImprimir,
             this.TsbVistaPrevia,
-            this.toolStripSeparator3,
-            this.TsbRecibo});
+            this.toolStripSeparator3});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1111, 25);
@@ -1002,17 +993,6 @@
             this.TsbCancelar.Size = new System.Drawing.Size(23, 22);
             this.TsbCancelar.Text = "Cancelar F7";
             this.TsbCancelar.Click += new System.EventHandler(this.TsbCancelar_Click);
-            // 
-            // TsbPrecargar
-            // 
-            this.TsbPrecargar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.TsbPrecargar.Enabled = false;
-            this.TsbPrecargar.Image = ((System.Drawing.Image)(resources.GetObject("TsbPrecargar.Image")));
-            this.TsbPrecargar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.TsbPrecargar.Name = "TsbPrecargar";
-            this.TsbPrecargar.Size = new System.Drawing.Size(23, 22);
-            this.TsbPrecargar.Text = "Precargar F8";
-            this.TsbPrecargar.Click += new System.EventHandler(this.TsbPrecargar_Click);
             // 
             // toolStripSeparator1
             // 
@@ -1068,16 +1048,6 @@
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
-            // 
-            // TsbRecibo
-            // 
-            this.TsbRecibo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.TsbRecibo.Image = ((System.Drawing.Image)(resources.GetObject("TsbRecibo.Image")));
-            this.TsbRecibo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.TsbRecibo.Name = "TsbRecibo";
-            this.TsbRecibo.Size = new System.Drawing.Size(23, 22);
-            this.TsbRecibo.Text = "Ver / agregar recibo";
-            this.TsbRecibo.Click += new System.EventHandler(this.TsbRecibo_Click);
             // 
             // gbInformacion
             // 
@@ -1242,7 +1212,6 @@
             this.MnuNuevo,
             this.MnuGuardar,
             this.MnuCancelar,
-            this.MnuPrecargar,
             this.MnuBuscarGuia,
             this.MnuBuscar,
             this.MnuImprimir});
@@ -1276,15 +1245,6 @@
             this.MnuCancelar.Text = "Cancelar";
             this.MnuCancelar.Click += new System.EventHandler(this.MnuCancelar_Click);
             // 
-            // MnuPrecargar
-            // 
-            this.MnuPrecargar.Enabled = false;
-            this.MnuPrecargar.Name = "MnuPrecargar";
-            this.MnuPrecargar.ShortcutKeys = System.Windows.Forms.Keys.F8;
-            this.MnuPrecargar.Size = new System.Drawing.Size(161, 22);
-            this.MnuPrecargar.Text = "Precargar";
-            this.MnuPrecargar.Click += new System.EventHandler(this.MnuPrecargar_Click);
-            // 
             // MnuBuscarGuia
             // 
             this.MnuBuscarGuia.Name = "MnuBuscarGuia";
@@ -1313,8 +1273,6 @@
             // 
             this.gbDatos.Controls.Add(this.TxtAbono);
             this.gbDatos.Controls.Add(this.label30);
-            this.gbDatos.Controls.Add(this.label47);
-            this.gbDatos.Controls.Add(this.TxtNumeroFactura);
             this.gbDatos.Controls.Add(this.label46);
             this.gbDatos.Controls.Add(this.TxtCodigoDespacho);
             this.gbDatos.Controls.Add(this.label31);
@@ -1354,22 +1312,6 @@
             this.label30.Size = new System.Drawing.Size(41, 13);
             this.label30.TabIndex = 55;
             this.label30.Text = "Abono:";
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(23, 175);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(46, 13);
-            this.label47.TabIndex = 54;
-            this.label47.Text = "Factura:";
-            // 
-            // TxtNumeroFactura
-            // 
-            this.TxtNumeroFactura.Location = new System.Drawing.Point(72, 172);
-            this.TxtNumeroFactura.Name = "TxtNumeroFactura";
-            this.TxtNumeroFactura.Size = new System.Drawing.Size(116, 20);
-            this.TxtNumeroFactura.TabIndex = 53;
             // 
             // label46
             // 
@@ -1949,7 +1891,6 @@
             this.gbRemitente.Controls.Add(this.label15);
             this.gbRemitente.Controls.Add(this.txtNombreCiudadOrigen);
             this.gbRemitente.Controls.Add(this.TxtCodigoCiudadOrigen);
-            this.gbRemitente.Controls.Add(this.TxtCodigoRemitente);
             this.gbRemitente.Controls.Add(this.TxtDireccionRemitente);
             this.gbRemitente.Controls.Add(this.TxtTelefonoRemitente);
             this.gbRemitente.Controls.Add(this.TxtNombreRemitente);
@@ -1994,14 +1935,6 @@
             this.TxtCodigoCiudadOrigen.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             this.TxtCodigoCiudadOrigen.Validated += new System.EventHandler(this.TxtCodigoCiudadOrigen_Validated);
             // 
-            // TxtCodigoRemitente
-            // 
-            this.TxtCodigoRemitente.Enabled = false;
-            this.TxtCodigoRemitente.Location = new System.Drawing.Point(482, 35);
-            this.TxtCodigoRemitente.Name = "TxtCodigoRemitente";
-            this.TxtCodigoRemitente.Size = new System.Drawing.Size(35, 20);
-            this.TxtCodigoRemitente.TabIndex = 35;
-            // 
             // TxtDireccionRemitente
             // 
             this.TxtDireccionRemitente.Location = new System.Drawing.Point(76, 35);
@@ -2024,7 +1957,6 @@
             this.TxtNombreRemitente.Name = "TxtNombreRemitente";
             this.TxtNombreRemitente.Size = new System.Drawing.Size(298, 20);
             this.TxtNombreRemitente.TabIndex = 7;
-            this.TxtNombreRemitente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtNombreRemitente_KeyDown);
             this.TxtNombreRemitente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TabularEnterV2);
             // 
             // label61
@@ -2559,14 +2491,11 @@
 		private System.Windows.Forms.ToolStripButton TsbImprimir;
 		private System.Windows.Forms.ToolStripMenuItem MnuImprimir;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-		private System.Windows.Forms.ToolStripButton TsbRecibo;
 		private System.Windows.Forms.ToolStripButton TsbVistaPrevia;
 		private System.Windows.Forms.Label label31;
 		private System.Windows.Forms.TextBox TxtUsuario;
 		private System.Windows.Forms.Label label32;
 		private System.Windows.Forms.TextBox TxtRelacion;
-		private System.Windows.Forms.ToolStripButton TsbPrecargar;
-		private System.Windows.Forms.ToolStripMenuItem MnuPrecargar;
 		private System.Windows.Forms.GroupBox gbComentario;
 		private System.Windows.Forms.Label label29;
 		private System.Windows.Forms.TextBox TxtComentario;
@@ -2595,8 +2524,6 @@
 		private System.Windows.Forms.Label label46;
 		private System.Windows.Forms.TextBox TxtCodigoDespacho;
 		private System.Windows.Forms.CheckBox ChkMercanciaPeligrosa;
-		private System.Windows.Forms.Label label47;
-		private System.Windows.Forms.TextBox TxtNumeroFactura;
         private System.Windows.Forms.TextBox TxtCodigoZona;
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.Label label48;
@@ -2642,7 +2569,6 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txtNombreCiudadOrigen;
         private System.Windows.Forms.TextBox TxtCodigoCiudadOrigen;
-        private System.Windows.Forms.TextBox TxtCodigoRemitente;
         private System.Windows.Forms.TextBox TxtDireccionRemitente;
         private System.Windows.Forms.TextBox TxtTelefonoRemitente;
         private System.Windows.Forms.TextBox TxtNombreRemitente;

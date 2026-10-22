@@ -15,6 +15,5 @@ namespace cromo
         public int ordenRuta { get; set; }
         public bool reexpedicion { get; set; }
         public string codigoZonaFk { get; set; }
-        public string error { get; set; }
     }
 }

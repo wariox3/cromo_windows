@@ -23,19 +23,12 @@ namespace cromo
             int numeroHasta = Convert.ToInt32(TxtCodigoHasta.Text);
             if(numeroDesde <= numeroHasta)
             {
-                if(numeroHasta - numeroDesde <= 3000)
+                if (numeroHasta - numeroDesde < ImpresionGuia.MaximoGuias)
                 {
-                    ImprimirFormato formato = new ImprimirFormato();
-                    formato.codigoFormato = General.CodigoFormatoGuia;
-                    formato.codigoDesde = numeroDesde.ToString();
-                    formato.codigoHasta = numeroHasta.ToString();
-                    formato.tipo = "Guia";
-                    General.Formato = formato;
-                    FrmVisor frm = new FrmVisor();
-                    frm.ShowDialog();
+                    ImpresionGuia.Imprimir(this, numeroDesde, numeroHasta);
                 } else
                 {
-                    MessageBox.Show("La diferencia entre numero no puede ser superior a 3000");
+                    MessageBox.Show("Se pueden imprimir maximo " + ImpresionGuia.MaximoGuias + " guias a la vez");
                 }
             } else
             {

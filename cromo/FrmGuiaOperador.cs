@@ -14,9 +14,10 @@ namespace cromo
     public partial class FrmGuiaOperador : Form
     {
 
-        JavaScriptSerializer ser = new JavaScriptSerializer();
-
-        string codigoCliente = "";       
+        int codigoCliente = 0;
+        string operacionIngreso = "";
+        string operacionCargo = "";
+        string ciudadOrigen = "";
         string ultimaCondicion = "";
         string ultimoTipo = "";       
         string ultimoProducto = "";        
@@ -62,9 +63,10 @@ namespace cromo
 
             TxtFechaIngreso.Text = DateTime.Now.ToString("G");
             TxtCodigoCondicion.Text = ultimaCondicion;
-            TxtCodigoCiudadOrigen.Text = General.CodigoCiudadOrigenParametro;
-            TxtOperacionIngreso.Text = General.CodigoOperacionIngreso;
-            TxtOperacionCargo.Text = General.CodigoOperacionCargo;
+            TxtOperacionIngreso.Text = operacionIngreso;
+            TxtOperacionCargo.Text = operacionCargo;
+            TxtCodigoCiudadOrigen.Text = ciudadOrigen;
+            txtNombreCiudadOrigen.Text = CatalogoManager.BuscarCiudad(ciudadOrigen)?.nombre ?? "";
             ChkContenidoVerificado.Checked = false;
             TxtCodigoCondicion.Focus();
         }
@@ -155,88 +157,92 @@ namespace cromo
 
         public void Guardar()
         {
-            if (ValidarGuardar())
+            if (!ValidarGuardar() || !(CboTipo.SelectedItem is ApiGuiaTipo apiGuiaTipo))
+                return;
+            if (!ValidarFormaPago(apiGuiaTipo.codigoFormaPago))
+                return;
+            if (!ValidarFlete(apiGuiaTipo.validarFlete, Numero(TxtFlete)))
+                return;
+            if (string.IsNullOrWhiteSpace(TxtOperacionIngreso.Text))
             {
-                JavaScriptSerializer ser = new JavaScriptSerializer();
-                string parametrosJson = "{\"guiaTipo\":\"" + CboTipo.SelectedValue.ToString() + "\"}";
-                string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/guiatipo/detalle", parametrosJson);
-                ApiGuiaTipo apiGuiaTipo = ser.Deserialize<ApiGuiaTipo>(jsonRespuesta);
-                if (apiGuiaTipo.error == null)
-                {
-                    if (ValidarFormaPago(apiGuiaTipo.codigoFormaPago))
-                    {
-                        if (ValidarFlete(apiGuiaTipo.validarFlete, Convert.ToDouble(TxtFlete.Text)))
-                        {                                                        
-                            double cobro = 0;
-                            if (apiGuiaTipo.generaCobro)
-                            {
-                                cobro = cobro + Convert.ToDouble(TxtFlete.Text) + Convert.ToDouble(TxtManejo.Text);
-                            }
-
-                            ApiGuia apiGuia = new ApiGuia();                           
-                            apiGuia.codigoGuiaTipoFk = CboTipo.SelectedValue.ToString();                            
-                            apiGuia.codigoOperacionIngresoFk = TxtOperacionIngreso.Text;
-                            apiGuia.codigoOperacionCargoFk = TxtOperacionCargo.Text;
-                            apiGuia.codigoTerceroFk = codigoCliente;
-                            apiGuia.codigoCondicionFk = TxtCodigoCondicion.Text;
-                            apiGuia.codigoCiudadOrigenFk = TxtCodigoCiudadOrigen.Text;
-                            apiGuia.codigoCiudadDestinoFk = TxtCodigoCiudadDestino.Text;
-                            //apiGuia.codigoRutaFk = TxtCodigoRuta.Text;
-                            //apiGuia.codigoAsesorFk = TxtCodigoAsesor.Text;
-                            apiGuia.codigoServicioFk = "PAQ";
-                            apiGuia.codigoProductoFk = CboProducto.SelectedValue.ToString();
-                            apiGuia.codigoEmpaqueFk = "VARIOS";
-                            apiGuia.documentoCliente = TxtDocumentoCliente.Text;
-                            //apiGuia.relacionCliente = TxtRelacion.Text;
-                            apiGuia.remitente = TxtNombreRemitente.Text;
-                            apiGuia.nombreRemitente = TxtNombreRemitente.Text;
-                            apiGuia.telefonoRemitente = TxtTelefonoRemitente.Text;
-                            apiGuia.direccionRemitente = TxtDireccionRemitente.Text;
-                            apiGuia.nombreDestinatario = TxtNombreDestinatario.Text;
-                            apiGuia.direccionDestinatario = TxtDireccionDestinatario.Text;
-                            apiGuia.telefonoDestinatario = TxtTelefonoDestinatario.Text;
-                            apiGuia.pesoReal = TxtPeso.Text;
-                            apiGuia.pesoVolumen = TxtVolumen.Text;
-                            apiGuia.pesoFacturado = TxtPesoFacturar.Text;
-                            apiGuia.unidades = TxtUnidades.Text;
-                            apiGuia.vrRecaudo = "0";
-                            apiGuia.vrDeclara = TxtDeclarado.Text;
-                            apiGuia.vrFlete = TxtFlete.Text;
-                            apiGuia.vrManejo = TxtManejo.Text;
-                            apiGuia.vrCostoReexpedicion = "0";
-                            apiGuia.vrCobroEntrega = cobro.ToString();
-                            apiGuia.usuario = General.UsuarioActivo;
-                            //apiGuia.empaqueReferencia = TxtReferenciaEmpaque.Text;
-                            apiGuia.tipoLiquidacion = "K";
-                            apiGuia.comentario = TxtComentario.Text;
-                            //apiGuia.mercanciaPeligrosa = ChkMercanciaPeligrosa.Checked;
-                            apiGuia.contenidoVerificado = ChkContenidoVerificado.Checked;
-                            //apiGuia.ordenRuta = TxtOrdenRuta.Text;
-                            //apiGuia.codigoZonaFk = TxtCodigoZona.Text;
-                            apiGuia.codigoDestinatarioFk = TxtCodigoDestinatario.Text;
-                            parametrosJson = ser.Serialize(apiGuia);
-                            jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/guia/nuevo", parametrosJson);
-                            ApiGuiaRespuesta apiGuiaRespuesta = ser.Deserialize<ApiGuiaRespuesta>(jsonRespuesta);
-                            if (apiGuiaRespuesta.error == null)
-                            {
-                                MessageBox.Show(this, "La guia se guardo con exito ", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                TxtCodigo.Text = apiGuiaRespuesta.codigoGuiaPk;                               
-                                ultimaCondicion = TxtCodigoCondicion.Text;
-                                ultimoTipo = CboTipo.SelectedValue.ToString();                               
-                                ultimoProducto = CboProducto.SelectedValue.ToString();                                                                
-                                Bloquear();
-                            }
-                            else
-                            {
-                                MessageBox.Show(this, "Ocurrio un error al guardar la guia: " + apiGuiaRespuesta.error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }                            
-                        }
-                    }
-                }
+                MessageBox.Show(this, "Debe configurar una operación de ingreso para las guias en Archivo > Configuracion > Operacion", "Operacion de ingreso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
+            double cobro = apiGuiaTipo.generaCobro ? Numero(TxtFlete) + Numero(TxtManejo) : 0;
+            var guia = new Dictionary<string, object>
+            {
+                { "codigo_guia_tipo_fk", CboTipo.SelectedValue.ToString() },
+                { "codigo_operacion_ingreso_fk", TxtOperacionIngreso.Text },
+                { "codigo_operacion_cargo_fk", Texto(TxtOperacionCargo) },
+                { "codigo_tercero_fk", codigoCliente },
+                { "codigo_adquiriente_fk", codigoCliente },
+                { "codigo_servicio_fk", "PAQ" },
+                { "codigo_producto_fk", CboProducto.SelectedValue.ToString() },
+                { "codigo_empaque_fk", "VARIOS" },
+                { "codigo_ciudad_origen_fk", TxtCodigoCiudadOrigen.Text },
+                { "codigo_ciudad_destino_fk", TxtCodigoCiudadDestino.Text },
+                { "documento_cliente", Texto(TxtDocumentoCliente) },
+                { "remitente", TxtNombreRemitente.Text },
+                { "direccion_remitente", Texto(TxtDireccionRemitente) },
+                { "telefono_remitente", Texto(TxtTelefonoRemitente) },
+                { "codigo_destinatario_fk", int.TryParse(TxtCodigoDestinatario.Text, out int destinatario) ? (int?)destinatario : null },
+                { "nombre_destinatario", TxtNombreDestinatario.Text },
+                { "direccion_destinatario", TxtDireccionDestinatario.Text },
+                { "telefono_destinatario", TxtTelefonoDestinatario.Text },
+                { "unidades", Numero(TxtUnidades) },
+                { "peso_real", Numero(TxtPeso) },
+                { "peso_volumen", Numero(TxtVolumen) },
+                { "peso_facturado", Numero(TxtPesoFacturar) },
+                { "vr_declara", Numero(TxtDeclarado) },
+                { "vr_flete", Numero(TxtFlete) },
+                { "vr_manejo", Numero(TxtManejo) },
+                { "vr_recaudo", 0 },
+                { "condicion", int.TryParse(TxtCodigoCondicion.Text.Trim(), out int condicion) ? (int?)condicion : null },
+                { "precio", codigoPrecio != 0 ? (int?)codigoPrecio : null },
+                { "tipo_liquidacion", "K" },
+                { "liquidar", false },
+                { "comentario", TxtComentario.Text },
+                { "contenido_verificado", ChkContenidoVerificado.Checked },
+                { "estado_ingreso", cromo.Properties.Settings.Default.guiaIngreso },
+                { "estado_recogido", cromo.Properties.Settings.Default.guiaRecogida }
+            };
+
+            Dictionary<string, object> respuesta;
+            try
+            {
+                respuesta = new JavaScriptSerializer().Deserialize<Dictionary<string, object>>(
+                    Fluor.Post("/tte/guia/nuevo", new JavaScriptSerializer().Serialize(guia)));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, "Ocurrio un error al guardar la guia: " + Fluor.MensajeError(ex), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            MessageBox.Show(this, "La guia se guardo con exito ", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            double cobroFluor = Fluor.Numero(respuesta, "vr_cobro_entrega");
+            if (Math.Abs(cobroFluor - cobro) > 0.5)
+            {
+                MessageBox.Show(this, "Atencion: el cobro contra entrega calculado por Fluor (" + cobroFluor.ToString("N0") +
+                    ") es distinto al calculado por la guia (" + cobro.ToString("N0") + "). Revise la guia.", "Cobro contra entrega", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            TxtCodigo.Text = Fluor.Texto(respuesta, "codigo_guia_pk");
+            ultimaCondicion = TxtCodigoCondicion.Text;
+            ultimoTipo = CboTipo.SelectedValue.ToString();
+            ultimoProducto = CboProducto.SelectedValue.ToString();
+            Bloquear();
         }
 
+        private static string Texto(TextBox caja)
+        {
+            return string.IsNullOrWhiteSpace(caja.Text) ? null : caja.Text.Trim();
+        }
+
+        private static double Numero(TextBox caja)
+        {
+            return double.TryParse(caja.Text, System.Globalization.NumberStyles.Number, System.Globalization.CultureInfo.CurrentCulture, out double numero) ? numero : 0;
+        }
         public bool ValidarGuardar()
         {
             if (TxtCodigoCondicion.Text == "")
@@ -379,22 +385,17 @@ namespace cromo
 
         private void CargarTipo()
         {
-            string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/guiatipo/lista", null);
-            List<ApiGuiaTipo> apiGuiaTipoLista = ser.Deserialize<List<ApiGuiaTipo>>(jsonRespuesta);
             CboTipo.ValueMember = "codigoGuiaTipoPk";
             CboTipo.DisplayMember = "nombre";
-            CboTipo.DataSource = apiGuiaTipoLista;
+            CboTipo.DataSource = CatalogoManager.GuiaTipos;
         }
 
         private void CargarProducto()
         {
-            string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/producto/lista", null);
-            List<ApiProducto> apiProductoLista = ser.Deserialize<List<ApiProducto>>(jsonRespuesta);
             CboProducto.ValueMember = "codigoProductoPk";
             CboProducto.DisplayMember = "nombre";
-            CboProducto.DataSource = apiProductoLista;
+            CboProducto.DataSource = CatalogoManager.Productos;
         }
-
         private void LiquidarPesoFacturar()
         {
             double pesoReal = Convert.ToInt32(TxtPeso.Text);
@@ -415,33 +416,56 @@ namespace cromo
         {
             bloquearFlete = cromo.Properties.Settings.Default.bloquearFlete;
             bloquearManejo = cromo.Properties.Settings.Default.bloquearManejo;
-            codigoCliente = cromo.Properties.Settings.Default.codigoCliente;
             CargarTipo();
             CargarProducto();
-            if (codigoCliente != "")
+
+            // La guía operador siempre es del cliente configurado; si no se puede cargar, no se abre
+            string error = null;
+            if (!int.TryParse(cromo.Properties.Settings.Default.codigoCliente?.Trim(), out codigoCliente))
             {
-                string parametrosJson = "{\"codigo\":\"" + codigoCliente + "\"}";
-                string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/cliente/detalle", parametrosJson);
-                ApiCliente apiCliente = ser.Deserialize<ApiCliente>(jsonRespuesta);
-                if (apiCliente.error == null)
+                error = "Debe configurar el codigo del cliente en Archivo > Configuracion > Operador";
+            }
+            else
+            {
+                try
                 {
-                    ultimaCondicion = apiCliente.codigoCondicionFk;
-                    pagoCredito = apiCliente.guiaPagoCredito;
-                    pagoContado = apiCliente.guiaPagoContado;
-                    pagoDestino = apiCliente.guiaPagoDestino;
-                    pagoCortesia = apiCliente.guiaPagoCortesia;
-                    pagoRecogida = apiCliente.guiaPagoRecogida;                                     
+                    var cliente = Fluor.GetDetalle("/gen/tercero/detalle/" + codigoCliente);
+                    ultimaCondicion = Fluor.Texto(cliente, "codigo_condicion_fk") ?? "";
+                    pagoCredito = Fluor.Booleano(cliente, "guia_pago_credito");
+                    pagoContado = Fluor.Booleano(cliente, "guia_pago_contado");
+                    pagoDestino = Fluor.Booleano(cliente, "guia_pago_destino");
+                    pagoCortesia = Fluor.Booleano(cliente, "guia_pago_cortesia");
+                    pagoRecogida = Fluor.Booleano(cliente, "guia_pago_recogida");
+                }
+                catch (Exception ex)
+                {
+                    error = "No se pudo consultar el cliente " + codigoCliente + ": " + Fluor.MensajeError(ex);
                 }
             }
-        }
+            if (error != null)
+            {
+                MessageBox.Show(this, error, "Guia operador", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                BeginInvoke(new Action(Close));
+                return;
+            }
 
+            operacionIngreso = cromo.Properties.Settings.Default.centroOperacion?.Trim() ?? "";
+            var operacion = ConsultasGuia.DetalleOperacion(this, operacionIngreso);
+            if (operacion == null)
+            {
+                BeginInvoke(new Action(Close));
+                return;
+            }
+            operacionCargo = Fluor.Texto(operacion, "codigo_operacion_cargo_fk") ?? "";
+            ciudadOrigen = Fluor.Texto(operacion, "codigo_ciudad_fk") ?? "";
+        }
         private void TxtCodigoCondicion_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode.ToString() == "F2")
             {
-                if (codigoCliente != "")
+                if (codigoCliente != 0)
                 {
-                    General.CodigoCliente = codigoCliente;
+                    General.CodigoCliente = codigoCliente.ToString();
                     FrmBuscarCondicion frm = new FrmBuscarCondicion();
                     frm.ShowDialog();
                     if (frm.DialogResult == DialogResult.OK)
@@ -479,34 +503,33 @@ namespace cromo
 
         private void TxtCodigoCondicion_Validated(object sender, EventArgs e)
         {
-            if (TxtCodigoCondicion.Text != "")
+            if (int.TryParse(TxtCodigoCondicion.Text.Trim(), out int codigoCondicion))
             {
-                string parametrosJson = "{\"codigo\":\"" + TxtCodigoCondicion.Text + "\"}";
-                string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/condicion/detalle", parametrosJson);
-                ApiCondicion apiCondicion = ser.Deserialize<ApiCondicion>(jsonRespuesta);
-                if (apiCondicion.error == null)
+                try
                 {
-                    txtNombreCondicion.Text = apiCondicion.nombre;
-                    pesoMinimo = apiCondicion.pesoMinimo;
-                    porcentajeManejo = apiCondicion.porcentajeManejo;
-                    manejoMinimoUnidad = apiCondicion.manejoMinimoUnidad;
-                    manejoMinimoDespacho = apiCondicion.manejoMinimoDespacho;
-                    descuentoPeso = apiCondicion.descuentoPeso;
-                    TxtDescuentoPeso.Text = apiCondicion.descuentoPeso.ToString();
-                    TxtPorcentajeManejo.Text = apiCondicion.porcentajeManejo.ToString();
-                    TxtManejoMinimoUnidad.Text = apiCondicion.manejoMinimoUnidad.ToString();
-                    TxtManejoMinimoDespacho.Text = apiCondicion.manejoMinimoDespacho.ToString();
-                    codigoPrecio = apiCondicion.codigoPrecioFk;
+                    var condicion = Fluor.GetDetalle("/tte/condicion/detalle/" + codigoCondicion);
+                    txtNombreCondicion.Text = Fluor.Texto(condicion, "nombre");
+                    pesoMinimo = Fluor.Entero(condicion, "peso_minimo");
+                    porcentajeManejo = Fluor.Numero(condicion, "porcentaje_manejo");
+                    manejoMinimoUnidad = Fluor.Numero(condicion, "manejo_minimo_unidad");
+                    manejoMinimoDespacho = Fluor.Numero(condicion, "manejo_minimo_despacho");
+                    descuentoPeso = Fluor.Numero(condicion, "descuento_peso");
+                    TxtDescuentoPeso.Text = descuentoPeso.ToString();
+                    TxtPorcentajeManejo.Text = porcentajeManejo.ToString();
+                    TxtManejoMinimoUnidad.Text = manejoMinimoUnidad.ToString();
+                    TxtManejoMinimoDespacho.Text = manejoMinimoDespacho.ToString();
+                    codigoPrecio = Fluor.Entero(condicion, "codigo_precio_fk");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(this, "No se pudo consultar la condicion: " + Fluor.MensajeError(ex), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
-
         private void TxtCodigoCiudadOrigen_Validated(object sender, EventArgs e)
         {
-            string parametrosJson = "{\"codigo\":\"" + TxtCodigoCiudadOrigen.Text + "\"}";
-            string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/ciudad/detalle", parametrosJson);
-            ApiCiudad apiCiudad = ser.Deserialize<ApiCiudad>(jsonRespuesta);
-            if (apiCiudad.error == null)
+            ApiCiudad apiCiudad = CatalogoManager.BuscarCiudad(TxtCodigoCiudadOrigen.Text);
+            if (apiCiudad != null)
             {
                 txtNombreCiudadOrigen.Text = apiCiudad.nombre;
             }
@@ -514,63 +537,54 @@ namespace cromo
 
         private void TxtCodigoCiudadDestino_Validated(object sender, EventArgs e)
         {
-            string codigoOrigen = TxtCodigoCiudadOrigen.Text;
-            string codigoDestino = TxtCodigoCiudadDestino.Text;
-            string parametrosJson = "{\"codigo\":\"" + codigoDestino + "\"}";
-            string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/ciudad/detalle", parametrosJson);
-            ApiCiudad apiCiudad = ser.Deserialize<ApiCiudad>(jsonRespuesta);
-            if (apiCiudad.error == null)
+            ApiCiudad apiCiudad = CatalogoManager.BuscarCiudad(TxtCodigoCiudadDestino.Text);
+            if (apiCiudad == null)
+                return;
+
+            TxtNombreCiudadDestino.Text = apiCiudad.nombre;
+            if (codigoPrecio == 0 || TxtCodigoCiudadOrigen.Text == "" || TxtCodigoCiudadDestino.Text == "")
             {
-                TxtNombreCiudadDestino.Text = apiCiudad.nombre;
-                if (codigoPrecio != 0 && TxtCodigoCiudadOrigen.Text != "" && TxtCodigoCiudadDestino.Text != "")
-                {
+                MessageBox.Show("Debe seleccionar una condicion comercial, origen y destino del servicio");
+                return;
+            }
 
-                    parametrosJson = "{\"precio\":\"" + codigoPrecio + "\", \"origen\":\"" + TxtCodigoCiudadOrigen.Text + "\", \"destino\":\"" + TxtCodigoCiudadDestino.Text + "\", \"zona\":\"" + "\", \"producto\":\"" + CboProducto.SelectedValue.ToString() + "\"}";
-                    jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/preciodetalle/detalleproducto", parametrosJson);
-                    ApiPrecioDetalle apiPrecioDetalle = ser.Deserialize<ApiPrecioDetalle>(jsonRespuesta);
-                    if (apiPrecioDetalle.error == null)
-                    {
-                        precioPeso = apiPrecioDetalle.vrPeso;
-                        codigoCobertura = apiPrecioDetalle.codigoCoberturaFk;
+            ApiPrecioDetalle apiPrecioDetalle = ConsultasGuia.PrecioProducto(this, codigoPrecio, TxtCodigoCiudadOrigen.Text, TxtCodigoCiudadDestino.Text, null, CboProducto.SelectedValue?.ToString());
+            if (apiPrecioDetalle == null)
+            {
+                MessageBox.Show(this, "No existe precio para este producto con esta condicion y este destino", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            precioPeso = apiPrecioDetalle.vrPeso;
+            codigoCobertura = apiPrecioDetalle.codigoCoberturaFk;
 
-                        parametrosJson = "{\"codigoCliente\":\"" + codigoCliente + "\",\"origen\":\"" + TxtCodigoCiudadOrigen.Text + "\", \"destino\":\"" + TxtCodigoCiudadDestino.Text + "\", \"codigoZona\":\"" + "\", \"codigoCobertura\":\"" + codigoCobertura + "\"}";
-                        jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/condicionflete/liquidar", parametrosJson);
-                        ApiCondicionFlete apiCondicionFlete = ser.Deserialize<ApiCondicionFlete>(jsonRespuesta);
-                        if (apiCondicionFlete.error == null)
-                        {
-                            descuentoPeso = apiCondicionFlete.descuentoPeso;
-                            pesoMinimo = apiCondicionFlete.pesoMinimo;
-                            pesoMinimoGuia = apiCondicionFlete.pesoMinimoGuia;
-                            TxtDescuentoPeso.Text = apiCondicionFlete.descuentoPeso.ToString();
-                        }
+            var ruta = new Dictionary<string, object>
+            {
+                { "codigo_tercero_fk", codigoCliente },
+                { "codigo_ciudad_origen_fk", TxtCodigoCiudadOrigen.Text },
+                { "codigo_ciudad_destino_fk", TxtCodigoCiudadDestino.Text },
+                { "codigo_cobertura_fk", string.IsNullOrWhiteSpace(codigoCobertura) ? null : codigoCobertura }
+            };
 
-                        parametrosJson = "{\"codigoCliente\":\"" + codigoCliente + "\",\"origen\":\"" + TxtCodigoCiudadOrigen.Text + "\", \"destino\":\"" + TxtCodigoCiudadDestino.Text + "\", \"codigoZona\":\"" + "\", \"codigoCobertura\":\"" + codigoCobertura + "\"}";
-                        jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/condicionmanejo/liquidar", parametrosJson);
-                        ApiCondicionManejo apiCondicionManejo = ser.Deserialize<ApiCondicionManejo>(jsonRespuesta);
-                        if (apiCondicionManejo.error == null)
-                        {
-                            porcentajeManejo = apiCondicionManejo.porcentaje;
-                            manejoMinimoUnidad = apiCondicionManejo.minimoUnidad;
-                            manejoMinimoDespacho = apiCondicionManejo.minimoDespacho;
-                            TxtPorcentajeManejo.Text = apiCondicionManejo.porcentaje.ToString();
-                            TxtManejoMinimoUnidad.Text = apiCondicionManejo.minimoUnidad.ToString();
-                            TxtManejoMinimoDespacho.Text = apiCondicionManejo.minimoDespacho.ToString();
-                               
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show(this, "No existe precio para este producto con esta condicion y este destino", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+            var condicionFlete = ConsultasGuia.LiquidarCondicionRuta(this, "/tte/condicion-flete/liquidar", ruta, "flete");
+            if (condicionFlete != null)
+            {
+                descuentoPeso = Fluor.Numero(condicionFlete, "descuento_peso");
+                pesoMinimo = Fluor.Entero(condicionFlete, "peso_minimo");
+                pesoMinimoGuia = Fluor.Entero(condicionFlete, "peso_minimo_guia");
+                TxtDescuentoPeso.Text = descuentoPeso.ToString();
+            }
 
-                }
-                else
-                {
-                    MessageBox.Show("Debe seleccionar una condicion comercial, origen y destino del servicio");
-                }
+            var condicionManejo = ConsultasGuia.LiquidarCondicionRuta(this, "/tte/condicion-manejo/liquidar", ruta, "manejo");
+            if (condicionManejo != null)
+            {
+                porcentajeManejo = Fluor.Numero(condicionManejo, "porcentaje");
+                manejoMinimoUnidad = Fluor.Numero(condicionManejo, "minimo_unidad");
+                manejoMinimoDespacho = Fluor.Numero(condicionManejo, "minimo_despacho");
+                TxtPorcentajeManejo.Text = porcentajeManejo.ToString();
+                TxtManejoMinimoUnidad.Text = manejoMinimoUnidad.ToString();
+                TxtManejoMinimoDespacho.Text = manejoMinimoDespacho.ToString();
             }
         }
-
         private void TxtCodigoCiudadOrigen_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode.ToString() == "F2")
@@ -724,29 +738,36 @@ namespace cromo
         {
             if (e.KeyCode.ToString() == "F2")
             {
-                General.CodigoCliente = codigoCliente;
+                General.CodigoCliente = codigoCliente.ToString();
                 FrmBuscarDestinatario frmBuscarDestinatario = new FrmBuscarDestinatario();
                 frmBuscarDestinatario.ShowDialog();
                 if (frmBuscarDestinatario.DialogResult == DialogResult.OK)
                 {
-                    string parametrosJson = "{\"codigo\":\"" + General.CodigoDestinatario + "\"}";
-                    string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/destinatario/detalle", parametrosJson);
-                    ApiDestinatario apiDestinatario = ser.Deserialize<ApiDestinatario>(jsonRespuesta);
-                    if (apiDestinatario.error == null)
+                    Dictionary<string, object> destinatario = null;
+                    try
                     {
-                        TxtCodigoDestinatario.Text = apiDestinatario.codigoDestinatarioPk;
-                        TxtNombreDestinatario.Text = apiDestinatario.nombreCorto;
-                        TxtDireccionDestinatario.Text = apiDestinatario.direccion;
-                        TxtTelefonoDestinatario.Text = apiDestinatario.telefono;
-                        TxtCodigoCiudadDestino.Text = apiDestinatario.codigoCiudadFk;
+                        destinatario = Fluor.GetLista("/tte/destinatario/lista",
+                            new Dictionary<string, object> { { "codigo_destinatario_pk", General.CodigoDestinatario } }).FirstOrDefault();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(this, "No se pudo consultar el destinatario: " + Fluor.MensajeError(ex), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    if (destinatario != null)
+                    {
+                        TxtCodigoDestinatario.Text = Fluor.Texto(destinatario, "codigo_destinatario_pk");
+                        TxtNombreDestinatario.Text = Fluor.Texto(destinatario, "nombre_corto");
+                        TxtDireccionDestinatario.Text = Fluor.Texto(destinatario, "direccion");
+                        TxtTelefonoDestinatario.Text = Fluor.Texto(destinatario, "telefono");
+                        TxtCodigoCiudadDestino.Text = Fluor.Texto(destinatario, "codigo_ciudad_fk");
                     }
                     else
                     {
                         MessageBox.Show("No existe el destinatario");
                     }
-
-                }
-            }
+                }            }
         }
     }
 }

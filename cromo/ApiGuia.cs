@@ -8,7 +8,6 @@ namespace cromo
 {
     public class ApiGuia
     {
-        public bool numeroUnicoGuia { get; set; }
         public string codigoGuiaPk { get; set; }                
         public string codigoOperacionIngresoFk { get; set; }
         public string codigoOperacionCargoFk { get; set; }
@@ -32,8 +31,6 @@ namespace cromo
         public DateTime fechaIngreso { get; set; }
         public DateTime? fechaDespacho { get; set; }
         public DateTime? fechaEntrega { get; set; }
-        public string codigoIdentificacionDestinatarioFk { get; set; }
-        public string numeroIdentificacionDestinatario { get; set; }
         public string nombreDestinatario { get; set; }
         public string direccionDestinatario { get; set; }
         public string telefonoDestinatario { get; set; }
@@ -45,22 +42,15 @@ namespace cromo
         public string vrDeclara { get; set; }
         public string vrFlete { get; set; }
         public string vrManejo { get; set; }
-        public string vrCostoReexpedicion { get; set; }
         public string vrOtros { get; set; }
-        public string vrCobroEntrega { get; set; }
         public string vrAbono { get; set; }
         public string usuario { get; set; }
         public string empaqueReferencia { get; set; }
-        public string tipoLiquidacion { get; set; }
         public string comentario { get; set; }
         public bool factura { get; set; }
         public bool reexpedicion { get; set; }
         public bool cortesia  { get; set; }
-        public bool mercanciaPeligrosa { get; set; }
-        public bool contenidoVerificado { get; set; }
-        public bool devolverDocumentoCliente { get; set; }
         public string ordenRuta { get; set; }
-        public string numeroFactura { get; set; }
         public string codigoDespachoFk { get; set; }
         public bool estadoImpreso { get; set; }
         public bool estadoEmbarcado { get; set; }
@@ -71,8 +61,6 @@ namespace cromo
         public bool estadoFacturado { get; set; }
         public bool estadoFacturaGenerada { get; set; }
         public bool estadoAnulado { get; set; }
-        public bool estadoRecogido { get; set; }
-        public bool estadoIngreso { get; set; }
         public string clienteNombreCorto { get; set; }
         public string adquirienteNombreCorto { get; set; }
         public string ciudadOrigenNombre { get; set; }
@@ -80,44 +68,8 @@ namespace cromo
         public string condicionNombre { get; set; }
         public string codigoZonaFk { get; set; }
         public string codigoDestinatarioFk { get; set; }
-        public string codigoTerceroOperacionFk { get; set; }
-        public string error { get; set; }
 
-        public List<GuiaDetalle> detalles { get; set; }
     }
 
-    class ApiGuiaRespuesta
-    {
-        public string codigoGuiaPk { get; set; }
-        public string numero { get; set; }
-        public string numeroFactura { get; set; }
-        public string error { get; set; }
-    }
 
-    public class ApiGuiaRndc
-    {
-        public string codigoGuiaPk { get; set; }
-        public string fechaIngreso { get; set; }
-        public string productoNombre { get; set; }
-        public string productoCodigoTransporte { get; set; }
-        public string terceroTipoIdentificacion { get; set; }
-        public string terceroNumeroIdentificacion { get; set; }
-        public string terceroNombreCorto { get; set; }
-        public string pesoReal { get; set; }
-        public string codigoCiudadOrigenFk { get; set; }
-        public string codigoCiudadDestinoFk { get; set; }
-        public string codigoCiudadOrigen { get; set; }
-        public string codigoCiudadDestino { get; set; }
-        public string ciudadOrigen { get; set; }
-        public string ciudadDestino { get; set; }
-        public string codigoDespachoFk { get; set; }
-        public string claveRndc { get; set; }
-        public string usuarioRndc { get; set; }
-        public string empresaRndc { get; set; }
-        public string numeroPoliza { get; set; }
-        public string fechaVencePoliza { get; set; }
-        public string numeroIdentificacionAseguradora { get; set; }
-        public List<ApiTerceroRndc> terceros { get; set; }
-        public string error { get; set; }
-    }
 }

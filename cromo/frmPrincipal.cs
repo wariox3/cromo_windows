@@ -12,86 +12,33 @@ namespace cromo
 {
     public partial class FrmPrincipal : Form
     {
-        private int childFormNumber = 0;
         bool operadoLogistico = cromo.Properties.Settings.Default.operadorLogistico;
+        private System.Windows.Forms.Timer tokenRefreshTimer;
 
         public FrmPrincipal()
         {
             InitializeComponent();
+            InitializeTokenRefreshTimer();
         }
 
-        private void ShowNewForm(object sender, EventArgs e)
+        private void InitializeTokenRefreshTimer()
         {
-            Form childForm = new Form();
-            childForm.MdiParent = this;
-            childForm.Text = "Ventana " + childFormNumber++;
-            childForm.Show();
+            tokenRefreshTimer = new System.Windows.Forms.Timer();
+            tokenRefreshTimer.Interval = 55 * 60 * 1000; // 55 minutos
+            tokenRefreshTimer.Tick += TokenRefreshTimer_Tick;
         }
 
-        private void OpenFile(object sender, EventArgs e)
+        private void TokenRefreshTimer_Tick(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            openFileDialog.Filter = "Archivos de texto (*.txt)|*.txt|Todos los archivos (*.*)|*.*";
-            if (openFileDialog.ShowDialog(this) == DialogResult.OK)
+            // Renovar token automáticamente antes de que expire
+            try
             {
-                string FileName = openFileDialog.FileName;
+                Fluor.RefreshAccessToken();
+                ActualizarEstadoUsuario();
             }
-        }
-
-        private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            saveFileDialog.Filter = "Archivos de texto (*.txt)|*.txt|Todos los archivos (*.*)|*.*";
-            if (saveFileDialog.ShowDialog(this) == DialogResult.OK)
+            catch (Exception ex)
             {
-                string FileName = saveFileDialog.FileName;
-            }
-        }
-
-        private void ExitToolsStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void CutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void PasteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LayoutMdi(MdiLayout.Cascade);
-        }
-
-        private void TileVerticalToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LayoutMdi(MdiLayout.TileVertical);
-        }
-
-        private void TileHorizontalToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LayoutMdi(MdiLayout.TileHorizontal);
-        }
-
-        private void ArrangeIconsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LayoutMdi(MdiLayout.ArrangeIcons);
-        }
-
-        private void CloseAllToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            foreach (Form childForm in MdiChildren)
-            {
-                childForm.Close();
+                System.Diagnostics.Debug.WriteLine("Error renovando token: " + ex.Message);
             }
         }
 
@@ -99,6 +46,7 @@ namespace cromo
         {
             if(General.RestringirGuiaNueva == false)
             {
+                if (!OperacionConfigurada()) return;
                 FrmGuia frmGuia = new FrmGuia();
                 frmGuia.MdiParent = this;
                 frmGuia.Show();
@@ -116,19 +64,62 @@ namespace cromo
 
 		private void FrmPrincipal_Load(object sender, EventArgs e)
 		{
-			FrmIngreso FrmIngrero = new FrmIngreso();
+			FrmIngreso FrmIngreso = new FrmIngreso();
             this.Text = this.Text + " " + Application.ProductVersion;
-            FrmIngrero.ShowDialog();            
-            if (FrmIngrero.DialogResult != DialogResult.OK)
+            FrmIngreso.ShowDialog();
+            if (FrmIngreso.DialogResult != DialogResult.OK)
 			{
 				Close();
+				return;
 			}
+
+            // Inicializar UI con usuario autenticado
+            ActualizarEstadoUsuario();
+
+            // Iniciar timer de renovación de token
+            tokenRefreshTimer.Start();
+
             if(operadoLogistico)
             {
                 mnuGuia.Enabled = false;
                 utilidadesToolStripMenuItem.Enabled = false;
             }
 		}
+
+        private void ActualizarEstadoUsuario()
+        {
+            // Mostrar usuario autenticado en la barra de estado
+            toolStripStatusLabel.Text = "Usuario: " + General.UsuarioActivo +
+                                       " | Token expira: " + Fluor.TokenExpireTime.ToString("HH:mm");
+        }
+
+        private void Logout()
+        {
+            // Detener timer
+            tokenRefreshTimer.Stop();
+
+            Fluor.Logout();
+            CatalogoManager.LimpiarCatalogos();
+
+            // Cerrar todas las ventanas abiertas
+            foreach (Form childForm in MdiChildren)
+            {
+                childForm.Close();
+            }
+
+            // Mostrar login nuevamente
+            FrmIngreso frmIngreso = new FrmIngreso();
+            if (frmIngreso.ShowDialog() != DialogResult.OK)
+            {
+                // Usuario canceló login, cerrar aplicación
+                Close();
+            }
+            else
+            {
+                ActualizarEstadoUsuario();
+                tokenRefreshTimer.Start();
+            }
+        }
 
         private void mnuImpresionMasiva_Click(object sender, EventArgs e)
         {
@@ -150,22 +141,11 @@ namespace cromo
             frmDestinatarioNuevo.ShowDialog();
         }
 
-        private void MenuEnviarRndc_Click(object sender, EventArgs e)
-        {
-            FrmEnviarRndc frmEnviarRndc = new FrmEnviarRndc();
-            frmEnviarRndc.ShowDialog();
-        }
-
-        private void MenuCumplirRndc_Click(object sender, EventArgs e)
-        {
-            FrmCumplirRndc frmCumplirRndc = new FrmCumplirRndc();
-            frmCumplirRndc.ShowDialog();
-        }
-
         private void MnuGuiaOperador_Click(object sender, EventArgs e)
         {
             if (General.RestringirGuiaNueva == false)
             {
+                if (!OperacionConfigurada()) return;
                 FrmGuiaOperador frmGuiaOperador = new FrmGuiaOperador();
                 frmGuiaOperador.MdiParent = this;
                 frmGuiaOperador.Show();
@@ -176,22 +156,27 @@ namespace cromo
             }
         }
 
-        private void conexionToolStripMenuItem_Click(object sender, EventArgs e)
+        private bool OperacionConfigurada()
         {
-            FrmConexion frmConexion = new FrmConexion();
-            frmConexion.ShowDialog();
+            if (!string.IsNullOrWhiteSpace(cromo.Properties.Settings.Default.centroOperacion))
+                return true;
+            MessageBox.Show(this, "Debe configurar una operación de ingreso para las guias en Archivo > Configuracion > Operacion", "Operacion de ingreso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return false;
         }
 
-        private void MenuEnviarRemesaRndc_Click(object sender, EventArgs e)
+        private void mnuLogout_Click(object sender, EventArgs e)
         {
-            FrmEnviarRemesaRndc frmEnviarRemesaRndc = new FrmEnviarRemesaRndc();
-            frmEnviarRemesaRndc.ShowDialog();
-        }
+            // Confirmar logout
+            DialogResult resultado = MessageBox.Show(this,
+                "¿Deseas cerrar la sesión?",
+                "Cerrar sesión",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
 
-        private void MenuAnularDespachoRndc_Click(object sender, EventArgs e)
-        {
-            FrmAnularManifiestoRndc frmAnularManifiestoRndc = new FrmAnularManifiestoRndc();
-            frmAnularManifiestoRndc.ShowDialog();
+            if (resultado == DialogResult.Yes)
+            {
+                Logout();
+            }
         }
     }
 }

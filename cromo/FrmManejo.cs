@@ -6,14 +6,12 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web.Script.Serialization;
 using System.Windows.Forms;
 
 namespace cromo
 {
     public partial class FrmManejo : Form
     {
-        JavaScriptSerializer ser = new JavaScriptSerializer();
 
         double porcentajeManejoMinimoUsuario = 0;
         double manejoMinimoUnidadMinimoUsuario = 0;
@@ -29,10 +27,8 @@ namespace cromo
             TxtManejo.Text = General.Manejo.ToString();
             TxtManejoMinimoUnidad.Text = General.ManejoMinimoUnidad.ToString();
             TxtManejoMinioDespacho.Text = General.ManejoMinimoDespacho.ToString();
-            string parametrosJson = "{\"usuario\":\"" + General.UsuarioActivo + "\"}";
-            string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/usuario/configuracion", parametrosJson);
-            ApiUsuarioConfigurcion apiUsuarioConfiguracion = ser.Deserialize<ApiUsuarioConfigurcion>(jsonRespuesta);
-            if (apiUsuarioConfiguracion.error == false)
+            ApiUsuarioConfigurcion apiUsuarioConfiguracion = CatalogoManager.UsuarioConfiguracion;
+            if (apiUsuarioConfiguracion != null)
             {
                 porcentajeManejoMinimoUsuario = apiUsuarioConfiguracion.porcentajeManejoMinimo;
                 manejoMinimoUnidadMinimoUsuario = apiUsuarioConfiguracion.manejoMinimoUnidad;

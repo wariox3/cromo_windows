@@ -75,57 +75,67 @@ namespace cromo
 
         private void FrmDestinatarioNuevo_Load(object sender, EventArgs e)
         {
-            string jsonRespuesta = ApiControlador.ApiPost("/general/api/windows/identificacion/lista", null);
-            List<ApiIdentificacion> apiIdentificacionLista = ser.Deserialize<List<ApiIdentificacion>>(jsonRespuesta);
+            // Usar catálogos cargados en memoria en lugar de consultar API
+            // Identificaciones
             CboIdentificacion.ValueMember = "codigoIdentificacionPk";
             CboIdentificacion.DisplayMember = "nombre";
-            CboIdentificacion.DataSource = apiIdentificacionLista;
+            CboIdentificacion.DataSource = CatalogoManager.Identificaciones;
 
-            jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/ciudad/lista", null);
-            List<ApiCiudad> apiCiudadLista = ser.Deserialize<List<ApiCiudad>>(jsonRespuesta);
+            // Ciudades
             CboCiudad.ValueMember = "codigoCiudadPk";
             CboCiudad.DisplayMember = "nombre";
-            CboCiudad.DataSource = apiCiudadLista;
+            CboCiudad.DataSource = CatalogoManager.Ciudades;
         }
 
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
             if (ValidarGuardar())
             {
-                JavaScriptSerializer ser = new JavaScriptSerializer();
+                int? codigoTercero = null;
+                if (int.TryParse(General.CodigoCliente?.Trim(), out int codigo))
+                    codigoTercero = codigo;
 
-                ApiDestinatario apiDestinatario = new ApiDestinatario();
-                apiDestinatario.codigoIdentificacionFk = CboIdentificacion.SelectedValue.ToString();
-                apiDestinatario.numeroIdentificacion = TxtNumeroIdentificacion.Text;
-                apiDestinatario.codigoCiudadFk = CboCiudad.SelectedValue.ToString();
-                apiDestinatario.nombreCorto = TxtNombreCorto.Text;
-                apiDestinatario.nombre1 = TxtNombre1.Text;
-                apiDestinatario.nombre2 = TxtNombre2.Text;
-                apiDestinatario.apellido1 = TxtApellido1.Text;
-                apiDestinatario.apellido2 = TxtApellido2.Text;
-                apiDestinatario.direccion = TxtDireccion.Text;
-                apiDestinatario.telefono = TxtTelefono.Text;
-                apiDestinatario.correo = TxtCorreo.Text;
-                if(General.CodigoCliente != "")
+                var destinatario = new
                 {
-                    apiDestinatario.codigoTerceroFk = General.CodigoCliente;
-                }
+                    codigo_identificacion_fk = CboIdentificacion.SelectedValue.ToString(),
+                    numero_identificacion = TxtNumeroIdentificacion.Text.Trim(),
+                    codigo_ciudad_fk = CboCiudad.SelectedValue?.ToString(),
+                    codigo_tercero_fk = codigoTercero,
+                    nombre_corto = Valor(TxtNombreCorto),
+                    nombre1 = Valor(TxtNombre1),
+                    nombre2 = Valor(TxtNombre2),
+                    apellido1 = Valor(TxtApellido1),
+                    apellido2 = Valor(TxtApellido2),
+                    direccion = Valor(TxtDireccion),
+                    telefono = Valor(TxtTelefono),
+                    correo = Valor(TxtCorreo)
+                };
 
-                string parametrosJson = ser.Serialize(apiDestinatario);
-                string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/destinatario/nuevo", parametrosJson);
-                ApiDestinatarioRespuesta apiDestinatarioRespuesta = ser.Deserialize<ApiDestinatarioRespuesta>(jsonRespuesta);
-                if (apiDestinatarioRespuesta.error == null)
+                BtnGuardar.Enabled = false;
+                try
                 {
-                    MessageBox.Show(this, "El destinatario se guardo con exito ", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    General.CodigoDestinatario = apiDestinatarioRespuesta.codigoDestinatarioPk;
+                    string jsonRespuesta = Fluor.Post("/tte/destinatario/nuevo", ser.Serialize(destinatario));
+                    var respuesta = ser.Deserialize<Dictionary<string, object>>(jsonRespuesta);
+
+                    General.CodigoDestinatario = respuesta["codigo_destinatario_pk"].ToString();
                     General.NombreDestinatario = TxtNombreCorto.Text;
+                    MessageBox.Show(this, "El destinatario se guardo con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     DialogResult = DialogResult.OK;
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show(this, "Ocurrio un error al guardar el destinatario: " + apiDestinatarioRespuesta.error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(this, "Ocurrio un error al guardar el destinatario: " + Fluor.MensajeError(ex), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    BtnGuardar.Enabled = true;
                 }
             }
+        }
+
+        private static string Valor(TextBox caja)
+        {
+            return string.IsNullOrWhiteSpace(caja.Text) ? null : caja.Text.Trim();
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)

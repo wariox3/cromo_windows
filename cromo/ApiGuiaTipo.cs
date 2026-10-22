@@ -8,10 +8,8 @@ namespace cromo
 {
     class ApiGuiaTipo
     {
-        public string error { get; set; }
         public string codigoGuiaTipoPk { get; set; }
         public string nombre { get; set; }
-        public bool exigeNumero { get; set; }
         public bool validarFlete { get; set; }
         public bool factura { get; set; }
         public bool cortesia { get; set; }

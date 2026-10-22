@@ -5,26 +5,14 @@
     <Setting Name="centroOperacion" Type="System.String" Scope="User">
       <Value Profile="(Default)">MED</Value>
     </Setting>
-    <Setting Name="rutaReportes" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\Program Files (x86)\Semantica\Cromo\Reportes\</Value>
-    </Setting>
-    <Setting Name="operador" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
     <Setting Name="usuario" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="clave" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="recordarClave" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="servidorManual" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="rutaServidorManual" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="actualizarConfiguracion" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="bloquearFlete" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
@@ -41,17 +29,8 @@
     <Setting Name="destinatarioTodosClientes" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="tokenServidorManual" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
     <Setting Name="validarProductoCliente" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="usuarioServidorManual" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="claveServidorManual" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="guiaIngreso" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>

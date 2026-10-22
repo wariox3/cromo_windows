@@ -6,14 +6,12 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web.Script.Serialization;
 using System.Windows.Forms;
 
 namespace cromo
 {
     public partial class FrmDescuento : Form
     {
-        JavaScriptSerializer ser = new JavaScriptSerializer();
 
         double descuentoPesoMaximo = 0;
 
@@ -38,10 +36,8 @@ namespace cromo
         private void FrmDescuento_Load(object sender, EventArgs e)
         {
             TxtDescuento.Text = General.Descuento.ToString();
-            string parametrosJson = "{\"usuario\":\"" + General.UsuarioActivo + "\"}";
-            string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/usuario/configuracion", parametrosJson);
-            ApiUsuarioConfigurcion apiUsuarioConfiguracion = ser.Deserialize<ApiUsuarioConfigurcion>(jsonRespuesta);
-            if (apiUsuarioConfiguracion.error == false)
+            ApiUsuarioConfigurcion apiUsuarioConfiguracion = CatalogoManager.UsuarioConfiguracion;
+            if (apiUsuarioConfiguracion != null)
             {
                 descuentoPesoMaximo = apiUsuarioConfiguracion.descuentoPesoMaximo;
             }

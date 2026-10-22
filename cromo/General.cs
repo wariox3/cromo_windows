@@ -9,35 +9,6 @@ namespace cromo
 {
 	class General
 	{
-        public static List<GuiaDetalle> GuiaDetalle { get; set; } = new List<GuiaDetalle>();
-
-        private static string v_UrlServicio = "";
-        public static string UrlServicio
-        {
-            get { return v_UrlServicio; }
-            set { v_UrlServicio = value; }
-        }
-
-        private static string v_TokenServicio = "";
-        public static string TokenServicio
-        {
-            get { return v_TokenServicio; }
-            set { v_TokenServicio = value; }
-        }
-
-        private static string v_UsuarioServicio = "";
-        public static string UsuarioServicio
-        {
-            get { return v_UsuarioServicio; }
-            set { v_UsuarioServicio = value; }
-        }
-
-        private static string v_ClaveServicio = "";
-        public static string ClaveServicio
-        {
-            get { return v_ClaveServicio; }
-            set { v_ClaveServicio = value; }
-        }
 
         private static string v_CodigoCliente = "";
 		public static string CodigoCliente
@@ -67,25 +38,11 @@ namespace cromo
             set { v_NombreDestinatario = value; }
         }
 
-        private static string v_CodigoRemitente = "";
-        public static string CodigoRemitente
-        {
-            get { return v_CodigoRemitente; }
-            set { v_CodigoRemitente = value; }
-        }
-
         private static string v_CodigoCiudad = "";
 		public static string CodigoCiudad
 		{
 			get { return v_CodigoCiudad; }
 			set { v_CodigoCiudad = value; }
-		}
-
-		private static string v_CodigoCiudadDestino = "";
-		public static string CodigoCiudadDestino
-		{
-			get { return v_CodigoCiudadDestino; }
-			set { v_CodigoCiudadDestino = value; }
 		}
 
 		private static int v_CodigoGuia = 0;
@@ -95,27 +52,6 @@ namespace cromo
 			set { v_CodigoGuia = value; }
 		}
 
-		private static int v_NumeroGuia = 0;
-		public static int NumeroGuia
-		{
-			get { return v_NumeroGuia; }
-			set { v_NumeroGuia = value; }
-		}
-
-		private static int v_CodigoReporte = 0;
-		public static int CodigoReporte
-		{
-			get { return v_CodigoReporte; }
-			set { v_CodigoReporte = value; }
-		}
-
-		private static string v_Sql = "";
-		public static string Sql
-		{
-			get { return v_Sql; }
-			set { v_Sql = value; }
-		}
-
 		private static string v_UsuarioActivo = "";
 		public static string UsuarioActivo
 		{
@@ -123,67 +59,11 @@ namespace cromo
 			set { v_UsuarioActivo = value; }
 		}
 
-		private static string v_DocumentoCliente = "";
-		public static string DocumentoCliente
-		{
-			get { return v_DocumentoCliente; }
-			set { v_DocumentoCliente = value; }
-		}
-
 		private static string v_CodigoCondicion = "";
 		public static string CodigoCondicion
 		{
 			get { return v_CodigoCondicion; }
 			set { v_CodigoCondicion = value; }
-		}
-
-		private static int v_CodigoPrecio = 0;
-		public static int CodigoPrecio
-		{
-			get { return v_CodigoPrecio; }
-			set { v_CodigoPrecio = value; }
-		}
-
-		private static double v_VrFlete = 0;
-		public static double VrFlete
-		{
-			get { return v_VrFlete; }
-			set { v_VrFlete = value; }
-		}
-
-		private static int v_Peso = 0;
-		public static int Peso
-		{
-			get { return v_Peso; }
-			set { v_Peso = value; }
-		}
-
-		private static int v_Volumen = 0;
-		public static int Volumen
-		{
-			get { return v_Volumen; }
-			set { v_Volumen = value; }
-		}
-
-		private static int v_PesoFacturar = 0;
-		public static int PesoFacturar
-		{
-			get { return v_PesoFacturar; }
-			set { v_PesoFacturar = value; }
-		}
-
-		private static int v_Unidades = 0;
-		public static int Unidades
-		{
-			get { return v_Unidades; }
-			set { v_Unidades = value; }
-		}
-
-		private static bool v_NumeroUnicoGuia = false;
-		public static bool NumeroUnicoGuia
-		{
-			get { return v_NumeroUnicoGuia; }
-			set { v_NumeroUnicoGuia = value; }
 		}
 
         private static bool v_RestringirGuiaNueva = false;
@@ -207,41 +87,7 @@ namespace cromo
             set { v_CodigoCondicionGeneral = value; }
         }
 
-        private static string v_CodigoFormatoGuia = "";
-        public static string CodigoFormatoGuia
-        {
-            get { return v_CodigoFormatoGuia; }
-            set { v_CodigoFormatoGuia = value; }
-        }
    
-        private static ImprimirFormato v_Formato;
-        public static ImprimirFormato Formato
-        {
-            get { return v_Formato; }
-            set { v_Formato = value; }
-        }
-
-        private static string v_CodigoCiudadOrigenParametro = "";
-        public static string CodigoCiudadOrigenParametro
-        {
-            get { return v_CodigoCiudadOrigenParametro; }
-            set { v_CodigoCiudadOrigenParametro = value; }
-        }
-
-        private static string v_CodigoOperacionIngreso = "";
-        public static string CodigoOperacionIngreso
-        {
-            get { return v_CodigoOperacionIngreso; }
-            set { v_CodigoOperacionIngreso = value; }
-        }
-
-        private static string v_CodigoOperacionCargo = "";
-        public static string CodigoOperacionCargo
-        {
-            get { return v_CodigoOperacionCargo; }
-            set { v_CodigoOperacionCargo = value; }
-        }
-
         private static double v_Descuento = 0;
         public static double Descuento
         {
@@ -270,13 +116,6 @@ namespace cromo
             set { v_ManejoMinimoUnidad = value; }
         }
 
-        private static double v_PorcentajeManejoMinimo = 0;
-        public static double PorcentajeManejoMinimo
-        {
-            get { return v_PorcentajeManejoMinimo; }
-            set { v_PorcentajeManejoMinimo = value; }
-        }
-
         private static double v_DescuentoPesoMaximo = 0;
         public static double DescuentoPesoMaximo
         {
@@ -284,54 +123,6 @@ namespace cromo
             set { v_DescuentoPesoMaximo = value; }
         }
 
-        private static string v_CodigoMotivo = "";
-        public static string CodigoMotivo
-        {
-            get { return v_CodigoMotivo; }
-            set { v_CodigoMotivo = value; }
-        }
-
-        private static int v_PesoMinimo = 0;
-        public static int PesoMinimo
-        {
-            get { return v_PesoMinimo; }
-            set { v_PesoMinimo = value; }
-        }
-
-        private static int v_PesoMinimoGuia = 0;
-        public static int PesoMinimoGuia
-        {
-            get { return v_PesoMinimoGuia; }
-            set { v_PesoMinimoGuia = value; }
-        }
-
-        private static string v_CodigoZona = "";
-        public static string CodigoZona
-        {
-            get { return v_CodigoZona; }
-            set { v_CodigoZona = value; }
-        }
-
-        private static double v_VrFleteMinimo = 0;
-        public static double VrFleteMinimo
-        {
-            get { return v_VrFleteMinimo; }
-            set { v_VrFleteMinimo = value; }
-        }
-
-        private static double v_VrFleteMinimoGuia = 0;
-        public static double VrFleteMinimoGuia
-        {
-            get { return v_VrFleteMinimoGuia; }
-            set { v_VrFleteMinimoGuia = value; }
-        }
-
-        private static string v_Comentario = "";
-        public static string Comentario
-        {
-            get { return v_Comentario; }
-            set { v_Comentario = value; }
-        }
 
     }
 

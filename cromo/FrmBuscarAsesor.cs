@@ -7,12 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Web.Script.Serialization;
 namespace cromo
 {
     public partial class FrmBuscarAsesor : Form
     {
-        JavaScriptSerializer ser = new JavaScriptSerializer();
 
         public FrmBuscarAsesor()
         {
@@ -21,10 +19,7 @@ namespace cromo
 
         public void LlenarDatosApi()
         {
-            string parametrosJson = "{\"nombre\":\"" + TxtNombre.Text + "\"}";
-            string jsonRespuesta = ApiControlador.ApiPost("/transporte/api/windows/asesor/buscar", parametrosJson);
-            List<ApiAsesor> apiAsesorLista = ser.Deserialize<List<ApiAsesor>>(jsonRespuesta);
-            DgAsesores.DataSource = apiAsesorLista;
+            DgAsesores.DataSource = CatalogoManager.Asesores.Where(a => CatalogoManager.Contiene(a.nombre, TxtNombre.Text)).ToList();
         }
 
         private void FrmBuscarAsesor_Load(object sender, EventArgs e)
@@ -40,8 +35,12 @@ namespace cromo
 
         private void BtnSeleccionar_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.OK;
-            Close();
+            if (DgAsesores.CurrentRow != null)
+            {
+                General.CodigoAsesor = DgAsesores.CurrentRow.Cells[0].Value.ToString();
+                DialogResult = DialogResult.OK;
+                Close();
+            }
         }
 
         private void DgAsesores_KeyDown(object sender, KeyEventArgs e)

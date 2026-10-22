@@ -37,30 +37,6 @@ namespace cromo.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Program Files (x86)\\Semantica\\Cromo\\Reportes\\")]
-        public string rutaReportes {
-            get {
-                return ((string)(this["rutaReportes"]));
-            }
-            set {
-                this["rutaReportes"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string operador {
-            get {
-                return ((string)(this["operador"]));
-            }
-            set {
-                this["operador"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string usuario {
             get {
@@ -68,18 +44,6 @@ namespace cromo.Properties {
             }
             set {
                 this["usuario"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string clave {
-            get {
-                return ((string)(this["clave"]));
-            }
-            set {
-                this["clave"] = value;
             }
         }
         
@@ -97,25 +61,13 @@ namespace cromo.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool servidorManual {
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool actualizarConfiguracion {
             get {
-                return ((bool)(this["servidorManual"]));
+                return ((bool)(this["actualizarConfiguracion"]));
             }
             set {
-                this["servidorManual"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string rutaServidorManual {
-            get {
-                return ((string)(this["rutaServidorManual"]));
-            }
-            set {
-                this["rutaServidorManual"] = value;
+                this["actualizarConfiguracion"] = value;
             }
         }
         
@@ -181,18 +133,6 @@ namespace cromo.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string tokenServidorManual {
-            get {
-                return ((string)(this["tokenServidorManual"]));
-            }
-            set {
-                this["tokenServidorManual"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool validarProductoCliente {
             get {
@@ -200,30 +140,6 @@ namespace cromo.Properties {
             }
             set {
                 this["validarProductoCliente"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string usuarioServidorManual {
-            get {
-                return ((string)(this["usuarioServidorManual"]));
-            }
-            set {
-                this["usuarioServidorManual"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string claveServidorManual {
-            get {
-                return ((string)(this["claveServidorManual"]));
-            }
-            set {
-                this["claveServidorManual"] = value;
             }
         }
         
