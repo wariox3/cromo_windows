@@ -45,7 +45,8 @@ if ($info -notmatch '(?m)^\[assembly: AssemblyInformationalVersion\("([^"]+)"\)\
 $version = $Matches[1]
 Write-Host "Publicando Cromo $version" -ForegroundColor Cyan
 
-$env:PATH += ";$env:USERPROFILE\.dotnet\tools"
+# Se recarga el PATH del sistema: una terminal abierta antes de instalar rclone o vpk no los vería
+$env:PATH = [Environment]::GetEnvironmentVariable('PATH', 'Machine') + ';' + [Environment]::GetEnvironmentVariable('PATH', 'User') + ";$env:USERPROFILE\.dotnet\tools"
 if (-not (Get-Command vpk -ErrorAction SilentlyContinue)) { throw "Falta vpk: dotnet tool install -g vpk --version $versionVpk" }
 $instalada = (dotnet tool list -g | Select-String '^vpk\s+(\S+)').Matches.Groups[1].Value
 if ($instalada -ne $versionVpk) { throw "vpk debe ser $versionVpk (la misma versión del paquete Velopack del proyecto); instalada: $instalada" }
@@ -86,7 +87,7 @@ if (-not $SoloEmpaquetar) {
 Write-Host '3/4 Empaquetando...' -ForegroundColor Cyan
 vpk pack --packId Cromo --packVersion $version --packTitle 'Cromo' --packAuthors 'Semantica' `
     --packDir (Join-Path $proyecto 'bin\Release') --mainExe cromo.exe `
-    --icon (Join-Path $proyecto 'Resources\truck_23929.ico') --framework net48 --outputDir $releases
+    --icon (Join-Path $proyecto 'Resources\cromo.ico') --framework net48 --outputDir $releases
 if ($LASTEXITCODE -ne 0) { throw 'El empaquetado falló' }
 
 if ($SoloEmpaquetar) { Write-Host "Listo, instalador en $releases" -ForegroundColor Green; return }

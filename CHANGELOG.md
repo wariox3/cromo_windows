@@ -1,6 +1,11 @@
 # Registro de cambios
 
-El proyecto usa [versionado semántico](https://semver.org/lang/es/): `MAYOR.MENOR.PARCHE`. ClickOnce agrega un cuarto número automático por cada publicación.
+El proyecto usa [versionado semántico](https://semver.org/lang/es/): `MAYOR.MENOR.PARCHE`.
+
+## [2.0.1] - 2026-10-22
+
+### Cambiado
+- Nuevo ícono de la aplicación: camión con el distintivo de Semántica. Se usa en el ejecutable, el instalador, el acceso directo y todas las ventanas.
 
 ## [2.0.0] - 2026-10-22
 
