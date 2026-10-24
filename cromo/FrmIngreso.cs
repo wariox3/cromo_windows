@@ -11,7 +11,6 @@ namespace cromo
         public FrmIngreso()
 		{            
             InitializeComponent();
-            PrgCarga.Maximum = CatalogoManager.Pasos + 1;
 		}
 
 		private async void BtnIngresar_Click(object sender, EventArgs e)
@@ -27,23 +26,23 @@ namespace cromo
                 }
 
                 HabilitarControles(false);
-                MostrarProgreso(0, "Iniciando sesión...");
+                LblEstado.Text = "Iniciando sesión...";
 
                 string usuario = TxtUsuario.Text;
                 string clave = TxtContraseña.Text;
 
                 if (await Task.Run(() => Fluor.Login(usuario, clave)))
                 {
-                    var progreso = new Progress<KeyValuePair<int, string>>(p => MostrarProgreso(p.Key, p.Value));
-                    if (!await Task.Run(() => CatalogoManager.CargarCatalogos(progreso)))
+                    // La empresa y sus catálogos los define la selección de empresa; sin empresa no hay ingreso
+                    LblEstado.Text = "Seleccionando empresa...";
+                    using (var frmEmpresa = new FrmSeleccionarEmpresa())
                     {
-                        Fluor.Logout();
-                        HabilitarControles(true);
-                        MessageBox.Show(this, "No se pudieron cargar los catálogos, no es posible continuar.\n\n" + CatalogoManager.UltimoError,
-                            "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
+                        if (frmEmpresa.ShowDialog(this) != DialogResult.OK)
+                        {
+                            CancelarIngreso();
+                            return;
+                        }
                     }
-                    MostrarProgreso(PrgCarga.Maximum, "Finalizando...");
 
                     // Guardar email si "Recordar" está marcado (NO contraseña)
                     if (ChkRecordar.Checked)
@@ -95,6 +94,15 @@ namespace cromo
 			}
 		}
 
+        // Vuelve al formulario de login sin sesión (la selección de empresa ya mostró el error, si lo hubo)
+        private void CancelarIngreso()
+        {
+            Fluor.Logout();
+            CatalogoManager.LimpiarCatalogos();
+            HabilitarControles(true);
+            TxtContraseña.Focus();
+        }
+
         private void HabilitarControles(bool habilitar)
         {
             BtnIngresar.Enabled = habilitar;
@@ -104,13 +112,6 @@ namespace cromo
             TxtContraseña.Enabled = habilitar;
             ChkRecordar.Enabled = habilitar;
             LblEstado.Visible = !habilitar;
-            PrgCarga.Visible = !habilitar;
-        }
-
-        private void MostrarProgreso(int paso, string texto)
-        {
-            PrgCarga.Value = Math.Min(paso, PrgCarga.Maximum);
-            LblEstado.Text = texto;
         }
 
 

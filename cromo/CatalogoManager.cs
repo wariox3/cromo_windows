@@ -20,11 +20,9 @@ namespace cromo
         public static bool CatalogosCargados { get; private set; }
         public static string UltimoError { get; private set; } = "";
 
-        public const int Pasos = 12;
+        public const int Pasos = 10;
 
         public static List<ApiAsesor> Asesores { get; private set; } = new List<ApiAsesor>();
-        public static List<TipoPersona> TiposPersona { get; private set; } = new List<TipoPersona>();
-        public static List<Regimen> Regimenes { get; private set; } = new List<Regimen>();
 
         // Ciudades generales (gen/ciudad): las usan los terceros. Las de transporte (tte/ciudad) las usan guías y destinatarios
         public static List<ApiCiudad> CiudadesGenerales { get; private set; } = new List<ApiCiudad>();
@@ -32,9 +30,11 @@ namespace cromo
         // null cuando el usuario no tiene configuración en Fluor (no puede modificar descuento ni manejo)
         public static ApiUsuarioConfigurcion UsuarioConfiguracion { get; private set; }
 
-        public static bool CargarCatalogos(IProgress<KeyValuePair<int, string>> progreso = null)
+        // Con forzar se descargan de nuevo (cambio de empresa). Los catálogos actuales solo se reemplazan
+        // si todo se descarga bien, así un error no deja la aplicación sin catálogos.
+        public static bool CargarCatalogos(IProgress<KeyValuePair<int, string>> progreso = null, bool forzar = false)
         {
-            if (CatalogosCargados)
+            if (CatalogosCargados && !forzar)
                 return true;
 
             UltimoError = "";
@@ -96,14 +96,6 @@ namespace cromo
                     (pk, nombre) => new ApiAsesor { codigoAsesorPk = pk, nombre = nombre });
                 asesores.Sort((a, b) => string.Compare(a.nombre, b.nombre, StringComparison.CurrentCultureIgnoreCase));
 
-                avanzar("tipos de persona");
-                var tiposPersona = Descargar("/gen/tipo-persona/descargar", "codigo_tipo_persona_pk",
-                    (pk, nombre) => new TipoPersona { codigoTipoPersonaPk = pk, nombre = nombre });
-
-                avanzar("regímenes");
-                var regimenes = Descargar("/gen/regimen/descargar", "codigo_regimen_pk",
-                    (pk, nombre) => new Regimen { codigoRegimenPk = pk, nombre = nombre });
-
                 avanzar("configuración");
                 var configuracion = Fluor.GetDetalle("/gen/configuracion/guia-nuevo");
 
@@ -134,8 +126,6 @@ namespace cromo
                 Ciudades = ciudades;
                 CiudadesGenerales = ciudadesGenerales;
                 Asesores = asesores;
-                TiposPersona = tiposPersona;
-                Regimenes = regimenes;
                 Identificaciones = identificaciones;
                 GuiaTipos = guiaTipos;
                 Servicios = servicios;
@@ -235,8 +225,6 @@ namespace cromo
             Ciudades = new List<ApiCiudad>();
             CiudadesGenerales = new List<ApiCiudad>();
             Asesores = new List<ApiAsesor>();
-            TiposPersona = new List<TipoPersona>();
-            Regimenes = new List<Regimen>();
             Identificaciones = new List<ApiIdentificacion>();
             GuiaTipos = new List<ApiGuiaTipo>();
             Servicios = new List<ApiServicio>();

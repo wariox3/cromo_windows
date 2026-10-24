@@ -17,6 +17,9 @@ namespace cromo
             var request = (HttpWebRequest)WebRequest.Create(url);
             request.Headers.Add("X-Client-Version", System.Windows.Forms.Application.ProductVersion);
             request.UserAgent = "Cromo/" + System.Windows.Forms.Application.ProductVersion;
+            // Fluor toma la empresa de este encabezado y valida que el usuario tenga acceso a ella
+            if (Fluor.EmpresaActual != null)
+                request.Headers.Add("X-Tenant-ID", Fluor.EmpresaActual.TenantId.ToString());
             return request;
         }
 

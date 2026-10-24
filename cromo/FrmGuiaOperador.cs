@@ -208,6 +208,7 @@ namespace cromo
                 { "estado_recogido", cromo.Properties.Settings.Default.guiaRecogida }
             };
 
+            guia["usuario"] = Fluor.UsuarioCreacion;
             Dictionary<string, object> respuesta;
             try
             {

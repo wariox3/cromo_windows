@@ -108,7 +108,8 @@ namespace cromo
                     apellido2 = Valor(TxtApellido2),
                     direccion = Valor(TxtDireccion),
                     telefono = Valor(TxtTelefono),
-                    correo = Valor(TxtCorreo)
+                    correo = Valor(TxtCorreo),
+                    usuario = Fluor.UsuarioCreacion
                 };
 
                 BtnGuardar.Enabled = false;

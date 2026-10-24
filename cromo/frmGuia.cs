@@ -194,6 +194,7 @@ namespace cromo
                 { "estado_recogido", estadoRecogido }
             };
 
+            guia["usuario"] = Fluor.UsuarioCreacion;
             Dictionary<string, object> respuesta;
             try
             {

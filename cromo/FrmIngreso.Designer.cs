@@ -36,7 +36,6 @@
             this.BtnCancelar = new System.Windows.Forms.Button();
             this.ChkRecordar = new System.Windows.Forms.CheckBox();
             this.LblEstado = new System.Windows.Forms.Label();
-            this.PrgCarga = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // lblUsuario
@@ -111,24 +110,14 @@
             this.LblEstado.TabIndex = 7;
             this.LblEstado.Visible = false;
             //
-            // PrgCarga
-            //
-            this.PrgCarga.Location = new System.Drawing.Point(6, 168);
-            this.PrgCarga.Maximum = 7;
-            this.PrgCarga.Name = "PrgCarga";
-            this.PrgCarga.Size = new System.Drawing.Size(267, 12);
-            this.PrgCarga.TabIndex = 8;
-            this.PrgCarga.Visible = false;
-            //
             // FrmIngreso
             // 
             this.AcceptButton = this.BtnIngresar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.BtnCancelar;
-            this.ClientSize = new System.Drawing.Size(287, 190);
+            this.ClientSize = new System.Drawing.Size(287, 172);
             this.ControlBox = false;
-            this.Controls.Add(this.PrgCarga);
             this.Controls.Add(this.LblEstado);
             this.Controls.Add(this.ChkRecordar);
             this.Controls.Add(this.BtnCancelar);
@@ -156,6 +145,5 @@
 		private System.Windows.Forms.Button BtnCancelar;
         private System.Windows.Forms.CheckBox ChkRecordar;
         private System.Windows.Forms.Label LblEstado;
-        private System.Windows.Forms.ProgressBar PrgCarga;
     }
 }

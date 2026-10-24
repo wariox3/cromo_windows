@@ -59,8 +59,8 @@ namespace cromo
                         _refreshToken = loginResp["refresh_token"].ToString();
                     }
 
-                    CodigoUsuario = LeerCodigoUsuario(loginResp);
-
+                    // La empresa (tenant) se elige después del login con SeleccionarEmpresa
+                    EmpresaActual = null;
                     return true;
                 }
 
@@ -131,25 +131,55 @@ namespace cromo
             return _accessToken;
         }
 
+        // ============ EMPRESA (TENANT) ============
+
+        /// <summary>Empresa a la que tiene acceso el usuario (registro de /mas/user-tenant/lista)</summary>
+        public class Empresa
+        {
+            public int TenantId { get; set; }
+            public string Nombre { get; set; }
+            public string CodigoUsuario { get; set; }
+            public override string ToString() => Nombre;
+        }
+
+        /// <summary>Empresa seleccionada; su tenant_id se envía en el encabezado X-Tenant-ID de cada petición</summary>
+        public static Empresa EmpresaActual { get; private set; }
+
+        /// <summary>Código del usuario en la empresa seleccionada (codigo_usuario_fk de user-tenant)</summary>
+        public static string CodigoUsuario => EmpresaActual?.CodigoUsuario ?? "";
+
+        /// <summary>Valor del campo "usuario" al crear guías, clientes y destinatarios (null si no tiene código)</summary>
+        public static string UsuarioCreacion => string.IsNullOrWhiteSpace(CodigoUsuario) ? null : CodigoUsuario.Trim();
+
+        /// <summary>Empresas activas del usuario autenticado, ordenadas por nombre</summary>
+        public static List<Empresa> Empresas()
+        {
+            var empresas = new List<Empresa>();
+            foreach (var r in GetLista("/mas/user-tenant/lista", new Dictionary<string, object> { { "size", 200 } }))
+            {
+                if (!Booleano(r, "activo"))
+                    continue;
+                empresas.Add(new Empresa
+                {
+                    TenantId = Entero(r, "tenant_id"),
+                    Nombre = Texto(r, "tenant_nombre") ?? ("Empresa " + Texto(r, "tenant_id")),
+                    CodigoUsuario = Texto(r, "codigo_usuario_fk")
+                });
+            }
+            return empresas;
+        }
+
+        public static void SeleccionarEmpresa(Empresa empresa)
+        {
+            EmpresaActual = empresa;
+        }
+
         /// <summary>
         /// Cierra la sesión y limpia tokens
         /// </summary>
-        public static string CodigoUsuario { get; private set; } = "";
-
-        // codigo_usuario_fk puede venir en la raíz de la respuesta del login o dentro de "user"
-        private static string LeerCodigoUsuario(IDictionary<string, object> respuesta)
-        {
-            if (respuesta.TryGetValue("codigo_usuario_fk", out object codigo) && codigo != null)
-                return codigo.ToString();
-            if (respuesta.TryGetValue("user", out object usuario) && usuario is IDictionary<string, object> datos
-                && datos.TryGetValue("codigo_usuario_fk", out codigo) && codigo != null)
-                return codigo.ToString();
-            return "";
-        }
-
         public static void Logout()
         {
-            CodigoUsuario = "";
+            EmpresaActual = null;
             _accessToken = "";
             _refreshToken = "";
             _tokenExpireTime = DateTime.MinValue;

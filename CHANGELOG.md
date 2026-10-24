@@ -2,6 +2,27 @@
 
 El proyecto usa [versionado semántico](https://semver.org/lang/es/): `MAYOR.MENOR.PARCHE`.
 
+## [2.1.0] - 2026-10-24
+
+### Agregado
+- Pantalla de selección de empresa: después de iniciar sesión siempre se muestra, aunque el usuario tenga una sola empresa. Consulta las empresas del usuario (`/mas/user-tenant/lista`) y, al aceptar, descarga los catálogos de la empresa elegida con su barra de progreso. Sin empresas activas no se permite el ingreso.
+- Menú Archivo > Cambiar empresa: cierra las ventanas abiertas y abre la misma pantalla. Si la descarga falla se sigue trabajando con la empresa anterior.
+- La barra de estado muestra la empresa activa.
+- Crear cliente: Enter pasa al siguiente campo, como en la guía; en el último campo lleva a Guardar.
+- Crear cliente: abre con cédula como identificación.
+- Crear cliente: el tercero se crea con pago contado y pago destino habilitados (`guia_pago_contado` y `guia_pago_destino` en true); crédito, cortesía y recogida siguen deshabilitados.
+- Crear cliente: al salir del nombre corto, si el nombre extendido está vacío se llena con el nombre corto.
+- Crear cliente: al salir del número de identificación se consulta en Fluor (`/gen/tercero/lista`); si ya existe un tercero con ese número se avisa con su código y nombre y no se deja continuar.
+
+### Eliminado
+- Campos y catálogos de tipo de persona y régimen: al crear el cliente se envían según la identificación (cédula: persona natural `N` y régimen simple `S`; NIT: persona jurídica `J` y régimen ordinario `O`).
+
+### Cambiado
+- Cada petición a Fluor envía la empresa en el encabezado `X-Tenant-ID`; el login ya no entrega la empresa.
+- Los catálogos y la configuración se descargan después de elegir la empresa.
+- El código de usuario para la configuración del usuario sale de la empresa elegida (`codigo_usuario_fk` de user-tenant).
+- Al crear guías, guías operador, clientes y destinatarios se envía ese código en el campo `usuario`.
+
 ## [2.0.2] - 2026-10-22
 
 ### Corregido

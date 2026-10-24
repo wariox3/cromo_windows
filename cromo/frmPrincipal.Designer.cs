@@ -33,6 +33,7 @@
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuArchivoConfigurcion = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuCambiarEmpresa = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuLogout = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.editMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,6 +73,7 @@
             this.fileMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuArchivoConfigurcion,
             this.toolStripSeparator1,
+            this.mnuCambiarEmpresa,
             this.mnuLogout});
             this.fileMenu.ImageTransparentColor = System.Drawing.SystemColors.ActiveBorder;
             this.fileMenu.Name = "fileMenu";
@@ -88,6 +90,13 @@
             // toolStripSeparator1
             //
             this.toolStripSeparator1.Name = "toolStripSeparator1";
+            //
+            // mnuCambiarEmpresa
+            //
+            this.mnuCambiarEmpresa.Name = "mnuCambiarEmpresa";
+            this.mnuCambiarEmpresa.Size = new System.Drawing.Size(160, 22);
+            this.mnuCambiarEmpresa.Text = "Cambiar empresa";
+            this.mnuCambiarEmpresa.Click += new System.EventHandler(this.mnuCambiarEmpresa_Click);
             //
             // mnuLogout
             //
@@ -253,6 +262,7 @@
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.ToolStripMenuItem mnuArchivoConfigurcion;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem mnuCambiarEmpresa;
         private System.Windows.Forms.ToolStripMenuItem mnuLogout;
         private System.Windows.Forms.ToolStripMenuItem utilidadesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mnuImpresionMasiva;

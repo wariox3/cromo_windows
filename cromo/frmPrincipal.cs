@@ -88,8 +88,9 @@ namespace cromo
 
         private void ActualizarEstadoUsuario()
         {
-            // Mostrar usuario autenticado en la barra de estado
-            toolStripStatusLabel.Text = "Usuario: " + General.UsuarioActivo +
+            // Mostrar empresa y usuario autenticado en la barra de estado
+            toolStripStatusLabel.Text = "Empresa: " + (Fluor.EmpresaActual?.Nombre ?? "") +
+                                       " | Usuario: " + General.UsuarioActivo +
                                        " | Token expira: " + Fluor.TokenExpireTime.ToString("HH:mm");
         }
 
@@ -162,6 +163,27 @@ namespace cromo
                 return true;
             MessageBox.Show(this, "Debe configurar una operación de ingreso para las guias en Archivo > Configuracion > Operacion", "Operacion de ingreso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return false;
+        }
+
+        private void mnuCambiarEmpresa_Click(object sender, EventArgs e)
+        {
+            // Las ventanas abiertas tienen datos de la empresa actual: se cierran antes de cambiar
+            if (MdiChildren.Length > 0)
+            {
+                if (MessageBox.Show(this, "Para cambiar de empresa se cerrarán las ventanas abiertas. ¿Desea continuar?", "Cambiar empresa",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                    return;
+                foreach (Form childForm in MdiChildren)
+                    childForm.Close();
+                if (MdiChildren.Length > 0)
+                    return;
+            }
+
+            using (var frmEmpresa = new FrmSeleccionarEmpresa())
+            {
+                if (frmEmpresa.ShowDialog(this) == DialogResult.OK)
+                    ActualizarEstadoUsuario();
+            }
         }
 
         private void mnuLogout_Click(object sender, EventArgs e)
