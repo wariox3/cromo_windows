@@ -10,10 +10,53 @@
 #
 # Uso:  .\publicar.ps1            (toma la versión de AssemblyInformationalVersion)
 #       .\publicar.ps1 -SoloEmpaquetar   (genera el instalador sin subirlo)
+#       .\publicar.ps1 -SoloRelease      (crea en GitHub los releases que falten)
+#
+# Releases de GitHub (la página web los lee para mostrar las versiones):
+#   winget install GitHub.cli   y luego   gh auth login
+#   Se crea un release por cada versión fechada del CHANGELOG cuya etiqueta vX.Y.Z ya esté en GitHub,
+#   con las notas de esa versión. Como la etiqueta se sube después de publicar, el release de la versión
+#   recién publicada se crea con -SoloRelease después del commit, la etiqueta y el push.
 
-param([switch]$SoloEmpaquetar, [switch]$GuardarLlave)
+param([switch]$SoloEmpaquetar, [switch]$GuardarLlave, [switch]$SoloRelease)
 
 $ErrorActionPreference = 'Stop'
+$repositorio = 'wariox3/cromo_windows'
+$descarga = 'https://cdn-semantica.tor1.digitaloceanspaces.com/cromo/descargas/Cromo-win-Setup.exe'
+
+# Crea en GitHub los releases que falten, en orden de versión (el último queda como "Latest")
+function Publicar-Releases {
+    if (-not (Get-Command gh -ErrorAction SilentlyContinue)) { Write-Warning 'Falta GitHub CLI (winget install GitHub.cli y gh auth login): no se crearon los releases'; return }
+    $ErrorActionPreference = 'Continue'
+    gh auth status *> $null
+    $autenticado = $LASTEXITCODE -eq 0
+    $ErrorActionPreference = 'Stop'
+    if (-not $autenticado) { Write-Warning 'GitHub CLI no tiene sesión (gh auth login): no se crearon los releases'; return }
+
+    $etiquetas = git -C $PSScriptRoot ls-remote --tags origin 'refs/tags/v*' | ForEach-Object { ($_ -split "`t")[1] -replace '^refs/tags/', '' } | Where-Object { $_ -notlike '*^{}' }
+    $existentes = gh release list -R $repositorio --limit 200 --json tagName -q '.[].tagName'
+    $cambios = Get-Content (Join-Path $PSScriptRoot 'CHANGELOG.md') -Encoding UTF8 -Raw
+    $secciones = [regex]::Matches($cambios, '(?ms)^## \[(\d+\.\d+\.\d+)\] - \d{4}-\d{2}-\d{2}\s*\r?\n(.*?)(?=^## \[|\z)')
+    $versiones = $secciones | Sort-Object { [version]$_.Groups[1].Value }
+
+    foreach ($s in $versiones) {
+        $etiqueta = 'v' + $s.Groups[1].Value
+        if ($existentes -contains $etiqueta) { continue }
+        if ($etiquetas -notcontains $etiqueta) { Write-Warning "La etiqueta $etiqueta no está en GitHub todavía: haga el commit, la etiqueta y el push, y luego .\publicar.ps1 -SoloRelease"; continue }
+        $notas = Join-Path $env:TEMP "cromo-notas-$etiqueta.md"
+        [IO.File]::WriteAllText($notas, $s.Groups[2].Value.Trim() + "`n`n**Descarga:** $descarga`n", (New-Object Text.UTF8Encoding($false)))
+        gh release create $etiqueta -R $repositorio --title "Cromo $($s.Groups[1].Value)" --notes-file $notas --verify-tag
+        if ($LASTEXITCODE -ne 0) { throw "No se pudo crear el release $etiqueta" }
+        Remove-Item $notas -ErrorAction SilentlyContinue
+        Write-Host "Release $etiqueta creado" -ForegroundColor Green
+    }
+}
+
+if ($SoloRelease) {
+    $env:PATH = [Environment]::GetEnvironmentVariable('PATH', 'Machine') + ';' + [Environment]::GetEnvironmentVariable('PATH', 'User')
+    Publicar-Releases
+    return
+}
 $archivoLlave = Join-Path $env:APPDATA 'Cromo\spaces-llave.xml'
 
 if ($GuardarLlave) {
@@ -101,3 +144,6 @@ $url = "https://$bucket.$region.digitaloceanspaces.com/$prefijo"
 $estado = (Invoke-WebRequest "$url/releases.win.json" -UseBasicParsing).StatusCode
 Write-Host "Publicado Cromo $version (releases.win.json responde $estado)" -ForegroundColor Green
 Write-Host "Instalador: $url/Cromo-win-Setup.exe" -ForegroundColor Green
+
+# Releases anteriores que hayan quedado pendientes; el de esta versión se crea después de subir su etiqueta
+Publicar-Releases
