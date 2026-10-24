@@ -2,6 +2,11 @@
 
 El proyecto usa [versionado semántico](https://semver.org/lang/es/): `MAYOR.MENOR.PARCHE`.
 
+## [2.0.2] - 2026-10-22
+
+### Corregido
+- El acceso directo seguía mostrando el ícono anterior después de instalar o actualizar, por la caché de íconos de Windows. Ahora Cromo le pide a Windows que refresque los íconos al terminar la instalación o la actualización.
+
 ## [2.0.1] - 2026-10-22
 
 ### Cambiado

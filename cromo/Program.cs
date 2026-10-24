@@ -16,7 +16,10 @@ namespace cromo
         static void Main()
         {
             // Debe ser lo primero: Velopack ejecuta aquí los pasos de instalación, actualización y desinstalación
-            VelopackApp.Build().Run();
+            VelopackApp.Build()
+                .OnAfterInstallFastCallback(v => RefrescarIconos())
+                .OnAfterUpdateFastCallback(v => RefrescarIconos())
+                .Run();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -25,6 +28,24 @@ namespace cromo
             if (Actualizacion.Aplicar())
                 return;
             Application.Run(new FrmPrincipal());
+        }
+
+        [System.Runtime.InteropServices.DllImport("shell32.dll")]
+        private static extern void SHChangeNotify(int eventId, int flags, IntPtr item1, IntPtr item2);
+
+        // Windows guarda en caché el ícono de los accesos directos; como la ruta del ejecutable no cambia
+        // entre versiones, seguiría mostrando el ícono anterior. Esto le pide que los vuelva a leer.
+        private static void RefrescarIconos()
+        {
+            try
+            {
+                const int SHCNE_ASSOCCHANGED = 0x08000000;
+                SHChangeNotify(SHCNE_ASSOCCHANGED, 0, IntPtr.Zero, IntPtr.Zero);
+            }
+            catch
+            {
+                // No es crítico: el ícono se actualiza solo cuando Windows renueve su caché
+            }
         }
 
         // WinForms no permite cambiar el ícono por defecto de los formularios; se asigna el de Cromo
