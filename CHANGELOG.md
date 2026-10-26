@@ -2,6 +2,11 @@
 
 El proyecto usa [versionado semántico](https://semver.org/lang/es/): `MAYOR.MENOR.PARCHE`.
 
+## [2.2.1] - 2026-10-26
+
+### Cambiado
+- La impresión masiva y la vista previa ya no limitan la cantidad de guías del rango en Cromo (antes 30): el máximo lo valida Fluor y su mensaje se muestra al imprimir.
+
 ## [2.2.0] - 2026-10-26
 
 ### Agregado

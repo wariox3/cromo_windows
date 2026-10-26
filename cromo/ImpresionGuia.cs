@@ -4,11 +4,9 @@ using System.Windows.Forms;
 
 namespace cromo
 {
-    // Fluor genera el PDF de las guías del rango (máximo 30)
+    // Fluor genera el PDF de las guías del rango y valida el máximo de guías por impresión
     static class ImpresionGuia
     {
-        public const int MaximoGuias = 30;
-
         // Abre el PDF con el lector de PDF del equipo
         public static void Previsualizar(IWin32Window ventana, int desde, int hasta)
         {

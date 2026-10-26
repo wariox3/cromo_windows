@@ -29,7 +29,7 @@ namespace cromo
                 ImpresionGuia.Previsualizar(this, desde, hasta);
         }
 
-        // Desde y hasta deben ser números, desde <= hasta y como máximo MaximoGuias guías
+        // Desde y hasta deben ser números y desde <= hasta. El máximo de guías lo valida Fluor y su mensaje se muestra al imprimir
         private bool ValidarRango(out int desde, out int hasta)
         {
             hasta = 0;
@@ -49,12 +49,6 @@ namespace cromo
             {
                 MessageBox.Show(this, "El numero desde debe ser menor o igual al numero hasta", "Impresion masiva", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 TxtCodigoDesde.Focus();
-                return false;
-            }
-            if (hasta - desde >= ImpresionGuia.MaximoGuias)
-            {
-                MessageBox.Show(this, "Se pueden imprimir maximo " + ImpresionGuia.MaximoGuias + " guias a la vez", "Impresion masiva", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                TxtCodigoHasta.Focus();
                 return false;
             }
             return true;
