@@ -61,6 +61,13 @@ namespace cromo
 
                     // La empresa (tenant) se elige después del login con SeleccionarEmpresa
                     EmpresaActual = null;
+
+                    // Correo del usuario autenticado según Fluor (si no viene, el que digitó)
+                    CorreoUsuario = email?.Trim() ?? "";
+                    var user = loginResp.ContainsKey("user") ? loginResp["user"] as IDictionary<string, object> : null;
+                    string correo = user != null ? Texto(user, "email") : null;
+                    if (!string.IsNullOrWhiteSpace(correo))
+                        CorreoUsuario = correo.Trim();
                     return true;
                 }
 
@@ -139,6 +146,7 @@ namespace cromo
             public int TenantId { get; set; }
             public string Nombre { get; set; }
             public string CodigoUsuario { get; set; }
+            public bool Control { get; set; }
             public override string ToString() => Nombre;
         }
 
@@ -148,8 +156,26 @@ namespace cromo
         /// <summary>Código del usuario en la empresa seleccionada (codigo_usuario_fk de user-tenant)</summary>
         public static string CodigoUsuario => EmpresaActual?.CodigoUsuario ?? "";
 
-        /// <summary>Valor del campo "usuario" al crear guías, clientes y destinatarios (null si no tiene código)</summary>
+        /// <summary>Correo del usuario autenticado</summary>
+        public static string CorreoUsuario { get; private set; } = "";
+
+        /// <summary>Valor del campo "usuario" al crear clientes y destinatarios (null si no tiene código)</summary>
         public static string UsuarioCreacion => string.IsNullOrWhiteSpace(CodigoUsuario) ? null : CodigoUsuario.Trim();
+
+        /// <summary>
+        /// Valor del campo "usuario" al crear guías: el código de usuario de la empresa o, si no tiene,
+        /// los primeros 25 caracteres del correo del usuario autenticado (el campo usuario de la guía es de 25)
+        /// </summary>
+        public static string UsuarioGuia
+        {
+            get
+            {
+                string usuario = UsuarioCreacion ?? CorreoUsuario;
+                if (string.IsNullOrWhiteSpace(usuario))
+                    return null;
+                return usuario.Length > 25 ? usuario.Substring(0, 25) : usuario;
+            }
+        }
 
         /// <summary>Empresas activas del usuario autenticado, ordenadas por nombre</summary>
         public static List<Empresa> Empresas()
@@ -163,7 +189,8 @@ namespace cromo
                 {
                     TenantId = Entero(r, "tenant_id"),
                     Nombre = Texto(r, "tenant_nombre") ?? ("Empresa " + Texto(r, "tenant_id")),
-                    CodigoUsuario = Texto(r, "codigo_usuario_fk")
+                    CodigoUsuario = Texto(r, "codigo_usuario_fk"),
+                    Control = Booleano(r, "control")
                 });
             }
             return empresas;
@@ -180,6 +207,7 @@ namespace cromo
         public static void Logout()
         {
             EmpresaActual = null;
+            CorreoUsuario = "";
             _accessToken = "";
             _refreshToken = "";
             _tokenExpireTime = DateTime.MinValue;

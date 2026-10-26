@@ -2,6 +2,12 @@
 
 El proyecto usa [versionado semántico](https://semver.org/lang/es/): `MAYOR.MENOR.PARCHE`.
 
+## [2.1.1] - 2026-10-26
+
+### Cambiado
+- Seleccionar empresa muestra una tabla con la empresa, el usuario del ERP (`codigo_usuario_fk`, columna UsuarioERP) y si el usuario es control en esa empresa (SI/NO).
+- Al crear guías y guías operador, el campo `usuario` lleva el `codigo_usuario_fk` de la empresa o, si no tiene, los primeros 25 caracteres del correo del usuario autenticado.
+
 ## [2.1.0] - 2026-10-24
 
 ### Agregado

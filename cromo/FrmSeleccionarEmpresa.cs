@@ -14,14 +14,14 @@ namespace cromo
     /// </summary>
     public class FrmSeleccionarEmpresa : Form
     {
-        private readonly ListBox LstEmpresas = new ListBox();
+        private readonly ListView LstEmpresas = new ListView();
         private readonly Label LblEstado = new Label();
         private readonly ProgressBar PrgCarga = new ProgressBar();
         private readonly Button BtnAceptar = new Button();
         private readonly Button BtnCancelar = new Button();
         private bool ocupado;
 
-        private Fluor.Empresa Seleccionada => LstEmpresas.SelectedItem as Fluor.Empresa;
+        private Fluor.Empresa Seleccionada => LstEmpresas.SelectedItems.Count > 0 ? LstEmpresas.SelectedItems[0].Tag as Fluor.Empresa : null;
 
         public FrmSeleccionarEmpresa()
         {
@@ -31,7 +31,7 @@ namespace cromo
             MaximizeBox = false;
             MinimizeBox = false;
             ShowInTaskbar = false;
-            ClientSize = new Size(380, 330);
+            ClientSize = new Size(480, 330);
             Font = new Font("Segoe UI", 9F);
 
             var lblTitulo = new Label
@@ -42,24 +42,32 @@ namespace cromo
             };
 
             LstEmpresas.Location = new Point(12, 36);
-            LstEmpresas.Size = new Size(356, 214);
-            LstEmpresas.IntegralHeight = false;
+            LstEmpresas.Size = new Size(456, 214);
+            LstEmpresas.View = View.Details;
+            LstEmpresas.FullRowSelect = true;
+            LstEmpresas.MultiSelect = false;
+            LstEmpresas.HideSelection = false;
+            LstEmpresas.GridLines = true;
+            LstEmpresas.HeaderStyle = ColumnHeaderStyle.Nonclickable;
+            LstEmpresas.Columns.Add("Empresa", 290);
+            LstEmpresas.Columns.Add("UsuarioERP", 100);
+            LstEmpresas.Columns.Add("Control", 60, HorizontalAlignment.Center);
             LstEmpresas.DoubleClick += (s, e) => { if (Seleccionada != null) BtnAceptar.PerformClick(); };
 
             LblEstado.Location = new Point(12, 256);
-            LblEstado.Size = new Size(356, 18);
+            LblEstado.Size = new Size(456, 18);
 
             PrgCarga.Location = new Point(12, 276);
-            PrgCarga.Size = new Size(190, 18);
+            PrgCarga.Size = new Size(290, 18);
             PrgCarga.Maximum = CatalogoManager.Pasos;
 
             BtnAceptar.Text = "Aceptar";
-            BtnAceptar.Location = new Point(212, 294);
+            BtnAceptar.Location = new Point(312, 294);
             BtnAceptar.Size = new Size(75, 26);
             BtnAceptar.Click += BtnAceptar_Click;
 
             BtnCancelar.Text = "Cancelar";
-            BtnCancelar.Location = new Point(293, 294);
+            BtnCancelar.Location = new Point(393, 294);
             BtnCancelar.Size = new Size(75, 26);
             BtnCancelar.DialogResult = DialogResult.Cancel;
 
@@ -91,9 +99,18 @@ namespace cromo
                 return;
             }
 
-            LstEmpresas.Items.AddRange(empresas.ToArray());
+            foreach (var empresa in empresas)
+            {
+                var fila = new ListViewItem(empresa.Nombre) { Tag = empresa };
+                fila.SubItems.Add(empresa.CodigoUsuario ?? "");
+                fila.SubItems.Add(empresa.Control ? "SI" : "NO");
+                LstEmpresas.Items.Add(fila);
+            }
             int actual = empresas.FindIndex(x => x.TenantId == Fluor.EmpresaActual?.TenantId);
-            LstEmpresas.SelectedIndex = actual >= 0 ? actual : 0;
+            var seleccion = LstEmpresas.Items[actual >= 0 ? actual : 0];
+            seleccion.Selected = true;
+            seleccion.Focused = true;
+            seleccion.EnsureVisible();
             PrgCarga.Style = ProgressBarStyle.Blocks;
             Ocupado(false, null);
             LstEmpresas.Focus();
