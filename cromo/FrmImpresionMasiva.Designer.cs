@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.BtnImprimir = new System.Windows.Forms.Button();
+            this.BtnVistaPrevia = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.TxtCodigoDesde = new System.Windows.Forms.TextBox();
@@ -37,13 +38,23 @@
             // 
             // BtnImprimir
             // 
-            this.BtnImprimir.Location = new System.Drawing.Point(107, 64);
+            this.BtnImprimir.Location = new System.Drawing.Point(177, 64);
             this.BtnImprimir.Name = "BtnImprimir";
-            this.BtnImprimir.Size = new System.Drawing.Size(138, 23);
-            this.BtnImprimir.TabIndex = 2;
+            this.BtnImprimir.Size = new System.Drawing.Size(68, 23);
+            this.BtnImprimir.TabIndex = 3;
             this.BtnImprimir.Text = "Imprimir";
             this.BtnImprimir.UseVisualStyleBackColor = true;
             this.BtnImprimir.Click += new System.EventHandler(this.BtnImprimir_Click);
+            //
+            // BtnVistaPrevia
+            //
+            this.BtnVistaPrevia.Location = new System.Drawing.Point(104, 64);
+            this.BtnVistaPrevia.Name = "BtnVistaPrevia";
+            this.BtnVistaPrevia.Size = new System.Drawing.Size(68, 23);
+            this.BtnVistaPrevia.TabIndex = 2;
+            this.BtnVistaPrevia.Text = "Vista previa";
+            this.BtnVistaPrevia.UseVisualStyleBackColor = true;
+            this.BtnVistaPrevia.Click += new System.EventHandler(this.BtnVistaPrevia_Click);
             // 
             // label1
             // 
@@ -86,6 +97,7 @@
             this.Controls.Add(this.TxtCodigoDesde);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.BtnVistaPrevia);
             this.Controls.Add(this.BtnImprimir);
             this.Name = "FrmImpresionMasiva";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -98,6 +110,7 @@
         #endregion
 
         private System.Windows.Forms.Button BtnImprimir;
+        private System.Windows.Forms.Button BtnVistaPrevia;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox TxtCodigoDesde;

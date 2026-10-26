@@ -2,6 +2,14 @@
 
 El proyecto usa [versionado semántico](https://semver.org/lang/es/): `MAYOR.MENOR.PARCHE`.
 
+## [2.2.0] - 2026-10-26
+
+### Agregado
+- Impresión masiva: botón Vista previa que abre el PDF del rango en el lector de PDF antes de imprimir.
+
+### Corregido
+- Impresión masiva: si desde o hasta no eran números, la pantalla fallaba; ahora avisa y lleva al campo.
+
 ## [2.1.1] - 2026-10-26
 
 ### Cambiado

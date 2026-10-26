@@ -19,21 +19,45 @@ namespace cromo
 
         private void BtnImprimir_Click(object sender, EventArgs e)
         {
-            int numeroDesde = Convert.ToInt32(TxtCodigoDesde.Text);
-            int numeroHasta = Convert.ToInt32(TxtCodigoHasta.Text);
-            if(numeroDesde <= numeroHasta)
+            if (ValidarRango(out int desde, out int hasta))
+                ImpresionGuia.Imprimir(this, desde, hasta);
+        }
+
+        private void BtnVistaPrevia_Click(object sender, EventArgs e)
+        {
+            if (ValidarRango(out int desde, out int hasta))
+                ImpresionGuia.Previsualizar(this, desde, hasta);
+        }
+
+        // Desde y hasta deben ser números, desde <= hasta y como máximo MaximoGuias guías
+        private bool ValidarRango(out int desde, out int hasta)
+        {
+            hasta = 0;
+            if (!int.TryParse(TxtCodigoDesde.Text.Trim(), out desde))
             {
-                if (numeroHasta - numeroDesde < ImpresionGuia.MaximoGuias)
-                {
-                    ImpresionGuia.Imprimir(this, numeroDesde, numeroHasta);
-                } else
-                {
-                    MessageBox.Show("Se pueden imprimir maximo " + ImpresionGuia.MaximoGuias + " guias a la vez");
-                }
-            } else
-            {
-                MessageBox.Show("El numero desde debe ser menor o igual al numero hasta");
+                MessageBox.Show(this, "Digite un numero desde valido", "Impresion masiva", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                TxtCodigoDesde.Focus();
+                return false;
             }
+            if (!int.TryParse(TxtCodigoHasta.Text.Trim(), out hasta))
+            {
+                MessageBox.Show(this, "Digite un numero hasta valido", "Impresion masiva", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                TxtCodigoHasta.Focus();
+                return false;
+            }
+            if (desde > hasta)
+            {
+                MessageBox.Show(this, "El numero desde debe ser menor o igual al numero hasta", "Impresion masiva", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                TxtCodigoDesde.Focus();
+                return false;
+            }
+            if (hasta - desde >= ImpresionGuia.MaximoGuias)
+            {
+                MessageBox.Show(this, "Se pueden imprimir maximo " + ImpresionGuia.MaximoGuias + " guias a la vez", "Impresion masiva", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                TxtCodigoHasta.Focus();
+                return false;
+            }
+            return true;
         }
     }
 }
