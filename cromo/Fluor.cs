@@ -35,7 +35,8 @@ namespace cromo
                 {
                     email = email,
                     password = password,
-                    client_type = "integration"
+                    // "api": Fluor devuelve access_token y refresh_token en el cuerpo (sin cookies ni Turnstile)
+                    client_type = "api"
                 };
 
                 string json = _serializer.Serialize(loginRequest);

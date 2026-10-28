@@ -2,6 +2,12 @@
 
 El proyecto usa [versionado semántico](https://semver.org/lang/es/): `MAYOR.MENOR.PARCHE`.
 
+## [2.2.2] - 2026-10-27
+
+### Corregido
+- El inicio de sesión fallaba porque Fluor ya no acepta `client_type: "integration"`; ahora se envía `"api"`.
+- La sesión ya no vence a la hora: con `client_type: "api"` Fluor entrega el refresh token y Cromo renueva el token automáticamente.
+
 ## [2.2.1] - 2026-10-26
 
 ### Cambiado
