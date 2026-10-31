@@ -21,6 +21,11 @@ namespace cromo
                 .OnAfterUpdateFastCallback(v => RefrescarIconos())
                 .Run();
 
+            // Windows 7 no activa TLS 1.2 por defecto en .NET y Fluor y el Space lo exigen.
+            // Solo en Windows 7: en Windows 10 y 11 se deja la configuración del sistema (permite TLS 1.3)
+            if (Actualizacion.EsWindows7)
+                System.Net.ServicePointManager.SecurityProtocol |= System.Net.SecurityProtocolType.Tls12;
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             UsarIconoEnFormularios();

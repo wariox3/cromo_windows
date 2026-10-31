@@ -2,6 +2,15 @@
 
 El proyecto usa [versionado semántico](https://semver.org/lang/es/): `MAYOR.MENOR.PARCHE`.
 
+## [2.3.0] - 2026-10-31
+
+### Agregado
+- Paquete para Windows 7 (`Cromo-win7.zip`), porque el instalador de Velopack no funciona en Windows 7. Se descomprime y se abre `cromo.exe`; requiere .NET Framework 4.8.
+- En Windows 7, al abrir Cromo avisa si hay una versión más reciente publicada y ofrece descargarla (ese paquete no se actualiza solo).
+
+### Cambiado
+- En Windows 7 se activa TLS 1.2 para poder conectarse a Fluor. En Windows 10 y 11 no cambia nada: siguen con el instalador, las actualizaciones automáticas y la configuración de seguridad del sistema.
+
 ## [2.2.2] - 2026-10-27
 
 ### Corregido

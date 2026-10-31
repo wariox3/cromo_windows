@@ -16,7 +16,13 @@ namespace cromo
         {
             var manager = new UpdateManager(Ubicacion);
             if (!manager.IsInstalled)
-                return false; // ejecución desde Visual Studio o sin instalar
+            {
+                // Paquete de Windows 7 (sin instalador): no se puede actualizar solo, se avisa si hay versión nueva.
+                // En Windows 10 y 11 sin instalar (Visual Studio) no se hace nada, como antes
+                if (EsWindows7 && !System.Diagnostics.Debugger.IsAttached)
+                    AvisarVersionNueva();
+                return false;
+            }
 
             UpdateInfo version;
             try
@@ -33,6 +39,60 @@ namespace cromo
                 return false;
 
             return Instalar(manager, version);
+        }
+
+        // Paquete para Windows 7 (el instalador de Velopack no funciona en Windows 7)
+        public const string PaqueteWindows7 = Ubicacion + "/Cromo-win7.zip";
+
+        // Windows 7 o anterior (versión 6.1). Sin manifiesto, .NET reporta Windows 8 y posteriores como 6.2 o más,
+        // así que Windows 10 y 11 nunca entran aquí
+        public static bool EsWindows7 => Environment.OSVersion.Version < new Version(6, 2);
+
+        // Compara con la última versión publicada (releases.win.json) y ofrece descargar el paquete de Windows 7
+        private static void AvisarVersionNueva()
+        {
+            Version publicada;
+            try
+            {
+                string json;
+                using (var cliente = new System.Net.WebClient())
+                {
+                    cliente.Encoding = System.Text.Encoding.UTF8;
+                    json = cliente.DownloadString(Ubicacion + "/releases.win.json");
+                }
+                publicada = UltimaVersion(json);
+            }
+            catch
+            {
+                return; // sin conexión o sin publicaciones: se abre la versión actual sin avisar
+            }
+
+            if (publicada == null || !Version.TryParse(Application.ProductVersion, out Version actual) || publicada <= actual)
+                return;
+
+            var respuesta = MessageBox.Show("Hay una version nueva de Cromo (" + publicada.ToString(3) + "). Su version es " + actual.ToString(3) + ".\n\n" +
+                "¿Desea descargarla ahora? Descomprima el archivo en la misma carpeta de Cromo reemplazando los archivos.",
+                "Version nueva", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (respuesta == DialogResult.Yes)
+            {
+                try { System.Diagnostics.Process.Start(PaqueteWindows7); }
+                catch (Exception ex) { MessageBox.Show("No se pudo abrir la descarga: " + ex.Message + "\n\n" + PaqueteWindows7, "Version nueva"); }
+            }
+        }
+
+        // releases.win.json: { "Assets": [ { "Version": "2.2.2", "Type": "Full", ... } ] }
+        private static Version UltimaVersion(string json)
+        {
+            var datos = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<System.Collections.Generic.Dictionary<string, object>>(json);
+            Version mayor = null;
+            if (datos != null && datos.TryGetValue("Assets", out object assets) && assets is System.Collections.ArrayList lista)
+                foreach (var item in lista)
+                    if (item is System.Collections.Generic.Dictionary<string, object> asset
+                        && asset.TryGetValue("Version", out object texto)
+                        && Version.TryParse(texto?.ToString().Split('-')[0], out Version v)
+                        && (mayor == null || v > mayor))
+                        mayor = v;
+            return mayor;
         }
 
         private static bool Instalar(UpdateManager manager, UpdateInfo version)

@@ -133,6 +133,17 @@ vpk pack --packId Cromo --packVersion $version --packTitle 'Cromo' --packAuthors
     --icon (Join-Path $proyecto 'Resources\cromo.ico') --framework net48 --outputDir $releases
 if ($LASTEXITCODE -ne 0) { throw 'El empaquetado falló' }
 
+# Paquete para Windows 7: el instalador de Velopack no funciona allí. Es la misma compilación en una carpeta Cromo,
+# sin actualizaciones automáticas (la aplicación avisa cuando hay versión nueva)
+$temporal = Join-Path $env:TEMP 'cromo-win7'
+Remove-Item -Recurse -Force $temporal -ErrorAction SilentlyContinue
+$carpeta = Join-Path $temporal 'Cromo'
+New-Item -ItemType Directory -Force $carpeta | Out-Null
+Copy-Item (Join-Path $proyecto 'bin\Release\*') $carpeta -Recurse -Exclude '*.pdb'
+Compress-Archive -Path $carpeta -DestinationPath (Join-Path $releases 'Cromo-win7.zip') -Force
+Remove-Item -Recurse -Force $temporal
+Write-Host 'Paquete de Windows 7: Cromo-win7.zip' -ForegroundColor Cyan
+
 if ($SoloEmpaquetar) { Write-Host "Listo, instalador en $releases" -ForegroundColor Green; return }
 
 Write-Host '4/4 Subiendo al Space (lectura pública)...' -ForegroundColor Cyan
@@ -144,6 +155,7 @@ $url = "https://$bucket.$region.digitaloceanspaces.com/$prefijo"
 $estado = (Invoke-WebRequest "$url/releases.win.json" -UseBasicParsing).StatusCode
 Write-Host "Publicado Cromo $version (releases.win.json responde $estado)" -ForegroundColor Green
 Write-Host "Instalador: $url/Cromo-win-Setup.exe" -ForegroundColor Green
+Write-Host "Windows 7: $url/Cromo-win7.zip" -ForegroundColor Green
 
 # Releases anteriores que hayan quedado pendientes; el de esta versión se crea después de subir su etiqueta
 Publicar-Releases
